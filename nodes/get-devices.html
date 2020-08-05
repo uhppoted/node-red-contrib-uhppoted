@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    RED.nodes.registerType('get-devices', {
+        category: 'uhppoted',
+        color: '#A6BBCF',
+        defaults: {
+            name: { value: "" }
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "function.svg",
+        label: function() {
+            return this.name || "get-devices";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="get-devices">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/html" data-help-name="get-devices">
+    <p>uhppoted node to find devices on the local LAN</p>
+</script>
