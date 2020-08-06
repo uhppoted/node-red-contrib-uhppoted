@@ -1,4 +1,6 @@
 module.exports = function(RED) {    
+    const uhppote = require('./uhppote.js');
+
     function GetDevicesNode(config) {
         RED.nodes.createNode(this, config);
         
@@ -14,13 +16,13 @@ module.exports = function(RED) {
                         let bytes  = new DataView(element.buffer);
                         let device = { 
                             device: {
-                                id: bytes.getUint32(4, true)
-                                // IpAddress    net.IP             `uhppote:"offset:8"`
-                                // SubnetMask   net.IP             `uhppote:"offset:12"`
-                                // Gateway      net.IP             `uhppote:"offset:16"`
-                                // MacAddress   types.MacAddress   `uhppote:"offset:20"`
-                                // Version      types.Version      `uhppote:"offset:26"`
-                                // Date         types.Date         `uhppote:"offset:28"`                            
+                                id:      uhppote.deviceId(bytes),
+                                address: uhppote.address(bytes, 8),
+                                subnet:  uhppote.address(bytes, 12),
+                                gateway: uhppote.address(bytes, 16),
+                                MAC:     uhppote.hexify(bytes.buffer.slice(20,26)).join(':'),
+                                version: uhppote.hexify(bytes.buffer.slice(26,28)).join(''),
+                                date:    uhppote.yyyymmdd(bytes.buffer.slice(28,32))
                             }
                         };
 
@@ -36,7 +38,7 @@ module.exports = function(RED) {
                 node.send(msg);
             }
 
-            broadcast(this, request, 5000)
+            uhppote.broadcast(this, request, 5000)
                 .then(reply   => { return decode(reply) })
                 .then(devices => { return emit(devices) })
                 .catch(err    => { node.error('uhppoted::broadcast  ' + err) });
@@ -44,52 +46,5 @@ module.exports = function(RED) {
     }
 
     RED.nodes.registerType('get-devices', GetDevicesNode);
-}
-
-function broadcast(node, request, timeout) {
-    const dgram = require('dgram');
-    const opts  = { type: 'udp4', reuseAddr:true };
-    const sock  = dgram.createSocket(opts);
-    const reply = [];
-    const rq    = new Uint8Array(64);
-
-    rq.set(request);
-
-    return new Promise(async (resolve, reject) => {        
-        const send = function() {
-            sock.send(rq, 0, rq.length, 60000, '255.255.255.255', (err, bytes) => {
-                if (err) {
-                    reject(err);                    
-                }
-            });
-        }
-
-        const received = function(message) {
-            reply.push(new Uint8Array(message));
-        }
-
-        const bound = function() {
-            sock.setBroadcast(true);
-            send();
-        }
-
-        const error = function(err) {
-            reject(err);
-        }
-
-        sock.on('listening', () => { bound(); });            
-        sock.on('message',   (message, remote) => { received(message) });
-        sock.on('error',     (err)  => { error(err) });
-        sock.bind();
-
-        await wait(timeout);
-        
-        resolve(reply);
-        sock.close();
-    })
-}
-
-function wait(timeout) {
-    return new Promise(resolve => setTimeout(resolve, timeout));
 }
 
