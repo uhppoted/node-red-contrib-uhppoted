@@ -1,85 +1,84 @@
 module.exports = {
-    broadcast: function(bind, dest, request, timeout) {
-        const dgram = require('dgram');
-        const opts  = { type: 'udp4', reuseAddr:true };
-        const sock  = dgram.createSocket(opts);
-        const reply = [];
-        const rq    = new Uint8Array(64);
+  broadcast: function (bind, dest, request, timeout) {
+    const dgram = require('dgram')
+    const opts = { type: 'udp4', reuseAddr: true }
+    const sock = dgram.createSocket(opts)
+    const reply = []
+    const rq = new Uint8Array(64)
 
-        rq.set(request);
+    rq.set(request)
 
-        return new Promise(async (resolve, reject) => {        
-            const send = function() {
-                sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
-                    if (err) {
-                        reject(err);                    
-                    }
-                });
-            }
-
-            const received = function(message) {
-                reply.push(new Uint8Array(message));
-            }
-
-            const bound = function() {
-                sock.setBroadcast(true);
-                send();
-            }
-
-            const error = function(err) {
-                reject(err);
-            }
-
-            sock.on('listening', () => { bound(); });            
-            sock.on('message',   (message, remote) => { received(message) });
-            sock.on('error',     (err)  => { error(err) });
-            sock.bind(0);
-
-            await wait(timeout);
-        
-            resolve(reply);
-            sock.close()
+    return new Promise(async (resolve, reject) => {
+      const send = function () {
+        sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
+          if (err) {
+            reject(err)
+          }
         })
-    },
+      }
 
-    deviceId: function(bytes) {
-        return bytes.getUint32(4,true)
-    },
+      const received = function (message) {
+        reply.push(new Uint8Array(message))
+      }
 
-    address: function(bytes, offset) {
-        const ip = require('ip');
-                                
-        return ip.fromLong(bytes.getUint32(offset,false))
-    },
+      const bound = function () {
+        sock.setBroadcast(true)
+        send()
+      }
 
-    hexify: function(slice) {
-        const bytes = new Uint8Array(slice);
-        const hex   = [];
+      const error = function (err) {
+        reject(err)
+      }
 
-        for (i=0; i<bytes.length; i++) {
-            hex.push(('0' + bytes[i].toString(16)).slice(-2));
-        }
+      sock.on('listening', () => { bound() })
+      sock.on('message', (message, remote) => { received(message) })
+      sock.on('error', (err) => { error(err) })
+      sock.bind(0)
 
-        return hex
-    },
+      await wait(timeout)
 
-    yyyymmdd: function(slice) {
-        const bytes = new Uint8Array(slice);
-        const date = [];
+      resolve(reply)
+      sock.close()
+    })
+  },
 
-        for (i=0; i<bytes.length; i++) {
-            date.push((bytes[i] >>>  4).toString(10));
-            date.push((bytes[i] & 0x0f).toString(10));
-        }
-    
-        date.splice(6,0,'-');
-        date.splice(4,0,'-');
+  deviceId: function (bytes) {
+    return bytes.getUint32(4, true)
+  },
 
-        return date.join('')
+  address: function (bytes, offset) {
+    const ip = require('ip')
+
+    return ip.fromLong(bytes.getUint32(offset, false))
+  },
+
+  hexify: function (slice) {
+    const bytes = new Uint8Array(slice)
+    const hex = []
+
+    for (let i = 0; i < bytes.length; i++) {
+      hex.push(('0' + bytes[i].toString(16)).slice(-2))
     }
+
+    return hex
+  },
+
+  yyyymmdd: function (slice) {
+    const bytes = new Uint8Array(slice)
+    const date = []
+
+    for (let i = 0; i < bytes.length; i++) {
+      date.push((bytes[i] >>> 4).toString(10))
+      date.push((bytes[i] & 0x0f).toString(10))
+    }
+
+    date.splice(6, 0, '-')
+    date.splice(4, 0, '-')
+
+    return date.join('')
+  }
 }
 
-function wait(timeout) {
-    return new Promise(resolve => setTimeout(resolve, timeout));
+function wait (timeout) {
+  return new Promise(resolve => setTimeout(resolve, timeout))
 }
-
