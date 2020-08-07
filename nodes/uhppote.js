@@ -1,44 +1,28 @@
 module.exports = {
-  broadcast: function (bind, dest, request, timeout) {
+  broadcast: async function (bind, dest, request, timeout) {
     const dgram = require('dgram')
     const opts = { type: 'udp4', reuseAddr: true }
     const sock = dgram.createSocket(opts)
-    const reply = []
+    const replies = []
     const rq = new Uint8Array(64)
 
     rq.set(request)
 
-    return new Promise(async (resolve, reject) => {
-      const send = function () {
-        sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
-          if (err) {
-            reject(err)
-          }
-        })
-      }
+    const received = function (message) {
+      replies.push(new Uint8Array(message))
+    }
 
-      const received = function (message) {
-        reply.push(new Uint8Array(message))
-      }
+    try {
+      await Promise.all([
+        send(sock, dest, rq, received),
+        wait(timeout)
+      ])
+    } finally {
+      close(sock)
+    }
 
-      const bound = function () {
-        sock.setBroadcast(true)
-        send()
-      }
-
-      const error = function (err) {
-        reject(err)
-      }
-
-      sock.on('listening', () => { bound() })
-      sock.on('message', (message, remote) => { received(message) })
-      sock.on('error', (err) => { error(err) })
-      sock.bind(0)
-
-      await wait(timeout)
-
-      resolve(reply)
-      sock.close()
+    return new Promise(resolve => {
+      resolve(replies)
     })
   },
 
@@ -79,6 +63,34 @@ module.exports = {
   }
 }
 
+function send (sock, dest, request, handler) {
+  return new Promise((resolve, reject) => {
+    const ready = function () {
+      sock.setBroadcast(true)
+      sock.send(request, 0, request.length, 60000, dest, (err, bytes) => {
+        if (err) {
+          reject(err)
+        } else {
+          resolve(bytes)
+        }
+      })
+    }
+
+    const error = function (err) {
+      reject(err)
+    }
+
+    sock.on('listening', () => { ready() })
+    sock.on('message', (message, remote) => { handler(message) })
+    sock.on('error', (err) => { error(err) })
+    sock.bind(0)
+  })
+}
+
 function wait (timeout) {
   return new Promise(resolve => setTimeout(resolve, timeout))
+}
+
+function close (sock) {
+  sock.close()
 }

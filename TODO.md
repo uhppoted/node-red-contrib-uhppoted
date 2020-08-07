@@ -3,11 +3,7 @@
 ## IN PROGRESS
 
 - [ ] uhppote::broadcast
-      - figure out promise + 'wait'
-      - error handling 
-      - should terminate early (not on receive though)
-      - should explicitly close socket on error
-
+      - reject on receive errors while waiting
 - [x] ESLint
 - [x] Add broadcast address to node properties
 - [x] Add bind address to node properties

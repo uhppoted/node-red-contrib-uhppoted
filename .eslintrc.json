@@ -11,6 +11,5 @@
         "sourceType": "module"
     },
     "rules": {
-  		"no-async-promise-executor": [ "warn" ]
     }
 }
