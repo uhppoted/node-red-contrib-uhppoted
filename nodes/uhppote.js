@@ -1,5 +1,5 @@
 module.exports = {
-    broadcast: function(node, request, timeout) {
+    broadcast: function(bind, dest, request, timeout) {
         const dgram = require('dgram');
         const opts  = { type: 'udp4', reuseAddr:true };
         const sock  = dgram.createSocket(opts);
@@ -10,7 +10,7 @@ module.exports = {
 
         return new Promise(async (resolve, reject) => {        
             const send = function() {
-                sock.send(rq, 0, rq.length, 60000, '255.255.255.255', (err, bytes) => {
+                sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
                     if (err) {
                         reject(err);                    
                     }
@@ -33,17 +33,13 @@ module.exports = {
             sock.on('listening', () => { bound(); });            
             sock.on('message',   (message, remote) => { received(message) });
             sock.on('error',     (err)  => { error(err) });
-            sock.bind();
+            sock.bind(0);
 
-            await this.wait(timeout);
+            await wait(timeout);
         
             resolve(reply);
-            sock.close();
+            sock.close()
         })
-    },
-
-    wait: function(timeout) {
-        return new Promise(resolve => setTimeout(resolve, timeout));
     },
 
     deviceId: function(bytes) {
@@ -81,5 +77,9 @@ module.exports = {
 
         return date.join('')
     }
+}
+
+function wait(timeout) {
+    return new Promise(resolve => setTimeout(resolve, timeout));
 }
 

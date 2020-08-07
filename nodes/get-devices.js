@@ -4,6 +4,10 @@ module.exports = function(RED) {
     function GetDevicesNode(config) {
         RED.nodes.createNode(this, config);
         
+        this.timeout = config.timeout;
+        this.bind = config.bind;
+        this.dest = config.broadcast;
+        
         const node = this;
         
         node.on('input', function(msg) {
@@ -38,7 +42,7 @@ module.exports = function(RED) {
                 node.send(msg);
             }
 
-            uhppote.broadcast(this, request, 5000)
+            uhppote.broadcast(this.bind, this.dest, request, this.timeout)
                 .then(reply   => { return decode(reply) })
                 .then(devices => { return emit(devices) })
                 .catch(err    => { node.error('uhppoted::broadcast  ' + err) });
