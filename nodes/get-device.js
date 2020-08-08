@@ -1,21 +1,22 @@
 module.exports = function (RED) {
   const uhppote = require('./uhppote.js')
 
-  function GetDevicesNode (config) {
+  function GetDeviceNode (config) {
     RED.nodes.createNode(this, config)
 
+    this.deviceid = Number(config.deviceid)
     this.timeout = config.timeout
     this.bind = config.bind
-    this.dest = config.broadcast
+    this.dest = config.address
 
     const node = this
 
     node.on('input', function (msg) {
       const request = [0x17, 0x94]
 
-      const decode = function (replies) {
-        const devices = []
-        replies.forEach(reply => {
+      const decode = function (deviceid, replies) {
+        for (let i = 0; i < replies.length; i++) {
+          const reply = replies[i]
           if ((reply.length === 64) && (reply[0] === 0x17) && (reply[1] === 0x94)) {
             const bytes = new DataView(reply.buffer)
             const device = {
@@ -30,24 +31,25 @@ module.exports = function (RED) {
               }
             }
 
-            devices.push(device)
+            if (device.device.id === deviceid) {
+              return device
+            }
           }
-        })
-
-        return devices
+        }
       }
 
-      const emit = function (devices) {
-        msg.payload = devices
+      const emit = function (device) {
+        msg.payload = device
+        console.log('>>>', msg)
         node.send(msg)
       }
 
       uhppote.broadcast(this.bind, this.dest, request, this.timeout)
-        .then(reply => { return decode(reply) })
-        .then(devices => { return emit(devices) })
+        .then(reply => { return decode(this.deviceid, reply) })
+        .then(device => { return emit(device) })
         .catch(err => { node.error('uhppoted::broadcast  ' + err) })
     })
   }
 
-  RED.nodes.registerType('get-devices', GetDevicesNode)
+  RED.nodes.registerType('get-device', GetDeviceNode)
 }

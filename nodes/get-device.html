@@ -1,10 +1,15 @@
 <script type="text/javascript">
-    RED.nodes.registerType('get-devices', {
+    RED.nodes.registerType('get-device', {
         category: 'uhppoted',
         color: '#A6BBCF',
         defaults: {
             name: { 
                 value: "" 
+            },
+            deviceid: { 
+                value: "",      
+                type: "num",
+                validate: RED.validators.number() 
             },
             timeout: { 
                 value: 5000,      
@@ -15,7 +20,7 @@
                 value: "0.0.0.0", 
                 validate: RED.validators.regex(/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/) 
             },
-            broadcast: { 
+            address: { 
                 value: "255.255.255.255", 
                 validate: RED.validators.regex(/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/) 
             },
@@ -24,15 +29,19 @@
         outputs: 1,
         icon: "function.svg",
         label: function() {
-            return this.name || "get-devices";
+            return this.name || "get-device";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="get-devices">
+<script type="text/html" data-template-name="get-device">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
-        <input type="text" id="node-input-name" placeholder="Name" />
+        <idnput type="text" id="node-input-name" placeholder="Name" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-deviceid"><i class="fa fa-tag"></i>Device ID</label>
+        <input type="num" id="node-input-deviceid" placeholder="" />
     </div>
     <div class="form-row">
         <label for="node-input-timeout"><i class="fa fa-tag"></i>Timeout</label>
@@ -43,11 +52,11 @@
         <input type="text" id="node-input-bind" placeholder="0.0.0.0" />
     </div>
     <div class="form-row">
-        <label for="node-input-broadcast"><i class="fa fa-tag"></i>Broadcast&nbsp;address</label>
-        <input type="text" id="node-input-broadcast" placeholder="255.255.255.255" />
+        <label for="node-input-address"><i class="fa fa-tag"></i>Device address</label>
+        <input type="text" id="node-input-address" placeholder="255.255.255.255" />
     </div>
 </script>
 
-<script type="text/html" data-help-name="get-devices">
-    <p>uhppoted node to find devices on the local LAN</p>
+<script type="text/html" data-help-name="get-device">
+    <p>uhppoted node to get device information for a single UHPPOTE controller</p>
 </script>

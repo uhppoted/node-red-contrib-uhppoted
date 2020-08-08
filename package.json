@@ -22,7 +22,8 @@
   "node-red": {
     "version": ">=1.1.2",
     "nodes": {
-      "get-devices": "nodes/get-devices.js"
+      "get-devices": "nodes/get-devices.js",
+      "get-device": "nodes/get-device.js"
     },
     "engines": {
       "node": ">=14.7.0"
