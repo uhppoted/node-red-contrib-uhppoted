@@ -8,59 +8,40 @@ module.exports = {
 
     rq.set(request)
 
-    let onerror = function (err) {
-      console.log(err)
-    }
+    const onerror = new Promise((resolve, reject) => {
+      sock.on('error', (err) => {
+        reject(err)
+      })
+    })
 
-    const received = function (message) {
+    const wait = new Promise(resolve => {
+      setTimeout(resolve, timeout)
+    })
+
+    const send = new Promise((resolve, reject) => {
+      sock.on('listening', () => {
+        sock.setBroadcast(true)
+        sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
+          if (err) {
+            reject(err)
+          } else {
+            resolve(bytes)
+          }
+        })
+      })
+
+      sock.bind(100000, bind)
+    })
+
+    sock.on('message', (message, remote) => {
       replies.push(new Uint8Array(message))
-    }
-
-    const send = function () {
-      return new Promise((resolve, reject) => {
-        onerror = function (err) {
-          reject(err)
-        }
-
-        const ready = function () {
-          sock.setBroadcast(true)
-          sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
-            if (err) {
-              reject(err)
-            } else {
-              resolve(bytes)
-            }
-          })
-        }
-
-        sock.on('listening', () => { ready() })
-        sock.on('message', (message, remote) => { received(message) })
-        sock.on('error', (err) => { onerror(err) })
-        sock.bind(0)
-      })
-    }
-
-    const failed = function () {
-      return new Promise((resolve, reject) => {
-        onerror = function (err) {
-          reject(err)
-        }
-      })
-    }
+    })
 
     try {
-      await send()
-      await Promise.race([
-        wait(timeout),
-        failed()
-      ])
+      await Promise.race([onerror, Promise.all([wait, send])])
     } finally {
       sock.close()
     }
-
-    // return new Promise(resolve => {
-    //   resolve(replies)
-    // })
 
     return replies
   },
@@ -100,8 +81,4 @@ module.exports = {
 
     return date.join('')
   }
-}
-
-function wait (timeout) {
-  return new Promise(resolve => { setTimeout(resolve, timeout) })
 }
