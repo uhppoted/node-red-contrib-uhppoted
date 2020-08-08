@@ -66,7 +66,8 @@
         "y": 40,
         "wires": [
             [
-                "6a470566.d4725c"
+                "6a470566.d4725c",
+                "b36ac360.b2d72"
             ]
         ]
     },
@@ -358,7 +359,7 @@
         "bgcolor": "",
         "icon": "",
         "payload": "{}",
-        "payloadType": "str",
+        "payloadType": "json",
         "topic": "",
         "x": 130,
         "y": 80,
@@ -367,6 +368,23 @@
                 "6a470566.d4725c"
             ]
         ]
+    },
+    {
+        "id": "b36ac360.b2d72",
+        "type": "debug",
+        "z": "a640a000.d83cb",
+        "name": "start",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 40,
+        "wires": []
     },
     {
         "id": "94dcacf5.b4e19",

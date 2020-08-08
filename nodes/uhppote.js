@@ -8,22 +8,61 @@ module.exports = {
 
     rq.set(request)
 
+    let onerror = function (err) {
+      console.log(err)
+    }
+
     const received = function (message) {
       replies.push(new Uint8Array(message))
     }
 
-    try {
-      await Promise.all([
-        send(sock, dest, rq, received),
-        wait(timeout)
-      ])
-    } finally {
-      close(sock)
+    const send = function () {
+      return new Promise((resolve, reject) => {
+        onerror = function (err) {
+          reject(err)
+        }
+
+        const ready = function () {
+          sock.setBroadcast(true)
+          sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
+            if (err) {
+              reject(err)
+            } else {
+              resolve(bytes)
+            }
+          })
+        }
+
+        sock.on('listening', () => { ready() })
+        sock.on('message', (message, remote) => { received(message) })
+        sock.on('error', (err) => { onerror(err) })
+        sock.bind(0)
+      })
     }
 
-    return new Promise(resolve => {
-      resolve(replies)
-    })
+    const failed = function () {
+      return new Promise((resolve, reject) => {
+        onerror = function (err) {
+          reject(err)
+        }
+      })
+    }
+
+    try {
+      await send()
+      await Promise.race([
+        wait(timeout),
+        failed()
+      ])
+    } finally {
+      sock.close()
+    }
+
+    // return new Promise(resolve => {
+    //   resolve(replies)
+    // })
+
+    return replies
   },
 
   deviceId: function (bytes) {
@@ -63,34 +102,6 @@ module.exports = {
   }
 }
 
-function send (sock, dest, request, handler) {
-  return new Promise((resolve, reject) => {
-    const ready = function () {
-      sock.setBroadcast(true)
-      sock.send(request, 0, request.length, 60000, dest, (err, bytes) => {
-        if (err) {
-          reject(err)
-        } else {
-          resolve(bytes)
-        }
-      })
-    }
-
-    const error = function (err) {
-      reject(err)
-    }
-
-    sock.on('listening', () => { ready() })
-    sock.on('message', (message, remote) => { handler(message) })
-    sock.on('error', (err) => { error(err) })
-    sock.bind(0)
-  })
-}
-
 function wait (timeout) {
-  return new Promise(resolve => setTimeout(resolve, timeout))
-}
-
-function close (sock) {
-  sock.close()
+  return new Promise(resolve => { setTimeout(resolve, timeout) })
 }

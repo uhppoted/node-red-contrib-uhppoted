@@ -2,8 +2,7 @@
 
 ## IN PROGRESS
 
-- [ ] uhppote::broadcast
-      - reject on receive errors while waiting
+- [x] uhppote::broadcast
 - [x] ESLint
 - [x] Add broadcast address to node properties
 - [x] Add bind address to node properties
