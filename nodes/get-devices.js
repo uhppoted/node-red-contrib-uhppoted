@@ -7,12 +7,11 @@ module.exports = function (RED) {
     this.timeout = config.timeout
     this.bind = config.bind
     this.dest = config.broadcast
+    this.debug = (config.debug === 'true')
 
     const node = this
 
     node.on('input', function (msg) {
-      const request = [0x17, 0x94]
-
       const decode = function (replies) {
         const devices = []
         replies.forEach(reply => {
@@ -42,7 +41,12 @@ module.exports = function (RED) {
         node.send(msg)
       }
 
-      uhppote.broadcast(this.bind, this.dest, request, this.timeout)
+      const request = Buffer.alloc(64)
+
+      request.writeUInt8(0x17, 0)
+      request.writeUInt8(0x94, 1)
+
+      uhppote.broadcast(this.bind, this.dest, request, this.timeout, this.debug)
         .then(reply => { return decode(reply) })
         .then(devices => { return emit(devices) })
         .catch(err => { node.error('uhppoted::broadcast  ' + err) })

@@ -1,5 +1,5 @@
 module.exports = {
-  broadcast: async function (bind, dest, request, timeout) {
+  broadcast: async function (bind, dest, request, timeout, debug) {
     const dgram = require('dgram')
     const opts = { type: 'udp4', reuseAddr: true }
     const sock = dgram.createSocket(opts)
@@ -21,6 +21,11 @@ module.exports = {
     const send = new Promise((resolve, reject) => {
       sock.on('listening', () => {
         sock.setBroadcast(true)
+
+        if (debug) {
+          console.log('request:', request)
+        }
+
         sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
           if (err) {
             reject(err)
@@ -35,6 +40,10 @@ module.exports = {
 
     sock.on('message', (message, remote) => {
       replies.push(new Uint8Array(message))
+
+      if (debug) {
+        console.log('reply:  ', message)
+      }
     })
 
     try {

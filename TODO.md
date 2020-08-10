@@ -2,14 +2,13 @@
 
 ## IN PROGRESS
 
-- [ ] get-device
-      - debug option
-- [ ] codec
 - [ ] configuration node for bind/broadcast/timeout etc
+- [ ] codec
 - [ ] listen
 - [ ] unit tests
 - [ ] make pretty dashboard that refreshes e.g. every 30s
 
+- [x] get-device
 - [x] uhppote::broadcast
 - [x] ESLint
 - [x] Add broadcast address to node properties

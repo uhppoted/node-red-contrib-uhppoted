@@ -19,6 +19,11 @@
                 value: "255.255.255.255", 
                 validate: RED.validators.regex(/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/) 
             },
+            debug: { 
+                value: false, 
+                type: "bool",
+                validate: RED.validators.regex(/true|false/) 
+            },
         },
         inputs: 1,
         outputs: 1,
@@ -45,6 +50,10 @@
     <div class="form-row">
         <label for="node-input-broadcast"><i class="fa fa-tag"></i>Broadcast&nbsp;address</label>
         <input type="text" id="node-input-broadcast" placeholder="255.255.255.255" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-debug"><i class="fa fa-tag"></i>Debug</label>
+        <input type="text" id="node-input-debug" placeholder="false" />
     </div>
 </script>
 
