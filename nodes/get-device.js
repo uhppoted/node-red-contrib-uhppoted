@@ -4,7 +4,6 @@ module.exports = function (RED) {
   function GetDeviceNode (config) {
     RED.nodes.createNode(this, config)
 
-    this.deviceid = Number(config.deviceid)
     this.timeout = config.timeout
     this.bind = config.bind
     this.dest = config.address
@@ -12,7 +11,14 @@ module.exports = function (RED) {
     const node = this
 
     node.on('input', function (msg) {
-      const request = [0x17, 0x94]
+      const id = msg.payload['device-id']
+      const buffer = new ArrayBuffer(64)
+      const codec = new DataView(buffer)
+
+      codec.setUint8(0, 0x17)
+      codec.setUint8(1, 0x94)
+
+      const request = new Uint8Array(buffer)
 
       const decode = function (deviceid, replies) {
         for (let i = 0; i < replies.length; i++) {
@@ -31,7 +37,7 @@ module.exports = function (RED) {
               }
             }
 
-            if (device.device.id === deviceid) {
+            if (device.device.id === id) {
               return device
             }
           }
@@ -40,7 +46,6 @@ module.exports = function (RED) {
 
       const emit = function (device) {
         msg.payload = device
-        console.log('>>>', msg)
         node.send(msg)
       }
 

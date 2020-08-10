@@ -3,7 +3,6 @@
 ## IN PROGRESS
 
 - [ ] get-device
-      - get device-id from input
       - debug option
 - [ ] codec
 - [ ] configuration node for bind/broadcast/timeout etc
