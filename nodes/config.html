@@ -1,0 +1,56 @@
+<script type="text/javascript">
+    RED.nodes.registerType('uhppote',{
+        category: 'config',
+        defaults: {
+            name: { 
+                value: "" 
+            },
+            timeout: { 
+                value: 5000,      
+                validate: RED.validators.number() 
+            },
+            bind: { 
+                value: "0.0.0.0", 
+                validate: RED.validators.regex(/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/) 
+            },
+            broadcast: { 
+                value: "255.255.255.255", 
+                validate: RED.validators.regex(/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/) 
+            },
+            debug: { 
+                value: false, 
+            },
+        },
+
+        label: function() {
+            return this.name || "uhppote";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="uhppote">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-timeout"><i class="fa fa-tag"></i>Timeout</label>
+        <input type="text" id="node-config-input-timeout" placeholder="5000" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-bind"><i class="fa fa-tag"></i>Bind address</label>
+        <input type="text" id="node-config-input-bind" placeholder="0.0.0.0" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-broadcast"><i class="fa fa-tag"></i>Broadcast&nbsp;address</label>
+        <input type="text" id="node-config-input-broadcast" placeholder="255.255.255.255" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-debug"><i class="fa fa-tag"></i>Debug</label>
+        <input type="checkbox" id="node-config-input-debug" placeholder="false" />
+    </div>
+</script>
+
+<script type="text/html" data-help-name="uhppote">
+    <p>uhppoted configuration node for shared device configuration</p>
+</script>

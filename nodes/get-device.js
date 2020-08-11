@@ -4,15 +4,24 @@ module.exports = function (RED) {
   function GetDeviceNode (config) {
     RED.nodes.createNode(this, config)
 
-    this.timeout = config.timeout
-    this.bind = config.bind
-    this.dest = config.address
-    this.debug = (config.debug === 'true')
+    this.uhppote = RED.nodes.getNode(config.uhppote)
 
     const node = this
 
     node.on('input', function (msg) {
       const id = msg.payload['device-id']
+
+      let timeout = 5000
+      let bind = '0.0.0.0'
+      let dest = '255.255.255.255'
+      let debug = false
+
+      if (this.uhppote) {
+        timeout = this.uhppote.timeout
+        bind = this.uhppote.bind
+        dest = this.uhppote.broadcast
+        debug = this.uhppote.debug
+      }
 
       const decode = function (deviceid, replies) {
         for (let i = 0; i < replies.length; i++) {
@@ -48,7 +57,7 @@ module.exports = function (RED) {
       request.writeUInt8(0x17, 0)
       request.writeUInt8(0x94, 1)
 
-      uhppote.broadcast(this.bind, this.dest, request, this.timeout, this.debug)
+      uhppote.broadcast(bind, dest, request, timeout, debug)
         .then(reply => { return decode(this.deviceid, reply) })
         .then(device => { return emit(device) })
         .catch(err => { node.error('uhppoted::broadcast  ' + err) })

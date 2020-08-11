@@ -2,12 +2,12 @@
 
 ## IN PROGRESS
 
-- [ ] configuration node for bind/broadcast/timeout etc
 - [ ] codec
 - [ ] listen
 - [ ] unit tests
 - [ ] make pretty dashboard that refreshes e.g. every 30s
 
+- [x] configuration node for bind/broadcast/timeout etc
 - [x] get-device
 - [x] uhppote::broadcast
 - [x] ESLint

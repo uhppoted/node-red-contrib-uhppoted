@@ -1,0 +1,13 @@
+module.exports = function (RED) {
+  function UhppoteNode (node) {
+    RED.nodes.createNode(this, node)
+
+    this.name = node.name
+    this.bind = node.bind
+    this.broadcast = node.broadcast
+    this.timeout = node.timeout
+    this.debug = node.debug
+  }
+
+  RED.nodes.registerType('uhppote', UhppoteNode)
+}

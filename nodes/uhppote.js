@@ -1,4 +1,5 @@
 module.exports = {
+
   broadcast: async function (bind, dest, request, timeout, debug) {
     const dgram = require('dgram')
     const opts = { type: 'udp4', reuseAddr: true }
@@ -35,7 +36,7 @@ module.exports = {
         })
       })
 
-      sock.bind(100000, bind)
+      sock.bind(0, bind)
     })
 
     sock.on('message', (message, remote) => {
@@ -90,4 +91,5 @@ module.exports = {
 
     return date.join('')
   }
+
 }
