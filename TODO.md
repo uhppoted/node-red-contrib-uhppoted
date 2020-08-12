@@ -3,17 +3,18 @@
 ## IN PROGRESS
 
 - [ ] listen
-      - deconstruct address:port
+      - append event to UI
+      - lookup for type, direction, reason
       - output state and event ??
-      - remove spurious config object in get-device(s)
       - set node status on error (?)
       - output err on error (?)
-      - append event to UI
+- [ ] get-device: test with device ID in request
 - [ ] use node:debug instead of console.log (?)
 - [ ] codec
 - [ ] unit tests
 - [ ] make pretty dashboard that refreshes e.g. every 30s
 
+- [x] get-device(s): remove this.config object
 - [x] configuration node for bind/broadcast/timeout etc
 - [x] get-device
 - [x] uhppote::broadcast

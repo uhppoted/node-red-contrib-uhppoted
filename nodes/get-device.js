@@ -1,27 +1,26 @@
 module.exports = function (RED) {
-  const uhppote = require('./uhppote.js')
+  const uhppoted = require('./uhppoted.js')
 
   function GetDeviceNode (config) {
     RED.nodes.createNode(this, config)
 
-    this.config = RED.nodes.getNode(config.uhppote)
-
     const node = this
+    const uhppote = RED.nodes.getNode(config.uhppote)
+
+    let timeout = 5000
+    let bind = '0.0.0.0'
+    let dest = '255.255.255.255'
+    let debug = false
+
+    if (uhppote) {
+      timeout = uhppote.timeout
+      bind = uhppote.bind
+      dest = uhppote.broadcast
+      debug = uhppote.debug
+    }
 
     node.on('input', function (msg) {
       const id = msg.payload['device-id']
-
-      let timeout = 5000
-      let bind = '0.0.0.0'
-      let dest = '255.255.255.255'
-      let debug = false
-
-      if (this.config) {
-        timeout = this.config.timeout
-        bind = this.config.bind
-        dest = this.config.broadcast
-        debug = this.config.debug
-      }
 
       const decode = function (deviceid, replies) {
         for (let i = 0; i < replies.length; i++) {
@@ -30,13 +29,13 @@ module.exports = function (RED) {
             const bytes = new DataView(reply.buffer)
             const device = {
               device: {
-                id: uhppote.deviceId(bytes, 4),
-                address: uhppote.address(bytes, 8),
-                subnet: uhppote.address(bytes, 12),
-                gateway: uhppote.address(bytes, 16),
-                MAC: uhppote.hexify(bytes.buffer.slice(20, 26)).join(':'),
-                version: uhppote.hexify(bytes.buffer.slice(26, 28)).join(''),
-                date: uhppote.yyyymmdd(bytes.buffer.slice(28, 32))
+                id: uhppoted.deviceId(bytes, 4),
+                address: uhppoted.address(bytes, 8),
+                subnet: uhppoted.address(bytes, 12),
+                gateway: uhppoted.address(bytes, 16),
+                MAC: uhppoted.hexify(bytes.buffer.slice(20, 26)).join(':'),
+                version: uhppoted.hexify(bytes.buffer.slice(26, 28)).join(''),
+                date: uhppoted.yyyymmdd(bytes.buffer.slice(28, 32))
               }
             }
 
@@ -57,7 +56,7 @@ module.exports = function (RED) {
       request.writeUInt8(0x17, 0)
       request.writeUInt8(0x94, 1)
 
-      uhppote.broadcast(bind, dest, request, timeout, debug)
+      uhppoted.broadcast(bind, dest, request, timeout, debug)
         .then(reply => { return decode(this.deviceid, reply) })
         .then(device => { return emit(device) })
         .catch(err => { node.error('uhppoted::broadcast  ' + err) })

@@ -36,7 +36,10 @@ module.exports = {
         })
       })
 
-      sock.bind(0, bind)
+      sock.bind({
+        addres: bind,
+        port: 0
+      })
     })
 
     sock.on('message', (message, remote) => {
@@ -73,7 +76,26 @@ module.exports = {
       handler.received(remote, message)
     })
 
-    sock.bind(60001, '192.168.1.100')
+    let address = '0.0.0.0'
+    let port = 60001
+
+    if (bind) {
+      const re = /^([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})(?::([0-9]+))?$/
+      const match = bind.match(re)
+
+      if (match.length > 1) {
+        address = match[1]
+      }
+
+      if (match.length > 2) {
+        port = parseInt(match[2], 10)
+      }
+    }
+
+    sock.bind({
+      address: address,
+      port: port
+    })
 
     return sock
   },
