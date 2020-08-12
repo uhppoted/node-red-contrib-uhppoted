@@ -390,7 +390,7 @@
         "type": "uhppote",
         "z": "",
         "name": "development",
-        "timeout": "5000",
+        "timeout": "4999",
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255",
         "listen": "192.168.1.100:60001",
@@ -433,7 +433,7 @@
         "id": "ea318236.7f96",
         "type": "ui_tab",
         "z": "",
-        "name": "Devices",
+        "name": "overview",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

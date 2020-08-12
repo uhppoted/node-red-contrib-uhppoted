@@ -12,11 +12,12 @@
         "z": "c56e1667.998748",
         "name": "listen",
         "uhppote": "d596ac54.cced",
-        "x": 140,
-        "y": 60,
+        "x": 150,
+        "y": 100,
         "wires": [
             [
-                "b8dcd439.9a0448"
+                "b8dcd439.9a0448",
+                "86b877aa.6e9148"
             ]
         ]
     },
@@ -33,19 +34,75 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 340,
-        "y": 60,
+        "x": 330,
+        "y": 40,
         "wires": []
+    },
+    {
+        "id": "6acfff58.f6c3f",
+        "type": "ui_list",
+        "z": "c56e1667.998748",
+        "group": "659dc42b.91f43c",
+        "name": "events",
+        "order": 7,
+        "width": "6",
+        "height": "10",
+        "lineType": "one",
+        "actionType": "none",
+        "allowHTML": false,
+        "outputs": 0,
+        "topic": "",
+        "x": 490,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "86b877aa.6e9148",
+        "type": "function",
+        "z": "c56e1667.998748",
+        "name": "",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nconst item = {\n      \"title\": event.timestamp + ' ' + event.type.code + ' ' + event.granted,\n      \"description\": \"event thing\",\n      //\"icon\": \"watch.svg\"\n      //\"icon_name\": \"font-awesome/fa-automobile\",\n      // \"info\": \"asdfasdf\",\n    }\n\nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 320,
+        "y": 100,
+        "wires": [
+            [
+                "6acfff58.f6c3f"
+            ]
+        ]
     },
     {
         "id": "d596ac54.cced",
         "type": "uhppote",
         "z": "",
         "name": "development",
-        "timeout": "5000",
+        "timeout": "4999",
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255",
         "listen": "192.168.1.100:60001",
         "debug": true
+    },
+    {
+        "id": "659dc42b.91f43c",
+        "type": "ui_group",
+        "z": "",
+        "name": "events",
+        "tab": "f29b4883.377448",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f29b4883.377448",
+        "type": "ui_tab",
+        "z": "",
+        "name": "events",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
     }
 ]

@@ -3,8 +3,8 @@
 ## IN PROGRESS
 
 - [ ] listen
-      - append event to UI
       - lookup for type, direction, reason
+      - append event to UI
       - output state and event ??
       - set node status on error (?)
       - output err on error (?)
