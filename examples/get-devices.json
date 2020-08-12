@@ -11,9 +11,7 @@
         "type": "get-devices",
         "z": "a640a000.d83cb",
         "name": "get-devices",
-        "timeout": "5000",
-        "bind": "192.168.1.100",
-        "broadcast": "192.168.1.255",
+        "uhppote": "d596ac54.cced",
         "x": 310,
         "y": 80,
         "wires": [
@@ -386,6 +384,17 @@
         "x": 290,
         "y": 40,
         "wires": []
+    },
+    {
+        "id": "d596ac54.cced",
+        "type": "uhppote",
+        "z": "",
+        "name": "development",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255",
+        "listen": "192.168.1.100:60001",
+        "debug": true
     },
     {
         "id": "94dcacf5.b4e19",

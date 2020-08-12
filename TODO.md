@@ -2,8 +2,15 @@
 
 ## IN PROGRESS
 
-- [ ] codec
 - [ ] listen
+      - deconstruct address:port
+      - output state and event ??
+      - remove spurious config object in get-device(s)
+      - set node status on error (?)
+      - output err on error (?)
+      - append event to UI
+- [ ] use node:debug instead of console.log (?)
+- [ ] codec
 - [ ] unit tests
 - [ ] make pretty dashboard that refreshes e.g. every 30s
 

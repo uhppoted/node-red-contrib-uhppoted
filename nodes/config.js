@@ -5,6 +5,7 @@ module.exports = function (RED) {
     this.name = node.name
     this.bind = node.bind
     this.broadcast = node.broadcast
+    this.listen = node.listen
     this.timeout = node.timeout
     this.debug = node.debug
   }

@@ -28,7 +28,7 @@ module.exports = function (RED) {
             const bytes = new DataView(reply.buffer)
             const device = {
               device: {
-                id: uhppote.deviceId(bytes),
+                id: uhppote.deviceId(bytes, 4),
                 address: uhppote.address(bytes, 8),
                 subnet: uhppote.address(bytes, 12),
                 gateway: uhppote.address(bytes, 16),

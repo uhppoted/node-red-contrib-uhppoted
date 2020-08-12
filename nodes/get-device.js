@@ -4,7 +4,7 @@ module.exports = function (RED) {
   function GetDeviceNode (config) {
     RED.nodes.createNode(this, config)
 
-    this.uhppote = RED.nodes.getNode(config.uhppote)
+    this.config = RED.nodes.getNode(config.uhppote)
 
     const node = this
 
@@ -16,11 +16,11 @@ module.exports = function (RED) {
       let dest = '255.255.255.255'
       let debug = false
 
-      if (this.uhppote) {
-        timeout = this.uhppote.timeout
-        bind = this.uhppote.bind
-        dest = this.uhppote.broadcast
-        debug = this.uhppote.debug
+      if (this.config) {
+        timeout = this.config.timeout
+        bind = this.config.bind
+        dest = this.config.broadcast
+        debug = this.config.debug
       }
 
       const decode = function (deviceid, replies) {
@@ -30,7 +30,7 @@ module.exports = function (RED) {
             const bytes = new DataView(reply.buffer)
             const device = {
               device: {
-                id: uhppote.deviceId(bytes),
+                id: uhppote.deviceId(bytes, 4),
                 address: uhppote.address(bytes, 8),
                 subnet: uhppote.address(bytes, 12),
                 gateway: uhppote.address(bytes, 16),

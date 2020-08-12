@@ -24,7 +24,8 @@
     "nodes": {
       "config": "nodes/config.js",
       "get-devices": "nodes/get-devices.js",
-      "get-device": "nodes/get-device.js"
+      "get-device": "nodes/get-device.js",
+      "listen": "nodes/listen.js"
     },
     "engines": {
       "node": ">=14.7.0"

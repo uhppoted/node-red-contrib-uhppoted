@@ -186,11 +186,8 @@
         "id": "cf961bd6.504938",
         "type": "get-device",
         "z": "f0ca7ab6.b09058",
-        "name": "",
-        "deviceid": "405419896",
-        "timeout": "1000",
-        "bind": "0.0.0.0",
-        "address": "192.168.1.100",
+        "name": "get-device",
+        "uhppote": "d596ac54.cced",
         "x": 310,
         "y": 80,
         "wires": [
@@ -261,6 +258,17 @@
         "disp": false,
         "width": "6",
         "collapse": false
+    },
+    {
+        "id": "d596ac54.cced",
+        "type": "uhppote",
+        "z": "",
+        "name": "development",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255",
+        "listen": "192.168.1.100:60001",
+        "debug": true
     },
     {
         "id": "a363178d.ee7038",

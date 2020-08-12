@@ -1,0 +1,51 @@
+[
+    {
+        "id": "c56e1667.998748",
+        "type": "tab",
+        "label": "listen",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "18a61437.de498c",
+        "type": "listen",
+        "z": "c56e1667.998748",
+        "name": "listen",
+        "uhppote": "d596ac54.cced",
+        "x": 140,
+        "y": 60,
+        "wires": [
+            [
+                "b8dcd439.9a0448"
+            ]
+        ]
+    },
+    {
+        "id": "b8dcd439.9a0448",
+        "type": "debug",
+        "z": "c56e1667.998748",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d596ac54.cced",
+        "type": "uhppote",
+        "z": "",
+        "name": "development",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255",
+        "listen": "192.168.1.100:60001",
+        "debug": true
+    }
+]

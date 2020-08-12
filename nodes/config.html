@@ -17,6 +17,10 @@
                 value: "255.255.255.255", 
                 validate: RED.validators.regex(/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}/) 
             },
+            listen: { 
+                value: "0.0.0.0:60000", 
+                validate: RED.validators.regex(/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]+/) 
+            },
             debug: { 
                 value: false, 
             },
@@ -42,8 +46,12 @@
         <input type="text" id="node-config-input-bind" placeholder="0.0.0.0" />
     </div>
     <div class="form-row">
-        <label for="node-config-input-broadcast"><i class="fa fa-tag"></i>Broadcast&nbsp;address</label>
+        <label for="node-config-input-broadcast"><i class="fa fa-tag"></i>Broadcast address</label>
         <input type="text" id="node-config-input-broadcast" placeholder="255.255.255.255" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-listen"><i class="fa fa-tag"></i>Listen address</label>
+        <input type="text" id="node-config-input-listen" placeholder="0.0.0.0:60000" />
     </div>
     <div class="form-row">
         <label for="node-config-input-debug"><i class="fa fa-tag"></i>Debug</label>
