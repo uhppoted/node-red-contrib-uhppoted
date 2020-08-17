@@ -3,16 +3,14 @@
 ## IN PROGRESS
 
 - [ ] listen
-      - split UI into columns
-      - split UI into system events and swipes/doors
       - lookup for bitsets (fire alarm, warning etc)
       - set node status on error (?)
       - output err on error (?)
-- [ ] get-device: test with device ID in request
-- [ ] use node:debug instead of console.log (?)
+- [ ] get-device: add device ID to request
 - [ ] codec
+- [ ] lookup
 - [ ] unit tests
-- [ ] make pretty dashboard that refreshes e.g. every 30s
+- [ ] make pretty dashboard that refreshes e.g. every 60s
 
 - [x] get-device(s): remove this.config object
 - [x] configuration node for bind/broadcast/timeout etc
