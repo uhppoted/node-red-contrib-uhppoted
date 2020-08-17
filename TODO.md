@@ -3,9 +3,9 @@
 ## IN PROGRESS
 
 - [ ] listen
-      - lookup for type, direction, reason
-      - append event to UI
-      - output state and event ??
+      - split UI into columns
+      - split UI into system events and swipes/doors
+      - lookup for bitsets (fire alarm, warning etc)
       - set node status on error (?)
       - output err on error (?)
 - [ ] get-device: test with device ID in request

@@ -47,19 +47,13 @@ module.exports = function (RED) {
           deviceId: uhppoted.deviceId(bytes, 4),
           event: {
             index: uhppoted.uint32(bytes, 8),
-            type: {
-              code: uhppoted.uint8(bytes, 12)
-            },
+            type: uhppoted.eventType(uhppoted.uint8(bytes, 12)),
             granted: uhppoted.bool(bytes, 13),
             door: uhppoted.uint8(bytes, 14),
-            direction: {
-              code: uhppoted.uint8(bytes, 15)
-            },
+            direction: uhppoted.direction(uhppoted.uint8(bytes, 15)),
             card: uhppoted.uint32(bytes, 16),
             timestamp: uhppoted.yyyymmddHHmmss(bytes.buffer.slice(20, 27)),
-            reason: {
-              code: uhppoted.uint8(bytes, 27)
-            }
+            reason: uhppoted.reason(uhppoted.uint8(bytes, 27))
           },
           doors: [
             uhppoted.bool(bytes, 28),
