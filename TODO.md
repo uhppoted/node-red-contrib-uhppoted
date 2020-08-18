@@ -2,15 +2,16 @@
 
 ## IN PROGRESS
 
-- [ ] listen
-      - lookup for bitsets (fire alarm, warning etc)
-      - set node status on error (?)
-      - output err on error (?)
-- [ ] get-device: add device ID to request
 - [ ] codec
+- [ ] node help
+- [ ] node examples
+- [ ] output err on error (?)
 - [ ] unit tests
-- [ ] make pretty dashboard that refreshes e.g. every 60s
+- [ ] make dasboard prettier
+- [ ] refresh dashboard every e.g. 60s
 
+- [x] get-device: add device ID to request
+- [x] listen
 - [x] lookup
 - [x] get-device(s): remove this.config object
 - [x] configuration node for bind/broadcast/timeout etc

@@ -1,10 +1,845 @@
 [
     {
+        "id": "a640a000.d83cb",
+        "type": "tab",
+        "label": "get-devices",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "f0ca7ab6.b09058",
+        "type": "tab",
+        "label": "get-device",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "c56e1667.998748",
         "type": "tab",
         "label": "listen",
         "disabled": false,
         "info": ""
+    },
+    {
+        "id": "94dcacf5.b4e19",
+        "type": "ui_group",
+        "z": "",
+        "name": "405419896",
+        "tab": "ea318236.7f96",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "db5795ea.c20108",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey"
+            }
+        },
+        "site": {
+            "name": "uhppoted dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "true",
+            "allowTempTheme": "true",
+            "dateFormat": "YYYY-MM-DD",
+            "sizes": {
+                "sx": 48,
+                "sy": 28,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "ea318236.7f96",
+        "type": "ui_tab",
+        "z": "",
+        "name": "overview",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "664471ed.acdea",
+        "type": "ui_group",
+        "z": "",
+        "name": "303986753",
+        "tab": "ea318236.7f96",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d2f384d6.885a08",
+        "type": "ui_group",
+        "z": "",
+        "name": "controls",
+        "tab": "ea318236.7f96",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "2731970.74c476a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "405419896",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c03a3b24.d45c48",
+        "type": "ui_group",
+        "z": "",
+        "name": "device",
+        "tab": "2731970.74c476a",
+        "order": 2,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "a363178d.ee7038",
+        "type": "ui_group",
+        "z": "",
+        "name": "controls",
+        "tab": "2731970.74c476a",
+        "order": 2,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d596ac54.cced",
+        "type": "uhppote",
+        "z": "",
+        "name": "development",
+        "timeout": "4999",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255",
+        "listen": "192.168.1.100:60001",
+        "debug": true
+    },
+    {
+        "id": "f29b4883.377448",
+        "type": "ui_tab",
+        "z": "",
+        "name": "events",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "659dc42b.91f43c",
+        "type": "ui_group",
+        "z": "",
+        "name": "events",
+        "tab": "f29b4883.377448",
+        "order": 1,
+        "disp": false,
+        "width": 24,
+        "collapse": false
+    },
+    {
+        "id": "6a470566.d4725c",
+        "type": "get-devices",
+        "z": "a640a000.d83cb",
+        "name": "get-devices",
+        "uhppote": "d596ac54.cced",
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "31429769.0664e8",
+                "6699677.c355098",
+                "30341779.5c29e8"
+            ]
+        ]
+    },
+    {
+        "id": "31429769.0664e8",
+        "type": "debug",
+        "z": "a640a000.d83cb",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "82a8517a.6ef88",
+        "type": "inject",
+        "z": "a640a000.d83cb",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 40,
+        "wires": [
+            [
+                "6a470566.d4725c",
+                "b36ac360.b2d72"
+            ]
+        ]
+    },
+    {
+        "id": "f6ad52d3.c2e48",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "device",
+        "label": "Device ID:",
+        "format": "{{device.id}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "bbb6a438.f22818",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "device",
+        "label": "Device ID:",
+        "format": "{{device.id}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "bafadb7f.3afc08",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "address",
+        "label": "Address:",
+        "format": "{{device.address}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "39ee342f.a465ec",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "address",
+        "label": "Address:",
+        "format": "{{device.address}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "626c9a77.193a04",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "subnet",
+        "label": "Subnet mask:",
+        "format": "{{device.subnet}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "5b2ec683.3d2c38",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "subnet",
+        "label": "Subnet mask:",
+        "format": "{{device.subnet}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6699677.c355098",
+        "type": "function",
+        "z": "a640a000.d83cb",
+        "name": "405419896",
+        "func": "for (i=0; i<msg.payload.length; i++) {\n    device = msg.payload[i].device;\n    if (device.id == 405419896) {\n        return msg.payload[i];        \n    }\n}\n\nreturn { device: {} }",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 530,
+        "y": 80,
+        "wires": [
+            [
+                "f6ad52d3.c2e48",
+                "bafadb7f.3afc08",
+                "626c9a77.193a04",
+                "c6fd23f4.c50dd",
+                "15d5ff89.9ac5b",
+                "764b47ed.8d8fc8",
+                "2f037ed3.618ec2"
+            ]
+        ]
+    },
+    {
+        "id": "c6fd23f4.c50dd",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "gateway",
+        "label": "Gateway:",
+        "format": "{{device.gateway}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "30341779.5c29e8",
+        "type": "function",
+        "z": "a640a000.d83cb",
+        "name": "303986753",
+        "func": "for (i=0; i<msg.payload.length; i++) {\n    device = msg.payload[i].device;\n    if (device.id == 303986753) {\n        return msg.payload[i];        \n    }\n}\n\nreturn { device: {} }",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 530,
+        "y": 380,
+        "wires": [
+            [
+                "bbb6a438.f22818",
+                "39ee342f.a465ec",
+                "5b2ec683.3d2c38",
+                "47d113b.40769ec",
+                "b1bd0325.bd849",
+                "329e5483.d305bc",
+                "79f990b5.78342"
+            ]
+        ]
+    },
+    {
+        "id": "47d113b.40769ec",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "gateway",
+        "label": "Gateway:",
+        "format": "{{device.gateway}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "15d5ff89.9ac5b",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "MAC",
+        "label": "MAC address:",
+        "format": "{{device.MAC}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b1bd0325.bd849",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "MAC",
+        "label": "MAC address:",
+        "format": "{{device.MAC}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "764b47ed.8d8fc8",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "version",
+        "label": "Version:",
+        "format": "{{device.version}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "329e5483.d305bc",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "version",
+        "label": "Version:",
+        "format": "{{device.version}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "2f037ed3.618ec2",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "date",
+        "label": "Date:",
+        "format": "{{device.date}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "79f990b5.78342",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "date",
+        "label": "Date:",
+        "format": "{{device.date}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "a78a2bf0.74fbe8",
+        "type": "ui_button",
+        "z": "a640a000.d83cb",
+        "name": "refresh",
+        "group": "d2f384d6.885a08",
+        "order": 7,
+        "width": "3",
+        "height": "2",
+        "passthru": false,
+        "label": "refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{}",
+        "payloadType": "json",
+        "topic": "",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "6a470566.d4725c",
+                "b36ac360.b2d72"
+            ]
+        ]
+    },
+    {
+        "id": "b36ac360.b2d72",
+        "type": "debug",
+        "z": "a640a000.d83cb",
+        "name": "start",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a308f042.ba17e",
+        "type": "debug",
+        "z": "f0ca7ab6.b09058",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "661f7370.91414c",
+        "type": "inject",
+        "z": "f0ca7ab6.b09058",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"device-id\": 405419896 }",
+        "payloadType": "json",
+        "x": 110,
+        "y": 40,
+        "wires": [
+            [
+                "cf20838b.e2a89",
+                "cf961bd6.504938"
+            ]
+        ]
+    },
+    {
+        "id": "d1910029.3c322",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "name": "device",
+        "label": "Device ID:",
+        "format": "{{device.id}}",
+        "layout": "row-spread",
+        "x": 710,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b3759b8c.663488",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "address",
+        "label": "Address:",
+        "format": "{{device.address}}",
+        "layout": "row-spread",
+        "x": 720,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b600fca7.8931e",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "subnet",
+        "label": "Subnet mask:",
+        "format": "{{device.subnet}}",
+        "layout": "row-spread",
+        "x": 710,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "883c8d8e.59439",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "gateway",
+        "label": "Gateway:",
+        "format": "{{device.gateway}}",
+        "layout": "row-spread",
+        "x": 720,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "23b47a89.08ab86",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "MAC",
+        "label": "MAC address:",
+        "format": "{{device.MAC}}",
+        "layout": "row-spread",
+        "x": 710,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e26cb52b.2aee58",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "version",
+        "label": "Version:",
+        "format": "{{device.version}}",
+        "layout": "row-spread",
+        "x": 720,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8666ad46.99a95",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "date",
+        "label": "Date:",
+        "format": "{{device.date}}",
+        "layout": "row-spread",
+        "x": 710,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "cf20838b.e2a89",
+        "type": "debug",
+        "z": "f0ca7ab6.b09058",
+        "name": "start",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "cf961bd6.504938",
+        "type": "get-device",
+        "z": "f0ca7ab6.b09058",
+        "name": "get-device",
+        "uhppote": "d596ac54.cced",
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "a308f042.ba17e",
+                "6114aece.3cdf7"
+            ]
+        ]
+    },
+    {
+        "id": "32d4df8c.50c3e",
+        "type": "ui_button",
+        "z": "f0ca7ab6.b09058",
+        "name": "",
+        "group": "a363178d.ee7038",
+        "order": 0,
+        "width": "3",
+        "height": "2",
+        "passthru": false,
+        "label": "refresh",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"device-id\": 405419896 }",
+        "payloadType": "json",
+        "topic": "",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "cf961bd6.504938",
+                "cf20838b.e2a89"
+            ]
+        ]
+    },
+    {
+        "id": "6114aece.3cdf7",
+        "type": "function",
+        "z": "f0ca7ab6.b09058",
+        "name": "",
+        "func": "return msg.payload;\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "d1910029.3c322",
+                "b3759b8c.663488",
+                "b600fca7.8931e",
+                "883c8d8e.59439",
+                "23b47a89.08ab86",
+                "e26cb52b.2aee58",
+                "8666ad46.99a95"
+            ]
+        ]
     },
     {
         "id": "18a61437.de498c",
@@ -22,7 +857,8 @@
                 "1eedba25.9c1ef6",
                 "9600bdd9.81e9f",
                 "5eff5e06.7c49d",
-                "44622b67.17a194"
+                "44622b67.17a194",
+                "a7b76fc2.66032"
             ]
         ]
     },
@@ -66,7 +902,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet description = event.timestamp\nlet   icon = 'fa-bell'\n\nif (event.type.code == 0x01) {\n    if (event.granted) {\n        icon = \"fa-thumbs-up\"\n    } else {\n        icon = \"fa-ban\"\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'icon_name': icon,\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   icon = 'fa-bell'\nlet   description = event.timestamp\n\nif (event.type.code == 0x01) {\n    if (event.granted) {\n        icon = \"fa-thumbs-up\"\n    } else {\n        icon = \"fa-ban\"\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: timestamp',\n    'icon_name': icon,\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -102,7 +938,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet   description = event.type.event.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   description = event.type.event.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: event type',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -138,7 +974,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet   description = ''\n\nif (event.type.code == 0x01) {\n    if (event.granted) {\n        description = 'GRANTED'\n    } else {\n        description += 'DENIED'\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   description = ''\n\nif (event.type.code == 0x01) {\n    if (event.granted) {\n        description = 'GRANTED'\n    } else {\n        description += 'DENIED'\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: event result',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -174,7 +1010,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet   description = ''\nlet   icon = 'fa-bell'\n\nswitch (event.door) {\n    case 1:\n        description = 'ENTRANCE'\n        break;\n        \n    case 2:\n        description = 'WORKSHOP'\n        break;\n        \n    case 3:\n        description = 'UPSTAIRS'\n        break;\n        \n    case 4:\n        description = 'LABORATORY'\n        break;\n        \n    default:\n        description += ' ???'\n        break;\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   description = ''\nlet   icon = 'fa-bell'\n\nswitch (event.door) {\n    case 1:\n        description = 'ENTRANCE'\n        break;\n        \n    case 2:\n        description = 'WORKSHOP'\n        break;\n        \n    case 3:\n        description = 'UPSTAIRS'\n        break;\n        \n    case 4:\n        description = 'LABORATORY'\n        break;\n        \n    default:\n        description += ' ???'\n        break;\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: door',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -210,7 +1046,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet description = event.direction.direction.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet description = event.direction.direction.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: direction',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -230,7 +1066,7 @@
         "group": "659dc42b.91f43c",
         "name": "event-reason",
         "order": 6,
-        "width": 6,
+        "width": 5,
         "height": 10,
         "lineType": "one",
         "actionType": "none",
@@ -246,7 +1082,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet description = event.reason.reason.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet description = event.reason.reason.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: reason',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -260,34 +1096,39 @@
         ]
     },
     {
-        "id": "d596ac54.cced",
-        "type": "uhppote",
-        "z": "",
-        "name": "development",
-        "timeout": "4999",
-        "bind": "192.168.1.100",
-        "broadcast": "192.168.1.255",
-        "listen": "192.168.1.100:60001",
-        "debug": true
+        "id": "38a94dc5.2c4e62",
+        "type": "ui_list",
+        "z": "c56e1667.998748",
+        "group": "659dc42b.91f43c",
+        "name": "event-inputs",
+        "order": 7,
+        "width": 6,
+        "height": 10,
+        "lineType": "one",
+        "actionType": "none",
+        "allowHTML": false,
+        "outputs": 0,
+        "topic": "",
+        "x": 510,
+        "y": 340,
+        "wires": []
     },
     {
-        "id": "659dc42b.91f43c",
-        "type": "ui_group",
-        "z": "",
-        "name": "events",
-        "tab": "f29b4883.377448",
-        "order": 1,
-        "disp": false,
-        "width": 19,
-        "collapse": false
-    },
-    {
-        "id": "f29b4883.377448",
-        "type": "ui_tab",
-        "z": "",
-        "name": "events",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
+        "id": "a7b76fc2.66032",
+        "type": "function",
+        "z": "c56e1667.998748",
+        "name": "",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet description = ''\n\nif (event.inputs.forceLock) {\n    description += 'FORCE LOCK'\n}\n\nif (event.inputs.fireAlarm) {\n    if (description === '') {\n        description = 'FIRE ALARM'\n    } else {\n        description += ' FIRE ALARM'\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: inputs',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 320,
+        "y": 340,
+        "wires": [
+            [
+                "38a94dc5.2c4e62"
+            ]
+        ]
     }
 ]

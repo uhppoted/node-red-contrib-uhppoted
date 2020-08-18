@@ -33,7 +33,7 @@ module.exports = {
     return event
   },
 
-  eventDirection: function (bytes, offset) {
+  direction: function (bytes, offset) {
     const byte = bytes.getUint8(offset, true)
 
     const direction = {
@@ -54,7 +54,7 @@ module.exports = {
     return direction
   },
 
-  eventReason: function (bytes, offset) {
+  reason: function (bytes, offset) {
     const byte = bytes.getUint8(offset, true)
 
     const reason = {

@@ -19,7 +19,9 @@ module.exports = function (RED) {
       debug = uhppote.debug
     }
 
-    node.on('input', function (msg) {
+    this.status({})
+
+    this.on('input', function (msg, send, done) {
       const decode = function (replies) {
         const devices = []
         replies.forEach(reply => {
@@ -46,7 +48,7 @@ module.exports = function (RED) {
 
       const emit = function (devices) {
         msg.payload = devices
-        node.send(msg)
+        send(msg)
       }
 
       const request = Buffer.alloc(64)
@@ -57,7 +59,19 @@ module.exports = function (RED) {
       uhppoted.broadcast(bind, dest, request, timeout, debug)
         .then(reply => { return decode(reply) })
         .then(devices => { return emit(devices) })
-        .catch(err => { node.error('uhppoted::broadcast  ' + err) })
+        .then(done())
+        .catch(err => {
+          node.status({
+            fill: 'red',
+            shape: 'dot',
+            text: 'error'
+          })
+
+          node.warn('uhppoted::broadcast  ' + err)
+        })
+    })
+
+    this.on('close', function () {
     })
   }
 

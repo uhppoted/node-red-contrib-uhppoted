@@ -24,7 +24,7 @@ module.exports = {
         sock.setBroadcast(true)
 
         if (debug) {
-          console.log('request:', request)
+          console.log('sent:    ', format(request))
         }
 
         sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
@@ -46,7 +46,7 @@ module.exports = {
       replies.push(new Uint8Array(message))
 
       if (debug) {
-        console.log('reply:  ', message)
+        console.log('received:', format(message))
       }
     })
 
@@ -70,7 +70,7 @@ module.exports = {
 
     sock.on('message', (message, remote) => {
       if (debug) {
-        console.log('reply:  ', message)
+        console.log('received:', format(message))
       }
 
       handler.received(remote, message)
@@ -195,4 +195,12 @@ module.exports = {
 
     return time.join('')
   }
+}
+
+function format (message) {
+  return message
+    .toString('hex')
+    .replace(/(.{2})/g, '$& ')
+    .replace(/(.{24})/g, '$& ')
+    .replace(/(.{50})/g, '$&\n          ')
 }

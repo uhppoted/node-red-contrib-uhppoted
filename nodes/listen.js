@@ -16,6 +16,8 @@ module.exports = function (RED) {
       debug = uhppote.debug
     }
 
+    this.status({})
+
     const listener = uhppoted.listen(bind, debug, this)
 
     this.received = function (src, msg) {
@@ -27,11 +29,18 @@ module.exports = function (RED) {
         }
 
         node.send(msg)
+        node.status({})
       }
     }
 
     this.onerror = function (err) {
-      node.error('uhppoted::listen  ' + err)
+      node.status({
+        fill: 'red',
+        shape: 'dot',
+        text: 'error'
+      })
+
+      node.warn('uhppoted::listen  ' + err)
     }
 
     this.close = function () {
@@ -51,10 +60,10 @@ module.exports = function (RED) {
             type: lookup.eventType(bytes, 12),
             granted: uhppoted.bool(bytes, 13),
             door: uhppoted.uint8(bytes, 14),
-            direction: lookup.eventDirection(bytes, 15),
+            direction: lookup.direction(bytes, 15),
             card: uhppoted.uint32(bytes, 16),
             timestamp: uhppoted.yyyymmddHHmmss(bytes.buffer.slice(20, 27)),
-            reason: lookup.eventReason(bytes, 27)
+            reason: lookup.reason(bytes, 27)
           },
           doors: [
             uhppoted.bool(bytes, 28),
