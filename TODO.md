@@ -8,10 +8,10 @@
       - output err on error (?)
 - [ ] get-device: add device ID to request
 - [ ] codec
-- [ ] lookup
 - [ ] unit tests
 - [ ] make pretty dashboard that refreshes e.g. every 60s
 
+- [x] lookup
 - [x] get-device(s): remove this.config object
 - [x] configuration node for bind/broadcast/timeout etc
 - [x] get-device

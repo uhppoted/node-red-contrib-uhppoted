@@ -22,7 +22,8 @@
                 "1eedba25.9c1ef6",
                 "9600bdd9.81e9f",
                 "5eff5e06.7c49d",
-                "44622b67.17a194"
+                "44622b67.17a194",
+                "a7b76fc2.66032"
             ]
         ]
     },
@@ -66,7 +67,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet description = event.timestamp\nlet   icon = 'fa-bell'\n\nif (event.type.code == 0x01) {\n    if (event.granted) {\n        icon = \"fa-thumbs-up\"\n    } else {\n        icon = \"fa-ban\"\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'icon_name': icon,\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   icon = 'fa-bell'\nlet   description = event.timestamp\n\nif (event.type.code == 0x01) {\n    if (event.granted) {\n        icon = \"fa-thumbs-up\"\n    } else {\n        icon = \"fa-ban\"\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: timestamp',\n    'icon_name': icon,\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -102,7 +103,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet   description = event.type.event.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   description = event.type.event.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: event type',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -138,7 +139,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet   description = ''\n\nif (event.type.code == 0x01) {\n    if (event.granted) {\n        description = 'GRANTED'\n    } else {\n        description += 'DENIED'\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   description = ''\n\nif (event.type.code == 0x01) {\n    if (event.granted) {\n        description = 'GRANTED'\n    } else {\n        description += 'DENIED'\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: event result',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -174,7 +175,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet   description = ''\nlet   icon = 'fa-bell'\n\nswitch (event.door) {\n    case 1:\n        description = 'ENTRANCE'\n        break;\n        \n    case 2:\n        description = 'WORKSHOP'\n        break;\n        \n    case 3:\n        description = 'UPSTAIRS'\n        break;\n        \n    case 4:\n        description = 'LABORATORY'\n        break;\n        \n    default:\n        description += ' ???'\n        break;\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   description = ''\nlet   icon = 'fa-bell'\n\nswitch (event.door) {\n    case 1:\n        description = 'ENTRANCE'\n        break;\n        \n    case 2:\n        description = 'WORKSHOP'\n        break;\n        \n    case 3:\n        description = 'UPSTAIRS'\n        break;\n        \n    case 4:\n        description = 'LABORATORY'\n        break;\n        \n    default:\n        description += ' ???'\n        break;\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: door',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -210,7 +211,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet description = event.direction.direction.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet description = event.direction.direction.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: direction',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -230,7 +231,7 @@
         "group": "659dc42b.91f43c",
         "name": "event-reason",
         "order": 6,
-        "width": 6,
+        "width": 5,
         "height": 10,
         "lineType": "one",
         "actionType": "none",
@@ -246,7 +247,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet description = event.reason.reason.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet description = event.reason.reason.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: reason',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -256,6 +257,42 @@
         "wires": [
             [
                 "b696043b.adcf78"
+            ]
+        ]
+    },
+    {
+        "id": "38a94dc5.2c4e62",
+        "type": "ui_list",
+        "z": "c56e1667.998748",
+        "group": "659dc42b.91f43c",
+        "name": "event-inputs",
+        "order": 7,
+        "width": 6,
+        "height": 10,
+        "lineType": "one",
+        "actionType": "none",
+        "allowHTML": false,
+        "outputs": 0,
+        "topic": "",
+        "x": 510,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "a7b76fc2.66032",
+        "type": "function",
+        "z": "c56e1667.998748",
+        "name": "",
+        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet description = ''\n\nif (event.inputs.forceLock) {\n    description += 'FORCE LOCK'\n}\n\nif (event.inputs.fireAlarm) {\n    if (description === '') {\n        description = 'FIRE ALARM'\n    } else {\n        description += ' FIRE ALARM'\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: inputs',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 320,
+        "y": 340,
+        "wires": [
+            [
+                "38a94dc5.2c4e62"
             ]
         ]
     },
@@ -278,7 +315,7 @@
         "tab": "f29b4883.377448",
         "order": 1,
         "disp": false,
-        "width": 19,
+        "width": 24,
         "collapse": false
     },
     {

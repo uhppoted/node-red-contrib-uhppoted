@@ -1,5 +1,6 @@
 module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
+  const lookup = require('./lookup.js')
 
   function ListenNode (config) {
     RED.nodes.createNode(this, config)
@@ -22,7 +23,7 @@ module.exports = function (RED) {
 
       if (event) {
         const msg = {
-          payload: { event: event.event }
+          payload: { event: event }
         }
 
         node.send(msg)
@@ -47,13 +48,13 @@ module.exports = function (RED) {
           deviceId: uhppoted.deviceId(bytes, 4),
           event: {
             index: uhppoted.uint32(bytes, 8),
-            type: uhppoted.eventType(uhppoted.uint8(bytes, 12)),
+            type: lookup.eventType(bytes, 12),
             granted: uhppoted.bool(bytes, 13),
             door: uhppoted.uint8(bytes, 14),
-            direction: uhppoted.direction(uhppoted.uint8(bytes, 15)),
+            direction: lookup.eventDirection(bytes, 15),
             card: uhppoted.uint32(bytes, 16),
             timestamp: uhppoted.yyyymmddHHmmss(bytes.buffer.slice(20, 27)),
-            reason: uhppoted.reason(uhppoted.uint8(bytes, 27))
+            reason: lookup.eventReason(bytes, 27)
           },
           doors: [
             uhppoted.bool(bytes, 28),
@@ -72,10 +73,9 @@ module.exports = function (RED) {
             date: uhppoted.yymmdd(bytes.buffer.slice(51, 54)),
             time: uhppoted.HHmmss(bytes.buffer.slice(37, 40))
           },
-          sequence: uhppoted.uint32(bytes, 40),
           specialInfo: uhppoted.uint8(bytes, 48),
-          relayStates: uhppoted.uint8(bytes, 49),
-          inputStates: uhppoted.uint8(bytes, 50)
+          relays: lookup.relays(bytes, 49),
+          inputs: lookup.inputs(bytes, 50)
         }
 
         return event
