@@ -3,13 +3,16 @@
 ## IN PROGRESS
 
 - [ ] codec
-- [ ] node help
+- [ ] use deviceId everywhere to be consistent
+- [ ] output message topic
 - [ ] node examples
 - [ ] output err on error (?)
+- [ ] what to do with timeouts ??
 - [ ] unit tests
 - [ ] make dasboard prettier
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] node help
 - [x] get-device: add device ID to request
 - [x] listen
 - [x] lookup

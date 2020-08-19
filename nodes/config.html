@@ -1,6 +1,7 @@
 <script type="text/javascript">
     RED.nodes.registerType('uhppote',{
         category: 'config',
+        color: '#FDF0C2',
         defaults: {
             name: { 
                 value: "" 
@@ -60,5 +61,37 @@
 </script>
 
 <script type="text/html" data-help-name="uhppote">
-    <p>uhppoted configuration node for shared device configuration</p>
+    <p>Configuration node for shared node properties.</p>
+
+    <h3>Properties</h3>
+    <dl class="message-properties">
+        <dt>name<span class="property-type">string</span></dt>
+        <dd>Configuration name</dd>
+        <dt>timeout<span class="property-type">uint32</span></dt>
+        <dd>Maximum time (in milliseconds) to wait for a reply. Defaults to 5000ms</dd>
+        <dt>bind<span class="property-type">IPv4 address</span></dt>
+        <dd>IPv4 address to which to bind on systems which have multiple interfaces. Defaults to 0.0.0.0</dd>
+        <dt>broadcast<span class="property-type">IPv4 address</span></dt>
+        <dd>IPv4 address to which to broadcast UDP messages. Defaults to 255.255.255.255</dd>
+        <dt>listen<span class="property-type">address:port</span></dt>
+        <dd>IPv4 address and port on which to listen for controller events. Defaults to 0.0.0.0:60000</dd>
+        <dt>debug<span class="property-type">boolean</span></dt>
+        <dd>Enables logging controller requests/responses to the console</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p><code>bind</code> and <code>broadcast</code> configuration values are not generally required
+    for operation on the local LAN, unless the host has multiple interfaces and it is desirable to 
+    restrict UDP broadcasts to a single interface. Access controllers that are not on the local LAN
+    will not receive UDP broadcasts and it is necessary to specify the actual IP address of the
+    controller for requests.</p>
+
+    <p>The <code>listen</code> <code>address:port</code> configuration values should match the 
+    configuration used by the access controllers (as configured with <code>set-listen-address</code>).
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://github.com/uhppoted">uhppoted</a>: GitHub umbrella project</li>
+        <li><a href="https://github.com/uhppoted/node-red-contrib-uhppoted">node-red-contrib-uhppoted</a>: GitHub project</li>
+    </ul>
 </script>
