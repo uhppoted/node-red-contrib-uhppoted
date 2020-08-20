@@ -3,8 +3,8 @@
 ## IN PROGRESS
 
 - [ ] codec
+      - encoding
 - [ ] increase event list size to e.g. 24
-- [ ] use deviceId everywhere to be consistent
 - [ ] output message topic
 - [ ] node examples
 - [ ] output err on error (?)
@@ -13,6 +13,7 @@
 - [ ] make dasboard prettier
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] use deviceId everywhere to be consistent
 - [x] node help
 - [x] get-device: add device ID to request
 - [x] listen

@@ -23,7 +23,7 @@ module.exports = function (RED) {
     this.status({})
 
     this.on('input', function (msg, send, done) {
-      const id = msg.payload['device-id']
+      const id = msg.payload.deviceId
 
       const decode = function (deviceid, replies) {
         for (const reply of replies) {
@@ -34,7 +34,7 @@ module.exports = function (RED) {
           }
         }
 
-        throw new Error(`No reply to get-device request for device-id ${id}`)
+        throw new Error(`No reply to get-device request for device ID ${id}`)
       }
 
       const emit = function (device) {

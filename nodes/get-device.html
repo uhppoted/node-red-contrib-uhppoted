@@ -54,13 +54,13 @@
     <p>The input <code>msg.payload</code> is a JSON object containing the serial number
     for the controller for which information should be retrieved</p>
     <dl class="message-properties">
-        <dt>device-id<span class="property-type">uint32</span></dt>
+        <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
-    "device-id": 405419896
+    "deviceId": 405419896
   }</pre>
 
     <p>The output <code>msg.payload</code> is a JSON object containing the information
@@ -85,7 +85,7 @@
     <pre>
   {
     "device": {
-      "id": 405419896,
+      "deviceId": 405419896,
       "address": "192.168.1.100",
       "subnet": "255.255.255.0",
       "gateway": "192.168.1.1",
