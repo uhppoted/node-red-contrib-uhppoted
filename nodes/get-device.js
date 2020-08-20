@@ -23,18 +23,18 @@ module.exports = function (RED) {
     this.status({})
 
     this.on('input', function (msg, send, done) {
-      const id = msg.payload.deviceId
+      const deviceId = msg.payload.deviceId
 
       const decode = function (deviceid, replies) {
         for (const reply of replies) {
           const object = codec.decode(reply)
 
-          if ((object !== null) && (object.device !== null) && (object.device.deviceId === id)) {
+          if ((object !== null) && (object.device !== null) && (object.device.deviceId === deviceId)) {
             return object
           }
         }
 
-        throw new Error(`No reply to get-device request for device ID ${id}`)
+        throw new Error(`no reply to get-device request for device ID ${deviceId}`)
       }
 
       const emit = function (device) {
@@ -42,11 +42,7 @@ module.exports = function (RED) {
         send(msg)
       }
 
-      const request = Buffer.alloc(64)
-
-      request.writeUInt8(0x17, 0)
-      request.writeUInt8(0x94, 1)
-      request.writeUInt32LE(id, 4)
+      const request = codec.encode(0x94, deviceId)
 
       uhppoted.broadcast(bind, dest, request, timeout, debug)
         .then(reply => { return decode(this.deviceid, reply) })

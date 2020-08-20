@@ -42,10 +42,7 @@ module.exports = function (RED) {
         send(msg)
       }
 
-      const request = Buffer.alloc(64)
-
-      request.writeUInt8(0x17, 0)
-      request.writeUInt8(0x94, 1)
+      const request = codec.encode(0x94)
 
       uhppoted.broadcast(bind, dest, request, timeout, debug)
         .then(reply => { return decode(reply) })

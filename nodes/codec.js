@@ -1,5 +1,26 @@
 module.exports = {
 
+  encode: function (code, deviceId) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+
+    console.log('did', deviceId)
+    switch (code) {
+      case 0x94:
+        request.writeUInt8(0x94, 1)
+        if (deviceId !== null) {
+          request.writeUInt32LE(deviceId, 4)
+        }
+        break
+
+      default:
+        throw new Error(`invalid protocol function code ${code}`)
+    }
+
+    return request
+  },
+
   decode: function (buffer) {
     if ((buffer.length !== 64) || (buffer[0] !== 0x17)) {
       return null

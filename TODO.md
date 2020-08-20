@@ -2,8 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] codec
-      - encoding
 - [ ] increase event list size to e.g. 24
 - [ ] output message topic
 - [ ] node examples
@@ -13,6 +11,7 @@
 - [ ] make dasboard prettier
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] codec
 - [x] use deviceId everywhere to be consistent
 - [x] node help
 - [x] get-device: add device ID to request
