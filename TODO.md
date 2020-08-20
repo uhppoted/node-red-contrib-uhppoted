@@ -3,6 +3,7 @@
 ## IN PROGRESS
 
 - [ ] codec
+- [ ] increase event list size to e.g. 24
 - [ ] use deviceId everywhere to be consistent
 - [ ] output message topic
 - [ ] node examples

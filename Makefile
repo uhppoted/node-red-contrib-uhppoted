@@ -13,8 +13,7 @@ DEBUG    ?= --debug
 .PHONY: build
 
 fix:
-	npx eslint --fix nodes/uhppote.js
-	npx eslint --fix nodes/get-devices.js
+	npx eslint --fix nodes/*.js
 
 build:
 	npx eslint nodes/*.js  

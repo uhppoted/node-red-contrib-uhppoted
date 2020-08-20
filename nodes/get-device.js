@@ -1,5 +1,6 @@
 module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
+  const codec = require('./codec.js')
 
   function GetDeviceNode (config) {
     RED.nodes.createNode(this, config)
@@ -25,27 +26,15 @@ module.exports = function (RED) {
       const id = msg.payload['device-id']
 
       const decode = function (deviceid, replies) {
-        for (let i = 0; i < replies.length; i++) {
-          const reply = replies[i]
-          if ((reply.length === 64) && (reply[0] === 0x17) && (reply[1] === 0x94)) {
-            const bytes = new DataView(reply.buffer)
-            const device = {
-              device: {
-                id: uhppoted.deviceId(bytes, 4),
-                address: uhppoted.address(bytes, 8),
-                subnet: uhppoted.address(bytes, 12),
-                gateway: uhppoted.address(bytes, 16),
-                MAC: uhppoted.hexify(bytes.buffer.slice(20, 26)).join(':'),
-                version: uhppoted.hexify(bytes.buffer.slice(26, 28)).join(''),
-                date: uhppoted.yyyymmdd(bytes.buffer.slice(28, 32))
-              }
-            }
+        for (const reply of replies) {
+          const object = codec.decode(reply)
 
-            if (device.device.id === id) {
-              return device
-            }
+          if ((object !== null) && (object.device !== null) && (object.device.deviceId === id)) {
+            return object
           }
         }
+
+        throw new Error(`No reply to get-device request for device-id ${id}`)
       }
 
       const emit = function (device) {
@@ -61,10 +50,9 @@ module.exports = function (RED) {
 
       uhppoted.broadcast(bind, dest, request, timeout, debug)
         .then(reply => { return decode(this.deviceid, reply) })
-        .then(device => { return emit(device) })
+        .then(object => { return emit(object) })
         .then(done())
         .catch(err => {
-          console.log('oooops', err)
           node.status({
             fill: 'red',
             shape: 'dot',
