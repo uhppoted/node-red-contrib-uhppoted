@@ -213,11 +213,21 @@ module.exports = {
 
   inputs: function (bytes, offset) {
     const byte = bytes.getUint8(offset, true)
+    let forceLock = false
+    let fireAlarm = false
+
+    if ((byte & 0x01) === 0x01) {
+      forceLock = true
+    }
+
+    if ((byte & 0x02) === 0x02) {
+      fireAlarm = true
+    }
 
     const inputs = {
       code: byte,
-      forceLock: byte & 0x01 === 1,
-      fireAlarm: byte & 0x02 === 1
+      forceLock: forceLock,
+      fireAlarm: fireAlarm
     }
 
     return inputs

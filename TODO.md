@@ -2,7 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] increase event list size to e.g. 24
 - [ ] output message topic
 - [ ] node examples
 - [ ] output err on error (?)
@@ -11,6 +10,7 @@
 - [ ] make dasboard prettier
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] rework event list as table
 - [x] codec
 - [x] use deviceId everywhere to be consistent
 - [x] node help

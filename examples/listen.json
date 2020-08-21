@@ -12,18 +12,12 @@
         "z": "c56e1667.998748",
         "name": "listen",
         "uhppote": "d596ac54.cced",
-        "x": 150,
-        "y": 100,
+        "x": 130,
+        "y": 80,
         "wires": [
             [
                 "b8dcd439.9a0448",
-                "86b877aa.6e9148",
-                "2be56e31.5347f2",
-                "1eedba25.9c1ef6",
-                "9600bdd9.81e9f",
-                "5eff5e06.7c49d",
-                "44622b67.17a194",
-                "a7b76fc2.66032"
+                "d378e1d6.40fe9"
             ]
         ]
     },
@@ -45,254 +39,117 @@
         "wires": []
     },
     {
-        "id": "6acfff58.f6c3f",
-        "type": "ui_list",
+        "id": "b9a22810.4f89d8",
+        "type": "ui_table",
         "z": "c56e1667.998748",
         "group": "659dc42b.91f43c",
-        "name": "events",
+        "name": "",
         "order": 1,
-        "width": 5,
-        "height": 10,
-        "lineType": "one",
-        "actionType": "none",
-        "allowHTML": false,
+        "width": "22",
+        "height": "16",
+        "columns": [
+            {
+                "field": "timestamp",
+                "title": "Timestamp",
+                "width": "176",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "type",
+                "title": "Event Type",
+                "width": "144",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "granted",
+                "title": "Granted?",
+                "width": "112",
+                "align": "center",
+                "formatter": "tickCross",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "door",
+                "title": "Door",
+                "width": "112",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "direction",
+                "title": "Direction",
+                "width": "112",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "reason",
+                "title": "Reason",
+                "width": "240",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "forceLock",
+                "title": "Force Locked?",
+                "width": "144",
+                "align": "center",
+                "formatter": "tickCross",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "fireAlarm",
+                "title": "Fire Alarm",
+                "width": "112",
+                "align": "center",
+                "formatter": "tickCross",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
         "outputs": 0,
-        "topic": "",
+        "cts": false,
         "x": 490,
-        "y": 100,
+        "y": 80,
         "wires": []
     },
     {
-        "id": "86b877aa.6e9148",
+        "id": "d378e1d6.40fe9",
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   icon = 'fa-bell'\nlet   description = event.timestamp\n\nif (event.type.code == 0x01) {\n    if (event.granted) {\n        icon = \"fa-thumbs-up\"\n    } else {\n        icon = \"fa-ban\"\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: timestamp',\n    'icon_name': icon,\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
+        "func": "const events = context.get('events') || []\nconst doors = flow.get('doors')\n\nconst event = msg.payload.event\nconst timestamp = event.event.timestamp\nconst eventType = event.event.type.event.toUpperCase()\nconst granted = event.event.granted\nconst direction = event.event.direction.direction.toUpperCase()\nconst reason = event.event.reason.reason.toUpperCase()\nconst forceLock = event.inputs.forceLock\nconst fireAlarm = event.inputs.fireAlarm\nconst door = doors[event.event.door] || '???'\n\nconst item = {\n    'timestamp': timestamp,\n    'type': eventType,\n    'granted': granted,\n    'door': door,\n    'direction': direction,\n    'reason': reason,\n    'forceLock': forceLock,\n    'fireAlarm': fireAlarm\n}\n    \nevents.push(item)\n\nif (events.length > 32) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\n// msg.payload = events\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ events, false ]\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "initialize": "",
+        "initialize": "const doors = {\n    1: 'ENTRANCE',\n    2: 'WORKSHOP',\n    3: 'UPSTAIRS',\n    4: 'LABORATORY'\n}\n\nflow.set('doors', doors)",
         "finalize": "",
         "x": 320,
-        "y": 100,
+        "y": 80,
         "wires": [
             [
-                "6acfff58.f6c3f"
-            ]
-        ]
-    },
-    {
-        "id": "e5769d2b.0f575",
-        "type": "ui_list",
-        "z": "c56e1667.998748",
-        "group": "659dc42b.91f43c",
-        "name": "event-type",
-        "order": 2,
-        "width": 3,
-        "height": 10,
-        "lineType": "one",
-        "actionType": "none",
-        "allowHTML": false,
-        "outputs": 0,
-        "topic": "",
-        "x": 510,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "2be56e31.5347f2",
-        "type": "function",
-        "z": "c56e1667.998748",
-        "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   description = event.type.event.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: event type',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 140,
-        "wires": [
-            [
-                "e5769d2b.0f575"
-            ]
-        ]
-    },
-    {
-        "id": "f1307817.4e2d98",
-        "type": "ui_list",
-        "z": "c56e1667.998748",
-        "group": "659dc42b.91f43c",
-        "name": "event-result",
-        "order": 3,
-        "width": 2,
-        "height": 10,
-        "lineType": "one",
-        "actionType": "none",
-        "allowHTML": false,
-        "outputs": 0,
-        "topic": "",
-        "x": 510,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "1eedba25.9c1ef6",
-        "type": "function",
-        "z": "c56e1667.998748",
-        "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   description = ''\n\nif (event.type.code == 0x01) {\n    if (event.granted) {\n        description = 'GRANTED'\n    } else {\n        description += 'DENIED'\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: event result',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 180,
-        "wires": [
-            [
-                "f1307817.4e2d98"
-            ]
-        ]
-    },
-    {
-        "id": "1496346f.01586c",
-        "type": "ui_list",
-        "z": "c56e1667.998748",
-        "group": "659dc42b.91f43c",
-        "name": "event-door",
-        "order": 4,
-        "width": 2,
-        "height": 10,
-        "lineType": "one",
-        "actionType": "none",
-        "allowHTML": false,
-        "outputs": 0,
-        "topic": "",
-        "x": 510,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "9600bdd9.81e9f",
-        "type": "function",
-        "z": "c56e1667.998748",
-        "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet   description = ''\nlet   icon = 'fa-bell'\n\nswitch (event.door) {\n    case 1:\n        description = 'ENTRANCE'\n        break;\n        \n    case 2:\n        description = 'WORKSHOP'\n        break;\n        \n    case 3:\n        description = 'UPSTAIRS'\n        break;\n        \n    case 4:\n        description = 'LABORATORY'\n        break;\n        \n    default:\n        description += ' ???'\n        break;\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: door',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 220,
-        "wires": [
-            [
-                "1496346f.01586c"
-            ]
-        ]
-    },
-    {
-        "id": "91c390ad.35023",
-        "type": "ui_list",
-        "z": "c56e1667.998748",
-        "group": "659dc42b.91f43c",
-        "name": "event-direction",
-        "order": 5,
-        "width": 1,
-        "height": 10,
-        "lineType": "one",
-        "actionType": "none",
-        "allowHTML": false,
-        "outputs": 0,
-        "topic": "",
-        "x": 520,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "5eff5e06.7c49d",
-        "type": "function",
-        "z": "c56e1667.998748",
-        "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet description = event.direction.direction.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: direction',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 260,
-        "wires": [
-            [
-                "91c390ad.35023"
-            ]
-        ]
-    },
-    {
-        "id": "b696043b.adcf78",
-        "type": "ui_list",
-        "z": "c56e1667.998748",
-        "group": "659dc42b.91f43c",
-        "name": "event-reason",
-        "order": 6,
-        "width": 5,
-        "height": 10,
-        "lineType": "one",
-        "actionType": "none",
-        "allowHTML": false,
-        "outputs": 0,
-        "topic": "",
-        "x": 510,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "44622b67.17a194",
-        "type": "function",
-        "z": "c56e1667.998748",
-        "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event.event\nlet description = event.reason.reason.toUpperCase()\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: reason',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 300,
-        "wires": [
-            [
-                "b696043b.adcf78"
-            ]
-        ]
-    },
-    {
-        "id": "38a94dc5.2c4e62",
-        "type": "ui_list",
-        "z": "c56e1667.998748",
-        "group": "659dc42b.91f43c",
-        "name": "event-inputs",
-        "order": 7,
-        "width": 6,
-        "height": 10,
-        "lineType": "one",
-        "actionType": "none",
-        "allowHTML": false,
-        "outputs": 0,
-        "topic": "",
-        "x": 510,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "a7b76fc2.66032",
-        "type": "function",
-        "z": "c56e1667.998748",
-        "name": "",
-        "func": "let   events = context.get('events')\nconst event = msg.payload.event\nlet description = ''\n\nif (event.inputs.forceLock) {\n    description += 'FORCE LOCK'\n}\n\nif (event.inputs.fireAlarm) {\n    if (description === '') {\n        description = 'FIRE ALARM'\n    } else {\n        description += ' FIRE ALARM'\n    }\n}\n\nconst item = {\n    'title': description,\n    'description': 'Access control event: inputs',\n    'info': '',\n}\n    \nif (events) {\n  events.push(item)\n} else {\n  events = [item]\n}\n\nif (events.length > 10) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\nmsg.payload = events\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 320,
-        "y": 340,
-        "wires": [
-            [
-                "38a94dc5.2c4e62"
+                "b9a22810.4f89d8"
             ]
         ]
     },
@@ -315,7 +172,7 @@
         "tab": "f29b4883.377448",
         "order": 1,
         "disp": false,
-        "width": 24,
+        "width": 22,
         "collapse": false
     },
     {
