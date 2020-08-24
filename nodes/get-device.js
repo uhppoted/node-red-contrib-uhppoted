@@ -25,8 +25,8 @@ module.exports = function (RED) {
     this.on('input', function (msg, send, done) {
       const deviceId = msg.payload.deviceId
 
-      const decode = function (deviceid, replies) {
-        for (const reply of replies) {
+      const decode = function (deviceid, reply) {
+        if (reply) {
           const object = codec.decode(reply)
 
           if ((object !== null) && (object.device !== null) && (object.device.deviceId === deviceId)) {
@@ -44,7 +44,7 @@ module.exports = function (RED) {
 
       const request = codec.encode(0x94, deviceId)
 
-      uhppoted.broadcast(bind, dest, request, timeout, debug)
+      uhppoted.execute(bind, dest, request, timeout, debug)
         .then(reply => { return decode(this.deviceid, reply) })
         .then(object => { return emit(object) })
         .then(done())
@@ -55,7 +55,7 @@ module.exports = function (RED) {
             text: 'error'
           })
 
-          node.warn('uhppoted::broadcast  ' + err)
+          node.warn('uhppoted::execute  ' + err)
         })
     })
 

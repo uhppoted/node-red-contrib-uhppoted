@@ -2,14 +2,19 @@
 
 ## IN PROGRESS
 
+- [ ] `log` (or `debug`) function for broadcast/execute/listen
+- [ ] include rinfo in `debug` 
+- [ ] document uhppoted functions
+
 - [ ] output message topic
 - [ ] node examples
 - [ ] output err on error (?)
-- [ ] what to do with timeouts ??
 - [ ] unit tests
 - [ ] make dasboard prettier
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] reject with Error on timeouts
+- [x] `uhppoted.execute`
 - [x] rework event list as table
 - [x] codec
 - [x] use deviceId everywhere to be consistent

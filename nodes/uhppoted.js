@@ -23,21 +23,21 @@ module.exports = {
       sock.on('listening', () => {
         sock.setBroadcast(true)
 
-        if (debug) {
-          console.log('sent:    ', format(request))
-        }
-
         sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
           if (err) {
             reject(err)
           } else {
+            if (debug) {
+              console.log('sent:    ', format(request))
+            }
+
             resolve(bytes)
           }
         })
       })
 
       sock.bind({
-        addres: bind,
+        address: bind,
         port: 0
       })
     })
@@ -57,6 +57,78 @@ module.exports = {
     }
 
     return replies
+  },
+
+  execute: async function (bind, dest, request, timeout, debug) {
+    const dgram = require('dgram')
+    const opts = { type: 'udp4', reuseAddr: true }
+    const sock = dgram.createSocket(opts)
+    const rq = new Uint8Array(64)
+    let received = () => {}
+
+    rq.set(request)
+
+    const onerror = new Promise((resolve, reject) => {
+      sock.on('error', (err) => {
+        reject(err)
+      })
+    })
+
+    const wait = new Promise((resolve, reject) => {
+      const timer = setTimeout(() => {
+        reject(new Error('timeout'))
+      }, timeout)
+
+      received = (reply) => {
+        clearTimeout(timer)
+        resolve(reply)
+      }
+    })
+
+    const send = new Promise((resolve, reject) => {
+      sock.on('listening', () => {
+        sock.setBroadcast(true)
+
+        sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
+          if (err) {
+            reject(err)
+          } else {
+            if (debug) {
+              console.log('sent:    ', format(request))
+            }
+
+            resolve(bytes)
+          }
+        })
+      })
+
+      sock.bind({
+        address: bind,
+        port: 0
+      })
+    })
+
+    sock.on('message', (message, remote) => {
+      if (debug) {
+        console.log('received:', format(message))
+      }
+
+      if (received) {
+        received(new Uint8Array(message))
+      }
+    })
+
+    try {
+      const result = await Promise.race([onerror, Promise.all([wait, send])])
+
+      if (result && result.length > 0) {
+        return result[0]
+      }
+    } finally {
+      sock.close()
+    }
+
+    throw new Error('no reply to request')
   },
 
   listen: function (bind, debug, handler) {
