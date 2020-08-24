@@ -7,7 +7,7 @@
     "node-red"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha 'test/**/*_spec.js'"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,10 @@
     }
   },
   "dependencies": {
+    "chai": "^4.2.0",
     "ip": "^1.1.5",
+    "mocha": "^8.1.1",
+    "node-red-node-test-helper": "^0.2.5",
     "node-red-node-ui-list": "^0.3.1",
     "node-red-node-ui-table": "^0.3.4"
   },

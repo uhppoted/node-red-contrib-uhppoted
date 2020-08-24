@@ -5,7 +5,6 @@ module.exports = {
 
     request.writeUInt8(0x17, 0)
 
-    console.log('did', deviceId)
     switch (code) {
       case 0x94:
         request.writeUInt8(0x94, 1)

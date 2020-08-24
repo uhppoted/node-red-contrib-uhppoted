@@ -14,9 +14,13 @@ DEBUG    ?= --debug
 
 fix:
 	npx eslint --fix nodes/*.js
+	npx eslint --fix test/*.js
 
 build:
 	npx eslint nodes/*.js  
+
+test: build
+	npx eslint test/*.js  
 
 run: build
 	node-red

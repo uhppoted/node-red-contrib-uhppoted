@@ -5,11 +5,13 @@
 - [ ] `log` (or `debug`) function for broadcast/execute/listen
 - [ ] include rinfo in `debug` 
 - [ ] document uhppoted functions
+- [ ] restructure directories to recommended layout
 
 - [ ] output message topic
 - [ ] node examples
 - [ ] output err on error (?)
 - [ ] unit tests
+- [ ] internationalisation
 - [ ] make dasboard prettier
 - [ ] refresh dashboard every e.g. 60s
 
