@@ -2,14 +2,17 @@
 
 ## IN PROGRESS
 
+- [ ] node examples
+- [ ] internationalisation
 - [ ] include rinfo in `debug` 
 - [ ] document uhppoted functions
-
-- [ ] output message topic
-- [ ] node examples
-- [ ] output err on error (?)
 - [ ] unit tests
-- [ ] internationalisation
+      - broadcast
+      - execute
+      - listen
+
+- [ ] configure message topic
+- [ ] display errors on dashboard and/or output err on error
 - [ ] make dasboard prettier
 - [ ] refresh dashboard every e.g. 60s
 
