@@ -131,7 +131,7 @@ module.exports = {
 
     sock.on('message', (message, remote) => {
       if (debug) {
-        console.log('received', message)
+        log(debug, 'received', message)
       }
 
       handler.received(remote, message)
