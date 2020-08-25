@@ -11,6 +11,7 @@ DEBUG    ?= --debug
 
 .PHONY: fix
 .PHONY: build
+.PHONY: test
 
 fix:
 	npx eslint --fix nodes/*.js
@@ -21,6 +22,7 @@ build:
 
 test: build
 	npx eslint test/*.js  
+	npm test
 
 run: build
 	node-red

@@ -1,5 +1,7 @@
-const helper = require('node-red-node-test-helper')
-const expect = require("chai").expect;
+// const helper = require('node-red-node-test-helper')
+const describe = require('mocha').describe
+const it = require('mocha').it
+const expect = require('chai').expect
 const codec = require('../nodes/codec.js')
 
 describe('codec', function () {
@@ -13,7 +15,7 @@ describe('codec', function () {
       expect(bytes[4]).to.equal(0x00)
       expect(bytes[5]).to.equal(0x00)
       expect(bytes[6]).to.equal(0x00)
-      expect(bytes[7]).to.equal(0x00)    
+      expect(bytes[7]).to.equal(0x00)
     })
   })
 })
