@@ -27,10 +27,7 @@ module.exports = {
           if (err) {
             reject(err)
           } else {
-            if (debug) {
-              console.log('sent:    ', format(request))
-            }
-
+            log(debug, 'sent', request)
             resolve(bytes)
           }
         })
@@ -44,10 +41,7 @@ module.exports = {
 
     sock.on('message', (message, remote) => {
       replies.push(new Uint8Array(message))
-
-      if (debug) {
-        console.log('received:', format(message))
-      }
+      log(debug, 'received', message)
     })
 
     try {
@@ -93,10 +87,7 @@ module.exports = {
           if (err) {
             reject(err)
           } else {
-            if (debug) {
-              console.log('sent:    ', format(request))
-            }
-
+            log(debug, 'sent', request)
             resolve(bytes)
           }
         })
@@ -109,9 +100,7 @@ module.exports = {
     })
 
     sock.on('message', (message, remote) => {
-      if (debug) {
-        console.log('received:', format(message))
-      }
+      log(debug, 'received', message)
 
       if (received) {
         received(new Uint8Array(message))
@@ -142,7 +131,7 @@ module.exports = {
 
     sock.on('message', (message, remote) => {
       if (debug) {
-        console.log('received:', format(message))
+        console.log('received', message)
       }
 
       handler.received(remote, message)
@@ -173,10 +162,24 @@ module.exports = {
   }
 }
 
-function format (message) {
+function log (debug, label, message) {
+  if (debug) {
+    if (typeof debug === 'function') {
+      const pad = ' '.repeat(25)
+      debug(label, pad + format(message, pad))
+    } else {
+      const prefix = ' '.repeat(18)
+      const pad = ' '.repeat(26)
+      console.log(prefix + '[debug] ' + label + '\n' + pad + format(message, pad))
+    }
+  }
+}
+
+function format (message, pad) {
   return message
     .toString('hex')
     .replace(/(.{2})/g, '$& ')
     .replace(/(.{24})/g, '$& ')
-    .replace(/(.{50})/g, '$&\n          ')
+    .replace(/(.{50})/g, '$&\n' + pad)
+    .trimEnd()
 }

@@ -14,6 +14,7 @@ module.exports = function (RED) {
     if (uhppote) {
       bind = uhppote.listen
       debug = uhppote.debug
+      debug = uhppote.debug ? function (l, m) { node.log(l + '\n' + m) } : null
     }
 
     this.status({})

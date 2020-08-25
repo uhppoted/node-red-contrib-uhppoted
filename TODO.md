@@ -2,10 +2,8 @@
 
 ## IN PROGRESS
 
-- [ ] `log` (or `debug`) function for broadcast/execute/listen
 - [ ] include rinfo in `debug` 
 - [ ] document uhppoted functions
-- [ ] restructure directories to recommended layout
 
 - [ ] output message topic
 - [ ] node examples
@@ -15,6 +13,7 @@
 - [ ] make dasboard prettier
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] `log` (or `debug`) function for broadcast/execute/listen
 - [x] reject with Error on timeouts
 - [x] `uhppoted.execute`
 - [x] rework event list as table

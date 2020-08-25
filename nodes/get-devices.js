@@ -17,7 +17,7 @@ module.exports = function (RED) {
       timeout = uhppote.timeout
       bind = uhppote.bind
       dest = uhppote.broadcast
-      debug = uhppote.debug
+      debug = uhppote.debug ? function (l, m) { node.log(l + '\n' + m) } : null
     }
 
     this.status({})
