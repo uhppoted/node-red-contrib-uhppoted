@@ -1,6 +1,7 @@
 module.exports = {
 
-  encode: function (code, deviceId) {
+  encode: function (code, deviceId, object) {
+    const ip = require('ip')
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
@@ -11,6 +12,15 @@ module.exports = {
         if (deviceId !== null) {
           request.writeUInt32LE(deviceId, 4)
         }
+        break
+
+      case 0x96:
+        request.writeUInt8(0x96, 1)
+        request.writeUInt32LE(deviceId, 4)
+        ip.toBuffer(object.address, request, 8)
+        ip.toBuffer(object.subnet, request, 12)
+        ip.toBuffer(object.gateway, request, 16)
+        request.writeUInt32LE(0x55aaaa55, 20)
         break
 
       default:

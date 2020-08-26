@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('get-device', {
+    RED.nodes.registerType('set-address', {
         category: 'uhppoted',
         color: '#A6BBCF',
         defaults: {
@@ -15,12 +15,12 @@
         outputs: 1,
         icon: "function.svg",
         label: function() {
-            return this.name || "get-device";
+            return this.name || "set-address";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="get-device">
+<script type="text/html" data-template-name="set-address">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -31,13 +31,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="get-device">
-    <p>Retrieves device information for a single UHPPOTE access controllers on the local LAN.</p>
+<script type="text/html" data-help-name="set-address">
+    <p>Sets the IP address, subnet mask and gateway address for a single UHPPOTE access controller.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>the payload of the message used to with the device ID for 'get-device'</dd>
+        <dd>the payload of the message with the device ID and address configuration for 'set-address'</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -45,7 +45,7 @@
     <h3>Outputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the controller device information</dd>
+        <dd>Empty JSON object - the command does not return any useful information</dd>
         <dt>topic<span class="property-type">string</span></dt>
         <dd>message topic copied from input</dd>
     </dl>
@@ -56,43 +56,29 @@
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
+        <dt>address<span class="property-type">IPv4 address</span></dt>
+        <dd>IP address for controller</dd>
+        <dt>subnet<span class="property-type">IPv4 subnet mask</span></dt>
+        <dd>Subnet mask for controller</dd>
+        <dt>gateway<span class="property-type">IPv4 address</span></dt>
+        <dd>IP address for network gateway</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
-    "deviceId": 405419896
+    "deviceId": 405419896,
+    "address": "192.168.1.100",
+    "subnet": "255.255.255.0",
+    "gateway": "192.168.1.1"
   }</pre>
 
-    <p>The output <code>msg.payload</code> is a JSON object containing the information
-    retrieved for the UHPPOTE controller with serial number matching the request:</p>
+    <p>The output <code>msg.payload</code> is an empty JSON object - the command does not return
+    any information</p>
     <dl class="message-properties">
-        <dt>id<span class="property-type">uint32</span></dt>
-        <dd>controller serial number</dd>
-        <dt>address<span class="property-type">IPv4 address</span></dt>
-        <dd>controller IP address</d>
-        <dt>subnet<span class="property-type">IPv4 subnet mask</span></dt>
-        <dd>controller IP subnet mask</dd>
-        <dt>gateway<span class="property-type">IPv4 address</span></dt>
-        <dd>controller IP gateway</dd>
-        <dt>MAC<span class="property-type">IPv4 MAC addresst</span></dt>
-        <dd>controller MAC address</dd>
-        <dt>version<span class="property-type">string</span></dt>
-        <dd>controller firmware version</dd>
-        <dt>date<span class="property-type">date</span></dt>
-        <dd>current controller date, formatted as YYYY-mm-dd</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
-    "device": {
-      "deviceId": 405419896,
-      "address": "192.168.1.100",
-      "subnet": "255.255.255.0",
-      "gateway": "192.168.1.1",
-      "MAC": "00:12:23:34:45:56",
-      "version": "0892",
-      "date": "2020-08-19"
-    }
   }</pre>
     
     <h3>References</h3>

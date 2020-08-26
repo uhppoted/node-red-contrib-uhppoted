@@ -42,21 +42,21 @@ module.exports = function (RED) {
         send(msg)
       }
 
-      const request = codec.encode(0x94)
+      try {
+        const request = codec.encode(0x94)
 
-      uhppoted.broadcast(bind, dest, request, timeout, debug)
-        .then(reply => { return decode(reply) })
-        .then(devices => { return emit(devices) })
-        .then(done())
-        .catch(err => {
-          node.status({
-            fill: 'red',
-            shape: 'dot',
-            text: 'error'
+        uhppoted.broadcast(bind, dest, request, timeout, debug)
+          .then(reply => { return decode(reply) })
+          .then(devices => { return emit(devices) })
+          .then(done())
+          .catch(err => {
+            node.status({ fill: 'red', shape: 'dot', text: 'error' })
+            node.warn('uhppoted::execute  ' + err)
           })
-
-          node.warn('uhppoted::broadcast  ' + err)
-        })
+      } catch (err) {
+        node.status({ fill: 'red', shape: 'dot', text: 'error' })
+        node.warn('uhppoted::execute  ' + err)
+      }
     })
 
     this.on('close', function () {

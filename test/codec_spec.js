@@ -18,7 +18,7 @@ describe('codec', function () {
       expect(bytes[7]).to.equal(0x00)
     })
 
-    it('should encode get-devices request', function () {
+    it('should encode get-device request', function () {
       const bytes = codec.encode(0x94, 0x12345678)
 
       expect(bytes).to.have.lengthOf(64)
@@ -28,6 +28,42 @@ describe('codec', function () {
       expect(bytes[5]).to.equal(0x56)
       expect(bytes[6]).to.equal(0x34)
       expect(bytes[7]).to.equal(0x12)
+    })
+
+    it('should encode set-address request', function () {
+      const bytes = codec.encode(0x96, 423187757, {
+        address: '192.168.1.125',
+        subnet: '255.255.255.0',
+        gateway: '192.168.0.1'
+      })
+
+      expect(bytes).to.have.lengthOf(64)
+      expect(bytes[0]).to.equal(0x17)
+      expect(bytes[1]).to.equal(0x96)
+      expect(bytes[4]).to.equal(0x2d)
+      expect(bytes[5]).to.equal(0x55)
+      expect(bytes[6]).to.equal(0x39)
+      expect(bytes[7]).to.equal(0x19)
+
+      expect(bytes[8]).to.equal(192)
+      expect(bytes[9]).to.equal(168)
+      expect(bytes[10]).to.equal(1)
+      expect(bytes[11]).to.equal(125)
+
+      expect(bytes[12]).to.equal(255)
+      expect(bytes[13]).to.equal(255)
+      expect(bytes[14]).to.equal(255)
+      expect(bytes[15]).to.equal(0)
+
+      expect(bytes[16]).to.equal(192)
+      expect(bytes[17]).to.equal(168)
+      expect(bytes[18]).to.equal(0)
+      expect(bytes[19]).to.equal(1)
+
+      expect(bytes[20]).to.equal(0x55)
+      expect(bytes[21]).to.equal(0xaa)
+      expect(bytes[22]).to.equal(0xaa)
+      expect(bytes[23]).to.equal(0x55)
     })
   })
 

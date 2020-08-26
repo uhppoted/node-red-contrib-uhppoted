@@ -120,6 +120,57 @@ module.exports = {
     throw new Error('no reply to request')
   },
 
+  send: async function (bind, dest, request, timeout, debug) {
+    const dgram = require('dgram')
+    const opts = { type: 'udp4', reuseAddr: true }
+    const sock = dgram.createSocket(opts)
+    const rq = new Uint8Array(64)
+
+    rq.set(request)
+
+    const onerror = new Promise((resolve, reject) => {
+      sock.on('error', (err) => {
+        reject(err)
+      })
+    })
+
+    const send = new Promise((resolve, reject) => {
+      sock.on('listening', () => {
+        sock.setBroadcast(true)
+
+        sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
+          if (err) {
+            reject(err)
+          } else {
+            log(debug, 'sent', request)
+            resolve(bytes)
+          }
+        })
+      })
+
+      sock.bind({
+        address: bind,
+        port: 0
+      })
+    })
+
+    sock.on('message', (message, remote) => {
+      log(debug, 'received', message)
+    })
+
+    try {
+      const result = await Promise.race([onerror, Promise.all([send])])
+
+      if (result && result.length > 0) {
+        return new Uint8Array()
+      }
+    } finally {
+      sock.close()
+    }
+
+    throw new Error('no reply to request')
+  },
+
   listen: function (bind, debug, handler) {
     const dgram = require('dgram')
     const opts = { type: 'udp4', reuseAddr: true }

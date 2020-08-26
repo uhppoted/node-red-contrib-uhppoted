@@ -25,6 +25,7 @@
       "config": "nodes/config.js",
       "get-devices": "nodes/get-devices.js",
       "get-device": "nodes/get-device.js",
+      "set-address": "nodes/set-address.js",
       "listen": "nodes/listen.js"
     },
     "engines": {

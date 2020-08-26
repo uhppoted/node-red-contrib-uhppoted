@@ -2,7 +2,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const codec = require('./codec.js')
 
-  function GetDeviceNode (config) {
+  function SetAddressNode (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -24,17 +24,16 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const deviceId = msg.payload.deviceId
+      const address = msg.payload.address
+      const subnet = msg.payload.subnet
+      const gateway = msg.payload.gateway
 
       const decode = function (deviceid, reply) {
         if (reply) {
-          const object = codec.decode(reply)
-
-          if ((object !== null) && (object.device !== null) && (object.device.deviceId === deviceId)) {
-            return object
-          }
+          return {}
         }
 
-        throw new Error(`no reply to get-device request for device ID ${deviceId}`)
+        throw new Error(`no reply to set-address request for device ID ${deviceId}`)
       }
 
       const emit = function (device) {
@@ -43,9 +42,9 @@ module.exports = function (RED) {
       }
 
       try {
-        const request = codec.encode(0x94, deviceId)
+        const request = codec.encode(0x96, deviceId, { address: address, subnet: subnet, gateway: gateway })
 
-        uhppoted.execute(bind, dest, request, timeout, debug)
+        uhppoted.send(bind, dest, request, timeout, debug)
           .then(reply => { return decode(this.deviceid, reply) })
           .then(object => { return emit(object) })
           .then(done())
@@ -63,5 +62,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('get-device', GetDeviceNode)
+  RED.nodes.registerType('set-address', SetAddressNode)
 }

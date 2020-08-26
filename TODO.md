@@ -2,6 +2,8 @@
 
 ## IN PROGRESS
 
+- [ ] set-address
+      - configuration UI
 - [ ] node examples
 - [ ] internationalisation
 - [ ] include rinfo in `debug` 
@@ -9,7 +11,14 @@
 - [ ] unit tests
       - broadcast
       - execute
+      - send
       - listen
+      - get-devices
+      - get-device
+      - set-address
+      - codec invalid function code
+      - codec invalid device ID
+      - codec invalid address
 
 - [ ] configure message topic
 - [ ] display errors on dashboard and/or output err on error
