@@ -2,7 +2,8 @@
 
 ## IN PROGRESS
 
-- [ ] include rinfo in `debug` 
+- [ ] make configuration destinatation address:port
+- [ ] don't do broadcast for non-broadcast destinations
 - [ ] get/set-time
 - [ ] internationalisation
 - [ ] document uhppoted functions
@@ -22,6 +23,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] include rinfo in `debug`
 - [x] make dasboard prettier
 - [x] node examples
 - [x] set-address

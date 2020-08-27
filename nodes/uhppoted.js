@@ -27,7 +27,7 @@ module.exports = {
           if (err) {
             reject(err)
           } else {
-            log(debug, 'sent', request)
+            log(debug, 'sent', request, { address: dest, port: 60000 })
             resolve(bytes)
           }
         })
@@ -39,9 +39,9 @@ module.exports = {
       })
     })
 
-    sock.on('message', (message, remote) => {
+    sock.on('message', (message, rinfo) => {
       replies.push(new Uint8Array(message))
-      log(debug, 'received', message)
+      log(debug, 'received', message, rinfo)
     })
 
     try {
@@ -87,7 +87,7 @@ module.exports = {
           if (err) {
             reject(err)
           } else {
-            log(debug, 'sent', request)
+            log(debug, 'sent', request, { address: dest, port: 60000 })
             resolve(bytes)
           }
         })
@@ -99,8 +99,8 @@ module.exports = {
       })
     })
 
-    sock.on('message', (message, remote) => {
-      log(debug, 'received', message)
+    sock.on('message', (message, rinfo) => {
+      log(debug, 'received', message, rinfo)
 
       if (received) {
         received(new Uint8Array(message))
@@ -142,7 +142,7 @@ module.exports = {
           if (err) {
             reject(err)
           } else {
-            log(debug, 'sent', request)
+            log(debug, 'sent', request, { address: dest, port: 60000 })
             resolve(bytes)
           }
         })
@@ -154,8 +154,8 @@ module.exports = {
       })
     })
 
-    sock.on('message', (message, remote) => {
-      log(debug, 'received', message)
+    sock.on('message', (message, rinfo) => {
+      log(debug, 'received', message, rinfo)
     })
 
     try {
@@ -180,12 +180,12 @@ module.exports = {
       handler.onerror(err)
     })
 
-    sock.on('message', (message, remote) => {
+    sock.on('message', (message, rinfo) => {
       if (debug) {
-        log(debug, 'received', message)
+        log(debug, 'received', message, rinfo)
       }
 
-      handler.received(remote, message)
+      handler.received(rinfo, message)
     })
 
     let address = '0.0.0.0'
@@ -213,15 +213,21 @@ module.exports = {
   }
 }
 
-function log (debug, label, message) {
+function log (debug, label, message, rinfo) {
+  let description = label
+
+  if (rinfo) {
+    description = `${label} ${rinfo.address}:${rinfo.port}`
+  }
+
   if (debug) {
     if (typeof debug === 'function') {
       const pad = ' '.repeat(25)
-      debug(label, pad + format(message, pad))
+      debug(description, pad + format(message, pad))
     } else {
       const prefix = ' '.repeat(18)
       const pad = ' '.repeat(26)
-      console.log(prefix + '[debug] ' + label + '\n' + pad + format(message, pad))
+      console.log(prefix + '[debug] ' + description + '\n' + pad + format(message, pad))
     }
   }
 }
