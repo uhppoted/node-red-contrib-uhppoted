@@ -2,11 +2,9 @@
 
 ## IN PROGRESS
 
-- [ ] set-address
-      - configuration UI
-- [ ] node examples
-- [ ] internationalisation
 - [ ] include rinfo in `debug` 
+- [ ] get/set-time
+- [ ] internationalisation
 - [ ] document uhppoted functions
 - [ ] unit tests
       - broadcast
@@ -22,9 +20,11 @@
 
 - [ ] configure message topic
 - [ ] display errors on dashboard and/or output err on error
-- [ ] make dasboard prettier
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] make dasboard prettier
+- [x] node examples
+- [x] set-address
 - [x] `log` (or `debug`) function for broadcast/execute/listen
 - [x] reject with Error on timeouts
 - [x] `uhppoted.execute`

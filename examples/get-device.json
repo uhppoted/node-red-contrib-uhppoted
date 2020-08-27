@@ -252,11 +252,11 @@
         "id": "c03a3b24.d45c48",
         "type": "ui_group",
         "z": "",
-        "name": "device",
+        "name": "405419896",
         "tab": "2731970.74c476a",
         "order": 2,
-        "disp": false,
-        "width": "6",
+        "disp": true,
+        "width": 6,
         "collapse": false
     },
     {
@@ -278,14 +278,14 @@
         "tab": "2731970.74c476a",
         "order": 2,
         "disp": false,
-        "width": "6",
+        "width": 4,
         "collapse": false
     },
     {
         "id": "2731970.74c476a",
         "type": "ui_tab",
         "z": "",
-        "name": "405419896",
+        "name": "devices",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

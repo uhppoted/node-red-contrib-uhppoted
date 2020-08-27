@@ -19,7 +19,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
+        "x": 820,
         "y": 40,
         "wires": []
     },
@@ -44,7 +44,7 @@
         "topic": "",
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
-        "x": 130,
+        "x": 290,
         "y": 40,
         "wires": [
             [
@@ -66,36 +66,9 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 310,
+        "x": 470,
         "y": 40,
         "wires": []
-    },
-    {
-        "id": "e488790e.15ee88",
-        "type": "ui_button",
-        "z": "8bcf2d43.2e243",
-        "name": "",
-        "group": "a363178d.ee7038",
-        "order": 3,
-        "width": "4",
-        "height": 1,
-        "passthru": false,
-        "label": "configure",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "",
-        "x": 140,
-        "y": 80,
-        "wires": [
-            [
-                "45ee145d.a3525c",
-                "75c8e264.6e9a3c"
-            ]
-        ]
     },
     {
         "id": "45ee145d.a3525c",
@@ -107,7 +80,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 310,
+        "x": 470,
         "y": 80,
         "wires": [
             [
@@ -121,7 +94,7 @@
         "z": "8bcf2d43.2e243",
         "name": "set-address",
         "uhppote": "d596ac54.cced",
-        "x": 490,
+        "x": 650,
         "y": 80,
         "wires": [
             [
@@ -130,15 +103,91 @@
         ]
     },
     {
-        "id": "a363178d.ee7038",
-        "type": "ui_group",
-        "z": "",
-        "name": "controls",
-        "tab": "2731970.74c476a",
-        "order": 2,
-        "disp": false,
-        "width": "6",
-        "collapse": false
+        "id": "e8c940b.a7290c",
+        "type": "ui_form",
+        "z": "8bcf2d43.2e243",
+        "name": "IPv4",
+        "label": "IPv4",
+        "group": "828448f4.2dc598",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "options": [
+            {
+                "label": "address",
+                "value": "address",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "subnet mask",
+                "value": "subnet",
+                "type": "text",
+                "required": true,
+                "rows": null
+            },
+            {
+                "label": "gateway",
+                "value": "gateway",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "address": "",
+            "subnet": "",
+            "gateway": ""
+        },
+        "payload": "",
+        "submit": "set",
+        "cancel": "cancel",
+        "topic": "",
+        "x": 290,
+        "y": 80,
+        "wires": [
+            [
+                "45ee145d.a3525c",
+                "75c8e264.6e9a3c"
+            ]
+        ],
+        "inputLabels": [
+            "initial-configuration"
+        ],
+        "outputLabels": [
+            "updated-configuration"
+        ]
+    },
+    {
+        "id": "7a342239.47727c",
+        "type": "inject",
+        "z": "8bcf2d43.2e243",
+        "name": "initialise",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"address\":\"192.168.1.100\",\"subnet\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
+        "payloadType": "json",
+        "x": 140,
+        "y": 80,
+        "wires": [
+            [
+                "e8c940b.a7290c"
+            ]
+        ],
+        "icon": "node-red/db.svg"
     },
     {
         "id": "d596ac54.cced",
@@ -152,10 +201,21 @@
         "debug": true
     },
     {
-        "id": "2731970.74c476a",
-        "type": "ui_tab",
+        "id": "828448f4.2dc598",
+        "type": "ui_group",
         "z": "",
         "name": "405419896",
+        "tab": "e4b36c96.1a567",
+        "order": 1,
+        "disp": true,
+        "width": "8",
+        "collapse": false
+    },
+    {
+        "id": "e4b36c96.1a567",
+        "type": "ui_tab",
+        "z": "",
+        "name": "configuration",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
