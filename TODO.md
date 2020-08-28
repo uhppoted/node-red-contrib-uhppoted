@@ -3,8 +3,9 @@
 ## IN PROGRESS
 
 - [ ] set-time
-- [ ] make configuration destinatation address:port
+- [ ] commonalise config parsing
 - [ ] don't do broadcast for non-broadcast destinations
+- [ ] fallback to broadcast address if destination is not defined
 - [ ] internationalisation
 - [ ] document uhppoted functions
 - [ ] unit tests
@@ -25,6 +26,8 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] make configuration destinatation address:port
+- [x] get-time
 - [x] include rinfo in `debug`
 - [x] make dasboard prettier
 - [x] node examples

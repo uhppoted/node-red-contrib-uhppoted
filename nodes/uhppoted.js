@@ -4,6 +4,7 @@ module.exports = {
     const dgram = require('dgram')
     const opts = { type: 'udp4', reuseAddr: true }
     const sock = dgram.createSocket(opts)
+    const addr = stringToIP(dest)
     const replies = []
     const rq = new Uint8Array(64)
 
@@ -23,11 +24,11 @@ module.exports = {
       sock.on('listening', () => {
         sock.setBroadcast(true)
 
-        sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
+        sock.send(rq, 0, rq.length, addr.port, addr.address, (err, bytes) => {
           if (err) {
             reject(err)
           } else {
-            log(debug, 'sent', request, { address: dest, port: 60000 })
+            log(debug, 'sent', request, addr)
             resolve(bytes)
           }
         })
@@ -57,6 +58,7 @@ module.exports = {
     const dgram = require('dgram')
     const opts = { type: 'udp4', reuseAddr: true }
     const sock = dgram.createSocket(opts)
+    const addr = stringToIP(dest)
     const rq = new Uint8Array(64)
     let received = () => {}
 
@@ -83,11 +85,11 @@ module.exports = {
       sock.on('listening', () => {
         sock.setBroadcast(true)
 
-        sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
+        sock.send(rq, 0, rq.length, addr.port, addr.address, (err, bytes) => {
           if (err) {
             reject(err)
           } else {
-            log(debug, 'sent', request, { address: dest, port: 60000 })
+            log(debug, 'sent', request, addr)
             resolve(bytes)
           }
         })
@@ -124,6 +126,7 @@ module.exports = {
     const dgram = require('dgram')
     const opts = { type: 'udp4', reuseAddr: true }
     const sock = dgram.createSocket(opts)
+    const addr = stringToIP(dest)
     const rq = new Uint8Array(64)
 
     rq.set(request)
@@ -138,11 +141,11 @@ module.exports = {
       sock.on('listening', () => {
         sock.setBroadcast(true)
 
-        sock.send(rq, 0, rq.length, 60000, dest, (err, bytes) => {
+        sock.send(rq, 0, rq.length, addr.port, addr.address, (err, bytes) => {
           if (err) {
             reject(err)
           } else {
-            log(debug, 'sent', request, { address: dest, port: 60000 })
+            log(debug, 'sent', request, addr)
             resolve(bytes)
           }
         })
@@ -192,14 +195,14 @@ module.exports = {
     let port = 60001
 
     if (bind) {
-      const re = /^([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3})(?::([0-9]+))?$/
+      const re = /^(.*?)(?::([0-9]+))?$/
       const match = bind.match(re)
 
-      if (match.length > 1) {
+      if ((match.length > 1) && match[1]) {
         address = match[1]
       }
 
-      if (match.length > 2) {
+      if ((match.length > 2) && match[2]) {
         port = parseInt(match[2], 10)
       }
     }
@@ -239,4 +242,25 @@ function format (message, pad) {
     .replace(/(.{24})/g, '$& ')
     .replace(/(.{50})/g, '$&\n' + pad)
     .trimEnd()
+}
+
+function stringToIP (addr) {
+  let address = addr
+  let port = 60000
+
+  const re = /^(.*?)(?::([0-9]+))?$/
+  const match = addr.match(re)
+
+  if ((match.length > 1) && match[1]) {
+    address = match[1]
+  }
+
+  if ((match.length > 2) && match[2]) {
+    port = parseInt(match[2], 10)
+  }
+
+  return {
+    address: address,
+    port: port
+  }
 }
