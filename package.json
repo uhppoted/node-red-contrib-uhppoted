@@ -26,6 +26,7 @@
       "get-devices": "nodes/get-devices.js",
       "get-device": "nodes/get-device.js",
       "set-address": "nodes/set-address.js",
+      "get-time": "nodes/get-time.js",
       "listen": "nodes/listen.js"
     },
     "engines": {
@@ -34,9 +35,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "ip": "^1.1.5",
-    "node-red-node-ui-list": "^0.3.1",
-    "node-red-node-ui-table": "^0.3.4"
+    "ip": "^1.1.5"
   },
   "devDependencies": {
     "chai": "^4.2.0",
@@ -48,6 +47,8 @@
     "eslint-plugin-standard": "^4.0.1",
     "mocha": "^8.1.1",
     "node-red": "^1.1.3",
-    "node-red-node-test-helper": "^0.2.5"
+    "node-red-node-test-helper": "^0.2.5",
+    "node-red-node-ui-list": "^0.3.1",
+    "node-red-node-ui-table": "^0.3.4"
   }
 }

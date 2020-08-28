@@ -19,19 +19,19 @@ describe('codec', function () {
     })
 
     it('should encode get-device request', function () {
-      const bytes = codec.encode(0x94, 0x12345678)
+      const bytes = codec.encode(0x94, 405419896)
 
       expect(bytes).to.have.lengthOf(64)
       expect(bytes[0]).to.equal(0x17)
       expect(bytes[1]).to.equal(0x94)
       expect(bytes[4]).to.equal(0x78)
-      expect(bytes[5]).to.equal(0x56)
-      expect(bytes[6]).to.equal(0x34)
-      expect(bytes[7]).to.equal(0x12)
+      expect(bytes[5]).to.equal(0x37)
+      expect(bytes[6]).to.equal(0x2a)
+      expect(bytes[7]).to.equal(0x18)
     })
 
     it('should encode set-address request', function () {
-      const bytes = codec.encode(0x96, 423187757, {
+      const bytes = codec.encode(0x96, 405419896, {
         address: '192.168.1.125',
         subnet: '255.255.255.0',
         gateway: '192.168.0.1'
@@ -40,10 +40,10 @@ describe('codec', function () {
       expect(bytes).to.have.lengthOf(64)
       expect(bytes[0]).to.equal(0x17)
       expect(bytes[1]).to.equal(0x96)
-      expect(bytes[4]).to.equal(0x2d)
-      expect(bytes[5]).to.equal(0x55)
-      expect(bytes[6]).to.equal(0x39)
-      expect(bytes[7]).to.equal(0x19)
+      expect(bytes[4]).to.equal(0x78)
+      expect(bytes[5]).to.equal(0x37)
+      expect(bytes[6]).to.equal(0x2a)
+      expect(bytes[7]).to.equal(0x18)
 
       expect(bytes[8]).to.equal(192)
       expect(bytes[9]).to.equal(168)
@@ -65,6 +65,18 @@ describe('codec', function () {
       expect(bytes[22]).to.equal(0xaa)
       expect(bytes[23]).to.equal(0x55)
     })
+
+    it('should encode get-time request', function () {
+      const bytes = codec.encode(0x32, 405419896)
+
+      expect(bytes).to.have.lengthOf(64)
+      expect(bytes[0]).to.equal(0x17)
+      expect(bytes[1]).to.equal(0x32)
+      expect(bytes[4]).to.equal(0x78)
+      expect(bytes[5]).to.equal(0x37)
+      expect(bytes[6]).to.equal(0x2a)
+      expect(bytes[7]).to.equal(0x18)
+    })
   })
 
   describe('#decode(...)', function () {
@@ -79,14 +91,32 @@ describe('codec', function () {
       const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
+      expect(object).to.have.property('deviceId')
       expect(object).to.have.property('device')
-      expect(object.device.deviceId).to.equal(405419896)
+      expect(object.device.serialNumber).to.equal(405419896)
       expect(object.device.address).to.equal('192.168.1.100')
       expect(object.device.subnet).to.equal('255.255.255.0')
       expect(object.device.gateway).to.equal('192.168.1.1')
       expect(object.device.MAC).to.equal('00:12:23:34:45:56')
       expect(object.device.version).to.equal('0892')
       expect(object.device.date).to.equal('2020-08-25')
+    })
+
+    it('should decode get-time response', function () {
+      const msg = Buffer.from([
+        0x17, 0x32, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x20, 0x20, 0x08, 0x28, 0x14, 0x23, 0x56, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
+      const object = codec.decode(new Uint8Array(msg))
+
+      expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
+      expect(object).to.have.property('deviceId')
+      expect(object).to.have.property('datetime')
+      expect(object.deviceId).to.equal(405419896)
+      expect(object.datetime).to.equal('2020-08-28 14:23:56')
     })
 
     it('should decode event message', function () {

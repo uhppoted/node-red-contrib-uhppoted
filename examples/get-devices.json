@@ -77,11 +77,11 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "name": "device",
-        "label": "Device ID:",
-        "format": "{{device.deviceId}}",
+        "name": "serial-number",
+        "label": "Serial number:",
+        "format": "{{device.serialNumber}}",
         "layout": "row-spread",
-        "x": 730,
+        "x": 760,
         "y": 80,
         "wires": []
     },
@@ -93,11 +93,11 @@
         "order": 0,
         "width": 0,
         "height": 0,
-        "name": "device",
-        "label": "Device ID:",
-        "format": "{{device.deviceId}}",
+        "name": "serial-number",
+        "label": "Serial number:",
+        "format": "{{device.serialNumber}}",
         "layout": "row-spread",
-        "x": 730,
+        "x": 760,
         "y": 380,
         "wires": []
     },
@@ -170,7 +170,7 @@
         "type": "function",
         "z": "a640a000.d83cb",
         "name": "405419896",
-        "func": "for (i=0; i<msg.payload.length; i++) {\n    device = msg.payload[i].device;\n    if (device.deviceId == 405419896) {\n        return msg.payload[i];        \n    }\n}\n\nreturn { device: {} }",
+        "func": "for (i=0; i<msg.payload.length; i++) {\n    deviceId = msg.payload[i].deviceId\n    device = msg.payload[i].device;\n    if (deviceId == 405419896) {\n        return msg.payload[i];        \n    }\n}\n\nreturn { device: {} }",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -210,7 +210,7 @@
         "type": "function",
         "z": "a640a000.d83cb",
         "name": "303986753",
-        "func": "for (i=0; i<msg.payload.length; i++) {\n    device = msg.payload[i].device;\n    if (device.deviceId == 303986753) {\n        return msg.payload[i];        \n    }\n}\n\nreturn { device: {} }",
+        "func": "for (i=0; i<msg.payload.length; i++) {\n    deviceId = msg.payload[i].deviceId\n    device = msg.payload[i].device;\n    if (deviceId == 303986753) {\n        return msg.payload[i];        \n    }\n}\n\nreturn { device: {} }",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -318,7 +318,7 @@
         "width": 0,
         "height": 0,
         "name": "date",
-        "label": "Date:",
+        "label": "System date:",
         "format": "{{device.date}}",
         "layout": "row-spread",
         "x": 730,
@@ -334,7 +334,7 @@
         "width": 0,
         "height": 0,
         "name": "date",
-        "label": "Date:",
+        "label": "System date:",
         "format": "{{device.date}}",
         "layout": "row-spread",
         "x": 730,
@@ -363,8 +363,7 @@
         "y": 80,
         "wires": [
             [
-                "6a470566.d4725c",
-                "b36ac360.b2d72"
+                "6a470566.d4725c"
             ]
         ]
     },

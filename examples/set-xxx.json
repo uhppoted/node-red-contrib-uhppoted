@@ -2,7 +2,7 @@
     {
         "id": "8bcf2d43.2e243",
         "type": "tab",
-        "label": "set-address",
+        "label": "set-xxx",
         "disabled": false,
         "info": ""
     },
@@ -148,8 +148,7 @@
         "y": 80,
         "wires": [
             [
-                "45ee145d.a3525c",
-                "75c8e264.6e9a3c"
+                "45ee145d.a3525c"
             ]
         ],
         "inputLabels": [

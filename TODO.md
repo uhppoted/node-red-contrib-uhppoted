@@ -2,9 +2,9 @@
 
 ## IN PROGRESS
 
+- [ ] set-time
 - [ ] make configuration destinatation address:port
 - [ ] don't do broadcast for non-broadcast destinations
-- [ ] get/set-time
 - [ ] internationalisation
 - [ ] document uhppoted functions
 - [ ] unit tests
@@ -19,6 +19,8 @@
       - codec invalid device ID
       - codec invalid address
 
+- [ ] 'U' node icon
+- [ ] label node ports
 - [ ] configure message topic
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s

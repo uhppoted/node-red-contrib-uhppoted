@@ -2,7 +2,7 @@
     {
         "id": "f0ca7ab6.b09058",
         "type": "tab",
-        "label": "get-device",
+        "label": "get-xxx",
         "disabled": false,
         "info": ""
     },
@@ -10,7 +10,7 @@
         "id": "a308f042.ba17e",
         "type": "debug",
         "z": "f0ca7ab6.b09058",
-        "name": "received",
+        "name": "device",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -19,7 +19,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 510,
         "y": 40,
         "wires": []
     },
@@ -45,10 +45,9 @@
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "x": 130,
-        "y": 40,
+        "y": 80,
         "wires": [
             [
-                "cf20838b.e2a89",
                 "cf961bd6.504938"
             ]
         ]
@@ -58,14 +57,14 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "name": "device",
-        "label": "Device ID:",
-        "format": "{{device.deviceId}}",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "name": "serial-number",
+        "label": "Serial number:",
+        "format": "{{device.serialNumber}}",
         "layout": "row-spread",
-        "x": 730,
+        "x": 760,
         "y": 80,
         "wires": []
     },
@@ -74,9 +73,9 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 2,
-        "width": 0,
-        "height": 0,
+        "order": 3,
+        "width": 6,
+        "height": 1,
         "name": "address",
         "label": "Address:",
         "format": "{{device.address}}",
@@ -90,9 +89,9 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 3,
-        "width": 0,
-        "height": 0,
+        "order": 4,
+        "width": 6,
+        "height": 1,
         "name": "subnet",
         "label": "Subnet mask:",
         "format": "{{device.subnet}}",
@@ -106,9 +105,9 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 4,
-        "width": 0,
-        "height": 0,
+        "order": 5,
+        "width": 6,
+        "height": 1,
         "name": "gateway",
         "label": "Gateway:",
         "format": "{{device.gateway}}",
@@ -122,9 +121,9 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 5,
-        "width": 0,
-        "height": 0,
+        "order": 6,
+        "width": 6,
+        "height": 1,
         "name": "MAC",
         "label": "MAC address:",
         "format": "{{device.MAC}}",
@@ -138,9 +137,9 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 6,
-        "width": 0,
-        "height": 0,
+        "order": 7,
+        "width": 6,
+        "height": 1,
         "name": "version",
         "label": "Version:",
         "format": "{{device.version}}",
@@ -154,32 +153,15 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 7,
-        "width": 0,
-        "height": 0,
+        "order": 8,
+        "width": 6,
+        "height": 1,
         "name": "date",
-        "label": "Date:",
+        "label": "System date:",
         "format": "{{device.date}}",
         "layout": "row-spread",
         "x": 730,
         "y": 320,
-        "wires": []
-    },
-    {
-        "id": "cf20838b.e2a89",
-        "type": "debug",
-        "z": "f0ca7ab6.b09058",
-        "name": "start",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 310,
-        "y": 40,
         "wires": []
     },
     {
@@ -201,26 +183,26 @@
         "id": "32d4df8c.50c3e",
         "type": "ui_button",
         "z": "f0ca7ab6.b09058",
-        "name": "",
-        "group": "a363178d.ee7038",
+        "name": "refresh",
+        "group": "c03a3b24.d45c48",
         "order": 1,
-        "width": 4,
-        "height": 1,
+        "width": "6",
+        "height": "2",
         "passthru": false,
-        "label": "refresh",
+        "label": "405419896",
         "tooltip": "",
         "color": "",
-        "bgcolor": "",
-        "icon": "",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-refresh",
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "topic": "",
         "x": 130,
-        "y": 80,
+        "y": 40,
         "wires": [
             [
                 "cf961bd6.504938",
-                "cf20838b.e2a89"
+                "9c68ca5e.8a8ca8"
             ]
         ]
     },
@@ -229,7 +211,7 @@
         "type": "function",
         "z": "f0ca7ab6.b09058",
         "name": "",
-        "func": "return msg.payload;\n",
+        "func": "deviceId = msg.payload.deviceId\ndevice = msg.payload.device;\n    \nif (deviceId == 405419896) {\n    return { device: msg.payload.device }\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -249,14 +231,91 @@
         ]
     },
     {
+        "id": "9c68ca5e.8a8ca8",
+        "type": "get-time",
+        "z": "f0ca7ab6.b09058",
+        "name": "get-time",
+        "uhppote": "d596ac54.cced",
+        "x": 320,
+        "y": 360,
+        "wires": [
+            [
+                "863fa500.867e88",
+                "3912848d.1eb2cc"
+            ]
+        ]
+    },
+    {
+        "id": "863fa500.867e88",
+        "type": "debug",
+        "z": "f0ca7ab6.b09058",
+        "name": "date/time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "4a110e49.51384",
+        "type": "inject",
+        "z": "f0ca7ab6.b09058",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "9c68ca5e.8a8ca8"
+            ]
+        ]
+    },
+    {
+        "id": "3912848d.1eb2cc",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "datetime",
+        "label": "get-time",
+        "format": "{{msg.payload.datetime}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 360,
+        "wires": []
+    },
+    {
         "id": "c03a3b24.d45c48",
         "type": "ui_group",
         "z": "",
         "name": "405419896",
         "tab": "2731970.74c476a",
         "order": 2,
-        "disp": true,
-        "width": 6,
+        "disp": false,
+        "width": "6",
         "collapse": false
     },
     {
@@ -269,17 +328,6 @@
         "broadcast": "192.168.1.255",
         "listen": "192.168.1.100:60001",
         "debug": true
-    },
-    {
-        "id": "a363178d.ee7038",
-        "type": "ui_group",
-        "z": "",
-        "name": "controls",
-        "tab": "2731970.74c476a",
-        "order": 2,
-        "disp": false,
-        "width": 4,
-        "collapse": false
     },
     {
         "id": "2731970.74c476a",

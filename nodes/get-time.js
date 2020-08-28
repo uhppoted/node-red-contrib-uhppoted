@@ -2,7 +2,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const codec = require('./codec.js')
 
-  function GetDeviceNode (config) {
+  function GetTimeNode (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -29,21 +29,21 @@ module.exports = function (RED) {
         if (reply) {
           const response = codec.decode(reply)
 
-          if (response && (response.deviceId === deviceId) && response.device) {
+          if (response && (response.deviceId === deviceId) && response.datetime) {
             return response
           }
         }
 
-        throw new Error(`no reply to get-device request for device ID ${deviceId}`)
+        throw new Error(`no reply to get-time request for device ID ${deviceId}`)
       }
 
-      const emit = function (device) {
-        msg.payload = device
+      const emit = function (object) {
+        msg.payload = object
         send(msg)
       }
 
       try {
-        const request = codec.encode(0x94, deviceId)
+        const request = codec.encode(0x32, deviceId)
 
         uhppoted.execute(bind, dest, request, timeout, debug)
           .then(reply => { return decode(this.deviceid, reply) })
@@ -63,5 +63,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('get-device', GetDeviceNode)
+  RED.nodes.registerType('get-time', GetTimeNode)
 }

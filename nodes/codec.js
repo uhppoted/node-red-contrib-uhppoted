@@ -7,6 +7,11 @@ module.exports = {
     request.writeUInt8(0x17, 0)
 
     switch (code) {
+      case 0x32:
+        request.writeUInt8(0x32, 1)
+        request.writeUInt32LE(deviceId, 4)
+        break
+
       case 0x94:
         request.writeUInt8(0x94, 1)
         if (deviceId !== null) {
@@ -41,8 +46,17 @@ module.exports = {
       case 0x20:
         return { event: event(bytes) }
 
+      case 0x32:
+        return {
+          deviceId: uint32(bytes, 4),
+          datetime: yyyymmddHHmmss(bytes, 8)
+        }
+
       case 0x94:
-        return { device: device(bytes) }
+        return {
+          deviceId: uint32(bytes, 4),
+          device: device(bytes)
+        }
 
       default:
         return null
@@ -92,7 +106,7 @@ function event (bytes) {
 // function code: 0x94
 function device (bytes) {
   return {
-    deviceId: uint32(bytes, 4),
+    serialNumber: uint32(bytes, 4),
     address: address(bytes, 8),
     subnet: address(bytes, 12),
     gateway: address(bytes, 16),
