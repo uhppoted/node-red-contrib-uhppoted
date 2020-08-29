@@ -110,8 +110,8 @@
         "label": "IPv4",
         "group": "828448f4.2dc598",
         "order": 1,
-        "width": "0",
-        "height": "0",
+        "width": 8,
+        "height": 5,
         "options": [
             {
                 "label": "address",
@@ -141,7 +141,7 @@
             "gateway": ""
         },
         "payload": "",
-        "submit": "set",
+        "submit": "set address",
         "cancel": "cancel",
         "topic": "",
         "x": 290,
@@ -189,6 +189,84 @@
         "icon": "node-red/db.svg"
     },
     {
+        "id": "d979664f.2fc508",
+        "type": "inject",
+        "z": "8bcf2d43.2e243",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "aa696fcd.18016"
+            ]
+        ]
+    },
+    {
+        "id": "aa696fcd.18016",
+        "type": "function",
+        "z": "8bcf2d43.2e243",
+        "name": "datetime",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\nconst deviceId = 405419896\nconst datetime = new Date(msg.payload)\n\nconst year = format(datetime.getFullYear(), 4)\nconst month = format(datetime.getMonth() + 1, 2)\nconst day = format(datetime.getDate() + 1, 2)\nconst hours = format(datetime.getHours(), 2)\nconst minutes = format(datetime.getMinutes(), 2)\nconst seconds = format(datetime.getSeconds(), 2)\nconst date = year + '-' + month + '-' + day\nconst time = hours + ':' + minutes + ':' + seconds\n\nmsg.payload = {\n    deviceId: deviceId,\n    datetime: date + ' ' + time\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 480,
+        "y": 180,
+        "wires": [
+            [
+                "a89af1fe.70029"
+            ]
+        ]
+    },
+    {
+        "id": "53ee8284.a9ac0c",
+        "type": "debug",
+        "z": "8bcf2d43.2e243",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 820,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "a89af1fe.70029",
+        "type": "set-time",
+        "z": "8bcf2d43.2e243",
+        "name": "set-time",
+        "uhppote": "d596ac54.cced",
+        "x": 640,
+        "y": 180,
+        "wires": [
+            [
+                "53ee8284.a9ac0c"
+            ]
+        ]
+    },
+    {
         "id": "d596ac54.cced",
         "type": "uhppote",
         "z": "",
@@ -207,7 +285,7 @@
         "tab": "e4b36c96.1a567",
         "order": 1,
         "disp": true,
-        "width": "8",
+        "width": 8,
         "collapse": false
     },
     {
