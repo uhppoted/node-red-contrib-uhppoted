@@ -12,6 +12,7 @@ describe('codec', function () {
       expect(bytes).to.have.lengthOf(64)
       expect(bytes[0]).to.equal(0x17)
       expect(bytes[1]).to.equal(0x94)
+
       expect(bytes[4]).to.equal(0x00)
       expect(bytes[5]).to.equal(0x00)
       expect(bytes[6]).to.equal(0x00)
@@ -24,6 +25,7 @@ describe('codec', function () {
       expect(bytes).to.have.lengthOf(64)
       expect(bytes[0]).to.equal(0x17)
       expect(bytes[1]).to.equal(0x94)
+
       expect(bytes[4]).to.equal(0x78)
       expect(bytes[5]).to.equal(0x37)
       expect(bytes[6]).to.equal(0x2a)
@@ -40,6 +42,7 @@ describe('codec', function () {
       expect(bytes).to.have.lengthOf(64)
       expect(bytes[0]).to.equal(0x17)
       expect(bytes[1]).to.equal(0x96)
+
       expect(bytes[4]).to.equal(0x78)
       expect(bytes[5]).to.equal(0x37)
       expect(bytes[6]).to.equal(0x2a)
@@ -72,10 +75,33 @@ describe('codec', function () {
       expect(bytes).to.have.lengthOf(64)
       expect(bytes[0]).to.equal(0x17)
       expect(bytes[1]).to.equal(0x32)
+
       expect(bytes[4]).to.equal(0x78)
       expect(bytes[5]).to.equal(0x37)
       expect(bytes[6]).to.equal(0x2a)
       expect(bytes[7]).to.equal(0x18)
+    })
+
+    it('should encode set-time request', function () {
+      const bytes = codec.encode(0x30, 405419896, { datetime: '2021-08-29 13:45:51' })
+
+      expect(bytes).to.have.lengthOf(64)
+      expect(bytes[0]).to.equal(0x17)
+      expect(bytes[1]).to.equal(0x30)
+
+      expect(bytes[4]).to.equal(0x78)
+      expect(bytes[5]).to.equal(0x37)
+      expect(bytes[6]).to.equal(0x2a)
+      expect(bytes[7]).to.equal(0x18)
+
+      expect(bytes[8]).to.equal(0x20)
+      expect(bytes[9]).to.equal(0x21)
+      expect(bytes[10]).to.equal(0x08)
+      expect(bytes[11]).to.equal(0x29)
+
+      expect(bytes[12]).to.equal(0x13)
+      expect(bytes[13]).to.equal(0x45)
+      expect(bytes[14]).to.equal(0x51)
     })
   })
 
@@ -117,6 +143,23 @@ describe('codec', function () {
       expect(object).to.have.property('datetime')
       expect(object.deviceId).to.equal(405419896)
       expect(object.datetime).to.equal('2020-08-28 14:23:56')
+    })
+
+    it('should decode set-time response', function () {
+      const msg = Buffer.from([
+        0x17, 0x30, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x20, 0x21, 0x08, 0x28, 0x14, 0x23, 0x56, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
+      const object = codec.decode(new Uint8Array(msg))
+
+      expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
+      expect(object).to.have.property('deviceId')
+      expect(object).to.have.property('datetime')
+      expect(object.deviceId).to.equal(405419896)
+      expect(object.datetime).to.equal('2021-08-28 14:23:56')
     })
 
     it('should decode event message', function () {

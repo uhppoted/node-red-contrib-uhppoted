@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('get-time', {
+    RED.nodes.registerType('set-time', {
         category: 'uhppoted',
         color: '#A6BBCF',
         defaults: {
@@ -15,12 +15,12 @@
         outputs: 1,
         icon: "function.svg",
         label: function() {
-            return this.name || "get-time";
+            return this.name || "set-time";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="get-time">
+<script type="text/html" data-template-name="set-time">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -31,13 +31,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="get-time">
-    <p>Retrieves the current device date/time for a single UHPPOTE access controller.</p>
+<script type="text/html" data-help-name="set-time">
+    <p>Sets the current device date/time for a single UHPPOTE access controller.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the device ID for 'get-time'</dd>
+        <dd>JSON object with the device ID and date-time</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -52,15 +52,18 @@
 
     <h3>Details</h3>
     <p>The input <code>msg.payload</code> is a JSON object containing the serial number
-    for the controller for which the current date/time should be retrieved</p>
+    for the controller and the date/time to set</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
+        <dt>datetime<span class="property-type">string</span></dt>
+        <dd>date/time in YYYY-mm-dd HH:mm:ss format</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
-    "deviceId": 405419896
+    "deviceId": 405419896,
+    "datetime": "2020-08-29 13:43:27"
   }</pre>
 
     <p>The output <code>msg.payload</code> is a JSON object containing the current

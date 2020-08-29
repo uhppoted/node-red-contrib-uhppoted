@@ -1,5 +1,4 @@
 module.exports = {
-
   broadcast: async function (bind, dest, request, timeout, debug) {
     const dgram = require('dgram')
     const opts = { type: 'udp4', reuseAddr: true }

@@ -27,6 +27,7 @@
       "get-device": "nodes/get-device.js",
       "set-address": "nodes/set-address.js",
       "get-time": "nodes/get-time.js",
+      "set-time": "nodes/set-time.js",
       "listen": "nodes/listen.js"
     },
     "engines": {

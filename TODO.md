@@ -3,6 +3,7 @@
 ## IN PROGRESS
 
 - [ ] set-time
+      - UI
 - [ ] commonalise config parsing
 - [ ] don't do broadcast for non-broadcast destinations
 - [ ] fallback to broadcast address if destination is not defined

@@ -7,6 +7,12 @@ module.exports = {
     request.writeUInt8(0x17, 0)
 
     switch (code) {
+      case 0x30:
+        request.writeUInt8(0x30, 1)
+        request.writeUInt32LE(deviceId, 4)
+        date2bin(object.datetime).copy(request, 8)
+        break
+
       case 0x32:
         request.writeUInt8(0x32, 1)
         request.writeUInt32LE(deviceId, 4)
@@ -45,6 +51,12 @@ module.exports = {
     switch (buffer[1]) {
       case 0x20:
         return { event: event(bytes) }
+
+      case 0x30:
+        return {
+          deviceId: uint32(bytes, 4),
+          datetime: yyyymmddHHmmss(bytes, 8)
+        }
 
       case 0x32:
         return {
@@ -158,9 +170,9 @@ function mac (bytes, offset) {
 }
 
 function yyyymmddHHmmss (bytes, offset) {
-  const timestamp = bcd(bytes, offset, 7)
-  const date = timestamp.substr(0, 4) + '-' + timestamp.substr(4, 2) + '-' + timestamp.substr(6, 2)
-  const time = timestamp.substr(8, 2) + ':' + timestamp.substr(10, 2) + ':' + timestamp.substr(12, 2)
+  const datetime = bcd(bytes, offset, 7)
+  const date = datetime.substr(0, 4) + '-' + datetime.substr(4, 2) + '-' + datetime.substr(6, 2)
+  const time = datetime.substr(8, 2) + ':' + datetime.substr(10, 2) + ':' + datetime.substr(12, 2)
 
   return date + ' ' + time
 }
@@ -181,4 +193,18 @@ function HHmmss (bytes, offset) {
   const time = bcd(bytes, offset, 3)
 
   return time.substr(0, 2) + ':' + time.substr(2, 2) + ':' + time.substr(4, 2)
+}
+
+function date2bin (datetime) {
+  const bytes = []
+  const re = /([0-9]{2})([0-9]{2})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2})/
+  const match = datetime.match(re)
+
+  for (const m of match.slice(1)) {
+    const b = parseInt(m, 10)
+    const byte = ((b / 10) << 4) | (b % 10)
+    bytes.push(byte)
+  }
+
+  return Buffer.from(bytes)
 }
