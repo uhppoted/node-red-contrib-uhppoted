@@ -2,13 +2,12 @@
 
 ## IN PROGRESS
 
-- [ ] set-time
-      - UI
-- [ ] commonalise config parsing
+- [ ] commonalise get/set code
 - [ ] don't do broadcast for non-broadcast destinations
 - [ ] fallback to broadcast address if destination is not defined
 - [ ] internationalisation
 - [ ] document uhppoted functions
+- [ ] document examples
 - [ ] unit tests
       - broadcast
       - execute
@@ -17,6 +16,7 @@
       - get-devices
       - get-device
       - set-address
+      - get/set-time
       - codec invalid function code
       - codec invalid device ID
       - codec invalid address
@@ -27,6 +27,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] set-time
 - [x] make configuration destinatation address:port
 - [x] get-time
 - [x] include rinfo in `debug`
