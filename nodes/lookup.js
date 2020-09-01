@@ -199,12 +199,12 @@ module.exports = {
     const byte = bytes.getUint8(offset, true)
 
     const relays = {
-      code: byte,
-      locked: {
-        1: byte & 0x01 === 0,
-        2: byte & 0x02 === 0,
-        3: byte & 0x03 === 0,
-        4: byte & 0x08 === 0
+      state: byte,
+      relays: {
+        1: (byte & 0x01) === 1,
+        2: (byte & 0x02) === 1,
+        3: (byte & 0x03) === 1,
+        4: (byte & 0x08) === 1
       }
     }
 
@@ -213,21 +213,11 @@ module.exports = {
 
   inputs: function (bytes, offset) {
     const byte = bytes.getUint8(offset, true)
-    let forceLock = false
-    let fireAlarm = false
-
-    if ((byte & 0x01) === 0x01) {
-      forceLock = true
-    }
-
-    if ((byte & 0x02) === 0x02) {
-      fireAlarm = true
-    }
 
     const inputs = {
-      code: byte,
-      forceLock: forceLock,
-      fireAlarm: fireAlarm
+      state: byte,
+      forceLock: (byte & 0x01) === 0x01,
+      fireAlarm: (byte & 0x02) === 0x02
     }
 
     return inputs

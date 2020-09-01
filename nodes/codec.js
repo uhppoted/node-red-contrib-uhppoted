@@ -7,6 +7,11 @@ module.exports = {
     request.writeUInt8(0x17, 0)
 
     switch (code) {
+      case 0x20:
+        request.writeUInt8(0x20, 1)
+        request.writeUInt32LE(deviceId, 4)
+        break
+
       case 0x30:
         request.writeUInt8(0x30, 1)
         request.writeUInt32LE(deviceId, 4)
@@ -50,7 +55,10 @@ module.exports = {
 
     switch (buffer[1]) {
       case 0x20:
-        return { event: event(bytes) }
+        return {
+          deviceId: uint32(bytes, 4),
+          state: state(bytes)
+        }
 
       case 0x30:
         return {
@@ -77,11 +85,11 @@ module.exports = {
 }
 
 // function code: 0x20
-function event (bytes) {
+function state (bytes) {
   const lookup = require('./lookup.js')
 
   return {
-    deviceId: uint32(bytes, 4),
+    serialNumber: uint32(bytes, 4),
     event: {
       index: uint32(bytes, 8),
       type: lookup.eventType(bytes, 12),

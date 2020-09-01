@@ -1,0 +1,133 @@
+[
+    {
+        "id": "f7a455cc.3fefe8",
+        "type": "tab",
+        "label": "get-time",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6a3d799.3fe3688",
+        "type": "get-time",
+        "z": "f7a455cc.3fefe8",
+        "name": "get-time",
+        "uhppote": "d596ac54.cced",
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "2c2ab991.619516",
+                "7bf9bf1f.c2c11"
+            ]
+        ]
+    },
+    {
+        "id": "2c2ab991.619516",
+        "type": "debug",
+        "z": "f7a455cc.3fefe8",
+        "name": "date/time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "d84c21e5.b2692",
+        "type": "inject",
+        "z": "f7a455cc.3fefe8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "6a3d799.3fe3688"
+            ]
+        ]
+    },
+    {
+        "id": "7bf9bf1f.c2c11",
+        "type": "ui_text",
+        "z": "f7a455cc.3fefe8",
+        "group": "c3165a65.60bed8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "datetime",
+        "label": "Date/time",
+        "format": "{{msg.payload.datetime}}",
+        "layout": "row-spread",
+        "x": 720,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a7169ed8.d4f29",
+        "type": "link in",
+        "z": "f7a455cc.3fefe8",
+        "name": "refresh",
+        "links": [
+            "fbd6b7a7.cd1af8"
+        ],
+        "x": 135,
+        "y": 40,
+        "wires": [
+            [
+                "6a3d799.3fe3688"
+            ]
+        ]
+    },
+    {
+        "id": "d596ac54.cced",
+        "type": "uhppote",
+        "z": "",
+        "name": "development",
+        "timeout": "4999",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "debug": true
+    },
+    {
+        "id": "c3165a65.60bed8",
+        "type": "ui_group",
+        "z": "",
+        "name": "get-time",
+        "tab": "2731970.74c476a",
+        "order": 4,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "2731970.74c476a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "devices",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

@@ -2,7 +2,7 @@
     {
         "id": "f0ca7ab6.b09058",
         "type": "tab",
-        "label": "get-xxx",
+        "label": "get-device",
         "disabled": false,
         "info": ""
     },
@@ -57,7 +57,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 2,
+        "order": 1,
         "width": 6,
         "height": 1,
         "name": "serial-number",
@@ -73,7 +73,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 3,
+        "order": 2,
         "width": 6,
         "height": 1,
         "name": "address",
@@ -89,7 +89,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 4,
+        "order": 3,
         "width": 6,
         "height": 1,
         "name": "subnet",
@@ -105,7 +105,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 5,
+        "order": 4,
         "width": 6,
         "height": 1,
         "name": "gateway",
@@ -121,7 +121,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 6,
+        "order": 5,
         "width": 6,
         "height": 1,
         "name": "MAC",
@@ -137,7 +137,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 7,
+        "order": 6,
         "width": 6,
         "height": 1,
         "name": "version",
@@ -153,7 +153,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 8,
+        "order": 7,
         "width": 6,
         "height": 1,
         "name": "date",
@@ -184,10 +184,10 @@
         "type": "ui_button",
         "z": "f0ca7ab6.b09058",
         "name": "refresh",
-        "group": "c03a3b24.d45c48",
+        "group": "92a2709b.0ef46",
         "order": 1,
-        "width": "6",
-        "height": "2",
+        "width": 6,
+        "height": 2,
         "passthru": false,
         "label": "405419896",
         "tooltip": "",
@@ -202,7 +202,7 @@
         "wires": [
             [
                 "cf961bd6.504938",
-                "9c68ca5e.8a8ca8"
+                "fbd6b7a7.cd1af8"
             ]
         ]
     },
@@ -231,90 +231,26 @@
         ]
     },
     {
-        "id": "9c68ca5e.8a8ca8",
-        "type": "get-time",
+        "id": "fbd6b7a7.cd1af8",
+        "type": "link out",
         "z": "f0ca7ab6.b09058",
-        "name": "get-time",
-        "uhppote": "d596ac54.cced",
-        "x": 320,
-        "y": 360,
-        "wires": [
-            [
-                "863fa500.867e88",
-                "3912848d.1eb2cc"
-            ]
-        ]
-    },
-    {
-        "id": "863fa500.867e88",
-        "type": "debug",
-        "z": "f0ca7ab6.b09058",
-        "name": "date/time",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "4a110e49.51384",
-        "type": "inject",
-        "z": "f0ca7ab6.b09058",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
+        "name": "refresh",
+        "links": [
+            "fd3d980e.eef9a8",
+            "a7169ed8.d4f29"
         ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{ \"deviceId\": 405419896 }",
-        "payloadType": "json",
-        "x": 130,
-        "y": 360,
-        "wires": [
-            [
-                "9c68ca5e.8a8ca8"
-            ]
-        ]
-    },
-    {
-        "id": "3912848d.1eb2cc",
-        "type": "ui_text",
-        "z": "f0ca7ab6.b09058",
-        "group": "c03a3b24.d45c48",
-        "order": 9,
-        "width": 0,
-        "height": 0,
-        "name": "datetime",
-        "label": "get-time",
-        "format": "{{msg.payload.datetime}}",
-        "layout": "row-spread",
-        "x": 740,
-        "y": 360,
+        "x": 275,
+        "y": 40,
         "wires": []
     },
     {
         "id": "c03a3b24.d45c48",
         "type": "ui_group",
         "z": "",
-        "name": "405419896",
+        "name": "get-device",
         "tab": "2731970.74c476a",
         "order": 2,
-        "disp": false,
+        "disp": true,
         "width": "6",
         "collapse": false
     },
@@ -328,6 +264,17 @@
         "broadcast": "192.168.1.255:60000",
         "listen": "192.168.1.100:60001",
         "debug": true
+    },
+    {
+        "id": "92a2709b.0ef46",
+        "type": "ui_group",
+        "z": "",
+        "name": "controls",
+        "tab": "2731970.74c476a",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
     },
     {
         "id": "2731970.74c476a",

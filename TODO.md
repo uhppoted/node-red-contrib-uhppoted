@@ -27,6 +27,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] get-status
 - [x] set-time
 - [x] make configuration destinatation address:port
 - [x] get-time
