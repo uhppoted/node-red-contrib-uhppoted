@@ -17,7 +17,6 @@
       - get-device
       - set-address
       - get/set-time
-      - codec invalid function code
       - codec invalid device ID
       - codec invalid address
 
