@@ -2,7 +2,7 @@
 
 ## IN PROGRESS
 
-- [ ] commonalise get/set code
+- [ ] commonalise set code
 - [ ] don't do broadcast for non-broadcast destinations
 - [ ] fallback to broadcast address if destination is not defined
 - [ ] internationalisation
@@ -26,6 +26,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] commonalise get code
 - [x] get-status
 - [x] set-time
 - [x] make configuration destinatation address:port
