@@ -19,7 +19,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 510,
+        "x": 490,
         "y": 40,
         "wires": []
     },
@@ -45,7 +45,7 @@
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "x": 130,
-        "y": 80,
+        "y": 40,
         "wires": [
             [
                 "cf961bd6.504938"
@@ -64,7 +64,7 @@
         "label": "Serial number:",
         "format": "{{device.serialNumber}}",
         "layout": "row-spread",
-        "x": 760,
+        "x": 740,
         "y": 80,
         "wires": []
     },
@@ -80,7 +80,7 @@
         "label": "Address:",
         "format": "{{device.address}}",
         "layout": "row-spread",
-        "x": 740,
+        "x": 720,
         "y": 120,
         "wires": []
     },
@@ -96,7 +96,7 @@
         "label": "Subnet mask:",
         "format": "{{device.subnet}}",
         "layout": "row-spread",
-        "x": 730,
+        "x": 710,
         "y": 160,
         "wires": []
     },
@@ -112,7 +112,7 @@
         "label": "Gateway:",
         "format": "{{device.gateway}}",
         "layout": "row-spread",
-        "x": 740,
+        "x": 720,
         "y": 200,
         "wires": []
     },
@@ -128,7 +128,7 @@
         "label": "MAC address:",
         "format": "{{device.MAC}}",
         "layout": "row-spread",
-        "x": 730,
+        "x": 710,
         "y": 240,
         "wires": []
     },
@@ -144,7 +144,7 @@
         "label": "Version:",
         "format": "{{device.version}}",
         "layout": "row-spread",
-        "x": 740,
+        "x": 720,
         "y": 280,
         "wires": []
     },
@@ -160,7 +160,7 @@
         "label": "System date:",
         "format": "{{device.date}}",
         "layout": "row-spread",
-        "x": 730,
+        "x": 710,
         "y": 320,
         "wires": []
     },
@@ -170,7 +170,7 @@
         "z": "f0ca7ab6.b09058",
         "name": "get-device",
         "uhppote": "d596ac54.cced",
-        "x": 330,
+        "x": 310,
         "y": 80,
         "wires": [
             [
@@ -180,43 +180,16 @@
         ]
     },
     {
-        "id": "32d4df8c.50c3e",
-        "type": "ui_button",
-        "z": "f0ca7ab6.b09058",
-        "name": "refresh",
-        "group": "92a2709b.0ef46",
-        "order": 1,
-        "width": 6,
-        "height": 2,
-        "passthru": false,
-        "label": "405419896",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "#A6BBCF",
-        "icon": "fa-refresh",
-        "payload": "{ \"deviceId\": 405419896 }",
-        "payloadType": "json",
-        "topic": "",
-        "x": 130,
-        "y": 40,
-        "wires": [
-            [
-                "cf961bd6.504938",
-                "fbd6b7a7.cd1af8"
-            ]
-        ]
-    },
-    {
         "id": "6114aece.3cdf7",
         "type": "function",
         "z": "f0ca7ab6.b09058",
         "name": "",
-        "func": "deviceId = msg.payload.deviceId\ndevice = msg.payload.device;\n    \nif (deviceId == 405419896) {\n    return { device: msg.payload.device }\n}\n",
+        "func": "return { device: msg.payload.device }\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 520,
+        "x": 500,
         "y": 80,
         "wires": [
             [
@@ -231,17 +204,21 @@
         ]
     },
     {
-        "id": "fbd6b7a7.cd1af8",
-        "type": "link out",
+        "id": "eabdc94d.323a48",
+        "type": "link in",
         "z": "f0ca7ab6.b09058",
-        "name": "refresh",
+        "name": "",
         "links": [
-            "fd3d980e.eef9a8",
-            "a7169ed8.d4f29"
+            "fbd6b7a7.cd1af8",
+            "46cebfa2.e38c6"
         ],
-        "x": 275,
-        "y": 40,
-        "wires": []
+        "x": 155,
+        "y": 80,
+        "wires": [
+            [
+                "cf961bd6.504938"
+            ]
+        ]
     },
     {
         "id": "c03a3b24.d45c48",
@@ -264,17 +241,6 @@
         "broadcast": "192.168.1.255:60000",
         "listen": "192.168.1.100:60001",
         "debug": true
-    },
-    {
-        "id": "92a2709b.0ef46",
-        "type": "ui_group",
-        "z": "",
-        "name": "controls",
-        "tab": "2731970.74c476a",
-        "order": 3,
-        "disp": false,
-        "width": "6",
-        "collapse": false
     },
     {
         "id": "2731970.74c476a",

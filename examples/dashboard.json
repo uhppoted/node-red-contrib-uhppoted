@@ -42,6 +42,13 @@
         "info": ""
     },
     {
+        "id": "33c9a78a.cc8c18",
+        "type": "tab",
+        "label": "dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "94dcacf5.b4e19",
         "type": "ui_group",
         "z": "",
@@ -728,7 +735,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 510,
+        "x": 490,
         "y": 40,
         "wires": []
     },
@@ -754,7 +761,7 @@
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "x": 130,
-        "y": 80,
+        "y": 40,
         "wires": [
             [
                 "cf961bd6.504938"
@@ -773,7 +780,7 @@
         "label": "Serial number:",
         "format": "{{device.serialNumber}}",
         "layout": "row-spread",
-        "x": 760,
+        "x": 740,
         "y": 80,
         "wires": []
     },
@@ -789,7 +796,7 @@
         "label": "Address:",
         "format": "{{device.address}}",
         "layout": "row-spread",
-        "x": 740,
+        "x": 720,
         "y": 120,
         "wires": []
     },
@@ -805,7 +812,7 @@
         "label": "Subnet mask:",
         "format": "{{device.subnet}}",
         "layout": "row-spread",
-        "x": 730,
+        "x": 710,
         "y": 160,
         "wires": []
     },
@@ -821,7 +828,7 @@
         "label": "Gateway:",
         "format": "{{device.gateway}}",
         "layout": "row-spread",
-        "x": 740,
+        "x": 720,
         "y": 200,
         "wires": []
     },
@@ -837,7 +844,7 @@
         "label": "MAC address:",
         "format": "{{device.MAC}}",
         "layout": "row-spread",
-        "x": 730,
+        "x": 710,
         "y": 240,
         "wires": []
     },
@@ -853,7 +860,7 @@
         "label": "Version:",
         "format": "{{device.version}}",
         "layout": "row-spread",
-        "x": 740,
+        "x": 720,
         "y": 280,
         "wires": []
     },
@@ -869,7 +876,7 @@
         "label": "System date:",
         "format": "{{device.date}}",
         "layout": "row-spread",
-        "x": 730,
+        "x": 710,
         "y": 320,
         "wires": []
     },
@@ -879,7 +886,7 @@
         "z": "f0ca7ab6.b09058",
         "name": "get-device",
         "uhppote": "d596ac54.cced",
-        "x": 330,
+        "x": 310,
         "y": 80,
         "wires": [
             [
@@ -889,43 +896,16 @@
         ]
     },
     {
-        "id": "32d4df8c.50c3e",
-        "type": "ui_button",
-        "z": "f0ca7ab6.b09058",
-        "name": "refresh",
-        "group": "92a2709b.0ef46",
-        "order": 1,
-        "width": 6,
-        "height": 2,
-        "passthru": false,
-        "label": "405419896",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "#A6BBCF",
-        "icon": "fa-refresh",
-        "payload": "{ \"deviceId\": 405419896 }",
-        "payloadType": "json",
-        "topic": "",
-        "x": 130,
-        "y": 40,
-        "wires": [
-            [
-                "cf961bd6.504938",
-                "fbd6b7a7.cd1af8"
-            ]
-        ]
-    },
-    {
         "id": "6114aece.3cdf7",
         "type": "function",
         "z": "f0ca7ab6.b09058",
         "name": "",
-        "func": "deviceId = msg.payload.deviceId\ndevice = msg.payload.device;\n    \nif (deviceId == 405419896) {\n    return { device: msg.payload.device }\n}\n",
+        "func": "return { device: msg.payload.device }\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 520,
+        "x": 500,
         "y": 80,
         "wires": [
             [
@@ -1562,7 +1542,7 @@
         "type": "function",
         "z": "b2b669ed.2b50b8",
         "name": "",
-        "func": "deviceId = msg.payload.deviceId\ndevice = msg.payload.device;\n    \nif (deviceId == 405419896) {\n    return { state: msg.payload.state }\n}\n",
+        "func": "return { state: msg.payload.state }\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1633,25 +1613,13 @@
         "wires": []
     },
     {
-        "id": "fbd6b7a7.cd1af8",
-        "type": "link out",
-        "z": "f0ca7ab6.b09058",
-        "name": "refresh",
-        "links": [
-            "fd3d980e.eef9a8",
-            "a7169ed8.d4f29"
-        ],
-        "x": 275,
-        "y": 40,
-        "wires": []
-    },
-    {
         "id": "fd3d980e.eef9a8",
         "type": "link in",
         "z": "b2b669ed.2b50b8",
         "name": "refresh",
         "links": [
-            "fbd6b7a7.cd1af8"
+            "fbd6b7a7.cd1af8",
+            "46cebfa2.e38c6"
         ],
         "x": 155,
         "y": 40,
@@ -2128,13 +2096,97 @@
         "z": "f7a455cc.3fefe8",
         "name": "refresh",
         "links": [
-            "fbd6b7a7.cd1af8"
+            "fbd6b7a7.cd1af8",
+            "46cebfa2.e38c6"
         ],
         "x": 135,
         "y": 40,
         "wires": [
             [
                 "6a3d799.3fe3688"
+            ]
+        ]
+    },
+    {
+        "id": "eabdc94d.323a48",
+        "type": "link in",
+        "z": "f0ca7ab6.b09058",
+        "name": "",
+        "links": [
+            "fbd6b7a7.cd1af8",
+            "46cebfa2.e38c6"
+        ],
+        "x": 155,
+        "y": 80,
+        "wires": [
+            [
+                "cf961bd6.504938"
+            ]
+        ]
+    },
+    {
+        "id": "801f7f25.d85eb",
+        "type": "ui_button",
+        "z": "33c9a78a.cc8c18",
+        "name": "405419896",
+        "group": "92a2709b.0ef46",
+        "order": 1,
+        "width": 6,
+        "height": 2,
+        "passthru": false,
+        "label": "405419896",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-refresh",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "topic": "",
+        "x": 90,
+        "y": 40,
+        "wires": [
+            [
+                "46cebfa2.e38c6"
+            ]
+        ]
+    },
+    {
+        "id": "46cebfa2.e38c6",
+        "type": "link out",
+        "z": "33c9a78a.cc8c18",
+        "name": "refresh",
+        "links": [
+            "fd3d980e.eef9a8",
+            "a7169ed8.d4f29",
+            "eabdc94d.323a48"
+        ],
+        "x": 255,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "45f39906.fe8258",
+        "type": "ui_button",
+        "z": "33c9a78a.cc8c18",
+        "name": "303986753",
+        "group": "92a2709b.0ef46",
+        "order": 1,
+        "width": 6,
+        "height": 2,
+        "passthru": false,
+        "label": "303986753",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-refresh",
+        "payload": "{ \"deviceId\": 303986753 }",
+        "payloadType": "json",
+        "topic": "",
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "46cebfa2.e38c6"
             ]
         ]
     }
