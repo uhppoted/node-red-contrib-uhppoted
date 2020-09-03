@@ -26,6 +26,7 @@
       "get-devices": "nodes/get-devices.js",
       "get-device": "nodes/get-device.js",
       "set-address": "nodes/set-address.js",
+      "get-listener": "nodes/get-listener.js",
       "get-status": "nodes/get-status.js",
       "get-time": "nodes/get-time.js",
       "set-time": "nodes/set-time.js",

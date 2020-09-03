@@ -16,7 +16,7 @@
     {
         "id": "8bcf2d43.2e243",
         "type": "tab",
-        "label": "set-xxx",
+        "label": "set-address",
         "disabled": false,
         "info": ""
     },
@@ -37,7 +37,7 @@
     {
         "id": "f7a455cc.3fefe8",
         "type": "tab",
-        "label": "get-time",
+        "label": "get/set-time",
         "disabled": false,
         "info": ""
     },
@@ -45,6 +45,13 @@
         "id": "33c9a78a.cc8c18",
         "type": "tab",
         "label": "dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "60e1eeae.c0995",
+        "type": "tab",
+        "label": "get/set-listener",
         "disabled": false,
         "info": ""
     },
@@ -343,6 +350,26 @@
         "disp": true,
         "width": "6",
         "collapse": false
+    },
+    {
+        "id": "62c7e067.8adce",
+        "type": "ui_group",
+        "z": "",
+        "name": "get-listener",
+        "tab": "2731970.74c476a",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "bfd16e25.f99dc",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "92a2709b.0ef46",
+        "order": 3,
+        "width": 1,
+        "height": 1
     },
     {
         "id": "6a470566.d4725c",
@@ -1176,154 +1203,6 @@
         "icon": "node-red/db.svg"
     },
     {
-        "id": "d979664f.2fc508",
-        "type": "inject",
-        "z": "8bcf2d43.2e243",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "set",
-        "payload": "",
-        "payloadType": "date",
-        "x": 290,
-        "y": 280,
-        "wires": [
-            [
-                "6d1cf10c.ff47",
-                "17d31cd9.bc3053"
-            ]
-        ]
-    },
-    {
-        "id": "53ee8284.a9ac0c",
-        "type": "debug",
-        "z": "8bcf2d43.2e243",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 820,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "a89af1fe.70029",
-        "type": "set-time",
-        "z": "8bcf2d43.2e243",
-        "name": "set-time",
-        "uhppote": "d596ac54.cced",
-        "x": 640,
-        "y": 320,
-        "wires": [
-            [
-                "53ee8284.a9ac0c"
-            ]
-        ]
-    },
-    {
-        "id": "7a6c819b.77775",
-        "type": "ui_button",
-        "z": "8bcf2d43.2e243",
-        "name": "set-time",
-        "group": "828448f4.2dc598",
-        "order": 12,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "label": "set date/time",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "set",
-        "x": 300,
-        "y": 400,
-        "wires": [
-            [
-                "6d1cf10c.ff47"
-            ]
-        ]
-    },
-    {
-        "id": "a101c589.608118",
-        "type": "ui_text_input",
-        "z": "8bcf2d43.2e243",
-        "name": "time",
-        "label": "",
-        "tooltip": "",
-        "group": "828448f4.2dc598",
-        "order": 11,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "mode": "time",
-        "delay": "0",
-        "topic": "set-time",
-        "x": 290,
-        "y": 360,
-        "wires": [
-            [
-                "6d1cf10c.ff47"
-            ]
-        ]
-    },
-    {
-        "id": "428a0105.ac3c6",
-        "type": "ui_date_picker",
-        "z": "8bcf2d43.2e243",
-        "name": "date",
-        "label": "",
-        "group": "828448f4.2dc598",
-        "order": 10,
-        "width": 4,
-        "height": 1,
-        "passthru": true,
-        "topic": "set-date",
-        "x": 290,
-        "y": 320,
-        "wires": [
-            [
-                "6d1cf10c.ff47"
-            ]
-        ]
-    },
-    {
-        "id": "6d1cf10c.ff47",
-        "type": "function",
-        "z": "8bcf2d43.2e243",
-        "name": "datetime",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\nconst deviceId = 405419896\n\nswitch (msg.topic) {\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        return null;\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        return null;\n        \n    case 'set':\n        let date = flow.get('set-time.date')\n        let time = flow.get('set-time.time')\n\n        if (!date) {\n          date = new Date()\n        }\n\n        if (!time) {\n          time = new Date()\n        }\n\n        const year = format(date.getFullYear(), 4)\n        const month = format(date.getMonth()+1, 2)\n        const day = format(date.getDate(), 2)\n        const hours = format(time.getHours(), 2)\n        const minutes = format(time.getMinutes(), 2)\n        const seconds = format(time.getSeconds(), 2)\n\n        msg.payload = { \n            deviceId: deviceId,\n            datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n        }\n        \n        return msg\n}",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 480,
-        "y": 320,
-        "wires": [
-            [
-                "a89af1fe.70029"
-            ]
-        ]
-    },
-    {
         "id": "75c8e264.6e9a3c",
         "type": "debug",
         "z": "8bcf2d43.2e243",
@@ -1338,23 +1217,6 @@
         "statusType": "auto",
         "x": 470,
         "y": 80,
-        "wires": []
-    },
-    {
-        "id": "17d31cd9.bc3053",
-        "type": "debug",
-        "z": "8bcf2d43.2e243",
-        "name": "start",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 470,
-        "y": 280,
         "wires": []
     },
     {
@@ -1634,7 +1496,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 3,
         "width": 6,
         "height": 1,
         "name": "event-type",
@@ -1650,7 +1512,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 4,
         "width": 6,
         "height": 1,
         "name": "event-granted",
@@ -1666,7 +1528,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 5,
         "width": 6,
         "height": 1,
         "name": "event-door",
@@ -1682,7 +1544,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 6,
         "width": 6,
         "height": 1,
         "name": "event-direction",
@@ -1698,7 +1560,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 7,
         "width": 6,
         "height": 1,
         "name": "event-card",
@@ -1714,7 +1576,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 8,
         "width": 6,
         "height": 1,
         "name": "event-timestamp",
@@ -1730,7 +1592,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 9,
         "width": 6,
         "height": 1,
         "name": "door-1",
@@ -1746,7 +1608,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 10,
         "width": 6,
         "height": 1,
         "name": "door-2",
@@ -1762,7 +1624,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 11,
         "width": 6,
         "height": 1,
         "name": "door-3",
@@ -1778,7 +1640,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 12,
         "width": 6,
         "height": 1,
         "name": "door-4",
@@ -1794,7 +1656,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 13,
         "width": 6,
         "height": 1,
         "name": "button-1",
@@ -1810,7 +1672,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 14,
         "width": 6,
         "height": 1,
         "name": "button-2",
@@ -1826,7 +1688,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 15,
         "width": 6,
         "height": 1,
         "name": "button-3",
@@ -1842,7 +1704,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 16,
         "width": 6,
         "height": 1,
         "name": "button-4",
@@ -1858,7 +1720,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 17,
         "width": 6,
         "height": 1,
         "name": "system-status",
@@ -1874,7 +1736,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 18,
         "width": 6,
         "height": 1,
         "name": "system-date",
@@ -1890,7 +1752,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 19,
         "width": 6,
         "height": 1,
         "name": "system-time",
@@ -1906,7 +1768,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 20,
         "width": 6,
         "height": 1,
         "name": "special-info",
@@ -1922,7 +1784,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 21,
         "width": 6,
         "height": 1,
         "name": "relay-1",
@@ -1938,7 +1800,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 22,
         "width": 6,
         "height": 1,
         "name": "relay-2",
@@ -1954,7 +1816,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 23,
         "width": 6,
         "height": 1,
         "name": "relay-3",
@@ -1970,7 +1832,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 24,
         "width": 6,
         "height": 1,
         "name": "relay-4",
@@ -1986,7 +1848,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 25,
         "width": 6,
         "height": 1,
         "name": "force-locked",
@@ -2002,7 +1864,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 2,
+        "order": 26,
         "width": 6,
         "height": 1,
         "name": "fire-alarm",
@@ -2019,7 +1881,7 @@
         "z": "f7a455cc.3fefe8",
         "name": "get-time",
         "uhppote": "d596ac54.cced",
-        "x": 300,
+        "x": 460,
         "y": 80,
         "wires": [
             [
@@ -2041,7 +1903,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
+        "x": 640,
         "y": 40,
         "wires": []
     },
@@ -2086,7 +1948,7 @@
         "label": "Date/time",
         "format": "{{msg.payload.datetime}}",
         "layout": "row-spread",
-        "x": 720,
+        "x": 640,
         "y": 80,
         "wires": []
     },
@@ -2158,7 +2020,8 @@
         "links": [
             "fd3d980e.eef9a8",
             "a7169ed8.d4f29",
-            "eabdc94d.323a48"
+            "eabdc94d.323a48",
+            "e036a638.1da6d8"
         ],
         "x": 255,
         "y": 40,
@@ -2170,7 +2033,7 @@
         "z": "33c9a78a.cc8c18",
         "name": "303986753",
         "group": "92a2709b.0ef46",
-        "order": 1,
+        "order": 2,
         "width": 6,
         "height": 2,
         "passthru": false,
@@ -2187,6 +2050,264 @@
         "wires": [
             [
                 "46cebfa2.e38c6"
+            ]
+        ]
+    },
+    {
+        "id": "fcbc9138.ae077",
+        "type": "debug",
+        "z": "60e1eeae.c0995",
+        "name": "listener",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "7b36ef3b.9e256",
+        "type": "inject",
+        "z": "60e1eeae.c0995",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "991982ca.da227"
+            ]
+        ]
+    },
+    {
+        "id": "80feda0f.68d0c8",
+        "type": "ui_text",
+        "z": "60e1eeae.c0995",
+        "group": "62c7e067.8adce",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "address",
+        "label": "address",
+        "format": "{{msg.payload.address}}",
+        "layout": "row-spread",
+        "x": 480,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e036a638.1da6d8",
+        "type": "link in",
+        "z": "60e1eeae.c0995",
+        "name": "refresh",
+        "links": [
+            "fbd6b7a7.cd1af8",
+            "46cebfa2.e38c6"
+        ],
+        "x": 115,
+        "y": 40,
+        "wires": [
+            [
+                "991982ca.da227"
+            ]
+        ]
+    },
+    {
+        "id": "991982ca.da227",
+        "type": "get-listener",
+        "z": "60e1eeae.c0995",
+        "name": "get-listener",
+        "uhppote": "d596ac54.cced",
+        "x": 290,
+        "y": 80,
+        "wires": [
+            [
+                "fcbc9138.ae077",
+                "80feda0f.68d0c8",
+                "8be7c19d.53054"
+            ]
+        ]
+    },
+    {
+        "id": "8be7c19d.53054",
+        "type": "ui_text",
+        "z": "60e1eeae.c0995",
+        "group": "62c7e067.8adce",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "name": "port",
+        "label": "port",
+        "format": "{{msg.payload.port}}",
+        "layout": "row-spread",
+        "x": 470,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9d254489.c08578",
+        "type": "inject",
+        "z": "f7a455cc.3fefe8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "set",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "1768d838.2f1398"
+            ]
+        ]
+    },
+    {
+        "id": "804a318e.14ddb",
+        "type": "debug",
+        "z": "f7a455cc.3fefe8",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ea3bdfee.bf0d1",
+        "type": "set-time",
+        "z": "f7a455cc.3fefe8",
+        "name": "set-time",
+        "uhppote": "d596ac54.cced",
+        "x": 460,
+        "y": 180,
+        "wires": [
+            [
+                "804a318e.14ddb"
+            ]
+        ]
+    },
+    {
+        "id": "ca054f41.1f22f",
+        "type": "ui_button",
+        "z": "f7a455cc.3fefe8",
+        "name": "set-time",
+        "group": "828448f4.2dc598",
+        "order": 12,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "set date/time",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "set",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "1768d838.2f1398"
+            ]
+        ]
+    },
+    {
+        "id": "cbe2b9d7.ec8fe8",
+        "type": "ui_text_input",
+        "z": "f7a455cc.3fefe8",
+        "name": "time",
+        "label": "",
+        "tooltip": "",
+        "group": "828448f4.2dc598",
+        "order": 11,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "mode": "time",
+        "delay": "0",
+        "topic": "set-time",
+        "x": 110,
+        "y": 220,
+        "wires": [
+            [
+                "1768d838.2f1398"
+            ]
+        ]
+    },
+    {
+        "id": "c729598d.d63658",
+        "type": "ui_date_picker",
+        "z": "f7a455cc.3fefe8",
+        "name": "date",
+        "label": "",
+        "group": "828448f4.2dc598",
+        "order": 10,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "topic": "set-date",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "1768d838.2f1398"
+            ]
+        ]
+    },
+    {
+        "id": "1768d838.2f1398",
+        "type": "function",
+        "z": "f7a455cc.3fefe8",
+        "name": "datetime",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\nconst deviceId = 405419896\n\nswitch (msg.topic) {\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        return null;\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        return null;\n        \n    case 'set':\n        let date = flow.get('set-time.date')\n        let time = flow.get('set-time.time')\n\n        if (!date) {\n          date = new Date()\n        }\n\n        if (!time) {\n          time = new Date()\n        }\n\n        const year = format(date.getFullYear(), 4)\n        const month = format(date.getMonth()+1, 2)\n        const day = format(date.getDate(), 2)\n        const hours = format(time.getHours(), 2)\n        const minutes = format(time.getMinutes(), 2)\n        const seconds = format(time.getSeconds(), 2)\n\n        msg.payload = { \n            deviceId: deviceId,\n            datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n        }\n        \n        return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 180,
+        "wires": [
+            [
+                "ea3bdfee.bf0d1"
             ]
         ]
     }

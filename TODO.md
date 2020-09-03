@@ -2,7 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] get-listener
 - [ ] don't do broadcast for non-broadcast destinations
 - [ ] commonalise set code
 - [ ] fallback to broadcast address if destination is not defined
@@ -28,6 +27,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] get-listener
 - [x] commonalise get code
 - [x] get-status
 - [x] set-time

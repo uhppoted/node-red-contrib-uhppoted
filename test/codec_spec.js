@@ -86,6 +86,19 @@ describe('codec', function () {
       expect(bytes[7]).to.equal(0x18)
     })
 
+    it('should encode get-listener request', function () {
+      const bytes = codec.encode(0x92, 405419896)
+
+      expect(bytes).to.have.lengthOf(64)
+      expect(bytes[0]).to.equal(0x17)
+      expect(bytes[1]).to.equal(0x92)
+
+      expect(bytes[4]).to.equal(0x78)
+      expect(bytes[5]).to.equal(0x37)
+      expect(bytes[6]).to.equal(0x2a)
+      expect(bytes[7]).to.equal(0x18)
+    })
+
     it('should encode get-time request', function () {
       const bytes = codec.encode(0x32, 405419896)
 
@@ -195,7 +208,7 @@ describe('codec', function () {
       expect(object.state.inputs.fireAlarm).to.equal(false)
     })
 
-    it('should decode get-time response', function () {
+    it('should decode get-listener response', function () {
       const msg = Buffer.from([
         0x17, 0x32, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x20, 0x20, 0x08, 0x28, 0x14, 0x23, 0x56, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -210,6 +223,25 @@ describe('codec', function () {
       expect(object).to.have.property('datetime')
       expect(object.deviceId).to.equal(405419896)
       expect(object.datetime).to.equal('2020-08-28 14:23:56')
+    })
+
+    it('should decode get-time response', function () {
+      const msg = Buffer.from([
+        0x17, 0x92, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0xc0, 0xa8, 0x01, 0xe1, 0x5f, 0xea, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
+      const object = codec.decode(new Uint8Array(msg))
+
+      expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
+      expect(object).to.have.property('deviceId')
+      expect(object).to.have.property('address')
+      expect(object).to.have.property('port')
+      expect(object.deviceId).to.equal(405419896)
+      expect(object.address).to.equal('192.168.1.225')
+      expect(object.port).to.equal(59999)
     })
 
     it('should decode set-time response', function () {

@@ -23,6 +23,11 @@ module.exports = {
         request.writeUInt32LE(deviceId, 4)
         break
 
+      case 0x92:
+        request.writeUInt8(0x92, 1)
+        request.writeUInt32LE(deviceId, 4)
+        break
+
       case 0x94:
         request.writeUInt8(0x94, 1)
         if (deviceId !== null) {
@@ -70,6 +75,13 @@ module.exports = {
         return {
           deviceId: uint32(bytes, 4),
           datetime: yyyymmddHHmmss(bytes, 8)
+        }
+
+      case 0x92:
+        return {
+          deviceId: uint32(bytes, 4),
+          address: address(bytes, 8),
+          port: uint16(bytes, 12)
         }
 
       case 0x94:
@@ -138,6 +150,10 @@ function device (bytes) {
 
 function uint8 (bytes, offset) {
   return bytes.getUint8(offset, true)
+}
+
+function uint16 (bytes, offset) {
+  return bytes.getUint16(offset, true)
 }
 
 function uint32 (bytes, offset) {
