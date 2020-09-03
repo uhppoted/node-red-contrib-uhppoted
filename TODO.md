@@ -2,8 +2,9 @@
 
 ## IN PROGRESS
 
-- [ ] commonalise set code
+- [ ] get-listener
 - [ ] don't do broadcast for non-broadcast destinations
+- [ ] commonalise set code
 - [ ] fallback to broadcast address if destination is not defined
 - [ ] internationalisation
 - [ ] document uhppoted functions
@@ -15,6 +16,7 @@
       - listen
       - get-devices
       - get-device
+      - get-status
       - set-address
       - get/set-time
       - codec invalid device ID
