@@ -19,7 +19,7 @@ module.exports = function (RED) {
 
       const error = function (err) {
         node.status({ fill: 'red', shape: 'dot', text: 'error' })
-        node.warn('uhppoted::execute  ' + err)
+        node.warn('uhppoted::get ' + err)
       }
 
       try {

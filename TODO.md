@@ -3,8 +3,9 @@
 ## IN PROGRESS
 
 - [ ] don't do broadcast for non-broadcast destinations
-- [ ] commonalise set code
 - [ ] fallback to broadcast address if destination is not defined
+- [ ] make 'send' function look like get/set
+- [ ] make 'broadcast' function look like get/set
 - [ ] internationalisation
 - [ ] document uhppoted functions
 - [ ] document examples
@@ -15,9 +16,10 @@
       - listen
       - get-devices
       - get-device
-      - get-status
       - set-address
+      - get/set-listener
       - get/set-time
+      - get-status
       - codec invalid device ID
       - codec invalid address
 
@@ -27,6 +29,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] commonalise set code
 - [x] get-listener
 - [x] commonalise get code
 - [x] get-status

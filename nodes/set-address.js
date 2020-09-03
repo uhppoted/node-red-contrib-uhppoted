@@ -50,11 +50,11 @@ module.exports = function (RED) {
           .then(done())
           .catch(err => {
             node.status({ fill: 'red', shape: 'dot', text: 'error' })
-            node.warn('uhppoted::execute  ' + err)
+            node.warn('uhppoted::set ' + err)
           })
       } catch (err) {
         node.status({ fill: 'red', shape: 'dot', text: 'error' })
-        node.warn('uhppoted::execute  ' + err)
+        node.warn('uhppoted::set ' + err)
       }
     })
 
