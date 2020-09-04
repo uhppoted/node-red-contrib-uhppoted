@@ -1,4 +1,5 @@
 module.exports = function (RED) {
+  const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
 
   function SetTimeNode (config) {
@@ -14,13 +15,11 @@ module.exports = function (RED) {
       const datetime = msg.payload.datetime
 
       const emit = function (object) {
-        msg.payload = object
-        send(msg)
+        common.emit(node, msg.topic, object)
       }
 
       const error = function (err) {
-        node.status({ fill: 'red', shape: 'dot', text: 'error' })
-        node.warn('uhppoted::set ' + err)
+        common.error(node, err)
       }
 
       try {

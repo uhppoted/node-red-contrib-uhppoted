@@ -1,4 +1,5 @@
 module.exports = function (RED) {
+  const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
 
   function GetTimeNode (config) {
@@ -13,13 +14,11 @@ module.exports = function (RED) {
       const deviceId = msg.payload.deviceId
 
       const emit = function (object) {
-        msg.payload = object
-        send(msg)
+        common.emit(node, msg.topic, object)
       }
 
       const error = function (err) {
-        node.status({ fill: 'red', shape: 'dot', text: 'error' })
-        node.warn('uhppoted::get ' + err)
+        common.error(node, err)
       }
 
       try {

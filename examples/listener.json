@@ -1,0 +1,372 @@
+[
+    {
+        "id": "60e1eeae.c0995",
+        "type": "tab",
+        "label": "get/set-listener",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "fcbc9138.ae077",
+        "type": "debug",
+        "z": "60e1eeae.c0995",
+        "name": "listener",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "7b36ef3b.9e256",
+        "type": "inject",
+        "z": "60e1eeae.c0995",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "x": 110,
+        "y": 40,
+        "wires": [
+            [
+                "991982ca.da227"
+            ]
+        ]
+    },
+    {
+        "id": "80feda0f.68d0c8",
+        "type": "ui_text",
+        "z": "60e1eeae.c0995",
+        "group": "62c7e067.8adce",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "address",
+        "label": "address",
+        "format": "{{msg.payload.address}}",
+        "layout": "row-spread",
+        "x": 480,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "e036a638.1da6d8",
+        "type": "link in",
+        "z": "60e1eeae.c0995",
+        "name": "refresh",
+        "links": [
+            "fbd6b7a7.cd1af8",
+            "46cebfa2.e38c6"
+        ],
+        "x": 135,
+        "y": 80,
+        "wires": [
+            [
+                "991982ca.da227"
+            ]
+        ]
+    },
+    {
+        "id": "991982ca.da227",
+        "type": "get-listener",
+        "z": "60e1eeae.c0995",
+        "name": "get-listener",
+        "uhppote": "d596ac54.cced",
+        "x": 290,
+        "y": 80,
+        "wires": [
+            [
+                "fcbc9138.ae077",
+                "80feda0f.68d0c8",
+                "8be7c19d.53054"
+            ]
+        ]
+    },
+    {
+        "id": "8be7c19d.53054",
+        "type": "ui_text",
+        "z": "60e1eeae.c0995",
+        "group": "62c7e067.8adce",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "name": "port",
+        "label": "port",
+        "format": "{{msg.payload.port}}",
+        "layout": "row-spread",
+        "x": 470,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "4acc5406.1f76ec",
+        "type": "set-listener",
+        "z": "60e1eeae.c0995",
+        "name": "set-listener",
+        "uhppote": "d596ac54.cced",
+        "x": 650,
+        "y": 220,
+        "wires": [
+            [
+                "3c390732.172f78"
+            ]
+        ]
+    },
+    {
+        "id": "5a03762d.951878",
+        "type": "inject",
+        "z": "60e1eeae.c0995",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "set",
+        "payload": "",
+        "payloadType": "date",
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "5665b7f1.ee5328"
+            ]
+        ]
+    },
+    {
+        "id": "3c390732.172f78",
+        "type": "debug",
+        "z": "60e1eeae.c0995",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 840,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "5badac39.06d014",
+        "type": "ui_text_input",
+        "z": "60e1eeae.c0995",
+        "name": "address",
+        "label": "address",
+        "tooltip": "",
+        "group": "1a9d0189.af6a6e",
+        "order": 1,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "mode": "text",
+        "delay": 300,
+        "topic": "set-address",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "5665b7f1.ee5328"
+            ]
+        ]
+    },
+    {
+        "id": "5665b7f1.ee5328",
+        "type": "function",
+        "z": "60e1eeae.c0995",
+        "name": "listener",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\nconst deviceId = 405419896\n\nswitch (msg.topic) {\n    case 'set-address':\n        flow.set('set-listener.address', msg.payload)\n        return null;\n\n    case 'set-port':\n        flow.set('set-listener.port', msg.payload)\n        return null;\n        \n    case 'set':\n        let address = flow.get('set-listener.address')\n        let port = flow.get('set-listener.port')\n\n        if (!address) {\n          address = '192.168.1.100'\n        }\n\n        if (!port) {\n          port = 60001\n        }\n\n        msg.payload = { \n            deviceId: deviceId,\n            address: address,\n            port: port\n        }\n        \n        return msg\n}",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 480,
+        "y": 220,
+        "wires": [
+            [
+                "4acc5406.1f76ec"
+            ]
+        ]
+    },
+    {
+        "id": "c40bdbe4.356a18",
+        "type": "ui_button",
+        "z": "60e1eeae.c0995",
+        "name": "ok",
+        "group": "1a9d0189.af6a6e",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "set-listener",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "set",
+        "x": 310,
+        "y": 300,
+        "wires": [
+            [
+                "5665b7f1.ee5328"
+            ]
+        ]
+    },
+    {
+        "id": "14883f42.a10861",
+        "type": "inject",
+        "z": "60e1eeae.c0995",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "abdbd052.3d36"
+            ]
+        ],
+        "icon": "node-red/db.svg"
+    },
+    {
+        "id": "abdbd052.3d36",
+        "type": "function",
+        "z": "60e1eeae.c0995",
+        "name": "initialise",
+        "func": "const address = { topic:'address', payload:'192.168.1.100' }\nconst port = { topic:'port', payload:60001 }\n\nreturn [ address, port ]",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 120,
+        "y": 280,
+        "wires": [
+            [
+                "5badac39.06d014"
+            ],
+            [
+                "9c273fa5.be14a"
+            ]
+        ]
+    },
+    {
+        "id": "9c273fa5.be14a",
+        "type": "ui_text_input",
+        "z": "60e1eeae.c0995",
+        "name": "port",
+        "label": "port",
+        "tooltip": "",
+        "group": "1a9d0189.af6a6e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "set-port",
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "5665b7f1.ee5328"
+            ]
+        ]
+    },
+    {
+        "id": "62c7e067.8adce",
+        "type": "ui_group",
+        "z": "",
+        "name": "get-listener",
+        "tab": "2731970.74c476a",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "d596ac54.cced",
+        "type": "uhppote",
+        "z": "",
+        "name": "development",
+        "timeout": "4999",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "debug": true
+    },
+    {
+        "id": "1a9d0189.af6a6e",
+        "type": "ui_group",
+        "z": "",
+        "name": "set-listener",
+        "tab": "e4b36c96.1a567",
+        "order": 2,
+        "disp": false,
+        "width": "4",
+        "collapse": false
+    },
+    {
+        "id": "2731970.74c476a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "devices",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e4b36c96.1a567",
+        "type": "ui_tab",
+        "z": "",
+        "name": "configuration",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

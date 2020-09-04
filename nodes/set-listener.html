@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('get-listener', {
+    RED.nodes.registerType('set-listener', {
         category: 'uhppoted',
         color: '#A6BBCF',
         defaults: {
@@ -15,12 +15,12 @@
         outputs: 1,
         icon: "function.svg",
         label: function() {
-            return this.name || "get-listener";
+            return this.name || "set-listener";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="get-listener">
+<script type="text/html" data-template-name="set-listener">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -31,13 +31,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="get-listener">
-    <p>Retrieves the current listener IPv4 address:port for a single UHPPOTE access controller.</p>
+<script type="text/html" data-help-name="set-listener">
+    <p>Sets IPv4 'listen' address and port to which events should be sent.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the device ID for 'get-listener'</dd>
+        <dd>JSON object with the device ID and listener address and port for 'set-listener'</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -45,25 +45,32 @@
     <h3>Outputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the controller current device listener IP address:port</dd>
+        <dd>JSON object with the updated controller device listener IP address:port</dd>
         <dt>topic<span class="property-type">string</span></dt>
         <dd>message topic copied from input</dd>
     </dl>
 
     <h3>Details</h3>
     <p>The input <code>msg.payload</code> is a JSON object containing the serial number
-    for the controller for which the current listener IPv4 address and port should be retrieved</p>
+    for the target controller and the 'listener' IPv4 address and port to which events should 
+    be sent</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
+        <dt>address<span class="property-type">string</span></dt>
+        <dd>listener IPv4 address</dd>
+        <dt>port<span class="property-type">uint16</span></dt>
+        <dd>listener UDP port</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
-    "deviceId": 405419896
+    "deviceId": 405419896,
+    "address": "192.168.1.100",
+    "port": 60001
   }</pre>
 
-    <p>The output <code>msg.payload</code> is a JSON object containing the current
+    <p>The output <code>msg.payload</code> is a JSON object containing the updated
     IPv4 listener address:port retrieved from the UHPPOTE controller with 
     serial number matching the request:</p>
     <dl class="message-properties">
@@ -72,7 +79,7 @@
         <dt>address<span class="property-type">string</span></dt>
         <dd>listener IPv4 address</d>
         <dt>port<span class="property-type">uint16</span></dt>
-        <dd>listener UDP port</d>
+        <dd>listener port</d>
     </dl>
     <h4>Example:</h4>
     <pre>

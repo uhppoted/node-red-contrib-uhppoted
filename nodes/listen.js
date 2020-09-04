@@ -1,4 +1,5 @@
 module.exports = function (RED) {
+  const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
   const codec = require('./codec.js')
 
@@ -25,21 +26,13 @@ module.exports = function (RED) {
       const event = decode(msg)
 
       if (event) {
-        const msg = { payload: event }
-
-        node.send(msg)
+        common.emit(node, '', event)
         node.status({})
       }
     }
 
     this.onerror = function (err) {
-      node.status({
-        fill: 'red',
-        shape: 'dot',
-        text: 'error'
-      })
-
-      node.warn('uhppoted::listen  ' + err)
+      common.error(node, err)
     }
 
     this.close = function () {

@@ -99,6 +99,27 @@ describe('codec', function () {
       expect(bytes[7]).to.equal(0x18)
     })
 
+    it('should encode set-listener request', function () {
+      const bytes = codec.encode(0x90, 405419896, { address: '192.168.1.100', port: 60001 })
+
+      expect(bytes).to.have.lengthOf(64)
+      expect(bytes[0]).to.equal(0x17)
+      expect(bytes[1]).to.equal(0x90)
+
+      expect(bytes[4]).to.equal(0x78)
+      expect(bytes[5]).to.equal(0x37)
+      expect(bytes[6]).to.equal(0x2a)
+      expect(bytes[7]).to.equal(0x18)
+
+      expect(bytes[8]).to.equal(192)
+      expect(bytes[9]).to.equal(168)
+      expect(bytes[10]).to.equal(1)
+      expect(bytes[11]).to.equal(100)
+
+      expect(bytes[12]).to.equal(0x61)
+      expect(bytes[13]).to.equal(0xea)
+    })
+
     it('should encode get-time request', function () {
       const bytes = codec.encode(0x32, 405419896)
 
@@ -210,7 +231,7 @@ describe('codec', function () {
 
     it('should decode get-listener response', function () {
       const msg = Buffer.from([
-        0x17, 0x32, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x20, 0x20, 0x08, 0x28, 0x14, 0x23, 0x56, 0x00,
+        0x17, 0x92, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0xc0, 0xa8, 0x01, 0x64, 0x61, 0xea, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
@@ -220,9 +241,28 @@ describe('codec', function () {
 
       expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
       expect(object).to.have.property('deviceId')
-      expect(object).to.have.property('datetime')
+      expect(object).to.have.property('address')
+      expect(object).to.have.property('port')
       expect(object.deviceId).to.equal(405419896)
-      expect(object.datetime).to.equal('2020-08-28 14:23:56')
+      expect(object.address).to.equal('192.168.1.100')
+      expect(object.port).to.equal(60001)
+    })
+
+    it('should decode set-listener response', function () {
+      const msg = Buffer.from([
+        0x17, 0x90, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
+      const object = codec.decode(new Uint8Array(msg))
+
+      expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
+      expect(object).to.have.property('deviceId')
+      expect(object).to.have.property('updated')
+      expect(object.deviceId).to.equal(405419896)
+      expect(object.updated).to.equal(true)
     })
 
     it('should decode get-time response', function () {

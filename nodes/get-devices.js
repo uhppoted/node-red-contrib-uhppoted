@@ -1,4 +1,5 @@
 module.exports = function (RED) {
+  const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
   const codec = require('./codec.js')
 
@@ -38,8 +39,11 @@ module.exports = function (RED) {
       }
 
       const emit = function (devices) {
-        msg.payload = devices
-        send(msg)
+        common.emit(node, msg.topic, devices)
+      }
+
+      const error = function (err) {
+        common.error(node, err)
       }
 
       try {
@@ -49,17 +53,8 @@ module.exports = function (RED) {
           .then(reply => { return decode(reply) })
           .then(devices => { return emit(devices) })
           .then(done())
-          .catch(err => {
-            node.status({ fill: 'red', shape: 'dot', text: 'error' })
-            node.warn('uhppoted::broadcast ' + err)
-          })
-      } catch (err) {
-        node.status({ fill: 'red', shape: 'dot', text: 'error' })
-        node.warn('uhppoted::broadcast ' + err)
-      }
-    })
-
-    this.on('close', function () {
+          .catch(err => { error(err) })
+      } catch (err) { error(err) }
     })
   }
 

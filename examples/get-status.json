@@ -28,7 +28,7 @@
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "x": 130,
-        "y": 80,
+        "y": 40,
         "wires": [
             [
                 "1d2d547f.68acbc"
@@ -152,7 +152,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 155,
-        "y": 40,
+        "y": 80,
         "wires": [
             [
                 "1d2d547f.68acbc"

@@ -29,6 +29,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] set-listener
 - [x] commonalise set code
 - [x] get-listener
 - [x] commonalise get code

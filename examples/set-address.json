@@ -19,8 +19,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 820,
-        "y": 80,
+        "x": 860,
+        "y": 100,
         "wires": []
     },
     {
@@ -44,8 +44,8 @@
         "topic": "",
         "payload": "{\"address\":\"192.168.1.100\",\"subnet\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
         "payloadType": "json",
-        "x": 290,
-        "y": 80,
+        "x": 310,
+        "y": 100,
         "wires": [
             [
                 "75c8e264.6e9a3c",
@@ -63,8 +63,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 470,
-        "y": 120,
+        "x": 490,
+        "y": 140,
         "wires": [
             [
                 "2a10c0a9.e8d6"
@@ -77,8 +77,8 @@
         "z": "8bcf2d43.2e243",
         "name": "set-address",
         "uhppote": "d596ac54.cced",
-        "x": 650,
-        "y": 120,
+        "x": 670,
+        "y": 140,
         "wires": [
             [
                 "c601d685.422838"
@@ -89,7 +89,7 @@
         "id": "7a342239.47727c",
         "type": "inject",
         "z": "8bcf2d43.2e243",
-        "name": "initialise",
+        "name": "start",
         "props": [
             {
                 "p": "payload"
@@ -104,10 +104,10 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"address\":\"192.168.1.100\",\"subnet\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
-        "payloadType": "json",
-        "x": 100,
-        "y": 20,
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 40,
         "wires": [
             [
                 "43a592be.9cc00c"
@@ -128,8 +128,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 470,
-        "y": 80,
+        "x": 490,
+        "y": 100,
         "wires": []
     },
     {
@@ -139,7 +139,7 @@
         "name": "address",
         "label": "address",
         "tooltip": "",
-        "group": "828448f4.2dc598",
+        "group": "920f64db.d2fd58",
         "order": 1,
         "width": 4,
         "height": 1,
@@ -148,7 +148,7 @@
         "delay": "0",
         "topic": "address",
         "x": 300,
-        "y": 120,
+        "y": 140,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -162,16 +162,16 @@
         "name": "subnet",
         "label": "subnet",
         "tooltip": "",
-        "group": "828448f4.2dc598",
-        "order": 5,
+        "group": "920f64db.d2fd58",
+        "order": 2,
         "width": 4,
         "height": 1,
         "passthru": true,
         "mode": "text",
         "delay": 300,
         "topic": "subnet",
-        "x": 290,
-        "y": 160,
+        "x": 310,
+        "y": 180,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -185,8 +185,8 @@
         "name": "gateway",
         "label": "gateway",
         "tooltip": "",
-        "group": "828448f4.2dc598",
-        "order": 7,
+        "group": "920f64db.d2fd58",
+        "order": 3,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -194,7 +194,7 @@
         "delay": 300,
         "topic": "gateway",
         "x": 300,
-        "y": 200,
+        "y": 220,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -205,9 +205,9 @@
         "id": "e88b8d2a.efd4d",
         "type": "ui_button",
         "z": "8bcf2d43.2e243",
-        "name": "set-address",
-        "group": "828448f4.2dc598",
-        "order": 3,
+        "name": "ok",
+        "group": "920f64db.d2fd58",
+        "order": 4,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -220,7 +220,7 @@
         "payloadType": "date",
         "topic": "set",
         "x": 310,
-        "y": 240,
+        "y": 260,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -238,7 +238,7 @@
         "initialize": "",
         "finalize": "",
         "x": 140,
-        "y": 160,
+        "y": 180,
         "wires": [
             [
                 "b6a91dc2.1e37"
@@ -263,14 +263,14 @@
         "debug": true
     },
     {
-        "id": "828448f4.2dc598",
+        "id": "920f64db.d2fd58",
         "type": "ui_group",
         "z": "",
-        "name": "405419896",
+        "name": "set-address",
         "tab": "e4b36c96.1a567",
-        "order": 1,
-        "disp": true,
-        "width": 13,
+        "order": 4,
+        "disp": false,
+        "width": 4,
         "collapse": false
     },
     {

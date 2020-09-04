@@ -12,7 +12,7 @@
         "z": "f7a455cc.3fefe8",
         "name": "get-time",
         "uhppote": "d596ac54.cced",
-        "x": 460,
+        "x": 300,
         "y": 80,
         "wires": [
             [
@@ -34,7 +34,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
+        "x": 480,
         "y": 40,
         "wires": []
     },
@@ -60,7 +60,7 @@
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "x": 110,
-        "y": 80,
+        "y": 40,
         "wires": [
             [
                 "6a3d799.3fe3688"
@@ -79,7 +79,7 @@
         "label": "Date/time",
         "format": "{{msg.payload.datetime}}",
         "layout": "row-spread",
-        "x": 640,
+        "x": 480,
         "y": 80,
         "wires": []
     },
@@ -93,7 +93,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 135,
-        "y": 40,
+        "y": 80,
         "wires": [
             [
                 "6a3d799.3fe3688"
@@ -152,7 +152,7 @@
         "z": "f7a455cc.3fefe8",
         "name": "set-time",
         "uhppote": "d596ac54.cced",
-        "x": 460,
+        "x": 480,
         "y": 180,
         "wires": [
             [
@@ -164,9 +164,9 @@
         "id": "ca054f41.1f22f",
         "type": "ui_button",
         "z": "f7a455cc.3fefe8",
-        "name": "set-time",
-        "group": "828448f4.2dc598",
-        "order": 12,
+        "name": "ok",
+        "group": "d18397cc.a852f8",
+        "order": 3,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -178,7 +178,7 @@
         "payload": "",
         "payloadType": "date",
         "topic": "set",
-        "x": 120,
+        "x": 110,
         "y": 260,
         "wires": [
             [
@@ -193,8 +193,8 @@
         "name": "time",
         "label": "",
         "tooltip": "",
-        "group": "828448f4.2dc598",
-        "order": 11,
+        "group": "d18397cc.a852f8",
+        "order": 2,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -215,8 +215,8 @@
         "z": "f7a455cc.3fefe8",
         "name": "date",
         "label": "",
-        "group": "828448f4.2dc598",
-        "order": 10,
+        "group": "d18397cc.a852f8",
+        "order": 1,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -270,14 +270,14 @@
         "collapse": false
     },
     {
-        "id": "828448f4.2dc598",
+        "id": "d18397cc.a852f8",
         "type": "ui_group",
         "z": "",
-        "name": "405419896",
+        "name": "set-time",
         "tab": "e4b36c96.1a567",
-        "order": 1,
-        "disp": true,
-        "width": 13,
+        "order": 3,
+        "disp": false,
+        "width": 4,
         "collapse": false
     },
     {

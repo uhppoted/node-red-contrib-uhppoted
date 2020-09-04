@@ -1,4 +1,5 @@
 module.exports = function (RED) {
+  const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
   const codec = require('./codec.js')
 
@@ -36,9 +37,12 @@ module.exports = function (RED) {
         throw new Error(`no reply to set-address request for device ID ${deviceId}`)
       }
 
-      const emit = function (device) {
-        msg.payload = device
-        send(msg)
+      const emit = function (object) {
+        common.emit(node, msg.topic, object)
+      }
+
+      const error = function (err) {
+        common.error(node, err)
       }
 
       try {
@@ -48,17 +52,8 @@ module.exports = function (RED) {
           .then(reply => { return decode(this.deviceid, reply) })
           .then(object => { return emit(object) })
           .then(done())
-          .catch(err => {
-            node.status({ fill: 'red', shape: 'dot', text: 'error' })
-            node.warn('uhppoted::set ' + err)
-          })
-      } catch (err) {
-        node.status({ fill: 'red', shape: 'dot', text: 'error' })
-        node.warn('uhppoted::set ' + err)
-      }
-    })
-
-    this.on('close', function () {
+          .catch(err => { error(err) })
+      } catch (err) { error(err) }
     })
   }
 

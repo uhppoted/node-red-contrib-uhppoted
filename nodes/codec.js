@@ -10,6 +10,7 @@ module.exports = {
       case 0x20:
         request.writeUInt8(0x20, 1)
         request.writeUInt32LE(deviceId, 4)
+        request.writeUInt32LE(deviceId, 4)
         break
 
       case 0x30:
@@ -21,6 +22,13 @@ module.exports = {
       case 0x32:
         request.writeUInt8(0x32, 1)
         request.writeUInt32LE(deviceId, 4)
+        break
+
+      case 0x90:
+        request.writeUInt8(0x90, 1)
+        request.writeUInt32LE(deviceId, 4)
+        ip.toBuffer(object.address, request, 8)
+        request.writeUInt16LE(object.port, 12)
         break
 
       case 0x92:
@@ -75,6 +83,12 @@ module.exports = {
         return {
           deviceId: uint32(bytes, 4),
           datetime: yyyymmddHHmmss(bytes, 8)
+        }
+
+      case 0x90:
+        return {
+          deviceId: uint32(bytes, 4),
+          updated: bool(bytes, 8)
         }
 
       case 0x92:

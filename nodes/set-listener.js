@@ -2,7 +2,7 @@ module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
 
-  function GetDeviceNode (config) {
+  function SetListenerNode (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -12,9 +12,19 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const deviceId = msg.payload.deviceId
+      const address = msg.payload.address
+      const port = msg.payload.port
 
       const emit = function (object) {
-        common.emit(node, msg.topic, object)
+        if (!object.updated) {
+          throw new Error(`failed to update listener address for ${deviceId}`, deviceId)
+        }
+
+        common.emit(node, msg.topic, {
+          deviceId: deviceId,
+          address: address,
+          port: port
+        })
       }
 
       const error = function (err) {
@@ -22,7 +32,7 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.get(deviceId, 0x94, {}, uhppote, (m) => { node.log(m) })
+        uhppoted.set(deviceId, 0x90, { address: address, port: port }, uhppote, (m) => { node.log(m) })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })
@@ -30,5 +40,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('get-device', GetDeviceNode)
+  RED.nodes.registerType('set-listener', SetListenerNode)
 }
