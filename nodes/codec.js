@@ -24,6 +24,12 @@ module.exports = {
         request.writeUInt32LE(deviceId, 4)
         break
 
+      case 0x82:
+        request.writeUInt8(0x82, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt8(object.door, 8)
+        break
+
       case 0x90:
         request.writeUInt8(0x90, 1)
         request.writeUInt32LE(deviceId, 4)
@@ -60,6 +66,8 @@ module.exports = {
   },
 
   decode: function (buffer) {
+    const lookup = require('./lookup.js')
+
     if ((buffer.length !== 64) || (buffer[0] !== 0x17)) {
       return null
     }
@@ -83,6 +91,17 @@ module.exports = {
         return {
           deviceId: uint32(bytes, 4),
           datetime: yyyymmddHHmmss(bytes, 8)
+        }
+
+      case 0x82:
+        return {
+          deviceId: uint32(bytes, 4),
+          doorControlState: {
+            door: uint8(bytes, 8),
+            delay: uint8(bytes, 10),
+            value: uint8(bytes, 9),
+            state: lookup.doorState(bytes, 9)
+          }
         }
 
       case 0x90:

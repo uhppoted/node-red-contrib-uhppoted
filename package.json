@@ -31,6 +31,7 @@
       "get-status": "nodes/get-status.js",
       "get-time": "nodes/get-time.js",
       "set-time": "nodes/set-time.js",
+      "get-door-control": "nodes/get-door-control.js",
       "listen": "nodes/listen.js"
     },
     "engines": {

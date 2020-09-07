@@ -221,5 +221,23 @@ module.exports = {
     }
 
     return inputs
+  },
+
+  doorState: function (bytes, offset) {
+    const byte = bytes.getUint8(offset, true)
+
+    switch (byte) {
+      case 1:
+        return 'normally open'
+
+      case 2:
+        return 'normally closed'
+
+      case 3:
+        return 'controlled'
+    }
+
+    return 'unknown'
   }
+
 }
