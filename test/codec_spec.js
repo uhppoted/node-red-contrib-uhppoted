@@ -11,148 +11,111 @@ describe('codec', function () {
     })
 
     it('should encode get-devices request', function () {
+      const msg = Buffer.from([
+        0x17, 0x94, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
       const bytes = codec.encode(0x94)
 
-      expect(bytes).to.have.lengthOf(64)
-      expect(bytes[0]).to.equal(0x17)
-      expect(bytes[1]).to.equal(0x94)
-
-      expect(bytes[4]).to.equal(0x00)
-      expect(bytes[5]).to.equal(0x00)
-      expect(bytes[6]).to.equal(0x00)
-      expect(bytes[7]).to.equal(0x00)
+      expect(bytes).to.deep.equal(msg)
     })
 
     it('should encode get-device request', function () {
+      const msg = Buffer.from([
+        0x17, 0x94, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
       const bytes = codec.encode(0x94, 405419896)
 
-      expect(bytes).to.have.lengthOf(64)
-      expect(bytes[0]).to.equal(0x17)
-      expect(bytes[1]).to.equal(0x94)
-
-      expect(bytes[4]).to.equal(0x78)
-      expect(bytes[5]).to.equal(0x37)
-      expect(bytes[6]).to.equal(0x2a)
-      expect(bytes[7]).to.equal(0x18)
+      expect(bytes).to.deep.equal(msg)
     })
 
     it('should encode set-address request', function () {
+      const msg = Buffer.from([
+        0x17, 0x96, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0xc0, 0xa8, 0x01, 0x7d, 0xff, 0xff, 0xff, 0x00,
+        0xc0, 0xa8, 0x00, 0x01, 0x55, 0xaa, 0xaa, 0x55, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
       const bytes = codec.encode(0x96, 405419896, {
         address: '192.168.1.125',
         subnet: '255.255.255.0',
         gateway: '192.168.0.1'
       })
 
-      expect(bytes).to.have.lengthOf(64)
-      expect(bytes[0]).to.equal(0x17)
-      expect(bytes[1]).to.equal(0x96)
-
-      expect(bytes[4]).to.equal(0x78)
-      expect(bytes[5]).to.equal(0x37)
-      expect(bytes[6]).to.equal(0x2a)
-      expect(bytes[7]).to.equal(0x18)
-
-      expect(bytes[8]).to.equal(192)
-      expect(bytes[9]).to.equal(168)
-      expect(bytes[10]).to.equal(1)
-      expect(bytes[11]).to.equal(125)
-
-      expect(bytes[12]).to.equal(255)
-      expect(bytes[13]).to.equal(255)
-      expect(bytes[14]).to.equal(255)
-      expect(bytes[15]).to.equal(0)
-
-      expect(bytes[16]).to.equal(192)
-      expect(bytes[17]).to.equal(168)
-      expect(bytes[18]).to.equal(0)
-      expect(bytes[19]).to.equal(1)
-
-      expect(bytes[20]).to.equal(0x55)
-      expect(bytes[21]).to.equal(0xaa)
-      expect(bytes[22]).to.equal(0xaa)
-      expect(bytes[23]).to.equal(0x55)
+      expect(bytes).to.deep.equal(msg)
     })
 
     it('should encode get-status request', function () {
+      const msg = Buffer.from([
+        0x17, 0x20, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
       const bytes = codec.encode(0x20, 405419896)
 
-      expect(bytes).to.have.lengthOf(64)
-      expect(bytes[0]).to.equal(0x17)
-      expect(bytes[1]).to.equal(0x20)
-
-      expect(bytes[4]).to.equal(0x78)
-      expect(bytes[5]).to.equal(0x37)
-      expect(bytes[6]).to.equal(0x2a)
-      expect(bytes[7]).to.equal(0x18)
+      expect(bytes).to.deep.equal(msg)
     })
 
     it('should encode get-listener request', function () {
+      const msg = Buffer.from([
+        0x17, 0x92, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
       const bytes = codec.encode(0x92, 405419896)
 
-      expect(bytes).to.have.lengthOf(64)
-      expect(bytes[0]).to.equal(0x17)
-      expect(bytes[1]).to.equal(0x92)
-
-      expect(bytes[4]).to.equal(0x78)
-      expect(bytes[5]).to.equal(0x37)
-      expect(bytes[6]).to.equal(0x2a)
-      expect(bytes[7]).to.equal(0x18)
+      expect(bytes).to.deep.equal(msg)
     })
 
     it('should encode set-listener request', function () {
+      const msg = Buffer.from([
+        0x17, 0x90, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0xc0, 0xa8, 0x01, 0x64, 0x61, 0xea, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
       const bytes = codec.encode(0x90, 405419896, { address: '192.168.1.100', port: 60001 })
 
-      expect(bytes).to.have.lengthOf(64)
-      expect(bytes[0]).to.equal(0x17)
-      expect(bytes[1]).to.equal(0x90)
-
-      expect(bytes[4]).to.equal(0x78)
-      expect(bytes[5]).to.equal(0x37)
-      expect(bytes[6]).to.equal(0x2a)
-      expect(bytes[7]).to.equal(0x18)
-
-      expect(bytes[8]).to.equal(192)
-      expect(bytes[9]).to.equal(168)
-      expect(bytes[10]).to.equal(1)
-      expect(bytes[11]).to.equal(100)
-
-      expect(bytes[12]).to.equal(0x61)
-      expect(bytes[13]).to.equal(0xea)
+      expect(bytes).to.deep.equal(msg)
     })
 
     it('should encode get-time request', function () {
+      const msg = Buffer.from([
+        0x17, 0x32, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
       const bytes = codec.encode(0x32, 405419896)
 
-      expect(bytes).to.have.lengthOf(64)
-      expect(bytes[0]).to.equal(0x17)
-      expect(bytes[1]).to.equal(0x32)
-
-      expect(bytes[4]).to.equal(0x78)
-      expect(bytes[5]).to.equal(0x37)
-      expect(bytes[6]).to.equal(0x2a)
-      expect(bytes[7]).to.equal(0x18)
+      expect(bytes).to.deep.equal(msg)
     })
 
     it('should encode set-time request', function () {
+      const msg = Buffer.from([
+        0x17, 0x30, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x20, 0x21, 0x08, 0x29, 0x13, 0x45, 0x51, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
       const bytes = codec.encode(0x30, 405419896, { datetime: '2021-08-29 13:45:51' })
 
-      expect(bytes).to.have.lengthOf(64)
-      expect(bytes[0]).to.equal(0x17)
-      expect(bytes[1]).to.equal(0x30)
-
-      expect(bytes[4]).to.equal(0x78)
-      expect(bytes[5]).to.equal(0x37)
-      expect(bytes[6]).to.equal(0x2a)
-      expect(bytes[7]).to.equal(0x18)
-
-      expect(bytes[8]).to.equal(0x20)
-      expect(bytes[9]).to.equal(0x21)
-      expect(bytes[10]).to.equal(0x08)
-      expect(bytes[11]).to.equal(0x29)
-
-      expect(bytes[12]).to.equal(0x13)
-      expect(bytes[13]).to.equal(0x45)
-      expect(bytes[14]).to.equal(0x51)
+      expect(bytes).to.deep.equal(msg)
     })
 
     it('should encode get-door-control request', function () {
@@ -184,6 +147,19 @@ describe('codec', function () {
     })
 
     it('should decode get-device response', function () {
+      const expected = {
+        deviceId: 405419896,
+        device: {
+          serialNumber: 405419896,
+          address: '192.168.1.100',
+          subnet: '255.255.255.0',
+          gateway: '192.168.1.1',
+          MAC: '00:12:23:34:45:56',
+          version: '0892',
+          date: '2020-08-25'
+        }
+      }
+
       const msg = Buffer.from([
         0x17, 0x94, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0xc0, 0xa8, 0x01, 0x64, 0xff, 0xff, 0xff, 0x00,
         0xc0, 0xa8, 0x01, 0x01, 0x00, 0x12, 0x23, 0x34, 0x45, 0x56, 0x08, 0x92, 0x20, 0x20, 0x08, 0x25,
@@ -193,19 +169,53 @@ describe('codec', function () {
 
       const object = codec.decode(new Uint8Array(msg))
 
-      expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
-      expect(object).to.have.property('deviceId')
-      expect(object).to.have.property('device')
-      expect(object.device.serialNumber).to.equal(405419896)
-      expect(object.device.address).to.equal('192.168.1.100')
-      expect(object.device.subnet).to.equal('255.255.255.0')
-      expect(object.device.gateway).to.equal('192.168.1.1')
-      expect(object.device.MAC).to.equal('00:12:23:34:45:56')
-      expect(object.device.version).to.equal('0892')
-      expect(object.device.date).to.equal('2020-08-25')
+      expect(object).to.deep.equal(expected)
     })
 
     it('should decode get-status response', function () {
+      const expected = {
+        deviceId: 405419896,
+        state: {
+          serialNumber: 405419896,
+          event: {
+            index: 71,
+            type: {
+              code: 1,
+              event: 'card swipe'
+            },
+            granted: false,
+            door: 3,
+            direction: {
+              code: 1,
+              direction: 'in'
+            },
+            card: 65538,
+            timestamp: '2020-08-25 10:08:40',
+            reason: {
+              code: 6,
+              reason: 'no access rights'
+            }
+          },
+          doors: [false, false, false, false],
+          buttons: [false, false, false, false],
+          system: {
+            status: 0,
+            date: '2020-08-25',
+            time: '10:08:40'
+          },
+          specialInfo: 0,
+          relays: {
+            state: 0,
+            relays: { 1: false, 2: false, 3: false, 4: false }
+          },
+          inputs: {
+            state: 0,
+            forceLock: false,
+            fireAlarm: false
+          }
+        }
+      }
+
       const msg = Buffer.from([
         0x17, 0x20, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x47, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x01,
         0x02, 0x00, 0x01, 0x00, 0x20, 0x20, 0x08, 0x25, 0x10, 0x08, 0x40, 0x06, 0x00, 0x00, 0x00, 0x00,
@@ -215,34 +225,16 @@ describe('codec', function () {
 
       const object = codec.decode(new Uint8Array(msg))
 
-      expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
-      expect(object).to.have.property('state')
-      expect(object.deviceId).to.equal(405419896)
-      expect(object.state.serialNumber).to.equal(405419896)
-      expect(object.state.event.index).to.equal(71)
-      expect(object.state.event.type.code).to.equal(1)
-      expect(object.state.event.type.event).to.equal('card swipe')
-      expect(object.state.event.granted).to.equal(false)
-      expect(object.state.event.door).to.equal(3)
-      expect(object.state.event.direction.code).to.equal(1)
-      expect(object.state.event.direction.direction).to.equal('in')
-      expect(object.state.event.card).to.equal(65538)
-      expect(object.state.event.timestamp).to.equal('2020-08-25 10:08:40')
-      expect(object.state.event.reason.code).to.equal(6)
-      expect(object.state.event.reason.reason).to.equal('no access rights')
-      expect(object.state.doors).to.deep.equal([false, false, false, false])
-      expect(object.state.buttons).to.deep.equal([false, false, false, false])
-      expect(object.state.system.status).to.equal(0)
-      expect(object.state.system.date).to.equal('2020-08-25')
-      expect(object.state.system.time).to.equal('10:08:40')
-      expect(object.state.relays.state).to.equal(0)
-      expect(object.state.relays.relays).to.deep.equal({ 1: false, 2: false, 3: false, 4: false })
-      expect(object.state.inputs.state).to.equal(0)
-      expect(object.state.inputs.forceLock).to.equal(false)
-      expect(object.state.inputs.fireAlarm).to.equal(false)
+      expect(object).to.deep.equal(expected)
     })
 
     it('should decode get-listener response', function () {
+      const expected = {
+        deviceId: 405419896,
+        address: '192.168.1.100',
+        port: 60001
+      }
+
       const msg = Buffer.from([
         0x17, 0x92, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0xc0, 0xa8, 0x01, 0x64, 0x61, 0xea, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -252,16 +244,15 @@ describe('codec', function () {
 
       const object = codec.decode(new Uint8Array(msg))
 
-      expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
-      expect(object).to.have.property('deviceId')
-      expect(object).to.have.property('address')
-      expect(object).to.have.property('port')
-      expect(object.deviceId).to.equal(405419896)
-      expect(object.address).to.equal('192.168.1.100')
-      expect(object.port).to.equal(60001)
+      expect(object).to.deep.equal(expected)
     })
 
     it('should decode set-listener response', function () {
+      const expected = {
+        deviceId: 405419896,
+        updated: true
+      }
+
       const msg = Buffer.from([
         0x17, 0x90, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -271,14 +262,16 @@ describe('codec', function () {
 
       const object = codec.decode(new Uint8Array(msg))
 
-      expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
-      expect(object).to.have.property('deviceId')
-      expect(object).to.have.property('updated')
-      expect(object.deviceId).to.equal(405419896)
-      expect(object.updated).to.equal(true)
+      expect(object).to.deep.equal(expected)
     })
 
     it('should decode get-time response', function () {
+      const expected = {
+        deviceId: 405419896,
+        address: '192.168.1.225',
+        port: 59999
+      }
+
       const msg = Buffer.from([
         0x17, 0x92, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0xc0, 0xa8, 0x01, 0xe1, 0x5f, 0xea, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -288,16 +281,15 @@ describe('codec', function () {
 
       const object = codec.decode(new Uint8Array(msg))
 
-      expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
-      expect(object).to.have.property('deviceId')
-      expect(object).to.have.property('address')
-      expect(object).to.have.property('port')
-      expect(object.deviceId).to.equal(405419896)
-      expect(object.address).to.equal('192.168.1.225')
-      expect(object.port).to.equal(59999)
+      expect(object).to.deep.equal(expected)
     })
 
     it('should decode set-time response', function () {
+      const expected = {
+        deviceId: 405419896,
+        datetime: '2021-08-28 14:23:56'
+      }
+
       const msg = Buffer.from([
         0x17, 0x30, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x20, 0x21, 0x08, 0x28, 0x14, 0x23, 0x56, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -307,11 +299,7 @@ describe('codec', function () {
 
       const object = codec.decode(new Uint8Array(msg))
 
-      expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
-      expect(object).to.have.property('deviceId')
-      expect(object).to.have.property('datetime')
-      expect(object.deviceId).to.equal(405419896)
-      expect(object.datetime).to.equal('2021-08-28 14:23:56')
+      expect(object).to.deep.equal(expected)
     })
 
     it('should decode get-door-control response', function () {
@@ -338,6 +326,49 @@ describe('codec', function () {
     })
 
     it('should decode event message', function () {
+      const expected = {
+        deviceId: 405419896,
+        state: {
+          serialNumber: 405419896,
+          event: {
+            index: 71,
+            type: {
+              code: 1,
+              event: 'card swipe'
+            },
+            granted: false,
+            door: 3,
+            direction: {
+              code: 1,
+              direction: 'in'
+            },
+            card: 65538,
+            timestamp: '2020-08-25 10:08:40',
+            reason: {
+              code: 6,
+              reason: 'no access rights'
+            }
+          },
+          doors: [false, false, false, false],
+          buttons: [false, false, false, false],
+          system: {
+            status: 0,
+            date: '2020-08-25',
+            time: '10:08:40'
+          },
+          specialInfo: 0,
+          relays: {
+            state: 0,
+            relays: { 1: false, 2: false, 3: false, 4: false }
+          },
+          inputs: {
+            state: 0,
+            forceLock: false,
+            fireAlarm: false
+          }
+        }
+      }
+
       const msg = Buffer.from([
         0x17, 0x20, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x47, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x01,
         0x02, 0x00, 0x01, 0x00, 0x20, 0x20, 0x08, 0x25, 0x10, 0x08, 0x40, 0x06, 0x00, 0x00, 0x00, 0x00,
@@ -347,31 +378,7 @@ describe('codec', function () {
 
       const object = codec.decode(new Uint8Array(msg))
 
-      expect(object).to.not.equal(null) // don't particularly want to import the 'null' function from chai
-      expect(object.deviceId).to.equal(405419896)
-      expect(object).to.have.property('state')
-      expect(object.state.serialNumber).to.equal(405419896)
-      expect(object.state.event.index).to.equal(71)
-      expect(object.state.event.type.code).to.equal(1)
-      expect(object.state.event.type.event).to.equal('card swipe')
-      expect(object.state.event.granted).to.equal(false)
-      expect(object.state.event.door).to.equal(3)
-      expect(object.state.event.direction.code).to.equal(1)
-      expect(object.state.event.direction.direction).to.equal('in')
-      expect(object.state.event.card).to.equal(65538)
-      expect(object.state.event.timestamp).to.equal('2020-08-25 10:08:40')
-      expect(object.state.event.reason.code).to.equal(6)
-      expect(object.state.event.reason.reason).to.equal('no access rights')
-      expect(object.state.doors).to.deep.equal([false, false, false, false])
-      expect(object.state.buttons).to.deep.equal([false, false, false, false])
-      expect(object.state.system.status).to.equal(0)
-      expect(object.state.system.date).to.equal('2020-08-25')
-      expect(object.state.system.time).to.equal('10:08:40')
-      expect(object.state.relays.state).to.equal(0)
-      expect(object.state.relays.relays).to.deep.equal({ 1: false, 2: false, 3: false, 4: false })
-      expect(object.state.inputs.state).to.equal(0)
-      expect(object.state.inputs.forceLock).to.equal(false)
-      expect(object.state.inputs.fireAlarm).to.equal(false)
+      expect(object).to.deep.equal(expected)
     })
   })
 })

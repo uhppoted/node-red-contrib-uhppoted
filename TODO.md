@@ -2,8 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] update codec 'get' tests to deep.equal message
-- [ ] update codec 'set' tests to deep.equal object
 - [ ] don't do broadcast for non-broadcast destinations
 - [ ] fallback to broadcast address if destination is not defined
 - [ ] make 'send' function look like get/set
@@ -31,6 +29,8 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] update codec 'set' tests to deep.equal object
+- [x] update codec 'get' tests to deep.equal message
 - [x] get-door-control
 - [x] set-listener
 - [x] commonalise set code
