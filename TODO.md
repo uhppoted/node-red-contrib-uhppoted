@@ -2,8 +2,10 @@
 
 ## IN PROGRESS
 
-- [ ] don't do broadcast for non-broadcast destinations
+- [ ] rename subnet to netmask
 - [ ] fallback to broadcast address if destination is not defined
+- [ ] 'force broadcast' flag in config
+- [ ] rename uhppote to config or somesuch
 - [ ] make 'send' function look like get/set
 - [ ] make 'broadcast' function look like get/set
 - [ ] internationalisation
@@ -29,6 +31,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] broadcast only for broadcast addresses
 - [x] set-door-control
 - [x] update codec 'set' tests to deep.equal object
 - [x] update codec 'get' tests to deep.equal message

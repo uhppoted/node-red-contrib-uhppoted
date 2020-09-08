@@ -29,7 +29,9 @@ module.exports = {
 
     const send = new Promise((resolve, reject) => {
       sock.on('listening', () => {
-        sock.setBroadcast(true)
+        if (isBroadcast(addr.address)) {
+          sock.setBroadcast(true)
+        }
 
         sock.send(rq, 0, rq.length, addr.port, addr.address, (err, bytes) => {
           if (err) {
@@ -78,7 +80,9 @@ module.exports = {
 
     const send = new Promise((resolve, reject) => {
       sock.on('listening', () => {
-        sock.setBroadcast(true)
+        if (isBroadcast(addr.address)) {
+          sock.setBroadcast(true)
+        }
 
         sock.send(rq, 0, rq.length, addr.port, addr.address, (err, bytes) => {
           if (err) {
@@ -207,7 +211,9 @@ async function exec (deviceId, f, request, config, logger) {
 
   const send = new Promise((resolve, reject) => {
     sock.on('listening', () => {
-      sock.setBroadcast(true)
+      if (isBroadcast(addr.address)) {
+        sock.setBroadcast(true)
+      }
 
       sock.send(new Uint8Array(rq), 0, 64, addr.port, addr.address, (err, bytes) => {
         if (err) {
@@ -293,4 +299,24 @@ function stringToIP (addr) {
     address: address,
     port: port
   }
+}
+
+function isBroadcast (addr) {
+  const os = require('os')
+  const ip = require('ip')
+  const interfaces = os.networkInterfaces()
+
+  for (const v of Object.entries(interfaces)) {
+    for (const ifs of v[1]) {
+      if (ifs.family && ifs.family === 'IPv4') {
+        const subnet = ip.subnet(ifs.address, ifs.netmask)
+
+        if (subnet.broadcastAddress === addr) {
+          return true
+        }
+      }
+    }
+  }
+
+  return false
 }
