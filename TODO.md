@@ -29,6 +29,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] set-door-control
 - [x] update codec 'set' tests to deep.equal object
 - [x] update codec 'get' tests to deep.equal message
 - [x] get-door-control

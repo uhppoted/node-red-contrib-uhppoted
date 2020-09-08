@@ -41,15 +41,14 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{\"address\":\"192.168.1.100\",\"subnet\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
+        "topic": "set-address",
+        "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.125\",\"subnet\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
         "payloadType": "json",
-        "x": 310,
+        "x": 490,
         "y": 100,
         "wires": [
             [
-                "75c8e264.6e9a3c",
-                "45ee145d.a3525c"
+                "2a10c0a9.e8d6"
             ]
         ]
     },
@@ -58,7 +57,7 @@
         "type": "function",
         "z": "8bcf2d43.2e243",
         "name": "IPv4",
-        "func": "const deviceId = 405419896\n\nswitch (msg.topic) {\n    case 'set-address':\n        flow.set('set-address.address', msg.payload)\n        return null;\n\n    case 'set-subnet':\n        flow.set('set-address.subnet', msg.payload)\n        return null;\n\n    case 'set-gateway':\n        flow.set('set-address.gateway', msg.payload)\n        return null;\n        \n    case 'set':\n        let address = flow.get('set-address.address')\n        let subnet = flow.get('set-address.subnet')\n        let gateway = flow.get('set-address.gateway')\n\n        if (!address) {\n          address = '192.168.1.100'\n        }\n\n        if (!subnet) {\n          subnet = '255.255.255.20'\n        }\n\n        if (!gateway) {\n          gateway = '192.168.1.1'\n        }\n\n        msg.payload = {\n           deviceId: deviceId,\n           address: address,\n           subnet: subnet,\n           gateway: gateway\n        }        \n        \n        return msg\n}\n\n",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-address.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-address.address', msg.payload)\n        break;\n\n    case 'set-subnet':\n        flow.set('set-address.subnet', msg.payload)\n        break;\n\n    case 'set-gateway':\n        flow.set('set-address.gateway', msg.payload)\n        break;\n        \n    case 'set':\n        let deviceId = flow.get('set-address.device')\n        let address = flow.get('set-address.address')\n        let subnet = flow.get('set-address.subnet')\n        let gateway = flow.get('set-address.gateway')\n\n        if (!address) {\n          address = '192.168.1.100'\n        }\n\n        if (!subnet) {\n          subnet = '255.255.255.20'\n        }\n\n        if (!gateway) {\n          gateway = '192.168.1.1'\n        }\n\n        if (deviceId && address && subnet && gateway) {\n            msg.payload = {\n                deviceId: deviceId,\n                address: address,\n                subnet: subnet,\n                gateway: gateway\n            }        \n        \n            return msg\n        }\n}\n\nreturn null\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -116,23 +115,6 @@
         "icon": "node-red/db.svg"
     },
     {
-        "id": "75c8e264.6e9a3c",
-        "type": "debug",
-        "z": "8bcf2d43.2e243",
-        "name": "start",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 490,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "b6a91dc2.1e37",
         "type": "ui_text_input",
         "z": "8bcf2d43.2e243",
@@ -148,7 +130,7 @@
         "delay": "0",
         "topic": "address",
         "x": 300,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -171,7 +153,7 @@
         "delay": 300,
         "topic": "subnet",
         "x": 310,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -194,7 +176,7 @@
         "delay": 300,
         "topic": "gateway",
         "x": 300,
-        "y": 220,
+        "y": 260,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -220,7 +202,7 @@
         "payloadType": "date",
         "topic": "set",
         "x": 310,
-        "y": 260,
+        "y": 300,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -252,11 +234,27 @@
         ]
     },
     {
+        "id": "5b13b041.ee256",
+        "type": "link in",
+        "z": "8bcf2d43.2e243",
+        "name": "",
+        "links": [
+            "d4e3111f.b25ea"
+        ],
+        "x": 335,
+        "y": 140,
+        "wires": [
+            [
+                "45ee145d.a3525c"
+            ]
+        ]
+    },
+    {
         "id": "d596ac54.cced",
         "type": "uhppote",
         "z": "",
         "name": "development",
-        "timeout": "4999",
+        "timeout": "5000",
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",
         "listen": "192.168.1.100:60001",

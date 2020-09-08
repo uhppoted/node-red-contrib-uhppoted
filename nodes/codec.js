@@ -24,6 +24,29 @@ module.exports = {
         request.writeUInt32LE(deviceId, 4)
         break
 
+      case 0x80:
+        request.writeUInt8(0x80, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt8(object.door, 8)
+        request.writeUInt8(object.delay, 10)
+        switch (object.control) {
+          case 'normally open':
+            request.writeUInt8(1, 9)
+            break
+
+          case 'normally closed':
+            request.writeUInt8(2, 9)
+            break
+
+          case 'controlled':
+            request.writeUInt8(3, 9)
+            break
+
+          default:
+            throw new Error(`invalid door control ${code}`, object.control)
+        }
+        break
+
       case 0x82:
         request.writeUInt8(0x82, 1)
         request.writeUInt32LE(deviceId, 4)
@@ -93,14 +116,17 @@ module.exports = {
           datetime: yyyymmddHHmmss(bytes, 8)
         }
 
+      case 0x80:
       case 0x82:
         return {
           deviceId: uint32(bytes, 4),
           doorControlState: {
             door: uint8(bytes, 8),
             delay: uint8(bytes, 10),
-            value: uint8(bytes, 9),
-            state: lookup.doorState(bytes, 9)
+            control: {
+              value: uint8(bytes, 9),
+              state: lookup.doorState(bytes, 9)
+            }
           }
         }
 

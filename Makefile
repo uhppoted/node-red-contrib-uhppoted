@@ -9,19 +9,14 @@ DATETIME  = $(shell date "+%Y-%m-%d %H:%M:%S")
 LISTEN   ?= 192.168.1.100:60001
 DEBUG    ?= --debug
 
-.PHONY: fix
 .PHONY: build
 .PHONY: test
 
-fix:
-	npx eslint --fix nodes/*.js
-	npx eslint --fix test/*.js
-
 build:
-	npx eslint nodes/*.js  
+	npx eslint --fix nodes/*.js  
 
 test: build
-	npx eslint test/*.js  
+	npx eslint --fix test/*.js  
 	npm test
 
 run: build

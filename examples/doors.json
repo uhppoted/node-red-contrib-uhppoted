@@ -62,7 +62,7 @@
         "height": 0,
         "name": "door-1",
         "label": "Entrance",
-        "format": "{{msg.payload.doorControlState.delay}}s, {{msg.payload.doorControlState.state}}",
+        "format": "{{msg.payload.doorControlState.delay}}s, {{msg.payload.doorControlState.control.state}}",
         "layout": "row-spread",
         "x": 670,
         "y": 80,
@@ -137,7 +137,7 @@
         "height": 0,
         "name": "door-2",
         "label": "Workshop",
-        "format": "{{msg.payload.doorControlState.delay}}s, {{msg.payload.doorControlState.state}}",
+        "format": "{{msg.payload.doorControlState.delay}}s, {{msg.payload.doorControlState.control.state}}",
         "layout": "row-spread",
         "x": 670,
         "y": 120,
@@ -167,7 +167,7 @@
         "height": 0,
         "name": "door-3",
         "label": "Tower",
-        "format": "{{msg.payload.doorControlState.delay}}s, {{msg.payload.doorControlState.state}}",
+        "format": "{{msg.payload.doorControlState.delay}}s, {{msg.payload.doorControlState.control.state}}",
         "layout": "row-spread",
         "x": 670,
         "y": 160,
@@ -197,7 +197,7 @@
         "height": 0,
         "name": "door-4",
         "label": "Dungeon",
-        "format": "{{msg.payload.doorControlState.delay}}s, {{msg.payload.doorControlState.state}}",
+        "format": "{{msg.payload.doorControlState.delay}}s, {{msg.payload.doorControlState.control.state}}",
         "layout": "row-spread",
         "x": 670,
         "y": 200,
@@ -218,6 +218,235 @@
         ]
     },
     {
+        "id": "6d8d48f7.397bb8",
+        "type": "set-door-control",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-control",
+        "uhppote": "d596ac54.cced",
+        "x": 480,
+        "y": 280,
+        "wires": [
+            [
+                "552b0a9d.9bc984"
+            ]
+        ]
+    },
+    {
+        "id": "552b0a9d.9bc984",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "189de852.18ad78",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "ok",
+        "group": "aa8a9aa4.208ff8",
+        "order": 5,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "set door control",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "date",
+        "topic": "set",
+        "x": 110,
+        "y": 440,
+        "wires": [
+            [
+                "2a6bfd65.85b982"
+            ]
+        ]
+    },
+    {
+        "id": "2a6bfd65.85b982",
+        "type": "function",
+        "z": "86bbf50e.a7f188",
+        "name": "door-control",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-door-control.device', msg.payload)\n        return null;\n\n    case 'set-door':\n        flow.set('set-door-control.door', msg.payload)\n        return null;\n\n    case 'set-delay':\n        flow.set('set-door-control.delay', msg.payload)\n        return null;\n\n    case 'set-control':\n        flow.set('set-door-control.control', msg.payload)\n        return null;\n        \n    case 'set':\n        let deviceId = flow.get('set-door-control.device')\n        let door = flow.get('set-door-control.door')\n        let delay = flow.get('set-door-control.delay')\n        let control = flow.get('set-door-control.control')\n\n        if (deviceId && door && delay && control) {\n            msg.payload = { \n                deviceId: deviceId,\n                door: door,\n                delay: delay,\n                control: control\n            }\n        \n            return msg\n        }\n        break;\n}\n\nreturn null;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 280,
+        "wires": [
+            [
+                "6d8d48f7.397bb8"
+            ]
+        ]
+    },
+    {
+        "id": "5fb4202c.0de66",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896,\"door\":1,\"delay\":6,\"control\":\"normally closed\"}",
+        "payloadType": "json",
+        "x": 310,
+        "y": 240,
+        "wires": [
+            [
+                "6d8d48f7.397bb8"
+            ]
+        ]
+    },
+    {
+        "id": "17002233.3f01ae",
+        "type": "ui_dropdown",
+        "z": "86bbf50e.a7f188",
+        "name": "door",
+        "label": "Door:",
+        "tooltip": "",
+        "place": "<select door>",
+        "group": "aa8a9aa4.208ff8",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "entrance",
+                "value": 1,
+                "type": "num"
+            },
+            {
+                "label": "workshop",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "tower",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "dungeon",
+                "value": "4",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "set-door",
+        "x": 110,
+        "y": 320,
+        "wires": [
+            [
+                "2a6bfd65.85b982"
+            ]
+        ]
+    },
+    {
+        "id": "658fc734.2cb608",
+        "type": "ui_numeric",
+        "z": "86bbf50e.a7f188",
+        "name": "delay",
+        "label": "Delay:",
+        "tooltip": "",
+        "group": "aa8a9aa4.208ff8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "wrap": false,
+        "passthru": true,
+        "topic": "set-delay",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "15",
+        "step": 1,
+        "x": 110,
+        "y": 360,
+        "wires": [
+            [
+                "2a6bfd65.85b982"
+            ]
+        ]
+    },
+    {
+        "id": "b9f51091.3fdb3",
+        "type": "ui_dropdown",
+        "z": "86bbf50e.a7f188",
+        "name": "control",
+        "label": "Control:",
+        "tooltip": "",
+        "place": "<select control state>",
+        "group": "aa8a9aa4.208ff8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "normally open",
+                "value": "normally open",
+                "type": "str"
+            },
+            {
+                "label": "normally closed",
+                "value": "normally closed",
+                "type": "str"
+            },
+            {
+                "label": "controlled",
+                "value": "controlled",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "set-control",
+        "x": 110,
+        "y": 400,
+        "wires": [
+            [
+                "2a6bfd65.85b982"
+            ]
+        ]
+    },
+    {
+        "id": "e90fb8ea.bb5528",
+        "type": "link in",
+        "z": "86bbf50e.a7f188",
+        "name": "",
+        "links": [
+            "d4e3111f.b25ea"
+        ],
+        "x": 135,
+        "y": 280,
+        "wires": [
+            [
+                "2a6bfd65.85b982"
+            ]
+        ]
+    },
+    {
         "id": "58853d00.4f7b14",
         "type": "ui_group",
         "z": "",
@@ -233,17 +462,37 @@
         "type": "uhppote",
         "z": "",
         "name": "development",
-        "timeout": "4999",
+        "timeout": "5000",
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",
         "listen": "192.168.1.100:60001",
         "debug": true
     },
     {
+        "id": "aa8a9aa4.208ff8",
+        "type": "ui_group",
+        "z": "",
+        "name": "set-door-control",
+        "tab": "e4b36c96.1a567",
+        "order": 4,
+        "disp": true,
+        "width": 5,
+        "collapse": false
+    },
+    {
         "id": "2731970.74c476a",
         "type": "ui_tab",
         "z": "",
         "name": "devices",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e4b36c96.1a567",
+        "type": "ui_tab",
+        "z": "",
+        "name": "configuration",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

@@ -296,14 +296,14 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "set",
-        "payload": "",
-        "payloadType": "date",
-        "x": 330,
+        "topic": "set-listener",
+        "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001}",
+        "payloadType": "json",
+        "x": 510,
         "y": 280,
         "wires": [
             [
-                "512a17cd.9fb318"
+                "48b92667.8a59b8"
             ]
         ]
     },
@@ -340,7 +340,7 @@
         "delay": 300,
         "topic": "set-address",
         "x": 320,
-        "y": 320,
+        "y": 360,
         "wires": [
             [
                 "512a17cd.9fb318"
@@ -352,7 +352,7 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "listener",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\nconst deviceId = 405419896\n\nswitch (msg.topic) {\n    case 'set-address':\n        flow.set('set-listener.address', msg.payload)\n        return null;\n\n    case 'set-port':\n        flow.set('set-listener.port', msg.payload)\n        return null;\n        \n    case 'set':\n        let address = flow.get('set-listener.address')\n        let port = flow.get('set-listener.port')\n\n        if (!address) {\n          address = '192.168.1.100'\n        }\n\n        if (!port) {\n          port = 60001\n        }\n\n        msg.payload = { \n            deviceId: deviceId,\n            address: address,\n            port: port\n        }\n        \n        return msg\n}",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-listener.device', msg.payload)\n        return null;\n\n    case 'set-address':\n        flow.set('set-listener.address', msg.payload)\n        return null;\n\n    case 'set-port':\n        flow.set('set-listener.port', msg.payload)\n        return null;\n        \n    case 'set':\n        let deviceId = flow.get('set-listener.device')\n        let address = flow.get('set-listener.address')\n        let port = flow.get('set-listener.port')\n\n        if (!address) {\n          address = '192.168.1.100'\n        }\n\n        if (!port) {\n          port = 60001\n        }\n\n        if (deviceId && address && port) {\n            msg.payload = { \n                deviceId: deviceId,\n                address: address,\n                port: port\n            }\n        \n            return msg\n        }\n      \n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -384,7 +384,7 @@
         "payloadType": "date",
         "topic": "set",
         "x": 330,
-        "y": 400,
+        "y": 440,
         "wires": [
             [
                 "512a17cd.9fb318"
@@ -458,7 +458,23 @@
         "delay": 300,
         "topic": "set-port",
         "x": 330,
-        "y": 360,
+        "y": 400,
+        "wires": [
+            [
+                "512a17cd.9fb318"
+            ]
+        ]
+    },
+    {
+        "id": "bbeb26dc.ff7ab8",
+        "type": "link in",
+        "z": "c56e1667.998748",
+        "name": "",
+        "links": [
+            "d4e3111f.b25ea"
+        ],
+        "x": 355,
+        "y": 320,
         "wires": [
             [
                 "512a17cd.9fb318"
@@ -470,7 +486,7 @@
         "type": "uhppote",
         "z": "",
         "name": "development",
-        "timeout": "4999",
+        "timeout": "5000",
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",
         "listen": "192.168.1.100:60001",

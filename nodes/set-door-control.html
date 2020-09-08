@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('get-door-control', {
+    RED.nodes.registerType('set-door-control', {
         category: 'uhppoted',
         color: '#A6BBCF',
         defaults: {
@@ -15,12 +15,12 @@
         outputs: 1,
         icon: "function.svg",
         label: function() {
-            return this.name || "get-door-control";
+            return this.name || "set-door-control";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="get-door-control">
+<script type="text/html" data-template-name="set-door-control">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -31,13 +31,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="get-door-control">
+<script type="text/html" data-help-name="set-door-control">
     <p>Retrieves the current device door control state for a UHPPOTE access controller.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the device ID for 'get-door-control'</dd>
+        <dd>JSON object with the device ID for 'set-door-control'</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -51,18 +51,26 @@
     </dl>
 
     <h3>Details</h3>
-    <p>The input <code>msg.payload</code> is a JSON object containing the serial number
-    for the controller for which the current door control state should be retrieved</p>
+    <p>The input <code>msg.payload</code> is a JSON object with the device ID, door number,
+    door delay and door control value (normally open, normally closed or controlled) for 
+    the UHPPOTE controller with serial number matching the request:</p>
     <dl class="message-properties">
-        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dt>id<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
         <dt>door<span class="property-type">uint8</span></dt>
-        <dd>Door number (1-4)</dd>
+        <dd>Door ID (1-4)</dd>
+        <dt>delay<span class="property-type">uint8</span></dt>
+        <dd>Door unlock duration (seconds)</dd>
+        <dt>control<span class="property-type">strig</span></dt>
+        <dd>'normally open', 'normally closed', 'controlled'</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
-    "deviceId": 405419896
+    "deviceId": 405419896,
+    "door": 1, 
+    "delay": 5,
+    "control": "controlled"
   }</pre>
 
     <p>The output <code>msg.payload</code> is a JSON object containing the door control state 
@@ -85,11 +93,11 @@
   {
     "deviceId": 405419896,
     "doorControlState": {
-        door: 1, 
-        delay: 5,
-        control: {
-            value: 3,
-            state: "controlled"
+        "door": 1, 
+        "delay": 5,
+        "control": {
+            "value": 3,
+            "state": "controlled"
         }
     }
   }</pre>
