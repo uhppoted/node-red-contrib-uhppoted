@@ -248,7 +248,7 @@
         "id": "e4b36c96.1a567",
         "type": "ui_tab",
         "z": "",
-        "name": "configuration",
+        "name": "manage",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
@@ -307,36 +307,14 @@
         "height": 1
     },
     {
-        "id": "1a9d0189.af6a6e",
-        "type": "ui_group",
-        "z": "",
-        "name": "set-listener",
-        "tab": "e4b36c96.1a567",
-        "order": 2,
-        "disp": false,
-        "width": "4",
-        "collapse": false
-    },
-    {
-        "id": "d18397cc.a852f8",
-        "type": "ui_group",
-        "z": "",
-        "name": "set-time",
-        "tab": "e4b36c96.1a567",
-        "order": 3,
-        "disp": false,
-        "width": 4,
-        "collapse": false
-    },
-    {
         "id": "920f64db.d2fd58",
         "type": "ui_group",
         "z": "",
-        "name": "set-address",
+        "name": "configuration",
         "tab": "e4b36c96.1a567",
-        "order": 4,
-        "disp": false,
-        "width": 4,
+        "order": 1,
+        "disp": true,
+        "width": "10",
         "collapse": false
     },
     {
@@ -354,31 +332,137 @@
         "id": "aa8a9aa4.208ff8",
         "type": "ui_group",
         "z": "",
-        "name": "set-door-control",
+        "name": "doors",
         "tab": "e4b36c96.1a567",
         "order": 4,
         "disp": true,
-        "width": 5,
-        "collapse": false
-    },
-    {
-        "id": "f60666d8.0736a8",
-        "type": "ui_group",
-        "z": "",
-        "name": "controller",
-        "tab": "e4b36c96.1a567",
-        "order": 5,
-        "disp": false,
         "width": "6",
         "collapse": false
     },
     {
-        "id": "7cabebb7.924014",
+        "id": "c9be84f.47f4478",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "aa8a9aa4.208ff8",
-        "order": 4,
+        "group": "920f64db.d2fd58",
+        "order": 2,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "4232d4ce.2753bc",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 3,
+        "width": 10,
+        "height": 1
+    },
+    {
+        "id": "ac03fbc5.a9bc08",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 6,
         "width": 1,
+        "height": 1
+    },
+    {
+        "id": "9a760ae8.f42f98",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "dee0d5d1.4b9ee8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "8ebf1b94.c50e88",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 12,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "71f64e43.e159c",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 14,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "bc2cf687.0f8cd8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 16,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "287835cc.1d5f5a",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 17,
+        "width": 10,
+        "height": 1
+    },
+    {
+        "id": "565d6384.bd786c",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 20,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "7e5e5601.782038",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 22,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "9811843.faf2978",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 24,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "a95a7bbd.60c1a8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 26,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "1aaca575.d480eb",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 28,
+        "width": 6,
         "height": 1
     },
     {
@@ -439,8 +523,7 @@
         "y": 40,
         "wires": [
             [
-                "6a470566.d4725c",
-                "b36ac360.b2d72"
+                "6a470566.d4725c"
             ]
         ]
     },
@@ -741,23 +824,6 @@
                 "6a470566.d4725c"
             ]
         ]
-    },
-    {
-        "id": "b36ac360.b2d72",
-        "type": "debug",
-        "z": "a640a000.d83cb",
-        "name": "start",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 290,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "a308f042.ba17e",
@@ -1116,7 +1182,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
+        "x": 880,
         "y": 100,
         "wires": []
     },
@@ -1141,7 +1207,7 @@
         "topic": "set-address",
         "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.125\",\"subnet\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
         "payloadType": "json",
-        "x": 490,
+        "x": 550,
         "y": 100,
         "wires": [
             [
@@ -1154,12 +1220,12 @@
         "type": "function",
         "z": "8bcf2d43.2e243",
         "name": "IPv4",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-address.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-address.address', msg.payload)\n        break;\n\n    case 'set-subnet':\n        flow.set('set-address.subnet', msg.payload)\n        break;\n\n    case 'set-gateway':\n        flow.set('set-address.gateway', msg.payload)\n        break;\n        \n    case 'set':\n        let deviceId = flow.get('set-address.device')\n        let address = flow.get('set-address.address')\n        let subnet = flow.get('set-address.subnet')\n        let gateway = flow.get('set-address.gateway')\n\n        if (!address) {\n          address = '192.168.1.100'\n        }\n\n        if (!subnet) {\n          subnet = '255.255.255.20'\n        }\n\n        if (!gateway) {\n          gateway = '192.168.1.1'\n        }\n\n        if (deviceId && address && subnet && gateway) {\n            msg.payload = {\n                deviceId: deviceId,\n                address: address,\n                subnet: subnet,\n                gateway: gateway\n            }        \n        \n            return msg\n        }\n}\n\nreturn null\n",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-address.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-address.address', msg.payload)\n        break;\n\n    case 'set-subnet':\n        flow.set('set-address.subnet', msg.payload)\n        break;\n\n    case 'set-gateway':\n        flow.set('set-address.gateway', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-address.device')\nlet address = flow.get('set-address.address')\nlet subnet = flow.get('set-address.subnet')\nlet gateway = flow.get('set-address.gateway')\n\nif (deviceId && address && subnet && gateway) {\n    msg.payload = {\n        deviceId: deviceId,\n        address: address,\n        subnet: subnet,\n        gateway: gateway\n    }        \n        \n    return msg\n}\n\nreturn null\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 490,
+        "x": 550,
         "y": 140,
         "wires": [
             [
@@ -1173,7 +1239,7 @@
         "z": "8bcf2d43.2e243",
         "name": "set-address",
         "uhppote": "d596ac54.cced",
-        "x": 670,
+        "x": 710,
         "y": 140,
         "wires": [
             [
@@ -1215,18 +1281,18 @@
         "id": "b6a91dc2.1e37",
         "type": "ui_text_input",
         "z": "8bcf2d43.2e243",
-        "name": "address",
+        "name": "IPv4-address",
         "label": "address",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 1,
+        "order": 7,
         "width": 4,
         "height": 1,
         "passthru": true,
         "mode": "text",
         "delay": "0",
-        "topic": "address",
-        "x": 300,
+        "topic": "set-address",
+        "x": 350,
         "y": 180,
         "wires": [
             [
@@ -1238,18 +1304,18 @@
         "id": "c5052b18.578d98",
         "type": "ui_text_input",
         "z": "8bcf2d43.2e243",
-        "name": "subnet",
+        "name": "IPv4-subnet",
         "label": "subnet",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 2,
+        "order": 11,
         "width": 4,
         "height": 1,
         "passthru": true,
         "mode": "text",
-        "delay": 300,
-        "topic": "subnet",
-        "x": 310,
+        "delay": "0",
+        "topic": "set-subnet",
+        "x": 350,
         "y": 220,
         "wires": [
             [
@@ -1261,45 +1327,19 @@
         "id": "5b16f8e7.972fb8",
         "type": "ui_text_input",
         "z": "8bcf2d43.2e243",
-        "name": "gateway",
+        "name": "IPv4-gateway",
         "label": "gateway",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 3,
+        "order": 15,
         "width": 4,
         "height": 1,
         "passthru": true,
         "mode": "text",
-        "delay": 300,
-        "topic": "gateway",
-        "x": 300,
+        "delay": "0",
+        "topic": "set-gateway",
+        "x": 340,
         "y": 260,
-        "wires": [
-            [
-                "45ee145d.a3525c"
-            ]
-        ]
-    },
-    {
-        "id": "e88b8d2a.efd4d",
-        "type": "ui_button",
-        "z": "8bcf2d43.2e243",
-        "name": "ok",
-        "group": "920f64db.d2fd58",
-        "order": 4,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "label": "set IPv4",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "set",
-        "x": 310,
-        "y": 300,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -1316,7 +1356,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 140,
+        "x": 120,
         "y": 180,
         "wires": [
             [
@@ -2108,40 +2148,14 @@
         ]
     },
     {
-        "id": "ca054f41.1f22f",
-        "type": "ui_button",
-        "z": "f7a455cc.3fefe8",
-        "name": "ok",
-        "group": "d18397cc.a852f8",
-        "order": 3,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "label": "set date/time",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "set",
-        "x": 110,
-        "y": 300,
-        "wires": [
-            [
-                "1768d838.2f1398"
-            ]
-        ]
-    },
-    {
         "id": "cbe2b9d7.ec8fe8",
         "type": "ui_text_input",
         "z": "f7a455cc.3fefe8",
         "name": "time",
         "label": "",
         "tooltip": "",
-        "group": "d18397cc.a852f8",
-        "order": 2,
+        "group": "920f64db.d2fd58",
+        "order": 13,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -2162,8 +2176,8 @@
         "z": "f7a455cc.3fefe8",
         "name": "date",
         "label": "",
-        "group": "d18397cc.a852f8",
-        "order": 1,
+        "group": "920f64db.d2fd58",
+        "order": 9,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -2181,7 +2195,7 @@
         "type": "function",
         "z": "f7a455cc.3fefe8",
         "name": "datetime",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-time.device', msg.payload)\n        return null;\n\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        return null;\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        return null;\n        \n    case 'set':\n        let deviceId = flow.get('set-time.device')\n        let date = flow.get('set-time.date')\n        let time = flow.get('set-time.time')\n\n        if (!date) {\n          date = new Date()\n        }\n\n        if (!time) {\n          time = new Date()\n        }\n\n        if (deviceId && date && time) {\n            const year = format(date.getFullYear(), 4)\n            const month = format(date.getMonth()+1, 2)\n            const day = format(date.getDate(), 2)\n            const hours = format(time.getHours(), 2)\n            const minutes = format(time.getMinutes(), 2)\n            const seconds = format(time.getSeconds(), 2)\n\n            msg.payload = { \n                deviceId: deviceId,\n                datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n            }\n        \n            return msg\n        }\n}\n\nreturn null",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-time.device', msg.payload)\n        break;\n\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        break;\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        break;\n}\n\nlet deviceId = flow.get('set-time.device')\nlet date = flow.get('set-time.date')\nlet time = flow.get('set-time.time')\n\nif (!date) {\n    date = new Date()\n}\n\nif (!time) {\n    time = new Date()\n}\n\nif (deviceId && date && time) {\n    const year = format(date.getFullYear(), 4)\n    const month = format(date.getMonth()+1, 2)\n    const day = format(date.getDate(), 2)\n    const hours = format(time.getHours(), 2)\n    const minutes = format(time.getMinutes(), 2)\n    const seconds = format(time.getSeconds(), 2)\n\n    msg.payload = { \n        deviceId: deviceId,\n        datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n    }\n        \n    return msg\n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2198,7 +2212,7 @@
         "id": "2046730f.81897c",
         "type": "debug",
         "z": "86bbf50e.a7f188",
-        "name": "door 1",
+        "name": "received",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -2207,7 +2221,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
+        "x": 680,
         "y": 40,
         "wires": []
     },
@@ -2522,7 +2536,7 @@
         "z": "c56e1667.998748",
         "name": "set-listener",
         "uhppote": "d596ac54.cced",
-        "x": 670,
+        "x": 730,
         "y": 320,
         "wires": [
             [
@@ -2551,7 +2565,7 @@
         "topic": "set-listener",
         "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001}",
         "payloadType": "json",
-        "x": 510,
+        "x": 570,
         "y": 280,
         "wires": [
             [
@@ -2572,7 +2586,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
+        "x": 900,
         "y": 280,
         "wires": []
     },
@@ -2580,18 +2594,18 @@
         "id": "3331c261.f5db3e",
         "type": "ui_text_input",
         "z": "c56e1667.998748",
-        "name": "address",
+        "name": "listener-address",
         "label": "address",
         "tooltip": "",
-        "group": "1a9d0189.af6a6e",
-        "order": 1,
+        "group": "920f64db.d2fd58",
+        "order": 21,
         "width": 4,
         "height": 1,
         "passthru": true,
         "mode": "text",
-        "delay": 300,
+        "delay": "0",
         "topic": "set-address",
-        "x": 320,
+        "x": 340,
         "y": 360,
         "wires": [
             [
@@ -2604,42 +2618,16 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "listener",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-listener.device', msg.payload)\n        return null;\n\n    case 'set-address':\n        flow.set('set-listener.address', msg.payload)\n        return null;\n\n    case 'set-port':\n        flow.set('set-listener.port', msg.payload)\n        return null;\n        \n    case 'set':\n        let deviceId = flow.get('set-listener.device')\n        let address = flow.get('set-listener.address')\n        let port = flow.get('set-listener.port')\n\n        if (!address) {\n          address = '192.168.1.100'\n        }\n\n        if (!port) {\n          port = 60001\n        }\n\n        if (deviceId && address && port) {\n            msg.payload = { \n                deviceId: deviceId,\n                address: address,\n                port: port\n            }\n        \n            return msg\n        }\n      \n}\n\nreturn null",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-listener.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-listener.address', msg.payload)\n        break;\n\n    case 'set-port':\n        flow.set('set-listener.port', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-listener.device')\nlet address = flow.get('set-listener.address')\nlet port = flow.get('set-listener.port')\n\nif (deviceId && address && port) {\n    msg.payload = { \n        deviceId: deviceId,\n        address: address,\n            port: port\n    }\n        \n    return msg\n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 500,
+        "x": 560,
         "y": 320,
         "wires": [
             [
                 "48b92667.8a59b8"
-            ]
-        ]
-    },
-    {
-        "id": "c4d1234d.d0bed",
-        "type": "ui_button",
-        "z": "c56e1667.998748",
-        "name": "ok",
-        "group": "1a9d0189.af6a6e",
-        "order": 3,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "label": "set-listener",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "set",
-        "x": 330,
-        "y": 440,
-        "wires": [
-            [
-                "512a17cd.9fb318"
             ]
         ]
     },
@@ -2698,18 +2686,18 @@
         "id": "5217acb4.4afe04",
         "type": "ui_text_input",
         "z": "c56e1667.998748",
-        "name": "port",
+        "name": "listener-port",
         "label": "port",
         "tooltip": "",
-        "group": "1a9d0189.af6a6e",
-        "order": 2,
-        "width": 0,
-        "height": 0,
+        "group": "920f64db.d2fd58",
+        "order": 25,
+        "width": 4,
+        "height": 1,
         "passthru": true,
         "mode": "number",
-        "delay": 300,
+        "delay": "0",
         "topic": "set-port",
-        "x": 330,
+        "x": 350,
         "y": 400,
         "wires": [
             [
@@ -2749,37 +2737,11 @@
         "wires": []
     },
     {
-        "id": "189de852.18ad78",
-        "type": "ui_button",
-        "z": "86bbf50e.a7f188",
-        "name": "ok",
-        "group": "aa8a9aa4.208ff8",
-        "order": 5,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "label": "set door control",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "set",
-        "x": 110,
-        "y": 440,
-        "wires": [
-            [
-                "2a6bfd65.85b982"
-            ]
-        ]
-    },
-    {
         "id": "2a6bfd65.85b982",
         "type": "function",
         "z": "86bbf50e.a7f188",
         "name": "door-control",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-door-control.device', msg.payload)\n        return null;\n\n    case 'set-door':\n        flow.set('set-door-control.door', msg.payload)\n        return null;\n\n    case 'set-delay':\n        flow.set('set-door-control.delay', msg.payload)\n        return null;\n\n    case 'set-control':\n        flow.set('set-door-control.control', msg.payload)\n        return null;\n        \n    case 'set':\n        let deviceId = flow.get('set-door-control.device')\n        let door = flow.get('set-door-control.door')\n        let delay = flow.get('set-door-control.delay')\n        let control = flow.get('set-door-control.control')\n\n        if (deviceId && door && delay && control) {\n            msg.payload = { \n                deviceId: deviceId,\n                door: door,\n                delay: delay,\n                control: control\n            }\n        \n            return msg\n        }\n        break;\n}\n\nreturn null;\n\n",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-door-control.device', msg.payload)\n        break;\n\n    case 'set-door':\n        flow.set('set-door-control.door', msg.payload)\n        break;\n\n    case 'set-delay':\n        flow.set('set-door-control.delay', msg.payload)\n        break;\n\n    case 'set-control':\n        flow.set('set-door-control.control', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-door-control.device')\nlet door = flow.get('set-door-control.door')\nlet delay = flow.get('set-door-control.delay')\nlet control = flow.get('set-door-control.control')\n\nif (deviceId && door && delay && control) {\n    msg.payload = { \n        deviceId: deviceId,\n        door: door,\n        delay: delay,\n        control: control\n    }\n        \n    return msg\n}\n\nreturn null;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -2825,10 +2787,10 @@
         "label": "Door:",
         "tooltip": "",
         "place": "<select door>",
-        "group": "aa8a9aa4.208ff8",
-        "order": 1,
-        "width": 0,
-        "height": 0,
+        "group": "920f64db.d2fd58",
+        "order": 23,
+        "width": 4,
+        "height": 1,
         "passthru": true,
         "multiple": false,
         "options": [
@@ -2870,10 +2832,10 @@
         "name": "delay",
         "label": "Delay:",
         "tooltip": "",
-        "group": "aa8a9aa4.208ff8",
-        "order": 2,
-        "width": 0,
-        "height": 0,
+        "group": "920f64db.d2fd58",
+        "order": 27,
+        "width": 4,
+        "height": 1,
         "wrap": false,
         "passthru": true,
         "topic": "set-delay",
@@ -2897,10 +2859,10 @@
         "label": "Control:",
         "tooltip": "",
         "place": "<select control state>",
-        "group": "aa8a9aa4.208ff8",
-        "order": 3,
-        "width": 0,
-        "height": 0,
+        "group": "920f64db.d2fd58",
+        "order": 29,
+        "width": 4,
+        "height": 1,
         "passthru": true,
         "multiple": false,
         "options": [
@@ -2944,9 +2906,9 @@
         "id": "7539018f.f0f9d",
         "type": "comment",
         "z": "33c9a78a.cc8c18",
-        "name": "configure",
+        "name": "manage",
         "info": "",
-        "x": 80,
+        "x": 70,
         "y": 180,
         "wires": []
     },
@@ -2955,13 +2917,13 @@
         "type": "ui_dropdown",
         "z": "33c9a78a.cc8c18",
         "name": "controller",
-        "label": "Controller",
+        "label": "",
         "tooltip": "",
         "place": "<select controller>",
-        "group": "f60666d8.0736a8",
+        "group": "920f64db.d2fd58",
         "order": 1,
-        "width": 0,
-        "height": 0,
+        "width": 5,
+        "height": 1,
         "passthru": true,
         "multiple": false,
         "options": [
@@ -2995,7 +2957,8 @@
             "e90fb8ea.bb5528",
             "c59a9f6b.b8afe",
             "bbeb26dc.ff7ab8",
-            "5b13b041.ee256"
+            "5b13b041.ee256",
+            "91238aa6.25efe8"
         ],
         "x": 255,
         "y": 220,
@@ -3041,7 +3004,7 @@
         "links": [
             "d4e3111f.b25ea"
         ],
-        "x": 355,
+        "x": 395,
         "y": 320,
         "wires": [
             [
@@ -3057,11 +3020,314 @@
         "links": [
             "d4e3111f.b25ea"
         ],
-        "x": 335,
+        "x": 395,
         "y": 140,
         "wires": [
             [
                 "45ee145d.a3525c"
+            ]
+        ]
+    },
+    {
+        "id": "6c1b3177.30bd2",
+        "type": "open-door",
+        "z": "86bbf50e.a7f188",
+        "name": "open-door",
+        "uhppote": "d596ac54.cced",
+        "x": 470,
+        "y": 640,
+        "wires": [
+            [
+                "cf49a18d.73b92"
+            ]
+        ]
+    },
+    {
+        "id": "cf49a18d.73b92",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "f6fe5b25.975708",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "405419896-door-1",
+        "group": "aa8a9aa4.208ff8",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Entrance",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\":405419896, \"door\":1 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 480,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "ae9ed478.d78068",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "405419896-door-2",
+        "group": "aa8a9aa4.208ff8",
+        "order": 5,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Workshop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\":405419896, \"door\":2 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 520,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "37325e2d.2dfce2",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "405419896-door-3",
+        "group": "aa8a9aa4.208ff8",
+        "order": 7,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Tower",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\":405419896, \"door\":3 }",
+        "payloadType": "str",
+        "topic": "open-door",
+        "x": 150,
+        "y": 560,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "d63d369f.4da2e8",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "405419896-door-4",
+        "group": "aa8a9aa4.208ff8",
+        "order": 9,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Dungeon",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\":405419896, \"door\":4 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 600,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "63876dfb.f45824",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "920f64db.d2fd58",
+        "order": 4,
+        "width": 5,
+        "height": 1,
+        "name": "label-IPv4",
+        "label": "IPv4",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 80,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "552627e8.24d418",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "920f64db.d2fd58",
+        "order": 18,
+        "width": 5,
+        "height": 1,
+        "name": "label-listener",
+        "label": "Event listener",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 90,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "62ed9054.f3d32",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "920f64db.d2fd58",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "name": "label-datetime",
+        "label": "Date/time",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 100,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "26b54fcb.c978d",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "920f64db.d2fd58",
+        "order": 19,
+        "width": 5,
+        "height": 1,
+        "name": "label-doors",
+        "label": "Doors",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 90,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "29dbb7ba.438588",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "303986753-door-1",
+        "group": "aa8a9aa4.208ff8",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Door X",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\": 303986753, \"door\":1 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 680,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "4c4ef468.37c2dc",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "303986753-door-2",
+        "group": "aa8a9aa4.208ff8",
+        "order": 6,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Door Y",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\": 303986753, \"door\":2 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "6c2c5614.0621c8",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "303986753-door-3",
+        "group": "aa8a9aa4.208ff8",
+        "order": 8,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Laboratory",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\": 303986753, \"door\":3 }",
+        "payloadType": "str",
+        "topic": "open-door",
+        "x": 150,
+        "y": 760,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "4539c0cb.71ab6",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "303986753-door-4",
+        "group": "aa8a9aa4.208ff8",
+        "order": 10,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Kitchen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\": 303986753, \"door\":4 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 800,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
             ]
         ]
     }

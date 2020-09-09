@@ -24,6 +24,12 @@ module.exports = {
         request.writeUInt32LE(deviceId, 4)
         break
 
+      case 0x40:
+        request.writeUInt8(0x40, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt8(object.door, 8)
+        break
+
       case 0x80:
         request.writeUInt8(0x80, 1)
         request.writeUInt32LE(deviceId, 4)
@@ -114,6 +120,12 @@ module.exports = {
         return {
           deviceId: uint32(bytes, 4),
           datetime: yyyymmddHHmmss(bytes, 8)
+        }
+
+      case 0x40:
+        return {
+          deviceId: uint32(bytes, 4),
+          opened: bool(bytes, 8)
         }
 
       case 0x80:

@@ -19,7 +19,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
+        "x": 880,
         "y": 100,
         "wires": []
     },
@@ -44,7 +44,7 @@
         "topic": "set-address",
         "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.125\",\"subnet\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
         "payloadType": "json",
-        "x": 490,
+        "x": 550,
         "y": 100,
         "wires": [
             [
@@ -57,12 +57,12 @@
         "type": "function",
         "z": "8bcf2d43.2e243",
         "name": "IPv4",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-address.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-address.address', msg.payload)\n        break;\n\n    case 'set-subnet':\n        flow.set('set-address.subnet', msg.payload)\n        break;\n\n    case 'set-gateway':\n        flow.set('set-address.gateway', msg.payload)\n        break;\n        \n    case 'set':\n        let deviceId = flow.get('set-address.device')\n        let address = flow.get('set-address.address')\n        let subnet = flow.get('set-address.subnet')\n        let gateway = flow.get('set-address.gateway')\n\n        if (!address) {\n          address = '192.168.1.100'\n        }\n\n        if (!subnet) {\n          subnet = '255.255.255.20'\n        }\n\n        if (!gateway) {\n          gateway = '192.168.1.1'\n        }\n\n        if (deviceId && address && subnet && gateway) {\n            msg.payload = {\n                deviceId: deviceId,\n                address: address,\n                subnet: subnet,\n                gateway: gateway\n            }        \n        \n            return msg\n        }\n}\n\nreturn null\n",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-address.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-address.address', msg.payload)\n        break;\n\n    case 'set-subnet':\n        flow.set('set-address.subnet', msg.payload)\n        break;\n\n    case 'set-gateway':\n        flow.set('set-address.gateway', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-address.device')\nlet address = flow.get('set-address.address')\nlet subnet = flow.get('set-address.subnet')\nlet gateway = flow.get('set-address.gateway')\n\nif (deviceId && address && subnet && gateway) {\n    msg.payload = {\n        deviceId: deviceId,\n        address: address,\n        subnet: subnet,\n        gateway: gateway\n    }        \n        \n    return msg\n}\n\nreturn null\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 490,
+        "x": 550,
         "y": 140,
         "wires": [
             [
@@ -76,7 +76,7 @@
         "z": "8bcf2d43.2e243",
         "name": "set-address",
         "uhppote": "d596ac54.cced",
-        "x": 670,
+        "x": 710,
         "y": 140,
         "wires": [
             [
@@ -118,18 +118,18 @@
         "id": "b6a91dc2.1e37",
         "type": "ui_text_input",
         "z": "8bcf2d43.2e243",
-        "name": "address",
+        "name": "IPv4-address",
         "label": "address",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 1,
+        "order": 7,
         "width": 4,
         "height": 1,
         "passthru": true,
         "mode": "text",
         "delay": "0",
-        "topic": "address",
-        "x": 300,
+        "topic": "set-address",
+        "x": 350,
         "y": 180,
         "wires": [
             [
@@ -141,18 +141,18 @@
         "id": "c5052b18.578d98",
         "type": "ui_text_input",
         "z": "8bcf2d43.2e243",
-        "name": "subnet",
+        "name": "IPv4-subnet",
         "label": "subnet",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 2,
+        "order": 11,
         "width": 4,
         "height": 1,
         "passthru": true,
         "mode": "text",
-        "delay": 300,
-        "topic": "subnet",
-        "x": 310,
+        "delay": "0",
+        "topic": "set-subnet",
+        "x": 350,
         "y": 220,
         "wires": [
             [
@@ -164,45 +164,19 @@
         "id": "5b16f8e7.972fb8",
         "type": "ui_text_input",
         "z": "8bcf2d43.2e243",
-        "name": "gateway",
+        "name": "IPv4-gateway",
         "label": "gateway",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 3,
+        "order": 15,
         "width": 4,
         "height": 1,
         "passthru": true,
         "mode": "text",
-        "delay": 300,
-        "topic": "gateway",
-        "x": 300,
+        "delay": "0",
+        "topic": "set-gateway",
+        "x": 340,
         "y": 260,
-        "wires": [
-            [
-                "45ee145d.a3525c"
-            ]
-        ]
-    },
-    {
-        "id": "e88b8d2a.efd4d",
-        "type": "ui_button",
-        "z": "8bcf2d43.2e243",
-        "name": "ok",
-        "group": "920f64db.d2fd58",
-        "order": 4,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "label": "set IPv4",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "set",
-        "x": 310,
-        "y": 300,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -219,7 +193,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 140,
+        "x": 120,
         "y": 180,
         "wires": [
             [
@@ -241,7 +215,7 @@
         "links": [
             "d4e3111f.b25ea"
         ],
-        "x": 335,
+        "x": 395,
         "y": 140,
         "wires": [
             [
@@ -264,18 +238,18 @@
         "id": "920f64db.d2fd58",
         "type": "ui_group",
         "z": "",
-        "name": "set-address",
+        "name": "configuration",
         "tab": "e4b36c96.1a567",
-        "order": 4,
-        "disp": false,
-        "width": 4,
+        "order": 1,
+        "disp": true,
+        "width": "10",
         "collapse": false
     },
     {
         "id": "e4b36c96.1a567",
         "type": "ui_tab",
         "z": "",
-        "name": "configuration",
+        "name": "manage",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

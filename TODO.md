@@ -23,7 +23,7 @@
       - get/set-time
       - get-status
       - codec invalid device ID
-      - codec invalid address
+      - codec invalid address, etc
 
 - [ ] 'U' node icon
 - [ ] label node ports
@@ -31,6 +31,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] opent-door
 - [x] broadcast only for broadcast addresses
 - [x] set-door-control
 - [x] update codec 'set' tests to deep.equal object

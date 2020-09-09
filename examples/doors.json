@@ -10,7 +10,7 @@
         "id": "2046730f.81897c",
         "type": "debug",
         "z": "86bbf50e.a7f188",
-        "name": "door 1",
+        "name": "received",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -19,7 +19,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
+        "x": 680,
         "y": 40,
         "wires": []
     },
@@ -249,37 +249,11 @@
         "wires": []
     },
     {
-        "id": "189de852.18ad78",
-        "type": "ui_button",
-        "z": "86bbf50e.a7f188",
-        "name": "ok",
-        "group": "aa8a9aa4.208ff8",
-        "order": 5,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "label": "set door control",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "set",
-        "x": 110,
-        "y": 440,
-        "wires": [
-            [
-                "2a6bfd65.85b982"
-            ]
-        ]
-    },
-    {
         "id": "2a6bfd65.85b982",
         "type": "function",
         "z": "86bbf50e.a7f188",
         "name": "door-control",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-door-control.device', msg.payload)\n        return null;\n\n    case 'set-door':\n        flow.set('set-door-control.door', msg.payload)\n        return null;\n\n    case 'set-delay':\n        flow.set('set-door-control.delay', msg.payload)\n        return null;\n\n    case 'set-control':\n        flow.set('set-door-control.control', msg.payload)\n        return null;\n        \n    case 'set':\n        let deviceId = flow.get('set-door-control.device')\n        let door = flow.get('set-door-control.door')\n        let delay = flow.get('set-door-control.delay')\n        let control = flow.get('set-door-control.control')\n\n        if (deviceId && door && delay && control) {\n            msg.payload = { \n                deviceId: deviceId,\n                door: door,\n                delay: delay,\n                control: control\n            }\n        \n            return msg\n        }\n        break;\n}\n\nreturn null;\n\n",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-door-control.device', msg.payload)\n        break;\n\n    case 'set-door':\n        flow.set('set-door-control.door', msg.payload)\n        break;\n\n    case 'set-delay':\n        flow.set('set-door-control.delay', msg.payload)\n        break;\n\n    case 'set-control':\n        flow.set('set-door-control.control', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-door-control.device')\nlet door = flow.get('set-door-control.door')\nlet delay = flow.get('set-door-control.delay')\nlet control = flow.get('set-door-control.control')\n\nif (deviceId && door && delay && control) {\n    msg.payload = { \n        deviceId: deviceId,\n        door: door,\n        delay: delay,\n        control: control\n    }\n        \n    return msg\n}\n\nreturn null;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -325,10 +299,10 @@
         "label": "Door:",
         "tooltip": "",
         "place": "<select door>",
-        "group": "aa8a9aa4.208ff8",
-        "order": 1,
-        "width": 0,
-        "height": 0,
+        "group": "920f64db.d2fd58",
+        "order": 23,
+        "width": 4,
+        "height": 1,
         "passthru": true,
         "multiple": false,
         "options": [
@@ -370,10 +344,10 @@
         "name": "delay",
         "label": "Delay:",
         "tooltip": "",
-        "group": "aa8a9aa4.208ff8",
-        "order": 2,
-        "width": 0,
-        "height": 0,
+        "group": "920f64db.d2fd58",
+        "order": 27,
+        "width": 4,
+        "height": 1,
         "wrap": false,
         "passthru": true,
         "topic": "set-delay",
@@ -397,10 +371,10 @@
         "label": "Control:",
         "tooltip": "",
         "place": "<select control state>",
-        "group": "aa8a9aa4.208ff8",
-        "order": 3,
-        "width": 0,
-        "height": 0,
+        "group": "920f64db.d2fd58",
+        "order": 29,
+        "width": 4,
+        "height": 1,
         "passthru": true,
         "multiple": false,
         "options": [
@@ -447,6 +421,245 @@
         ]
     },
     {
+        "id": "6c1b3177.30bd2",
+        "type": "open-door",
+        "z": "86bbf50e.a7f188",
+        "name": "open-door",
+        "uhppote": "d596ac54.cced",
+        "x": 470,
+        "y": 640,
+        "wires": [
+            [
+                "cf49a18d.73b92"
+            ]
+        ]
+    },
+    {
+        "id": "cf49a18d.73b92",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 640,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "f6fe5b25.975708",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "405419896-door-1",
+        "group": "aa8a9aa4.208ff8",
+        "order": 3,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Entrance",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\":405419896, \"door\":1 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 480,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "ae9ed478.d78068",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "405419896-door-2",
+        "group": "aa8a9aa4.208ff8",
+        "order": 5,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Workshop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\":405419896, \"door\":2 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 520,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "37325e2d.2dfce2",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "405419896-door-3",
+        "group": "aa8a9aa4.208ff8",
+        "order": 7,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Tower",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\":405419896, \"door\":3 }",
+        "payloadType": "str",
+        "topic": "open-door",
+        "x": 150,
+        "y": 560,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "d63d369f.4da2e8",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "405419896-door-4",
+        "group": "aa8a9aa4.208ff8",
+        "order": 9,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Dungeon",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\":405419896, \"door\":4 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 600,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "29dbb7ba.438588",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "303986753-door-1",
+        "group": "aa8a9aa4.208ff8",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Door X",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\": 303986753, \"door\":1 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 680,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "4c4ef468.37c2dc",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "303986753-door-2",
+        "group": "aa8a9aa4.208ff8",
+        "order": 6,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Door Y",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\": 303986753, \"door\":2 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 720,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "6c2c5614.0621c8",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "303986753-door-3",
+        "group": "aa8a9aa4.208ff8",
+        "order": 8,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Laboratory",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\": 303986753, \"door\":3 }",
+        "payloadType": "str",
+        "topic": "open-door",
+        "x": 150,
+        "y": 760,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "4539c0cb.71ab6",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "303986753-door-4",
+        "group": "aa8a9aa4.208ff8",
+        "order": 10,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "Kitchen",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "icon": "",
+        "payload": "{ \"deviceId\": 303986753, \"door\":4 }",
+        "payloadType": "json",
+        "topic": "open-door",
+        "x": 150,
+        "y": 800,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
         "id": "58853d00.4f7b14",
         "type": "ui_group",
         "z": "",
@@ -469,14 +682,25 @@
         "debug": true
     },
     {
+        "id": "920f64db.d2fd58",
+        "type": "ui_group",
+        "z": "",
+        "name": "configuration",
+        "tab": "e4b36c96.1a567",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false
+    },
+    {
         "id": "aa8a9aa4.208ff8",
         "type": "ui_group",
         "z": "",
-        "name": "set-door-control",
+        "name": "doors",
         "tab": "e4b36c96.1a567",
         "order": 4,
         "disp": true,
-        "width": 5,
+        "width": "6",
         "collapse": false
     },
     {
@@ -492,7 +716,7 @@
         "id": "e4b36c96.1a567",
         "type": "ui_tab",
         "z": "",
-        "name": "configuration",
+        "name": "manage",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

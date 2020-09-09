@@ -270,7 +270,7 @@
         "z": "c56e1667.998748",
         "name": "set-listener",
         "uhppote": "d596ac54.cced",
-        "x": 670,
+        "x": 730,
         "y": 320,
         "wires": [
             [
@@ -299,7 +299,7 @@
         "topic": "set-listener",
         "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001}",
         "payloadType": "json",
-        "x": 510,
+        "x": 570,
         "y": 280,
         "wires": [
             [
@@ -320,7 +320,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 860,
+        "x": 900,
         "y": 280,
         "wires": []
     },
@@ -328,18 +328,18 @@
         "id": "3331c261.f5db3e",
         "type": "ui_text_input",
         "z": "c56e1667.998748",
-        "name": "address",
+        "name": "listener-address",
         "label": "address",
         "tooltip": "",
-        "group": "1a9d0189.af6a6e",
-        "order": 1,
+        "group": "920f64db.d2fd58",
+        "order": 21,
         "width": 4,
         "height": 1,
         "passthru": true,
         "mode": "text",
-        "delay": 300,
+        "delay": "0",
         "topic": "set-address",
-        "x": 320,
+        "x": 340,
         "y": 360,
         "wires": [
             [
@@ -352,42 +352,16 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "listener",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-listener.device', msg.payload)\n        return null;\n\n    case 'set-address':\n        flow.set('set-listener.address', msg.payload)\n        return null;\n\n    case 'set-port':\n        flow.set('set-listener.port', msg.payload)\n        return null;\n        \n    case 'set':\n        let deviceId = flow.get('set-listener.device')\n        let address = flow.get('set-listener.address')\n        let port = flow.get('set-listener.port')\n\n        if (!address) {\n          address = '192.168.1.100'\n        }\n\n        if (!port) {\n          port = 60001\n        }\n\n        if (deviceId && address && port) {\n            msg.payload = { \n                deviceId: deviceId,\n                address: address,\n                port: port\n            }\n        \n            return msg\n        }\n      \n}\n\nreturn null",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-listener.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-listener.address', msg.payload)\n        break;\n\n    case 'set-port':\n        flow.set('set-listener.port', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-listener.device')\nlet address = flow.get('set-listener.address')\nlet port = flow.get('set-listener.port')\n\nif (deviceId && address && port) {\n    msg.payload = { \n        deviceId: deviceId,\n        address: address,\n            port: port\n    }\n        \n    return msg\n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 500,
+        "x": 560,
         "y": 320,
         "wires": [
             [
                 "48b92667.8a59b8"
-            ]
-        ]
-    },
-    {
-        "id": "c4d1234d.d0bed",
-        "type": "ui_button",
-        "z": "c56e1667.998748",
-        "name": "ok",
-        "group": "1a9d0189.af6a6e",
-        "order": 3,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "label": "set-listener",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "set",
-        "x": 330,
-        "y": 440,
-        "wires": [
-            [
-                "512a17cd.9fb318"
             ]
         ]
     },
@@ -446,18 +420,18 @@
         "id": "5217acb4.4afe04",
         "type": "ui_text_input",
         "z": "c56e1667.998748",
-        "name": "port",
+        "name": "listener-port",
         "label": "port",
         "tooltip": "",
-        "group": "1a9d0189.af6a6e",
-        "order": 2,
-        "width": 0,
-        "height": 0,
+        "group": "920f64db.d2fd58",
+        "order": 25,
+        "width": 4,
+        "height": 1,
         "passthru": true,
         "mode": "number",
-        "delay": 300,
+        "delay": "0",
         "topic": "set-port",
-        "x": 330,
+        "x": 350,
         "y": 400,
         "wires": [
             [
@@ -473,7 +447,7 @@
         "links": [
             "d4e3111f.b25ea"
         ],
-        "x": 355,
+        "x": 395,
         "y": 320,
         "wires": [
             [
@@ -515,14 +489,14 @@
         "collapse": false
     },
     {
-        "id": "1a9d0189.af6a6e",
+        "id": "920f64db.d2fd58",
         "type": "ui_group",
         "z": "",
-        "name": "set-listener",
+        "name": "configuration",
         "tab": "e4b36c96.1a567",
-        "order": 2,
-        "disp": false,
-        "width": "4",
+        "order": 1,
+        "disp": true,
+        "width": "10",
         "collapse": false
     },
     {
@@ -547,7 +521,7 @@
         "id": "e4b36c96.1a567",
         "type": "ui_tab",
         "z": "",
-        "name": "configuration",
+        "name": "manage",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

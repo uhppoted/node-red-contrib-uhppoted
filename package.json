@@ -33,6 +33,7 @@
       "set-time": "nodes/set-time.js",
       "get-door-control": "nodes/get-door-control.js",
       "set-door-control": "nodes/set-door-control.js",
+      "open-door": "nodes/open-door.js",
       "listen": "nodes/listen.js"
     },
     "engines": {

@@ -161,40 +161,14 @@
         ]
     },
     {
-        "id": "ca054f41.1f22f",
-        "type": "ui_button",
-        "z": "f7a455cc.3fefe8",
-        "name": "ok",
-        "group": "d18397cc.a852f8",
-        "order": 3,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "label": "set date/time",
-        "tooltip": "",
-        "color": "",
-        "bgcolor": "",
-        "icon": "",
-        "payload": "",
-        "payloadType": "date",
-        "topic": "set",
-        "x": 110,
-        "y": 300,
-        "wires": [
-            [
-                "1768d838.2f1398"
-            ]
-        ]
-    },
-    {
         "id": "cbe2b9d7.ec8fe8",
         "type": "ui_text_input",
         "z": "f7a455cc.3fefe8",
         "name": "time",
         "label": "",
         "tooltip": "",
-        "group": "d18397cc.a852f8",
-        "order": 2,
+        "group": "920f64db.d2fd58",
+        "order": 13,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -215,8 +189,8 @@
         "z": "f7a455cc.3fefe8",
         "name": "date",
         "label": "",
-        "group": "d18397cc.a852f8",
-        "order": 1,
+        "group": "920f64db.d2fd58",
+        "order": 9,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -234,7 +208,7 @@
         "type": "function",
         "z": "f7a455cc.3fefe8",
         "name": "datetime",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-time.device', msg.payload)\n        return null;\n\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        return null;\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        return null;\n        \n    case 'set':\n        let deviceId = flow.get('set-time.device')\n        let date = flow.get('set-time.date')\n        let time = flow.get('set-time.time')\n\n        if (!date) {\n          date = new Date()\n        }\n\n        if (!time) {\n          time = new Date()\n        }\n\n        if (deviceId && date && time) {\n            const year = format(date.getFullYear(), 4)\n            const month = format(date.getMonth()+1, 2)\n            const day = format(date.getDate(), 2)\n            const hours = format(time.getHours(), 2)\n            const minutes = format(time.getMinutes(), 2)\n            const seconds = format(time.getSeconds(), 2)\n\n            msg.payload = { \n                deviceId: deviceId,\n                datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n            }\n        \n            return msg\n        }\n}\n\nreturn null",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-time.device', msg.payload)\n        break;\n\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        break;\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        break;\n}\n\nlet deviceId = flow.get('set-time.device')\nlet date = flow.get('set-time.date')\nlet time = flow.get('set-time.time')\n\nif (!date) {\n    date = new Date()\n}\n\nif (!time) {\n    time = new Date()\n}\n\nif (deviceId && date && time) {\n    const year = format(date.getFullYear(), 4)\n    const month = format(date.getMonth()+1, 2)\n    const day = format(date.getDate(), 2)\n    const hours = format(time.getHours(), 2)\n    const minutes = format(time.getMinutes(), 2)\n    const seconds = format(time.getSeconds(), 2)\n\n    msg.payload = { \n        deviceId: deviceId,\n        datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n    }\n        \n    return msg\n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -286,14 +260,14 @@
         "collapse": false
     },
     {
-        "id": "d18397cc.a852f8",
+        "id": "920f64db.d2fd58",
         "type": "ui_group",
         "z": "",
-        "name": "set-time",
+        "name": "configuration",
         "tab": "e4b36c96.1a567",
-        "order": 3,
-        "disp": false,
-        "width": 4,
+        "order": 1,
+        "disp": true,
+        "width": "10",
         "collapse": false
     },
     {
@@ -309,7 +283,7 @@
         "id": "e4b36c96.1a567",
         "type": "ui_tab",
         "z": "",
-        "name": "configuration",
+        "name": "manage",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

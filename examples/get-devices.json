@@ -64,8 +64,7 @@
         "y": 40,
         "wires": [
             [
-                "6a470566.d4725c",
-                "b36ac360.b2d72"
+                "6a470566.d4725c"
             ]
         ]
     },
@@ -366,23 +365,6 @@
                 "6a470566.d4725c"
             ]
         ]
-    },
-    {
-        "id": "b36ac360.b2d72",
-        "type": "debug",
-        "z": "a640a000.d83cb",
-        "name": "start",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 290,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "d596ac54.cced",
