@@ -1,0 +1,254 @@
+[
+    {
+        "id": "33c9a78a.cc8c18",
+        "type": "tab",
+        "label": "dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "801f7f25.d85eb",
+        "type": "ui_button",
+        "z": "33c9a78a.cc8c18",
+        "name": "405419896",
+        "group": "92a2709b.0ef46",
+        "order": 1,
+        "width": 6,
+        "height": 2,
+        "passthru": false,
+        "label": "405419896",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-refresh",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "topic": "",
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "46cebfa2.e38c6"
+            ]
+        ]
+    },
+    {
+        "id": "46cebfa2.e38c6",
+        "type": "link out",
+        "z": "33c9a78a.cc8c18",
+        "name": "refresh",
+        "links": [
+            "fd3d980e.eef9a8",
+            "a7169ed8.d4f29",
+            "eabdc94d.323a48",
+            "e036a638.1da6d8",
+            "1d446f7d.8d4dd1",
+            "fd5cb328.52147"
+        ],
+        "x": 255,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "45f39906.fe8258",
+        "type": "ui_button",
+        "z": "33c9a78a.cc8c18",
+        "name": "303986753",
+        "group": "92a2709b.0ef46",
+        "order": 2,
+        "width": 6,
+        "height": 2,
+        "passthru": false,
+        "label": "303986753",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-refresh",
+        "payload": "{ \"deviceId\": 303986753 }",
+        "payloadType": "json",
+        "topic": "",
+        "x": 90,
+        "y": 120,
+        "wires": [
+            [
+                "46cebfa2.e38c6"
+            ]
+        ]
+    },
+    {
+        "id": "b1aa91f5.5d6f",
+        "type": "comment",
+        "z": "33c9a78a.cc8c18",
+        "name": "refresh",
+        "info": "",
+        "x": 70,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "7539018f.f0f9d",
+        "type": "comment",
+        "z": "33c9a78a.cc8c18",
+        "name": "manage",
+        "info": "",
+        "x": 70,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "1fa242ff.1717cd",
+        "type": "ui_dropdown",
+        "z": "33c9a78a.cc8c18",
+        "name": "controller",
+        "label": "",
+        "tooltip": "",
+        "place": "<select controller>",
+        "group": "920f64db.d2fd58",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "405419896",
+                "value": 405419896,
+                "type": "num"
+            },
+            {
+                "label": "303986753",
+                "value": 303986753,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "set-device",
+        "x": 80,
+        "y": 220,
+        "wires": [
+            [
+                "d4e3111f.b25ea"
+            ]
+        ]
+    },
+    {
+        "id": "d4e3111f.b25ea",
+        "type": "link out",
+        "z": "33c9a78a.cc8c18",
+        "name": "configure",
+        "links": [
+            "e90fb8ea.bb5528",
+            "c59a9f6b.b8afe",
+            "bbeb26dc.ff7ab8",
+            "5b13b041.ee256",
+            "91238aa6.25efe8"
+        ],
+        "x": 255,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "63876dfb.f45824",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "920f64db.d2fd58",
+        "order": 4,
+        "width": 5,
+        "height": 1,
+        "name": "label-IPv4",
+        "label": "IPv4",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 80,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "552627e8.24d418",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "920f64db.d2fd58",
+        "order": 18,
+        "width": 5,
+        "height": 1,
+        "name": "label-listener",
+        "label": "Event listener",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 90,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "62ed9054.f3d32",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "920f64db.d2fd58",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "name": "label-datetime",
+        "label": "Date/time",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 100,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "26b54fcb.c978d",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "920f64db.d2fd58",
+        "order": 19,
+        "width": 5,
+        "height": 1,
+        "name": "label-doors",
+        "label": "Doors",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 90,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "92a2709b.0ef46",
+        "type": "ui_group",
+        "z": "",
+        "name": "controls",
+        "tab": "2731970.74c476a",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "920f64db.d2fd58",
+        "type": "ui_group",
+        "z": "",
+        "name": "configuration",
+        "tab": "e4b36c96.1a567",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false
+    },
+    {
+        "id": "2731970.74c476a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "devices",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e4b36c96.1a567",
+        "type": "ui_tab",
+        "z": "",
+        "name": "manage",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

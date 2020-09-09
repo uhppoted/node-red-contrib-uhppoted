@@ -16,8 +16,8 @@
         "y": 80,
         "wires": [
             [
-                "b8dcd439.9a0448",
-                "d378e1d6.40fe9"
+                "d378e1d6.40fe9",
+                "b8dcd439.9a0448"
             ]
         ]
     },
@@ -25,7 +25,7 @@
         "id": "b8dcd439.9a0448",
         "type": "debug",
         "z": "c56e1667.998748",
-        "name": "",
+        "name": "received",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -34,7 +34,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 310,
+        "x": 320,
         "y": 40,
         "wires": []
     },
@@ -45,13 +45,23 @@
         "group": "659dc42b.91f43c",
         "name": "",
         "order": 1,
-        "width": "22",
-        "height": "16",
+        "width": 22,
+        "height": 16,
         "columns": [
             {
                 "field": "timestamp",
                 "title": "Timestamp",
-                "width": "176",
+                "width": "160",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "deviceId",
+                "title": "Controller",
+                "width": "100",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -61,7 +71,7 @@
             {
                 "field": "type",
                 "title": "Event Type",
-                "width": "144",
+                "width": "132",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -71,7 +81,7 @@
             {
                 "field": "granted",
                 "title": "Granted?",
-                "width": "112",
+                "width": "100",
                 "align": "center",
                 "formatter": "tickCross",
                 "formatterParams": {
@@ -91,7 +101,7 @@
             {
                 "field": "direction",
                 "title": "Direction",
-                "width": "112",
+                "width": "108",
                 "align": "center",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -101,7 +111,7 @@
             {
                 "field": "reason",
                 "title": "Reason",
-                "width": "240",
+                "width": "224",
                 "align": "left",
                 "formatter": "plaintext",
                 "formatterParams": {
@@ -111,7 +121,7 @@
             {
                 "field": "forceLock",
                 "title": "Force Locked?",
-                "width": "144",
+                "width": "136",
                 "align": "center",
                 "formatter": "tickCross",
                 "formatterParams": {
@@ -121,7 +131,7 @@
             {
                 "field": "fireAlarm",
                 "title": "Fire Alarm",
-                "width": "112",
+                "width": "108",
                 "align": "center",
                 "formatter": "tickCross",
                 "formatterParams": {
@@ -131,7 +141,7 @@
         ],
         "outputs": 0,
         "cts": false,
-        "x": 490,
+        "x": 610,
         "y": 80,
         "wires": []
     },
@@ -140,10 +150,10 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "",
-        "func": "const events = context.get('events') || []\nconst doors = flow.get('doors')\n\nconst event = msg.payload.state\nconst timestamp = event.event.timestamp\nconst eventType = event.event.type.event.toUpperCase()\nconst granted = event.event.granted\nconst direction = event.event.direction.direction.toUpperCase()\nconst reason = event.event.reason.reason.toUpperCase()\nconst forceLock = event.inputs.forceLock\nconst fireAlarm = event.inputs.fireAlarm\nconst door = doors[event.event.door] || '???'\n\nconst item = {\n    'timestamp': timestamp,\n    'type': eventType,\n    'granted': granted,\n    'door': door,\n    'direction': direction,\n    'reason': reason,\n    'forceLock': forceLock,\n    'fireAlarm': fireAlarm\n}\n    \nevents.push(item)\n\nif (events.length > 32) {\n    events.shift()\n}\n\ncontext.set('events', events)\n\n// msg.payload = events\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ events, false ]\n}\n\nreturn msg;",
+        "func": "const events = flow.get('events') || []\nconst doors = flow.get('doors')\n\nconst deviceId = msg.payload.deviceId\nconst event = msg.payload.state\nconst timestamp = event.event.timestamp\nconst eventType = event.event.type.event.toUpperCase()\nconst granted = event.event.granted\nconst direction = event.event.direction.direction.toUpperCase()\nconst reason = event.event.reason.reason.toUpperCase()\nconst forceLock = event.inputs.forceLock\nconst fireAlarm = event.inputs.fireAlarm\nlet   door = '???'\n\nif (doors[deviceId]) {\n    door = doors[deviceId][event.event.door] || '???'\n}\n\nconst item = {\n    'timestamp': timestamp,\n    'deviceId': deviceId,\n    'type': eventType,\n    'granted': granted,\n    'door': door,\n    'direction': direction,\n    'reason': reason,\n    'forceLock': forceLock,\n    'fireAlarm': fireAlarm\n}\n    \nevents.push(item)\n\nif (events.length > 32) {\n    events.shift()\n}\n\nflow.set('events', events)\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ events, false ]\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
-        "initialize": "const doors = {\n    1: 'ENTRANCE',\n    2: 'WORKSHOP',\n    3: 'UPSTAIRS',\n    4: 'LABORATORY'\n}\n\nflow.set('doors', doors)",
+        "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
         "finalize": "",
         "x": 320,
         "y": 80,
@@ -167,7 +177,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 500,
-        "y": 140,
+        "y": 200,
         "wires": []
     },
     {
@@ -192,7 +202,7 @@
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "x": 130,
-        "y": 140,
+        "y": 200,
         "wires": [
             [
                 "75e6f5f0.c7e47c"
@@ -212,7 +222,7 @@
         "format": "{{msg.payload.address}}",
         "layout": "row-spread",
         "x": 500,
-        "y": 180,
+        "y": 240,
         "wires": []
     },
     {
@@ -225,7 +235,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 155,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "75e6f5f0.c7e47c"
@@ -239,7 +249,7 @@
         "name": "get-listener",
         "uhppote": "d596ac54.cced",
         "x": 310,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "b94136c7.ef3808",
@@ -261,7 +271,7 @@
         "format": "{{msg.payload.port}}",
         "layout": "row-spread",
         "x": 490,
-        "y": 220,
+        "y": 280,
         "wires": []
     },
     {
@@ -271,7 +281,7 @@
         "name": "set-listener",
         "uhppote": "d596ac54.cced",
         "x": 730,
-        "y": 320,
+        "y": 400,
         "wires": [
             [
                 "8463e096.b3a5f"
@@ -300,7 +310,7 @@
         "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001}",
         "payloadType": "json",
         "x": 570,
-        "y": 280,
+        "y": 360,
         "wires": [
             [
                 "48b92667.8a59b8"
@@ -320,8 +330,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 900,
-        "y": 280,
+        "x": 920,
+        "y": 340,
         "wires": []
     },
     {
@@ -340,7 +350,7 @@
         "delay": "0",
         "topic": "set-address",
         "x": 340,
-        "y": 360,
+        "y": 440,
         "wires": [
             [
                 "512a17cd.9fb318"
@@ -358,7 +368,7 @@
         "initialize": "",
         "finalize": "",
         "x": 560,
-        "y": 320,
+        "y": 400,
         "wires": [
             [
                 "48b92667.8a59b8"
@@ -387,7 +397,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 280,
+        "y": 360,
         "wires": [
             [
                 "8239439e.8e136"
@@ -406,7 +416,7 @@
         "initialize": "",
         "finalize": "",
         "x": 140,
-        "y": 380,
+        "y": 460,
         "wires": [
             [
                 "3331c261.f5db3e"
@@ -432,7 +442,7 @@
         "delay": "0",
         "topic": "set-port",
         "x": 350,
-        "y": 400,
+        "y": 480,
         "wires": [
             [
                 "512a17cd.9fb318"
@@ -448,10 +458,65 @@
             "d4e3111f.b25ea"
         ],
         "x": 395,
-        "y": 320,
+        "y": 400,
         "wires": [
             [
                 "512a17cd.9fb318"
+            ]
+        ]
+    },
+    {
+        "id": "2371c9b8.1532e6",
+        "type": "ui_ui_control",
+        "z": "c56e1667.998748",
+        "name": "tab-event",
+        "events": "change",
+        "x": 120,
+        "y": 120,
+        "wires": [
+            [
+                "89dc1ab0.a68848"
+            ]
+        ]
+    },
+    {
+        "id": "89dc1ab0.a68848",
+        "type": "function",
+        "z": "c56e1667.998748",
+        "name": "",
+        "func": "if (msg.payload === 'change' && msg.tab && msg.name === 'events') {\n    const events = flow.get('events') || []\n\n    msg.payload = {\n        'command': 'setData',\n        'arguments': [ events, false ]\n    }\n\n    return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 320,
+        "y": 120,
+        "wires": [
+            [
+                "c488256d.ca2ac8"
+            ]
+        ]
+    },
+    {
+        "id": "c488256d.ca2ac8",
+        "type": "delay",
+        "z": "c56e1667.998748",
+        "name": "delay",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 470,
+        "y": 120,
+        "wires": [
+            [
+                "b9a22810.4f89d8"
             ]
         ]
     },
