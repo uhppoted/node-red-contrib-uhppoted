@@ -46,7 +46,7 @@ describe('codec', function () {
 
       const bytes = codec.encode(0x96, 405419896, {
         address: '192.168.1.125',
-        subnet: '255.255.255.0',
+        netmask: '255.255.255.0',
         gateway: '192.168.0.1'
       })
 
@@ -191,7 +191,7 @@ describe('codec', function () {
         device: {
           serialNumber: 405419896,
           address: '192.168.1.100',
-          subnet: '255.255.255.0',
+          netmask: '255.255.255.0',
           gateway: '192.168.1.1',
           MAC: '00:12:23:34:45:56',
           version: '0892',

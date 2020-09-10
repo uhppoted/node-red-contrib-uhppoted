@@ -26,7 +26,7 @@ module.exports = function (RED) {
     this.on('input', function (msg, send, done) {
       const deviceId = msg.payload.deviceId
       const address = msg.payload.address
-      const subnet = msg.payload.subnet
+      const netmask = msg.payload.netmask
       const gateway = msg.payload.gateway
 
       const decode = function (deviceid, reply) {
@@ -46,7 +46,7 @@ module.exports = function (RED) {
       }
 
       try {
-        const request = codec.encode(0x96, deviceId, { address: address, subnet: subnet, gateway: gateway })
+        const request = codec.encode(0x96, deviceId, { address: address, netmask: netmask, gateway: gateway })
 
         uhppoted.send(bind, dest, request, timeout, debug)
           .then(reply => { return decode(this.deviceid, reply) })

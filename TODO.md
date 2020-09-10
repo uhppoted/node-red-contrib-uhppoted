@@ -2,7 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] rename subnet to netmask
 - [ ] fallback to broadcast address if destination is not defined
 - [ ] 'force broadcast' flag in config
 - [ ] rename uhppote to config or somesuch
@@ -32,6 +31,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] rename subnet to netmask
 - [x] get-cards
 - [x] open-door
 - [x] broadcast only for broadcast addresses

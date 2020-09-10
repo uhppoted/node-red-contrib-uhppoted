@@ -87,7 +87,7 @@ module.exports = {
         request.writeUInt8(0x96, 1)
         request.writeUInt32LE(deviceId, 4)
         ip.toBuffer(object.address, request, 8)
-        ip.toBuffer(object.subnet, request, 12)
+        ip.toBuffer(object.netmask, request, 12)
         ip.toBuffer(object.gateway, request, 16)
         request.writeUInt32LE(0x55aaaa55, 20)
         break
@@ -222,7 +222,7 @@ function device (bytes) {
   return {
     serialNumber: uint32(bytes, 4),
     address: address(bytes, 8),
-    subnet: address(bytes, 12),
+    netmask: address(bytes, 12),
     gateway: address(bytes, 16),
     MAC: mac(bytes, 20),
     version: bcd(bytes, 26, 2),

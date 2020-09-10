@@ -94,7 +94,7 @@
         "height": 1,
         "name": "device-netmask",
         "label": "netmask",
-        "format": "{{device.subnet}}",
+        "format": "{{device.netmask}}",
         "layout": "row-spread",
         "x": 740,
         "y": 160,
