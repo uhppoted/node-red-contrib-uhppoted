@@ -34,6 +34,7 @@
       "get-door-control": "nodes/get-door-control.js",
       "set-door-control": "nodes/set-door-control.js",
       "open-door": "nodes/open-door.js",
+      "get-cards": "nodes/get-cards.js",
       "listen": "nodes/listen.js"
     },
     "engines": {

@@ -30,6 +30,11 @@ module.exports = {
         request.writeUInt8(object.door, 8)
         break
 
+      case 0x58:
+        request.writeUInt8(0x58, 1)
+        request.writeUInt32LE(deviceId, 4)
+        break
+
       case 0x80:
         request.writeUInt8(0x80, 1)
         request.writeUInt32LE(deviceId, 4)
@@ -126,6 +131,12 @@ module.exports = {
         return {
           deviceId: uint32(bytes, 4),
           opened: bool(bytes, 8)
+        }
+
+      case 0x58:
+        return {
+          deviceId: uint32(bytes, 4),
+          cards: uint32(bytes, 8)
         }
 
       case 0x80:

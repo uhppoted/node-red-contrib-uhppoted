@@ -11,6 +11,7 @@
 - [ ] internationalisation
 - [ ] document uhppoted functions
 - [ ] document examples
+- [ ] add description to flows
 - [ ] unit tests
       - broadcast
       - execute
@@ -31,7 +32,8 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
-- [x] opent-door
+- [x] get-cards
+- [x] open-door
 - [x] broadcast only for broadcast addresses
 - [x] set-door-control
 - [x] update codec 'set' tests to deep.equal object

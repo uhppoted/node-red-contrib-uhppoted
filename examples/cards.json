@@ -1,0 +1,134 @@
+[
+    {
+        "id": "2a36b650.4b9b7a",
+        "type": "tab",
+        "label": "cards",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "60dcbb9f.c0dfa4",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "cards",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "3c02f9ca.0d36c6",
+        "type": "inject",
+        "z": "2a36b650.4b9b7a",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "x": 110,
+        "y": 40,
+        "wires": [
+            [
+                "4f2ad0e3.4c05e"
+            ]
+        ]
+    },
+    {
+        "id": "78c4fc48.bc5bf4",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "573f9bfa.7e4564",
+        "order": 17,
+        "width": 4,
+        "height": 1,
+        "name": "cards",
+        "label": "records",
+        "format": "{{msg.payload.cards}}",
+        "layout": "row-spread",
+        "x": 470,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b8460bf9.4811f8",
+        "type": "link in",
+        "z": "2a36b650.4b9b7a",
+        "name": "refresh",
+        "links": [
+            "fbd6b7a7.cd1af8",
+            "46cebfa2.e38c6"
+        ],
+        "x": 135,
+        "y": 80,
+        "wires": [
+            [
+                "4f2ad0e3.4c05e"
+            ]
+        ]
+    },
+    {
+        "id": "4f2ad0e3.4c05e",
+        "type": "get-cards",
+        "z": "2a36b650.4b9b7a",
+        "name": "get-cards",
+        "uhppote": "d596ac54.cced",
+        "x": 300,
+        "y": 80,
+        "wires": [
+            [
+                "78c4fc48.bc5bf4",
+                "60dcbb9f.c0dfa4"
+            ]
+        ]
+    },
+    {
+        "id": "573f9bfa.7e4564",
+        "type": "ui_group",
+        "z": "",
+        "name": "column-2",
+        "tab": "2731970.74c476a",
+        "order": 2,
+        "disp": false,
+        "width": "5",
+        "collapse": false
+    },
+    {
+        "id": "d596ac54.cced",
+        "type": "uhppote",
+        "z": "",
+        "name": "development",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "debug": true
+    },
+    {
+        "id": "2731970.74c476a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "detail",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

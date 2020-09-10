@@ -13,7 +13,7 @@
         "name": "405419896",
         "group": "92a2709b.0ef46",
         "order": 1,
-        "width": 6,
+        "width": 5,
         "height": 2,
         "passthru": false,
         "label": "405419896",
@@ -43,7 +43,8 @@
             "eabdc94d.323a48",
             "e036a638.1da6d8",
             "1d446f7d.8d4dd1",
-            "fd5cb328.52147"
+            "fd5cb328.52147",
+            "b8460bf9.4811f8"
         ],
         "x": 255,
         "y": 80,
@@ -56,7 +57,7 @@
         "name": "303986753",
         "group": "92a2709b.0ef46",
         "order": 2,
-        "width": 6,
+        "width": 5,
         "height": 2,
         "passthru": false,
         "label": "303986753",
@@ -92,7 +93,7 @@
         "name": "manage",
         "info": "",
         "x": 70,
-        "y": 180,
+        "y": 320,
         "wires": []
     },
     {
@@ -124,7 +125,7 @@
         "payload": "",
         "topic": "set-device",
         "x": 80,
-        "y": 220,
+        "y": 360,
         "wires": [
             [
                 "d4e3111f.b25ea"
@@ -144,7 +145,7 @@
             "91238aa6.25efe8"
         ],
         "x": 255,
-        "y": 220,
+        "y": 360,
         "wires": []
     },
     {
@@ -160,7 +161,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 80,
-        "y": 260,
+        "y": 440,
         "wires": []
     },
     {
@@ -176,7 +177,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 90,
-        "y": 300,
+        "y": 480,
         "wires": []
     },
     {
@@ -192,7 +193,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 100,
-        "y": 340,
+        "y": 520,
         "wires": []
     },
     {
@@ -208,18 +209,130 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 90,
-        "y": 380,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "5e0f520c.488c5c",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "c03a3b24.d45c48",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "label-device",
+        "label": "device",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 90,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "eaeac9ae.d9f158",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "573f9bfa.7e4564",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "name": "label-datetime",
+        "label": "date/time",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 260,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "e620268a.6479f8",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "573f9bfa.7e4564",
+        "order": 15,
+        "width": 5,
+        "height": 1,
+        "name": "label-cards",
+        "label": "cards",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 250,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "3d04b912.df9496",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "c03a3b24.d45c48",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "name": "label-listener",
+        "label": "listener",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 90,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "4476c068.0741c",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "573f9bfa.7e4564",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "name": "label-doors",
+        "label": "doors",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 250,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "52e71095.7d5f8",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "ffdc2439.246b38",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "label-status",
+        "label": "status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 430,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "a2a726be.7c3488",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "ffdc2439.246b38",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "name": "label-event",
+        "label": "event",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 430,
+        "y": 200,
         "wires": []
     },
     {
         "id": "92a2709b.0ef46",
         "type": "ui_group",
         "z": "",
-        "name": "controls",
+        "name": "controllers",
         "tab": "2731970.74c476a",
-        "order": 3,
+        "order": 4,
         "disp": false,
-        "width": "6",
+        "width": "5",
         "collapse": false
     },
     {
@@ -234,10 +347,43 @@
         "collapse": false
     },
     {
+        "id": "c03a3b24.d45c48",
+        "type": "ui_group",
+        "z": "",
+        "name": "column-1",
+        "tab": "2731970.74c476a",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "573f9bfa.7e4564",
+        "type": "ui_group",
+        "z": "",
+        "name": "column-2",
+        "tab": "2731970.74c476a",
+        "order": 2,
+        "disp": false,
+        "width": "5",
+        "collapse": false
+    },
+    {
+        "id": "ffdc2439.246b38",
+        "type": "ui_group",
+        "z": "",
+        "name": "column-3",
+        "tab": "2731970.74c476a",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
         "id": "2731970.74c476a",
         "type": "ui_tab",
         "z": "",
-        "name": "devices",
+        "name": "detail",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

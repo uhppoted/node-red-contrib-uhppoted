@@ -1,0 +1,87 @@
+<script type="text/javascript">
+    RED.nodes.registerType('get-cards', {
+        category: 'uhppoted',
+        color: '#A6BBCF',
+        defaults: {
+            name: { 
+                value: "" 
+            },
+            uhppote: {
+                value: "", 
+                type: "uhppote"
+            },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "function.svg",
+        label: function() {
+            return this.name || "get-cards";
+        }
+    });
+</script>
+
+<script type="text/html" data-template-name="get-cards">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-uhppote"><i class="fa fa-tag"></i>Configuration</label>
+        <input id="node-input-uhppote" />
+    </div>
+</script>
+
+<script type="text/html" data-help-name="get-cards">
+    <p>Retrieves the card record count from an access controller.</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>JSON object with the device ID for 'get-cards'</dd>
+        <dt class="optional">topic<span class="property-type">string</span></dt>
+        <dd>identifying message topic for output</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>JSON object with the controller card list record count</dd>
+        <dt>topic<span class="property-type">string</span></dt>
+        <dd>message topic copied from input</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p>The input <code>msg.payload</code> is a JSON object containing the serial number
+    for the controller for which the card record count should be retrieved</p>
+    <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+    "deviceId": 405419896
+  }</pre>
+
+    <p>The output <code>msg.payload</code> is a JSON object containing the card
+    record count retrieved from the UHPPOTE controller with serial number 
+    matching the request:</p>
+    <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>records<span class="property-type">uint32</span></dt>
+        <dd>count of cards stored in controller</d>
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+    "deviceId": 405419896,
+    "cards": 397
+  }</pre>
+    
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://github.com/uhppoted">uhppoted</a>: GitHub umbrella project</li>
+        <li><a href="https://github.com/uhppoted/node-red-contrib-uhppoted">node-red-contrib-uhppoted</a>: GitHub project</li>
+    </ul>
+</script>
