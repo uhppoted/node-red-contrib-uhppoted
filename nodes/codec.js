@@ -35,6 +35,12 @@ module.exports = {
         request.writeUInt32LE(deviceId, 4)
         break
 
+      case 0x5a:
+        request.writeUInt8(0x5a, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt32LE(object.cardNumber, 8)
+        break
+
       case 0x80:
         request.writeUInt8(0x80, 1)
         request.writeUInt32LE(deviceId, 4)
@@ -137,6 +143,24 @@ module.exports = {
         return {
           deviceId: uint32(bytes, 4),
           cards: uint32(bytes, 8)
+        }
+
+      case 0x5a:
+        return {
+          deviceId: uint32(bytes, 4),
+          card: {
+            number: uint32(bytes, 8),
+            valid: {
+              from: yyyymmdd(bytes, 12),
+              to: yyyymmdd(bytes, 16)
+            },
+            doors: {
+              1: bool(bytes, 20),
+              2: bool(bytes, 21),
+              3: bool(bytes, 22),
+              4: bool(bytes, 23)
+            }
+          }
         }
 
       case 0x80:
