@@ -31,8 +31,8 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] get-card
 - [x] rename subnet to netmask
-- [x] get-cards
 - [x] open-door
 - [x] broadcast only for broadcast addresses
 - [x] set-door-control

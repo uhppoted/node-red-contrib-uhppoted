@@ -310,6 +310,10 @@ function yyyymmddHHmmss (bytes, offset) {
 function yyyymmdd (bytes, offset) {
   const date = bcd(bytes, offset, 4)
 
+  if (date === '00000000') {
+    return ''
+  }
+
   return date.substr(0, 4) + '-' + date.substr(4, 2) + '-' + date.substr(6, 2)
 }
 

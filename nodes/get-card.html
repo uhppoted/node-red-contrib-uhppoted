@@ -49,6 +49,18 @@
         <dt>topic<span class="property-type">string</span></dt>
         <dd>message topic copied from input</dd>
     </dl>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">error</span></dt>
+        <dd>'card not found' error</dd>
+        <dt>topic<span class="property-type">string</span></dt>
+        <dd>message topic copied from input</dd>
+    </dl>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">error</span></dt>
+        <dd>'card deleted' error</dd>
+        <dt>topic<span class="property-type">string</span></dt>
+        <dd>message topic copied from input</dd>
+    </dl>
 
     <h3>Details</h3>
     <p>The input <code>msg.payload</code> is a JSON object containing the access
@@ -67,11 +79,12 @@
     "cardNumber": 61532836
   }</pre>
 
-    <p>The output <code>msg.payload</code> is a JSON object containing the card
-    record retrieved from the access controller:</p>
+    <p>The output is a JSON object containing the card record retrieved from the access controller.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
+        <dt>error<span class="property-type">string</span></dt>
+        <dd>'', 'card not found' or 'card deleted'</dd>
         <dt>card.number<span class="property-type">uint32</span></dt>
         <dd>card number</d>
         <dt>card.valid.from<span class="property-type">date</span></dt>

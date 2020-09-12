@@ -15,8 +15,21 @@ module.exports = function (RED) {
       const cardNumber = msg.payload.cardNumber
 
       const emit = function (object) {
-        // 0:          not found
-        // 0xffffffff: deleted
+        switch (object.card.number) {
+          case 0:
+            object.error = 'card not found'
+            object.card = { number: '', valid: { from: '', to: '' }, doors: { 1: '', 2: '', 3: '', 4: '' } }
+            break
+
+          case 0xffffffff:
+            object.error = 'card deleted'
+            object.card = { number: '', valid: { from: '', to: '' }, doors: { 1: '', 2: '', 3: '', 4: '' } }
+            break
+
+          default:
+            object.error = ''
+        }
+
         common.emit(node, msg.topic, object)
       }
 

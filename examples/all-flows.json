@@ -685,6 +685,98 @@
         "height": 1
     },
     {
+        "id": "bb81af8b.a4ff7",
+        "type": "ui_tab",
+        "z": "",
+        "name": "cards",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "80ebf5dd.1d2018",
+        "type": "ui_group",
+        "z": "",
+        "name": "card",
+        "tab": "bb81af8b.a4ff7",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "dbe27e31.77455",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "80ebf5dd.1d2018",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "f5690063.9f935",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "80ebf5dd.1d2018",
+        "order": 5,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "18302e6e.5e5e52",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "80ebf5dd.1d2018",
+        "order": 7,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "663d8d17.636dd4",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "80ebf5dd.1d2018",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "783aa60c.f63a28",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "80ebf5dd.1d2018",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "773f1ed2.f9368",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "80ebf5dd.1d2018",
+        "order": 13,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "3d84cc65.c56174",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "80ebf5dd.1d2018",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "3bb65ee2.df9ba2",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "80ebf5dd.1d2018",
+        "order": 17,
+        "width": 1,
+        "height": 1
+    },
+    {
         "id": "6a470566.d4725c",
         "type": "get-devices",
         "z": "a640a000.d83cb",
@@ -3819,6 +3911,279 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 430,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "6ce7f877.625e48",
+        "type": "get-card",
+        "z": "2a36b650.4b9b7a",
+        "name": "get-card",
+        "uhppote": "d596ac54.cced",
+        "x": 480,
+        "y": 200,
+        "wires": [
+            [
+                "f6808502.b5c9e8",
+                "9a00146e.0d1588",
+                "ce0e4f54.8c0c1",
+                "6d4c8436.ea0e5c",
+                "64f214e2.4a72ec",
+                "7debe0b0.f09da",
+                "864ef546.afd158",
+                "4ad7af4a.432e1",
+                "52a5b4e7.d2590c"
+            ]
+        ]
+    },
+    {
+        "id": "356a2abe.2ea636",
+        "type": "inject",
+        "z": "2a36b650.4b9b7a",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896, \"cardNumber\": 65538 }",
+        "payloadType": "json",
+        "x": 290,
+        "y": 160,
+        "wires": [
+            [
+                "6ce7f877.625e48"
+            ]
+        ]
+    },
+    {
+        "id": "f6808502.b5c9e8",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "9bdb5.9681624b8",
+        "type": "ui_text_input",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-number",
+        "label": "card",
+        "tooltip": "",
+        "group": "80ebf5dd.1d2018",
+        "order": 2,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "mode": "number",
+        "delay": "0",
+        "topic": "set-card",
+        "x": 110,
+        "y": 240,
+        "wires": [
+            [
+                "6277cd72.6d7ea4"
+            ]
+        ]
+    },
+    {
+        "id": "92910a57.c53858",
+        "type": "ui_dropdown",
+        "z": "2a36b650.4b9b7a",
+        "name": "controller",
+        "label": "",
+        "tooltip": "",
+        "place": "<select controller>",
+        "group": "80ebf5dd.1d2018",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "405419896",
+                "value": 405419896,
+                "type": "num"
+            },
+            {
+                "label": "303986753",
+                "value": 303986753,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "set-device",
+        "x": 120,
+        "y": 200,
+        "wires": [
+            [
+                "6277cd72.6d7ea4"
+            ]
+        ]
+    },
+    {
+        "id": "6277cd72.6d7ea4",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "card",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('get-card.device', msg.payload)\n        break;\n\n    case 'set-card':\n        flow.set('get-card.cardnumber', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('get-card.device')\nlet cardNumber = flow.get('get-card.cardnumber')\n\nif (deviceId && cardNumber) {\n    msg.payload = { \n        deviceId: deviceId,\n        cardNumber: cardNumber\n    }\n        \n    return msg\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 200,
+        "wires": [
+            [
+                "6ce7f877.625e48"
+            ]
+        ]
+    },
+    {
+        "id": "9a00146e.0d1588",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "80ebf5dd.1d2018",
+        "order": 6,
+        "width": 5,
+        "height": 1,
+        "name": "card.number",
+        "label": "card number",
+        "format": "{{msg.payload.card.number}}",
+        "layout": "row-spread",
+        "x": 690,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ce0e4f54.8c0c1",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "80ebf5dd.1d2018",
+        "order": 8,
+        "width": 5,
+        "height": 1,
+        "name": "card.from",
+        "label": "from",
+        "format": "{{msg.payload.card.valid.from}}",
+        "layout": "row-spread",
+        "x": 680,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "6d4c8436.ea0e5c",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "80ebf5dd.1d2018",
+        "order": 10,
+        "width": 5,
+        "height": 1,
+        "name": "card.to",
+        "label": "to",
+        "format": "{{msg.payload.card.valid.to}}",
+        "layout": "row-spread",
+        "x": 680,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "64f214e2.4a72ec",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "80ebf5dd.1d2018",
+        "order": 12,
+        "width": 5,
+        "height": 1,
+        "name": "card.doors.1",
+        "label": "entrance",
+        "format": "{{msg.payload.card.doors['1']}}",
+        "layout": "row-spread",
+        "x": 690,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "7debe0b0.f09da",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "80ebf5dd.1d2018",
+        "order": 14,
+        "width": 5,
+        "height": 1,
+        "name": "card.door.2",
+        "label": "workshop",
+        "format": "{{msg.payload.card.doors['2']}}",
+        "layout": "row-spread",
+        "x": 690,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "864ef546.afd158",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "80ebf5dd.1d2018",
+        "order": 16,
+        "width": 5,
+        "height": 1,
+        "name": "card.door.3",
+        "label": "tower",
+        "format": "{{msg.payload.card.doors['3']}}",
+        "layout": "row-spread",
+        "x": 690,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "4ad7af4a.432e1",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "80ebf5dd.1d2018",
+        "order": 18,
+        "width": 5,
+        "height": 1,
+        "name": "card.door.4",
+        "label": "dungeon",
+        "format": "{{msg.payload.card.doors['4']}}",
+        "layout": "row-spread",
+        "x": 690,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "52a5b4e7.d2590c",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "80ebf5dd.1d2018",
+        "order": 4,
+        "width": 5,
+        "height": 1,
+        "name": "card.status",
+        "label": "",
+        "format": "{{msg.payload.error}}",
+        "layout": "row-spread",
+        "x": 690,
         "y": 200,
         "wires": []
     }
