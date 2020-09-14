@@ -16,7 +16,7 @@ module.exports = {
       case 0x30:
         request.writeUInt8(0x30, 1)
         request.writeUInt32LE(deviceId, 4)
-        date2bin(object.datetime).copy(request, 8)
+        datetime2bin(object.datetime).copy(request, 8)
         break
 
       case 0x32:
@@ -28,6 +28,18 @@ module.exports = {
         request.writeUInt8(0x40, 1)
         request.writeUInt32LE(deviceId, 4)
         request.writeUInt8(object.door, 8)
+        break
+
+      case 0x50:
+        request.writeUInt8(0x50, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt32LE(object.card.number, 8)
+        date2bin(object.card.valid.from).copy(request, 12)
+        date2bin(object.card.valid.to).copy(request, 16)
+        request.writeUInt8(object.card.doors['1'] ? 0x01 : 0x00, 20)
+        request.writeUInt8(object.card.doors['2'] ? 0x01 : 0x00, 21)
+        request.writeUInt8(object.card.doors['3'] ? 0x01 : 0x00, 22)
+        request.writeUInt8(object.card.doors['4'] ? 0x01 : 0x00, 23)
         break
 
       case 0x58:
@@ -137,6 +149,12 @@ module.exports = {
         return {
           deviceId: uint32(bytes, 4),
           opened: bool(bytes, 8)
+        }
+
+      case 0x50:
+        return {
+          deviceId: uint32(bytes, 4),
+          stored: bool(bytes, 8)
         }
 
       case 0x58:
@@ -329,7 +347,21 @@ function HHmmss (bytes, offset) {
   return time.substr(0, 2) + ':' + time.substr(2, 2) + ':' + time.substr(4, 2)
 }
 
-function date2bin (datetime) {
+function date2bin (date) {
+  const bytes = []
+  const re = /([0-9]{2})([0-9]{2})-([0-9]{2})-([0-9]{2})/
+  const match = date.match(re)
+
+  for (const m of match.slice(1)) {
+    const b = parseInt(m, 10)
+    const byte = ((b / 10) << 4) | (b % 10)
+    bytes.push(byte)
+  }
+
+  return Buffer.from(bytes)
+}
+
+function datetime2bin (datetime) {
   const bytes = []
   const re = /([0-9]{2})([0-9]{2})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2})/
   const match = datetime.match(re)
