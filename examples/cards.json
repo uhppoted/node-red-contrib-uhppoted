@@ -111,14 +111,7 @@
         "wires": [
             [
                 "f6808502.b5c9e8",
-                "9a00146e.0d1588",
-                "ce0e4f54.8c0c1",
-                "6d4c8436.ea0e5c",
-                "64f214e2.4a72ec",
-                "7debe0b0.f09da",
-                "864ef546.afd158",
-                "4ad7af4a.432e1",
-                "52a5b4e7.d2590c"
+                "75f21b8.86ccbe4"
             ]
         ]
     },
@@ -255,10 +248,10 @@
         "height": 1,
         "name": "card.number",
         "label": "card number",
-        "format": "{{msg.payload.card.number}}",
+        "format": "{{msg.payload.number}}",
         "layout": "row-spread",
-        "x": 690,
-        "y": 240,
+        "x": 890,
+        "y": 220,
         "wires": []
     },
     {
@@ -271,10 +264,10 @@
         "height": 1,
         "name": "card.from",
         "label": "from",
-        "format": "{{msg.payload.card.valid.from}}",
+        "format": "{{msg.payload.valid.from}}",
         "layout": "row-spread",
-        "x": 680,
-        "y": 280,
+        "x": 880,
+        "y": 260,
         "wires": []
     },
     {
@@ -287,10 +280,10 @@
         "height": 1,
         "name": "card.to",
         "label": "to",
-        "format": "{{msg.payload.card.valid.to}}",
+        "format": "{{msg.payload.valid.to}}",
         "layout": "row-spread",
-        "x": 680,
-        "y": 320,
+        "x": 880,
+        "y": 300,
         "wires": []
     },
     {
@@ -303,10 +296,10 @@
         "height": 1,
         "name": "card.doors.1",
         "label": "entrance",
-        "format": "{{msg.payload.card.doors['1']}}",
+        "format": "{{msg.payload.doors['1']}}",
         "layout": "row-spread",
-        "x": 690,
-        "y": 360,
+        "x": 890,
+        "y": 340,
         "wires": []
     },
     {
@@ -319,10 +312,10 @@
         "height": 1,
         "name": "card.door.2",
         "label": "workshop",
-        "format": "{{msg.payload.card.doors['2']}}",
+        "format": "{{msg.payload.doors['2']}}",
         "layout": "row-spread",
-        "x": 690,
-        "y": 400,
+        "x": 890,
+        "y": 380,
         "wires": []
     },
     {
@@ -335,10 +328,10 @@
         "height": 1,
         "name": "card.door.3",
         "label": "tower",
-        "format": "{{msg.payload.card.doors['3']}}",
+        "format": "{{msg.payload.doors['3']}}",
         "layout": "row-spread",
-        "x": 690,
-        "y": 440,
+        "x": 890,
+        "y": 420,
         "wires": []
     },
     {
@@ -351,10 +344,10 @@
         "height": 1,
         "name": "card.door.4",
         "label": "dungeon",
-        "format": "{{msg.payload.card.doors['4']}}",
+        "format": "{{msg.payload.doors['4']}}",
         "layout": "row-spread",
-        "x": 690,
-        "y": 480,
+        "x": 890,
+        "y": 460,
         "wires": []
     },
     {
@@ -367,11 +360,38 @@
         "height": 1,
         "name": "card.status",
         "label": "",
-        "format": "{{msg.payload.error}}",
+        "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 690,
-        "y": 200,
+        "x": 890,
+        "y": 180,
         "wires": []
+    },
+    {
+        "id": "75f21b8.86ccbe4",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "",
+        "func": "status = { topic:msg.topic, payload: '' }\ncard = { topic:msg.topic, payload:msg.payload.card }\n\nif (msg.payload.error) {\n    switch (msg.payload.error) {\n        case -1: \n            status.payload = 'card not found'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n            \n        case -2:\n            status.payload  = 'card deleted'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n    }\n}\n\nreturn [ status, card ];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 680,
+        "y": 200,
+        "wires": [
+            [
+                "52a5b4e7.d2590c"
+            ],
+            [
+                "9a00146e.0d1588",
+                "ce0e4f54.8c0c1",
+                "6d4c8436.ea0e5c",
+                "64f214e2.4a72ec",
+                "7debe0b0.f09da",
+                "864ef546.afd158",
+                "4ad7af4a.432e1"
+            ]
+        ]
     },
     {
         "id": "573f9bfa.7e4564",

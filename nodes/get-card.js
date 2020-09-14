@@ -17,17 +17,14 @@ module.exports = function (RED) {
       const emit = function (object) {
         switch (object.card.number) {
           case 0:
-            object.error = 'card not found'
+            object.error = -1
             object.card = { number: '', valid: { from: '', to: '' }, doors: { 1: '', 2: '', 3: '', 4: '' } }
             break
 
           case 0xffffffff:
-            object.error = 'card deleted'
+            object.error = -2
             object.card = { number: '', valid: { from: '', to: '' }, doors: { 1: '', 2: '', 3: '', 4: '' } }
             break
-
-          default:
-            object.error = ''
         }
 
         common.emit(node, msg.topic, object)
