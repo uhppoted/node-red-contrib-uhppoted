@@ -37,6 +37,7 @@
       "get-cards": "nodes/get-cards.js",
       "get-card": "nodes/get-card.js",
       "put-card": "nodes/put-card.js",
+      "delete-card": "nodes/delete-card.js",
       "listen": "nodes/listen.js"
     },
     "engines": {

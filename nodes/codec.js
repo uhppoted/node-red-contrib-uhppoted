@@ -42,6 +42,12 @@ module.exports = {
         request.writeUInt8(object.card.doors['4'] ? 0x01 : 0x00, 23)
         break
 
+      case 0x52:
+        request.writeUInt8(0x52, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt32LE(object.card.number, 8)
+        break
+
       case 0x58:
         request.writeUInt8(0x58, 1)
         request.writeUInt32LE(deviceId, 4)
@@ -50,7 +56,7 @@ module.exports = {
       case 0x5a:
         request.writeUInt8(0x5a, 1)
         request.writeUInt32LE(deviceId, 4)
-        request.writeUInt32LE(object.cardNumber, 8)
+        request.writeUInt32LE(object.card.number, 8)
         break
 
       case 0x80:
@@ -155,6 +161,12 @@ module.exports = {
         return {
           deviceId: uint32(bytes, 4),
           stored: bool(bytes, 8)
+        }
+
+      case 0x52:
+        return {
+          deviceId: uint32(bytes, 4),
+          deleted: bool(bytes, 8)
         }
 
       case 0x58:

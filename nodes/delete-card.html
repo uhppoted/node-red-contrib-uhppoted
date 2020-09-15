@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('get-card', {
+    RED.nodes.registerType('delete-card', {
         category: 'uhppoted',
         color: '#A6BBCF',
         defaults: {
@@ -15,12 +15,12 @@
         outputs: 1,
         icon: "function.svg",
         label: function() {
-            return this.name || "get-card";
+            return this.name || "delete-card";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="get-card">
+<script type="text/html" data-template-name="delete-card">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -31,13 +31,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="get-card">
-    <p>Retrieves a card record from an access controller.</p>
+<script type="text/html" data-help-name="delete-card">
+    <p>Deletes a card record from an access controller.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the device ID and card number for 'get-card'</dd>
+        <dd>JSON object with the device ID and card number for 'delete-card'</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -45,14 +45,14 @@
     <h3>Outputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the card record</dd>
+        <dd>JSON object with the succeeded/failed result</dd>
         <dt>topic<span class="property-type">string</span></dt>
         <dd>message topic copied from input</dd>
     </dl>
 
     <h3>Details</h3>
     <p>The input <code>msg.payload</code> is a JSON object containing the access
-    controller serial number and card number for the card to be retrieved.</p>
+    controller serial number and card number for the card to be deleted.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
@@ -66,44 +66,18 @@
     "cardNumber": 61532836
   }</pre>
 
-    <p>The output is a JSON object containing the card record retrieved from the access controller.</p>
+    <p>The output is a JSON object containing the result of the card record deletion.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
-        <dt>error<span class="property-type">number</span></dt>
-        <dd>-1: 'card not found' or -2: 'card deleted'</dd>
-        <dt>card.number<span class="property-type">uint32</span></dt>
-        <dd>card number</d>
-        <dt>card.valid.from<span class="property-type">date</span></dt>
-        <dd>start date (inclusive) from which card is valid</d>
-        <dt>card.valid.to<span class="property-type">date</span></dt>
-        <dd>end date (incusive) until which card is valid</d>
-        <dt>card.doors.1<span class="property-type">boolean</span></dt>
-        <dd>true if the card number has access to door 1</d>
-        <dt>card.doors.2<span class="property-type">boolean</span></dt>
-        <dd>true if the card number has access to door 2</d>
-        <dt>card.doors.3<span class="property-type">boolean</span></dt>
-        <dd>true if the card number has access to door 3</d>
-        <dt>card.doors.4<span class="property-type">boolean</span></dt>
-        <dd>true if the card number has access to door 4</d>
+        <dt>deleted<span class="property-type">boolean</span></dt>
+        <dd>true if the card was deleted</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896,
-    "card": {
-        "number": 61532836,
-        "valid": {
-            "from": "2020-01-01",
-            "to": "2020-12-31",
-        },
-        "doors": {
-            1: true,
-            2: false,
-            3: false,
-            4: true
-        }
-    }
+    "deleted": true
   }</pre>
     
     <h3>References</h3>

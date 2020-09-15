@@ -2,7 +2,7 @@ module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
 
-  function GetCardNode (config) {
+  function DeleteCardNode (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -15,18 +15,6 @@ module.exports = function (RED) {
       const cardNumber = msg.payload.cardNumber
 
       const emit = function (object) {
-        switch (object.card.number) {
-          case 0:
-            object.error = -1
-            object.card = { number: '', valid: { from: '', to: '' }, doors: { 1: '', 2: '', 3: '', 4: '' } }
-            break
-
-          case 0xffffffff:
-            object.error = -2
-            object.card = { number: '', valid: { from: '', to: '' }, doors: { 1: '', 2: '', 3: '', 4: '' } }
-            break
-        }
-
         common.emit(node, msg.topic, object)
       }
 
@@ -35,7 +23,7 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.get(deviceId, 0x5a, { card: { number: cardNumber } }, uhppote, (m) => { node.log(m) })
+        uhppoted.get(deviceId, 0x52, { card: { number: cardNumber } }, uhppote, (m) => { node.log(m) })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })
@@ -43,5 +31,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('get-card', GetCardNode)
+  RED.nodes.registerType('delete-card', DeleteCardNode)
 }
