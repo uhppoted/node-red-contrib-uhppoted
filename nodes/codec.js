@@ -59,6 +59,12 @@ module.exports = {
         request.writeUInt32LE(object.card.number, 8)
         break
 
+      case 0x5c:
+        request.writeUInt8(0x5c, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt32LE(object.card.index, 8)
+        break
+
       case 0x80:
         request.writeUInt8(0x80, 1)
         request.writeUInt32LE(deviceId, 4)
@@ -176,6 +182,7 @@ module.exports = {
         }
 
       case 0x5a:
+      case 0x5c:
         return {
           deviceId: uint32(bytes, 4),
           card: {

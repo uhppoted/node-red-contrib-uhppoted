@@ -33,6 +33,7 @@
 
 - [x] delete-card
 - [x] put-card
+- [x] get-card-by-index
 - [x] get-card
 - [x] rename subnet to netmask
 - [x] open-door

@@ -36,6 +36,7 @@
       "open-door": "nodes/open-door.js",
       "get-cards": "nodes/get-cards.js",
       "get-card": "nodes/get-card.js",
+      "get-card-by-index": "nodes/get-card-by-index.js",
       "put-card": "nodes/put-card.js",
       "delete-card": "nodes/delete-card.js",
       "listen": "nodes/listen.js"

@@ -2,7 +2,7 @@ module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
 
-  function GetCardNode (config) {
+  function GetCardByIndexNode (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -12,22 +12,19 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const deviceId = msg.payload.deviceId
-      const cardNumber = msg.payload.cardNumber
+      const index = msg.payload.index
 
       const emit = function (object) {
         switch (object.card.number) {
           case 0:
             object.error = -1
-            object.card = null
+            object.card = { number: '', valid: { from: '', to: '' }, doors: { 1: '', 2: '', 3: '', 4: '' } }
             break
 
           case 0xffffffff:
             object.error = -2
-            object.card = null
+            object.card = { number: '', valid: { from: '', to: '' }, doors: { 1: '', 2: '', 3: '', 4: '' } }
             break
-
-          default:
-            object.error = 0
         }
 
         common.emit(node, msg.topic, object)
@@ -38,7 +35,7 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.get(deviceId, 0x5a, { card: { number: cardNumber } }, uhppote, (m) => { node.log(m) })
+        uhppoted.get(deviceId, 0x5c, { card: { index: index } }, uhppote, (m) => { node.log(m) })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })
@@ -46,5 +43,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('get-card', GetCardNode)
+  RED.nodes.registerType('get-card-by-index', GetCardByIndexNode)
 }

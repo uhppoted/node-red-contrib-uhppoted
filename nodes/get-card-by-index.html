@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('get-card', {
+    RED.nodes.registerType('get-card-by-index', {
         category: 'uhppoted',
         color: '#A6BBCF',
         defaults: {
@@ -15,12 +15,12 @@
         outputs: 1,
         icon: "function.svg",
         label: function() {
-            return this.name || "get-card";
+            return this.name || "get-card-by-index";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="get-card">
+<script type="text/html" data-template-name="get-card-by-index">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -31,13 +31,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="get-card">
+<script type="text/html" data-help-name="get-card-by-index">
     <p>Retrieves a card record from an access controller.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the device ID and card number for 'get-card'</dd>
+        <dd>JSON object with the device ID and record index for 'get-card-by-index'</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -56,14 +56,14 @@
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
-        <dt>cardNumber<span class="property-type">uint32</span></dt>
-        <dd>card number</dd>
+        <dt>index<span class="property-type">uint32</span></dt>
+        <dd>card record number</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896
-    "cardNumber": 61532836
+    "index": 13728
   }</pre>
 
     <p>The output is a JSON object containing the card record retrieved from the access controller.</p>
