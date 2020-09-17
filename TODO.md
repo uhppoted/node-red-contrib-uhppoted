@@ -3,6 +3,7 @@
 ## IN PROGRESS
 
 - [ ] fallback to broadcast address if destination is not defined
+- [ ] export constants for opcodes
 - [ ] 'force broadcast' flag in config
 - [ ] rename uhppote to config or somesuch
 - [ ] make 'send' function look like get/set
@@ -10,7 +11,8 @@
 - [ ] internationalisation
 - [ ] document uhppoted functions
 - [ ] document examples
-- [ ] add description to flows
+- [ ] add description to flow
+- [ ] example flows
 - [ ] unit tests
       - broadcast
       - execute
@@ -31,6 +33,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] delete-cards
 - [x] delete-card
 - [x] put-card
 - [x] get-card-by-index
