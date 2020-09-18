@@ -3,75 +3,57 @@ module.exports = {
   encode: function (code, deviceId, object) {
     const ip = require('ip')
     const request = Buffer.alloc(64)
+    const opcodes = require('../nodes/opcodes.js')
 
     request.writeUInt8(0x17, 0)
 
     switch (code) {
-      case 0x20:
-        request.writeUInt8(0x20, 1)
+      case opcodes.GetDevice:
+        request.writeUInt8(0x94, 1)
+        if (deviceId !== null) {
+          request.writeUInt32LE(deviceId, 4)
+        }
+        break
+
+      case opcodes.SetAddress:
+        request.writeUInt8(0x96, 1)
         request.writeUInt32LE(deviceId, 4)
+        ip.toBuffer(object.address, request, 8)
+        ip.toBuffer(object.netmask, request, 12)
+        ip.toBuffer(object.gateway, request, 16)
+        request.writeUInt32LE(0x55aaaa55, 20)
+        break
+
+      case opcodes.GetListener:
+        request.writeUInt8(0x92, 1)
         request.writeUInt32LE(deviceId, 4)
         break
 
-      case 0x30:
+      case opcodes.SetListener:
+        request.writeUInt8(0x90, 1)
+        request.writeUInt32LE(deviceId, 4)
+        ip.toBuffer(object.address, request, 8)
+        request.writeUInt16LE(object.port, 12)
+        break
+
+      case opcodes.GetTime:
+        request.writeUInt8(0x32, 1)
+        request.writeUInt32LE(deviceId, 4)
+        break
+
+      case opcodes.SetTime:
         request.writeUInt8(0x30, 1)
         request.writeUInt32LE(deviceId, 4)
         datetime2bin(object.datetime).copy(request, 8)
         break
 
-      case 0x32:
-        request.writeUInt8(0x32, 1)
-        request.writeUInt32LE(deviceId, 4)
-        break
-
-      case 0x40:
-        request.writeUInt8(0x40, 1)
+      case opcodes.GetDoorControl:
+        request.writeUInt8(0x82, 1)
         request.writeUInt32LE(deviceId, 4)
         request.writeUInt8(object.door, 8)
         break
 
-      case 0x50:
-        request.writeUInt8(0x50, 1)
-        request.writeUInt32LE(deviceId, 4)
-        request.writeUInt32LE(object.card.number, 8)
-        date2bin(object.card.valid.from).copy(request, 12)
-        date2bin(object.card.valid.to).copy(request, 16)
-        request.writeUInt8(object.card.doors['1'] ? 0x01 : 0x00, 20)
-        request.writeUInt8(object.card.doors['2'] ? 0x01 : 0x00, 21)
-        request.writeUInt8(object.card.doors['3'] ? 0x01 : 0x00, 22)
-        request.writeUInt8(object.card.doors['4'] ? 0x01 : 0x00, 23)
-        break
-
-      case 0x52:
-        request.writeUInt8(0x52, 1)
-        request.writeUInt32LE(deviceId, 4)
-        request.writeUInt32LE(object.card.number, 8)
-        break
-
-      case 0x54:
-        request.writeUInt8(0x54, 1)
-        request.writeUInt32LE(deviceId, 4)
-        request.writeUInt32LE(0x55aaaa55, 8)
-        break
-
-      case 0x58:
-        request.writeUInt8(0x58, 1)
-        request.writeUInt32LE(deviceId, 4)
-        break
-
-      case 0x5a:
-        request.writeUInt8(0x5a, 1)
-        request.writeUInt32LE(deviceId, 4)
-        request.writeUInt32LE(object.card.number, 8)
-        break
-
-      case 0x5c:
-        request.writeUInt8(0x5c, 1)
-        request.writeUInt32LE(deviceId, 4)
-        request.writeUInt32LE(object.card.index, 8)
-        break
-
-      case 0x80:
+      case opcodes.SetDoorControl:
         request.writeUInt8(0x80, 1)
         request.writeUInt32LE(deviceId, 4)
         request.writeUInt8(object.door, 8)
@@ -94,41 +76,59 @@ module.exports = {
         }
         break
 
-      case 0x82:
-        request.writeUInt8(0x82, 1)
+      case opcodes.GetStatus:
+        request.writeUInt8(0x20, 1)
+        request.writeUInt32LE(deviceId, 4)
+        break
+
+      case opcodes.OpenDoor:
+        request.writeUInt8(0x40, 1)
         request.writeUInt32LE(deviceId, 4)
         request.writeUInt8(object.door, 8)
         break
 
-      case 0x90:
-        request.writeUInt8(0x90, 1)
-        request.writeUInt32LE(deviceId, 4)
-        ip.toBuffer(object.address, request, 8)
-        request.writeUInt16LE(object.port, 12)
-        break
-
-      case 0x92:
-        request.writeUInt8(0x92, 1)
+      case opcodes.GetCards:
+        request.writeUInt8(0x58, 1)
         request.writeUInt32LE(deviceId, 4)
         break
 
-      case 0x94:
-        request.writeUInt8(0x94, 1)
-        if (deviceId !== null) {
-          request.writeUInt32LE(deviceId, 4)
-        }
-        break
-
-      case 0x96:
-        request.writeUInt8(0x96, 1)
+      case opcodes.GetCardByID:
+        request.writeUInt8(0x5a, 1)
         request.writeUInt32LE(deviceId, 4)
-        ip.toBuffer(object.address, request, 8)
-        ip.toBuffer(object.netmask, request, 12)
-        ip.toBuffer(object.gateway, request, 16)
-        request.writeUInt32LE(0x55aaaa55, 20)
+        request.writeUInt32LE(object.card.number, 8)
         break
 
-      case 0xb4:
+      case opcodes.GetCardByIndex:
+        request.writeUInt8(0x5c, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt32LE(object.card.index, 8)
+        break
+
+      case opcodes.PutCard:
+        request.writeUInt8(0x50, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt32LE(object.card.number, 8)
+        date2bin(object.card.valid.from).copy(request, 12)
+        date2bin(object.card.valid.to).copy(request, 16)
+        request.writeUInt8(object.card.doors['1'] ? 0x01 : 0x00, 20)
+        request.writeUInt8(object.card.doors['2'] ? 0x01 : 0x00, 21)
+        request.writeUInt8(object.card.doors['3'] ? 0x01 : 0x00, 22)
+        request.writeUInt8(object.card.doors['4'] ? 0x01 : 0x00, 23)
+        break
+
+      case opcodes.DeleteCard:
+        request.writeUInt8(0x52, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt32LE(object.card.number, 8)
+        break
+
+      case opcodes.DeleteCards:
+        request.writeUInt8(0x54, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt32LE(0x55aaaa55, 8)
+        break
+
+      case opcodes.GetEventIndex:
         request.writeUInt8(0xb4, 1)
         request.writeUInt32LE(deviceId, 4)
         break

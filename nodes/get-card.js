@@ -1,6 +1,7 @@
 module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
+  const opcodes = require('../nodes/opcodes.js')
 
   function GetCardNode (config) {
     RED.nodes.createNode(this, config)
@@ -38,7 +39,7 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.get(deviceId, 0x5a, { card: { number: cardNumber } }, uhppote, (m) => { node.log(m) })
+        uhppoted.get(deviceId, opcodes.GetCardByID, { card: { number: cardNumber } }, uhppote, (m) => { node.log(m) })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

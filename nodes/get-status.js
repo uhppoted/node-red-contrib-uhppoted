@@ -1,6 +1,7 @@
 module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
+  const opcodes = require('../nodes/opcodes.js')
 
   function GetStatusNode (config) {
     RED.nodes.createNode(this, config)
@@ -22,7 +23,7 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.get(deviceId, 0x20, {}, uhppote, (m) => { node.log(m) })
+        uhppoted.get(deviceId, opcodes.GetStatus, {}, uhppote, (m) => { node.log(m) })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })
