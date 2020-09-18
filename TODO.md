@@ -2,8 +2,8 @@
 
 ## IN PROGRESS
 
-- [ ] fallback to broadcast address if destination is not defined
 - [ ] export constants for opcodes
+- [ ] fallback to broadcast address if destination is not defined
 - [ ] 'force broadcast' flag in config
 - [ ] rename uhppote to config or somesuch
 - [ ] make 'send' function look like get/set
@@ -33,6 +33,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] get-event-index
 - [x] delete-cards
 - [x] delete-card
 - [x] put-card

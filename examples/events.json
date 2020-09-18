@@ -1,0 +1,144 @@
+[
+    {
+        "id": "b5da19a5.72a0c8",
+        "type": "tab",
+        "label": "events",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "639ffbe2.214cc4",
+        "type": "debug",
+        "z": "b5da19a5.72a0c8",
+        "name": "event-index",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3be8dcd9.c0ec74",
+        "type": "inject",
+        "z": "b5da19a5.72a0c8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 80,
+        "wires": [
+            [
+                "9e7ddaee.4eaa48"
+            ]
+        ]
+    },
+    {
+        "id": "f6190f5c.e5ef9",
+        "type": "ui_text",
+        "z": "b5da19a5.72a0c8",
+        "group": "573f9bfa.7e4564",
+        "order": 21,
+        "width": 4,
+        "height": 1,
+        "name": "event-index",
+        "label": "event index",
+        "format": "{{msg.payload.index}}",
+        "layout": "row-spread",
+        "x": 530,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "c8f3aa0a.3b4ae8",
+        "type": "link in",
+        "z": "b5da19a5.72a0c8",
+        "name": "refresh",
+        "links": [
+            "fbd6b7a7.cd1af8",
+            "46cebfa2.e38c6"
+        ],
+        "x": 155,
+        "y": 120,
+        "wires": [
+            [
+                "9e7ddaee.4eaa48"
+            ]
+        ]
+    },
+    {
+        "id": "9e7ddaee.4eaa48",
+        "type": "get-event-index",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-event-index",
+        "uhppote": "d596ac54.cced",
+        "x": 310,
+        "y": 120,
+        "wires": [
+            [
+                "f6190f5c.e5ef9",
+                "639ffbe2.214cc4"
+            ]
+        ]
+    },
+    {
+        "id": "9499cd07.adf01",
+        "type": "comment",
+        "z": "b5da19a5.72a0c8",
+        "name": "detail page: event index ",
+        "info": "",
+        "x": 160,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "573f9bfa.7e4564",
+        "type": "ui_group",
+        "z": "",
+        "name": "column-2",
+        "tab": "2731970.74c476a",
+        "order": 2,
+        "disp": false,
+        "width": "5",
+        "collapse": false
+    },
+    {
+        "id": "d596ac54.cced",
+        "type": "uhppote",
+        "z": "",
+        "name": "development",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "debug": true
+    },
+    {
+        "id": "2731970.74c476a",
+        "type": "ui_tab",
+        "z": "",
+        "name": "detail",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

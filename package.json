@@ -40,6 +40,7 @@
       "put-card": "nodes/put-card.js",
       "delete-card": "nodes/delete-card.js",
       "delete-all-cards": "nodes/delete-cards.js",
+      "get-event-index": "nodes/get-event-index.js",
       "listen": "nodes/listen.js"
     },
     "engines": {
