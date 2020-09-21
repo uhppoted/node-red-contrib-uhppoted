@@ -2,9 +2,13 @@
 
 ## IN PROGRESS
 
+- [ ] rename uhppote to config or somesuch
+- [ ] add device list to configuration
+- [ ] add 'update' button to configuration page
+- [ ] distribute received event index
+- [ ] dashboard: update displayed door labels when switching devices
 - [ ] fallback to broadcast address if destination is not defined
 - [ ] 'force broadcast' flag in config
-- [ ] rename uhppote to config or somesuch
 - [ ] make 'send' function look like get/set
 - [ ] make 'broadcast' function look like get/set
 - [ ] internationalisation
@@ -12,26 +16,14 @@
 - [ ] document examples
 - [ ] add description to flow
 - [ ] example flows
-- [ ] unit tests
-      - broadcast
-      - execute
-      - send
-      - listen
-      - get-devices
-      - get-device
-      - set-address
-      - get/set-listener
-      - get/set-time
-      - get-status
-      - codec invalid device ID
-      - codec invalid address, etc
-
+- [ ] integration tests
 - [ ] 'U' node icon
 - [ ] label node ports
 - [ ] configure message topic
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] set-event-index
 - [x] export constants for opcodes
 - [x] get-event-index
 - [x] delete-cards

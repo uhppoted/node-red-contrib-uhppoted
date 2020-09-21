@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function PutCardNode (config) {
+  function SetEventIndexNode (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -13,7 +13,7 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const deviceId = msg.payload.deviceId
-      const card = msg.payload.card
+      const index = msg.payload.index
 
       const emit = function (object) {
         common.emit(node, msg.topic, object)
@@ -24,7 +24,7 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.set(deviceId, opcodes.PutCard, { card: card }, uhppote, (m) => { node.log(m) })
+        uhppoted.set(deviceId, opcodes.SetEventIndex, { index: index }, uhppote, (m) => { node.log(m) })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })
@@ -32,5 +32,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('put-card', PutCardNode)
+  RED.nodes.registerType('set-event-index', SetEventIndexNode)
 }

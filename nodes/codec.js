@@ -133,6 +133,13 @@ module.exports = {
         request.writeUInt32LE(deviceId, 4)
         break
 
+      case opcodes.SetEventIndex:
+        request.writeUInt8(0xb2, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt32LE(object.index, 8)
+        request.writeUInt32LE(0x55aaaa55, 12)
+        break
+
       default:
         throw new Error(`invalid protocol function code ${code}`)
     }
@@ -256,6 +263,11 @@ module.exports = {
           index: uint32(bytes, 8)
         }
 
+      case 0xb2:
+        return {
+          deviceId: uint32(bytes, 4),
+          updated: bool(bytes, 8)
+        }
       default:
         return null
     }

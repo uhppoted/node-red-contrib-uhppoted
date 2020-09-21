@@ -10,7 +10,7 @@
         "id": "639ffbe2.214cc4",
         "type": "debug",
         "z": "b5da19a5.72a0c8",
-        "name": "event-index",
+        "name": "get-event-index",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -19,7 +19,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
+        "x": 540,
         "y": 80,
         "wires": []
     },
@@ -91,7 +91,7 @@
         "z": "b5da19a5.72a0c8",
         "name": "get-event-index",
         "uhppote": "d596ac54.cced",
-        "x": 310,
+        "x": 320,
         "y": 120,
         "wires": [
             [
@@ -109,6 +109,188 @@
         "x": 160,
         "y": 40,
         "wires": []
+    },
+    {
+        "id": "e08eaeaa.741ee",
+        "type": "debug",
+        "z": "b5da19a5.72a0c8",
+        "name": "set-event-index",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "701112a1.4079dc",
+        "type": "inject",
+        "z": "b5da19a5.72a0c8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896, \"index\":13 }",
+        "payloadType": "json",
+        "x": 370,
+        "y": 260,
+        "wires": [
+            [
+                "738563e5.ad729c"
+            ]
+        ]
+    },
+    {
+        "id": "e2f95c0b.0b82f",
+        "type": "comment",
+        "z": "b5da19a5.72a0c8",
+        "name": "configuration page: event index ",
+        "info": "",
+        "x": 190,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "738563e5.ad729c",
+        "type": "set-event-index",
+        "z": "b5da19a5.72a0c8",
+        "name": "set-event-index",
+        "uhppote": "d596ac54.cced",
+        "x": 560,
+        "y": 300,
+        "wires": [
+            [
+                "e08eaeaa.741ee",
+                "f59ec658.7fb798"
+            ]
+        ]
+    },
+    {
+        "id": "66de5d72.ad8814",
+        "type": "function",
+        "z": "b5da19a5.72a0c8",
+        "name": "event-index",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-event-index.device', msg.payload)\n        break;\n\n    case 'set-event-index':\n        flow.set('set-event-index.index', msg.payload)\n        break;\n}\n\nconst deviceId = flow.get('set-event-index.device')\nconst index = flow.get('set-event-index.index')\n\nif (deviceId && index) {\n    msg.payload = { \n        deviceId: deviceId,\n        index: index\n    }\n        \n    return msg\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 350,
+        "y": 300,
+        "wires": [
+            [
+                "738563e5.ad729c",
+                "24831b48.af3ff4"
+            ]
+        ]
+    },
+    {
+        "id": "f59ec658.7fb798",
+        "type": "function",
+        "z": "b5da19a5.72a0c8",
+        "name": "event-index-updated",
+        "func": "const deviceId = flow.get('set-event-index.device')\nconst index = flow.get('set-event-index.index')\n\nif (msg.payload.updated && deviceId && index) {\n    msg.payload = { \n        \"deviceId\": deviceId,\n        \"index\": index\n    }\n    \n    return msg\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 800,
+        "y": 300,
+        "wires": [
+            [
+                "f6190f5c.e5ef9",
+                "e095fbe1.4d12f8"
+            ]
+        ]
+    },
+    {
+        "id": "27ec3017.bb1d",
+        "type": "ui_text_input",
+        "z": "b5da19a5.72a0c8",
+        "name": "event-index",
+        "label": "index",
+        "tooltip": "",
+        "group": "920f64db.d2fd58",
+        "order": 29,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "mode": "number",
+        "delay": "0",
+        "topic": "set-event-index",
+        "x": 150,
+        "y": 340,
+        "wires": [
+            [
+                "66de5d72.ad8814"
+            ]
+        ]
+    },
+    {
+        "id": "24831b48.af3ff4",
+        "type": "debug",
+        "z": "b5da19a5.72a0c8",
+        "name": "asdfasdf",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 550,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "e095fbe1.4d12f8",
+        "type": "debug",
+        "z": "b5da19a5.72a0c8",
+        "name": "ggggg",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "6dd92229.dda32c",
+        "type": "link in",
+        "z": "b5da19a5.72a0c8",
+        "name": "",
+        "links": [
+            "d4e3111f.b25ea"
+        ],
+        "x": 195,
+        "y": 300,
+        "wires": [
+            [
+                "66de5d72.ad8814"
+            ]
+        ]
     },
     {
         "id": "573f9bfa.7e4564",
@@ -133,10 +315,30 @@
         "debug": true
     },
     {
+        "id": "920f64db.d2fd58",
+        "type": "ui_group",
+        "z": "",
+        "name": "configuration",
+        "tab": "e4b36c96.1a567",
+        "order": 1,
+        "disp": true,
+        "width": "10",
+        "collapse": false
+    },
+    {
         "id": "2731970.74c476a",
         "type": "ui_tab",
         "z": "",
         "name": "detail",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "e4b36c96.1a567",
+        "type": "ui_tab",
+        "z": "",
+        "name": "manage",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
