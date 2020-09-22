@@ -43,14 +43,14 @@
         "type": "ui_table",
         "z": "c56e1667.998748",
         "group": "659dc42b.91f43c",
-        "name": "",
-        "order": 1,
+        "name": "received-events",
+        "order": 8,
         "width": 22,
         "height": 16,
         "columns": [
             {
                 "field": "timestamp",
-                "title": "Timestamp",
+                "title": "timestamp",
                 "width": "160",
                 "align": "left",
                 "formatter": "plaintext",
@@ -60,7 +60,7 @@
             },
             {
                 "field": "deviceId",
-                "title": "Controller",
+                "title": "controller",
                 "width": "100",
                 "align": "left",
                 "formatter": "plaintext",
@@ -70,7 +70,7 @@
             },
             {
                 "field": "type",
-                "title": "Event Type",
+                "title": "event type",
                 "width": "132",
                 "align": "left",
                 "formatter": "plaintext",
@@ -80,7 +80,7 @@
             },
             {
                 "field": "granted",
-                "title": "Granted?",
+                "title": "granted?",
                 "width": "100",
                 "align": "center",
                 "formatter": "tickCross",
@@ -90,7 +90,7 @@
             },
             {
                 "field": "door",
-                "title": "Door",
+                "title": "door",
                 "width": "112",
                 "align": "left",
                 "formatter": "plaintext",
@@ -100,7 +100,7 @@
             },
             {
                 "field": "direction",
-                "title": "Direction",
+                "title": "direction",
                 "width": "108",
                 "align": "center",
                 "formatter": "plaintext",
@@ -110,7 +110,7 @@
             },
             {
                 "field": "reason",
-                "title": "Reason",
+                "title": "reason",
                 "width": "224",
                 "align": "left",
                 "formatter": "plaintext",
@@ -120,7 +120,7 @@
             },
             {
                 "field": "forceLock",
-                "title": "Force Locked?",
+                "title": "force locked?",
                 "width": "136",
                 "align": "center",
                 "formatter": "tickCross",
@@ -130,7 +130,7 @@
             },
             {
                 "field": "fireAlarm",
-                "title": "Fire Alarm",
+                "title": "fire alarm",
                 "width": "108",
                 "align": "center",
                 "formatter": "tickCross",
@@ -141,7 +141,7 @@
         ],
         "outputs": 0,
         "cts": false,
-        "x": 610,
+        "x": 720,
         "y": 80,
         "wires": []
     },
@@ -149,13 +149,13 @@
         "id": "d378e1d6.40fe9",
         "type": "function",
         "z": "c56e1667.998748",
-        "name": "",
-        "func": "const events = flow.get('events') || []\nconst doors = flow.get('doors')\n\nconst deviceId = msg.payload.deviceId\nconst event = msg.payload.state\nconst timestamp = event.event.timestamp\nconst eventType = event.event.type.event.toUpperCase()\nconst granted = event.event.granted\nconst direction = event.event.direction.direction.toUpperCase()\nconst reason = event.event.reason.reason.toUpperCase()\nconst forceLock = event.inputs.forceLock\nconst fireAlarm = event.inputs.fireAlarm\nlet   door = '???'\n\nif (doors[deviceId]) {\n    door = doors[deviceId][event.event.door] || '???'\n}\n\nconst item = {\n    'timestamp': timestamp,\n    'deviceId': deviceId,\n    'type': eventType,\n    'granted': granted,\n    'door': door,\n    'direction': direction,\n    'reason': reason,\n    'forceLock': forceLock,\n    'fireAlarm': fireAlarm\n}\n    \nevents.push(item)\n\nif (events.length > 32) {\n    events.shift()\n}\n\nflow.set('events', events)\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ events, false ]\n}\n\nreturn msg;",
+        "name": "append-event",
+        "func": "const events = flow.get('events') || []\nconst doors = flow.get('doors')\n\nconst deviceId = msg.payload.deviceId\nconst event = msg.payload.state\nconst timestamp = event.event.timestamp\nconst eventType = event.event.type.event.toUpperCase()\nconst granted = event.event.granted\nconst direction = event.event.direction.direction.toUpperCase()\nconst reason = event.event.reason.reason.toUpperCase()\nconst forceLock = event.inputs.forceLock\nconst fireAlarm = event.inputs.fireAlarm\nlet   door = event.door\n\nif (doors[deviceId] && doors[deviceId][event.event.door]) {\n    door = doors[deviceId][event.event.door]\n}\n\nconst item = {\n    'timestamp': timestamp,\n    'deviceId': deviceId,\n    'type': eventType,\n    'granted': granted,\n    'door': door,\n    'direction': direction,\n    'reason': reason,\n    'forceLock': forceLock,\n    'fireAlarm': fireAlarm\n}\n    \nevents.push(item)\n\nif (events.length > 32) {\n    events.shift()\n}\n\nflow.set('events', events)\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ events, false ]\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
         "finalize": "",
-        "x": 320,
+        "x": 340,
         "y": 80,
         "wires": [
             [
@@ -483,13 +483,13 @@
         "id": "89dc1ab0.a68848",
         "type": "function",
         "z": "c56e1667.998748",
-        "name": "",
+        "name": "initialise-table",
         "func": "if (msg.payload === 'change' && msg.tab && msg.name === 'events') {\n    const events = flow.get('events') || []\n\n    msg.payload = {\n        'command': 'setData',\n        'arguments': [ events, false ]\n    }\n\n    return msg;\n}\n\nreturn null;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 320,
+        "x": 340,
         "y": 120,
         "wires": [
             [
@@ -512,13 +512,29 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 470,
+        "x": 530,
         "y": 120,
         "wires": [
             [
                 "b9a22810.4f89d8"
             ]
         ]
+    },
+    {
+        "id": "b66de9ec.5490b8",
+        "type": "ui_text",
+        "z": "c56e1667.998748",
+        "group": "659dc42b.91f43c",
+        "order": 6,
+        "width": 6,
+        "height": 1,
+        "name": "events-table-title",
+        "label": "received events",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 40,
+        "wires": []
     },
     {
         "id": "d596ac54.cced",

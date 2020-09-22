@@ -44,7 +44,7 @@
     {
         "id": "33c9a78a.cc8c18",
         "type": "tab",
-        "label": "dashboard",
+        "label": "common",
         "disabled": false,
         "info": ""
     },
@@ -912,6 +912,33 @@
         "height": 1
     },
     {
+        "id": "a584141e.a7ead8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "659dc42b.91f43c",
+        "order": 3,
+        "width": 14,
+        "height": 1
+    },
+    {
+        "id": "4bd8ad1e.c33884",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "659dc42b.91f43c",
+        "order": 5,
+        "width": 22,
+        "height": 1
+    },
+    {
+        "id": "48642b4d.2966b4",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "659dc42b.91f43c",
+        "order": 7,
+        "width": 16,
+        "height": 1
+    },
+    {
         "id": "6a470566.d4725c",
         "type": "get-devices",
         "z": "a640a000.d83cb",
@@ -1505,14 +1532,14 @@
         "type": "ui_table",
         "z": "c56e1667.998748",
         "group": "659dc42b.91f43c",
-        "name": "",
-        "order": 1,
+        "name": "received-events",
+        "order": 8,
         "width": 22,
         "height": 16,
         "columns": [
             {
                 "field": "timestamp",
-                "title": "Timestamp",
+                "title": "timestamp",
                 "width": "160",
                 "align": "left",
                 "formatter": "plaintext",
@@ -1522,7 +1549,7 @@
             },
             {
                 "field": "deviceId",
-                "title": "Controller",
+                "title": "controller",
                 "width": "100",
                 "align": "left",
                 "formatter": "plaintext",
@@ -1532,7 +1559,7 @@
             },
             {
                 "field": "type",
-                "title": "Event Type",
+                "title": "event type",
                 "width": "132",
                 "align": "left",
                 "formatter": "plaintext",
@@ -1542,7 +1569,7 @@
             },
             {
                 "field": "granted",
-                "title": "Granted?",
+                "title": "granted?",
                 "width": "100",
                 "align": "center",
                 "formatter": "tickCross",
@@ -1552,7 +1579,7 @@
             },
             {
                 "field": "door",
-                "title": "Door",
+                "title": "door",
                 "width": "112",
                 "align": "left",
                 "formatter": "plaintext",
@@ -1562,7 +1589,7 @@
             },
             {
                 "field": "direction",
-                "title": "Direction",
+                "title": "direction",
                 "width": "108",
                 "align": "center",
                 "formatter": "plaintext",
@@ -1572,7 +1599,7 @@
             },
             {
                 "field": "reason",
-                "title": "Reason",
+                "title": "reason",
                 "width": "224",
                 "align": "left",
                 "formatter": "plaintext",
@@ -1582,7 +1609,7 @@
             },
             {
                 "field": "forceLock",
-                "title": "Force Locked?",
+                "title": "force locked?",
                 "width": "136",
                 "align": "center",
                 "formatter": "tickCross",
@@ -1592,7 +1619,7 @@
             },
             {
                 "field": "fireAlarm",
-                "title": "Fire Alarm",
+                "title": "fire alarm",
                 "width": "108",
                 "align": "center",
                 "formatter": "tickCross",
@@ -1603,7 +1630,7 @@
         ],
         "outputs": 0,
         "cts": false,
-        "x": 610,
+        "x": 720,
         "y": 80,
         "wires": []
     },
@@ -1611,13 +1638,13 @@
         "id": "d378e1d6.40fe9",
         "type": "function",
         "z": "c56e1667.998748",
-        "name": "",
-        "func": "const events = flow.get('events') || []\nconst doors = flow.get('doors')\n\nconst deviceId = msg.payload.deviceId\nconst event = msg.payload.state\nconst timestamp = event.event.timestamp\nconst eventType = event.event.type.event.toUpperCase()\nconst granted = event.event.granted\nconst direction = event.event.direction.direction.toUpperCase()\nconst reason = event.event.reason.reason.toUpperCase()\nconst forceLock = event.inputs.forceLock\nconst fireAlarm = event.inputs.fireAlarm\nlet   door = '???'\n\nif (doors[deviceId]) {\n    door = doors[deviceId][event.event.door] || '???'\n}\n\nconst item = {\n    'timestamp': timestamp,\n    'deviceId': deviceId,\n    'type': eventType,\n    'granted': granted,\n    'door': door,\n    'direction': direction,\n    'reason': reason,\n    'forceLock': forceLock,\n    'fireAlarm': fireAlarm\n}\n    \nevents.push(item)\n\nif (events.length > 32) {\n    events.shift()\n}\n\nflow.set('events', events)\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ events, false ]\n}\n\nreturn msg;",
+        "name": "append-event",
+        "func": "const events = flow.get('events') || []\nconst doors = flow.get('doors')\n\nconst deviceId = msg.payload.deviceId\nconst event = msg.payload.state\nconst timestamp = event.event.timestamp\nconst eventType = event.event.type.event.toUpperCase()\nconst granted = event.event.granted\nconst direction = event.event.direction.direction.toUpperCase()\nconst reason = event.event.reason.reason.toUpperCase()\nconst forceLock = event.inputs.forceLock\nconst fireAlarm = event.inputs.fireAlarm\nlet   door = event.door\n\nif (doors[deviceId] && doors[deviceId][event.event.door]) {\n    door = doors[deviceId][event.event.door]\n}\n\nconst item = {\n    'timestamp': timestamp,\n    'deviceId': deviceId,\n    'type': eventType,\n    'granted': granted,\n    'door': door,\n    'direction': direction,\n    'reason': reason,\n    'forceLock': forceLock,\n    'fireAlarm': fireAlarm\n}\n    \nevents.push(item)\n\nif (events.length > 32) {\n    events.shift()\n}\n\nflow.set('events', events)\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ events, false ]\n}\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
         "finalize": "",
-        "x": 320,
+        "x": 340,
         "y": 80,
         "wires": [
             [
@@ -3419,7 +3446,8 @@
             "bbeb26dc.ff7ab8",
             "5b13b041.ee256",
             "91238aa6.25efe8",
-            "6dd92229.dda32c"
+            "6dd92229.dda32c",
+            "750f854e.3e5eac"
         ],
         "x": 255,
         "y": 360,
@@ -3810,13 +3838,13 @@
         "id": "89dc1ab0.a68848",
         "type": "function",
         "z": "c56e1667.998748",
-        "name": "",
+        "name": "initialise-table",
         "func": "if (msg.payload === 'change' && msg.tab && msg.name === 'events') {\n    const events = flow.get('events') || []\n\n    msg.payload = {\n        'command': 'setData',\n        'arguments': [ events, false ]\n    }\n\n    return msg;\n}\n\nreturn null;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 320,
+        "x": 340,
         "y": 120,
         "wires": [
             [
@@ -3839,7 +3867,7 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 470,
+        "x": 530,
         "y": 120,
         "wires": [
             [
@@ -5499,8 +5527,7 @@
         "y": 300,
         "wires": [
             [
-                "738563e5.ad729c",
-                "24831b48.af3ff4"
+                "738563e5.ad729c"
             ]
         ]
     },
@@ -5518,8 +5545,7 @@
         "y": 300,
         "wires": [
             [
-                "f6190f5c.e5ef9",
-                "e095fbe1.4d12f8"
+                "f6190f5c.e5ef9"
             ]
         ]
     },
@@ -5579,40 +5605,6 @@
         ]
     },
     {
-        "id": "24831b48.af3ff4",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "asdfasdf",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 550,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "e095fbe1.4d12f8",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "ggggg",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 880,
-        "y": 400,
-        "wires": []
-    },
-    {
         "id": "6dd92229.dda32c",
         "type": "link in",
         "z": "b5da19a5.72a0c8",
@@ -5625,6 +5617,315 @@
         "wires": [
             [
                 "66de5d72.ad8814"
+            ]
+        ]
+    },
+    {
+        "id": "a75552ac.fbf6a",
+        "type": "debug",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-event",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "959338c3.e9e528",
+        "type": "inject",
+        "z": "b5da19a5.72a0c8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896, \"index\":13 }",
+        "payloadType": "json",
+        "x": 390,
+        "y": 500,
+        "wires": [
+            [
+                "7cf7e46b.641d4c"
+            ]
+        ]
+    },
+    {
+        "id": "ff39879c.00afd8",
+        "type": "comment",
+        "z": "b5da19a5.72a0c8",
+        "name": "events page",
+        "info": "",
+        "x": 150,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "969e6ec3.60ba6",
+        "type": "function",
+        "z": "b5da19a5.72a0c8",
+        "name": "event-index",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-event-index.device', msg.payload)\n        break;\n\n    case 'set-event-index':\n        const deviceId = flow.get('set-event-index.device')\n        const index = msg.payload\n\n        if (deviceId && index) {\n            msg.payload = { \n                deviceId: deviceId,\n                index: index\n            }\n        \n            return msg\n        }\n        break;\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 370,
+        "y": 540,
+        "wires": [
+            [
+                "7cf7e46b.641d4c"
+            ]
+        ]
+    },
+    {
+        "id": "6be3562c.613718",
+        "type": "ui_text_input",
+        "z": "b5da19a5.72a0c8",
+        "name": "event-index",
+        "label": "index",
+        "tooltip": "",
+        "group": "659dc42b.91f43c",
+        "order": 2,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "mode": "number",
+        "delay": "0",
+        "topic": "set-event-index",
+        "x": 170,
+        "y": 580,
+        "wires": [
+            [
+                "969e6ec3.60ba6"
+            ]
+        ]
+    },
+    {
+        "id": "7cf7e46b.641d4c",
+        "type": "get-event",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-event",
+        "uhppote": "d596ac54.cced",
+        "x": 540,
+        "y": 540,
+        "wires": [
+            [
+                "a75552ac.fbf6a",
+                "fae74f01.5e9fb"
+            ]
+        ]
+    },
+    {
+        "id": "fae74f01.5e9fb",
+        "type": "function",
+        "z": "b5da19a5.72a0c8",
+        "name": "append-event",
+        "func": "const events = flow.get('fetched') || []\nconst doors = flow.get('doors')\n\nconst deviceId = msg.payload.deviceId\nconst event = msg.payload.event\nconst index = event.index\nconst timestamp = event.timestamp\nconst eventType = event.type.event.toUpperCase()\nconst granted = event.granted\nconst direction = event.direction.direction.toUpperCase()\nconst reason = event.reason.reason.toUpperCase()\nlet   door = event.door\n\nif (doors[deviceId] && doors[deviceId][event.door]) {\n    door = doors[deviceId][event.door]\n}\n\nconst item = {\n    'deviceId': deviceId,\n    'index': index,\n    'timestamp': timestamp,\n    'type': eventType,\n    'granted': granted,\n    'door': door,\n    'direction': direction,\n    'reason': reason,\n}\n    \nevents.push(item)\n\nif (events.length > 8) {\n    events.shift()\n}\n\nflow.set('fetched', events)\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ events, false ]\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
+        "finalize": "",
+        "x": 740,
+        "y": 540,
+        "wires": [
+            [
+                "fcd11c8b.3687f"
+            ]
+        ]
+    },
+    {
+        "id": "fcd11c8b.3687f",
+        "type": "ui_table",
+        "z": "b5da19a5.72a0c8",
+        "group": "659dc42b.91f43c",
+        "name": "single-events",
+        "order": 4,
+        "width": 22,
+        "height": 7,
+        "columns": [
+            {
+                "field": "deviceId",
+                "title": "controller",
+                "width": "100",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "index",
+                "title": "index",
+                "width": "100",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "timestamp",
+                "title": "timestamp",
+                "width": "160",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "type",
+                "title": "event type",
+                "width": "132",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "granted",
+                "title": "Granted?",
+                "width": "100",
+                "align": "center",
+                "formatter": "tickCross",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "door",
+                "title": "door",
+                "width": "112",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "direction",
+                "title": "direction",
+                "width": "108",
+                "align": "center",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            },
+            {
+                "field": "reason",
+                "title": "reason",
+                "width": "224",
+                "align": "left",
+                "formatter": "plaintext",
+                "formatterParams": {
+                    "target": "_blank"
+                }
+            }
+        ],
+        "outputs": 0,
+        "cts": false,
+        "x": 950,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "b66de9ec.5490b8",
+        "type": "ui_text",
+        "z": "c56e1667.998748",
+        "group": "659dc42b.91f43c",
+        "order": 6,
+        "width": 6,
+        "height": 1,
+        "name": "events-table-title",
+        "label": "received events",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "ef8dbc78.012f8",
+        "type": "ui_ui_control",
+        "z": "b5da19a5.72a0c8",
+        "name": "tab-event",
+        "events": "change",
+        "x": 540,
+        "y": 580,
+        "wires": [
+            [
+                "a3a01c91.245eb"
+            ]
+        ]
+    },
+    {
+        "id": "a3a01c91.245eb",
+        "type": "function",
+        "z": "b5da19a5.72a0c8",
+        "name": "initialise-table",
+        "func": "if (msg.payload === 'change' && msg.tab && msg.name === 'events') {\n    const events = flow.get('fetched') || []\n\n    msg.payload = {\n        'command': 'setData',\n        'arguments': [ events, false ]\n    }\n\n    return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 740,
+        "y": 580,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e06f8bac.c4d578",
+        "type": "ui_dropdown",
+        "z": "b5da19a5.72a0c8",
+        "name": "controller",
+        "label": "",
+        "tooltip": "",
+        "place": "<select controller>",
+        "group": "659dc42b.91f43c",
+        "order": 1,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "405419896",
+                "value": 405419896,
+                "type": "num"
+            },
+            {
+                "label": "303986753",
+                "value": 303986753,
+                "type": "num"
+            }
+        ],
+        "payload": "",
+        "topic": "set-device",
+        "x": 180,
+        "y": 540,
+        "wires": [
+            [
+                "969e6ec3.60ba6"
             ]
         ]
     }

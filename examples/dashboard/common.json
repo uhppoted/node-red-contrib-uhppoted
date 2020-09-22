@@ -2,7 +2,7 @@
     {
         "id": "33c9a78a.cc8c18",
         "type": "tab",
-        "label": "dashboard",
+        "label": "common",
         "disabled": false,
         "info": ""
     },
@@ -146,7 +146,8 @@
             "bbeb26dc.ff7ab8",
             "5b13b041.ee256",
             "91238aa6.25efe8",
-            "6dd92229.dda32c"
+            "6dd92229.dda32c",
+            "750f854e.3e5eac"
         ],
         "x": 255,
         "y": 360,

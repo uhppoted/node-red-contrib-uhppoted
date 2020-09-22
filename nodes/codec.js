@@ -140,6 +140,12 @@ module.exports = {
         request.writeUInt32LE(0x55aaaa55, 12)
         break
 
+      case opcodes.GetEvent:
+        request.writeUInt8(0xb0, 1)
+        request.writeUInt32LE(deviceId, 4)
+        request.writeUInt32LE(object.index, 8)
+        break
+
       default:
         throw new Error(`invalid protocol function code ${code}`)
     }
@@ -268,6 +274,22 @@ module.exports = {
           deviceId: uint32(bytes, 4),
           updated: bool(bytes, 8)
         }
+
+      case 0xb0:
+        return {
+          deviceId: uint32(bytes, 4),
+          event: {
+            index: uint32(bytes, 8),
+            type: lookup.eventType(bytes, 12),
+            granted: bool(bytes, 13),
+            door: uint8(bytes, 14),
+            direction: lookup.direction(bytes, 15),
+            card: uint32(bytes, 16),
+            timestamp: yyyymmddHHmmss(bytes, 20),
+            reason: lookup.reason(bytes, 27)
+          }
+        }
+
       default:
         return null
     }

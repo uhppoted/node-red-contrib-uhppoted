@@ -7,6 +7,7 @@
 - [ ] add 'update' button to configuration page
 - [ ] distribute received event index
 - [ ] dashboard: update displayed door labels when switching devices
+- [ ] dashboard: store list of controllers in global config
 - [ ] fallback to broadcast address if destination is not defined
 - [ ] 'force broadcast' flag in config
 - [ ] make 'send' function look like get/set
@@ -23,6 +24,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] get-event
 - [x] set-event-index
 - [x] export constants for opcodes
 - [x] get-event-index

@@ -42,6 +42,7 @@
       "delete-all-cards": "nodes/delete-cards.js",
       "get-event-index": "nodes/get-event-index.js",
       "set-event-index": "nodes/set-event-index.js",
+      "get-event": "nodes/get-event.js",
       "listen": "nodes/listen.js"
     },
     "engines": {
