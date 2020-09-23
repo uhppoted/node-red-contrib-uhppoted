@@ -3,6 +3,7 @@
 ## IN PROGRESS
 
 - [ ] add device list to configuration
+- [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
 - [ ] dashboard: add 'update' button to configuration page
 - [ ] dashboard: distribute received event index
 - [ ] dashboard: update displayed door labels when switching devices

@@ -7,6 +7,7 @@ module.exports = function (RED) {
     this.broadcast = node.broadcast
     this.listen = node.listen
     this.timeout = node.timeout
+    this.devices = node.devices
     this.debug = node.debug
   }
 

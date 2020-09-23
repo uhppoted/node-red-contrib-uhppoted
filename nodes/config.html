@@ -22,6 +22,9 @@
                 value: "0.0.0.0:60000", 
                 validate: RED.validators.regex(/[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}:[0-9]+/) 
             },
+            controllers: { 
+                value: "[]", 
+            },
             debug: { 
                 value: false, 
             },
@@ -29,6 +32,24 @@
 
         label: function() {
             return this.name || "config";
+        },
+
+        oneditprepare: function () {
+            const editor = document.getElementById("node-config-input-controllers")
+            
+            if (editor) {
+               editor.value = this.controllers || "{\n \n}"
+            }
+        },
+
+        oneditsave: function () {
+            const editor = document.getElementById("node-config-input-controllers")
+
+            if (editor) {
+                const json = editor.value
+
+                this.controllers = json
+            }
         }
     });
 </script>
@@ -58,6 +79,12 @@
         <label for="node-config-input-debug"><i class="fa fa-tag"></i>Debug</label>
         <input type="checkbox" id="node-config-input-debug" placeholder="false" />
     </div>
+    <div class="form-row">
+        <label for="node-config-input-controllers"><i class="fa fa-tag"></i>Controllers</label>
+        <div>
+          <textarea id="node-config-input-controllers" style="display:block; width:90%; height:8em; box-sizing: border-box;"></textarea>
+        </div>
+    </div>
 </script>
 
 <script type="text/html" data-help-name="config">
@@ -75,6 +102,8 @@
         <dd>IPv4 address to which to broadcast UDP messages. Defaults to 255.255.255.255</dd>
         <dt>listen<span class="property-type">address:port</span></dt>
         <dd>IPv4 address and port on which to listen for controller events. Defaults to 0.0.0.0:60000</dd>
+        <dt>controllers<span class="property-type">array</span></dt>
+        <dd>List of access controllers with specific IP addresses</dd>
         <dt>debug<span class="property-type">boolean</span></dt>
         <dd>Enables logging controller requests/responses to the console</dd>
     </dl>
