@@ -7,7 +7,7 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config)
 
     const node = this
-    const uhppote = RED.nodes.getNode(config.uhppote)
+    const uhppote = RED.nodes.getNode(config.config)
 
     let bind = '0.0.0.0:60000'
     let debug = false

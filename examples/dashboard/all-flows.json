@@ -228,17 +228,6 @@
         "collapse": false
     },
     {
-        "id": "d596ac54.cced",
-        "type": "uhppote",
-        "z": "",
-        "name": "development",
-        "timeout": "5000",
-        "bind": "192.168.1.100",
-        "broadcast": "192.168.1.255:60000",
-        "listen": "192.168.1.100:60001",
-        "debug": true
-    },
-    {
         "id": "f29b4883.377448",
         "type": "ui_tab",
         "z": "",
@@ -939,11 +928,22 @@
         "height": 1
     },
     {
+        "id": "cbd92359.dbf19",
+        "type": "config",
+        "z": "",
+        "name": "demo",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "debug": true
+    },
+    {
         "id": "6a470566.d4725c",
         "type": "get-devices",
         "z": "a640a000.d83cb",
         "name": "get-devices",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 310,
         "y": 80,
         "wires": [
@@ -1461,7 +1461,7 @@
         "type": "get-device",
         "z": "f0ca7ab6.b09058",
         "name": "get-device",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 310,
         "y": 80,
         "wires": [
@@ -1500,7 +1500,7 @@
         "type": "listen",
         "z": "c56e1667.998748",
         "name": "listen",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 130,
         "y": 80,
         "wires": [
@@ -1721,7 +1721,7 @@
         "type": "set-address",
         "z": "8bcf2d43.2e243",
         "name": "set-address",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 710,
         "y": 140,
         "wires": [
@@ -1887,7 +1887,7 @@
         "type": "get-status",
         "z": "b2b669ed.2b50b8",
         "name": "get-status",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 310,
         "y": 80,
         "wires": [
@@ -2395,7 +2395,7 @@
         "type": "get-time",
         "z": "f7a455cc.3fefe8",
         "name": "get-time",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 300,
         "y": 80,
         "wires": [
@@ -2625,7 +2625,7 @@
         "type": "set-time",
         "z": "f7a455cc.3fefe8",
         "name": "set-time",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 480,
         "y": 180,
         "wires": [
@@ -2779,7 +2779,7 @@
         "type": "get-door-control",
         "z": "86bbf50e.a7f188",
         "name": "get-door-control",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 480,
         "y": 80,
         "wires": [
@@ -2837,7 +2837,7 @@
         "type": "get-door-control",
         "z": "86bbf50e.a7f188",
         "name": "get-door-control",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 480,
         "y": 120,
         "wires": [
@@ -2867,7 +2867,7 @@
         "type": "get-door-control",
         "z": "86bbf50e.a7f188",
         "name": "get-door-control",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 480,
         "y": 160,
         "wires": [
@@ -2897,7 +2897,7 @@
         "type": "get-door-control",
         "z": "86bbf50e.a7f188",
         "name": "get-door-control",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 480,
         "y": 200,
         "wires": [
@@ -2990,7 +2990,7 @@
         "type": "get-listener",
         "z": "c56e1667.998748",
         "name": "get-listener",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 310,
         "y": 240,
         "wires": [
@@ -3022,7 +3022,7 @@
         "type": "set-listener",
         "z": "c56e1667.998748",
         "name": "set-listener",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 730,
         "y": 400,
         "wires": [
@@ -3197,7 +3197,7 @@
         "type": "set-door-control",
         "z": "86bbf50e.a7f188",
         "name": "set-door-control",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 480,
         "y": 280,
         "wires": [
@@ -3522,7 +3522,7 @@
         "type": "open-door",
         "z": "86bbf50e.a7f188",
         "name": "open-door",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 470,
         "y": 640,
         "wires": [
@@ -3959,7 +3959,7 @@
         "type": "get-cards",
         "z": "2a36b650.4b9b7a",
         "name": "get-cards",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 280,
         "y": 120,
         "wires": [
@@ -4086,7 +4086,7 @@
         "type": "get-card",
         "z": "2a36b650.4b9b7a",
         "name": "get-card",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 460,
         "y": 360,
         "wires": [
@@ -4239,7 +4239,7 @@
         "type": "put-card",
         "z": "2a36b650.4b9b7a",
         "name": "put-card",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 1400,
         "y": 180,
         "wires": [
@@ -4464,7 +4464,7 @@
         "type": "delete-card",
         "z": "2a36b650.4b9b7a",
         "name": "delete-card",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 450,
         "y": 880,
         "wires": [
@@ -5078,7 +5078,7 @@
         "type": "get-cards",
         "z": "2a36b650.4b9b7a",
         "name": "get-cards",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 460,
         "y": 580,
         "wires": [
@@ -5146,7 +5146,7 @@
         "type": "get-card-by-index",
         "z": "2a36b650.4b9b7a",
         "name": "get-card-by-index",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 490,
         "y": 740,
         "wires": [
@@ -5302,7 +5302,7 @@
         "type": "delete-all-cards",
         "z": "2a36b650.4b9b7a",
         "name": "delete-all-cards",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 480,
         "y": 1020,
         "wires": [
@@ -5396,7 +5396,7 @@
         "type": "get-event-index",
         "z": "b5da19a5.72a0c8",
         "name": "get-event-index",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 320,
         "y": 120,
         "wires": [
@@ -5503,7 +5503,7 @@
         "type": "set-event-index",
         "z": "b5da19a5.72a0c8",
         "name": "set-event-index",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 560,
         "y": 300,
         "wires": [
@@ -5722,7 +5722,7 @@
         "type": "get-event",
         "z": "b5da19a5.72a0c8",
         "name": "get-event",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 540,
         "y": 540,
         "wires": [
@@ -5926,6 +5926,31 @@
         "wires": [
             [
                 "969e6ec3.60ba6"
+            ]
+        ]
+    },
+    {
+        "id": "23ed32e1.98a00e",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\":405419896, \"door\":1 }",
+        "payloadType": "json",
+        "x": 190,
+        "y": 640,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
             ]
         ]
     }

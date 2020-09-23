@@ -11,7 +11,7 @@
         "type": "listen",
         "z": "c56e1667.998748",
         "name": "listen",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 130,
         "y": 80,
         "wires": [
@@ -247,7 +247,7 @@
         "type": "get-listener",
         "z": "c56e1667.998748",
         "name": "get-listener",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 310,
         "y": 240,
         "wires": [
@@ -279,7 +279,7 @@
         "type": "set-listener",
         "z": "c56e1667.998748",
         "name": "set-listener",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 730,
         "y": 400,
         "wires": [
@@ -537,10 +537,10 @@
         "wires": []
     },
     {
-        "id": "d596ac54.cced",
-        "type": "uhppote",
+        "id": "cbd92359.dbf19",
+        "type": "config",
         "z": "",
-        "name": "development",
+        "name": "demo",
         "timeout": "5000",
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",

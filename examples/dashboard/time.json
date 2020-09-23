@@ -11,7 +11,7 @@
         "type": "get-time",
         "z": "f7a455cc.3fefe8",
         "name": "get-time",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 300,
         "y": 80,
         "wires": [
@@ -151,7 +151,7 @@
         "type": "set-time",
         "z": "f7a455cc.3fefe8",
         "name": "set-time",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 480,
         "y": 180,
         "wires": [
@@ -238,10 +238,10 @@
         ]
     },
     {
-        "id": "d596ac54.cced",
-        "type": "uhppote",
+        "id": "cbd92359.dbf19",
+        "type": "config",
         "z": "",
-        "name": "development",
+        "name": "demo",
         "timeout": "5000",
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",

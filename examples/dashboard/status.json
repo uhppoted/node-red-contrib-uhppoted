@@ -40,7 +40,7 @@
         "type": "get-status",
         "z": "b2b669ed.2b50b8",
         "name": "get-status",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 310,
         "y": 80,
         "wires": [
@@ -544,10 +544,10 @@
         "wires": []
     },
     {
-        "id": "d596ac54.cced",
-        "type": "uhppote",
+        "id": "cbd92359.dbf19",
+        "type": "config",
         "z": "",
-        "name": "development",
+        "name": "demo",
         "timeout": "5000",
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",

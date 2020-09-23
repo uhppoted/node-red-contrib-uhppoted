@@ -2,10 +2,9 @@
 
 ## IN PROGRESS
 
-- [ ] rename uhppote to config or somesuch
 - [ ] add device list to configuration
-- [ ] add 'update' button to configuration page
-- [ ] distribute received event index
+- [ ] dashboard: add 'update' button to configuration page
+- [ ] dashboard: distribute received event index
 - [ ] dashboard: update displayed door labels when switching devices
 - [ ] dashboard: store list of controllers in global config
 - [ ] fallback to broadcast address if destination is not defined
@@ -24,6 +23,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] rename uhppote to config or somesuch
 - [x] get-event
 - [x] set-event-index
 - [x] export constants for opcodes

@@ -90,7 +90,7 @@
         "type": "get-cards",
         "z": "2a36b650.4b9b7a",
         "name": "get-cards",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 280,
         "y": 120,
         "wires": [
@@ -105,7 +105,7 @@
         "type": "get-card",
         "z": "2a36b650.4b9b7a",
         "name": "get-card",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 460,
         "y": 360,
         "wires": [
@@ -258,7 +258,7 @@
         "type": "put-card",
         "z": "2a36b650.4b9b7a",
         "name": "put-card",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 1400,
         "y": 180,
         "wires": [
@@ -483,7 +483,7 @@
         "type": "delete-card",
         "z": "2a36b650.4b9b7a",
         "name": "delete-card",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 450,
         "y": 880,
         "wires": [
@@ -1097,7 +1097,7 @@
         "type": "get-cards",
         "z": "2a36b650.4b9b7a",
         "name": "get-cards",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 460,
         "y": 580,
         "wires": [
@@ -1165,7 +1165,7 @@
         "type": "get-card-by-index",
         "z": "2a36b650.4b9b7a",
         "name": "get-card-by-index",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 490,
         "y": 740,
         "wires": [
@@ -1321,7 +1321,7 @@
         "type": "delete-all-cards",
         "z": "2a36b650.4b9b7a",
         "name": "delete-all-cards",
-        "uhppote": "d596ac54.cced",
+        "config": "cbd92359.dbf19",
         "x": 480,
         "y": 1020,
         "wires": [
@@ -1353,10 +1353,10 @@
         "collapse": false
     },
     {
-        "id": "d596ac54.cced",
-        "type": "uhppote",
+        "id": "cbd92359.dbf19",
+        "type": "config",
         "z": "",
-        "name": "development",
+        "name": "demo",
         "timeout": "5000",
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",

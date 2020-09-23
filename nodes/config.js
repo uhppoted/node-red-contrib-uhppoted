@@ -1,5 +1,5 @@
 module.exports = function (RED) {
-  function UhppoteNode (node) {
+  function ConfigNode (node) {
     RED.nodes.createNode(this, node)
 
     this.name = node.name
@@ -10,5 +10,5 @@ module.exports = function (RED) {
     this.debug = node.debug
   }
 
-  RED.nodes.registerType('uhppote', UhppoteNode)
+  RED.nodes.registerType('config', ConfigNode)
 }

@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('uhppote',{
+    RED.nodes.registerType('config',{
         category: 'config',
         color: '#FDF0C2',
         defaults: {
@@ -28,12 +28,12 @@
         },
 
         label: function() {
-            return this.name || "uhppote";
+            return this.name || "config";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="uhppote">
+<script type="text/html" data-template-name="config">
     <div class="form-row">
         <label for="node-config-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-config-input-name" placeholder="Name" />
@@ -60,7 +60,7 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="uhppote">
+<script type="text/html" data-help-name="config">
     <p>Configuration node for shared node properties.</p>
 
     <h3>Properties</h3>
