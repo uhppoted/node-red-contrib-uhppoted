@@ -2,16 +2,15 @@
 
 ## IN PROGRESS
 
-- [ ] add device list to configuration
+- [ ] config: device list editor
+- [ ] make 'send' function look like get/set
+- [ ] make 'broadcast' function look like get/set
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
 - [ ] dashboard: add 'update' button to configuration page
 - [ ] dashboard: distribute received event index
 - [ ] dashboard: update displayed door labels when switching devices
 - [ ] dashboard: store list of controllers in global config
-- [ ] fallback to broadcast address if destination is not defined
 - [ ] 'force broadcast' flag in config
-- [ ] make 'send' function look like get/set
-- [ ] make 'broadcast' function look like get/set
 - [ ] internationalisation
 - [ ] document uhppoted functions
 - [ ] document examples
@@ -24,6 +23,8 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] fallback to broadcast address if destination is not defined
+- [x] add device list to configuration
 - [x] rename uhppote to config or somesuch
 - [x] get-event
 - [x] set-event-index
