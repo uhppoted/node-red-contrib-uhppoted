@@ -3,7 +3,6 @@
 ## IN PROGRESS
 
 - [ ] config: device list editor
-- [ ] make 'send' function look like get/set
 - [ ] make 'broadcast' function look like get/set
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
 - [ ] dashboard: add 'update' button to configuration page
@@ -23,6 +22,7 @@
 - [ ] display errors on dashboard and/or output err on error
 - [ ] refresh dashboard every e.g. 60s
 
+- [x] make 'send' function look like get/set
 - [x] fallback to broadcast address if destination is not defined
 - [x] add device list to configuration
 - [x] rename uhppote to config or somesuch

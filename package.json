@@ -25,7 +25,7 @@
       "config": "nodes/config.js",
       "get-devices": "nodes/get-devices.js",
       "get-device": "nodes/get-device.js",
-      "set-address": "nodes/set-address.js",
+      "set-ip": "nodes/set-ip.js",
       "get-listener": "nodes/get-listener.js",
       "set-listener": "nodes/set-listener.js",
       "get-status": "nodes/get-status.js",

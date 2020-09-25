@@ -1,5 +1,5 @@
 const GET_DEVICE = 0x94
-const SET_ADDRESS = 0x96
+const SET_IP = 0x96
 const GET_LISTENER = 0x92
 const SET_LISTENER = 0x90
 
@@ -24,7 +24,7 @@ const GET_EVENT = 0xb0
 
 module.exports = {
   GetDevice: GET_DEVICE,
-  SetAddress: SET_ADDRESS,
+  SetIP: SET_IP,
   GetListener: GET_LISTENER,
   SetListener: SET_LISTENER,
   GetStatus: GET_STATUS,

@@ -45,7 +45,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(opcodes.SetAddress, 405419896, {
+      const bytes = codec.encode(opcodes.SetIP, 405419896, {
         address: '192.168.1.125',
         netmask: '255.255.255.0',
         gateway: '192.168.0.1'

@@ -15,7 +15,7 @@ module.exports = {
         }
         break
 
-      case opcodes.SetAddress:
+      case opcodes.SetIP:
         request.writeUInt8(0x96, 1)
         request.writeUInt32LE(deviceId, 4)
         ip.toBuffer(object.address, request, 8)

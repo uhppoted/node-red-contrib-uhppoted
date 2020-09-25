@@ -1,15 +1,73 @@
+const codec = require('./codec.js')
+const dgram = require('dgram')
+const os = require('os')
+const ip = require('ip')
+const opts = { type: 'udp4', reuseAddr: true }
+
 module.exports = {
-  get: async function (deviceId, f, request, config, logger) {
-    return exec(deviceId, f, request, config, logger)
+  get: async function (deviceId, op, request, config, logger) {
+    const context = parse(deviceId, config, logger)
+
+    return exec(deviceId, op, request, context, logger)
   },
 
-  set: async function (deviceId, f, request, config, logger) {
-    return exec(deviceId, f, request, config, logger)
+  set: async function (deviceId, op, request, config, logger) {
+    const context = parse(deviceId, config, logger)
+
+    return exec(deviceId, op, request, context, logger)
+  },
+
+  send: async function (deviceId, op, request, config, logger) {
+    const c = parse(deviceId, config, logger)
+    const sock = dgram.createSocket(opts)
+    const rq = codec.encode(op, deviceId, request)
+
+    const onerror = new Promise((resolve, reject) => {
+      sock.on('error', (err) => {
+        reject(err)
+      })
+    })
+
+    const send = new Promise((resolve, reject) => {
+      sock.on('listening', () => {
+        if (isBroadcast(c.addr.address)) {
+          sock.setBroadcast(true)
+        }
+
+        sock.send(new Uint8Array(rq), 0, 64, c.addr.port, c.addr.address, (err, bytes) => {
+          if (err) {
+            reject(err)
+          } else {
+            log(c.debug, 'sent', rq, c.addr)
+            resolve(bytes)
+          }
+        })
+      })
+
+      sock.bind({
+        address: c.bind,
+        port: 0
+      })
+    })
+
+    sock.on('message', (message, rinfo) => {
+      log(c.debug, 'received', message, rinfo)
+    })
+
+    try {
+      const result = await Promise.race([onerror, Promise.all([send])])
+
+      if (result && result.length > 0) {
+        return {}
+      }
+    } finally {
+      sock.close()
+    }
+
+    throw new Error('no reply to request')
   },
 
   broadcast: async function (bind, dest, request, timeout, debug) {
-    const dgram = require('dgram')
-    const opts = { type: 'udp4', reuseAddr: true }
     const sock = dgram.createSocket(opts)
     const addr = stringToIP(dest)
     const replies = []
@@ -63,63 +121,7 @@ module.exports = {
     return replies
   },
 
-  send: async function (bind, dest, request, timeout, debug) {
-    const dgram = require('dgram')
-    const opts = { type: 'udp4', reuseAddr: true }
-    const sock = dgram.createSocket(opts)
-    const addr = stringToIP(dest)
-    const rq = new Uint8Array(64)
-
-    rq.set(request)
-
-    const onerror = new Promise((resolve, reject) => {
-      sock.on('error', (err) => {
-        reject(err)
-      })
-    })
-
-    const send = new Promise((resolve, reject) => {
-      sock.on('listening', () => {
-        if (isBroadcast(addr.address)) {
-          sock.setBroadcast(true)
-        }
-
-        sock.send(rq, 0, rq.length, addr.port, addr.address, (err, bytes) => {
-          if (err) {
-            reject(err)
-          } else {
-            log(debug, 'sent', request, addr)
-            resolve(bytes)
-          }
-        })
-      })
-
-      sock.bind({
-        address: bind,
-        port: 0
-      })
-    })
-
-    sock.on('message', (message, rinfo) => {
-      log(debug, 'received', message, rinfo)
-    })
-
-    try {
-      const result = await Promise.race([onerror, Promise.all([send])])
-
-      if (result && result.length > 0) {
-        return new Uint8Array()
-      }
-    } finally {
-      sock.close()
-    }
-
-    throw new Error('no reply to request')
-  },
-
   listen: function (bind, debug, handler) {
-    const dgram = require('dgram')
-    const opts = { type: 'udp4', reuseAddr: true }
     const sock = dgram.createSocket(opts)
 
     sock.on('error', (err) => {
@@ -159,7 +161,84 @@ module.exports = {
   }
 }
 
-async function exec (deviceId, f, request, config, logger) {
+async function exec (deviceId, op, request, context, logger) {
+  const sock = dgram.createSocket(opts)
+  const rq = codec.encode(op, deviceId, request)
+  let received = () => {}
+
+  const decode = function (reply) {
+    if (reply) {
+      const response = codec.decode(reply)
+
+      if (response && (response.deviceId === deviceId)) {
+        return response
+      }
+    }
+
+    throw new Error(`no reply from ${deviceId}`)
+  }
+
+  const onerror = new Promise((resolve, reject) => {
+    sock.on('error', (err) => {
+      reject(err)
+    })
+  })
+
+  const wait = new Promise((resolve, reject) => {
+    const timer = setTimeout(() => {
+      reject(new Error('timeout'))
+    }, context.timeout)
+
+    received = (reply) => {
+      clearTimeout(timer)
+      resolve(reply)
+    }
+  })
+
+  const send = new Promise((resolve, reject) => {
+    sock.on('listening', () => {
+      if (isBroadcast(context.addr.address)) {
+        sock.setBroadcast(true)
+      }
+
+      sock.send(new Uint8Array(rq), 0, 64, context.addr.port, context.addr.address, (err, bytes) => {
+        if (err) {
+          reject(err)
+        } else {
+          log(context.debug, 'sent', rq, context.addr)
+          resolve(bytes)
+        }
+      })
+    })
+
+    sock.bind({
+      address: context.bind,
+      port: 0
+    })
+  })
+
+  sock.on('message', (message, rinfo) => {
+    log(context.debug, 'received', message, rinfo)
+
+    if (received) {
+      received(new Uint8Array(message))
+    }
+  })
+
+  try {
+    const result = await Promise.race([onerror, Promise.all([wait, send])])
+
+    if (result && result.length > 0) {
+      return decode(result[0])
+    }
+  } finally {
+    sock.close()
+  }
+
+  throw new Error('no reply to request')
+}
+
+function parse (deviceId, config, logger) {
   let timeout = 5000
   let bind = '0.0.0.0'
   let dest = '255.255.255.255:60000'
@@ -185,89 +264,17 @@ async function exec (deviceId, f, request, config, logger) {
           }
         }
       } catch (error) {
-        console.error(`Error parsing config.controllers JSON ${error}`)
+        logger(`Error parsing config.controllers JSON ${error}`)
       }
     }
   }
 
-  const codec = require('./codec.js')
-  const dgram = require('dgram')
-  const addr = stringToIP(dest)
-  const opts = { type: 'udp4', reuseAddr: true }
-  const sock = dgram.createSocket(opts)
-  const rq = codec.encode(f, deviceId, request)
-  let received = () => {}
-
-  const decode = function (reply) {
-    if (reply) {
-      const response = codec.decode(reply)
-
-      if (response && (response.deviceId === deviceId)) {
-        return response
-      }
-    }
-
-    throw new Error(`no reply from ${deviceId}`)
+  return {
+    timeout: timeout,
+    bind: bind,
+    addr: stringToIP(dest),
+    debug: debug
   }
-
-  const onerror = new Promise((resolve, reject) => {
-    sock.on('error', (err) => {
-      reject(err)
-    })
-  })
-
-  const wait = new Promise((resolve, reject) => {
-    const timer = setTimeout(() => {
-      reject(new Error('timeout'))
-    }, timeout)
-
-    received = (reply) => {
-      clearTimeout(timer)
-      resolve(reply)
-    }
-  })
-
-  const send = new Promise((resolve, reject) => {
-    sock.on('listening', () => {
-      if (isBroadcast(addr.address)) {
-        sock.setBroadcast(true)
-      }
-
-      sock.send(new Uint8Array(rq), 0, 64, addr.port, addr.address, (err, bytes) => {
-        if (err) {
-          reject(err)
-        } else {
-          log(debug, 'sent', rq, addr)
-          resolve(bytes)
-        }
-      })
-    })
-
-    sock.bind({
-      address: bind,
-      port: 0
-    })
-  })
-
-  sock.on('message', (message, rinfo) => {
-    log(debug, 'received', message, rinfo)
-
-    if (received) {
-      received(new Uint8Array(message))
-    }
-  })
-
-  try {
-    const result = await Promise.race([onerror, Promise.all([wait, send])])
-
-    if (result && result.length > 0) {
-      return decode(result[0])
-    }
-  } finally {
-    sock.close()
-  }
-
-  throw new Error('no reply to request')
 }
 
 function log (debug, label, message, rinfo) {
@@ -320,8 +327,6 @@ function stringToIP (addr) {
 }
 
 function isBroadcast (addr) {
-  const os = require('os')
-  const ip = require('ip')
   const interfaces = os.networkInterfaces()
 
   for (const v of Object.entries(interfaces)) {

@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('set-address', {
+    RED.nodes.registerType('set-ip', {
         category: 'uhppoted',
         color: '#A6BBCF',
         defaults: {
@@ -15,12 +15,12 @@
         outputs: 1,
         icon: "function.svg",
         label: function() {
-            return this.name || "set-address";
+            return this.name || "set-ip";
         }
     });
 </script>
 
-<script type="text/html" data-template-name="set-address">
+<script type="text/html" data-template-name="set-ip">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -31,13 +31,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="set-address">
-    <p>Sets the IP address, subnet mask and gateway address for a single UHPPOTE access controller.</p>
+<script type="text/html" data-help-name="set-ip">
+    <p>Sets the IP address, subnet mask and gateway address for an access controller.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the device ID and IPv4 configuration for 'set-address'</dd>
+        <dd>JSON object with the device ID and IPv4 configuration for 'set-ip'</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
