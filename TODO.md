@@ -3,24 +3,24 @@
 ## IN PROGRESS
 
 - [ ] config: device list editor
+      - 'add' button
+      - style table all nicely
+- [ ] configure message topic
 - [ ] make 'broadcast' function look like get/set
+- [ ] example flows
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
 - [ ] dashboard: add 'update' button to configuration page
 - [ ] dashboard: distribute received event index
 - [ ] dashboard: update displayed door labels when switching devices
 - [ ] dashboard: store list of controllers in global config
-- [ ] 'force broadcast' flag in config
+- [ ] 'force broadcast' flag in config (?)
 - [ ] internationalisation
 - [ ] document uhppoted functions
 - [ ] document examples
 - [ ] add description to flow
-- [ ] example flows
 - [ ] integration tests
 - [ ] 'U' node icon
 - [ ] label node ports
-- [ ] configure message topic
-- [ ] display errors on dashboard and/or output err on error
-- [ ] refresh dashboard every e.g. 60s
 
 - [x] make 'send' function look like get/set
 - [x] fallback to broadcast address if destination is not defined
