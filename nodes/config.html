@@ -35,26 +35,19 @@
         },
 
         oneditprepare: function () {
-            const table = document.getElementById("node-config-input-controllers-editor")
+            const table = document.getElementById('node-config-input-controllers-editor')
 
             if (table) {
+                table.querySelector('#add').onclick = event => { 
+                    addRow(table, { id: '', address: '' })
+                }
+
                 try {
-                    const object = Object.entries(JSON.parse(this.controllers || "{}"))
+                    const object = Object.entries(JSON.parse(this.controllers || '{}'))
                     const devices = object.sort((a, b) => a[0] - b[0])
-                    const tbody = table.querySelector("tbody")
 
                     for (const [k, v] of devices) {
-                        const row = tbody.insertRow()
-                        const device = document.createElement('input')
-                        const address = document.createElement('input')
-
-                        device.value = `${k}`
-                        if (v.address) {
-                            address.value = `${v.address}`                            
-                        }
-                        
-                        row.insertCell().appendChild(device)
-                        row.insertCell().appendChild(address)
+                        addRow(table, { id: `${k}`, address: v.address })
                     }
                 } catch (err) { 
                     console.log(err)
@@ -63,7 +56,7 @@
         },
 
         oneditsave: function () {
-            const table = document.getElementById("node-config-input-controllers-editor")
+            const table = document.getElementById('node-config-input-controllers-editor')
 
             if (table) {
                 const object = {}
@@ -89,8 +82,38 @@
 
                 this.controllers = JSON.stringify(object)
             }
-        }
+        },
+
     });
+
+function addRow (table, controller) {
+    const tbody = table.querySelector('tbody')
+    const row = tbody.insertRow()
+    const c1  = row.insertCell()
+    const c2  = row.insertCell()
+    const device = document.createElement('input')
+    const address = document.createElement('input')
+
+    row.style.border = '1px solid grey'
+
+    c1.style.border = '1px solid grey'
+    c2.style.border = '1px solid grey'
+
+    device.type = 'number'
+    device.style.width = '100%'
+    device.style.border = 'none'
+    device.value = controller.id || ''
+    device.placeholder = '405419896'
+
+    address.type = 'text'
+    address.style.width = '100%'
+    address.style.border = 'none'
+    address.value = controller.address || ''
+    address.placeholder = '192.168.1.100:60000'
+                
+    c1.appendChild(device)
+    c2.appendChild(address)
+}
 </script>
 
 <script type="text/html" data-template-name="config">
@@ -120,10 +143,12 @@
     </div>
     <div class="form-row">
         <label for="node-config-input-controllers-editor"><i class="fa fa-tag"></i>Controllers</label>
-        <table id="node-config-input-controllers-editor" border="1">
+        <table id="node-config-input-controllers-editor" style="margin-left:16px; border:none; border-collapse:collapse;">
             <thead>
-                <tr>
-                    <th>Controller</th><th>address:port</th>
+                <tr style="border:none;">
+                    <th style="font-weight: normal; font-style:italic; border:1px solid grey;">controller</th>
+                    <th style="font-weight: normal; font-style:italic; border:1px solid grey;">address:port</th>
+                    <th style="border:none"><i id="add" class="fa fa-plus fa-1x" style="padding:2px 4px 2px 4px;"></i></th>
                 </tr>
             </thead>
             <tbody />
