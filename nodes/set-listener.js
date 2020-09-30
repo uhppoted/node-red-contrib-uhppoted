@@ -6,11 +6,13 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config)
 
     const node = this
+    const topic = config.topic
     const uhppote = RED.nodes.getNode(config.config)
 
     node.status({})
 
     this.on('input', function (msg, send, done) {
+      const t = (topic && topic !== '') ? topic : msg.topic
       const deviceId = msg.payload.deviceId
       const address = msg.payload.address
       const port = msg.payload.port
@@ -20,7 +22,7 @@ module.exports = function (RED) {
           throw new Error(`failed to update listener address for ${deviceId}`, deviceId)
         }
 
-        common.emit(node, msg.topic, {
+        common.emit(node, t, {
           deviceId: deviceId,
           address: address,
           port: port

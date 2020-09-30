@@ -2,7 +2,7 @@
 
 ## IN PROGRESS
 
-- [ ] configure message topic
+- [ ] unify broadcast/send/exec
 - [ ] 'force broadcast' flag in config
 - [ ] basic examples
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
@@ -18,6 +18,7 @@
 - [ ] 'U' node icon
 - [ ] label node ports
 
+- [x] optional node message topic
 - [x] make 'broadcast' function look like get/set/send
 - [x] config: device list editor
 - [x] make 'send' function look like get/set

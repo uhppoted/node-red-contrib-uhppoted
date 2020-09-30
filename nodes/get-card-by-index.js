@@ -7,11 +7,13 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config)
 
     const node = this
+    const topic = config.topic
     const uhppote = RED.nodes.getNode(config.config)
 
     node.status({})
 
     this.on('input', function (msg, send, done) {
+      const t = (topic && topic !== '') ? topic : msg.topic
       const deviceId = msg.payload.deviceId
       const index = msg.payload.index
 
@@ -28,7 +30,7 @@ module.exports = function (RED) {
             break
         }
 
-        common.emit(node, msg.topic, object)
+        common.emit(node, t, object)
       }
 
       const error = function (err) {

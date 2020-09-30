@@ -7,6 +7,7 @@ module.exports = function (RED) {
     RED.nodes.createNode(this, config)
 
     const node = this
+    const topic = config.topic
     const uhppote = RED.nodes.getNode(config.config)
 
     let bind = '0.0.0.0:60000'
@@ -14,7 +15,6 @@ module.exports = function (RED) {
 
     if (uhppote) {
       bind = uhppote.listen
-      debug = uhppote.debug
       debug = uhppote.debug ? function (l, m) { node.log(l + '\n' + m) } : null
     }
 
@@ -26,7 +26,7 @@ module.exports = function (RED) {
       const event = decode(msg)
 
       if (event) {
-        common.emit(node, '', event)
+        common.emit(node, topic, event)
         node.status({})
       }
     }
