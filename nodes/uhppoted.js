@@ -6,15 +6,11 @@ const opts = { type: 'udp4', reuseAddr: true }
 
 module.exports = {
   get: async function (deviceId, op, request, config, logger) {
-    const context = parse(deviceId, config, logger)
-
-    return exec(deviceId, op, request, context, logger)
+    return exec(deviceId, op, request, config, logger)
   },
 
   set: async function (deviceId, op, request, config, logger) {
-    const context = parse(deviceId, config, logger)
-
-    return exec(deviceId, op, request, context, logger)
+    return exec(deviceId, op, request, config, logger)
   },
 
   send: async function (deviceId, op, request, config, logger) {
@@ -67,13 +63,22 @@ module.exports = {
     throw new Error('no reply to request')
   },
 
-  broadcast: async function (bind, dest, request, timeout, debug) {
+  broadcast: async function (deviceId, op, request, config, logger) {
+    const c = parse(deviceId, config, logger)
     const sock = dgram.createSocket(opts)
-    const addr = stringToIP(dest)
+    const rq = codec.encode(op, deviceId, request)
     const replies = []
-    const rq = new Uint8Array(64)
 
-    rq.set(request)
+    const decode = function (reply) {
+      if (reply) {
+        const response = codec.decode(reply)
+        if (response) {
+          return response
+        }
+      }
+
+      throw new Error('invalid reply to broadcasted request')
+    }
 
     const onerror = new Promise((resolve, reject) => {
       sock.on('error', (err) => {
@@ -82,43 +87,44 @@ module.exports = {
     })
 
     const wait = new Promise(resolve => {
-      setTimeout(resolve, timeout)
+      setTimeout(resolve, c.timeout)
     })
 
     const send = new Promise((resolve, reject) => {
       sock.on('listening', () => {
-        if (isBroadcast(addr.address)) {
+        if (isBroadcast(c.addr.address)) {
           sock.setBroadcast(true)
         }
 
-        sock.send(rq, 0, rq.length, addr.port, addr.address, (err, bytes) => {
+        sock.send(new Uint8Array(rq), 0, 64, c.addr.port, c.addr.address, (err, bytes) => {
           if (err) {
             reject(err)
-          } else {
-            log(debug, 'sent', request, addr)
-            resolve(bytes)
+            return
           }
+
+          log(c.debug, 'sent', rq, c.addr)
+          resolve(bytes)
         })
       })
 
       sock.bind({
-        address: bind,
+        address: c.bind,
         port: 0
       })
     })
 
     sock.on('message', (message, rinfo) => {
       replies.push(new Uint8Array(message))
-      log(debug, 'received', message, rinfo)
+      log(c.debug, 'received', message, rinfo)
     })
 
     try {
       await Promise.race([onerror, Promise.all([wait, send])])
+
+      return replies.map(reply => decode(reply))
     } finally {
       sock.close()
     }
-
-    return replies
   },
 
   listen: function (bind, debug, handler) {
@@ -161,7 +167,8 @@ module.exports = {
   }
 }
 
-async function exec (deviceId, op, request, context, logger) {
+async function exec (deviceId, op, request, config, logger) {
+  const c = parse(deviceId, config, logger)
   const sock = dgram.createSocket(opts)
   const rq = codec.encode(op, deviceId, request)
   let received = () => {}
@@ -169,7 +176,6 @@ async function exec (deviceId, op, request, context, logger) {
   const decode = function (reply) {
     if (reply) {
       const response = codec.decode(reply)
-
       if (response && (response.deviceId === deviceId)) {
         return response
       }
@@ -187,7 +193,7 @@ async function exec (deviceId, op, request, context, logger) {
   const wait = new Promise((resolve, reject) => {
     const timer = setTimeout(() => {
       reject(new Error('timeout'))
-    }, context.timeout)
+    }, c.timeout)
 
     received = (reply) => {
       clearTimeout(timer)
@@ -197,28 +203,28 @@ async function exec (deviceId, op, request, context, logger) {
 
   const send = new Promise((resolve, reject) => {
     sock.on('listening', () => {
-      if (isBroadcast(context.addr.address)) {
+      if (isBroadcast(c.addr.address)) {
         sock.setBroadcast(true)
       }
 
-      sock.send(new Uint8Array(rq), 0, 64, context.addr.port, context.addr.address, (err, bytes) => {
+      sock.send(new Uint8Array(rq), 0, 64, c.addr.port, c.addr.address, (err, bytes) => {
         if (err) {
           reject(err)
         } else {
-          log(context.debug, 'sent', rq, context.addr)
+          log(c.debug, 'sent', rq, c.addr)
           resolve(bytes)
         }
       })
     })
 
     sock.bind({
-      address: context.bind,
+      address: c.bind,
       port: 0
     })
   })
 
   sock.on('message', (message, rinfo) => {
-    log(context.debug, 'received', message, rinfo)
+    log(c.debug, 'received', message, rinfo)
 
     if (received) {
       received(new Uint8Array(message))

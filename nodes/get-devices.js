@@ -1,7 +1,7 @@
 module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
-  const codec = require('./codec.js')
+  const opcodes = require('../nodes/opcodes.js')
 
   function GetDevicesNode (config) {
     RED.nodes.createNode(this, config)
@@ -9,35 +9,9 @@ module.exports = function (RED) {
     const node = this
     const uhppote = RED.nodes.getNode(config.config)
 
-    let timeout = 5000
-    let bind = '0.0.0.0'
-    let dest = '255.255.255.255:60000'
-    let debug = false
-
-    if (uhppote) {
-      timeout = uhppote.timeout
-      bind = uhppote.bind
-      dest = uhppote.broadcast
-      debug = uhppote.debug ? function (l, m) { node.log(l + '\n' + m) } : null
-    }
-
-    this.status({})
+    node.status({})
 
     this.on('input', function (msg, send, done) {
-      const decode = function (replies) {
-        const devices = []
-
-        for (const reply of replies) {
-          const object = codec.decode(reply)
-
-          if ((object !== null) && (object.device !== null)) {
-            devices.push(object)
-          }
-        }
-
-        return devices
-      }
-
       const emit = function (devices) {
         common.emit(node, msg.topic, devices)
       }
@@ -47,11 +21,8 @@ module.exports = function (RED) {
       }
 
       try {
-        const request = codec.encode(0x94)
-
-        uhppoted.broadcast(bind, dest, request, timeout, debug)
-          .then(reply => { return decode(reply) })
-          .then(devices => { return emit(devices) })
+        uhppoted.broadcast(0, opcodes.GetDevice, {}, uhppote, (m) => { node.log(m) })
+          .then(objects => { emit(objects) })
           .then(done())
           .catch(err => { error(err) })
       } catch (err) { error(err) }
