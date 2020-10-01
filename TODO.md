@@ -2,9 +2,15 @@
 
 ## IN PROGRESS
 
+- [ ] rework doors/buttons to be keys of object rather than array
+- [ ] basic examples
+      - comments
+      - descriptions
+      
+- [ ] label node ports
+- [ ] add descriptions to flows
 - [ ] unify broadcast/send/exec
 - [ ] 'force broadcast' flag in config
-- [ ] basic examples
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
 - [ ] dashboard: add 'update' button to configuration page
 - [ ] dashboard: distribute received event index
@@ -13,10 +19,8 @@
 - [ ] internationalisation
 - [ ] document uhppoted functions
 - [ ] document examples
-- [ ] add descriptions to flows
 - [ ] integration tests
 - [ ] 'U' node icon
-- [ ] label node ports
 
 - [x] optional node message topic
 - [x] make 'broadcast' function look like get/set/send

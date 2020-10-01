@@ -1,0 +1,781 @@
+[
+    {
+        "id": "2a36b650.4b9b7a",
+        "type": "tab",
+        "label": "cards",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "60dcbb9f.c0dfa4",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "3c02f9ca.0d36c6",
+        "type": "inject",
+        "z": "2a36b650.4b9b7a",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "4f2ad0e3.4c05e"
+            ]
+        ]
+    },
+    {
+        "id": "4f2ad0e3.4c05e",
+        "type": "get-cards",
+        "z": "2a36b650.4b9b7a",
+        "name": "get-cards",
+        "config": "cbd92359.dbf19",
+        "x": 300,
+        "y": 120,
+        "wires": [
+            [
+                "60dcbb9f.c0dfa4",
+                "650c4dc7.5f9424"
+            ]
+        ]
+    },
+    {
+        "id": "6ce7f877.625e48",
+        "type": "get-card",
+        "z": "2a36b650.4b9b7a",
+        "name": "get-card",
+        "config": "cbd92359.dbf19",
+        "x": 300,
+        "y": 260,
+        "wires": [
+            [
+                "f6808502.b5c9e8",
+                "75f21b8.86ccbe4"
+            ]
+        ]
+    },
+    {
+        "id": "356a2abe.2ea636",
+        "type": "inject",
+        "z": "2a36b650.4b9b7a",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896, \"cardNumber\": 65538 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "6ce7f877.625e48"
+            ]
+        ]
+    },
+    {
+        "id": "f6808502.b5c9e8",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "75f21b8.86ccbe4",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "parse",
+        "func": "status = { topic:msg.topic, payload: '' }\ncard = { topic:msg.topic, payload:msg.payload.card }\n\nif (msg.payload.error) {\n    switch (msg.payload.error) {\n        case -1: \n            status.payload = 'card not found'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n            \n        case -2:\n            status.payload  = 'card deleted'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n    }\n}\n\nreturn [ status, card ];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 470,
+        "y": 300,
+        "wires": [
+            [
+                "54d0141d.4fa96c"
+            ],
+            [
+                "b2fd1c17.3bc25",
+                "975dcdef.367a6",
+                "296d7d38.b2ed42",
+                "7df632fc.3db16c",
+                "cf4a8622.c08938",
+                "9e2a41a9.a89d2",
+                "6b38aa75.455224"
+            ]
+        ]
+    },
+    {
+        "id": "e6da52cd.93a8e",
+        "type": "inject",
+        "z": "2a36b650.4b9b7a",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896, \"cardNumber\": 61532836 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 1140,
+        "wires": [
+            [
+                "4ac01a83.a74ec4"
+            ]
+        ]
+    },
+    {
+        "id": "4ac01a83.a74ec4",
+        "type": "delete-card",
+        "z": "2a36b650.4b9b7a",
+        "name": "delete-card",
+        "config": "cbd92359.dbf19",
+        "x": 310,
+        "y": 1140,
+        "wires": [
+            [
+                "d35026f6.29b788",
+                "626b62f3.eadd9c"
+            ]
+        ]
+    },
+    {
+        "id": "d35026f6.29b788",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1140,
+        "wires": []
+    },
+    {
+        "id": "6f571cdf.961f74",
+        "type": "inject",
+        "z": "2a36b650.4b9b7a",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896, \"index\": 1 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 640,
+        "wires": [
+            [
+                "13f668be.c2e417"
+            ]
+        ]
+    },
+    {
+        "id": "13f668be.c2e417",
+        "type": "get-card-by-index",
+        "z": "2a36b650.4b9b7a",
+        "name": "get-card-by-index",
+        "config": "cbd92359.dbf19",
+        "x": 330,
+        "y": 640,
+        "wires": [
+            [
+                "e3a1a21e.0060f",
+                "eb3d93f6.da8bb"
+            ]
+        ]
+    },
+    {
+        "id": "f6b826f5.187ae8",
+        "type": "inject",
+        "z": "2a36b650.4b9b7a",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 1260,
+        "wires": [
+            [
+                "874f55c6.6f00b8"
+            ]
+        ]
+    },
+    {
+        "id": "3b1532d.e15adce",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1260,
+        "wires": []
+    },
+    {
+        "id": "874f55c6.6f00b8",
+        "type": "delete-all-cards",
+        "z": "2a36b650.4b9b7a",
+        "name": "delete-all-cards",
+        "config": "cbd92359.dbf19",
+        "x": 320,
+        "y": 1260,
+        "wires": [
+            [
+                "3b1532d.e15adce",
+                "a2a24ee6.f182d"
+            ]
+        ]
+    },
+    {
+        "id": "650c4dc7.5f9424",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "cards",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.cards",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 470,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "54d0141d.4fa96c",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card.status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "975dcdef.367a6",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-from",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.valid.from",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "b2fd1c17.3bc25",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card.number",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.number",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "296d7d38.b2ed42",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-to",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.valid.to",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7df632fc.3db16c",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-door-1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doors[\"1\"]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "cf4a8622.c08938",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-door-2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doors[\"2\"]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "9e2a41a9.a89d2",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-door-3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doors[\"3\"]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "6b38aa75.455224",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-door-4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doors[\"4\"]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "7fe3bec1.b4483",
+        "type": "put-card",
+        "z": "2a36b650.4b9b7a",
+        "name": "put-card",
+        "config": "cbd92359.dbf19",
+        "x": 300,
+        "y": 1020,
+        "wires": [
+            [
+                "6a069f42.59c15",
+                "e7d56173.84b31"
+            ]
+        ]
+    },
+    {
+        "id": "83d878a.58b0188",
+        "type": "inject",
+        "z": "2a36b650.4b9b7a",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "test",
+        "payload": "{ \"deviceId\": 405419896, \"card\": { \"number\":61532836, \"valid\": { \"from\":\"2019-01-02\", \"to\":\"2021-12-31\" }, \"doors\": { \"1\":true, \"2\":false, \"3\":true, \"4\":true } } }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 1020,
+        "wires": [
+            [
+                "7fe3bec1.b4483"
+            ]
+        ]
+    },
+    {
+        "id": "6a069f42.59c15",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "e3a1a21e.0060f",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "eb3d93f6.da8bb",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "parse",
+        "func": "status = { topic:msg.topic, payload: '' }\ncard = { topic:msg.topic, payload:msg.payload.card }\n\nif (msg.payload.error) {\n    switch (msg.payload.error) {\n        case -1: \n            status.payload = 'card not found'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n            \n        case -2:\n            status.payload  = 'card deleted'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n    }\n}\n\nreturn [ status, card ];",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 530,
+        "y": 680,
+        "wires": [
+            [
+                "f2a7c5f4.853908"
+            ],
+            [
+                "fe01ea65.730528",
+                "3e1eca4f.cb02a6",
+                "b8efe8f2.2861e8",
+                "2b0604dc.a5441c",
+                "4ee29dba.c78e34",
+                "c7144546.1ac938",
+                "3d7d4f69.da296"
+            ]
+        ]
+    },
+    {
+        "id": "f2a7c5f4.853908",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card.status",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "3e1eca4f.cb02a6",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-from",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.valid.from",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "fe01ea65.730528",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card.number",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.number",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "b8efe8f2.2861e8",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-to",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.valid.to",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "2b0604dc.a5441c",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-door-1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doors[\"1\"]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "4ee29dba.c78e34",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-door-2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doors[\"2\"]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "c7144546.1ac938",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-door-3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doors[\"3\"]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "3d7d4f69.da296",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-door-4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doors[\"4\"]",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 750,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "e7d56173.84b31",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "stored",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.stored",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 1060,
+        "wires": []
+    },
+    {
+        "id": "626b62f3.eadd9c",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "deleted",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.deleted",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1180,
+        "wires": []
+    },
+    {
+        "id": "a2a24ee6.f182d",
+        "type": "debug",
+        "z": "2a36b650.4b9b7a",
+        "name": "deleted",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.deleted",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "cbd92359.dbf19",
+        "type": "config",
+        "z": "",
+        "name": "demo",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\"},\"405419896\":{\"address\":\"192.168.1.100:60000\"}}",
+        "debug": true
+    }
+]

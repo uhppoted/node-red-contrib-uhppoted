@@ -19,7 +19,9 @@ test: build
 	npx eslint --fix test/*.js  
 	npm test
 
-run: build
-	node-red
+dashboard: build
+	node-red ./examples/dashboard.json
 
+examples: build
+	node-red ./examples/examples.json
 
