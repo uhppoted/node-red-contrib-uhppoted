@@ -3,12 +3,8 @@
 ## IN PROGRESS
 
 - [ ] rework doors/buttons to be keys of object rather than array
-- [ ] basic examples
-      - comments
-      - descriptions
-      
+
 - [ ] label node ports
-- [ ] add descriptions to flows
 - [ ] unify broadcast/send/exec
 - [ ] 'force broadcast' flag in config
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
@@ -18,10 +14,11 @@
 - [ ] dashboard: store list of controllers in global config
 - [ ] internationalisation
 - [ ] document uhppoted functions
-- [ ] document examples
 - [ ] integration tests
 - [ ] 'U' node icon
 
+- [x] document examples
+- [x] basic examples
 - [x] optional node message topic
 - [x] make 'broadcast' function look like get/set/send
 - [x] config: device list editor
