@@ -312,18 +312,18 @@ function state (bytes) {
       timestamp: yyyymmddHHmmss(bytes, 20),
       reason: lookup.reason(bytes, 27)
     },
-    doors: [
-      bool(bytes, 28),
-      bool(bytes, 29),
-      bool(bytes, 30),
-      bool(bytes, 31)
-    ],
-    buttons: [
-      bool(bytes, 32),
-      bool(bytes, 33),
-      bool(bytes, 34),
-      bool(bytes, 35)
-    ],
+    doors: {
+      1: bool(bytes, 28),
+      2: bool(bytes, 29),
+      3: bool(bytes, 30),
+      4: bool(bytes, 31)
+    },
+    buttons: {
+      1: bool(bytes, 32),
+      2: bool(bytes, 33),
+      3: bool(bytes, 34),
+      4: bool(bytes, 35)
+    },
     system: {
       status: uint8(bytes, 36),
       date: yymmdd(bytes, 51),

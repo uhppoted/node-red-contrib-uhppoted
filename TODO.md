@@ -2,8 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] rework doors/buttons to be keys of object rather than array
-
 - [ ] label node ports
 - [ ] unify broadcast/send/exec
 - [ ] 'force broadcast' flag in config
@@ -17,6 +15,7 @@
 - [ ] integration tests
 - [ ] 'U' node icon
 
+- [x] rework doors/buttons to be keys of object rather than array
 - [x] document examples
 - [x] basic examples
 - [x] optional node message topic
