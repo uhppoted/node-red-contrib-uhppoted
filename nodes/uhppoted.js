@@ -67,7 +67,6 @@ module.exports = {
     const c = parse(deviceId, config, logger)
     const sock = dgram.createSocket(opts)
     const rq = codec.encode(op, deviceId, request)
-    const replies = []
 
     const decode = function (reply) {
       if (reply) {
@@ -86,9 +85,7 @@ module.exports = {
       })
     })
 
-    const wait = new Promise(resolve => {
-      setTimeout(resolve, c.timeout)
-    })
+    const receive = receiver(c.timeout)
 
     const send = new Promise((resolve, reject) => {
       sock.on('listening', () => {
@@ -114,14 +111,14 @@ module.exports = {
     })
 
     sock.on('message', (message, rinfo) => {
-      replies.push(new Uint8Array(message))
+      receive.received(message)
       log(c.debug, 'received', message, rinfo)
     })
 
     try {
-      await Promise.race([onerror, Promise.all([wait, send])])
+      await Promise.race([onerror, Promise.all([receive, send])])
 
-      return replies.map(reply => decode(reply))
+      return receive.replies.map(reply => decode(reply))
     } finally {
       sock.close()
     }
@@ -348,4 +345,16 @@ function isBroadcast (addr) {
   }
 
   return false
+}
+
+// Ref. https://stackoverflow.com/questions/48158730/extend-javascript-promise-and-resolve-or-reject-it-inside-constructor
+function receiver (timeout) {
+  const p = new Promise((resolve, reject) => {
+    setTimeout(resolve, timeout)
+  })
+
+  p.replies = []
+  p.received = (message) => { p.replies.push(new Uint8Array(message)) }
+
+  return p
 }
