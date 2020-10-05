@@ -2,8 +2,10 @@
 
 ## IN PROGRESS
 
-- [ ] label node ports
 - [ ] unify broadcast/send/exec
+- [ ] maybe split get-card output to separate status + record
+- [ ] README
+- [ ] document uhppoted functions
 - [ ] 'force broadcast' flag in config
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
 - [ ] dashboard: add 'update' button to configuration page
@@ -11,10 +13,10 @@
 - [ ] dashboard: update displayed door labels when switching devices
 - [ ] dashboard: store list of controllers in global config
 - [ ] internationalisation
-- [ ] document uhppoted functions
 - [ ] integration tests
 - [ ] 'U' node icon
 
+- [x] label node ports
 - [x] rework doors/buttons to be keys of object rather than array
 - [x] document examples
 - [x] basic examples
