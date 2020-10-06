@@ -5,7 +5,6 @@
 - [ ] unify broadcast/send/exec
 - [ ] maybe split get-card output to separate status + record
 - [ ] README
-- [ ] document uhppoted functions
 - [ ] 'force broadcast' flag in config
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
 - [ ] dashboard: add 'update' button to configuration page
@@ -16,6 +15,7 @@
 - [ ] integration tests
 - [ ] 'U' node icon
 
+- [x] document uhppoted functions
 - [x] label node ports
 - [x] rework doors/buttons to be keys of object rather than array
 - [x] document examples

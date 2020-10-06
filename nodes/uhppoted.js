@@ -5,14 +5,59 @@ const ip = require('ip')
 const opts = { type: 'udp4', reuseAddr: true }
 
 module.exports = {
+  /**
+    * Executes a 'get' command to retrieve information from a UHPPOTE access controller.
+    * 'get' and 'set' are functionally identical but are defined separately for
+    * semantic clarity.
+    *
+    * @param {number}   deviceId The serial number for the target access controller
+    * @param {byte}     op       Operation code from 'opcode' module
+    * @param {object}   request  Operation parameters for use by codec.encode
+    * @param {object}   config   Configuration information to override defaults
+    * @param {function} logger   Log function for sent/received messages
+    *
+    * @param {object}   Decoded reply containing the received information
+    *
+    * @author: TS
+    * @exports
+    */
   get: async function (deviceId, op, request, config, logger) {
     return exec(deviceId, op, request, config, logger)
   },
 
+  /**
+    * Executes a 'set' command to update information on a UHPPOTE access controller.
+    * 'get' and 'set' are functionally identical but are defined separately for
+    * semantic clarity.
+    *
+    * @param {number}   deviceId The serial number for the target access controller
+    * @param {byte}     op       Operation code from 'opcode' module
+    * @param {object}   request  Operation parameters for use by codec.encode
+    * @param {object}   config   Configuration information to override defaults
+    * @param {function} logger   Log function for sent/received messages
+    *
+    * @param {object}  Decoded result of the operation
+    *
+    * @author: TS
+    * @exports
+    */
   set: async function (deviceId, op, request, config, logger) {
     return exec(deviceId, op, request, config, logger)
   },
 
+  /**
+    * Sends a command to update information on a UHPPOTE access controller without
+    * expecting a reply. Used solely by the 'set-ip' node - the UHPPOTE access controller
+    * does not reply to the set IP command.
+    *
+    * @param {number}   deviceId The serial number for the target access controller
+    * @param {byte}     op       Operation code from 'opcode' module
+    * @param {object}   request  Operation parameters for use by codec.encode
+    * @param {object}   config   Configuration information to override defaults
+    * @param {function} logger   Log function for sent/received messages
+    *
+    * @author: TS
+    */
   send: async function (deviceId, op, request, config, logger) {
     const c = parse(deviceId, config, logger)
     const sock = dgram.createSocket(opts)
@@ -63,6 +108,28 @@ module.exports = {
     throw new Error('no reply to request')
   },
 
+  /**
+    * Broadcasts a command to retrieve information from all responding UHPPOTE access
+    * controllers. In this implementation it is used exclusively by the 'get-devices'
+    * node.
+    *
+    * It differs from 'get' in that it waits for a timeout before returning an array of
+    * received responses rather than returning the first received response. It also
+    * explicity issues a UDP broadcast message - 'get' will issue a UDP 'sendto' if
+    * possible.
+    *
+    * @param {number}   deviceId The serial number for the target access controller
+    * @param {byte}     op       Operation code from 'opcode' module
+    * @param {object}   request  Operation parameters for use by codec.encode
+    * @param {object}   config   Configuration information to override defaults
+    * @param {function} logger   Log function for sent/received messages
+    *
+    * @param {array} Array of Javascript objects from codec.decode containing the decoded
+    *                received responses.
+    *
+    * @author: TS
+    * @exports
+    */
   broadcast: async function (deviceId, op, request, config, logger) {
     const c = parse(deviceId, config, logger)
     const sock = dgram.createSocket(opts)
@@ -124,6 +191,19 @@ module.exports = {
     }
   },
 
+  /**
+    * Establishes a 'listening' UDP connection on the 'listen' port defined in the
+    * configuration to receive events from UHPPOTE access controllers configured
+    * to send events to this host:port. Received events are forwarded to the
+    * supplied handler for dispatch to the application.
+    *
+    * @param {string}   bind     UDP address:port to bind to
+    * @param {byte}     debug    Logs received messages to console if 'true'
+    * @param {function} handler  Function to invoke with received event
+    *
+    * @author: TS
+    * @exports
+    */
   listen: function (bind, debug, handler) {
     const sock = dgram.createSocket(opts)
 
@@ -164,6 +244,24 @@ module.exports = {
   }
 }
 
+/**
+  * Sends a UDP command to a UHPPOTE access controller and returns the decoded
+  * reply, for use by 'get' and 'set'.
+  *
+  * configuration to receive events from UHPPOTE access controllers configured
+  * to send events to this host:port. Received events are forwarded to the
+  * supplied handler for dispatch to the application.
+  *
+  * @param {number}   deviceId The serial number for the target access controller
+  * @param {byte}     op       Operation code from 'opcode' module
+  * @param {object}   request  Operation parameters for use by codec.encode
+  * @param {object}   config   Configuration information to override defaults
+  * @param {function} logger   Log function for sent/received messages
+  *
+  * @param {object}  Decoded reply from access controller
+  *
+  * @author: TS
+  */
 async function exec (deviceId, op, request, config, logger) {
   const c = parse(deviceId, config, logger)
   const sock = dgram.createSocket(opts)
@@ -241,6 +339,22 @@ async function exec (deviceId, op, request, config, logger) {
   throw new Error('no reply to request')
 }
 
+/**
+  * Utility function to reconcile supplied configuration against the default
+  * values. Returns a working configuration with valid:
+  * - UDP bind address:port
+  * - UDP destination address:port
+  * - timeout
+  * - debug enabled
+  *
+  * @param {number}   deviceId The serial number for the target access controller
+  * @param {object}   config   Configuration object supplied to requesting node
+  * @param {function} logger   Log function for sent/received messages
+  *
+  * @param {object} Valid working configuration
+  *
+  * @author: TS
+  */
 function parse (deviceId, config, logger) {
   let timeout = 5000
   let bind = '0.0.0.0'
@@ -280,6 +394,16 @@ function parse (deviceId, config, logger) {
   }
 }
 
+/**
+  * Utility function to write a sent/received UDP message to the log function.
+  *
+  * @param {function}   debug  The log function that will write the formatted message
+  * @param {string}     label  'sent' or 'received'
+  * @param {uint8array} message 64 byte UDP message
+  * @param {object}     rinfo   source/destination IP address and port
+  *
+  * @author: TS
+  */
 function log (debug, label, message, rinfo) {
   let description = label
 
@@ -299,6 +423,16 @@ function log (debug, label, message, rinfo) {
   }
 }
 
+/**
+  * Utility function to format a 64 byte UDP message.
+  *
+  * @param {uint8array} message 64 byte UDP message
+  * @param {string}     pad     prefix used to align the message to the log entries
+  *
+  * @returns {string} Message formatted as a hexadecimal chunk
+  *
+  * @author: TS
+  */
 function format (message, pad) {
   return message
     .toString('hex')
@@ -308,6 +442,16 @@ function format (message, pad) {
     .trimEnd()
 }
 
+/**
+  * Utility function to convert an IP address in host:port format an object with
+  * address and port.
+  *
+  * @param {string} addr  IP address in host:port format
+  *
+  * @returns {object} Object containing IP address and port as properties
+  *
+  * @author: TS
+  */
 function stringToIP (addr) {
   let address = addr
   let port = 60000
@@ -329,6 +473,17 @@ function stringToIP (addr) {
   }
 }
 
+/**
+  * Utility function that takes a best guess as to whether an IP address is likely to be
+  * a broadcast address. It uses the OS interface list, returning 'true' if the address
+  * matches one of the 'bit flipped' netmasks.
+  *
+  * @param {string} addr  IP address
+  *
+  * @returns {bool} 'true' if the address is a broadcast address. Defaults to 'false'.
+  *
+  * @author: TS
+  */
 function isBroadcast (addr) {
   const interfaces = os.networkInterfaces()
 
@@ -347,7 +502,19 @@ function isBroadcast (addr) {
   return false
 }
 
-// Ref. https://stackoverflow.com/questions/48158730/extend-javascript-promise-and-resolve-or-reject-it-inside-constructor
+/**
+  * Utility function construct a Promise that can hold received replies while waiting
+  * for a timeout. Intended to unifiy 'broadcast', 'send' and 'exec' but currently only
+  * used by 'broadcast', because Javascript..
+  *
+  * Ref. https://stackoverflow.com/questions/48158730/extend-javascript-promise-and-resolve-or-reject-it-inside-constructor
+  *
+  * @param {number} timeout  Timeout (in seconds)
+  *
+  * @returns {promise} Constructed Promised with an added 'replies' field and 'received' function.
+  *
+  * @author: TS
+  */
 function receiver (timeout) {
   const p = new Promise((resolve, reject) => {
     setTimeout(resolve, timeout)
