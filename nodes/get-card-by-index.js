@@ -18,19 +18,22 @@ module.exports = function (RED) {
       const index = msg.payload.index
 
       const emit = function (object) {
+        let card = { topic: t, payload: object }
+        let status = { topic: t, payload: { status: { code: 0, message: 'card ok' } } }
+
         switch (object.card.number) {
           case 0:
-            object.error = -1
-            object.card = { number: '', valid: { from: '', to: '' }, doors: { 1: '', 2: '', 3: '', 4: '' } }
+            card = null
+            status = { topic: t, payload: { status: { code: -1, message: 'card not found' } } }
             break
 
           case 0xffffffff:
-            object.error = -2
-            object.card = { number: '', valid: { from: '', to: '' }, doors: { 1: '', 2: '', 3: '', 4: '' } }
+            card = null
+            status = { topic: t, payload: { status: { code: -2, message: 'card deleted' } } }
             break
         }
 
-        common.emit(node, t, object)
+        node.send([card, status])
       }
 
       const error = function (err) {

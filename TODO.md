@@ -3,7 +3,7 @@
 ## IN PROGRESS
 
 - [ ] unify broadcast/send/exec
-- [ ] maybe split get-card output to separate status + record
+- [ ] check node status thing conforms to node-red packaging guide
 - [ ] README
 - [ ] 'force broadcast' flag in config
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
@@ -15,6 +15,7 @@
 - [ ] integration tests
 - [ ] 'U' node icon
 
+- [x] split get-card output to separate status + record
 - [x] document uhppoted functions
 - [x] label node ports
 - [x] rework doors/buttons to be keys of object rather than array

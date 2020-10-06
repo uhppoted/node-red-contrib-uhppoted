@@ -79,6 +79,9 @@
             [
                 "f6808502.b5c9e8",
                 "75f21b8.86ccbe4"
+            ],
+            [
+                "4e7c5e48.f1be2"
             ]
         ]
     },
@@ -101,7 +104,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{ \"deviceId\": 405419896, \"cardNumber\": 65538 }",
+        "payload": "{ \"deviceId\": 405419896, \"cardNumber\": 65537 }",
         "payloadType": "json",
         "x": 130,
         "y": 240,
@@ -125,7 +128,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 480,
-        "y": 240,
+        "y": 200,
         "wires": []
     },
     {
@@ -133,17 +136,14 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "parse",
-        "func": "status = { topic:msg.topic, payload: '' }\ncard = { topic:msg.topic, payload:msg.payload.card }\n\nif (msg.payload.error) {\n    switch (msg.payload.error) {\n        case -1: \n            status.payload = 'card not found'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n            \n        case -2:\n            status.payload  = 'card deleted'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n    }\n}\n\nreturn [ status, card ];",
-        "outputs": 2,
+        "func": "card = msg.payload.card\nmsg.payload = card\n\nreturn msg\n\n// if (msg.payload.error) {\n//     switch (msg.payload.error) {\n//         case -1: \n//             status.payload = 'card not found'\n//             card.payload = { \n//                 number: '', \n//                 valid: { \n//                     from: '', \n//                     to: '' \n//                 }, \n//                 doors: { \n//                     1: '', \n//                     2: '', \n//                     3: '', \n//                     4: '' \n//                    \n//                 } \n//                \n//             }\n//             break\n//            \n//         case -2:\n//             status.payload  = 'card deleted'\n//             card.payload = { \n//                 number: '', \n//                 valid: { \n//                     from: '', \n//                     to: '' \n//                 }, \n//                 doors: { \n//                     1: '', \n//                     2: '', \n//                     3: '', \n//                     4: '' \n//                    \n//                 } \n//                \n//             }\n//             break\n//     }\n// }\n\n",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 470,
-        "y": 280,
+        "y": 240,
         "wires": [
-            [
-                "54d0141d.4fa96c"
-            ],
             [
                 "b2fd1c17.3bc25",
                 "975dcdef.367a6",
@@ -235,10 +235,10 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{ \"deviceId\": 405419896, \"index\": 3 }",
+        "payload": "{ \"deviceId\": 405419896, \"index\": 5 }",
         "payloadType": "json",
         "x": 130,
-        "y": 620,
+        "y": 640,
         "wires": [
             [
                 "13f668be.c2e417"
@@ -252,11 +252,14 @@
         "name": "get-card-by-index",
         "config": "cbd92359.dbf19",
         "x": 330,
-        "y": 620,
+        "y": 640,
         "wires": [
             [
                 "e3a1a21e.0060f",
-                "eb3d93f6.da8bb"
+                "770d6800.eb11f8"
+            ],
+            [
+                "c884e409.0e1d88"
             ]
         ]
     },
@@ -352,7 +355,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 690,
-        "y": 260,
+        "y": 520,
         "wires": []
     },
     {
@@ -369,7 +372,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 680,
-        "y": 340,
+        "y": 280,
         "wires": []
     },
     {
@@ -386,7 +389,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 690,
-        "y": 300,
+        "y": 240,
         "wires": []
     },
     {
@@ -403,7 +406,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 680,
-        "y": 380,
+        "y": 320,
         "wires": []
     },
     {
@@ -420,7 +423,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 690,
-        "y": 420,
+        "y": 360,
         "wires": []
     },
     {
@@ -437,7 +440,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 690,
-        "y": 460,
+        "y": 400,
         "wires": []
     },
     {
@@ -454,7 +457,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 690,
-        "y": 500,
+        "y": 440,
         "wires": []
     },
     {
@@ -471,7 +474,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 690,
-        "y": 540,
+        "y": 480,
         "wires": []
     },
     {
@@ -549,35 +552,8 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 540,
-        "y": 620,
+        "y": 600,
         "wires": []
-    },
-    {
-        "id": "eb3d93f6.da8bb",
-        "type": "function",
-        "z": "2a36b650.4b9b7a",
-        "name": "parse",
-        "func": "status = { topic:msg.topic, payload: '' }\ncard = { topic:msg.topic, payload:msg.payload.card }\n\nif (msg.payload.error) {\n    switch (msg.payload.error) {\n        case -1: \n            status.payload = 'card not found'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n            \n        case -2:\n            status.payload  = 'card deleted'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n    }\n}\n\nreturn [ status, card ];",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 530,
-        "y": 660,
-        "wires": [
-            [
-                "f2a7c5f4.853908"
-            ],
-            [
-                "fe01ea65.730528",
-                "3e1eca4f.cb02a6",
-                "b8efe8f2.2861e8",
-                "2b0604dc.a5441c",
-                "4ee29dba.c78e34",
-                "c7144546.1ac938",
-                "3d7d4f69.da296"
-            ]
-        ]
     },
     {
         "id": "f2a7c5f4.853908",
@@ -593,7 +569,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 750,
-        "y": 640,
+        "y": 920,
         "wires": []
     },
     {
@@ -610,7 +586,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 740,
-        "y": 720,
+        "y": 680,
         "wires": []
     },
     {
@@ -627,7 +603,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 750,
-        "y": 680,
+        "y": 640,
         "wires": []
     },
     {
@@ -644,7 +620,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 740,
-        "y": 760,
+        "y": 720,
         "wires": []
     },
     {
@@ -661,7 +637,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 750,
-        "y": 800,
+        "y": 760,
         "wires": []
     },
     {
@@ -678,7 +654,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 750,
-        "y": 840,
+        "y": 800,
         "wires": []
     },
     {
@@ -695,7 +671,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 750,
-        "y": 880,
+        "y": 840,
         "wires": []
     },
     {
@@ -712,7 +688,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 750,
-        "y": 920,
+        "y": 880,
         "wires": []
     },
     {
@@ -765,6 +741,71 @@
         "x": 520,
         "y": 1280,
         "wires": []
+    },
+    {
+        "id": "770d6800.eb11f8",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "parse",
+        "func": "card = msg.payload.card\nmsg.payload = card\n\nreturn msg\n\n// if (msg.payload.error) {\n//     switch (msg.payload.error) {\n//         case -1: \n//             status.payload = 'card not found'\n//             card.payload = { \n//                 number: '', \n//                 valid: { \n//                     from: '', \n//                     to: '' \n//                 }, \n//                 doors: { \n//                     1: '', \n//                     2: '', \n//                     3: '', \n//                     4: '' \n//                    \n//                 } \n//                \n//             }\n//             break\n//            \n//         case -2:\n//             status.payload  = 'card deleted'\n//             card.payload = { \n//                 number: '', \n//                 valid: { \n//                     from: '', \n//                     to: '' \n//                 }, \n//                 doors: { \n//                     1: '', \n//                     2: '', \n//                     3: '', \n//                     4: '' \n//                    \n//                 } \n//                \n//             }\n//             break\n//     }\n// }\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 530,
+        "y": 640,
+        "wires": [
+            [
+                "fe01ea65.730528",
+                "3e1eca4f.cb02a6",
+                "b8efe8f2.2861e8",
+                "2b0604dc.a5441c",
+                "4ee29dba.c78e34",
+                "c7144546.1ac938"
+            ]
+        ]
+    },
+    {
+        "id": "4e7c5e48.f1be2",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "status",
+        "func": "const status = { topic: msg.topic, payload: msg.payload.status.message }\nlet card = null\n\nif (msg.payload.status.code !== 0) {\n    card = { \n        topic: msg.topic,\n        payload: { \n            card: {\n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                } \n            }\n        }\n    }\n}\n\nreturn [ card, status ]\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 470,
+        "y": 340,
+        "wires": [
+            [
+                "75f21b8.86ccbe4"
+            ],
+            [
+                "54d0141d.4fa96c"
+            ]
+        ]
+    },
+    {
+        "id": "c884e409.0e1d88",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "status",
+        "func": "const status = { topic: msg.topic, payload: msg.payload.status.message }\nlet card = null\n\nif (msg.payload.status.code !== 0) {\n    card = { \n        topic: msg.topic,\n        payload: { \n            card: {\n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                } \n            }\n        }\n    }\n}\n\nreturn [ card, status ]\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 530,
+        "y": 760,
+        "wires": [
+            [
+                "770d6800.eb11f8"
+            ],
+            [
+                "f2a7c5f4.853908"
+            ]
+        ]
     },
     {
         "id": "cbd92359.dbf19",

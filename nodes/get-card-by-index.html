@@ -15,13 +15,13 @@
             },
         },
         inputs: 1,
-        outputs: 1,
+        outputs: 2,
         icon: "function.svg",
         label: function() {
             return this.name || "get-card-by-index";
         },
         inputLabels: "controller ID\ncard record number",
-        outputLabels: "payload: card status + record"
+        outputLabels: [ "payload: card",  "payload: card status" ]
     });
 </script>
 
