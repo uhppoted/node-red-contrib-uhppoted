@@ -1,0 +1,56 @@
+<script type="text/html" data-help-name="set-ip">
+    <p>Sets the IP address, subnet mask and gateway address for an access controller.</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>JSON object with the device ID and IPv4 configuration for 'set-ip'</dd>
+        <dt class="optional">topic<span class="property-type">string</span></dt>
+        <dd>identifying message topic for output</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>Empty JSON object - the command does not return any useful information</dd>
+        <dt>topic<span class="property-type">string</span></dt>
+        <dd>message topic copied from input</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p>The input <code>msg.payload</code> is a JSON object containing the serial number
+    for the controller for which information should be retrieved</p>
+    <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>address<span class="property-type">IPv4 address</span></dt>
+        <dd>IP address for controller</dd>
+        <dt>netmask<span class="property-type">IPv4 netmask</span></dt>
+        <dd>Subnet mask for controller</dd>
+        <dt>gateway<span class="property-type">IPv4 address</span></dt>
+        <dd>IP address for network gateway</dd>
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+    "deviceId": 405419896,
+    "address": "192.168.1.100",
+    "netmask": "255.255.255.0",
+    "gateway": "192.168.1.1"
+  }</pre>
+
+    <p>The output <code>msg.payload</code> is an empty JSON object - the command does not return
+    any information</p>
+    <dl class="message-properties">
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+  }</pre>
+    
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://github.com/uhppoted">uhppoted</a>: GitHub umbrella project</li>
+        <li><a href="https://github.com/uhppoted/node-red-contrib-uhppoted">node-red-contrib-uhppoted</a>: GitHub project</li>
+    </ul>
+</script>

@@ -1,0 +1,57 @@
+<script type="text/html" data-help-name="get-listener">
+    <p>Retrieves the current listener IPv4 address:port for a single UHPPOTE access controller.</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>JSON object with the device ID for 'get-listener'</dd>
+        <dt class="optional">topic<span class="property-type">string</span></dt>
+        <dd>identifying message topic for output</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>JSON object with the controller current device listener IP address:port</dd>
+        <dt>topic<span class="property-type">string</span></dt>
+        <dd>message topic copied from input</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p>The input <code>msg.payload</code> is a JSON object containing the serial number
+    for the controller for which the current listener IPv4 address and port should be retrieved</p>
+    <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+    "deviceId": 405419896
+  }</pre>
+
+    <p>The output <code>msg.payload</code> is a JSON object containing the current
+    IPv4 listener address:port retrieved from the UHPPOTE controller with 
+    serial number matching the request:</p>
+    <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>address<span class="property-type">string</span></dt>
+        <dd>listener IPv4 address</d>
+        <dt>port<span class="property-type">uint16</span></dt>
+        <dd>listener UDP port</d>
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+    "deviceId": 405419896,
+    "address": "192.168.1.100",
+    "port": 60001
+  }</pre>
+    
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://github.com/uhppoted">uhppoted</a>: GitHub umbrella project</li>
+        <li><a href="https://github.com/uhppoted/node-red-contrib-uhppoted">node-red-contrib-uhppoted</a>: GitHub project</li>
+    </ul>
+</script>

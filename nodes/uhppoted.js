@@ -69,6 +69,10 @@ module.exports = {
       })
     })
 
+    const wait = new Promise((resolve, reject) => {
+      resolve(reply)
+    })
+
     const send = new Promise((resolve, reject) => {
       sock.on('listening', () => {
         if (isBroadcast(c.addr.address)) {
@@ -96,7 +100,7 @@ module.exports = {
     })
 
     try {
-      const result = await Promise.race([onerror, Promise.all([send])])
+      const result = await Promise.race([onerror, Promise.all([wait, send])])
 
       if (result && result.length > 0) {
         return {}

@@ -1,0 +1,80 @@
+<script type="text/html" data-help-name="put-card">
+    <p>Adds or updates a card record on an access controller.</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>JSON object with the device ID and card details for 'put-card'</dd>
+        <dt class="optional">topic<span class="property-type">string</span></dt>
+        <dd>identifying message topic for output</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>JSON object with the succeeded/failed result</dd>
+        <dt>topic<span class="property-type">string</span></dt>
+        <dd>message topic copied from input</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p>The input <code>msg.payload</code> is a JSON object containing the access
+    controller serial number and the card details for the card to be added or
+    updated.</p>
+    <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>card.number<span class="property-type">uint32</span></dt>
+        <dd>card number</dd>
+        <dt>card.valid.from<span class="property-type">date</span></dt>
+        <dd>card active 'from' date (yyyy-MM-dd)</dd>
+        <dt>card.valid.to<span class="property-type">date</span></dt>
+        <dd>card active 'to' date (yyyy-MM-dd)</dd>
+        <dt>card.door.1<span class="property-type">boolean</span></dt>
+        <dd>access granted to door 1 if true</dd>
+        <dt>card.door.2<span class="property-type">boolean</span></dt>
+        <dd>access granted to door 2 if true</dd>
+        <dt>card.door.3<span class="property-type">boolean</span></dt>
+        <dd>access granted to door 3 if true</dd>
+        <dt>card.door.4<span class="property-type">boolean</span></dt>
+        <dd>access granted to door 4 if true</dd>
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+    "deviceId": 405419896
+    "card": {
+        "number": 61532836,
+        "valid": {
+            "from": "2020-01-01",
+            "to": "2020-12-31"
+        },
+        "doors": {
+            "1": true,
+            "2": true,
+            "3": false,
+            "4": true
+        }
+    }
+  }</pre>
+
+    <p>The output is a JSON object containing the success/failure result for the add/update.</p>
+    <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>stored<span class="property-type">boolean</span></dt>
+        <dd>true if the card was added or updated</dd>
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+    "deviceId": 405419896,
+    "stored": true
+  }</pre>
+    
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://github.com/uhppoted">uhppoted</a>: GitHub umbrella project</li>
+        <li><a href="https://github.com/uhppoted/node-red-contrib-uhppoted">node-red-contrib-uhppoted</a>: GitHub project</li>
+    </ul>
+</script>

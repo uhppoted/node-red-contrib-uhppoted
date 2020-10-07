@@ -3,9 +3,12 @@
 ## IN PROGRESS
 
 - [ ] internationalisation
-      -- codec
-      -- lookup
+      - codec
+      - lookup
+      - editor text
 - [ ] unify broadcast/send/exec
+- [ ] document codec functions
+- [ ] document lookup functions
 - [ ] README
 - [ ] 'force broadcast' flag in config
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
