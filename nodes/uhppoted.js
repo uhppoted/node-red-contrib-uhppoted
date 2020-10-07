@@ -69,9 +69,7 @@ module.exports = {
       })
     })
 
-    const wait = new Promise((resolve, reject) => {
-      resolve(reply)
-    })
+    const receive = receiver(0)
 
     const send = new Promise((resolve, reject) => {
       sock.on('listening', () => {
@@ -100,9 +98,9 @@ module.exports = {
     })
 
     try {
-      const result = await Promise.race([onerror, Promise.all([wait, send])])
+      const result = await Promise.race([onerror, Promise.all([receive, send])])
 
-      if (result && result.length > 0) {
+      if (result && result.length === 2) {
         return {}
       }
     } finally {
@@ -187,9 +185,11 @@ module.exports = {
     })
 
     try {
-      await Promise.race([onerror, Promise.all([receive, send])])
+      const result = await Promise.race([onerror, Promise.all([receive, send])])
 
-      return receive.replies.map(reply => decode(reply))
+      if (result && result.length === 2) {
+        return receive.replies.map(reply => decode(reply))
+      }
     } finally {
       sock.close()
     }
@@ -509,7 +509,7 @@ function isBroadcast (addr) {
 /**
   * Utility function construct a Promise that can hold received replies while waiting
   * for a timeout. Intended to unifiy 'broadcast', 'send' and 'exec' but currently only
-  * used by 'broadcast', because Javascript..
+  * used by 'broadcast' and 'send', because Javascript..
   *
   * Ref. https://stackoverflow.com/questions/48158730/extend-javascript-promise-and-resolve-or-reject-it-inside-constructor
   *
@@ -521,7 +521,11 @@ function isBroadcast (addr) {
   */
 function receiver (timeout) {
   const p = new Promise((resolve, reject) => {
-    setTimeout(resolve, timeout)
+    if (timeout > 0) {
+      setTimeout(resolve, timeout)
+    } else {
+      resolve()
+    }
   })
 
   p.replies = []
