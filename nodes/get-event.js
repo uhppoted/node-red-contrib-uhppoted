@@ -10,7 +10,7 @@ module.exports = function (RED) {
     const topic = config.topic
     const uhppote = RED.nodes.getNode(config.config)
 
-    node.status({})
+    common.ok(node)
 
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic

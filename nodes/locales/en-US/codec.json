@@ -1,0 +1,9 @@
+{
+    "codec": {
+        "normallyOpen": "normally open",
+        "normallyClosed": "normally closed",
+        "controlled": "controlled",
+        "invalidDoorControl": "invalid door control ${code}",
+        "invalidOpCode": "invalid operation code ${code}"
+    }
+}

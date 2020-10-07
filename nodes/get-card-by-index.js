@@ -10,7 +10,7 @@ module.exports = function (RED) {
     const topic = config.topic
     const uhppote = RED.nodes.getNode(config.config)
 
-    node.status({})
+    common.ok(node)
 
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic
@@ -19,17 +19,17 @@ module.exports = function (RED) {
 
       const emit = function (object) {
         let card = { topic: t, payload: object }
-        let status = { topic: t, payload: { status: { code: 0, message: 'card ok' } } }
+        let status = { topic: t, payload: { status: { code: 0, message: RED._('get-card-by-index.cardOk') } } }
 
         switch (object.card.number) {
           case 0:
             card = null
-            status = { topic: t, payload: { status: { code: -1, message: 'card not found' } } }
+            status = { topic: t, payload: { status: { code: -1, message: RED._('get-card-by-index.cardNotFound') } } }
             break
 
           case 0xffffffff:
             card = null
-            status = { topic: t, payload: { status: { code: -2, message: 'card deleted' } } }
+            status = { topic: t, payload: { status: { code: -2, message: RED._('get-card-by-index.cardDeleted') } } }
             break
         }
 

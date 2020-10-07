@@ -1,0 +1,7 @@
+{
+    "get-card": {
+        "cardOk": "card ok",
+        "cardNotFound": "card not found",
+        "cardDeleted": "card deleted"
+    }
+}

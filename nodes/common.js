@@ -3,8 +3,12 @@ module.exports = {
     node.send({ topic: topic, payload: object })
   },
 
+  ok: function (node, err) {
+    node.status({})
+  },
+
   error: function (node, err) {
-    node.status({ fill: 'red', shape: 'dot', text: 'error' })
-    node.warn('uhppoted::set ' + err)
+    node.status({ fill: 'red', shape: 'dot', text: 'node-red:common.status.error' })
+    node.warn('uhppoted::' + err)
   }
 }

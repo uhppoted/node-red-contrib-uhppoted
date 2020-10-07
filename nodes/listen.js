@@ -18,7 +18,7 @@ module.exports = function (RED) {
       debug = uhppote.debug ? function (l, m) { node.log(l + '\n' + m) } : null
     }
 
-    this.status({})
+    common.ok(node)
 
     const listener = uhppoted.listen(bind, debug, this)
 
@@ -27,7 +27,7 @@ module.exports = function (RED) {
 
       if (event) {
         common.emit(node, topic, event)
-        node.status({})
+        common.ok(node)
       }
     }
 

@@ -2,8 +2,10 @@
 
 ## IN PROGRESS
 
+- [ ] internationalisation
+      -- codec
+      -- lookup
 - [ ] unify broadcast/send/exec
-- [ ] check node status thing conforms to node-red packaging guide
 - [ ] README
 - [ ] 'force broadcast' flag in config
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
@@ -11,10 +13,10 @@
 - [ ] dashboard: distribute received event index
 - [ ] dashboard: update displayed door labels when switching devices
 - [ ] dashboard: store list of controllers in global config
-- [ ] internationalisation
 - [ ] integration tests
 - [ ] 'U' node icon
 
+- [x] check node status thing conforms to node-red packaging guide (https://nodered.org/docs/creating-nodes/i18n)
 - [x] split get-card output to separate status + record
 - [x] document uhppoted functions
 - [x] label node ports
