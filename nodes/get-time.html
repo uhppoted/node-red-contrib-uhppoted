@@ -20,7 +20,7 @@
         label: function() {
             return this.name || "get-time";
         },
-        inputLabels: "controller ID",
-        outputLabels: "payload: controller date/time"
+        inputLabels:  function(index) { return this._('get-time.inputLabel')  },
+        outputLabels: function(index) { return this._('get-time.outputLabel') }
     });
 </script>

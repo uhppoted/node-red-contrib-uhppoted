@@ -20,7 +20,7 @@
         label: function() {
             return this.name || "get-status";
         },
-        inputLabels: "controller ID",
-        outputLabels: "payload: controller state"
+        inputLabels:  function(index) { return this._('get-status.inputLabel')  },
+        outputLabels: function(index) { return this._('get-status.outputLabel') }
     });
 </script>

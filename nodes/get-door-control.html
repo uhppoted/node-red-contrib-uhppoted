@@ -20,7 +20,7 @@
         label: function() {
             return this.name || "get-door-control";
         },
-        inputLabels: "controller ID\ndoor ID",
-        outputLabels: "payload: door delay + control state"
+        inputLabels:  function(index) { return this._('get-door-control.inputLabel')  },
+        outputLabels: function(index) { return this._('get-door-control.outputLabel') }
     });
 </script>

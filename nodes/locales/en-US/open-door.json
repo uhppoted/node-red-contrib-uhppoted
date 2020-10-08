@@ -1,0 +1,6 @@
+{
+    "open-door": {
+        "inputLabel": "controller ID\ndoor ID",
+        "outputLabel": "door opened"
+    }
+}

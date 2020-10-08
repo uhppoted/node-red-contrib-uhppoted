@@ -20,7 +20,7 @@
         label: function() {
             return this.name || "get-devices";
         },
-        inputLabels: "trigger message",
-        outputLabels: "payload: controllers list"
+        inputLabels:  function(index) { return this._('get-devices.inputLabel')  },
+        outputLabels: function(index) { return this._('get-devices.outputLabel') }
     });
 </script>

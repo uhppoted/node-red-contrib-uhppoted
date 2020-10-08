@@ -20,7 +20,7 @@
         label: function() {
             return this.name || "delete-all-cards";
         },
-        inputLabels: "controller ID",
-        outputLabels: "payload: cards deleted"
+        inputLabels:  function(index) { return this._('delete-cards.inputLabel')  },
+        outputLabels: function(index) { return this._('delete-cards.outputLabel') }
     });
 </script>

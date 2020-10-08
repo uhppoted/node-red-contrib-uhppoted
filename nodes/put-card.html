@@ -20,7 +20,7 @@
         label: function() {
             return this.name || "put-card";
         },
-        inputLabels: "controller ID\ncard record",
-        outputLabels: "payload: card stored"
+        inputLabels:  function(index) { return this._('put-card.inputLabel')  },
+        outputLabels: function(index) { return this._('put-card.outputLabel') }
     });
 </script>

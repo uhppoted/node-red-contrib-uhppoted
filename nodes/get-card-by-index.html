@@ -20,7 +20,7 @@
         label: function() {
             return this.name || "get-card-by-index";
         },
-        inputLabels: "controller ID\ncard record number",
-        outputLabels: [ "payload: card",  "payload: card status" ]
+        inputLabels:  function(index) { return this._('get-card-by-index.inputLabel') },
+        outputLabels: function(index) { return this._('get-card-by-index.outputLabel' + (index+1)) }
     });
 </script>

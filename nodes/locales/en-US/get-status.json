@@ -1,0 +1,6 @@
+{
+    "get-status": {
+        "inputLabel": "controller ID",
+        "outputLabel": "controller state"
+    }
+}

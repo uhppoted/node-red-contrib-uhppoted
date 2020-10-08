@@ -5,7 +5,7 @@
 - [ ] internationalisation
       - codec
       - lookup
-      - editor text
+- [ ] put card.status output at top of get-card-xxx outputs
 - [ ] unify broadcast/send/exec
 - [ ] document codec functions
 - [ ] document lookup functions

@@ -20,7 +20,7 @@
         label: function() {
             return this.name || "get-event-index";
         },
-        inputLabels: "controller ID",
-        outputLabels: "payload: event index"
+        inputLabels:  function(index) { return this._('get-event-index.inputLabel')  },
+        outputLabels: function(index) { return this._('get-event-index.outputLabel') }
     });
 </script>

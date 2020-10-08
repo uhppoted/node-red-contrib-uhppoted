@@ -20,7 +20,7 @@
         label: function() {
             return this.name || "set-ip";
         },
-        inputLabels: "controller ID\nIPv4 config",
-        outputLabels: "payload: (none)"
+        inputLabels:  function(index) { return this._('set-ip.inputLabel')  },
+        outputLabels: function(index) { return this._('set-ip.outputLabel') }
     });
 </script>

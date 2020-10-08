@@ -20,6 +20,6 @@
         label: function() {
             return this.name || "listen";
         },
-        outputLabels: "payload: event"
+        outputLabels: function(index) { return this._('listen.outputLabel') }
     });
 </script>

@@ -1,0 +1,6 @@
+{
+    "set-door-control": {
+        "inputLabel": "controller ID\ndoor delay\ndoor control state",
+        "outputLabel": "door delay\ndoor control state"
+    }
+}

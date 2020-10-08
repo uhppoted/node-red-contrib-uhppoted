@@ -2,6 +2,9 @@
     "get-card": {
         "cardOk": "card ok",
         "cardNotFound": "card not found",
-        "cardDeleted": "card deleted"
+        "cardDeleted": "card deleted",
+        "inputLabel": "controller ID\ncard record number",
+        "outputLabel1": "card",
+        "outputLabel2": "card status"
     }
 }

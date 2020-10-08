@@ -20,7 +20,7 @@
         label: function() {
             return this.name || "get-listener";
         },
-        inputLabels: "controller ID",
-        outputLabels: "payload: listener address:port"
+        inputLabels:  function(index) { return this._('get-listener.inputLabel')  },
+        outputLabels: function(index) { return this._('get-listener.outputLabel') }
     });
 </script>

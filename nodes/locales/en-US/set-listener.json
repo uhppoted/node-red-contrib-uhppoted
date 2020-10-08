@@ -1,0 +1,6 @@
+{
+    "set-listener": {
+        "inputLabel": "controller ID\nlistener address:port",
+        "outputLabel": "device ID\nlistener address:port"
+    }
+}

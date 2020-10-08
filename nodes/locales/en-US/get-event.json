@@ -1,0 +1,6 @@
+{
+    "get-event": {
+        "inputLabel": "controller ID\nevent index",
+        "outputLabel": "event record"
+    }
+}

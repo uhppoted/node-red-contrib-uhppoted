@@ -20,7 +20,7 @@
         label: function() {
             return this.name || "open-door";
         },
-        inputLabels: "controller ID\ndoor ID",
-        outputLabels: "payload: door opened"
+        inputLabels:  function(index) { return this._('open-door.inputLabel')  },
+        outputLabels: function(index) { return this._('open-door.outputLabel') }
     });
 </script>
