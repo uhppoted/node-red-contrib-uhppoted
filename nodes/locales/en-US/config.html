@@ -1,3 +1,43 @@
+<script type="text/html" data-template-name="config">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-timeout"><i class="fa fa-tag"></i>Timeout</label>
+        <input type="text" id="node-config-input-timeout" placeholder="5000" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-bind"><i class="fa fa-tag"></i>Bind address</label>
+        <input type="text" id="node-config-input-bind" placeholder="0.0.0.0" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-broadcast"><i class="fa fa-tag"></i>Broadcast address</label>
+        <input type="text" id="node-config-input-broadcast" placeholder="255.255.255.255" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-listen"><i class="fa fa-tag"></i>Listen address</label>
+        <input type="text" id="node-config-input-listen" placeholder="0.0.0.0:60000" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-debug"><i class="fa fa-tag"></i>Debug</label>
+        <input type="checkbox" id="node-config-input-debug" placeholder="false" />
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-controllers-editor"><i class="fa fa-tag"></i>Controllers</label>
+        <table id="node-config-input-controllers-editor" style="margin-left:16px; border:none; border-collapse:collapse;">
+            <thead>
+                <tr style="border:none;">
+                    <th style="font-weight: normal; font-style:italic; border:1px solid grey;">controller</th>
+                    <th style="font-weight: normal; font-style:italic; border:1px solid grey;">address:port</th>
+                    <th style="border:none"><i id="add" class="fa fa-plus fa-1x" style="padding:2px 4px 2px 4px;"></i></th>
+                </tr>
+            </thead>
+            <tbody />
+        </table>
+    </div>
+</script>
+
 <script type="text/html" data-help-name="config">
     <p>Configuration node for shared node properties.</p>
 
