@@ -59,15 +59,15 @@ module.exports = {
         request.writeUInt8(object.door, 8)
         request.writeUInt8(object.delay, 10)
         switch (object.control) {
-          case 'normally open':
+          case opcodes.NormallyOpen:
             request.writeUInt8(1, 9)
             break
 
-          case 'normally closed':
+          case opcodes.NormallyClosed:
             request.writeUInt8(2, 9)
             break
 
-          case 'controlled':
+          case opcodes.Controlled:
             request.writeUInt8(3, 9)
             break
 

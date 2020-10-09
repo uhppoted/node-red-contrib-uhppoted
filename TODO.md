@@ -3,7 +3,6 @@
 ## IN PROGRESS
 
 - [ ] internationalisation
-      - codec
       - lookup
 - [ ] put card.status output at top of get-card-xxx outputs
 - [ ] unify broadcast/send/exec

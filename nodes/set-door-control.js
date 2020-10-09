@@ -1,6 +1,7 @@
 module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
+  const opcodes = require('../nodes/opcodes.js')
 
   function SetDoorControlNode (config) {
     RED.nodes.createNode(this, config)
@@ -16,7 +17,24 @@ module.exports = function (RED) {
       const deviceId = msg.payload.deviceId
       const door = msg.payload.door
       const delay = msg.payload.delay
-      const control = msg.payload.control
+      let control = 0x00
+
+      switch (msg.payload.control) {
+        case 'normally open':
+          control = opcodes.NormallyOpen
+          break
+
+        case 'normally closed':
+          control = opcodes.NormallyClosed
+          break
+
+        case 'controlled':
+          control = opcodes.controlled
+          break
+
+        default:
+          throw new Error(RED._('set-door-control.invalidDoorControl').replace(/\${code}/, msg.payload.control))
+      }
 
       const emit = function (object) {
         common.emit(node, t, object)
@@ -27,7 +45,7 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.set(deviceId, 0x80, { door: door, delay: delay, control: control }, uhppote, (m) => { node.log(m) })
+        uhppoted.set(deviceId, opcodes.SetDoorControl, { door: door, delay: delay, control: control }, uhppote, (m) => { node.log(m) })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

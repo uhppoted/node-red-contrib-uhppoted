@@ -1,6 +1,7 @@
 {
     "set-door-control": {
+        "invalidDoorControl": "invalid door control ('${code}')",
         "inputLabel": "controller ID\ndoor delay\ndoor control state",
-        "outputLabel": "door delay\ndoor control state"
+        "outputLabel": "door delay\ndoor control state"        
     }
 }

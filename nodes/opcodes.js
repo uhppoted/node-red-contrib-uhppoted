@@ -22,6 +22,10 @@ const GET_EVENT_INDEX = 0xb4
 const SET_EVENT_INDEX = 0xb2
 const GET_EVENT = 0xb0
 
+const NORMALLY_OPEN = 0x01
+const NORMALLY_CLOSED = 0x02
+const CONTROLLED = 0x03
+
 module.exports = {
   GetDevice: GET_DEVICE,
   SetIP: SET_IP,
@@ -41,5 +45,9 @@ module.exports = {
   DeleteCards: DELETE_CARDS,
   GetEventIndex: GET_EVENT_INDEX,
   SetEventIndex: SET_EVENT_INDEX,
-  GetEvent: GET_EVENT
+  GetEvent: GET_EVENT,
+
+  NormallyOpen: NORMALLY_OPEN,
+  NormallyClosed: NORMALLY_CLOSED,
+  Controlled: CONTROLLED
 }
