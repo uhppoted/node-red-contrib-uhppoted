@@ -4,7 +4,6 @@
 
 - [ ] internationalisation
       - lookup
-- [ ] put card.status output at top of get-card-xxx outputs
 - [ ] unify broadcast/send/exec
 - [ ] document codec functions
 - [ ] document lookup functions
@@ -18,6 +17,7 @@
 - [ ] integration tests
 - [ ] 'U' node icon
 
+- [x] put card.status output at top of get-card-xxx outputs
 - [x] check node status thing conforms to node-red packaging guide (https://nodered.org/docs/creating-nodes/i18n)
 - [x] split get-card output to separate status + record
 - [x] document uhppoted functions

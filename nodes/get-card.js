@@ -24,16 +24,16 @@ module.exports = function (RED) {
         switch (object.card.number) {
           case 0:
             card = null
-            status = { topic: t, payload: { status: { code: -1, message: RED._('get-card.cardNotFound') } } }
+            status = { topic: t, payload: { status: { code: 1, message: RED._('get-card.cardNotFound') } } }
             break
 
           case 0xffffffff:
             card = null
-            status = { topic: t, payload: { status: { code: -2, message: RED._('get-card.cardDeleted') } } }
+            status = { topic: t, payload: { status: { code: 2, message: RED._('get-card.cardDeleted') } } }
             break
         }
 
-        node.send([card, status])
+        node.send([status, card])
       }
 
       const error = function (err) {

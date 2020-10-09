@@ -4079,11 +4079,11 @@
         "y": 360,
         "wires": [
             [
-                "f6808502.b5c9e8",
-                "75f21b8.86ccbe4"
+                "4ce6edf2.3af724"
             ],
             [
-                "4ce6edf2.3af724"
+                "75f21b8.86ccbe4",
+                "f6808502.b5c9e8"
             ]
         ]
     },
@@ -4130,7 +4130,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 650,
-        "y": 320,
+        "y": 420,
         "wires": []
     },
     {
@@ -4214,7 +4214,7 @@
         "initialize": "",
         "finalize": "",
         "x": 660,
-        "y": 360,
+        "y": 380,
         "wires": [
             [
                 "ed03620e.d9ff",
@@ -4422,7 +4422,7 @@
         "payload": "{ \"deviceId\": 405419896, \"cardNumber\": 61532836 }",
         "payloadType": "json",
         "x": 270,
-        "y": 840,
+        "y": 860,
         "wires": [
             [
                 "4ac01a83.a74ec4"
@@ -4440,7 +4440,7 @@
         "initialize": "",
         "finalize": "",
         "x": 270,
-        "y": 880,
+        "y": 900,
         "wires": [
             [
                 "4ac01a83.a74ec4"
@@ -4454,7 +4454,7 @@
         "name": "delete-card",
         "config": "cbd92359.dbf19",
         "x": 450,
-        "y": 880,
+        "y": 900,
         "wires": [
             [
                 "d35026f6.29b788",
@@ -4476,7 +4476,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 840,
+        "y": 860,
         "wires": []
     },
     {
@@ -4498,7 +4498,7 @@
         "payloadType": "date",
         "topic": "delete-card",
         "x": 90,
-        "y": 920,
+        "y": 940,
         "wires": [
             [
                 "e7473423.ef6728"
@@ -4548,7 +4548,7 @@
             "fe2f6f7f.53fd9"
         ],
         "x": 135,
-        "y": 840,
+        "y": 860,
         "wires": [
             [
                 "e7473423.ef6728"
@@ -4595,7 +4595,7 @@
             "cb6b878.02d9b78"
         ],
         "x": 135,
-        "y": 880,
+        "y": 900,
         "wires": [
             [
                 "e7473423.ef6728"
@@ -4662,7 +4662,7 @@
             "f8233afa.37a5c8"
         ],
         "x": 735,
-        "y": 880,
+        "y": 900,
         "wires": []
     },
     {
@@ -4676,7 +4676,7 @@
         "initialize": "",
         "finalize": "",
         "x": 640,
-        "y": 880,
+        "y": 900,
         "wires": [
             [
                 "b00ce9c1.ba59d8"
@@ -5068,7 +5068,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "refresh-cards",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('refresh.device', msg.payload)\n        break;\n\n    case 'refresh':\n        { const deviceId = flow.get('refresh.device')\n\n          if (deviceId) {\n              return [ \n                  { topic:'get-cards', payload: { deviceId:deviceId } },\n                  null\n              ]\n          }\n        }\n        break\n\n    case 'get-cards':\n        { flow.set('refresh.count', msg.payload.cards)\n          flow.set('refresh.index', 0)\n          flow.set('cards', new Map())\n\n          const deviceId = flow.get('refresh.device')\n          const index = flow.get('refresh.index') || 0\n\n          if (deviceId) {\n              next = index + 1\n              flow.set('refresh.index', next)\n              return [ \n                null,\n                { topic:'get-card-by-index', payload: { deviceId:deviceId, index:next } }\n              ]\n            }\n        }\n        break\n\n    case 'get-card-by-index':\n        if (msg.payload.error !== -1) {\n            const deviceId = flow.get('refresh.device')\n            const count = flow.get('refresh.count')\n            const index = flow.get('refresh.index')\n            const cards = flow.get('cards')\n\n            if (deviceId && index && cards.size < count) {\n                next = index + 1\n                flow.set('refresh.index', next)\n                return [ \n                    null,\n                    { topic:'get-card-by-index', payload: { deviceId:deviceId, index:next } }\n                ]\n            }\n        }\n        break\n}\n\nreturn [null, null]",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('refresh.device', msg.payload)\n        break;\n\n    case 'refresh':\n        { const deviceId = flow.get('refresh.device')\n\n          if (deviceId) {\n              return [ \n                  { topic:'get-cards', payload: { deviceId:deviceId } },\n                  null\n              ]\n          }\n        }\n        break\n\n    case 'get-cards':\n        { flow.set('refresh.count', msg.payload.cards)\n          flow.set('refresh.index', 0)\n          flow.set('cards', new Map())\n\n          const deviceId = flow.get('refresh.device')\n          const index = flow.get('refresh.index') || 0\n\n          if (deviceId) {\n              next = index + 1\n              flow.set('refresh.index', next)\n              return [ \n                null,\n                { topic:'get-card-by-index', payload: { deviceId:deviceId, index:next } }\n              ]\n            }\n        }\n        break\n\n    case 'get-card-by-index':\n        const deviceId = flow.get('refresh.device')\n        const count = flow.get('refresh.count')\n        const index = flow.get('refresh.index')\n        const cards = flow.get('cards')\n\n        if (deviceId && index && cards.size < count) {\n            next = index + 1\n            flow.set('refresh.index', next)\n            return [ \n                null,\n                { topic:'get-card-by-index', payload: { deviceId:deviceId, index:next } }\n            ]\n        }\n        break\n}\n\nreturn [null, null]",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -5098,7 +5098,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 690,
-        "y": 700,
+        "y": 780,
         "wires": []
     },
     {
@@ -5127,11 +5127,12 @@
         "y": 740,
         "wires": [
             [
-                "920606cd.352758",
-                "33497a02.770536",
-                "c4f9384f.7089b8"
+                "920606cd.352758"
             ],
-            []
+            [
+                "c4f9384f.7089b8",
+                "33497a02.770536"
+            ]
         ]
     },
     {
@@ -5174,7 +5175,7 @@
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "x": 270,
-        "y": 980,
+        "y": 1000,
         "wires": [
             [
                 "874f55c6.6f00b8"
@@ -5192,7 +5193,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 1020,
+        "y": 1040,
         "wires": [
             [
                 "874f55c6.6f00b8"
@@ -5213,7 +5214,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 680,
-        "y": 980,
+        "y": 1000,
         "wires": []
     },
     {
@@ -5235,7 +5236,7 @@
         "payloadType": "date",
         "topic": "delete-cards",
         "x": 90,
-        "y": 1040,
+        "y": 1060,
         "wires": [
             [
                 "d435a504.9295d8"
@@ -5251,7 +5252,7 @@
             "fe2f6f7f.53fd9"
         ],
         "x": 135,
-        "y": 1000,
+        "y": 1020,
         "wires": [
             [
                 "d435a504.9295d8"
@@ -5269,7 +5270,7 @@
         "initialize": "",
         "finalize": "",
         "x": 680,
-        "y": 1020,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -5281,7 +5282,7 @@
         "name": "delete-all-cards",
         "config": "cbd92359.dbf19",
         "x": 480,
-        "y": 1020,
+        "y": 1040,
         "wires": [
             [
                 "d5e17469.7208d8",
@@ -5954,7 +5955,7 @@
             "f8233afa.37a5c8"
         ],
         "x": 795,
-        "y": 500,
+        "y": 300,
         "wires": []
     },
     {
@@ -5962,19 +5963,19 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "status",
-        "func": "const status = { topic: msg.topic, payload: msg.payload.status.message }\nlet card = null\n\nif (msg.payload.status.code !== 0) {\n   card = { \n       topic: msg.topic,\n       payload: { \n           card: { \n               number: '', \n               valid: { \n                   from: '', \n                   to: '' \n                   \n               }, \n               doors: { \n                   1: '', \n                   2: '', \n                   3: '', \n                   4: '' \n                   \n               } \n           }\n           \n       }\n   }\n}\n\nreturn [ card, status ]",
+        "func": "const status = { topic: msg.topic, payload: msg.payload.status.message }\nlet card = null\n\nif (msg.payload.status.code !== 0) {\n   card = { \n       topic: msg.topic,\n       payload: { \n           card: { \n               number: '', \n               valid: { \n                   from: '', \n                   to: '' \n                   \n               }, \n               doors: { \n                   1: '', \n                   2: '', \n                   3: '', \n                   4: '' \n                   \n               } \n           }\n           \n       }\n   }\n}\n\nreturn [ status, card ]",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 630,
-        "y": 480,
+        "x": 650,
+        "y": 320,
         "wires": [
             [
-                "75f21b8.86ccbe4"
+                "d5de73fc.318b9"
             ],
             [
-                "d5de73fc.318b9"
+                "75f21b8.86ccbe4"
             ]
         ]
     }

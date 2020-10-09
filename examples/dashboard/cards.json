@@ -110,8 +110,11 @@
         "y": 360,
         "wires": [
             [
-                "f6808502.b5c9e8",
-                "75f21b8.86ccbe4"
+                "4ce6edf2.3af724"
+            ],
+            [
+                "75f21b8.86ccbe4",
+                "f6808502.b5c9e8"
             ]
         ]
     },
@@ -153,12 +156,12 @@
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 630,
-        "y": 320,
+        "x": 650,
+        "y": 420,
         "wires": []
     },
     {
@@ -227,7 +230,7 @@
         "label": "",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 1030,
+        "x": 1050,
         "y": 640,
         "wires": []
     },
@@ -236,17 +239,14 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "retrieved",
-        "func": "status = { topic:msg.topic, payload: '' }\ncard = { topic:msg.topic, payload:msg.payload.card }\n\nif (msg.payload.error) {\n    switch (msg.payload.error) {\n        case -1: \n            status.payload = 'card not found'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n            \n        case -2:\n            status.payload  = 'card deleted'\n            card.payload = { \n                number: '', \n                valid: { \n                    from: '', \n                    to: '' \n                }, \n                doors: { \n                    1: '', \n                    2: '', \n                    3: '', \n                    4: '' \n                    \n                } \n                \n            }\n            break\n    }\n}\n\nreturn [ status, card ];",
-        "outputs": 2,
+        "func": "card = msg.payload.card\nmsg.payload = card\n\nreturn msg\n",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 640,
-        "y": 360,
+        "x": 660,
+        "y": 380,
         "wires": [
-            [
-                "d5de73fc.318b9"
-            ],
             [
                 "ed03620e.d9ff",
                 "e7671a59.2c71c8"
@@ -259,7 +259,7 @@
         "z": "2a36b650.4b9b7a",
         "name": "put-card",
         "config": "cbd92359.dbf19",
-        "x": 1400,
+        "x": 1420,
         "y": 180,
         "wires": [
             [
@@ -289,7 +289,7 @@
         "topic": "test",
         "payload": "{ \"deviceId\": 405419896, \"card\": { \"number\":61532836, \"valid\": { \"from\":\"2019-01-02\", \"to\":\"2021-12-31\" }, \"doors\": { \"1\":true, \"2\":false, \"3\":true, \"4\":true } } }",
         "payloadType": "json",
-        "x": 1210,
+        "x": 1250,
         "y": 180,
         "wires": [
             [
@@ -310,7 +310,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 1570,
+        "x": 1590,
         "y": 140,
         "wires": []
     },
@@ -324,7 +324,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1210,
+        "x": 1250,
         "y": 220,
         "wires": [
             [
@@ -367,7 +367,7 @@
         "label": "from",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 1030,
+        "x": 1050,
         "y": 280,
         "wires": []
     },
@@ -383,7 +383,7 @@
         "label": "to",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 1040,
+        "x": 1060,
         "y": 320,
         "wires": []
     },
@@ -405,7 +405,7 @@
         "payload": "",
         "payloadType": "date",
         "topic": "put-card",
-        "x": 1040,
+        "x": 1060,
         "y": 600,
         "wires": [
             [
@@ -423,7 +423,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1570,
+        "x": 1590,
         "y": 180,
         "wires": [
             [
@@ -453,7 +453,7 @@
         "payload": "{ \"deviceId\": 405419896, \"cardNumber\": 61532836 }",
         "payloadType": "json",
         "x": 270,
-        "y": 840,
+        "y": 860,
         "wires": [
             [
                 "4ac01a83.a74ec4"
@@ -471,7 +471,7 @@
         "initialize": "",
         "finalize": "",
         "x": 270,
-        "y": 880,
+        "y": 900,
         "wires": [
             [
                 "4ac01a83.a74ec4"
@@ -485,7 +485,7 @@
         "name": "delete-card",
         "config": "cbd92359.dbf19",
         "x": 450,
-        "y": 880,
+        "y": 900,
         "wires": [
             [
                 "d35026f6.29b788",
@@ -507,7 +507,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 640,
-        "y": 840,
+        "y": 860,
         "wires": []
     },
     {
@@ -529,7 +529,7 @@
         "payloadType": "date",
         "topic": "delete-card",
         "x": 90,
-        "y": 920,
+        "y": 940,
         "wires": [
             [
                 "e7473423.ef6728"
@@ -579,7 +579,7 @@
             "fe2f6f7f.53fd9"
         ],
         "x": 135,
-        "y": 840,
+        "y": 860,
         "wires": [
             [
                 "e7473423.ef6728"
@@ -626,7 +626,7 @@
             "cb6b878.02d9b78"
         ],
         "x": 135,
-        "y": 880,
+        "y": 900,
         "wires": [
             [
                 "e7473423.ef6728"
@@ -641,7 +641,7 @@
         "links": [
             "fe2f6f7f.53fd9"
         ],
-        "x": 1055,
+        "x": 1075,
         "y": 200,
         "wires": [
             [
@@ -657,7 +657,7 @@
         "links": [
             "cb6b878.02d9b78"
         ],
-        "x": 1055,
+        "x": 1075,
         "y": 240,
         "wires": [
             [
@@ -685,18 +685,6 @@
         ]
     },
     {
-        "id": "d5de73fc.318b9",
-        "type": "link out",
-        "z": "2a36b650.4b9b7a",
-        "name": "",
-        "links": [
-            "f8233afa.37a5c8"
-        ],
-        "x": 775,
-        "y": 340,
-        "wires": []
-    },
-    {
         "id": "b00ce9c1.ba59d8",
         "type": "link out",
         "z": "2a36b650.4b9b7a",
@@ -705,7 +693,7 @@
             "f8233afa.37a5c8"
         ],
         "x": 735,
-        "y": 880,
+        "y": 900,
         "wires": []
     },
     {
@@ -719,7 +707,7 @@
         "initialize": "",
         "finalize": "",
         "x": 640,
-        "y": 880,
+        "y": 900,
         "wires": [
             [
                 "b00ce9c1.ba59d8"
@@ -738,7 +726,7 @@
         "height": 1,
         "passthru": true,
         "topic": "set-card-valid-from",
-        "x": 1040,
+        "x": 1060,
         "y": 360,
         "wires": [
             [
@@ -756,8 +744,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 830,
-        "y": 380,
+        "x": 850,
+        "y": 360,
         "wires": [
             [
                 "e70a1f2e.dcd39"
@@ -779,7 +767,7 @@
         "height": 1,
         "passthru": true,
         "topic": "set-card-valid-to",
-        "x": 1040,
+        "x": 1060,
         "y": 400,
         "wires": [
             [
@@ -795,7 +783,7 @@
         "links": [
             "f8233afa.37a5c8"
         ],
-        "x": 1695,
+        "x": 1715,
         "y": 180,
         "wires": []
     },
@@ -822,7 +810,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 1030,
+        "x": 1050,
         "y": 440,
         "wires": [
             [
@@ -840,8 +828,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 810,
-        "y": 500,
+        "x": 830,
+        "y": 420,
         "wires": [
             [
                 "6eac8a4e.b9baf4"
@@ -880,7 +868,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 1030,
+        "x": 1050,
         "y": 480,
         "wires": [
             [
@@ -911,7 +899,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 1030,
+        "x": 1050,
         "y": 520,
         "wires": [
             [
@@ -942,7 +930,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 1030,
+        "x": 1050,
         "y": 560,
         "wires": [
             [
@@ -1111,7 +1099,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "refresh-cards",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('refresh.device', msg.payload)\n        break;\n\n    case 'refresh':\n        { const deviceId = flow.get('refresh.device')\n\n          if (deviceId) {\n              return [ \n                  { topic:'get-cards', payload: { deviceId:deviceId } },\n                  null\n              ]\n          }\n        }\n        break\n\n    case 'get-cards':\n        { flow.set('refresh.count', msg.payload.cards)\n          flow.set('refresh.index', 0)\n          flow.set('cards', new Map())\n\n          const deviceId = flow.get('refresh.device')\n          const index = flow.get('refresh.index') || 0\n\n          if (deviceId) {\n              next = index + 1\n              flow.set('refresh.index', next)\n              return [ \n                null,\n                { topic:'get-card-by-index', payload: { deviceId:deviceId, index:next } }\n              ]\n            }\n        }\n        break\n\n    case 'get-card-by-index':\n        if (msg.payload.error !== -1) {\n            const deviceId = flow.get('refresh.device')\n            const count = flow.get('refresh.count')\n            const index = flow.get('refresh.index')\n            const cards = flow.get('cards')\n\n            if (deviceId && index && cards.size < count) {\n                next = index + 1\n                flow.set('refresh.index', next)\n                return [ \n                    null,\n                    { topic:'get-card-by-index', payload: { deviceId:deviceId, index:next } }\n                ]\n            }\n        }\n        break\n}\n\nreturn [null, null]",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('refresh.device', msg.payload)\n        break;\n\n    case 'refresh':\n        { const deviceId = flow.get('refresh.device')\n\n          if (deviceId) {\n              return [ \n                  { topic:'get-cards', payload: { deviceId:deviceId } },\n                  null\n              ]\n          }\n        }\n        break\n\n    case 'get-cards':\n        { flow.set('refresh.count', msg.payload.cards)\n          flow.set('refresh.index', 0)\n          flow.set('cards', new Map())\n\n          const deviceId = flow.get('refresh.device')\n          const index = flow.get('refresh.index') || 0\n\n          if (deviceId) {\n              next = index + 1\n              flow.set('refresh.index', next)\n              return [ \n                null,\n                { topic:'get-card-by-index', payload: { deviceId:deviceId, index:next } }\n              ]\n            }\n        }\n        break\n\n    case 'get-card-by-index':\n        const deviceId = flow.get('refresh.device')\n        const count = flow.get('refresh.count')\n        const index = flow.get('refresh.index')\n        const cards = flow.get('cards')\n\n        if (deviceId && index && cards.size < count) {\n            next = index + 1\n            flow.set('refresh.index', next)\n            return [ \n                null,\n                { topic:'get-card-by-index', payload: { deviceId:deviceId, index:next } }\n            ]\n        }\n        break\n}\n\nreturn [null, null]",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -1141,7 +1129,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 690,
-        "y": 700,
+        "y": 780,
         "wires": []
     },
     {
@@ -1170,9 +1158,11 @@
         "y": 740,
         "wires": [
             [
-                "920606cd.352758",
-                "33497a02.770536",
-                "c4f9384f.7089b8"
+                "920606cd.352758"
+            ],
+            [
+                "c4f9384f.7089b8",
+                "33497a02.770536"
             ]
         ]
     },
@@ -1181,7 +1171,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "cards",
-        "func": "const cards = flow.get('cards') || new Map()\nconst doors = flow.get('doors')\n\nconst deviceId = msg.payload.deviceId\nconst card = msg.payload.card\nconst list = []\n\nif (!msg.payload.error || msg.payload.error === 0) {\n   cards.set(card.number, card)\n\n   flow.set('cards', cards)\n}\n\nfor (const [k,v] of cards) {\n  list.push(v)\n}\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ list, false ]\n}\n\nreturn msg;    \n",
+        "func": "const cards = flow.get('cards') || new Map()\n\nconst deviceId = msg.payload.deviceId\nconst card = msg.payload.card\nconst list = []\n\nif (card.number !== '') {\n   cards.set(card.number, card)\n\n   flow.set('cards', cards)\n}\n\nfor (const [k,v] of cards) {\n  list.push(v)\n}\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ list, false ]\n}\n\nreturn msg;    \n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
@@ -1216,7 +1206,7 @@
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "x": 270,
-        "y": 980,
+        "y": 1000,
         "wires": [
             [
                 "874f55c6.6f00b8"
@@ -1234,7 +1224,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 1020,
+        "y": 1040,
         "wires": [
             [
                 "874f55c6.6f00b8"
@@ -1255,7 +1245,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 680,
-        "y": 980,
+        "y": 1000,
         "wires": []
     },
     {
@@ -1277,7 +1267,7 @@
         "payloadType": "date",
         "topic": "delete-cards",
         "x": 90,
-        "y": 1040,
+        "y": 1060,
         "wires": [
             [
                 "d435a504.9295d8"
@@ -1293,7 +1283,7 @@
             "fe2f6f7f.53fd9"
         ],
         "x": 135,
-        "y": 1000,
+        "y": 1020,
         "wires": [
             [
                 "d435a504.9295d8"
@@ -1311,7 +1301,7 @@
         "initialize": "",
         "finalize": "",
         "x": 680,
-        "y": 1020,
+        "y": 1040,
         "wires": [
             []
         ]
@@ -1323,7 +1313,7 @@
         "name": "delete-all-cards",
         "config": "cbd92359.dbf19",
         "x": 480,
-        "y": 1020,
+        "y": 1040,
         "wires": [
             [
                 "d5e17469.7208d8",
@@ -1340,6 +1330,39 @@
         "x": 160,
         "y": 40,
         "wires": []
+    },
+    {
+        "id": "d5de73fc.318b9",
+        "type": "link out",
+        "z": "2a36b650.4b9b7a",
+        "name": "",
+        "links": [
+            "f8233afa.37a5c8"
+        ],
+        "x": 795,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "4ce6edf2.3af724",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "status",
+        "func": "const status = { topic: msg.topic, payload: msg.payload.status.message }\nlet card = null\n\nif (msg.payload.status.code !== 0) {\n   card = { \n       topic: msg.topic,\n       payload: { \n           card: { \n               number: '', \n               valid: { \n                   from: '', \n                   to: '' \n                   \n               }, \n               doors: { \n                   1: '', \n                   2: '', \n                   3: '', \n                   4: '' \n                   \n               } \n           }\n           \n       }\n   }\n}\n\nreturn [ status, card ]",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 650,
+        "y": 320,
+        "wires": [
+            [
+                "d5de73fc.318b9"
+            ],
+            [
+                "75f21b8.86ccbe4"
+            ]
+        ]
     },
     {
         "id": "573f9bfa.7e4564",
@@ -1361,7 +1384,7 @@
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",
         "listen": "192.168.1.100:60001",
-        "controllers": "{\n   \"405419896\": {\n      \"address\": \"192.168.1.100:60000\"\n   },\n   \"303986753\": {\n      \"address\": \"192.168.1.100:60000\"\n   }\n}",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\"},\"405419896\":{\"address\":\"192.168.1.100:60000\"}}",
         "debug": true
     },
     {

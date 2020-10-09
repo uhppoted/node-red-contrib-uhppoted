@@ -3,8 +3,8 @@
         "cardOk": "card ok",
         "cardNotFound": "card not found",
         "cardDeleted": "card deleted",
-        "inputLabel": "controller ID\ncard record number",
-        "outputLabel1": "card",
-        "outputLabel2": "card status"
+        "inputLabel": "controller ID\ncard number",
+        "outputLabel1": "card status",
+        "outputLabel2": "card"
     }
 }
