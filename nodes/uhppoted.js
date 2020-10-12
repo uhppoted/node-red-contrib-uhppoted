@@ -13,7 +13,7 @@ module.exports = {
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
-    * @param {object}   config   Configuration information to override defaults
+    * @param {object}   context  Invoking node and configuration
     * @param {function} logger   Log function for sent/received messages
     *
     * @param {object}   Decoded reply containing the received information
@@ -21,8 +21,8 @@ module.exports = {
     * @author: TS
     * @exports
     */
-  get: async function (deviceId, op, request, config, logger) {
-    return exec(deviceId, op, request, config, logger)
+  get: async function (deviceId, op, request, context, logger) {
+    return exec(deviceId, op, request, context, logger)
   },
 
   /**
@@ -33,7 +33,7 @@ module.exports = {
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
-    * @param {object}   config   Configuration information to override defaults
+    * @param {object}   context  Invoking node and configuration
     * @param {function} logger   Log function for sent/received messages
     *
     * @param {object}  Decoded result of the operation
@@ -41,8 +41,8 @@ module.exports = {
     * @author: TS
     * @exports
     */
-  set: async function (deviceId, op, request, config, logger) {
-    return exec(deviceId, op, request, config, logger)
+  set: async function (deviceId, op, request, context, logger) {
+    return exec(deviceId, op, request, context, logger)
   },
 
   /**
@@ -53,15 +53,15 @@ module.exports = {
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
-    * @param {object}   config   Configuration information to override defaults
+    * @param {object}   context  Invoking node and configuration
     * @param {function} logger   Log function for sent/received messages
     *
     * @author: TS
     */
-  send: async function (deviceId, op, request, config, logger) {
-    const c = parse(deviceId, config, logger)
+  send: async function (deviceId, op, request, context, logger) {
+    const c = configuration(deviceId, context.config, logger)
     const sock = dgram.createSocket(opts)
-    const rq = codec.encode(op, deviceId, request)
+    const rq = codec.encode(context.node, op, deviceId, request)
 
     const onerror = new Promise((resolve, reject) => {
       sock.on('error', (err) => {
@@ -123,7 +123,7 @@ module.exports = {
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
-    * @param {object}   config   Configuration information to override defaults
+    * @param {object}   context  Invoking node and configuration
     * @param {function} logger   Log function for sent/received messages
     *
     * @param {array} Array of Javascript objects from codec.decode containing the decoded
@@ -132,14 +132,14 @@ module.exports = {
     * @author: TS
     * @exports
     */
-  broadcast: async function (deviceId, op, request, config, logger) {
-    const c = parse(deviceId, config, logger)
+  broadcast: async function (deviceId, op, request, context, logger) {
+    const c = configuration(deviceId, context.config, logger)
     const sock = dgram.createSocket(opts)
-    const rq = codec.encode(op, deviceId, request)
+    const rq = codec.encode(context.node, op, deviceId, request)
 
     const decode = function (reply) {
       if (reply) {
-        const response = codec.decode(reply)
+        const response = codec.decode(context.node, reply)
         if (response) {
           return response
         }
@@ -259,22 +259,22 @@ module.exports = {
   * @param {number}   deviceId The serial number for the target access controller
   * @param {byte}     op       Operation code from 'opcode' module
   * @param {object}   request  Operation parameters for use by codec.encode
-  * @param {object}   config   Configuration information to override defaults
+  * @param {object}   context  Invoking node and configuration
   * @param {function} logger   Log function for sent/received messages
   *
   * @param {object}  Decoded reply from access controller
   *
   * @author: TS
   */
-async function exec (deviceId, op, request, config, logger) {
-  const c = parse(deviceId, config, logger)
+async function exec (deviceId, op, request, context, logger) {
+  const c = configuration(deviceId, context.config, logger)
   const sock = dgram.createSocket(opts)
-  const rq = codec.encode(op, deviceId, request)
+  const rq = codec.encode(context.node, op, deviceId, request)
   let received = () => {}
 
   const decode = function (reply) {
     if (reply) {
-      const response = codec.decode(reply)
+      const response = codec.decode(context.node, reply)
       if (response && (response.deviceId === deviceId)) {
         return response
       }
@@ -359,7 +359,7 @@ async function exec (deviceId, op, request, config, logger) {
   *
   * @author: TS
   */
-function parse (deviceId, config, logger) {
+function configuration (deviceId, config, logger) {
   let timeout = 5000
   let bind = '0.0.0.0'
   let dest = '255.255.255.255:60000'

@@ -26,7 +26,7 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.set(deviceId, opcodes.PutCard, { card: card }, uhppote, (m) => { node.log(m) })
+        uhppoted.set(deviceId, opcodes.PutCard, { card: card }, { node: node, config: uhppote }, (m) => { node.log(m) })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

@@ -1,5 +1,9 @@
 {
     "get-door-control": {
+        "normallyOpen": "normally open",
+        "normallyClosed": "normally closed",
+        "controlled": "controlled",
+        "unknown": "unknown",
         "inputLabel": "controller ID\ndoor ID",
         "outputLabel": "door delay\ncontrol state"
     }

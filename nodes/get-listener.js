@@ -25,7 +25,7 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.get(deviceId, opcodes.GetListener, {}, uhppote, (m) => { node.log(m) })
+        uhppoted.get(deviceId, opcodes.GetListener, {}, { node: node, config: uhppote }, (m) => { node.log(m) })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

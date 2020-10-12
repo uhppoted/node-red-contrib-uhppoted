@@ -1,194 +1,194 @@
 module.exports = {
 
-  eventType: function (bytes, offset) {
+  eventType: function (node, bytes, offset) {
     const byte = bytes.getUint8(offset, true)
 
     const event = {
       code: byte,
-      event: 'unknown'
+      event: translate(node, 'unknown')
     }
 
     switch (byte) {
       case 0x00:
-        event.event = 'none'
+        event.event = translate(node, 'none')
         break
 
       case 0x01:
-        event.event = 'card swipe'
+        event.event = translate(node, 'card swipe')
         break
 
       case 0x02:
-        event.event = 'door'
+        event.event = translate(node, 'door')
         break
 
       case 0x03:
-        event.event = 'alarm'
+        event.event = translate(node, 'alarm')
         break
 
       case 0xff:
-        event.event = '<overwritten>'
+        event.event = translate(node, '<overwritten>')
         break
     }
 
     return event
   },
 
-  direction: function (bytes, offset) {
+  direction: function (node, bytes, offset) {
     const byte = bytes.getUint8(offset, true)
 
     const direction = {
       code: byte,
-      direction: 'unknown'
+      direction: translate(node, 'unknown')
     }
 
     switch (byte) {
       case 0x01:
-        direction.direction = 'in'
+        direction.direction = translate(node, 'in')
         break
 
       case 0x02:
-        direction.direction = 'out'
+        direction.direction = translate(node, 'out')
         break
     }
 
     return direction
   },
 
-  reason: function (bytes, offset) {
+  reason: function (node, bytes, offset) {
     const byte = bytes.getUint8(offset, true)
 
     const reason = {
       code: byte,
-      reason: 'unknown'
+      reason: translate(node, 'unknown')
     }
 
     switch (byte) {
       case 1:
-        reason.reason = 'swipe'
+        reason.reason = translate(node, 'swipe')
         break
 
       case 5:
-        reason.reason = 'swipe:denied (system)' // Access is managed by the system not the controller
+        reason.reason = translate(node, 'swipe:denied (system)') // Access is managed by the system not the controller
         break
 
       case 6:
-        reason.reason = 'no access rights' // swipe denied
+        reason.reason = translate(node, 'no access rights') // swipe denied
         break
 
       case 7:
-        reason.reason = 'incorrect password' // swipe denied
+        reason.reason = translate(node, 'incorrect password') // swipe denied
         break
 
       case 8:
-        reason.reason = 'anti-passback' // swipe denied
+        reason.reason = translate(node, 'anti-passback') // swipe denied
         break
 
       case 9:
-        reason.reason = 'more cards' //  // swipe denied (absolutely no idea what this means :-()
+        reason.reason = translate(node, 'more cards') // swipe denied (absolutely no idea what this means :-()
         break
 
       case 10:
-        reason.reason = 'first card open' // swipe denied (no idea what this means either)
+        reason.reason = translate(node, 'first card open') // swipe denied (no idea what this means either)
         break
 
       case 11:
-        reason.reason = 'door is normally closed' // swipe denied
+        reason.reason = translate(node, 'door is normally closed') // swipe denied
         break
 
       case 12:
-        reason.reason = 'interlock' // swipe denied
+        reason.reason = translate(node, 'interlock') // swipe denied
         break
 
       case 13:
-        reason.reason = 'not in allowed time period' // swipe denied
+        reason.reason = translate(node, 'not in allowed time period') // swipe denied
         break
 
       case 15:
-        reason.reason = 'invalid timezone' // swipe denied
+        reason.reason = translate(node, 'invalid timezone') // swipe denied
         break
 
       case 18:
-        reason.reason = 'access denied' // swipe denied
+        reason.reason = translate(node, 'access denied') // swipe denied
         break
 
       case 20:
-        reason.reason = 'push button ok'
+        reason.reason = translate(node, 'push button ok')
         break
 
       case 23:
-        reason.reason = 'door opened'
+        reason.reason = translate(node, 'door opened')
         break
 
       case 24:
-        reason.reason = 'door closed'
+        reason.reason = translate(node, 'door closed')
         break
 
       case 25:
-        reason.reason = 'door opened (supervisor password)'
+        reason.reason = translate(node, 'door opened (supervisor password)')
         break
 
       case 28:
-        reason.reason = 'controller power on'
+        reason.reason = translate(node, 'controller power on')
         break
 
       case 29:
-        reason.reason = 'controller reset'
+        reason.reason = translate(node, 'controller reset')
         break
 
       case 31:
-        reason.reason = 'pushbutton invalid (door locked)'
+        reason.reason = translate(node, 'pushbutton invalid (door locked)')
         break
 
       case 32:
-        reason.reason = 'pushbutton invalid (offline)'
+        reason.reason = translate(node, 'pushbutton invalid (offline)')
         break
 
       case 33:
-        reason.reason = 'pushbutton invalid (interlock)'
+        reason.reason = translate(node, 'pushbutton invalid (interlock)')
         break
 
       case 34:
-        reason.reason = 'pushbutton invalid (threat)'
+        reason.reason = translate(node, 'pushbutton invalid (threat)')
         break
 
       case 37:
-        reason.reason = 'door open too long'
+        reason.reason = translate(node, 'door open too long')
         break
 
       case 38:
-        reason.reason = 'forced open'
+        reason.reason = translate(node, 'forced open')
         break
 
       case 39:
-        reason.reason = 'fire'
+        reason.reason = translate(node, 'fire')
         break
 
       case 40:
-        reason.reason = 'forced closed'
+        reason.reason = translate(node, 'forced closed')
         break
 
       case 41:
-        reason.reason = 'theft prevention'
+        reason.reason = translate(node, 'theft prevention')
         break
 
       case 42:
-        reason.reason = '24x7 zone'
+        reason.reason = translate(node, '24x7 zone')
         break
 
       case 43:
-        reason.reason = 'emergency'
+        reason.reason = translate(node, 'emergency')
         break
 
       case 44:
-        reason.reason = 'remote open door'
+        reason.reason = translate(node, 'remote open door')
         break
 
       case 45:
-        reason.reason = 'remote open door (USB reader)'
+        reason.reason = translate(node, 'remote open door (USB reader)')
         break
 
       default:
-        reason.reason = '(reserved)'
+        reason.reason = translate(node, '(reserved)')
         break
     }
 
@@ -223,21 +223,24 @@ module.exports = {
     return inputs
   },
 
-  doorState: function (bytes, offset) {
+  doorState: function (node, bytes, offset) {
     const byte = bytes.getUint8(offset, true)
 
     switch (byte) {
       case 1:
-        return 'normally open'
+        return translate(node, 'normally open')
 
       case 2:
-        return 'normally closed'
+        return translate(node, 'normally closed')
 
       case 3:
-        return 'controlled'
+        return translate(node, 'controlled')
     }
 
-    return 'unknown'
+    return translate(node, 'unknown')
   }
+}
 
+function translate (node, text) {
+  return (node && node.translate) ? node.translate(text) : text
 }

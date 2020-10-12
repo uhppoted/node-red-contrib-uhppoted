@@ -25,7 +25,7 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.set(deviceId, 0x30, { datetime: datetime }, uhppote, (m) => { node.log(m) })
+        uhppoted.set(deviceId, 0x30, { datetime: datetime }, { node: node, config: uhppote }, (m) => { node.log(m) })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

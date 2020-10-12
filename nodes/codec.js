@@ -1,6 +1,5 @@
 module.exports = {
-
-  encode: function (code, deviceId, object) {
+  encode: function (node, code, deviceId, object) {
     const ip = require('ip')
     const request = Buffer.alloc(64)
     const opcodes = require('../nodes/opcodes.js')
@@ -153,7 +152,7 @@ module.exports = {
     return request
   },
 
-  decode: function (buffer) {
+  decode: function (node, buffer) {
     const lookup = require('./lookup.js')
 
     if ((buffer.length !== 64) || (buffer[0] !== 0x17)) {
@@ -166,7 +165,7 @@ module.exports = {
       case 0x20:
         return {
           deviceId: uint32(bytes, 4),
-          state: state(bytes)
+          state: state(node, bytes)
         }
 
       case 0x30:
@@ -239,7 +238,7 @@ module.exports = {
             delay: uint8(bytes, 10),
             control: {
               value: uint8(bytes, 9),
-              state: lookup.doorState(bytes, 9)
+              state: lookup.doorState(node, bytes, 9)
             }
           }
         }
@@ -280,13 +279,13 @@ module.exports = {
           deviceId: uint32(bytes, 4),
           event: {
             index: uint32(bytes, 8),
-            type: lookup.eventType(bytes, 12),
+            type: lookup.eventType(node, bytes, 12),
             granted: bool(bytes, 13),
             door: uint8(bytes, 14),
-            direction: lookup.direction(bytes, 15),
+            direction: lookup.direction(node, bytes, 15),
             card: uint32(bytes, 16),
             timestamp: yyyymmddHHmmss(bytes, 20),
-            reason: lookup.reason(bytes, 27)
+            reason: lookup.reason(node, bytes, 27)
           }
         }
 
@@ -297,20 +296,20 @@ module.exports = {
 }
 
 // function code: 0x20
-function state (bytes) {
+function state (node, bytes) {
   const lookup = require('./lookup.js')
 
   return {
     serialNumber: uint32(bytes, 4),
     event: {
       index: uint32(bytes, 8),
-      type: lookup.eventType(bytes, 12),
+      type: lookup.eventType(node, bytes, 12),
       granted: bool(bytes, 13),
       door: uint8(bytes, 14),
-      direction: lookup.direction(bytes, 15),
+      direction: lookup.direction(node, bytes, 15),
       card: uint32(bytes, 16),
       timestamp: yyyymmddHHmmss(bytes, 20),
-      reason: lookup.reason(bytes, 27)
+      reason: lookup.reason(node, bytes, 27)
     },
     doors: {
       1: bool(bytes, 28),

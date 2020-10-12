@@ -41,7 +41,7 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.get(deviceId, opcodes.GetCardByIndex, { card: { index: index } }, uhppote, (m) => { node.log(m) })
+        uhppoted.get(deviceId, opcodes.GetCardByIndex, { card: { index: index } }, { node: node, config: uhppote }, (m) => { node.log(m) })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })
