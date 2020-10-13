@@ -300,5 +300,5 @@ function translate (node, text) {
     return node.translate(map[text])
   }
 
-  return text + 'asdfasdfa'
+  return text
 }
