@@ -28,12 +28,13 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.send(
-          deviceId,
-          opcodes.SetIP,
-          { address: address, netmask: netmask, gateway: gateway },
-          { node: node, config: uhppote },
-          (m) => { node.log(m) })
+        const context = {
+          node: node,
+          config: uhppote,
+          logger: (m) => { node.log(m) }
+        }
+
+        uhppoted.send(context, deviceId, opcodes.SetIP, { address: address, netmask: netmask, gateway: gateway })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

@@ -2,12 +2,9 @@
 
 ## IN PROGRESS
 
-- [ ] internationalisation
-      - shuffle order of uhppoted function arguments (context should be first)
-      - fix codec unit tests
-      - move logger into context
-- [ ] unify broadcast/send/exec
+- [ ] unify broadcast/send/exec/listen
 - [ ] document codec functions
+      - maybe rework codec as map of functions
 - [ ] document lookup functions
 - [ ] README
 - [ ] 'force broadcast' flag in config
@@ -19,6 +16,7 @@
 - [ ] integration tests
 - [ ] 'U' node icon
 
+- [x] internationalisation
 - [x] put card.status output at top of get-card-xxx outputs
 - [x] check node status thing conforms to node-red packaging guide (https://nodered.org/docs/creating-nodes/i18n)
 - [x] split get-card output to separate status + record

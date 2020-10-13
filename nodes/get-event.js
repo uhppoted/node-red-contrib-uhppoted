@@ -28,7 +28,13 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.set(deviceId, opcodes.GetEvent, { index: index }, { node: node, config: uhppote }, (m) => { node.log(m) })
+        const context = {
+          node: node,
+          config: uhppote,
+          logger: (m) => { node.log(m) }
+        }
+
+        uhppoted.set(context, deviceId, opcodes.GetEvent, { index: index })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

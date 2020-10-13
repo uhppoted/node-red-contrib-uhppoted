@@ -10,19 +10,18 @@ module.exports = {
     * 'get' and 'set' are functionally identical but are defined separately for
     * semantic clarity.
     *
+    * @param {object}   context  Invoking node, configuration and logger
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
-    * @param {object}   context  Invoking node and configuration
-    * @param {function} logger   Log function for sent/received messages
     *
     * @param {object}   Decoded reply containing the received information
     *
     * @author: TS
     * @exports
     */
-  get: async function (deviceId, op, request, context, logger) {
-    return exec(deviceId, op, request, context, logger)
+  get: async function (context, deviceId, op, request) {
+    return exec(context, deviceId, op, request)
   },
 
   /**
@@ -30,19 +29,18 @@ module.exports = {
     * 'get' and 'set' are functionally identical but are defined separately for
     * semantic clarity.
     *
+    * @param {object}   context  Invoking node, configuration and logger
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
-    * @param {object}   context  Invoking node and configuration
-    * @param {function} logger   Log function for sent/received messages
     *
     * @param {object}  Decoded result of the operation
     *
     * @author: TS
     * @exports
     */
-  set: async function (deviceId, op, request, context, logger) {
-    return exec(deviceId, op, request, context, logger)
+  set: async function (context, deviceId, op, request) {
+    return exec(context, deviceId, op, request)
   },
 
   /**
@@ -50,16 +48,15 @@ module.exports = {
     * expecting a reply. Used solely by the 'set-ip' node - the UHPPOTE access controller
     * does not reply to the set IP command.
     *
+    * @param {object}   context  Invoking node, configuration and logger
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
-    * @param {object}   context  Invoking node and configuration
-    * @param {function} logger   Log function for sent/received messages
     *
     * @author: TS
     */
-  send: async function (deviceId, op, request, context, logger) {
-    const c = configuration(deviceId, context.config, logger)
+  send: async function (context, deviceId, op, request) {
+    const c = configuration(deviceId, context.config, context.logger)
     const sock = dgram.createSocket(opts)
     const rq = codec.encode(context.node, op, deviceId, request)
 
@@ -120,11 +117,10 @@ module.exports = {
     * explicity issues a UDP broadcast message - 'get' will issue a UDP 'sendto' if
     * possible.
     *
+    * @param {object}   context  Invoking node, configuration and logger
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
-    * @param {object}   context  Invoking node and configuration
-    * @param {function} logger   Log function for sent/received messages
     *
     * @param {array} Array of Javascript objects from codec.decode containing the decoded
     *                received responses.
@@ -132,8 +128,8 @@ module.exports = {
     * @author: TS
     * @exports
     */
-  broadcast: async function (deviceId, op, request, context, logger) {
-    const c = configuration(deviceId, context.config, logger)
+  broadcast: async function (context, deviceId, op, request) {
+    const c = configuration(deviceId, context.config, context.logger)
     const sock = dgram.createSocket(opts)
     const rq = codec.encode(context.node, op, deviceId, request)
 
@@ -256,18 +252,17 @@ module.exports = {
   * to send events to this host:port. Received events are forwarded to the
   * supplied handler for dispatch to the application.
   *
+  * @param {object}   context  Invoking node, configuration and logger
   * @param {number}   deviceId The serial number for the target access controller
   * @param {byte}     op       Operation code from 'opcode' module
   * @param {object}   request  Operation parameters for use by codec.encode
-  * @param {object}   context  Invoking node and configuration
-  * @param {function} logger   Log function for sent/received messages
   *
   * @param {object}  Decoded reply from access controller
   *
   * @author: TS
   */
-async function exec (deviceId, op, request, context, logger) {
-  const c = configuration(deviceId, context.config, logger)
+async function exec (context, deviceId, op, request) {
+  const c = configuration(deviceId, context.config, context.logger)
   const sock = dgram.createSocket(opts)
   const rq = codec.encode(context.node, op, deviceId, request)
   let received = () => {}

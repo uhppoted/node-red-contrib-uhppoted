@@ -41,7 +41,13 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.get(deviceId, opcodes.GetCardByIndex, { card: { index: index } }, { node: node, config: uhppote }, (m) => { node.log(m) })
+        const context = {
+          node: node,
+          config: uhppote,
+          logger: (m) => { node.log(m) }
+        }
+
+        uhppoted.get(context, deviceId, opcodes.GetCardByIndex, { card: { index: index } })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

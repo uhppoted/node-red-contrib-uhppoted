@@ -34,7 +34,13 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.set(deviceId, 0x90, { address: address, port: port }, { node: node, config: uhppote }, (m) => { node.log(m) })
+        const context = {
+          node: node,
+          config: uhppote,
+          logger: (m) => { node.log(m) }
+        }
+
+        uhppoted.set(context, deviceId, 0x90, { address: address, port: port })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

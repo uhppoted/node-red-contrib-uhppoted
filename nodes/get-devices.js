@@ -24,7 +24,13 @@ module.exports = function (RED) {
       }
 
       try {
-        uhppoted.broadcast(0, opcodes.GetDevice, {}, { node: node, config: uhppote }, (m) => { node.log(m) })
+        const context = {
+          node: node,
+          config: uhppote,
+          logger: (m) => { node.log(m) }
+        }
+
+        uhppoted.broadcast(context, 0, opcodes.GetDevice, {})
           .then(objects => { emit(objects) })
           .then(done())
           .catch(err => { error(err) })
