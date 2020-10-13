@@ -55,6 +55,10 @@ module.exports = function (RED) {
           .catch(err => { error(err) })
       } catch (err) { error(err) }
     })
+
+    this.translate = function (key) {
+      return RED._('set-door-control.' + key)
+    }
   }
 
   RED.nodes.registerType('set-door-control', SetDoorControlNode)

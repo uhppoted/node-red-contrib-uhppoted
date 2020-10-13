@@ -33,22 +33,8 @@ module.exports = function (RED) {
       } catch (err) { error(err) }
     })
 
-    this.translate = function (text) {
-      switch (text) {
-        case 'normally open':
-          return RED._('get-door-control.normallyOpen')
-
-        case 'normally closed':
-          return RED._('get-door-control.normallyClosed')
-
-        case 'controlled':
-          return RED._('get-door-control.controlled')
-
-        case 'unknown':
-          return RED._('get-door-control.unknown')
-      }
-
-      return text
+    this.translate = function (key) {
+      return RED._('get-door-control.' + key)
     }
   }
 

@@ -1,3 +1,57 @@
+const map = {
+  unknown: 'unknown',
+
+  // event type
+  none: 'eventNone',
+  'card swipe': 'eventSwipe',
+  door: 'eventDoor',
+  alarm: 'eventAlarm',
+  '<overwritten>': 'eventOverwritten',
+
+  // event direction
+  in: 'directionIn',
+  out: 'directionOut',
+
+  // event reason
+  swipe: 'swipe',
+  'swipe:denied (system)': 'swipeDenied',
+  'no access rights': 'noAccess',
+  'incorrect password': 'incorrectPassword',
+  'anti-passback': 'antiPassback',
+  'more cards': 'moreCards',
+  'first card open': 'firstCardOpen',
+  'door is normally closed': 'doorNormallyClosed',
+  interlock: 'interlock',
+  'not in allowed time period': 'notInAllowedTimePeriod',
+  'invalid timezone': 'invalidTimezone',
+  'access denied': 'accessDenied',
+  'push button ok': 'pushbuttonOk',
+  'door opened': 'doorOpened',
+  'door closed': 'doorClosed',
+  'door opened (supervisor password)': 'supervisorDoorOpen',
+  'controller power on': 'controllerPowerOn',
+  'controller reset': 'controllerReset',
+  'pushbutton invalid (door locked)': 'pushbuttonDoorLocked',
+  'pushbutton invalid (offline)': 'pushbuttonOffline',
+  'pushbutton invalid (interlock)': 'pushbuttonInterlock',
+  'pushbutton invalid (threat)': 'pushbuttonThreat',
+  'door open too long': 'doorOpenTooLong',
+  'forced open': 'forcedOpen',
+  fire: 'fire',
+  'forced closed': 'forcedClosed',
+  'theft prevention': 'theftPrevention',
+  '24x7 zone': 'zone24x7',
+  emergency: 'emergency',
+  'remote open door': 'remoteOpenDoor',
+  'remote open door (USB reader)': 'usbOpenDoor',
+  '(reserved)': 'reserved',
+
+  // doors
+  'normally open': 'normallyOpen',
+  'normally closed': 'normallyClosed',
+  controlled: 'controlled'
+}
+
 module.exports = {
 
   eventType: function (node, bytes, offset) {
@@ -242,5 +296,9 @@ module.exports = {
 }
 
 function translate (node, text) {
-  return (node && node.translate) ? node.translate(text) : text
+  if (node && node.translate && Object.keys(map).includes(text)) {
+    return node.translate(map[text])
+  }
+
+  return text + 'asdfasdfa'
 }

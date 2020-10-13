@@ -3,7 +3,6 @@
 ## IN PROGRESS
 
 - [ ] internationalisation
-      - clean up lookup/translate
       - shuffle order of uhppoted function arguments (context should be first)
       - move logger into context
 - [ ] unify broadcast/send/exec
