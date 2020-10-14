@@ -27,7 +27,6 @@ module.exports = function (RED) {
 
       try {
         const context = {
-          node: node,
           config: uhppote,
           translator: (k) => { return RED._('set-event-index.' + k) },
           logger: (m) => { node.log(m) }

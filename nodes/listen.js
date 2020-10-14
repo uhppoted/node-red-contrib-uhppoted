@@ -11,7 +11,6 @@ module.exports = function (RED) {
     common.ok(node)
 
     const context = {
-      node: node,
       config: RED.nodes.getNode(config.config),
       translator: (k) => { return RED._('listen.' + k) },
       logger: (m) => { node.log(m) }

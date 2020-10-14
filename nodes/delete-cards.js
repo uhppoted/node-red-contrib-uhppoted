@@ -26,7 +26,6 @@ module.exports = function (RED) {
 
       try {
         const context = {
-          node: node,
           config: uhppote,
           translator: (k) => { return RED._('delete-all-cards.' + k) },
           logger: (m) => { node.log(m) }
