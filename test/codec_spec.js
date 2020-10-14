@@ -8,7 +8,7 @@ const opcodes = require('../nodes/opcodes.js')
 describe('codec', function () {
   describe('#encode(...)', function () {
     it('should fail with error when encoding an invalid function code', function () {
-      expect(() => { codec.encode(null, 0xff) }).to.throw('invalid protocol function code 255')
+      expect(() => { codec.encode(0xff) }).to.throw('invalid protocol function code 255')
     })
 
     it('should encode get-devices request', function () {
@@ -19,7 +19,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.GetDevice)
+      const bytes = codec.encode(opcodes.GetDevice)
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -32,7 +32,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.GetDevice, 405419896)
+      const bytes = codec.encode(opcodes.GetDevice, 405419896)
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -45,7 +45,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.SetIP, 405419896, {
+      const bytes = codec.encode(opcodes.SetIP, 405419896, {
         address: '192.168.1.125',
         netmask: '255.255.255.0',
         gateway: '192.168.0.1'
@@ -62,7 +62,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.GetStatus, 405419896)
+      const bytes = codec.encode(opcodes.GetStatus, 405419896)
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -75,7 +75,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.GetListener, 405419896)
+      const bytes = codec.encode(opcodes.GetListener, 405419896)
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -88,7 +88,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.SetListener, 405419896, { address: '192.168.1.100', port: 60001 })
+      const bytes = codec.encode(opcodes.SetListener, 405419896, { address: '192.168.1.100', port: 60001 })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -101,7 +101,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.GetTime, 405419896)
+      const bytes = codec.encode(opcodes.GetTime, 405419896)
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -114,7 +114,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.SetTime, 405419896, { datetime: '2021-08-29 13:45:51' })
+      const bytes = codec.encode(opcodes.SetTime, 405419896, { datetime: '2021-08-29 13:45:51' })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -127,7 +127,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.GetDoorControl, 405419896, { door: 3 })
+      const bytes = codec.encode(opcodes.GetDoorControl, 405419896, { door: 3 })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -140,7 +140,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.SetDoorControl, 405419896, { door: 3, delay: 9, control: opcodes.NormallyClosed })
+      const bytes = codec.encode(opcodes.SetDoorControl, 405419896, { door: 3, delay: 9, control: opcodes.NormallyClosed })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -153,7 +153,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.OpenDoor, 405419896, { door: 3 })
+      const bytes = codec.encode(opcodes.OpenDoor, 405419896, { door: 3 })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -166,7 +166,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.GetCards, 405419896)
+      const bytes = codec.encode(opcodes.GetCards, 405419896)
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -179,7 +179,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.GetCardByID, 405419896, { card: { number: 61532836 } })
+      const bytes = codec.encode(opcodes.GetCardByID, 405419896, { card: { number: 61532836 } })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -192,7 +192,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.GetCardByIndex, 405419896, { card: { index: 13726 } })
+      const bytes = codec.encode(opcodes.GetCardByIndex, 405419896, { card: { index: 13726 } })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -205,7 +205,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.PutCard, 405419896, {
+      const bytes = codec.encode(opcodes.PutCard, 405419896, {
         card: {
           number: 61532836,
           valid: {
@@ -232,7 +232,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.DeleteCard, 405419896, { card: { number: 61532836 } })
+      const bytes = codec.encode(opcodes.DeleteCard, 405419896, { card: { number: 61532836 } })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -245,7 +245,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.DeleteCards, 405419896, { })
+      const bytes = codec.encode(opcodes.DeleteCards, 405419896, { })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -258,7 +258,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.GetEventIndex, 405419896, { })
+      const bytes = codec.encode(opcodes.GetEventIndex, 405419896, { })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -271,7 +271,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.SetEventIndex, 405419896, { index: 54321 })
+      const bytes = codec.encode(opcodes.SetEventIndex, 405419896, { index: 54321 })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -284,7 +284,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(null, opcodes.GetEvent, 405419896, { index: 73182 })
+      const bytes = codec.encode(opcodes.GetEvent, 405419896, { index: 73182 })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -299,7 +299,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.equal(null) // don't particularly want to import the 'null' function from chai
     })
@@ -325,7 +325,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -391,7 +391,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x20, 0x08, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -410,7 +410,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -428,7 +428,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -447,7 +447,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -465,7 +465,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -490,7 +490,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -515,7 +515,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -533,7 +533,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -551,7 +551,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -581,7 +581,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -611,7 +611,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -641,7 +641,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -671,7 +671,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -689,7 +689,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -707,7 +707,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -725,7 +725,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -743,7 +743,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -761,7 +761,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -797,7 +797,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })
@@ -863,7 +863,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x20, 0x08, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const object = codec.decode(null, new Uint8Array(msg))
+      const object = codec.decode(new Uint8Array(msg))
 
       expect(object).to.deep.equal(expected)
     })

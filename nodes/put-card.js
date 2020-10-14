@@ -29,7 +29,7 @@ module.exports = function (RED) {
         const context = {
           node: node,
           config: uhppote,
-          translator: (k) => { RED._('put-card.' + k) },
+          translator: (k) => { return RED._('put-card.' + k) },
           logger: (m) => { node.log(m) }
         }
 

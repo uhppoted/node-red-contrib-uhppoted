@@ -2,7 +2,7 @@
 
 ## IN PROGRESS
 
-- [ ] unify broadcast/send/exec/listen
+- [ ] unify broadcast/send/exec
 - [ ] document codec functions
       - maybe rework codec as map of functions
 - [ ] document lookup functions
@@ -15,6 +15,7 @@
 - [ ] dashboard: store list of controllers in global config
 - [ ] integration tests
 - [ ] 'U' node icon
+- [ ] unit test for codec.decode with translator
 
 - [x] internationalisation
 - [x] put card.status output at top of get-card-xxx outputs

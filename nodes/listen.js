@@ -13,7 +13,7 @@ module.exports = function (RED) {
     const context = {
       node: node,
       config: RED.nodes.getNode(config.config),
-      translator: (k) => { RED._('listen.' + k) },
+      translator: (k) => { return RED._('listen.' + k) },
       logger: (m) => { node.log(m) }
     }
 

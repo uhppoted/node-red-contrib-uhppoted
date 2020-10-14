@@ -1,5 +1,5 @@
 module.exports = {
-  encode: function (node, code, deviceId, object) {
+  encode: function (code, deviceId, object) {
     const ip = require('ip')
     const request = Buffer.alloc(64)
     const opcodes = require('../nodes/opcodes.js')
@@ -152,7 +152,7 @@ module.exports = {
     return request
   },
 
-  decode: function (node, buffer) {
+  decode: function (buffer, translator) {
     const lookup = require('./lookup.js')
 
     if ((buffer.length !== 64) || (buffer[0] !== 0x17)) {
@@ -165,7 +165,7 @@ module.exports = {
       case 0x20:
         return {
           deviceId: uint32(bytes, 4),
-          state: state(node, bytes)
+          state: state(bytes, translator)
         }
 
       case 0x30:
@@ -238,7 +238,7 @@ module.exports = {
             delay: uint8(bytes, 10),
             control: {
               value: uint8(bytes, 9),
-              state: lookup.doorState(node, bytes, 9)
+              state: lookup.doorState(bytes, 9, translator)
             }
           }
         }
@@ -262,6 +262,21 @@ module.exports = {
           device: device(bytes)
         }
 
+      case 0xb0:
+        return {
+          deviceId: uint32(bytes, 4),
+          event: {
+            index: uint32(bytes, 8),
+            type: lookup.eventType(bytes, 12, translator),
+            granted: bool(bytes, 13),
+            door: uint8(bytes, 14),
+            direction: lookup.direction(bytes, 15, translator),
+            card: uint32(bytes, 16),
+            timestamp: yyyymmddHHmmss(bytes, 20),
+            reason: lookup.reason(bytes, 27, translator)
+          }
+        }
+
       case 0xb4:
         return {
           deviceId: uint32(bytes, 4),
@@ -274,21 +289,6 @@ module.exports = {
           updated: bool(bytes, 8)
         }
 
-      case 0xb0:
-        return {
-          deviceId: uint32(bytes, 4),
-          event: {
-            index: uint32(bytes, 8),
-            type: lookup.eventType(node, bytes, 12),
-            granted: bool(bytes, 13),
-            door: uint8(bytes, 14),
-            direction: lookup.direction(node, bytes, 15),
-            card: uint32(bytes, 16),
-            timestamp: yyyymmddHHmmss(bytes, 20),
-            reason: lookup.reason(node, bytes, 27)
-          }
-        }
-
       default:
         return null
     }
@@ -296,20 +296,20 @@ module.exports = {
 }
 
 // function code: 0x20
-function state (node, bytes) {
+function state (bytes, translator) {
   const lookup = require('./lookup.js')
 
   return {
     serialNumber: uint32(bytes, 4),
     event: {
       index: uint32(bytes, 8),
-      type: lookup.eventType(node, bytes, 12),
+      type: lookup.eventType(bytes, 12, translator),
       granted: bool(bytes, 13),
       door: uint8(bytes, 14),
-      direction: lookup.direction(node, bytes, 15),
+      direction: lookup.direction(bytes, 15, translator),
       card: uint32(bytes, 16),
       timestamp: yyyymmddHHmmss(bytes, 20),
-      reason: lookup.reason(node, bytes, 27)
+      reason: lookup.reason(bytes, 27, translator)
     },
     doors: {
       1: bool(bytes, 28),

@@ -44,7 +44,7 @@ module.exports = function (RED) {
         const context = {
           node: node,
           config: uhppote,
-          translator: (k) => { RED._('get-card-by-index.' + k) },
+          translator: (k) => { return RED._('get-card-by-index.' + k) },
           logger: (m) => { node.log(m) }
         }
 

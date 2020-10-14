@@ -58,7 +58,7 @@ module.exports = {
   send: async function (context, deviceId, op, request) {
     const c = configuration(deviceId, context.config, context.logger)
     const sock = dgram.createSocket(opts)
-    const rq = codec.encode(context.node, op, deviceId, request)
+    const rq = codec.encode(op, deviceId, request)
 
     const onerror = new Promise((resolve, reject) => {
       sock.on('error', (err) => {
@@ -131,11 +131,11 @@ module.exports = {
   broadcast: async function (context, deviceId, op, request) {
     const c = configuration(deviceId, context.config, context.logger)
     const sock = dgram.createSocket(opts)
-    const rq = codec.encode(context.node, op, deviceId, request)
+    const rq = codec.encode(op, deviceId, request)
 
     const decode = function (reply) {
       if (reply) {
-        const response = codec.decode(context.node, reply)
+        const response = codec.decode(reply, context.translator)
         if (response) {
           return response
         }
@@ -214,7 +214,7 @@ module.exports = {
     sock.on('message', (message, rinfo) => {
       log(c.debug, 'received', message, rinfo)
 
-      const event = codec.decode(context.node, message)
+      const event = codec.decode(message, context.translator)
 
       if (event) {
         handler.received(event)
@@ -250,12 +250,12 @@ module.exports = {
 async function exec (context, deviceId, op, request) {
   const c = configuration(deviceId, context.config, context.logger)
   const sock = dgram.createSocket(opts)
-  const rq = codec.encode(context.node, op, deviceId, request)
+  const rq = codec.encode(op, deviceId, request)
   let received = () => {}
 
   const decode = function (reply) {
     if (reply) {
-      const response = codec.decode(context.node, reply)
+      const response = codec.decode(reply, context.translator)
       if (response && (response.deviceId === deviceId)) {
         return response
       }
