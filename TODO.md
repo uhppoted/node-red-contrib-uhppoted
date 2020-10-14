@@ -7,7 +7,7 @@
       - maybe rework codec as map of functions
 - [ ] document lookup functions
 - [ ] README
-- [ ] 'force broadcast' flag in config
+- [ ] 'force broadcast' flag in config (?)
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
 - [ ] dashboard: add 'update' button to configuration page
 - [ ] dashboard: distribute received event index

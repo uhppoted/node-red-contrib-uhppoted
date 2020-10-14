@@ -197,14 +197,14 @@ module.exports = {
     * to send events to this host:port. Received events are forwarded to the
     * supplied handler for dispatch to the application.
     *
-    * @param {string}   bind     UDP address:port to bind to
-    * @param {byte}     debug    Logs received messages to console if 'true'
+    * @param {object}   context  Invoking node, configuration and logger
     * @param {function} handler  Function to invoke with received event
     *
     * @author: TS
     * @exports
     */
-  listen: function (bind, debug, handler) {
+  listen: function (context, handler) {
+    const c = configuration(0, context.config, context.logger)
     const sock = dgram.createSocket(opts)
 
     sock.on('error', (err) => {
@@ -212,32 +212,18 @@ module.exports = {
     })
 
     sock.on('message', (message, rinfo) => {
-      if (debug) {
-        log(debug, 'received', message, rinfo)
-      }
+      log(c.debug, 'received', message, rinfo)
 
-      handler.received(rinfo, message)
+      const event = codec.decode(context.node, message)
+
+      if (event) {
+        handler.received(event)
+      }
     })
 
-    let address = '0.0.0.0'
-    let port = 60001
-
-    if (bind) {
-      const re = /^(.*?)(?::([0-9]+))?$/
-      const match = bind.match(re)
-
-      if ((match.length > 1) && match[1]) {
-        address = match[1]
-      }
-
-      if ((match.length > 2) && match[2]) {
-        port = parseInt(match[2], 10)
-      }
-    }
-
     sock.bind({
-      address: address,
-      port: port
+      address: c.listen.address,
+      port: c.listen.port
     })
 
     return sock
@@ -358,12 +344,14 @@ function configuration (deviceId, config, logger) {
   let timeout = 5000
   let bind = '0.0.0.0'
   let dest = '255.255.255.255:60000'
+  let listen = '0.0.0.0:60000'
   let debug = false
 
   if (config) {
     timeout = config.timeout
     bind = config.bind
     dest = config.broadcast
+    listen = config.listen
     debug = config.debug ? function (l, m) { logger(l + '\n' + m) } : null
 
     if (config.controllers) {
@@ -389,6 +377,7 @@ function configuration (deviceId, config, logger) {
     timeout: timeout,
     bind: bind,
     addr: stringToIP(dest),
+    listen: stringToIP(listen),
     debug: debug
   }
 }

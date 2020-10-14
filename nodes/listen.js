@@ -1,34 +1,27 @@
 module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
-  const codec = require('./codec.js')
 
   function ListenNode (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
     const topic = config.topic
-    const uhppote = RED.nodes.getNode(config.config)
-
-    let bind = '0.0.0.0:60000'
-    let debug = false
-
-    if (uhppote) {
-      bind = uhppote.listen
-      debug = uhppote.debug ? function (l, m) { node.log(l + '\n' + m) } : null
-    }
 
     common.ok(node)
 
-    const listener = uhppoted.listen(bind, debug, this)
+    const context = {
+      node: node,
+      config: RED.nodes.getNode(config.config),
+      translator: (k) => { RED._('listen.' + k) },
+      logger: (m) => { node.log(m) }
+    }
 
-    this.received = function (src, msg) {
-      const event = decode(msg)
+    const listener = uhppoted.listen(context, this)
 
-      if (event) {
-        common.emit(node, topic, event)
-        common.ok(node)
-      }
+    this.received = function (event) {
+      common.emit(node, topic, event)
+      common.ok(node)
     }
 
     this.onerror = function (err) {
@@ -39,10 +32,6 @@ module.exports = function (RED) {
       if (listener) {
         listener.close()
       }
-    }
-
-    const decode = function (message) {
-      return codec.decode(node, message)
     }
 
     this.translate = function (key) {
