@@ -21,7 +21,13 @@ module.exports = {
     * @exports
     */
   get: async function (context, deviceId, op, request) {
-    return exec(context, deviceId, op, request)
+    let timeout = 5000
+
+    if (context && context.config) {
+      timeout = context.config.timeout
+    }
+
+    return exec(context, deviceId, op, request, receiveAny(timeout))
   },
 
   /**
@@ -40,7 +46,13 @@ module.exports = {
     * @exports
     */
   set: async function (context, deviceId, op, request) {
-    return exec(context, deviceId, op, request)
+    let timeout = 5000
+
+    if (context && context.config) {
+      timeout = context.config.timeout
+    }
+
+    return exec(context, deviceId, op, request, receiveAny(timeout))
   },
 
   /**
@@ -66,7 +78,7 @@ module.exports = {
       })
     })
 
-    const receive = receiver(0)
+    const receive = receiveAll()
 
     const send = new Promise((resolve, reject) => {
       sock.on('listening', () => {
@@ -150,7 +162,7 @@ module.exports = {
       })
     })
 
-    const receive = receiver(c.timeout)
+    const receive = receiveAll(c.timeout)
 
     const send = new Promise((resolve, reject) => {
       sock.on('listening', () => {
@@ -184,7 +196,7 @@ module.exports = {
       const result = await Promise.race([onerror, Promise.all([receive, send])])
 
       if (result && result.length === 2) {
-        return receive.replies.map(reply => decode(reply))
+        return result[0].map(m => decode(m))
       }
     } finally {
       sock.close()
@@ -242,16 +254,16 @@ module.exports = {
   * @param {number}   deviceId The serial number for the target access controller
   * @param {byte}     op       Operation code from 'opcode' module
   * @param {object}   request  Operation parameters for use by codec.encode
+  * @param {function} receive  Handler for received messages
   *
-  * @param {object}  Decoded reply from access controller
+  * @return {object}  Decoded reply from access controller
   *
   * @author: TS
   */
-async function exec (context, deviceId, op, request) {
+async function exec (context, deviceId, op, request, receive) {
   const c = configuration(deviceId, context.config, context.logger)
   const sock = dgram.createSocket(opts)
   const rq = codec.encode(op, deviceId, request)
-  let received = () => {}
 
   const decode = function (reply) {
     if (reply) {
@@ -268,17 +280,6 @@ async function exec (context, deviceId, op, request) {
     sock.on('error', (err) => {
       reject(err)
     })
-  })
-
-  const wait = new Promise((resolve, reject) => {
-    const timer = setTimeout(() => {
-      reject(new Error('timeout'))
-    }, c.timeout)
-
-    received = (reply) => {
-      clearTimeout(timer)
-      resolve(reply)
-    }
   })
 
   const send = new Promise((resolve, reject) => {
@@ -306,13 +307,11 @@ async function exec (context, deviceId, op, request) {
   sock.on('message', (message, rinfo) => {
     log(c.debug, 'received', message, rinfo)
 
-    if (received) {
-      received(new Uint8Array(message))
-    }
+    receive.received(new Uint8Array(message))
   })
 
   try {
-    const result = await Promise.race([onerror, Promise.all([wait, send])])
+    const result = await Promise.race([onerror, Promise.all([receive, send])])
 
     if (result && result.length > 0) {
       return decode(result[0])
@@ -491,29 +490,66 @@ function isBroadcast (addr) {
 }
 
 /**
-  * Utility function construct a Promise that can hold received replies while waiting
-  * for a timeout. Intended to unifiy 'broadcast', 'send' and 'exec' but currently only
-  * used by 'broadcast' and 'send', because Javascript..
+  * Utility function construct a Promise that can hold all received replies while waiting
+  * for a timeout. Used by 'broadcast' and 'send'.
   *
   * Ref. https://stackoverflow.com/questions/48158730/extend-javascript-promise-and-resolve-or-reject-it-inside-constructor
   *
-  * @param {number} timeout  Timeout (in seconds)
+  * @param {number} timeout  Timeout (in seconds). Ignored if 'undefined' (e.g. for send() which does not expect
+  *                          a reply)
   *
-  * @returns {promise} Constructed Promised with an added 'replies' field and 'received' function.
+  * @returns {promise} Constructed Promised with a 'received' function. Received messages are returned on 'resolve'.
   *
   * @author: TS
   */
-function receiver (timeout) {
+function receiveAll (timeout) {
+  var replies = []
+
   const p = new Promise((resolve, reject) => {
-    if (timeout > 0) {
-      setTimeout(resolve, timeout)
+    if (timeout) {
+      setTimeout(() => { resolve(replies) }, timeout)
     } else {
       resolve()
     }
   })
 
-  p.replies = []
-  p.received = (message) => { p.replies.push(new Uint8Array(message)) }
+  p.received = (message) => {
+    replies.push(new Uint8Array(message))
+  }
+
+  return p
+}
+
+/**
+  * Utility function construct a Promise that can resolves on receiving a single reply. Used by 'get' and 'set'.
+  *
+  * @param {number} timeout  Timeout (in seconds). Ignored if 'undefined' (e.g. for send() which does not expect
+  *                          a reply)
+  *
+  * @returns {promise} Constructed Promised with a 'received' function.
+  *
+  * @author: TS
+  */
+function receiveAny (timeout) {
+  var timer
+  var f
+
+  const p = new Promise((resolve, reject) => {
+    f = resolve
+    if (timeout) {
+      timer = setTimeout(() => { reject(new Error('timeout')) }, timeout)
+    }
+  })
+
+  p.received = (message) => {
+    if (timer) {
+      clearTimeout(timer)
+    }
+
+    if (f) {
+      f(message)
+    }
+  }
 
   return p
 }

@@ -3,10 +3,9 @@
 ## IN PROGRESS
 
 - [ ] unify broadcast/send/exec
-- [ ] document codec functions
-      - maybe rework codec as map of functions
-- [ ] document lookup functions
 - [ ] README
+- [ ] document codec functions
+- [ ] document lookup functions
 - [ ] 'force broadcast' flag in config (?)
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
 - [ ] dashboard: add 'update' button to configuration page
@@ -16,6 +15,7 @@
 - [ ] integration tests
 - [ ] 'U' node icon
 - [ ] unit test for codec.decode with translator
+- [ ] (maybe) rework codec as map of functions
 
 - [x] internationalisation
 - [x] put card.status output at top of get-card-xxx outputs
