@@ -2,8 +2,8 @@
 
 ## IN PROGRESS
 
-- [ ] unify broadcast/send/exec
 - [ ] README
+- [ ] unify broadcast/send/exec
 - [ ] document codec functions
 - [ ] document lookup functions
 - [ ] 'force broadcast' flag in config (?)
