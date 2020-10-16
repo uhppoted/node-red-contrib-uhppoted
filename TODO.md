@@ -2,8 +2,8 @@
 
 ## IN PROGRESS
 
-- [ ] README
 - [ ] unify broadcast/send/exec
+- [ ] move listen example into events
 - [ ] document codec functions
 - [ ] document lookup functions
 - [ ] 'force broadcast' flag in config (?)
@@ -17,6 +17,7 @@
 - [ ] unit test for codec.decode with translator
 - [ ] (maybe) rework codec as map of functions
 
+- [x] README
 - [x] internationalisation
 - [x] put card.status output at top of get-card-xxx outputs
 - [x] check node status thing conforms to node-red packaging guide (https://nodered.org/docs/creating-nodes/i18n)
