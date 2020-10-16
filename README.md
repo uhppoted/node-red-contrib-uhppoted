@@ -4,14 +4,14 @@
 
 Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports device and card management as well as handling for events.
 
-##### Requirements:
+#### Requirements:
 - `node-red` version 1.1.3+
 - `node.js` version 14.7.4+
 - `ip.js` version 1.1.5+ 
 
 For the latest updates see the [CHANGELOG.md](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/CHANGELOG.md)
 
-##### Installation
+#### Installation
 
 The nodes are currently only installable from the [node-red-contrib-uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository:
 
@@ -48,7 +48,8 @@ npm install
 All nodes take a message with JSON object payload as input and send a message with a JSON object payload as output.
 
 ##### Configuration
-The nodes can optionally use a configuration that overrides the defaults:
+
+The nodes can (optionally) accept a configuration that overrides the default settings:
 
 |               | Description                                    | Default           |
 | ------------- | ---------------------------------------------- | ----------------- |
@@ -59,7 +60,7 @@ The nodes can optionally use a configuration that overrides the defaults:
 | `controllers` | List of controller specific IPv4 address:port overrides for systems where a controller is either not located on the same LAN (i.e. cannot receive or respond to UDP broadcasts) or where directed UDP messages are preferred. | `(none)` |
 | `debug`      | Enables logging of request/response messages to the console | `false` |
 
-## Examples
+### Examples
 
 The [node-red-contrib-uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository includes a set of [basic examples](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/basic) that demonstrate the usage of each node, as well as a more complex [dashboard project](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/dashboard) that combines the nodes to create a dashboard:
 
@@ -77,10 +78,10 @@ The [node-red-contrib-uhppoted](https://github.com/uhppoted/node-red-contrib-uhp
 
 
 
-## Issues and Feature Requests
+### Issues and Feature Requests
 
 Please create an issue in the [node-red-contrib-uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository.
 
-## License
+### License
 
 [MIT](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/LICENSE)

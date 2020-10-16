@@ -21,13 +21,20 @@ module.exports = {
     * @exports
     */
   get: async function (context, deviceId, op, request) {
-    let timeout = 5000
+    const timeout = (context && context.config) ? context.config.timeout : 5000
 
-    if (context && context.config) {
-      timeout = context.config.timeout
+    const decode = function (reply) {
+      if (reply) {
+        const response = codec.decode(reply, context.translator)
+        if (response && (response.deviceId === deviceId)) {
+          return response
+        }
+      }
+
+      throw new Error(`no reply from ${deviceId}`)
     }
 
-    return exec(context, deviceId, op, request, receiveAny(timeout))
+    return exec(context, deviceId, op, request, receiveAny(timeout), decode)
   },
 
   /**
@@ -46,13 +53,20 @@ module.exports = {
     * @exports
     */
   set: async function (context, deviceId, op, request) {
-    let timeout = 5000
+    const timeout = (context && context.config) ? context.config.timeout : 5000
 
-    if (context && context.config) {
-      timeout = context.config.timeout
+    const decode = function (reply) {
+      if (reply) {
+        const response = codec.decode(reply, context.translator)
+        if (response && (response.deviceId === deviceId)) {
+          return response
+        }
+      }
+
+      throw new Error(`no reply from ${deviceId}`)
     }
 
-    return exec(context, deviceId, op, request, receiveAny(timeout))
+    return exec(context, deviceId, op, request, receiveAny(timeout), decode)
   },
 
   /**
@@ -68,55 +82,11 @@ module.exports = {
     * @author: TS
     */
   send: async function (context, deviceId, op, request) {
-    const c = configuration(deviceId, context.config, context.logger)
-    const sock = dgram.createSocket(opts)
-    const rq = codec.encode(op, deviceId, request)
-
-    const onerror = new Promise((resolve, reject) => {
-      sock.on('error', (err) => {
-        reject(err)
-      })
-    })
-
-    const receive = receiveAll()
-
-    const send = new Promise((resolve, reject) => {
-      sock.on('listening', () => {
-        if (isBroadcast(c.addr.address)) {
-          sock.setBroadcast(true)
-        }
-
-        sock.send(new Uint8Array(rq), 0, 64, c.addr.port, c.addr.address, (err, bytes) => {
-          if (err) {
-            reject(err)
-          } else {
-            log(c.debug, 'sent', rq, c.addr)
-            resolve(bytes)
-          }
-        })
-      })
-
-      sock.bind({
-        address: c.bind,
-        port: 0
-      })
-    })
-
-    sock.on('message', (message, rinfo) => {
-      log(c.debug, 'received', message, rinfo)
-    })
-
-    try {
-      const result = await Promise.race([onerror, Promise.all([receive, send])])
-
-      if (result && result.length === 2) {
-        return {}
-      }
-    } finally {
-      sock.close()
+    const decode = function (reply) {
+      return {}
     }
 
-    throw new Error('no reply to request')
+    return exec(context, deviceId, op, request, receiveAll(), decode)
   },
 
   /**
@@ -141,66 +111,22 @@ module.exports = {
     * @exports
     */
   broadcast: async function (context, deviceId, op, request) {
-    const c = configuration(deviceId, context.config, context.logger)
-    const sock = dgram.createSocket(opts)
-    const rq = codec.encode(op, deviceId, request)
+    const timeout = (context && context.config) ? context.config.timeout : 5000
 
-    const decode = function (reply) {
-      if (reply) {
-        const response = codec.decode(reply, context.translator)
-        if (response) {
-          return response
-        }
-      }
-
-      throw new Error('invalid reply to broadcasted request')
-    }
-
-    const onerror = new Promise((resolve, reject) => {
-      sock.on('error', (err) => {
-        reject(err)
-      })
-    })
-
-    const receive = receiveAll(c.timeout)
-
-    const send = new Promise((resolve, reject) => {
-      sock.on('listening', () => {
-        if (isBroadcast(c.addr.address)) {
-          sock.setBroadcast(true)
-        }
-
-        sock.send(new Uint8Array(rq), 0, 64, c.addr.port, c.addr.address, (err, bytes) => {
-          if (err) {
-            reject(err)
-            return
+    const decode = function (replies) {
+      return replies.map((m) => {
+        if (m) {
+          const response = codec.decode(m, context.translator)
+          if (response) {
+            return response
           }
 
-          log(c.debug, 'sent', rq, c.addr)
-          resolve(bytes)
-        })
+          throw new Error('invalid reply to broadcasted request')
+        }
       })
-
-      sock.bind({
-        address: c.bind,
-        port: 0
-      })
-    })
-
-    sock.on('message', (message, rinfo) => {
-      receive.received(message)
-      log(c.debug, 'received', message, rinfo)
-    })
-
-    try {
-      const result = await Promise.race([onerror, Promise.all([receive, send])])
-
-      if (result && result.length === 2) {
-        return result[0].map(m => decode(m))
-      }
-    } finally {
-      sock.close()
     }
+
+    return exec(context, deviceId, op, request, receiveAll(timeout), decode)
   },
 
   /**
@@ -255,26 +181,16 @@ module.exports = {
   * @param {byte}     op       Operation code from 'opcode' module
   * @param {object}   request  Operation parameters for use by codec.encode
   * @param {function} receive  Handler for received messages
+  * @param {function} decode   Decoder for received response
   *
   * @return {object}  Decoded reply from access controller
   *
   * @author: TS
   */
-async function exec (context, deviceId, op, request, receive) {
+async function exec (context, deviceId, op, request, receive, decode) {
   const c = configuration(deviceId, context.config, context.logger)
   const sock = dgram.createSocket(opts)
   const rq = codec.encode(op, deviceId, request)
-
-  const decode = function (reply) {
-    if (reply) {
-      const response = codec.decode(reply, context.translator)
-      if (response && (response.deviceId === deviceId)) {
-        return response
-      }
-    }
-
-    throw new Error(`no reply from ${deviceId}`)
-  }
 
   const onerror = new Promise((resolve, reject) => {
     sock.on('error', (err) => {
@@ -313,7 +229,7 @@ async function exec (context, deviceId, op, request, receive) {
   try {
     const result = await Promise.race([onerror, Promise.all([receive, send])])
 
-    if (result && result.length > 0) {
+    if (result && result.length === 2) {
       return decode(result[0])
     }
   } finally {
