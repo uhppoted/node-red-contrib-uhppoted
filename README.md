@@ -22,18 +22,6 @@ cd node-red-contrib-uhppoted
 npm install
 ```
 
-[comment]: # (To install the stable version use the `Menu - Manage palette` option and) 
-[comment]: # (search for `node-red-contrib-uhppoted`,  or run the following command in)
-[comment]: # (your Node-RED user directory (typically `~/.node-red`:)
-[comment]: # ()
-[comment]: # (    npm i node-red-contrib-uhppoted)
-[comment]: # ()
-[comment]: # (Restart your Node-RED instance and you should have the `uhppoted` nodes available in the palette. )
-[comment]: # ()
-[comment]: # (If you want to try the latest version from github, you can install it by)
-[comment]: # ()
-[comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
-
 ### Nodes
 
 | Node               | Description                                                  |
