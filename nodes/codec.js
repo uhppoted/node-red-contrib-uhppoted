@@ -1,4 +1,16 @@
 module.exports = {
+  /**
+    * Encodes a request as a 64 byte UDP message.
+    *
+    * @param {opcode}   code     Function opcode, translated into message function byte
+    * @param {number}   deviceId The serial number for the target access controller
+    * @param {object}   object   Additional request specific information.
+    *
+    * @param {buffer}   64 byte NodeJS Buffer
+    *
+    * @author: TS
+    * @exports
+    */
   encode: function (code, deviceId, object) {
     const ip = require('ip')
     const request = Buffer.alloc(64)
@@ -152,6 +164,17 @@ module.exports = {
     return request
   },
 
+  /**
+    * Decodes a 64 byte received message into the corresponding object.
+    *
+    * @param {buffer}   buffer     64 byte NodeJS buffer
+    * @param {function} translator (optional) function to internationalise the text in a decoded object
+    *
+    * @param {object}   Decoded object (or null)
+    *
+    * @author: TS
+    * @exports
+    */
   decode: function (buffer, translator) {
     const lookup = require('./lookup.js')
 
@@ -295,7 +318,18 @@ module.exports = {
   }
 }
 
-// function code: 0x20
+/**
+  * Internal utility function to decode the (large) response to a get-status request
+  * (function code: 0x20).
+  *
+  * @param {buffer}   buffer     64 byte NodeJS buffer
+  * @param {function} translator (optional) function to internationalise the text in a
+  *                              decoded object
+  *
+  * @param {object}   Decoded status object
+  *
+  * @author: TS
+  */
 function state (bytes, translator) {
   const lookup = require('./lookup.js')
 
@@ -334,7 +368,15 @@ function state (bytes, translator) {
   }
 }
 
-// function code: 0x94
+/**
+  * Internal utility function to decode the response to a get-device request (function code: 0x94).
+  *
+  * @param {buffer}   buffer     64 byte NodeJS buffer
+  *
+  * @param {object}   Decoded device object
+  *
+  * @author: TS
+  */
 function device (bytes) {
   return {
     serialNumber: uint32(bytes, 4),
@@ -347,22 +389,73 @@ function device (bytes) {
   }
 }
 
+/**
+  * Internal utility function to extract a uint8 from a response message.
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of uint8 in buffer
+  *
+  * @param {uint8}  uint8 at offset in buffer.
+  *
+  * @author: TS
+  */
 function uint8 (bytes, offset) {
   return bytes.getUint8(offset, true)
 }
 
+/**
+  * Internal utility function to extract a uint16 from a response message.
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of uint16 in buffer
+  *
+  * @param {uint16}  Litte-endian uint16 at offset in buffer.
+  *
+  * @author: TS
+  */
 function uint16 (bytes, offset) {
   return bytes.getUint16(offset, true)
 }
 
+/**
+  * Internal utility function to extract a uint32 from a response message.
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of uint32 in buffer
+  *
+  * @param {uint32}  Litte-endian uint32 at offset in buffer.
+  *
+  * @author: TS
+  */
 function uint32 (bytes, offset) {
   return bytes.getUint32(offset, true)
 }
 
+/**
+  * Internal utility function to extract a bool from a response message.
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of bool in buffer
+  *
+  * @param {bool}   true if the byte at the offset is 1, false otherwise.
+  *
+  * @author: TS
+  */
 function bool (bytes, offset) {
   return bytes.getUint8(offset, true) === 0x01
 }
 
+/**
+  * Internal utility function to extract a BCD number from a response message.
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of BCD number in buffer
+  * @param {number} length  Number of bytes to decode
+  *
+  * @param {string}  Decoded number as a string.
+  *
+  * @author: TS
+  */
 function bcd (bytes, offset, length) {
   const slice = new Uint8Array(bytes.buffer.slice(offset, offset + length))
   const digits = []
@@ -375,12 +468,32 @@ function bcd (bytes, offset, length) {
   return digits.join('')
 }
 
+/**
+  * Internal utility function to extract an IP address from a response message.
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of IP address in buffer
+  *
+  * @param {string}  Decoded 4 byte IPv4 address as a IP address object.
+  *
+  * @author: TS
+  */
 function address (bytes, offset) {
   const ip = require('ip')
 
   return ip.fromLong(bytes.getUint32(offset, false))
 }
 
+/**
+  * Internal utility function to extract a MAC address from a response message.
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of MAC address in buffer
+  *
+  * @param {string}  Decoded 6 byte MAC address as a colon delimited string.
+  *
+  * @author: TS
+  */
 function mac (bytes, offset) {
   const slice = new Uint8Array(bytes.buffer.slice(offset, offset + 6))
   const hex = []
@@ -392,6 +505,16 @@ function mac (bytes, offset) {
   return hex.join(':')
 }
 
+/**
+  * Internal utility function to extract a BCD timestamp from a response message.
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of timestamp in buffer
+  *
+  * @param {string}  Decoded 6 byte timestamp in yyy-mm-dd HH:mm:ss format.
+  *
+  * @author: TS
+  */
 function yyyymmddHHmmss (bytes, offset) {
   const datetime = bcd(bytes, offset, 7)
   const date = datetime.substr(0, 4) + '-' + datetime.substr(4, 2) + '-' + datetime.substr(6, 2)
@@ -400,6 +523,16 @@ function yyyymmddHHmmss (bytes, offset) {
   return date + ' ' + time
 }
 
+/**
+  * Internal utility function to extract a BCD date from a response message.
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of date in buffer
+  *
+  * @param {string}  Decoded 4 byte date in yyyy-mm-dd format.
+  *
+  * @author: TS
+  */
 function yyyymmdd (bytes, offset) {
   const date = bcd(bytes, offset, 4)
 
@@ -410,18 +543,48 @@ function yyyymmdd (bytes, offset) {
   return date.substr(0, 4) + '-' + date.substr(4, 2) + '-' + date.substr(6, 2)
 }
 
+/**
+  * Internal utility function to extract an abbreviated BCD date from a response message.
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of date in buffer
+  *
+  * @param {string}  Decoded 3 byte date in yyyy-mm-dd format (assumes base centry is 2000).
+  *
+  * @author: TS
+  */
 function yymmdd (bytes, offset) {
   const date = '20' + bcd(bytes, offset, 3)
 
   return date.substr(0, 4) + '-' + date.substr(4, 2) + '-' + date.substr(6, 2)
 }
 
+/**
+  * Internal utility function to extract a BCD time from a response message.
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of time in buffer
+  *
+  * @param {string}  Decoded 3 byte time in HH:mm:ss format.
+  *
+  * @author: TS
+  */
 function HHmmss (bytes, offset) {
   const time = bcd(bytes, offset, 3)
 
   return time.substr(0, 2) + ':' + time.substr(2, 2) + ':' + time.substr(4, 2)
 }
 
+/**
+  * Internal utility function to encode a date as BCD.
+  *
+  * @param {string} date    Date, formatted as yyyy-mm-dd
+  * @param {number} offset  Index of time in buffer
+  *
+  * @param {buffer} 4 byte NodeJS buffer with BCD encoded timestamp
+  *
+  * @author: TS
+  */
 function date2bin (date) {
   const bytes = []
   const re = /([0-9]{2})([0-9]{2})-([0-9]{2})-([0-9]{2})/
@@ -436,6 +599,16 @@ function date2bin (date) {
   return Buffer.from(bytes)
 }
 
+/**
+  * Internal utility function to encode a timestamp as BCD.
+  *
+  * @param {string} datetime Timestamp, formatted as yyyy-mm-dd HH:mm:ss
+  * @param {number} offset   Index of time in buffer
+  *
+  * @param {buffer} 6 byte NodeJS buffer with BCD encoded timestamp.
+  *
+  * @author: TS
+  */
 function datetime2bin (datetime) {
   const bytes = []
   const re = /([0-9]{2})([0-9]{2})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2})/

@@ -3,8 +3,7 @@
 ## IN PROGRESS
 
 - [ ] unify broadcast/send/exec
-- [ ] move listen example into events
-- [ ] document codec functions
+- [ ] unit test for codec.decode with/without translator
 - [ ] document lookup functions
 - [ ] 'force broadcast' flag in config (?)
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
@@ -14,7 +13,6 @@
 - [ ] dashboard: store list of controllers in global config
 - [ ] integration tests
 - [ ] 'U' node icon
-- [ ] unit test for codec.decode with translator
 - [ ] (maybe) rework codec as map of functions
 - [ ] Publish to NPM, add badges to README and update README installation
       e.g. ![NPM version](https://badge.fury.io/js/node-red-contrib-uhppoted.svg)
@@ -31,6 +29,7 @@
            [comment]: # ()
            [comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
 
+- [x] document codec functions
 - [x] README
 - [x] internationalisation
 - [x] put card.status output at top of get-card-xxx outputs

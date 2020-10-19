@@ -15,12 +15,12 @@ For the latest updates see the [CHANGELOG.md](https://github.com/uhppoted/node-r
 
 The nodes are currently only installable from the [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository:
 
-```
-cd ~\.node-red\node_modules
-git clone https://github.com/uhppoted/node-red-contrib-uhppoted.git
-cd node-red-contrib-uhppoted
-npm install
-```
+
+    cd ~\.node-red\node_modules
+    git clone https://github.com/uhppoted/node-red-contrib-uhppoted.git
+    cd node-red-contrib-uhppoted
+    npm install
+
 
 ### Nodes
 
@@ -66,11 +66,11 @@ The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contr
 
 | Node               | Description                                                  |
 | ------------------ | ------------------------------------------------------------ |
-| [`1‑get‑devices`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/1-get-devices.json) | Example _flow_ for the `get‑devices` node        |
-| [`2‑get‑device`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/2-get-device.json)   | Example _flow_ for the `get‑device` node      |
-| [`3‑IPv4`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/3-IPv4.json)               | Example _flow_ for the `set‑ip` node      |
-| [`4‑listen`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/4-listen.json)           | Example _flow_ for the `listen` node     |
-| [`5‑status`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/5-status.json)           | Example _flow_ for the `get‑status` node|
+| [`1‑get‑devices`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/1-get-devices.json) | Example _flow_ for the `get‑devices` node |
+| [`2‑get‑device`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/2-get-device.json)   | Example _flow_ for the `get‑device` node |
+| [`3‑IPv4`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/3-IPv4.json)               | Example _flow_ for the `set‑ip` node |
+| [`4‑listen`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/4-listen.json)           | Example _flow_ for the `listen`. `get-listener` and `set‑listener` nodes |
+| [`5‑status`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/5-status.json)           | Example _flow_ for the `get‑status` node |
 | [`6‑time`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/6-time.json)               | Example _flow_ for the `get‑time` and `set‑time` nodes |
 | [`7‑doors`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/7-doors.json)             | Example _flow_ for the `get‑door‑control`, `set‑door‑control` and `open‑door` nodes |
 | [`8‑cards`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/8-cards.json)             | Example _flow_ for the `get‑cards`, `get‑card`, `get‑card‑by‑index`, `put‑card`, `delete‑card` and `delete‑cards` nodes |
