@@ -10,7 +10,7 @@ module.exports = {
     * 'get' and 'set' are functionally identical but are defined separately for
     * semantic clarity.
     *
-    * @param {object}   context  Invoking node, configuration and logger
+    * @param {object}   ctx      Configuration, internationalisation translation and logger
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
@@ -20,12 +20,13 @@ module.exports = {
     * @author: TS
     * @exports
     */
-  get: async function (context, deviceId, op, request) {
-    const timeout = (context && context.config) ? context.config.timeout : 5000
+  get: async function (ctx, deviceId, op, request) {
+    const c = context(deviceId, ctx.config, ctx.logger)
+    const receiver = receiveAny(c.timeout)
 
     const decode = function (reply) {
       if (reply) {
-        const response = codec.decode(reply, context.translator)
+        const response = codec.decode(reply, ctx.translator)
         if (response && (response.deviceId === deviceId)) {
           return response
         }
@@ -34,7 +35,7 @@ module.exports = {
       throw new Error(`no reply from ${deviceId}`)
     }
 
-    return exec(context, deviceId, op, request, receiveAny(timeout), decode)
+    return exec(c, deviceId, op, request, receiver).then(decode)
   },
 
   /**
@@ -42,7 +43,7 @@ module.exports = {
     * 'get' and 'set' are functionally identical but are defined separately for
     * semantic clarity.
     *
-    * @param {object}   context  Invoking node, configuration and logger
+    * @param {object}   ctx      Configuration, internationalisation translation and logger
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
@@ -52,12 +53,13 @@ module.exports = {
     * @author: TS
     * @exports
     */
-  set: async function (context, deviceId, op, request) {
-    const timeout = (context && context.config) ? context.config.timeout : 5000
+  set: async function (ctx, deviceId, op, request) {
+    const c = context(deviceId, ctx.config, ctx.logger)
+    const receiver = receiveAny(c.timeout)
 
     const decode = function (reply) {
       if (reply) {
-        const response = codec.decode(reply, context.translator)
+        const response = codec.decode(reply, ctx.translator)
         if (response && (response.deviceId === deviceId)) {
           return response
         }
@@ -66,7 +68,7 @@ module.exports = {
       throw new Error(`no reply from ${deviceId}`)
     }
 
-    return exec(context, deviceId, op, request, receiveAny(timeout), decode)
+    return exec(c, deviceId, op, request, receiver).then(decode)
   },
 
   /**
@@ -74,19 +76,27 @@ module.exports = {
     * expecting a reply. Used solely by the 'set-ip' node - the UHPPOTE access controller
     * does not reply to the set IP command.
     *
-    * @param {object}   context  Invoking node, configuration and logger
+    * @param {object}   ctx      Configuration, internationalisation translation and logger
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
     *
     * @author: TS
     */
-  send: async function (context, deviceId, op, request) {
+  send: async function (ctx, deviceId, op, request) {
+    const c = context(deviceId, ctx.config, ctx.logger)
+
+    const receiver = new Promise((resolve, reject) => {
+      resolve()
+    })
+
     const decode = function (reply) {
       return {}
     }
 
-    return exec(context, deviceId, op, request, receiveAll(), decode)
+    receiver.received = (message) => {}
+
+    return exec(c, deviceId, op, request, receiver).then(decode)
   },
 
   /**
@@ -99,7 +109,7 @@ module.exports = {
     * explicity issues a UDP broadcast message - 'get' will issue a UDP 'sendto' if
     * possible.
     *
-    * @param {object}   context  Invoking node, configuration and logger
+    * @param {object}   ctx      Configuration, internationalisation translation and logger
     * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
@@ -110,23 +120,34 @@ module.exports = {
     * @author: TS
     * @exports
     */
-  broadcast: async function (context, deviceId, op, request) {
-    const timeout = (context && context.config) ? context.config.timeout : 5000
+  broadcast: async function (ctx, deviceId, op, request) {
+    const c = context(deviceId, ctx.config, ctx.logger)
+    const replies = []
+
+    const receiver = new Promise((resolve, reject) => {
+      setTimeout(() => { resolve(replies) }, c.timeout)
+    })
 
     const decode = function (replies) {
-      return replies.map((m) => {
-        if (m) {
-          const response = codec.decode(m, context.translator)
+      if (replies) {
+        return replies.map((m) => {
+          const response = codec.decode(m, ctx.translator)
           if (response) {
             return response
           }
 
           throw new Error('invalid reply to broadcasted request')
-        }
-      })
+        })
+      }
+
+      throw new Error('no reply to broadcasted request')
     }
 
-    return exec(context, deviceId, op, request, receiveAll(timeout), decode)
+    receiver.received = (message) => {
+      replies.push(new Uint8Array(message))
+    }
+
+    return exec(c, deviceId, op, request, receiver).then(decode)
   },
 
   /**
@@ -135,14 +156,14 @@ module.exports = {
     * to send events to this host:port. Received events are forwarded to the
     * supplied handler for dispatch to the application.
     *
-    * @param {object}   context  Invoking node, configuration and logger
+    * @param {object}   ctx      Configuration, internationalisation translation and logger
     * @param {function} handler  Function to invoke with received event
     *
     * @author: TS
     * @exports
     */
-  listen: function (context, handler) {
-    const c = configuration(0, context.config, context.logger)
+  listen: function (ctx, handler) {
+    const c = context(0, ctx.config, ctx.logger)
     const sock = dgram.createSocket(opts)
 
     sock.on('error', (err) => {
@@ -176,19 +197,17 @@ module.exports = {
   * to send events to this host:port. Received events are forwarded to the
   * supplied handler for dispatch to the application.
   *
-  * @param {object}   context  Invoking node, configuration and logger
+  * @param {object}   context  Addresses, logger, debug, etc.
   * @param {number}   deviceId The serial number for the target access controller
   * @param {byte}     op       Operation code from 'opcode' module
   * @param {object}   request  Operation parameters for use by codec.encode
   * @param {function} receive  Handler for received messages
-  * @param {function} decode   Decoder for received response
   *
   * @return {object}  Decoded reply from access controller
   *
   * @author: TS
   */
-async function exec (context, deviceId, op, request, receive, decode) {
-  const c = configuration(deviceId, context.config, context.logger)
+async function exec (ctx, deviceId, op, request, receive) {
   const sock = dgram.createSocket(opts)
   const rq = codec.encode(op, deviceId, request)
 
@@ -200,28 +219,28 @@ async function exec (context, deviceId, op, request, receive, decode) {
 
   const send = new Promise((resolve, reject) => {
     sock.on('listening', () => {
-      if (isBroadcast(c.addr.address)) {
+      if (isBroadcast(ctx.addr.address)) {
         sock.setBroadcast(true)
       }
 
-      sock.send(new Uint8Array(rq), 0, 64, c.addr.port, c.addr.address, (err, bytes) => {
+      sock.send(new Uint8Array(rq), 0, 64, ctx.addr.port, ctx.addr.address, (err, bytes) => {
         if (err) {
           reject(err)
         } else {
-          log(c.debug, 'sent', rq, c.addr)
+          log(ctx.debug, 'sent', rq, ctx.addr)
           resolve(bytes)
         }
       })
     })
 
     sock.bind({
-      address: c.bind,
+      address: ctx.bind,
       port: 0
     })
   })
 
   sock.on('message', (message, rinfo) => {
-    log(c.debug, 'received', message, rinfo)
+    log(ctx.debug, 'received', message, rinfo)
 
     receive.received(new Uint8Array(message))
   })
@@ -230,7 +249,7 @@ async function exec (context, deviceId, op, request, receive, decode) {
     const result = await Promise.race([onerror, Promise.all([receive, send])])
 
     if (result && result.length === 2) {
-      return decode(result[0])
+      return result[0]
     }
   } finally {
     sock.close()
@@ -241,7 +260,7 @@ async function exec (context, deviceId, op, request, receive, decode) {
 
 /**
   * Utility function to reconcile supplied configuration against the default
-  * values. Returns a working configuration with valid:
+  * values. Returns a working 'exec' context with valid:
   * - UDP bind address:port
   * - UDP destination address:port
   * - timeout
@@ -251,11 +270,11 @@ async function exec (context, deviceId, op, request, receive, decode) {
   * @param {object}   config   Configuration object supplied to requesting node
   * @param {function} logger   Log function for sent/received messages
   *
-  * @param {object} Valid working configuration
+  * @param {object} Valid working context
   *
   * @author: TS
   */
-function configuration (deviceId, config, logger) {
+function context (deviceId, config, logger) {
   let timeout = 5000
   let bind = '0.0.0.0'
   let dest = '255.255.255.255:60000'
@@ -403,37 +422,6 @@ function isBroadcast (addr) {
   }
 
   return false
-}
-
-/**
-  * Utility function construct a Promise that can hold all received replies while waiting
-  * for a timeout. Used by 'broadcast' and 'send'.
-  *
-  * Ref. https://stackoverflow.com/questions/48158730/extend-javascript-promise-and-resolve-or-reject-it-inside-constructor
-  *
-  * @param {number} timeout  Timeout (in seconds). Ignored if 'undefined' (e.g. for send() which does not expect
-  *                          a reply)
-  *
-  * @returns {promise} Constructed Promised with a 'received' function. Received messages are returned on 'resolve'.
-  *
-  * @author: TS
-  */
-function receiveAll (timeout) {
-  var replies = []
-
-  const p = new Promise((resolve, reject) => {
-    if (timeout) {
-      setTimeout(() => { resolve(replies) }, timeout)
-    } else {
-      resolve()
-    }
-  })
-
-  p.received = (message) => {
-    replies.push(new Uint8Array(message))
-  }
-
-  return p
 }
 
 /**

@@ -2,7 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] unify broadcast/send/exec
 - [ ] unit test for codec.decode with/without translator
 - [ ] document lookup functions
 - [ ] 'force broadcast' flag in config (?)
@@ -29,6 +28,7 @@
            [comment]: # ()
            [comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
 
+- [x] unify broadcast/send/exec
 - [x] document codec functions
 - [x] README
 - [x] internationalisation
