@@ -2,15 +2,13 @@
 
 ## IN PROGRESS
 
-- [ ] document lookup functions
+- [ ] 'U' node icon
 - [ ] 'force broadcast' flag in config (?)
-- [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
 - [ ] dashboard: add 'update' button to configuration page
 - [ ] dashboard: distribute received event index
 - [ ] dashboard: update displayed door labels when switching devices
 - [ ] dashboard: store list of controllers in global config
 - [ ] integration tests
-- [ ] 'U' node icon
 - [ ] (maybe) rework codec as map of functions
 - [ ] Publish to NPM, add badges to README and update README installation
       e.g. ![NPM version](https://badge.fury.io/js/node-red-contrib-uhppoted.svg)
@@ -27,6 +25,7 @@
            [comment]: # ()
            [comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
 
+- [x] document lookup functions
 - [x] unit test for codec.decode with/without translator
 - [x] unify broadcast/send/exec
 - [x] document codec functions

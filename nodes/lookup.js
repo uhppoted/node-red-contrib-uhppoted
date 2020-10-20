@@ -1,3 +1,6 @@
+/**
+  * Lookup table to associate message text to the equivalent internationalisation key.
+  */
 const map = {
   unknown: 'unknown',
 
@@ -53,6 +56,19 @@ const map = {
 }
 
 module.exports = {
+  /**
+    * Expands an event type byte into an object with event code and internationalised
+    * event message.
+    *
+    * @param {array}    bytes      64 byte message as a Uint8Array
+    * @param {number}   offset     Index of event type byte in message
+    * @param {function} translator (optional) function to translate event message.
+    *
+    * @param {object}   { code:byte, event:string }
+    *
+    * @author: TS
+    * @exports
+    */
   eventType: function (bytes, offset, translator) {
     const byte = bytes.getUint8(offset, true)
 
@@ -89,6 +105,19 @@ module.exports = {
     return event
   },
 
+  /**
+    * Expands an event direction byte into an object with event direction and internationalised
+    * direction description.
+    *
+    * @param {array}    bytes      64 byte message as a Uint8Array
+    * @param {number}   offset     Index of event direction byte in message
+    * @param {function} translator (optional) function to translate direction description.
+    *
+    * @param {object}   { code: byte, direction: string }
+    *
+    * @author: TS
+    * @exports
+    */
   direction: function (bytes, offset, translator) {
     const byte = bytes.getUint8(offset, true)
 
@@ -113,6 +142,19 @@ module.exports = {
     return direction
   },
 
+  /**
+    * Expands an event reason byte into an object with event reason and internationalised
+    * reason description.
+    *
+    * @param {array}    bytes      64 byte message as a Uint8Array
+    * @param {number}   offset     Index of event reason byte in message
+    * @param {function} translator (optional) function to translate reason description.
+    *
+    * @param {object}   { code: byte, reason: string }
+    *
+    * @author: TS
+    * @exports
+    */
   reason: function (bytes, offset, translator) {
     const byte = bytes.getUint8(offset, true)
 
@@ -253,6 +295,17 @@ module.exports = {
     return reason
   },
 
+  /**
+    * Expands a status relay state byte into an object with the relays as keys.
+    *
+    * @param {array}    bytes      64 byte message as a Uint8Array
+    * @param {number}   offset     Index of relay state  byte in message
+    *
+    * @param {object}   { state: byte, 1: open/closed, 2: open/closed, 3: open/closed, 4: open/closed }
+    *
+    * @author: TS
+    * @exports
+    */
   relays: function (bytes, offset) {
     const byte = bytes.getUint8(offset, true)
 
@@ -269,6 +322,17 @@ module.exports = {
     return relays
   },
 
+  /**
+    * Expands a status input state byte into an object with the inputs as keys.
+    *
+    * @param {array}    bytes      64 byte message as a Uint8Array
+    * @param {number}   offset     Index of relay state  byte in message
+    *
+    * @param {object}   { state: byte, forceLock: open/closed, fireAlarm: open/closed }
+    *
+    * @author: TS
+    * @exports
+    */
   inputs: function (bytes, offset) {
     const byte = bytes.getUint8(offset, true)
 
@@ -281,21 +345,43 @@ module.exports = {
     return inputs
   },
 
+  /**
+    * Translates a door state Expands a status door state byte into an object with the doors as keys.
+    *
+    * @param {array}    bytes      64 byte message as a Uint8Array
+    * @param {number}   offset     Index of door state  byte in message
+    *
+    * @param {object}   { value: byte, state: 'normally open', 'normally closed', 'controlled' or 'unknown' }
+    *
+    * @author: TS
+    * @exports
+    */
   doorState: function (bytes, offset, translator) {
     const byte = bytes.getUint8(offset, true)
 
-    switch (byte) {
-      case 1:
-        return translate(translator, 'normally open')
-
-      case 2:
-        return translate(translator, 'normally closed')
-
-      case 3:
-        return translate(translator, 'controlled')
+    const control = {
+      value: byte
     }
 
-    return translate(translator, 'unknown')
+    switch (byte) {
+      case 1:
+        control.state = translate(translator, 'normally open')
+        break
+
+      case 2:
+        control.state = translate(translator, 'normally closed')
+        break
+
+      case 3:
+        control.state = translate(translator, 'controlled')
+        break
+
+      default:
+        control.state = translate(translator, 'unknown')
+        break
+    }
+
+    return control
   }
 }
 

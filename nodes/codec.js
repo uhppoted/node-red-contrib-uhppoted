@@ -259,10 +259,7 @@ module.exports = {
           doorControlState: {
             door: uint8(bytes, 8),
             delay: uint8(bytes, 10),
-            control: {
-              value: uint8(bytes, 9),
-              state: lookup.doorState(bytes, 9, translator)
-            }
+            control: lookup.doorState(bytes, 9, translator)
           }
         }
 
