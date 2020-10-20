@@ -57,8 +57,7 @@ module.exports = {
     const byte = bytes.getUint8(offset, true)
 
     const event = {
-      code: byte,
-      event: translate(translator, 'unknown')
+      code: byte
     }
 
     switch (byte) {
@@ -81,6 +80,10 @@ module.exports = {
       case 0xff:
         event.event = translate(translator, '<overwritten>')
         break
+
+      default:
+        event.event = translate(translator, 'unknown')
+        break
     }
 
     return event
@@ -90,8 +93,7 @@ module.exports = {
     const byte = bytes.getUint8(offset, true)
 
     const direction = {
-      code: byte,
-      direction: translate(translator, 'unknown')
+      code: byte
     }
 
     switch (byte) {
@@ -102,6 +104,10 @@ module.exports = {
       case 0x02:
         direction.direction = translate(translator, 'out')
         break
+
+      default:
+        direction.direction = translate(translator, 'unknown')
+        break
     }
 
     return direction
@@ -111,8 +117,7 @@ module.exports = {
     const byte = bytes.getUint8(offset, true)
 
     const reason = {
-      code: byte,
-      reason: translate(translator, 'unknown')
+      code: byte
     }
 
     switch (byte) {

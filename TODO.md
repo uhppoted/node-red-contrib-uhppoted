@@ -2,7 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] unit test for codec.decode with/without translator
 - [ ] document lookup functions
 - [ ] 'force broadcast' flag in config (?)
 - [ ] dashboard: create as project (Ref. https://nodered.org/docs/user-guide/projects)
@@ -28,6 +27,7 @@
            [comment]: # ()
            [comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
 
+- [x] unit test for codec.decode with/without translator
 - [x] unify broadcast/send/exec
 - [x] document codec functions
 - [x] README

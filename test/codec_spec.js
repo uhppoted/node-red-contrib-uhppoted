@@ -301,7 +301,7 @@ describe('codec', function () {
 
       const object = codec.decode(new Uint8Array(msg))
 
-      expect(object).to.equal(null) // don't particularly want to import the 'null' function from chai
+      expect(object).to.equal(null)
     })
 
     it('should decode get-device response', function () {
@@ -864,6 +864,242 @@ describe('codec', function () {
       ])
 
       const object = codec.decode(new Uint8Array(msg))
+
+      expect(object).to.deep.equal(expected)
+    })
+  })
+
+  describe('#decode(...) with internationalization', function () {
+    const translations = new Map([
+      ['noAccess', '** no access rights'],
+      ['eventSwipe', '** card swipe'],
+      ['eventDoor', '** door'],
+      ['directionIn', '** in'],
+      ['controlled', '** controlled']
+    ])
+
+    const translator = (k) => {
+      if (translations.has(k)) {
+        return translations.get(k)
+      }
+
+      return '???'
+    }
+
+    it('should decode get-status response', function () {
+      const expected = {
+        deviceId: 405419896,
+        state: {
+          serialNumber: 405419896,
+          event: {
+            index: 71,
+            type: {
+              code: 1,
+              event: '** card swipe'
+            },
+            granted: false,
+            door: 3,
+            direction: {
+              code: 1,
+              direction: '** in'
+            },
+            card: 65538,
+            timestamp: '2020-08-25 10:08:40',
+            reason: {
+              code: 6,
+              reason: '** no access rights'
+            }
+          },
+          doors: {
+            1: false,
+            2: false,
+            3: false,
+            4: false
+          },
+          buttons: {
+            1: false,
+            2: false,
+            3: false,
+            4: false
+          },
+          system: {
+            status: 0,
+            date: '2020-08-25',
+            time: '10:08:40'
+          },
+          specialInfo: 0,
+          relays: {
+            state: 0,
+            relays: { 1: false, 2: false, 3: false, 4: false }
+          },
+          inputs: {
+            state: 0,
+            forceLock: false,
+            fireAlarm: false
+          }
+        }
+      }
+
+      const msg = Buffer.from([
+        0x17, 0x20, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x47, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x01,
+        0x02, 0x00, 0x01, 0x00, 0x20, 0x20, 0x08, 0x25, 0x10, 0x08, 0x40, 0x06, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x08, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x20, 0x08, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
+      const object = codec.decode(new Uint8Array(msg), translator)
+
+      expect(object).to.deep.equal(expected)
+    })
+
+    it('should decode get-door-control response', function () {
+      const expected = {
+        deviceId: 405419896,
+        doorControlState: {
+          door: 4,
+          delay: 7,
+          control: {
+            value: 3,
+            state: '** controlled'
+          }
+        }
+      }
+
+      const msg = Buffer.from([
+        0x17, 0x82, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x04, 0x03, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
+      const object = codec.decode(new Uint8Array(msg), translator)
+
+      expect(object).to.deep.equal(expected)
+    })
+
+    it('should decode set-door-control response', function () {
+      const expected = {
+        deviceId: 405419896,
+        doorControlState: {
+          door: 4,
+          delay: 7,
+          control: {
+            value: 3,
+            state: '** controlled'
+          }
+        }
+      }
+
+      const msg = Buffer.from([
+        0x17, 0x80, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x04, 0x03, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
+      const object = codec.decode(new Uint8Array(msg), translator)
+
+      expect(object).to.deep.equal(expected)
+    })
+
+    it('should decode get-event response', function () {
+      const expected = {
+        deviceId: 405419896,
+        event: {
+          index: 73182,
+          type: {
+            code: 2,
+            event: '** door'
+          },
+          granted: true,
+          door: 3,
+          direction: {
+            code: 1,
+            direction: '** in'
+          },
+          card: 6154413,
+          timestamp: '2021-08-25 10:12:34',
+          reason: {
+            code: 6,
+            reason: '** no access rights'
+          }
+        }
+      }
+
+      const msg = Buffer.from([
+        0x17, 0xb0, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0xde, 0x1d, 0x01, 0x00, 0x02, 0x01, 0x03, 0x01,
+        0xad, 0xe8, 0x5d, 0x00, 0x20, 0x21, 0x08, 0x25, 0x10, 0x12, 0x34, 0x06, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
+      const object = codec.decode(new Uint8Array(msg), translator)
+
+      expect(object).to.deep.equal(expected)
+    })
+
+    it('should decode event message', function () {
+      const expected = {
+        deviceId: 405419896,
+        state: {
+          serialNumber: 405419896,
+          event: {
+            index: 71,
+            type: {
+              code: 1,
+              event: '** card swipe'
+            },
+            granted: false,
+            door: 3,
+            direction: {
+              code: 1,
+              direction: '** in'
+            },
+            card: 65538,
+            timestamp: '2020-08-25 10:08:40',
+            reason: {
+              code: 6,
+              reason: '** no access rights'
+            }
+          },
+          doors: {
+            1: false,
+            2: false,
+            3: false,
+            4: false
+          },
+          buttons: {
+            1: false,
+            2: false,
+            3: false,
+            4: false
+          },
+          system: {
+            status: 0,
+            date: '2020-08-25',
+            time: '10:08:40'
+          },
+          specialInfo: 0,
+          relays: {
+            state: 0,
+            relays: { 1: false, 2: false, 3: false, 4: false }
+          },
+          inputs: {
+            state: 0,
+            forceLock: false,
+            fireAlarm: false
+          }
+        }
+      }
+
+      const msg = Buffer.from([
+        0x17, 0x20, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x47, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x01,
+        0x02, 0x00, 0x01, 0x00, 0x20, 0x20, 0x08, 0x25, 0x10, 0x08, 0x40, 0x06, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x08, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x20, 0x08, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
+      const object = codec.decode(new Uint8Array(msg), translator)
 
       expect(object).to.deep.equal(expected)
     })
