@@ -2,7 +2,7 @@
 
 ## IN PROGRESS
 
-- [ ] 'U' node icon
+- [x] 'U' node icon
 - [ ] 'force broadcast' flag in config (?)
 - [ ] dashboard: add 'update' button to configuration page
 - [ ] dashboard: distribute received event index
