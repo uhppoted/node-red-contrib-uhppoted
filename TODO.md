@@ -2,8 +2,6 @@
 
 ## IN PROGRESS
 
-- [x] 'U' node icon
-- [ ] 'force broadcast' flag in config (?)
 - [ ] dashboard: add 'update' button to configuration page
 - [ ] dashboard: distribute received event index
 - [ ] dashboard: update displayed door labels when switching devices
@@ -25,6 +23,8 @@
            [comment]: # ()
            [comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
 
+- [x] 'force broadcast' flag in config
+- [x] 'U' node icon
 - [x] document lookup functions
 - [x] unit test for codec.decode with/without translator
 - [x] unify broadcast/send/exec

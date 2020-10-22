@@ -47,7 +47,7 @@
                     const devices = object.sort((a, b) => a[0] - b[0])
 
                     for (const [k, v] of devices) {
-                        addRow(table, { id: `${k}`, address: v.address })
+                        addRow(table, { id: `${k}`, address: v.address, broadcast:v.broadcast })
                     }
                 } catch (err) { 
                     console.log(err)
@@ -66,13 +66,15 @@
                     try {
                         const device = rows[i].cells[0].querySelector('input')
                         const address = rows[i].cells[1].querySelector('input')
+                        const broadcast = rows[i].cells[2].querySelector('input')
 
                         if (device && address) {
                             const id = device.value.trim()
                             const addr = address.value.trim()
+                            const bcast = (broadcast && broadcast.checked) || false
 
                             if (/^[0-9]+$/.test(id) && /^(.*?)(?::([0-9]+))?$/.test(addr)) {
-                                object[id] = { address: addr }
+                                object[id] = { address: addr, broadcast: bcast }
                             }                            
                         }
                     } catch (err) { 
@@ -91,13 +93,16 @@ function addRow (table, controller) {
     const row = tbody.insertRow()
     const c1  = row.insertCell()
     const c2  = row.insertCell()
+    const c3  = row.insertCell()
     const device = document.createElement('input')
     const address = document.createElement('input')
+    const broadcast = document.createElement('input')
 
     row.style.border = '1px solid grey'
 
     c1.style.border = '1px solid grey'
     c2.style.border = '1px solid grey'
+    c3.style.border = '1px solid grey'
 
     device.type = 'number'
     device.style.width = '100%'
@@ -110,9 +115,13 @@ function addRow (table, controller) {
     address.style.border = 'none'
     address.value = controller.address || ''
     address.placeholder = '192.168.1.100:60000'
+      
+    broadcast.type = 'checkbox'
+    broadcast.checked = controller.broadcast || false
                 
     c1.appendChild(device)
     c2.appendChild(address)
+    c3.appendChild(broadcast)
 }
 </script>
 

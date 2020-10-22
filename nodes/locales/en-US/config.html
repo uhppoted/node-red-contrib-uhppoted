@@ -30,6 +30,7 @@
                 <tr style="border:none;">
                     <th style="font-weight: normal; font-style:italic; border:1px solid grey;">controller</th>
                     <th style="font-weight: normal; font-style:italic; border:1px solid grey;">address:port</th>
+                    <th style="font-weight: normal; font-style:italic; border:1px solid grey; padding-left:8px; padding-right:8px;">broadcast</th>
                     <th style="border:none"><i id="add" class="fa fa-plus fa-1x" style="padding:2px 4px 2px 4px;"></i></th>
                 </tr>
             </thead>
@@ -65,6 +66,11 @@
     restrict UDP broadcasts to a single interface. Access controllers that are not on the local LAN
     will not receive UDP broadcasts and it is necessary to specify the actual IP address of the
     controller for requests.</p>
+
+    <p>Checking the <code>broadcast</code> flag for a controller forces the nodes to use UDP broadcast 
+    messages to that controller IP address. In general this should not be checked as the nodes should 
+    be able differentiate normal IP addresses from broadcast addresses, but is provided to support 
+    non-standard network configurations</p>
 
     <p>The <code>listen</code> <code>address:port</code> configuration values should match the 
     configuration used by the access controllers (as configured with <code>set-listen-address</code>).

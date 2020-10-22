@@ -30,7 +30,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.broadcast(context, 0, opcodes.GetDevice, {})
+        uhppoted.broadcast(context, opcodes.GetDevice, {})
           .then(objects => { emit(objects) })
           .then(done())
           .catch(err => { error(err) })

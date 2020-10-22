@@ -110,7 +110,6 @@ module.exports = {
     * possible.
     *
     * @param {object}   ctx      Configuration, internationalisation translation and logger
-    * @param {number}   deviceId The serial number for the target access controller
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
     *
@@ -120,8 +119,8 @@ module.exports = {
     * @author: TS
     * @exports
     */
-  broadcast: async function (ctx, deviceId, op, request) {
-    const c = context(deviceId, ctx.config, ctx.logger)
+  broadcast: async function (ctx, op, request) {
+    const c = context(0, ctx.config, ctx.logger)
     const replies = []
 
     const receiver = new Promise((resolve, reject) => {
@@ -147,7 +146,7 @@ module.exports = {
       replies.push(new Uint8Array(message))
     }
 
-    return exec(c, deviceId, op, request, receiver).then(decode)
+    return exec(c, 0, op, request, receiver).then(decode)
   },
 
   /**
@@ -219,7 +218,7 @@ async function exec (ctx, deviceId, op, request, receive) {
 
   const send = new Promise((resolve, reject) => {
     sock.on('listening', () => {
-      if (isBroadcast(ctx.addr.address)) {
+      if (ctx.forceBroadcast || isBroadcast(ctx.addr.address)) {
         sock.setBroadcast(true)
       }
 
@@ -279,6 +278,7 @@ function context (deviceId, config, logger) {
   let bind = '0.0.0.0'
   let dest = '255.255.255.255:60000'
   let listen = '0.0.0.0:60000'
+  let forceBroadcast = false
   let debug = false
 
   if (config) {
@@ -297,6 +297,8 @@ function context (deviceId, config, logger) {
             for (const [k, v] of Object.entries(device)) {
               if (k === 'address') {
                 dest = v
+              } else if (k === 'broadcast') {
+                forceBroadcast = v
               }
             }
           }
@@ -312,6 +314,7 @@ function context (deviceId, config, logger) {
     bind: bind,
     addr: stringToIP(dest),
     listen: stringToIP(listen),
+    forceBroadcast: forceBroadcast,
     debug: debug
   }
 }
