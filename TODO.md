@@ -2,10 +2,10 @@
 
 ## IN PROGRESS
 
+- [ ] dashboard: store list of controllers in global config
 - [ ] dashboard: add 'update' button to configuration page
 - [ ] dashboard: distribute received event index
 - [ ] dashboard: update displayed door labels when switching devices
-- [ ] dashboard: store list of controllers in global config
 - [ ] integration tests
 - [ ] (maybe) rework codec as map of functions
 - [ ] Publish to NPM, add badges to README and update README installation

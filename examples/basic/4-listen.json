@@ -7,37 +7,6 @@
         "info": "# event-listener: basic examples\n\nBasic examples for the _listen_, _get-listener_ and _set-listener_ nodes.\n\n - The _listen_ example establishes a listening node on startup that publishes received events to the debug window\n\n - the _get-listener_ example retrieves the current event listener IP address and port for the controller with serial number 405419896.\n\n - the _set-listener_ example sets '192.168.1.100:60001' as the event listener IP address and port for the controller with serial number 405419896.\n\nThe _listen_ flow in the _dashboard_ flowset contains a more complete example.\n"
     },
     {
-        "id": "18a61437.de498c",
-        "type": "listen",
-        "z": "c56e1667.998748",
-        "name": "listen",
-        "config": "cbd92359.dbf19",
-        "x": 130,
-        "y": 100,
-        "wires": [
-            [
-                "b8dcd439.9a0448"
-            ]
-        ]
-    },
-    {
-        "id": "b8dcd439.9a0448",
-        "type": "debug",
-        "z": "c56e1667.998748",
-        "name": "event",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 290,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "b94136c7.ef3808",
         "type": "debug",
         "z": "c56e1667.998748",
@@ -194,6 +163,37 @@
         "wires": []
     },
     {
+        "id": "18a61437.de498c",
+        "type": "listen",
+        "z": "c56e1667.998748",
+        "name": "listen",
+        "config": "cbd92359.dbf19",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "b8dcd439.9a0448"
+            ]
+        ]
+    },
+    {
+        "id": "b8dcd439.9a0448",
+        "type": "debug",
+        "z": "c56e1667.998748",
+        "name": "event",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 100,
+        "wires": []
+    },
+    {
         "id": "cbd92359.dbf19",
         "type": "config",
         "z": "",
@@ -202,7 +202,7 @@
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",
         "listen": "192.168.1.100:60001",
-        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\"},\"405419896\":{\"address\":\"192.168.1.100:60000\"}}",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":true}}",
         "debug": true
     }
 ]
