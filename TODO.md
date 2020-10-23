@@ -7,6 +7,7 @@
 - [ ] dashboard: distribute received event index
 - [ ] integration tests
 - [ ] (maybe) rework codec as map of functions
+- [ ] Release
 - [ ] Publish to NPM, add badges to README and update README installation
       e.g. ![NPM version](https://badge.fury.io/js/node-red-contrib-uhppoted.svg)
            ![NPM](https://img.shields.io/npm/l/node-red-contrib-uhppoted)
