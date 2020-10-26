@@ -2,7 +2,7 @@
     {
         "id": "b5da19a5.72a0c8",
         "type": "tab",
-        "label": "events",
+        "label": "9-events",
         "disabled": false,
         "info": ""
     },
@@ -57,7 +57,7 @@
         "type": "ui_text",
         "z": "b5da19a5.72a0c8",
         "group": "573f9bfa.7e4564",
-        "order": 21,
+        "order": 17,
         "width": 4,
         "height": 1,
         "name": "event-index",
@@ -225,7 +225,7 @@
         "label": "index",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 29,
+        "order": 31,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -346,7 +346,7 @@
         "delay": "0",
         "topic": "set-event-index",
         "x": 170,
-        "y": 580,
+        "y": 600,
         "wires": [
             [
                 "969e6ec3.60ba6"
@@ -555,7 +555,7 @@
         "z": "",
         "name": "column-2",
         "tab": "2731970.74c476a",
-        "order": 2,
+        "order": 3,
         "disp": false,
         "width": "5",
         "collapse": false
@@ -569,7 +569,7 @@
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",
         "listen": "192.168.1.100:60001",
-        "controllers": "{\n   \"405419896\": {\n      \"address\": \"192.168.1.100:60000\"\n   },\n   \"303986753\": {\n      \"address\": \"192.168.1.100:60000\"\n   }\n}",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\"},\"405419896\":{\"address\":\"192.168.1.100:60000\"}}",
         "debug": true
     },
     {
@@ -579,7 +579,7 @@
         "name": "configuration",
         "tab": "e4b36c96.1a567",
         "order": 1,
-        "disp": true,
+        "disp": false,
         "width": "10",
         "collapse": false
     },
@@ -607,7 +607,7 @@
         "id": "e4b36c96.1a567",
         "type": "ui_tab",
         "z": "",
-        "name": "manage",
+        "name": "configure",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

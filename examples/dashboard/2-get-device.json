@@ -1,16 +1,16 @@
 [
     {
-        "id": "8bcf2d43.2e243",
+        "id": "f0ca7ab6.b09058",
         "type": "tab",
-        "label": "IPv4",
+        "label": "2-get-device",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "c601d685.422838",
+        "id": "a308f042.ba17e",
         "type": "debug",
-        "z": "8bcf2d43.2e243",
-        "name": "received",
+        "z": "f0ca7ab6.b09058",
+        "name": "device",
         "active": true,
         "tosidebar": true,
         "console": false,
@@ -19,14 +19,14 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 880,
-        "y": 100,
+        "x": 490,
+        "y": 40,
         "wires": []
     },
     {
-        "id": "da41e071.55ece",
+        "id": "661f7370.91414c",
         "type": "inject",
-        "z": "8bcf2d43.2e243",
+        "z": "f0ca7ab6.b09058",
         "name": "test",
         "props": [
             {
@@ -41,197 +41,194 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "set-address",
-        "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.125\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
-        "x": 550,
-        "y": 100,
+        "x": 130,
+        "y": 40,
         "wires": [
             [
-                "13a984d5.221c9b"
+                "cf961bd6.504938"
             ]
         ]
     },
     {
-        "id": "45ee145d.a3525c",
+        "id": "d1910029.3c322",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "name": "serial-number",
+        "label": "serial number",
+        "format": "{{device.serialNumber}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "b3759b8c.663488",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "name": "device-address",
+        "label": "address",
+        "format": "{{device.address}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "b600fca7.8931e",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 7,
+        "width": 5,
+        "height": 1,
+        "name": "device-netmask",
+        "label": "netmask",
+        "format": "{{device.netmask}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "883c8d8e.59439",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 9,
+        "width": 5,
+        "height": 1,
+        "name": "device-gateway",
+        "label": "gateway",
+        "format": "{{device.gateway}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "23b47a89.08ab86",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 11,
+        "width": 5,
+        "height": 1,
+        "name": "device-MAC",
+        "label": "MAC:",
+        "format": "{{device.MAC}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "e26cb52b.2aee58",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 13,
+        "width": 5,
+        "height": 1,
+        "name": "device-version",
+        "label": "version",
+        "format": "{{device.version}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8666ad46.99a95",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 15,
+        "width": 5,
+        "height": 1,
+        "name": "device-date",
+        "label": "system date",
+        "format": "{{device.date}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "cf961bd6.504938",
+        "type": "get-device",
+        "z": "f0ca7ab6.b09058",
+        "name": "get-device",
+        "config": "cbd92359.dbf19",
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "a308f042.ba17e",
+                "6114aece.3cdf7"
+            ]
+        ]
+    },
+    {
+        "id": "6114aece.3cdf7",
         "type": "function",
-        "z": "8bcf2d43.2e243",
-        "name": "IPv4",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-address.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-address.address', msg.payload)\n        break;\n\n    case 'set-netmask':\n        flow.set('set-address.netmask', msg.payload)\n        break;\n\n    case 'set-gateway':\n        flow.set('set-address.gateway', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-address.device')\nlet address = flow.get('set-address.address')\nlet netmask = flow.get('set-address.netmask')\nlet gateway = flow.get('set-address.gateway')\n\nif (deviceId && address && netmask && gateway) {\n    msg.payload = {\n        deviceId: deviceId,\n        address: address,\n        netmask: netmask,\n        gateway: gateway\n    }        \n        \n    return msg\n}\n\nreturn null\n",
+        "z": "f0ca7ab6.b09058",
+        "name": "",
+        "func": "return { device: msg.payload.device }\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 550,
-        "y": 140,
+        "x": 500,
+        "y": 80,
         "wires": [
             [
-                "13a984d5.221c9b"
+                "d1910029.3c322",
+                "b3759b8c.663488",
+                "b600fca7.8931e",
+                "883c8d8e.59439",
+                "23b47a89.08ab86",
+                "e26cb52b.2aee58",
+                "8666ad46.99a95"
             ]
         ]
     },
     {
-        "id": "7a342239.47727c",
-        "type": "inject",
-        "z": "8bcf2d43.2e243",
-        "name": "start",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 40,
-        "wires": [
-            [
-                "43a592be.9cc00c"
-            ]
-        ],
-        "icon": "node-red/db.svg"
-    },
-    {
-        "id": "b6a91dc2.1e37",
-        "type": "ui_text_input",
-        "z": "8bcf2d43.2e243",
-        "name": "IPv4-address",
-        "label": "address",
-        "tooltip": "",
-        "group": "920f64db.d2fd58",
-        "order": 7,
-        "width": 4,
-        "height": 1,
-        "passthru": true,
-        "mode": "text",
-        "delay": "0",
-        "topic": "set-address",
-        "x": 330,
-        "y": 180,
-        "wires": [
-            [
-                "45ee145d.a3525c"
-            ]
-        ]
-    },
-    {
-        "id": "c5052b18.578d98",
-        "type": "ui_text_input",
-        "z": "8bcf2d43.2e243",
-        "name": "IPv4-netmask",
-        "label": "netmask",
-        "tooltip": "",
-        "group": "920f64db.d2fd58",
-        "order": 11,
-        "width": 4,
-        "height": 1,
-        "passthru": true,
-        "mode": "text",
-        "delay": "0",
-        "topic": "set-netmask",
-        "x": 340,
-        "y": 220,
-        "wires": [
-            [
-                "45ee145d.a3525c"
-            ]
-        ]
-    },
-    {
-        "id": "5b16f8e7.972fb8",
-        "type": "ui_text_input",
-        "z": "8bcf2d43.2e243",
-        "name": "IPv4-gateway",
-        "label": "gateway",
-        "tooltip": "",
-        "group": "920f64db.d2fd58",
-        "order": 15,
-        "width": 4,
-        "height": 1,
-        "passthru": true,
-        "mode": "text",
-        "delay": "0",
-        "topic": "set-gateway",
-        "x": 340,
-        "y": 260,
-        "wires": [
-            [
-                "45ee145d.a3525c"
-            ]
-        ]
-    },
-    {
-        "id": "43a592be.9cc00c",
-        "type": "function",
-        "z": "8bcf2d43.2e243",
-        "name": "initialise",
-        "func": "const address = { topic:'address', payload:'192.168.1.100' }\nconst netmask = { topic:'netmask', payload:'255.255.255.0' }\nconst gateway = { topic:'gateway', payload:'192.168.1.1' }\n\nreturn [address, netmask, gateway]",
-        "outputs": 3,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 120,
-        "y": 180,
-        "wires": [
-            [
-                "b6a91dc2.1e37"
-            ],
-            [
-                "c5052b18.578d98"
-            ],
-            [
-                "5b16f8e7.972fb8"
-            ]
-        ]
-    },
-    {
-        "id": "5b13b041.ee256",
+        "id": "eabdc94d.323a48",
         "type": "link in",
-        "z": "8bcf2d43.2e243",
+        "z": "f0ca7ab6.b09058",
         "name": "",
         "links": [
-            "d4e3111f.b25ea"
+            "fbd6b7a7.cd1af8",
+            "46cebfa2.e38c6"
         ],
-        "x": 395,
-        "y": 140,
+        "x": 155,
+        "y": 80,
         "wires": [
             [
-                "45ee145d.a3525c"
+                "cf961bd6.504938"
             ]
         ]
     },
     {
-        "id": "13a984d5.221c9b",
-        "type": "set-ip",
-        "z": "8bcf2d43.2e243",
-        "name": "set-ip",
-        "config": "cbd92359.dbf19",
-        "x": 710,
-        "y": 140,
-        "wires": [
-            [
-                "c601d685.422838"
-            ]
-        ]
-    },
-    {
-        "id": "920f64db.d2fd58",
+        "id": "c03a3b24.d45c48",
         "type": "ui_group",
         "z": "",
-        "name": "configuration",
-        "tab": "e4b36c96.1a567",
-        "order": 1,
-        "disp": true,
-        "width": "10",
+        "name": "column-1",
+        "tab": "2731970.74c476a",
+        "order": 2,
+        "disp": false,
+        "width": "6",
         "collapse": false
     },
     {
@@ -243,14 +240,14 @@
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",
         "listen": "192.168.1.100:60001",
-        "controllers": "{\n   \"405419896\": {\n      \"address\": \"192.168.1.100:60000\"\n   },\n   \"303986753\": {\n      \"address\": \"192.168.1.100:60000\"\n   }\n}",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\"},\"405419896\":{\"address\":\"192.168.1.100:60000\"}}",
         "debug": true
     },
     {
-        "id": "e4b36c96.1a567",
+        "id": "2731970.74c476a",
         "type": "ui_tab",
         "z": "",
-        "name": "manage",
+        "name": "detail",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

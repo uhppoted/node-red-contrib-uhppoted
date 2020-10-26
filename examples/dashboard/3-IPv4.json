@@ -2,7 +2,7 @@
     {
         "id": "8bcf2d43.2e243",
         "type": "tab",
-        "label": "IPv4",
+        "label": "3-IPv4",
         "disabled": false,
         "info": ""
     },
@@ -48,7 +48,7 @@
         "y": 100,
         "wires": [
             [
-                "2a10c0a9.e8d6"
+                "13a984d5.221c9b"
             ]
         ]
     },
@@ -66,21 +66,7 @@
         "y": 140,
         "wires": [
             [
-                "2a10c0a9.e8d6"
-            ]
-        ]
-    },
-    {
-        "id": "2a10c0a9.e8d6",
-        "type": "set-address",
-        "z": "8bcf2d43.2e243",
-        "name": "set-address",
-        "config": "cbd92359.dbf19",
-        "x": 710,
-        "y": 140,
-        "wires": [
-            [
-                "c601d685.422838"
+                "13a984d5.221c9b"
             ]
         ]
     },
@@ -122,7 +108,7 @@
         "label": "address",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 7,
+        "order": 9,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -145,7 +131,7 @@
         "label": "netmask",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 11,
+        "order": 13,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -168,7 +154,7 @@
         "label": "gateway",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 15,
+        "order": 17,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -224,16 +210,18 @@
         ]
     },
     {
-        "id": "cbd92359.dbf19",
-        "type": "config",
-        "z": "",
-        "name": "demo",
-        "timeout": "5000",
-        "bind": "192.168.1.100",
-        "broadcast": "192.168.1.255:60000",
-        "listen": "192.168.1.100:60001",
-        "controllers": "{\n   \"405419896\": {\n      \"address\": \"192.168.1.100:60000\"\n   },\n   \"303986753\": {\n      \"address\": \"192.168.1.100:60000\"\n   }\n}",
-        "debug": true
+        "id": "13a984d5.221c9b",
+        "type": "set-ip",
+        "z": "8bcf2d43.2e243",
+        "name": "set-ip",
+        "config": "cbd92359.dbf19",
+        "x": 710,
+        "y": 140,
+        "wires": [
+            [
+                "c601d685.422838"
+            ]
+        ]
     },
     {
         "id": "920f64db.d2fd58",
@@ -242,15 +230,27 @@
         "name": "configuration",
         "tab": "e4b36c96.1a567",
         "order": 1,
-        "disp": true,
+        "disp": false,
         "width": "10",
         "collapse": false
+    },
+    {
+        "id": "cbd92359.dbf19",
+        "type": "config",
+        "z": "",
+        "name": "demo",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\"},\"405419896\":{\"address\":\"192.168.1.100:60000\"}}",
+        "debug": true
     },
     {
         "id": "e4b36c96.1a567",
         "type": "ui_tab",
         "z": "",
-        "name": "manage",
+        "name": "configure",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

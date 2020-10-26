@@ -1,136 +1,49 @@
 [
     {
-        "id": "b5da19a5.72a0c8",
+        "id": "a640a000.d83cb",
         "type": "tab",
-        "label": "events",
+        "label": "1-get-devices",
         "disabled": false,
         "info": ""
     },
     {
-        "id": "639ffbe2.214cc4",
+        "id": "6a470566.d4725c",
+        "type": "get-devices",
+        "z": "a640a000.d83cb",
+        "name": "get-devices",
+        "topic": "get-devices",
+        "config": "cbd92359.dbf19",
+        "x": 310,
+        "y": 80,
+        "wires": [
+            [
+                "31429769.0664e8",
+                "6699677.c355098",
+                "30341779.5c29e8"
+            ]
+        ]
+    },
+    {
+        "id": "31429769.0664e8",
         "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "get-event-index",
+        "z": "a640a000.d83cb",
+        "name": "received",
         "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
+        "complete": "true",
+        "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 80,
-        "wires": []
-    },
-    {
-        "id": "3be8dcd9.c0ec74",
-        "type": "inject",
-        "z": "b5da19a5.72a0c8",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{ \"deviceId\": 405419896 }",
-        "payloadType": "json",
-        "x": 130,
-        "y": 80,
-        "wires": [
-            [
-                "9e7ddaee.4eaa48"
-            ]
-        ]
-    },
-    {
-        "id": "f6190f5c.e5ef9",
-        "type": "ui_text",
-        "z": "b5da19a5.72a0c8",
-        "group": "573f9bfa.7e4564",
-        "order": 21,
-        "width": 4,
-        "height": 1,
-        "name": "event-index",
-        "label": "event index",
-        "format": "{{msg.payload.index}}",
-        "layout": "row-spread",
-        "x": 530,
-        "y": 120,
-        "wires": []
-    },
-    {
-        "id": "c8f3aa0a.3b4ae8",
-        "type": "link in",
-        "z": "b5da19a5.72a0c8",
-        "name": "refresh",
-        "links": [
-            "fbd6b7a7.cd1af8",
-            "46cebfa2.e38c6"
-        ],
-        "x": 155,
-        "y": 120,
-        "wires": [
-            [
-                "9e7ddaee.4eaa48"
-            ]
-        ]
-    },
-    {
-        "id": "9e7ddaee.4eaa48",
-        "type": "get-event-index",
-        "z": "b5da19a5.72a0c8",
-        "name": "get-event-index",
-        "config": "cbd92359.dbf19",
-        "x": 320,
-        "y": 120,
-        "wires": [
-            [
-                "f6190f5c.e5ef9",
-                "639ffbe2.214cc4"
-            ]
-        ]
-    },
-    {
-        "id": "9499cd07.adf01",
-        "type": "comment",
-        "z": "b5da19a5.72a0c8",
-        "name": "detail page: event index ",
-        "info": "",
-        "x": 160,
+        "x": 520,
         "y": 40,
         "wires": []
     },
     {
-        "id": "e08eaeaa.741ee",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "set-event-index",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 780,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "701112a1.4079dc",
+        "id": "82a8517a.6ef88",
         "type": "inject",
-        "z": "b5da19a5.72a0c8",
+        "z": "a640a000.d83cb",
         "name": "test",
         "props": [
             {
@@ -145,420 +58,314 @@
         "crontab": "",
         "once": false,
         "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{ \"deviceId\": 405419896, \"index\":13 }",
+        "topic": "test-get-controllers",
+        "payload": "{}",
         "payloadType": "json",
-        "x": 370,
-        "y": 260,
+        "x": 130,
+        "y": 40,
         "wires": [
             [
-                "738563e5.ad729c"
+                "6a470566.d4725c"
             ]
         ]
     },
     {
-        "id": "e2f95c0b.0b82f",
-        "type": "comment",
-        "z": "b5da19a5.72a0c8",
-        "name": "configuration page: event index ",
-        "info": "",
-        "x": 190,
-        "y": 220,
+        "id": "f6ad52d3.c2e48",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "serial-number",
+        "label": "Serial number:",
+        "format": "{{device.serialNumber}}",
+        "layout": "row-spread",
+        "x": 760,
+        "y": 80,
         "wires": []
     },
     {
-        "id": "738563e5.ad729c",
-        "type": "set-event-index",
-        "z": "b5da19a5.72a0c8",
-        "name": "set-event-index",
-        "config": "cbd92359.dbf19",
-        "x": 560,
-        "y": 300,
-        "wires": [
-            [
-                "e08eaeaa.741ee",
-                "f59ec658.7fb798"
-            ]
-        ]
-    },
-    {
-        "id": "66de5d72.ad8814",
-        "type": "function",
-        "z": "b5da19a5.72a0c8",
-        "name": "event-index",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-event-index.device', msg.payload)\n        break;\n\n    case 'set-event-index':\n        flow.set('set-event-index.index', msg.payload)\n        break;\n}\n\nconst deviceId = flow.get('set-event-index.device')\nconst index = flow.get('set-event-index.index')\n\nif (deviceId && index) {\n    msg.payload = { \n        deviceId: deviceId,\n        index: index\n    }\n        \n    return msg\n}\n\nreturn null",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 350,
-        "y": 300,
-        "wires": [
-            [
-                "738563e5.ad729c"
-            ]
-        ]
-    },
-    {
-        "id": "f59ec658.7fb798",
-        "type": "function",
-        "z": "b5da19a5.72a0c8",
-        "name": "event-index-updated",
-        "func": "const deviceId = flow.get('set-event-index.device')\nconst index = flow.get('set-event-index.index')\n\nif (msg.payload.updated && deviceId && index) {\n    msg.payload = { \n        \"deviceId\": deviceId,\n        \"index\": index\n    }\n    \n    return msg\n}\n\nreturn null",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 800,
-        "y": 300,
-        "wires": [
-            [
-                "f6190f5c.e5ef9"
-            ]
-        ]
-    },
-    {
-        "id": "27ec3017.bb1d",
-        "type": "ui_text_input",
-        "z": "b5da19a5.72a0c8",
-        "name": "event-index",
-        "label": "index",
-        "tooltip": "",
-        "group": "920f64db.d2fd58",
-        "order": 29,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "mode": "number",
-        "delay": "0",
-        "topic": "set-event-index",
-        "x": 150,
-        "y": 340,
-        "wires": [
-            [
-                "66de5d72.ad8814"
-            ]
-        ]
-    },
-    {
-        "id": "6dd92229.dda32c",
-        "type": "link in",
-        "z": "b5da19a5.72a0c8",
-        "name": "",
-        "links": [
-            "d4e3111f.b25ea"
-        ],
-        "x": 195,
-        "y": 300,
-        "wires": [
-            [
-                "66de5d72.ad8814"
-            ]
-        ]
-    },
-    {
-        "id": "a75552ac.fbf6a",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "get-event",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 720,
-        "y": 500,
+        "id": "bbb6a438.f22818",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "serial-number",
+        "label": "Serial number:",
+        "format": "{{device.serialNumber}}",
+        "layout": "row-spread",
+        "x": 760,
+        "y": 380,
         "wires": []
     },
     {
-        "id": "959338c3.e9e528",
-        "type": "inject",
-        "z": "b5da19a5.72a0c8",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{ \"deviceId\": 405419896, \"index\":13 }",
-        "payloadType": "json",
-        "x": 390,
-        "y": 500,
-        "wires": [
-            [
-                "7cf7e46b.641d4c"
-            ]
-        ]
+        "id": "bafadb7f.3afc08",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "address",
+        "label": "Address:",
+        "format": "{{device.address}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 120,
+        "wires": []
     },
     {
-        "id": "ff39879c.00afd8",
-        "type": "comment",
-        "z": "b5da19a5.72a0c8",
-        "name": "events page",
-        "info": "",
-        "x": 150,
+        "id": "39ee342f.a465ec",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "address",
+        "label": "Address:",
+        "format": "{{device.address}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "626c9a77.193a04",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "netmask",
+        "label": "Subnet mask:",
+        "format": "{{device.netmask}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "5b2ec683.3d2c38",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "netmask",
+        "label": "Subnet mask:",
+        "format": "{{device.netmask}}",
+        "layout": "row-spread",
+        "x": 740,
         "y": 460,
         "wires": []
     },
     {
-        "id": "969e6ec3.60ba6",
+        "id": "6699677.c355098",
         "type": "function",
-        "z": "b5da19a5.72a0c8",
-        "name": "event-index",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-event-index.device', msg.payload)\n        break;\n\n    case 'set-event-index':\n        const deviceId = flow.get('set-event-index.device')\n        const index = msg.payload\n\n        if (deviceId && index) {\n            msg.payload = { \n                deviceId: deviceId,\n                index: index\n            }\n        \n            return msg\n        }\n        break;\n}\n\nreturn null",
+        "z": "a640a000.d83cb",
+        "name": "405419896",
+        "func": "for (i=0; i<msg.payload.length; i++) {\n    deviceId = msg.payload[i].deviceId\n    device = msg.payload[i].device;\n    if (deviceId == 405419896) {\n        return msg.payload[i];        \n    }\n}\n\nreturn { device: {} }",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 370,
-        "y": 540,
+        "x": 530,
+        "y": 80,
         "wires": [
             [
-                "7cf7e46b.641d4c"
+                "f6ad52d3.c2e48",
+                "bafadb7f.3afc08",
+                "626c9a77.193a04",
+                "c6fd23f4.c50dd",
+                "15d5ff89.9ac5b",
+                "764b47ed.8d8fc8",
+                "2f037ed3.618ec2"
             ]
         ]
     },
     {
-        "id": "6be3562c.613718",
-        "type": "ui_text_input",
-        "z": "b5da19a5.72a0c8",
-        "name": "event-index",
-        "label": "index",
-        "tooltip": "",
-        "group": "659dc42b.91f43c",
-        "order": 2,
-        "width": 3,
-        "height": 1,
-        "passthru": false,
-        "mode": "number",
-        "delay": "0",
-        "topic": "set-event-index",
-        "x": 170,
-        "y": 580,
-        "wires": [
-            [
-                "969e6ec3.60ba6"
-            ]
-        ]
+        "id": "c6fd23f4.c50dd",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "gateway",
+        "label": "Gateway:",
+        "format": "{{device.gateway}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 200,
+        "wires": []
     },
     {
-        "id": "7cf7e46b.641d4c",
-        "type": "get-event",
-        "z": "b5da19a5.72a0c8",
-        "name": "get-event",
-        "config": "cbd92359.dbf19",
-        "x": 540,
-        "y": 540,
-        "wires": [
-            [
-                "a75552ac.fbf6a",
-                "fae74f01.5e9fb"
-            ]
-        ]
-    },
-    {
-        "id": "fae74f01.5e9fb",
+        "id": "30341779.5c29e8",
         "type": "function",
-        "z": "b5da19a5.72a0c8",
-        "name": "append-event",
-        "func": "const events = flow.get('fetched') || []\nconst doors = flow.get('doors')\n\nconst deviceId = msg.payload.deviceId\nconst event = msg.payload.event\nconst index = event.index\nconst timestamp = event.timestamp\nconst eventType = event.type.event.toUpperCase()\nconst granted = event.granted\nconst direction = event.direction.direction.toUpperCase()\nconst reason = event.reason.reason.toUpperCase()\nlet   door = event.door\n\nif (doors[deviceId] && doors[deviceId][event.door]) {\n    door = doors[deviceId][event.door]\n}\n\nconst item = {\n    'deviceId': deviceId,\n    'index': index,\n    'timestamp': timestamp,\n    'type': eventType,\n    'granted': granted,\n    'door': door,\n    'direction': direction,\n    'reason': reason,\n}\n    \nevents.push(item)\n\nif (events.length > 8) {\n    events.shift()\n}\n\nflow.set('fetched', events)\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ events, false ]\n}\n\nreturn msg;",
+        "z": "a640a000.d83cb",
+        "name": "303986753",
+        "func": "for (i=0; i<msg.payload.length; i++) {\n    deviceId = msg.payload[i].deviceId\n    device = msg.payload[i].device;\n    if (deviceId == 303986753) {\n        return msg.payload[i];        \n    }\n}\n\nreturn { device: {} }",
         "outputs": 1,
         "noerr": 0,
-        "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
+        "initialize": "",
         "finalize": "",
-        "x": 740,
-        "y": 540,
+        "x": 530,
+        "y": 380,
         "wires": [
             [
-                "fcd11c8b.3687f"
+                "bbb6a438.f22818",
+                "39ee342f.a465ec",
+                "5b2ec683.3d2c38",
+                "47d113b.40769ec",
+                "b1bd0325.bd849",
+                "329e5483.d305bc",
+                "79f990b5.78342"
             ]
         ]
     },
     {
-        "id": "fcd11c8b.3687f",
-        "type": "ui_table",
-        "z": "b5da19a5.72a0c8",
-        "group": "659dc42b.91f43c",
-        "name": "single-events",
-        "order": 4,
-        "width": 22,
-        "height": 7,
-        "columns": [
-            {
-                "field": "deviceId",
-                "title": "controller",
-                "width": "100",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "index",
-                "title": "index",
-                "width": "100",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "timestamp",
-                "title": "timestamp",
-                "width": "160",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "type",
-                "title": "event type",
-                "width": "132",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "granted",
-                "title": "Granted?",
-                "width": "100",
-                "align": "center",
-                "formatter": "tickCross",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "door",
-                "title": "door",
-                "width": "112",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "direction",
-                "title": "direction",
-                "width": "108",
-                "align": "center",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            },
-            {
-                "field": "reason",
-                "title": "reason",
-                "width": "224",
-                "align": "left",
-                "formatter": "plaintext",
-                "formatterParams": {
-                    "target": "_blank"
-                }
-            }
-        ],
-        "outputs": 0,
-        "cts": false,
-        "x": 950,
+        "id": "47d113b.40769ec",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "gateway",
+        "label": "Gateway:",
+        "format": "{{device.gateway}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "15d5ff89.9ac5b",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "MAC",
+        "label": "MAC address:",
+        "format": "{{device.MAC}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "b1bd0325.bd849",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "MAC",
+        "label": "MAC address:",
+        "format": "{{device.MAC}}",
+        "layout": "row-spread",
+        "x": 730,
         "y": 540,
         "wires": []
     },
     {
-        "id": "ef8dbc78.012f8",
-        "type": "ui_ui_control",
-        "z": "b5da19a5.72a0c8",
-        "name": "tab-event",
-        "events": "change",
-        "x": 540,
-        "y": 580,
-        "wires": [
-            [
-                "a3a01c91.245eb"
-            ]
-        ]
+        "id": "764b47ed.8d8fc8",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "version",
+        "label": "Version:",
+        "format": "{{device.version}}",
+        "layout": "row-spread",
+        "x": 740,
+        "y": 280,
+        "wires": []
     },
     {
-        "id": "a3a01c91.245eb",
-        "type": "function",
-        "z": "b5da19a5.72a0c8",
-        "name": "initialise-table",
-        "func": "if (msg.payload === 'change' && msg.tab && msg.name === 'events') {\n    const events = flow.get('fetched') || []\n\n    msg.payload = {\n        'command': 'setData',\n        'arguments': [ events, false ]\n    }\n\n    return msg;\n}\n\nreturn null;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
+        "id": "329e5483.d305bc",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "version",
+        "label": "Version:",
+        "format": "{{device.version}}",
+        "layout": "row-spread",
         "x": 740,
         "y": 580,
-        "wires": [
-            []
-        ]
+        "wires": []
     },
     {
-        "id": "e06f8bac.c4d578",
-        "type": "ui_dropdown",
-        "z": "b5da19a5.72a0c8",
-        "name": "controller",
-        "label": "",
-        "tooltip": "",
-        "place": "<select controller>",
-        "group": "659dc42b.91f43c",
-        "order": 1,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "multiple": false,
-        "options": [
-            {
-                "label": "405419896",
-                "value": 405419896,
-                "type": "num"
-            },
-            {
-                "label": "303986753",
-                "value": 303986753,
-                "type": "num"
-            }
-        ],
-        "payload": "",
-        "topic": "set-device",
-        "x": 180,
-        "y": 540,
+        "id": "2f037ed3.618ec2",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "94dcacf5.b4e19",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "date",
+        "label": "System date:",
+        "format": "{{device.date}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "79f990b5.78342",
+        "type": "ui_text",
+        "z": "a640a000.d83cb",
+        "group": "664471ed.acdea",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "name": "date",
+        "label": "System date:",
+        "format": "{{device.date}}",
+        "layout": "row-spread",
+        "x": 730,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "a78a2bf0.74fbe8",
+        "type": "ui_button",
+        "z": "a640a000.d83cb",
+        "name": "refresh",
+        "group": "d2f384d6.885a08",
+        "order": 7,
+        "width": "3",
+        "height": "2",
+        "passthru": false,
+        "label": "refresh",
+        "tooltip": "Get controller summary information",
+        "color": "#FFFFFF",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-refresh",
+        "payload": "{}",
+        "payloadType": "json",
+        "topic": "refresh-controllers",
+        "x": 130,
+        "y": 80,
         "wires": [
             [
-                "969e6ec3.60ba6"
+                "6a470566.d4725c"
             ]
         ]
-    },
-    {
-        "id": "573f9bfa.7e4564",
-        "type": "ui_group",
-        "z": "",
-        "name": "column-2",
-        "tab": "2731970.74c476a",
-        "order": 2,
-        "disp": false,
-        "width": "5",
-        "collapse": false
     },
     {
         "id": "cbd92359.dbf19",
@@ -573,50 +380,43 @@
         "debug": true
     },
     {
-        "id": "920f64db.d2fd58",
+        "id": "94dcacf5.b4e19",
         "type": "ui_group",
         "z": "",
-        "name": "configuration",
-        "tab": "e4b36c96.1a567",
+        "name": "405419896",
+        "tab": "ea318236.7f96",
         "order": 1,
         "disp": true,
-        "width": "10",
+        "width": "6",
         "collapse": false
     },
     {
-        "id": "659dc42b.91f43c",
+        "id": "664471ed.acdea",
         "type": "ui_group",
         "z": "",
-        "name": "events",
-        "tab": "f29b4883.377448",
-        "order": 1,
-        "disp": false,
-        "width": 22,
+        "name": "303986753",
+        "tab": "ea318236.7f96",
+        "order": 2,
+        "disp": true,
+        "width": "6",
         "collapse": false
     },
     {
-        "id": "2731970.74c476a",
-        "type": "ui_tab",
+        "id": "d2f384d6.885a08",
+        "type": "ui_group",
         "z": "",
-        "name": "detail",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
+        "name": "controls",
+        "tab": "ea318236.7f96",
+        "order": 3,
+        "disp": false,
+        "width": "6",
+        "collapse": false
     },
     {
-        "id": "e4b36c96.1a567",
+        "id": "ea318236.7f96",
         "type": "ui_tab",
         "z": "",
-        "name": "manage",
-        "icon": "dashboard",
-        "disabled": false,
-        "hidden": false
-    },
-    {
-        "id": "f29b4883.377448",
-        "type": "ui_tab",
-        "z": "",
-        "name": "events",
+        "name": "overview",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

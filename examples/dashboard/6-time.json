@@ -2,7 +2,7 @@
     {
         "id": "f7a455cc.3fefe8",
         "type": "tab",
-        "label": "time",
+        "label": "6-time",
         "disabled": false,
         "info": ""
     },
@@ -71,8 +71,8 @@
         "id": "7bf9bf1f.c2c11",
         "type": "ui_text",
         "z": "f7a455cc.3fefe8",
-        "group": "573f9bfa.7e4564",
-        "order": 3,
+        "group": "c03a3b24.d45c48",
+        "order": 23,
         "width": 4,
         "height": 1,
         "name": "datetime",
@@ -168,7 +168,7 @@
         "label": "",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 13,
+        "order": 15,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -190,7 +190,7 @@
         "name": "date",
         "label": "",
         "group": "920f64db.d2fd58",
-        "order": 9,
+        "order": 11,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -246,18 +246,18 @@
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",
         "listen": "192.168.1.100:60001",
-        "controllers": "{\n   \"405419896\": {\n      \"address\": \"192.168.1.100:60000\"\n   },\n   \"303986753\": {\n      \"address\": \"192.168.1.100:60000\"\n   }\n}",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\"},\"405419896\":{\"address\":\"192.168.1.100:60000\"}}",
         "debug": true
     },
     {
-        "id": "573f9bfa.7e4564",
+        "id": "c03a3b24.d45c48",
         "type": "ui_group",
         "z": "",
-        "name": "column-2",
+        "name": "column-1",
         "tab": "2731970.74c476a",
         "order": 2,
         "disp": false,
-        "width": "5",
+        "width": "6",
         "collapse": false
     },
     {
@@ -267,7 +267,7 @@
         "name": "configuration",
         "tab": "e4b36c96.1a567",
         "order": 1,
-        "disp": true,
+        "disp": false,
         "width": "10",
         "collapse": false
     },
@@ -284,7 +284,7 @@
         "id": "e4b36c96.1a567",
         "type": "ui_tab",
         "z": "",
-        "name": "manage",
+        "name": "configure",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false

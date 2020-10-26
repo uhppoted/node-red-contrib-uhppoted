@@ -2,7 +2,7 @@
     {
         "id": "33c9a78a.cc8c18",
         "type": "tab",
-        "label": "common",
+        "label": "0-common",
         "disabled": false,
         "info": ""
     },
@@ -13,7 +13,7 @@
         "name": "405419896",
         "group": "92a2709b.0ef46",
         "order": 1,
-        "width": 5,
+        "width": 3,
         "height": 2,
         "passthru": false,
         "label": "405419896",
@@ -25,7 +25,7 @@
         "payloadType": "json",
         "topic": "",
         "x": 90,
-        "y": 80,
+        "y": 200,
         "wires": [
             [
                 "46cebfa2.e38c6"
@@ -50,7 +50,7 @@
             "74f184d2.65a5ac"
         ],
         "x": 255,
-        "y": 80,
+        "y": 200,
         "wires": []
     },
     {
@@ -60,7 +60,7 @@
         "name": "303986753",
         "group": "92a2709b.0ef46",
         "order": 2,
-        "width": 5,
+        "width": 3,
         "height": 2,
         "passthru": false,
         "label": "303986753",
@@ -72,7 +72,7 @@
         "payloadType": "json",
         "topic": "",
         "x": 90,
-        "y": 120,
+        "y": 240,
         "wires": [
             [
                 "46cebfa2.e38c6"
@@ -86,7 +86,7 @@
         "name": "refresh",
         "info": "",
         "x": 70,
-        "y": 40,
+        "y": 160,
         "wires": []
     },
     {
@@ -95,8 +95,8 @@
         "z": "33c9a78a.cc8c18",
         "name": "configuration",
         "info": "",
-        "x": 90,
-        "y": 320,
+        "x": 490,
+        "y": 160,
         "wires": []
     },
     {
@@ -127,11 +127,12 @@
         ],
         "payload": "",
         "topic": "set-device",
-        "x": 80,
-        "y": 360,
+        "x": 480,
+        "y": 200,
         "wires": [
             [
-                "d4e3111f.b25ea"
+                "9e51b059.74aab",
+                "71d6ed03.ece134"
             ]
         ]
     },
@@ -149,8 +150,8 @@
             "6dd92229.dda32c",
             "750f854e.3e5eac"
         ],
-        "x": 255,
-        "y": 360,
+        "x": 775,
+        "y": 200,
         "wires": []
     },
     {
@@ -158,15 +159,15 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 4,
+        "order": 6,
         "width": 5,
         "height": 1,
         "name": "label-IPv4",
         "label": "IPv4",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 80,
-        "y": 440,
+        "x": 480,
+        "y": 280,
         "wires": []
     },
     {
@@ -174,15 +175,15 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 18,
+        "order": 20,
         "width": 5,
         "height": 1,
         "name": "label-events",
-        "label": "Events",
+        "label": "events",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 90,
-        "y": 480,
+        "x": 490,
+        "y": 320,
         "wires": []
     },
     {
@@ -190,15 +191,15 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 5,
+        "order": 7,
         "width": 5,
         "height": 1,
         "name": "label-datetime",
-        "label": "Date/time",
+        "label": "date/time",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 100,
-        "y": 520,
+        "x": 500,
+        "y": 360,
         "wires": []
     },
     {
@@ -206,15 +207,15 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 19,
+        "order": 21,
         "width": 5,
         "height": 1,
         "name": "label-doors",
-        "label": "Doors",
+        "label": "doors",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 90,
-        "y": 560,
+        "x": 490,
+        "y": 400,
         "wires": []
     },
     {
@@ -230,23 +231,23 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 90,
-        "y": 160,
+        "y": 280,
         "wires": []
     },
     {
         "id": "eaeac9ae.d9f158",
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
-        "group": "573f9bfa.7e4564",
-        "order": 1,
-        "width": 5,
+        "group": "c03a3b24.d45c48",
+        "order": 22,
+        "width": 2,
         "height": 1,
         "name": "label-datetime",
         "label": "date/time",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 260,
-        "y": 160,
+        "x": 100,
+        "y": 360,
         "wires": []
     },
     {
@@ -254,15 +255,15 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "573f9bfa.7e4564",
-        "order": 15,
+        "order": 11,
         "width": 5,
         "height": 1,
         "name": "label-cards",
         "label": "cards",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 250,
-        "y": 240,
+        "x": 90,
+        "y": 440,
         "wires": []
     },
     {
@@ -271,14 +272,14 @@
         "z": "33c9a78a.cc8c18",
         "group": "c03a3b24.d45c48",
         "order": 17,
-        "width": 0,
-        "height": 0,
+        "width": 2,
+        "height": 1,
         "name": "label-listener",
         "label": "listener",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 90,
-        "y": 200,
+        "y": 320,
         "wires": []
     },
     {
@@ -286,15 +287,15 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "573f9bfa.7e4564",
-        "order": 5,
+        "order": 1,
         "width": 5,
         "height": 1,
         "name": "label-doors",
         "label": "doors",
         "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 250,
-        "y": 200,
+        "layout": "row-left",
+        "x": 90,
+        "y": 400,
         "wires": []
     },
     {
@@ -303,14 +304,14 @@
         "z": "33c9a78a.cc8c18",
         "group": "ffdc2439.246b38",
         "order": 1,
-        "width": 6,
+        "width": 7,
         "height": 1,
         "name": "label-status",
         "label": "status",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 430,
-        "y": 160,
+        "x": 90,
+        "y": 520,
         "wires": []
     },
     {
@@ -318,15 +319,15 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "ffdc2439.246b38",
-        "order": 5,
-        "width": 5,
+        "order": 13,
+        "width": 2,
         "height": 1,
         "name": "label-event",
         "label": "event",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 430,
-        "y": 200,
+        "x": 90,
+        "y": 560,
         "wires": []
     },
     {
@@ -334,15 +335,15 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "573f9bfa.7e4564",
-        "order": 19,
+        "order": 15,
         "width": 5,
         "height": 1,
         "name": "label-events",
         "label": "events",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 250,
-        "y": 280,
+        "x": 90,
+        "y": 480,
         "wires": []
     },
     {
@@ -350,15 +351,15 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 20,
+        "order": 22,
         "width": 2,
         "height": 1,
         "name": "label-listener",
         "label": "listener",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 250,
-        "y": 480,
+        "x": 490,
+        "y": 440,
         "wires": []
     },
     {
@@ -366,15 +367,187 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 28,
+        "order": 30,
         "width": 2,
         "height": 1,
         "name": "label-event-index",
         "label": "index",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 430,
+        "x": 510,
         "y": 480,
+        "wires": []
+    },
+    {
+        "id": "a00f3712.ee7008",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "ffdc2439.246b38",
+        "order": 30,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-doors",
+        "label": "doors",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 110,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "abe27c60.cf061",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "ffdc2439.246b38",
+        "order": 31,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-buttons",
+        "label": "buttons",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 120,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "339d99a1.1a9c16",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "ffdc2439.246b38",
+        "order": 29,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-relays",
+        "label": "relays",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 110,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "f1bce408.8b6368",
+        "type": "ui_text",
+        "z": "33c9a78a.cc8c18",
+        "group": "ffdc2439.246b38",
+        "order": 49,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-inputs",
+        "label": "inputs",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 110,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "a9b121e.23fc3e",
+        "type": "inject",
+        "z": "33c9a78a.cc8c18",
+        "name": "setup",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "controllers",
+        "payload": "{\"controllers\":{\"303986753\":{\"doors\":{\"1\":\"door X\",\"2\":\"door Y\",\"3\":\"laboratory\",\"4\":\"kitchen\"}},\"405419896\":{\"doors\":{\"1\":\"entrance\",\"2\":\"workshop\",\"3\":\"tower\",\"4\":\"dungeon\"}}}}",
+        "payloadType": "json",
+        "x": 90,
+        "y": 80,
+        "wires": [
+            [
+                "a023fb14.897008"
+            ]
+        ]
+    },
+    {
+        "id": "3ac2df68.5991b",
+        "type": "comment",
+        "z": "33c9a78a.cc8c18",
+        "name": "system config",
+        "info": "",
+        "x": 90,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a023fb14.897008",
+        "type": "link out",
+        "z": "33c9a78a.cc8c18",
+        "name": "setup",
+        "links": [
+            "c9da7cbe.df265",
+            "ba97d2cc.cdc3b"
+        ],
+        "x": 255,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "ac0a5492.696eb8",
+        "type": "ui_button",
+        "z": "33c9a78a.cc8c18",
+        "name": "update",
+        "group": "920f64db.d2fd58",
+        "order": 3,
+        "width": 4,
+        "height": 2,
+        "passthru": false,
+        "label": "UPDATE",
+        "tooltip": "Update the configuration for the selected controller",
+        "color": "#000080",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-wrench",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "update",
+        "x": 480,
+        "y": 240,
+        "wires": [
+            [
+                "9e51b059.74aab"
+            ]
+        ]
+    },
+    {
+        "id": "9e51b059.74aab",
+        "type": "function",
+        "z": "33c9a78a.cc8c18",
+        "name": "configure",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('configure.device', msg.payload)\n        break\n\n    case 'update':\n        const device = flow.get('configure.device')\n        if (device) {\n            msg.topic = 'set-device'\n            msg.payload = device\n            return msg\n        }\n        break\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 660,
+        "y": 200,
+        "wires": [
+            [
+                "d4e3111f.b25ea"
+            ]
+        ]
+    },
+    {
+        "id": "71d6ed03.ece134",
+        "type": "link out",
+        "z": "33c9a78a.cc8c18",
+        "name": "controller",
+        "links": [
+            "c0f56704.302048"
+        ],
+        "x": 615,
+        "y": 160,
         "wires": []
     },
     {
@@ -383,9 +556,9 @@
         "z": "",
         "name": "controllers",
         "tab": "2731970.74c476a",
-        "order": 4,
+        "order": 1,
         "disp": false,
-        "width": "5",
+        "width": 3,
         "collapse": false
     },
     {
@@ -395,7 +568,7 @@
         "name": "configuration",
         "tab": "e4b36c96.1a567",
         "order": 1,
-        "disp": true,
+        "disp": false,
         "width": "10",
         "collapse": false
     },
@@ -405,7 +578,7 @@
         "z": "",
         "name": "column-1",
         "tab": "2731970.74c476a",
-        "order": 1,
+        "order": 2,
         "disp": false,
         "width": "6",
         "collapse": false
@@ -416,7 +589,7 @@
         "z": "",
         "name": "column-2",
         "tab": "2731970.74c476a",
-        "order": 2,
+        "order": 3,
         "disp": false,
         "width": "5",
         "collapse": false
@@ -427,9 +600,9 @@
         "z": "",
         "name": "column-3",
         "tab": "2731970.74c476a",
-        "order": 3,
+        "order": 4,
         "disp": false,
-        "width": "6",
+        "width": 7,
         "collapse": false
     },
     {
@@ -445,7 +618,7 @@
         "id": "e4b36c96.1a567",
         "type": "ui_tab",
         "z": "",
-        "name": "manage",
+        "name": "configure",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
