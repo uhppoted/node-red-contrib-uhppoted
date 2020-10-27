@@ -2,9 +2,8 @@
 
 ## IN PROGRESS
 
-- [ ] dashboard: reload received events table on switching to tab
-- [ ] dashboard: use list of controllers in global config
 - [ ] dashboard: distribute received event index
+- [ ] dashboard: use list of controllers in global config
 - [ ] (maybe) rework codec as map of functions
 - [ ] Release
 - [ ] Publish to NPM, add badges to README and update README installation
@@ -22,6 +21,7 @@
            [comment]: # ()
            [comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
 
+- [x] dashboard: reload received events table on switching to tab
 - [x] dashboard: update displayed door labels when switching devices
 - [x] dashboard: add 'update' button to configuration page
 - [x] 'force broadcast' flag in config
