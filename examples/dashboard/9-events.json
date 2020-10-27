@@ -225,7 +225,7 @@
         "label": "index",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 31,
+        "order": 30,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -270,7 +270,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 720,
-        "y": 500,
+        "y": 580,
         "wires": []
     },
     {
@@ -295,7 +295,7 @@
         "payload": "{ \"deviceId\": 405419896, \"index\":13 }",
         "payloadType": "json",
         "x": 390,
-        "y": 500,
+        "y": 580,
         "wires": [
             [
                 "7cf7e46b.641d4c"
@@ -323,7 +323,7 @@
         "initialize": "",
         "finalize": "",
         "x": 370,
-        "y": 540,
+        "y": 620,
         "wires": [
             [
                 "7cf7e46b.641d4c"
@@ -346,7 +346,7 @@
         "delay": "0",
         "topic": "set-event-index",
         "x": 170,
-        "y": 600,
+        "y": 680,
         "wires": [
             [
                 "969e6ec3.60ba6"
@@ -360,7 +360,7 @@
         "name": "get-event",
         "config": "cbd92359.dbf19",
         "x": 540,
-        "y": 540,
+        "y": 620,
         "wires": [
             [
                 "a75552ac.fbf6a",
@@ -379,7 +379,7 @@
         "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
         "finalize": "",
         "x": 740,
-        "y": 540,
+        "y": 620,
         "wires": [
             [
                 "fcd11c8b.3687f"
@@ -480,7 +480,7 @@
         "outputs": 0,
         "cts": false,
         "x": 950,
-        "y": 540,
+        "y": 620,
         "wires": []
     },
     {
@@ -490,7 +490,7 @@
         "name": "tab-event",
         "events": "change",
         "x": 540,
-        "y": 580,
+        "y": 660,
         "wires": [
             [
                 "a3a01c91.245eb"
@@ -508,7 +508,7 @@
         "initialize": "",
         "finalize": "",
         "x": 740,
-        "y": 580,
+        "y": 660,
         "wires": [
             []
         ]
@@ -527,25 +527,96 @@
         "height": 1,
         "passthru": true,
         "multiple": false,
-        "options": [
-            {
-                "label": "405419896",
-                "value": 405419896,
-                "type": "num"
-            },
-            {
-                "label": "303986753",
-                "value": 303986753,
-                "type": "num"
-            }
-        ],
+        "options": [],
         "payload": "",
         "topic": "set-device",
         "x": 180,
-        "y": 540,
+        "y": 620,
         "wires": [
             [
                 "969e6ec3.60ba6"
+            ]
+        ]
+    },
+    {
+        "id": "3c8819ad.7a7ad6",
+        "type": "inject",
+        "z": "b5da19a5.72a0c8",
+        "name": "start",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 780,
+        "wires": [
+            [
+                "74b54a3b.4a9634"
+            ]
+        ],
+        "icon": "node-red/db.svg"
+    },
+    {
+        "id": "74b54a3b.4a9634",
+        "type": "function",
+        "z": "b5da19a5.72a0c8",
+        "name": "initialise",
+        "func": "const index = { topic:'set-index', payload:1 }\n\nreturn index",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 280,
+        "y": 780,
+        "wires": [
+            [
+                "6be3562c.613718"
+            ]
+        ]
+    },
+    {
+        "id": "dfd29d39.eb75a",
+        "type": "link in",
+        "z": "b5da19a5.72a0c8",
+        "name": "",
+        "links": [
+            "a023fb14.897008"
+        ],
+        "x": 135,
+        "y": 520,
+        "wires": [
+            [
+                "ec30476f.b2b518"
+            ]
+        ]
+    },
+    {
+        "id": "ec30476f.b2b518",
+        "type": "function",
+        "z": "b5da19a5.72a0c8",
+        "name": "setup",
+        "func": "const controllers = msg.payload.controllers\n\nif (controllers) {\n    flow.set('controllers', controllers)\n\n    const options = []\n    Object.entries(controllers).forEach(([k,v]) => {\n      options.push(k) \n    })\n\n    return { \n        topic:'set-controllers', \n        options: options\n    }\n}\n\nreturn null\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 250,
+        "y": 520,
+        "wires": [
+            [
+                "e06f8bac.c4d578"
             ]
         ]
     },

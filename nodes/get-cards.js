@@ -35,7 +35,9 @@ module.exports = function (RED) {
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })
-      } catch (err) { error(err) }
+      } catch (err) {
+        error(err)
+      }
     })
   }
 

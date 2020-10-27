@@ -178,18 +178,7 @@
         "height": 1,
         "passthru": true,
         "multiple": false,
-        "options": [
-            {
-                "label": "405419896",
-                "value": 405419896,
-                "type": "num"
-            },
-            {
-                "label": "303986753",
-                "value": 303986753,
-                "type": "num"
-            }
-        ],
+        "options": [],
         "payload": "",
         "topic": "set-device",
         "x": 100,
@@ -1384,7 +1373,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "setup",
-        "func": "flow.set('controllers', msg.payload.controllers)\n\n",
+        "func": "const controllers = msg.payload.controllers\n\nif (controllers) {\n    flow.set('controllers', controllers)\n\n    const options = []\n    Object.entries(controllers).forEach(([k,v]) => {\n      options.push(k) \n    })\n\n    return { \n        topic:'set-controllers', \n        options: options\n    }\n}\n\nreturn null\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1392,7 +1381,9 @@
         "x": 290,
         "y": 40,
         "wires": [
-            []
+            [
+                "92910a57.c53858"
+            ]
         ]
     },
     {

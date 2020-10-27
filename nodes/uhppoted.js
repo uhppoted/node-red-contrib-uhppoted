@@ -27,7 +27,8 @@ module.exports = {
     const decode = function (reply) {
       if (reply) {
         const response = codec.decode(reply, ctx.translator)
-        if (response && (response.deviceId === deviceId)) {
+
+        if (response && (response.deviceId === c.deviceId)) {
           return response
         }
       }
@@ -35,7 +36,7 @@ module.exports = {
       throw new Error(`no reply from ${deviceId}`)
     }
 
-    return exec(c, deviceId, op, request, receiver).then(decode)
+    return exec(c, op, request, receiver).then(decode)
   },
 
   /**
@@ -60,7 +61,7 @@ module.exports = {
     const decode = function (reply) {
       if (reply) {
         const response = codec.decode(reply, ctx.translator)
-        if (response && (response.deviceId === deviceId)) {
+        if (response && (response.deviceId === c.deviceId)) {
           return response
         }
       }
@@ -68,7 +69,7 @@ module.exports = {
       throw new Error(`no reply from ${deviceId}`)
     }
 
-    return exec(c, deviceId, op, request, receiver).then(decode)
+    return exec(c, op, request, receiver).then(decode)
   },
 
   /**
@@ -96,7 +97,7 @@ module.exports = {
 
     receiver.received = (message) => {}
 
-    return exec(c, deviceId, op, request, receiver).then(decode)
+    return exec(c, op, request, receiver).then(decode)
   },
 
   /**
@@ -146,7 +147,7 @@ module.exports = {
       replies.push(new Uint8Array(message))
     }
 
-    return exec(c, 0, op, request, receiver).then(decode)
+    return exec(c, op, request, receiver).then(decode)
   },
 
   /**
@@ -197,7 +198,6 @@ module.exports = {
   * supplied handler for dispatch to the application.
   *
   * @param {object}   context  Addresses, logger, debug, etc.
-  * @param {number}   deviceId The serial number for the target access controller
   * @param {byte}     op       Operation code from 'opcode' module
   * @param {object}   request  Operation parameters for use by codec.encode
   * @param {function} receive  Handler for received messages
@@ -206,9 +206,9 @@ module.exports = {
   *
   * @author: TS
   */
-async function exec (ctx, deviceId, op, request, receive) {
+async function exec (ctx, op, request, receive) {
   const sock = dgram.createSocket(opts)
-  const rq = codec.encode(op, deviceId, request)
+  const rq = codec.encode(op, ctx.deviceId, request)
 
   const onerror = new Promise((resolve, reject) => {
     sock.on('error', (err) => {
@@ -265,7 +265,7 @@ async function exec (ctx, deviceId, op, request, receive) {
   * - timeout
   * - debug enabled
   *
-  * @param {number}   deviceId The serial number for the target access controller
+  * @param {number}   device   The serial number for the target access controller
   * @param {object}   config   Configuration object supplied to requesting node
   * @param {function} logger   Log function for sent/received messages
   *
@@ -273,7 +273,8 @@ async function exec (ctx, deviceId, op, request, receive) {
   *
   * @author: TS
   */
-function context (deviceId, config, logger) {
+function context (device, config, logger) {
+  const deviceId = Number(device)
   let timeout = 5000
   let bind = '0.0.0.0'
   let dest = '255.255.255.255:60000'
@@ -310,6 +311,7 @@ function context (deviceId, config, logger) {
   }
 
   return {
+    deviceId: deviceId,
     timeout: timeout,
     bind: bind,
     addr: stringToIP(dest),
