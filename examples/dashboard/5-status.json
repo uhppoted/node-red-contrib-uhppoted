@@ -7,35 +7,6 @@
         "info": ""
     },
     {
-        "id": "2dc88a53.cf8646",
-        "type": "inject",
-        "z": "b2b669ed.2b50b8",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{ \"deviceId\": 405419896 }",
-        "payloadType": "json",
-        "x": 130,
-        "y": 40,
-        "wires": [
-            [
-                "1d2d547f.68acbc"
-            ]
-        ]
-    },
-    {
         "id": "1d2d547f.68acbc",
         "type": "get-status",
         "z": "b2b669ed.2b50b8",

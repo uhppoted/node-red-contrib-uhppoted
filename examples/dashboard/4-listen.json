@@ -182,35 +182,6 @@
         "wires": []
     },
     {
-        "id": "19dfdabc.2fc645",
-        "type": "inject",
-        "z": "c56e1667.998748",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{ \"deviceId\": 405419896 }",
-        "payloadType": "json",
-        "x": 130,
-        "y": 200,
-        "wires": [
-            [
-                "75e6f5f0.c7e47c"
-            ]
-        ]
-    },
-    {
         "id": "70a4e5a1.040e3c",
         "type": "ui_text",
         "z": "c56e1667.998748",
@@ -290,35 +261,6 @@
         ]
     },
     {
-        "id": "87c6a583.0bc8c8",
-        "type": "inject",
-        "z": "c56e1667.998748",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "set-listener",
-        "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001}",
-        "payloadType": "json",
-        "x": 570,
-        "y": 360,
-        "wires": [
-            [
-                "48b92667.8a59b8"
-            ]
-        ]
-    },
-    {
         "id": "8463e096.b3a5f",
         "type": "debug",
         "z": "c56e1667.998748",
@@ -332,7 +274,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 920,
-        "y": 340,
+        "y": 400,
         "wires": []
     },
     {

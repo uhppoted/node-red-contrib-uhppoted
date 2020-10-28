@@ -24,35 +24,6 @@
         "wires": []
     },
     {
-        "id": "da41e071.55ece",
-        "type": "inject",
-        "z": "8bcf2d43.2e243",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "set-address",
-        "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.125\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
-        "payloadType": "json",
-        "x": 550,
-        "y": 100,
-        "wires": [
-            [
-                "13a984d5.221c9b"
-            ]
-        ]
-    },
-    {
         "id": "45ee145d.a3525c",
         "type": "function",
         "z": "8bcf2d43.2e243",

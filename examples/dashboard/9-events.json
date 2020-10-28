@@ -24,35 +24,6 @@
         "wires": []
     },
     {
-        "id": "3be8dcd9.c0ec74",
-        "type": "inject",
-        "z": "b5da19a5.72a0c8",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{ \"deviceId\": 405419896 }",
-        "payloadType": "json",
-        "x": 130,
-        "y": 80,
-        "wires": [
-            [
-                "9e7ddaee.4eaa48"
-            ]
-        ]
-    },
-    {
         "id": "f6190f5c.e5ef9",
         "type": "ui_text",
         "z": "b5da19a5.72a0c8",
@@ -126,35 +97,6 @@
         "x": 780,
         "y": 260,
         "wires": []
-    },
-    {
-        "id": "701112a1.4079dc",
-        "type": "inject",
-        "z": "b5da19a5.72a0c8",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{ \"deviceId\": 405419896, \"index\":13 }",
-        "payloadType": "json",
-        "x": 370,
-        "y": 260,
-        "wires": [
-            [
-                "738563e5.ad729c"
-            ]
-        ]
     },
     {
         "id": "e2f95c0b.0b82f",
@@ -272,35 +214,6 @@
         "x": 720,
         "y": 580,
         "wires": []
-    },
-    {
-        "id": "959338c3.e9e528",
-        "type": "inject",
-        "z": "b5da19a5.72a0c8",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{ \"deviceId\": 405419896, \"index\":13 }",
-        "payloadType": "json",
-        "x": 390,
-        "y": 580,
-        "wires": [
-            [
-                "7cf7e46b.641d4c"
-            ]
-        ]
     },
     {
         "id": "ff39879c.00afd8",

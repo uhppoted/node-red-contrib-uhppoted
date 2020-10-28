@@ -39,35 +39,6 @@
         "wires": []
     },
     {
-        "id": "d84c21e5.b2692",
-        "type": "inject",
-        "z": "f7a455cc.3fefe8",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{ \"deviceId\": 405419896 }",
-        "payloadType": "json",
-        "x": 110,
-        "y": 40,
-        "wires": [
-            [
-                "6a3d799.3fe3688"
-            ]
-        ]
-    },
-    {
         "id": "7bf9bf1f.c2c11",
         "type": "ui_text",
         "z": "f7a455cc.3fefe8",
@@ -101,35 +72,6 @@
         ]
     },
     {
-        "id": "9d254489.c08578",
-        "type": "inject",
-        "z": "f7a455cc.3fefe8",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "set-time",
-        "payload": "{\"deviceId\":405419896,\"datetime\":\"2020-09-15 13:43:56\"}",
-        "payloadType": "json",
-        "x": 310,
-        "y": 140,
-        "wires": [
-            [
-                "ea3bdfee.bf0d1"
-            ]
-        ]
-    },
-    {
         "id": "804a318e.14ddb",
         "type": "debug",
         "z": "f7a455cc.3fefe8",
@@ -142,8 +84,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 640,
-        "y": 140,
+        "x": 660,
+        "y": 180,
         "wires": []
     },
     {

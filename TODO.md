@@ -2,9 +2,8 @@
 
 ## IN PROGRESS
 
-- [ ] dashboard: configure - changing controllers should restore from flow context
-- [ ] dashboard: cards - changing controllers should clear list/restore from flow context
 - [ ] dashboard: events - ignore events if event id does not match index
+- [ ] dashboard: configure - changing controllers should restore from flow context
 - [ ] (maybe) rework codec as map of functions
 - [ ] Release
 - [ ] Publish to NPM, add badges to README and update README installation
@@ -22,6 +21,7 @@
            [comment]: # ()
            [comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
 
+- [x] dashboard: cards - changing controllers should clear list/restore from flow context
 - [x] dashboard: use list of controllers in global config
 - [x] dashboard: reload received events table on switching to tab
 - [x] dashboard: update displayed door labels when switching devices

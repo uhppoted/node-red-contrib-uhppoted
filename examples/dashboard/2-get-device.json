@@ -24,35 +24,6 @@
         "wires": []
     },
     {
-        "id": "661f7370.91414c",
-        "type": "inject",
-        "z": "f0ca7ab6.b09058",
-        "name": "test",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": false,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "{ \"deviceId\": 405419896 }",
-        "payloadType": "json",
-        "x": 130,
-        "y": 40,
-        "wires": [
-            [
-                "cf961bd6.504938"
-            ]
-        ]
-    },
-    {
         "id": "d1910029.3c322",
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
