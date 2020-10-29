@@ -44,7 +44,7 @@
         "z": "c56e1667.998748",
         "group": "659dc42b.91f43c",
         "name": "received-events",
-        "order": 8,
+        "order": 11,
         "width": 22,
         "height": 16,
         "columns": [
@@ -468,7 +468,7 @@
         "type": "ui_text",
         "z": "c56e1667.998748",
         "group": "659dc42b.91f43c",
-        "order": 6,
+        "order": 9,
         "width": 6,
         "height": 1,
         "name": "events-table-title",

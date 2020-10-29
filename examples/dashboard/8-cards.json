@@ -28,11 +28,11 @@
         "type": "ui_text",
         "z": "2a36b650.4b9b7a",
         "group": "573f9bfa.7e4564",
-        "order": 13,
-        "width": 4,
+        "order": 12,
+        "width": 3,
         "height": 1,
         "name": "cards",
-        "label": "records",
+        "label": "count",
         "format": "{{msg.payload.cards}}",
         "layout": "row-spread",
         "x": 450,
@@ -1271,7 +1271,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "list-cards",
-        "func": "const map = flow.get('cards') || new Map()\nconst list = []\n\nconsole.log(msg)\n\nif (msg.payload) {\n    const deviceId = Number(msg.payload)\n    const cards = map.get(deviceId) || new Map()\n\n    console.log('gotcha', deviceId, cards)\n    \n    for (const [k,v] of cards) {\n        list.push(v)\n    }\n}\n\nreturn {\n    topic: 'list-cards',\n    payload: {\n        'command': 'setData',\n        'arguments': [ list, false ]\n    }\n}\n",
+        "func": "const map = flow.get('cards') || new Map()\nconst list = []\n\nif (msg.payload) {\n    const deviceId = Number(msg.payload)\n    const cards = map.get(deviceId) || new Map()\n\n    for (const [k,v] of cards) {\n        list.push(v)\n    }\n}\n\nreturn {\n    topic: 'list-cards',\n    payload: {\n        'command': 'setData',\n        'arguments': [ list, false ]\n    }\n}\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -1379,11 +1379,11 @@
         "z": "2a36b650.4b9b7a",
         "name": "tab-event",
         "events": "change",
-        "x": 320,
+        "x": 360,
         "y": 1040,
         "wires": [
             [
-                "6df1685e.0d8448"
+                "4451de5a.3d5ea"
             ]
         ]
     },
@@ -1397,11 +1397,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 510,
+        "x": 710,
         "y": 1040,
         "wires": [
             [
-                "4451de5a.3d5ea"
+                "aa152261.eb314"
             ]
         ]
     },
@@ -1420,11 +1420,11 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 690,
+        "x": 530,
         "y": 1040,
         "wires": [
             [
-                "aa152261.eb314"
+                "6df1685e.0d8448"
             ]
         ]
     },

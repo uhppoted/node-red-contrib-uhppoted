@@ -7,36 +7,19 @@
         "info": ""
     },
     {
-        "id": "639ffbe2.214cc4",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "get-event-index",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 540,
-        "y": 80,
-        "wires": []
-    },
-    {
         "id": "f6190f5c.e5ef9",
         "type": "ui_text",
         "z": "b5da19a5.72a0c8",
         "group": "573f9bfa.7e4564",
         "order": 17,
-        "width": 4,
+        "width": 3,
         "height": 1,
         "name": "event-index",
-        "label": "event index",
+        "label": "index",
         "format": "{{msg.payload.index}}",
         "layout": "row-spread",
-        "x": 530,
-        "y": 120,
+        "x": 770,
+        "y": 160,
         "wires": []
     },
     {
@@ -48,11 +31,12 @@
             "fbd6b7a7.cd1af8",
             "46cebfa2.e38c6"
         ],
-        "x": 155,
-        "y": 120,
+        "x": 195,
+        "y": 160,
         "wires": [
             [
-                "9e7ddaee.4eaa48"
+                "9e7ddaee.4eaa48",
+                "20c36b30.a20fe4"
             ]
         ]
     },
@@ -62,12 +46,11 @@
         "z": "b5da19a5.72a0c8",
         "name": "get-event-index",
         "config": "cbd92359.dbf19",
-        "x": 320,
-        "y": 120,
+        "x": 540,
+        "y": 160,
         "wires": [
             [
-                "f6190f5c.e5ef9",
-                "639ffbe2.214cc4"
+                "f6190f5c.e5ef9"
             ]
         ]
     },
@@ -75,27 +58,10 @@
         "id": "9499cd07.adf01",
         "type": "comment",
         "z": "b5da19a5.72a0c8",
-        "name": "detail page: event index ",
+        "name": "detail page: events",
         "info": "",
-        "x": 160,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "e08eaeaa.741ee",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "set-event-index",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 780,
-        "y": 260,
+        "x": 150,
+        "y": 60,
         "wires": []
     },
     {
@@ -105,7 +71,7 @@
         "name": "configuration page: event index ",
         "info": "",
         "x": 190,
-        "y": 220,
+        "y": 240,
         "wires": []
     },
     {
@@ -118,7 +84,6 @@
         "y": 300,
         "wires": [
             [
-                "e08eaeaa.741ee",
                 "f59ec658.7fb798"
             ]
         ]
@@ -199,23 +164,6 @@
         ]
     },
     {
-        "id": "a75552ac.fbf6a",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "get-event",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 720,
-        "y": 580,
-        "wires": []
-    },
-    {
         "id": "ff39879c.00afd8",
         "type": "comment",
         "z": "b5da19a5.72a0c8",
@@ -230,7 +178,7 @@
         "type": "function",
         "z": "b5da19a5.72a0c8",
         "name": "event-index",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-event-index.device', msg.payload)\n        break;\n\n    case 'set-event-index':\n        const deviceId = flow.get('set-event-index.device')\n        const index = msg.payload\n\n        if (deviceId && index) {\n            msg.payload = { \n                deviceId: deviceId,\n                index: index\n            }\n        \n            return msg\n        }\n        break;\n}\n\nreturn null",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-event-index.device', msg.payload)\n        break;\n\n    case 'set-event-index':\n        const deviceId = flow.get('set-event-index.device')\n        const index = msg.payload\n\n        if (deviceId && index) {\n            return {\n                topic: 'get-event-request',\n                payload: { \n                    deviceId: deviceId,\n                    index: index\n                }\n            }\n        }\n        break;\n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -239,7 +187,8 @@
         "y": 620,
         "wires": [
             [
-                "7cf7e46b.641d4c"
+                "7cf7e46b.641d4c",
+                "fae74f01.5e9fb"
             ]
         ]
     },
@@ -271,12 +220,12 @@
         "type": "get-event",
         "z": "b5da19a5.72a0c8",
         "name": "get-event",
+        "topic": "get-event-reply",
         "config": "cbd92359.dbf19",
-        "x": 540,
-        "y": 620,
+        "x": 560,
+        "y": 640,
         "wires": [
             [
-                "a75552ac.fbf6a",
                 "fae74f01.5e9fb"
             ]
         ]
@@ -286,14 +235,17 @@
         "type": "function",
         "z": "b5da19a5.72a0c8",
         "name": "append-event",
-        "func": "const events = flow.get('fetched') || []\nconst doors = flow.get('doors')\n\nconst deviceId = msg.payload.deviceId\nconst event = msg.payload.event\nconst index = event.index\nconst timestamp = event.timestamp\nconst eventType = event.type.event.toUpperCase()\nconst granted = event.granted\nconst direction = event.direction.direction.toUpperCase()\nconst reason = event.reason.reason.toUpperCase()\nlet   door = event.door\n\nif (doors[deviceId] && doors[deviceId][event.door]) {\n    door = doors[deviceId][event.door]\n}\n\nconst item = {\n    'deviceId': deviceId,\n    'index': index,\n    'timestamp': timestamp,\n    'type': eventType,\n    'granted': granted,\n    'door': door,\n    'direction': direction,\n    'reason': reason,\n}\n    \nevents.push(item)\n\nif (events.length > 8) {\n    events.shift()\n}\n\nflow.set('fetched', events)\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ events, false ]\n}\n\nreturn msg;",
-        "outputs": 1,
+        "func": "const events = flow.get('fetched') || []\nconst doors = flow.get('doors')\n\nswitch (msg.topic) {\n    case 'get-event-request':\n        flow.set('get-event.deviceId', Number(msg.payload.deviceId))\n        flow.set('get-event.index', msg.payload.index)\n        break\n        \n    case 'get-event-reply':\n        const id = flow.get('get-event.deviceId')\n        const eventId = flow.get('get-event.index')\n    \n        const deviceId = msg.payload.deviceId\n        const event = msg.payload.event\n        const index = event.index\n        const timestamp = event.timestamp\n        const eventType = event.type.event.toUpperCase()\n        const granted = event.granted\n        const direction = event.direction.direction.toUpperCase()\n        const reason = event.reason.reason.toUpperCase()\n        let   door = event.door\n\n        if (doors[deviceId] && doors[deviceId][event.door]) {\n            door = doors[deviceId][event.door]\n        }\n\n        if ((id && id === deviceId) && (eventId && eventId == index)) {\n            const item = {\n                'deviceId': deviceId,\n                'index': index,\n                'timestamp': timestamp,\n                'type': eventType,\n                'granted': granted,\n                'door': door,\n                'direction': direction,\n                'reason': reason,\n            }\n    \n            events.push(item)\n\n            if (events.length > 8) {\n                events.shift()\n            }\n\n            flow.set('fetched', events)\n\n            msg.payload = {\n                'command': 'setData',\n                'arguments': [ events, false ]\n            }\n            \n            return [ { topic: 'status', payload: \"\" }, msg ]\n        } else {\n            return [ { topic: 'status', payload: \"not found\" }, null ]\n        }\n        break\n}\n\nreturn [ null, null ]\n",
+        "outputs": 2,
         "noerr": 0,
         "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
         "finalize": "",
         "x": 740,
         "y": 620,
         "wires": [
+            [
+                "8bf467eb.92a0f8"
+            ],
             [
                 "fcd11c8b.3687f"
             ]
@@ -305,7 +257,7 @@
         "z": "b5da19a5.72a0c8",
         "group": "659dc42b.91f43c",
         "name": "single-events",
-        "order": 4,
+        "order": 7,
         "width": 22,
         "height": 7,
         "columns": [
@@ -392,8 +344,8 @@
         ],
         "outputs": 0,
         "cts": false,
-        "x": 950,
-        "y": 620,
+        "x": 970,
+        "y": 640,
         "wires": []
     },
     {
@@ -402,11 +354,11 @@
         "z": "b5da19a5.72a0c8",
         "name": "tab-event",
         "events": "change",
-        "x": 540,
-        "y": 660,
+        "x": 380,
+        "y": 680,
         "wires": [
             [
-                "a3a01c91.245eb"
+                "4fe93047.b30f5"
             ]
         ]
     },
@@ -415,15 +367,17 @@
         "type": "function",
         "z": "b5da19a5.72a0c8",
         "name": "initialise-table",
-        "func": "if (msg.payload === 'change' && msg.tab && msg.name === 'events') {\n    const events = flow.get('fetched') || []\n\n    msg.payload = {\n        'command': 'setData',\n        'arguments': [ events, false ]\n    }\n\n    return msg;\n}\n\nreturn null;",
+        "func": "if (msg.payload === 'change' && msg.tab && msg.name === 'events') {\n    const events = flow.get('fetched') || []\n\n    console.log('debug/X', events)\n\n    msg.payload = {\n        'command': 'setData',\n        'arguments': [ events, false ]\n    }\n\n    return msg;\n}\n\nreturn null;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 740,
-        "y": 660,
+        "y": 680,
         "wires": [
-            []
+            [
+                "fcd11c8b.3687f"
+            ]
         ]
     },
     {
@@ -530,6 +484,150 @@
         "wires": [
             [
                 "e06f8bac.c4d578"
+            ]
+        ]
+    },
+    {
+        "id": "8bf467eb.92a0f8",
+        "type": "ui_text",
+        "z": "b5da19a5.72a0c8",
+        "group": "659dc42b.91f43c",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "name": "event-message",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 980,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "c366ced3.a4094",
+        "type": "ui_button",
+        "z": "b5da19a5.72a0c8",
+        "name": "clear-events",
+        "group": "659dc42b.91f43c",
+        "order": 5,
+        "width": 3,
+        "height": 2,
+        "passthru": false,
+        "label": "clear",
+        "tooltip": "Clear event list",
+        "color": "#008000",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-trash",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "",
+        "x": 550,
+        "y": 560,
+        "wires": [
+            [
+                "d3301867.210768"
+            ]
+        ]
+    },
+    {
+        "id": "d3301867.210768",
+        "type": "function",
+        "z": "b5da19a5.72a0c8",
+        "name": "clear-events",
+        "func": "const events = []\n\nflow.set('fetched', events)\n\nmsg.payload = {\n    'command': 'setData',\n    'arguments': [ events, false ]\n}\n            \nreturn [ { topic: 'status', payload: \"\" }, msg ]\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
+        "finalize": "",
+        "x": 730,
+        "y": 560,
+        "wires": [
+            [
+                "8bf467eb.92a0f8"
+            ],
+            [
+                "fcd11c8b.3687f"
+            ]
+        ]
+    },
+    {
+        "id": "4fe93047.b30f5",
+        "type": "delay",
+        "z": "b5da19a5.72a0c8",
+        "name": "delay",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 570,
+        "y": 680,
+        "wires": [
+            [
+                "a3a01c91.245eb"
+            ]
+        ]
+    },
+    {
+        "id": "d42939ad.f9a8a8",
+        "type": "ui_text",
+        "z": "b5da19a5.72a0c8",
+        "group": "573f9bfa.7e4564",
+        "order": 15,
+        "width": 3,
+        "height": 1,
+        "name": "event-count",
+        "label": "count",
+        "format": "{{msg.payload.event.index}}",
+        "layout": "row-spread",
+        "x": 770,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "2876daa.4b1aa26",
+        "type": "get-event",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-last-event",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 540,
+        "y": 120,
+        "wires": [
+            [
+                "d42939ad.f9a8a8"
+            ]
+        ]
+    },
+    {
+        "id": "20c36b30.a20fe4",
+        "type": "change",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-last-event",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"deviceId\": msg.payload.deviceId, \"index\": 4294967295 }",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 340,
+        "y": 120,
+        "wires": [
+            [
+                "2876daa.4b1aa26"
             ]
         ]
     },

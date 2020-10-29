@@ -2,7 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] dashboard: events - ignore events if event id does not match index
 - [ ] dashboard: configure - changing controllers should restore from flow context
 - [ ] (maybe) rework codec as map of functions
 - [ ] Release
@@ -21,6 +20,10 @@
            [comment]: # ()
            [comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
 
+- [x] dashboard: events - show last event index on detail page
+- [x] dashboard: events - reload fetched events on tab
+- [x] dashboard: events - ignore events if event id does not match index
+- [x] dashboard: events - clear table button
 - [x] dashboard: cards - changing controllers should clear list/restore from flow context
 - [x] dashboard: use list of controllers in global config
 - [x] dashboard: reload received events table on switching to tab
