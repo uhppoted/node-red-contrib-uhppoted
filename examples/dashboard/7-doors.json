@@ -246,7 +246,7 @@
         "tooltip": "",
         "place": "<select door>",
         "group": "920f64db.d2fd58",
-        "order": 26,
+        "order": 25,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -291,7 +291,7 @@
         "label": "delay:",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 32,
+        "order": 33,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -318,7 +318,7 @@
         "tooltip": "",
         "place": "<select control state>",
         "group": "920f64db.d2fd58",
-        "order": 28,
+        "order": 29,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -375,27 +375,8 @@
         "x": 470,
         "y": 700,
         "wires": [
-            [
-                "cf49a18d.73b92"
-            ]
+            []
         ]
-    },
-    {
-        "id": "cf49a18d.73b92",
-        "type": "debug",
-        "z": "86bbf50e.a7f188",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 640,
-        "y": 660,
-        "wires": []
     },
     {
         "id": "f6fe5b25.975708",

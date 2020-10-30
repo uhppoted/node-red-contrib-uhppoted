@@ -546,132 +546,6 @@
         "height": 1
     },
     {
-        "id": "613cd458.983b4c",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 2,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "213685b4.a6271a",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 4,
-        "width": 6,
-        "height": 1
-    },
-    {
-        "id": "a7dc49d0.0493f8",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 5,
-        "width": 10,
-        "height": 1
-    },
-    {
-        "id": "ebfc98da.403358",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 8,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "5094c43a.17d13c",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 10,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "4b38ede1.56a054",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 12,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "bb4be142.143ed",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 14,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "803fcce1.1930d",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 16,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "5dd7a7e.4cb7058",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 18,
-        "width": 5,
-        "height": 1
-    },
-    {
-        "id": "a4433243.9f492",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 19,
-        "width": 10,
-        "height": 1
-    },
-    {
-        "id": "dc5084fb.c0e7b8",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 23,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "b3dda197.e8788",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 25,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "63227019.fba2c",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 27,
-        "width": 6,
-        "height": 1
-    },
-    {
-        "id": "d8074412.19f4a8",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 31,
-        "width": 1,
-        "height": 1
-    },
-    {
         "id": "2d07e28c.31b64e",
         "type": "ui_spacer",
         "name": "spacer",
@@ -984,6 +858,168 @@
         "group": "ffdc2439.246b38",
         "order": 53,
         "width": 2,
+        "height": 1
+    },
+    {
+        "id": "92822edb.e5f87",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 2,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "8c5e8420.0f66c8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 4,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "5331c89c.87a858",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 5,
+        "width": 10,
+        "height": 1
+    },
+    {
+        "id": "fa22dc4a.a1dbf",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 9,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "ac47900a.fd594",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 11,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "48a6ac3e.3ef014",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 13,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "3d9455b3.aca36a",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 15,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "ce215f76.59177",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 17,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "e9b2d434.259b58",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 19,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "b65a9523.dbc088",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 20,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "e8a9656e.996dd8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 24,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "4c997625.88b8d8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 26,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "e4e77498.31e418",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 28,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "4fa7bb4.f4e7a44",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 30,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "2bc0ad98.8fe4b2",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 32,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "87cedb52.6066e8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 34,
+        "width": 10,
+        "height": 1
+    },
+    {
+        "id": "57b5cbf8.202054",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 35,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "b4f13b7.5d875c8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 38,
+        "width": 7,
         "height": 1
     },
     {
@@ -1493,7 +1529,7 @@
         "name": "listen",
         "config": "cbd92359.dbf19",
         "x": 130,
-        "y": 80,
+        "y": 180,
         "wires": [
             [
                 "d378e1d6.40fe9",
@@ -1515,7 +1551,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 320,
-        "y": 40,
+        "y": 140,
         "wires": []
     },
     {
@@ -1622,7 +1658,7 @@
         "outputs": 0,
         "cts": false,
         "x": 720,
-        "y": 80,
+        "y": 180,
         "wires": []
     },
     {
@@ -1636,7 +1672,7 @@
         "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
         "finalize": "",
         "x": 340,
-        "y": 80,
+        "y": 180,
         "wires": [
             [
                 "b9a22810.4f89d8",
@@ -1645,69 +1681,22 @@
         ]
     },
     {
-        "id": "c601d685.422838",
-        "type": "debug",
-        "z": "8bcf2d43.2e243",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 880,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "45ee145d.a3525c",
         "type": "function",
         "z": "8bcf2d43.2e243",
         "name": "IPv4",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-address.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-address.address', msg.payload)\n        break;\n\n    case 'set-netmask':\n        flow.set('set-address.netmask', msg.payload)\n        break;\n\n    case 'set-gateway':\n        flow.set('set-address.gateway', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-address.device')\nlet address = flow.get('set-address.address')\nlet netmask = flow.get('set-address.netmask')\nlet gateway = flow.get('set-address.gateway')\n\nif (deviceId && address && netmask && gateway) {\n    msg.payload = {\n        deviceId: deviceId,\n        address: address,\n        netmask: netmask,\n        gateway: gateway\n    }        \n        \n    return msg\n}\n\nreturn null\n",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-address.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-address.address', msg.payload)\n        break;\n\n    case 'set-netmask':\n        flow.set('set-address.netmask', msg.payload)\n        break;\n\n    case 'set-gateway':\n        flow.set('set-address.gateway', msg.payload)\n        break;\n\n    case 'set':\n        let deviceId = flow.get('set-address.device')\n        let address = flow.get('set-address.address')\n        let netmask = flow.get('set-address.netmask')\n        let gateway = flow.get('set-address.gateway')\n\n        if (deviceId && address && netmask && gateway) {\n            msg.payload = {\n               deviceId: deviceId,\n               address: address,\n               netmask: netmask,\n               gateway: gateway\n            }        \n        \n            return msg\n        }\n        break;\n}\n\nreturn null\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 550,
-        "y": 140,
+        "x": 710,
+        "y": 120,
         "wires": [
             [
                 "13a984d5.221c9b"
             ]
         ]
-    },
-    {
-        "id": "7a342239.47727c",
-        "type": "inject",
-        "z": "8bcf2d43.2e243",
-        "name": "start",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 40,
-        "wires": [
-            [
-                "43a592be.9cc00c"
-            ]
-        ],
-        "icon": "node-red/db.svg"
     },
     {
         "id": "b6a91dc2.1e37",
@@ -1717,15 +1706,15 @@
         "label": "address",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 9,
-        "width": 4,
+        "order": 7,
+        "width": 3,
         "height": 1,
         "passthru": true,
         "mode": "text",
         "delay": "0",
         "topic": "set-address",
-        "x": 330,
-        "y": 180,
+        "x": 510,
+        "y": 160,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -1740,15 +1729,15 @@
         "label": "netmask",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 13,
-        "width": 4,
+        "order": 10,
+        "width": 3,
         "height": 1,
         "passthru": true,
         "mode": "text",
         "delay": "0",
         "topic": "set-netmask",
-        "x": 340,
-        "y": 220,
+        "x": 500,
+        "y": 200,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -1763,15 +1752,15 @@
         "label": "gateway",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 17,
-        "width": 4,
+        "order": 14,
+        "width": 3,
         "height": 1,
         "passthru": true,
         "mode": "text",
         "delay": "0",
         "topic": "set-gateway",
-        "x": 340,
-        "y": 260,
+        "x": 500,
+        "y": 240,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -1782,23 +1771,17 @@
         "id": "43a592be.9cc00c",
         "type": "function",
         "z": "8bcf2d43.2e243",
-        "name": "initialise",
-        "func": "const address = { topic:'address', payload:'192.168.1.100' }\nconst netmask = { topic:'netmask', payload:'255.255.255.0' }\nconst gateway = { topic:'gateway', payload:'192.168.1.1' }\n\nreturn [address, netmask, gateway]",
-        "outputs": 3,
+        "name": "address",
+        "func": "const deviceId = Number(msg.payload)\nconst controllers = flow.get('controllers')\n\nif (deviceId && controllers && controllers[deviceId]) {\n    const controller = controllers[deviceId]\n    \n    if (controller.IPv4) {\n       return { \n           topic: 'address', \n           payload: controller.IPv4.address \n       }\n    }\n}\n\nreturn null",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 120,
-        "y": 180,
+        "x": 300,
+        "y": 160,
         "wires": [
             [
                 "b6a91dc2.1e37"
-            ],
-            [
-                "c5052b18.578d98"
-            ],
-            [
-                "5b16f8e7.972fb8"
             ]
         ]
     },
@@ -2504,7 +2487,7 @@
         "label": "",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 15,
+        "order": 16,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -2526,7 +2509,7 @@
         "name": "date",
         "label": "",
         "group": "920f64db.d2fd58",
-        "order": 11,
+        "order": 12,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -2740,23 +2723,6 @@
         ]
     },
     {
-        "id": "b94136c7.ef3808",
-        "type": "debug",
-        "z": "c56e1667.998748",
-        "name": "listener",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 200,
-        "wires": []
-    },
-    {
         "id": "70a4e5a1.040e3c",
         "type": "ui_text",
         "z": "c56e1667.998748",
@@ -2769,7 +2735,7 @@
         "format": "{{msg.payload.address}}",
         "layout": "row-spread",
         "x": 520,
-        "y": 240,
+        "y": 320,
         "wires": []
     },
     {
@@ -2782,7 +2748,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 155,
-        "y": 240,
+        "y": 340,
         "wires": [
             [
                 "75e6f5f0.c7e47c"
@@ -2796,10 +2762,9 @@
         "name": "get-listener",
         "config": "cbd92359.dbf19",
         "x": 310,
-        "y": 240,
+        "y": 340,
         "wires": [
             [
-                "b94136c7.ef3808",
                 "70a4e5a1.040e3c",
                 "e36670e.0a94b9"
             ]
@@ -2818,7 +2783,7 @@
         "format": "{{msg.payload.port}}",
         "layout": "row-spread",
         "x": 510,
-        "y": 280,
+        "y": 360,
         "wires": []
     },
     {
@@ -2827,30 +2792,11 @@
         "z": "c56e1667.998748",
         "name": "set-listener",
         "config": "cbd92359.dbf19",
-        "x": 730,
-        "y": 400,
+        "x": 910,
+        "y": 460,
         "wires": [
-            [
-                "8463e096.b3a5f"
-            ]
+            []
         ]
-    },
-    {
-        "id": "8463e096.b3a5f",
-        "type": "debug",
-        "z": "c56e1667.998748",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 920,
-        "y": 400,
-        "wires": []
     },
     {
         "id": "3331c261.f5db3e",
@@ -2860,15 +2806,15 @@
         "label": "address",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 21,
+        "order": 23,
         "width": 3,
         "height": 1,
         "passthru": true,
         "mode": "text",
         "delay": "0",
         "topic": "set-address",
-        "x": 340,
-        "y": 440,
+        "x": 520,
+        "y": 500,
         "wires": [
             [
                 "512a17cd.9fb318"
@@ -2880,67 +2826,16 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "listener",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-listener.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-listener.address', msg.payload)\n        break;\n\n    case 'set-port':\n        flow.set('set-listener.port', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-listener.device')\nlet address = flow.get('set-listener.address')\nlet port = flow.get('set-listener.port')\n\nif (deviceId && address && port) {\n    msg.payload = { \n        deviceId: deviceId,\n        address: address,\n            port: port\n    }\n        \n    return msg\n}\n\nreturn null",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-listener.device', msg.payload)\n        break\n\n    case 'set-address':\n        flow.set('set-listener.address', msg.payload)\n        break\n\n    case 'set-port':\n        flow.set('set-listener.port', msg.payload)\n        break\n        \n    case 'set':\n        let deviceId = flow.get('set-listener.device')\n        let address = flow.get('set-listener.address')\n        let port = flow.get('set-listener.port')\n\n        if (deviceId && address && port) {\n            msg.payload = { \n                deviceId: deviceId,\n                address: address,\n                port: port\n            }\n        \n            return msg\n        }\n        break\n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 560,
-        "y": 400,
-        "wires": [
-            [
-                "48b92667.8a59b8"
-            ]
-        ]
-    },
-    {
-        "id": "89e06038.ac5c8",
-        "type": "inject",
-        "z": "c56e1667.998748",
-        "name": "start",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 360,
-        "wires": [
-            [
-                "8239439e.8e136"
-            ]
-        ],
-        "icon": "node-red/db.svg"
-    },
-    {
-        "id": "8239439e.8e136",
-        "type": "function",
-        "z": "c56e1667.998748",
-        "name": "initialise",
-        "func": "const address = { topic:'address', payload:'192.168.1.100' }\nconst port = { topic:'port', payload:60001 }\n\nreturn [ address, port ]",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 140,
+        "x": 740,
         "y": 460,
         "wires": [
             [
-                "3331c261.f5db3e"
-            ],
-            [
-                "5217acb4.4afe04"
+                "48b92667.8a59b8"
             ]
         ]
     },
@@ -2952,15 +2847,15 @@
         "label": "port",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 24,
+        "order": 27,
         "width": 3,
         "height": 1,
         "passthru": true,
         "mode": "number",
         "delay": "0",
         "topic": "set-port",
-        "x": 350,
-        "y": 480,
+        "x": 530,
+        "y": 540,
         "wires": [
             [
                 "512a17cd.9fb318"
@@ -3025,7 +2920,7 @@
         "tooltip": "",
         "place": "<select door>",
         "group": "920f64db.d2fd58",
-        "order": 26,
+        "order": 25,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -3070,7 +2965,7 @@
         "label": "delay:",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 32,
+        "order": 33,
         "width": 4,
         "height": 1,
         "wrap": false,
@@ -3097,7 +2992,7 @@
         "tooltip": "",
         "place": "<select control state>",
         "group": "920f64db.d2fd58",
-        "order": 28,
+        "order": 29,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -3183,11 +3078,9 @@
         "links": [
             "e90fb8ea.bb5528",
             "c59a9f6b.b8afe",
-            "bbeb26dc.ff7ab8",
-            "5b13b041.ee256",
             "91238aa6.25efe8",
-            "6dd92229.dda32c",
-            "750f854e.3e5eac"
+            "750f854e.3e5eac",
+            "90784e04.a4454"
         ],
         "x": 895,
         "y": 200,
@@ -3231,10 +3124,10 @@
         "z": "c56e1667.998748",
         "name": "",
         "links": [
-            "d4e3111f.b25ea"
+            "71d6ed03.ece134"
         ],
-        "x": 395,
-        "y": 400,
+        "x": 575,
+        "y": 460,
         "wires": [
             [
                 "512a17cd.9fb318"
@@ -3247,10 +3140,10 @@
         "z": "8bcf2d43.2e243",
         "name": "",
         "links": [
-            "d4e3111f.b25ea"
+            "71d6ed03.ece134"
         ],
-        "x": 395,
-        "y": 140,
+        "x": 555,
+        "y": 120,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -3266,27 +3159,8 @@
         "x": 470,
         "y": 700,
         "wires": [
-            [
-                "cf49a18d.73b92"
-            ]
+            []
         ]
-    },
-    {
-        "id": "cf49a18d.73b92",
-        "type": "debug",
-        "z": "86bbf50e.a7f188",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 640,
-        "y": 660,
-        "wires": []
     },
     {
         "id": "f6fe5b25.975708",
@@ -3398,7 +3272,7 @@
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
         "order": 6,
-        "width": 5,
+        "width": 2,
         "height": 1,
         "name": "label-IPv4",
         "label": "IPv4",
@@ -3413,7 +3287,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 29,
+        "order": 36,
         "width": 2,
         "height": 1,
         "name": "label-events",
@@ -3429,7 +3303,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 7,
+        "order": 8,
         "width": 5,
         "height": 1,
         "name": "label-datetime",
@@ -3445,7 +3319,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 22,
+        "order": 21,
         "width": 5,
         "height": 1,
         "name": "label-doors",
@@ -3567,7 +3441,7 @@
         "name": "tab-event",
         "events": "change",
         "x": 120,
-        "y": 120,
+        "y": 220,
         "wires": [
             [
                 "89dc1ab0.a68848"
@@ -3585,7 +3459,7 @@
         "initialize": "",
         "finalize": "",
         "x": 340,
-        "y": 120,
+        "y": 220,
         "wires": [
             [
                 "c488256d.ca2ac8"
@@ -3608,7 +3482,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "x": 530,
-        "y": 120,
+        "y": 220,
         "wires": [
             [
                 "b9a22810.4f89d8"
@@ -4849,7 +4723,7 @@
         "label": "index",
         "format": "{{msg.payload.index}}",
         "layout": "row-spread",
-        "x": 770,
+        "x": 1030,
         "y": 160,
         "wires": []
     },
@@ -4938,7 +4812,7 @@
         "name": "set-event-index",
         "config": "cbd92359.dbf19",
         "x": 560,
-        "y": 300,
+        "y": 440,
         "wires": [
             [
                 "f59ec658.7fb798"
@@ -4950,13 +4824,13 @@
         "type": "function",
         "z": "b5da19a5.72a0c8",
         "name": "event-index",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-event-index.device', msg.payload)\n        break;\n\n    case 'set-event-index':\n        flow.set('set-event-index.index', msg.payload)\n        break;\n}\n\nconst deviceId = flow.get('set-event-index.device')\nconst index = flow.get('set-event-index.index')\n\nif (deviceId && index) {\n    msg.payload = { \n        deviceId: deviceId,\n        index: index\n    }\n        \n    return msg\n}\n\nreturn null",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-event-index.device', msg.payload)\n        break;\n\n    case 'set-event-index':\n        flow.set('set-event-index.index', msg.payload)\n        break;\n\n    case 'set':\n        const deviceId = flow.get('set-event-index.device')\n        const index = flow.get('set-event-index.index')\n\n        if (deviceId && index) {\n            msg.payload = { \n                deviceId: deviceId,\n                index: index\n            }\n        \n            return msg\n        }\n        break\n}\n\nreturn null\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 350,
-        "y": 300,
+        "y": 440,
         "wires": [
             [
                 "738563e5.ad729c"
@@ -4974,7 +4848,7 @@
         "initialize": "",
         "finalize": "",
         "x": 800,
-        "y": 300,
+        "y": 440,
         "wires": [
             [
                 "f6190f5c.e5ef9"
@@ -4986,7 +4860,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 20,
+        "order": 22,
         "width": 2,
         "height": 1,
         "name": "label-listener",
@@ -5005,15 +4879,15 @@
         "label": "index",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 30,
+        "order": 37,
         "width": 3,
         "height": 1,
-        "passthru": false,
+        "passthru": true,
         "mode": "number",
         "delay": "0",
         "topic": "set-event-index",
         "x": 150,
-        "y": 340,
+        "y": 480,
         "wires": [
             [
                 "66de5d72.ad8814"
@@ -5026,10 +4900,10 @@
         "z": "b5da19a5.72a0c8",
         "name": "",
         "links": [
-            "d4e3111f.b25ea"
+            "71d6ed03.ece134"
         ],
         "x": 195,
-        "y": 300,
+        "y": 440,
         "wires": [
             [
                 "66de5d72.ad8814"
@@ -5043,7 +4917,7 @@
         "name": "events page",
         "info": "",
         "x": 150,
-        "y": 460,
+        "y": 580,
         "wires": []
     },
     {
@@ -5057,7 +4931,7 @@
         "initialize": "",
         "finalize": "",
         "x": 370,
-        "y": 620,
+        "y": 740,
         "wires": [
             [
                 "7cf7e46b.641d4c",
@@ -5081,7 +4955,7 @@
         "delay": "0",
         "topic": "set-event-index",
         "x": 170,
-        "y": 680,
+        "y": 800,
         "wires": [
             [
                 "969e6ec3.60ba6"
@@ -5096,7 +4970,7 @@
         "topic": "get-event-reply",
         "config": "cbd92359.dbf19",
         "x": 560,
-        "y": 640,
+        "y": 760,
         "wires": [
             [
                 "fae74f01.5e9fb"
@@ -5114,7 +4988,7 @@
         "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
         "finalize": "",
         "x": 740,
-        "y": 620,
+        "y": 740,
         "wires": [
             [
                 "8bf467eb.92a0f8"
@@ -5218,7 +5092,7 @@
         "outputs": 0,
         "cts": false,
         "x": 970,
-        "y": 640,
+        "y": 760,
         "wires": []
     },
     {
@@ -5234,7 +5108,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 40,
+        "y": 140,
         "wires": []
     },
     {
@@ -5244,7 +5118,7 @@
         "name": "tab-event",
         "events": "change",
         "x": 380,
-        "y": 680,
+        "y": 800,
         "wires": [
             [
                 "4fe93047.b30f5"
@@ -5256,13 +5130,13 @@
         "type": "function",
         "z": "b5da19a5.72a0c8",
         "name": "initialise-table",
-        "func": "if (msg.payload === 'change' && msg.tab && msg.name === 'events') {\n    const events = flow.get('fetched') || []\n\n    console.log('debug/X', events)\n\n    msg.payload = {\n        'command': 'setData',\n        'arguments': [ events, false ]\n    }\n\n    return msg;\n}\n\nreturn null;\n\n",
+        "func": "if (msg.payload === 'change' && msg.tab && msg.name === 'events') {\n    const events = flow.get('fetched') || []\n\n    msg.payload = {\n        'command': 'setData',\n        'arguments': [ events, false ]\n    }\n\n    return msg;\n}\n\nreturn null;\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 740,
-        "y": 680,
+        "y": 800,
         "wires": [
             [
                 "fcd11c8b.3687f"
@@ -5287,7 +5161,7 @@
         "payload": "",
         "topic": "set-device",
         "x": 180,
-        "y": 620,
+        "y": 740,
         "wires": [
             [
                 "969e6ec3.60ba6"
@@ -5300,12 +5174,10 @@
         "z": "8bcf2d43.2e243",
         "name": "set-ip",
         "config": "cbd92359.dbf19",
-        "x": 710,
-        "y": 140,
+        "x": 870,
+        "y": 120,
         "wires": [
-            [
-                "c601d685.422838"
-            ]
+            []
         ]
     },
     {
@@ -5424,7 +5296,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "controllers",
-        "payload": "{\"controllers\":{\"303986753\":{\"doors\":{\"1\":\"door X\",\"2\":\"door Y\",\"3\":\"laboratory\",\"4\":\"kitchen\"}},\"405419896\":{\"doors\":{\"1\":\"entrance\",\"2\":\"workshop\",\"3\":\"tower\",\"4\":\"dungeon\"}}}}",
+        "payload": "{\"controllers\":{\"303986753\":{\"IPv4\":{\"address\":\"192.168.1.100\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"},\"listener\":{\"address\":\"192.168.1.100\",\"port\":60001},\"doors\":{\"1\":\"door X\",\"2\":\"door Y\",\"3\":\"laboratory\",\"4\":\"kitchen\"}},\"405419896\":{\"IPv4\":{\"address\":\"192.168.1.100\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"},\"listener\":{\"address\":\"192.168.1.100\",\"port\":60001},\"doors\":{\"1\":\"entrance\",\"2\":\"workshop\",\"3\":\"tower\",\"4\":\"dungeon\"}}}}",
         "payloadType": "json",
         "x": 90,
         "y": 80,
@@ -5454,7 +5326,9 @@
             "ba97d2cc.cdc3b",
             "4a1fbead.20c0e",
             "1cf33550.8fc68b",
-            "dfd29d39.eb75a"
+            "dfd29d39.eb75a",
+            "6e513556.7919cc",
+            "bc6d752a.1a51a8"
         ],
         "x": 255,
         "y": 80,
@@ -5786,7 +5660,13 @@
         "z": "33c9a78a.cc8c18",
         "name": "controller",
         "links": [
-            "c0f56704.302048"
+            "c0f56704.302048",
+            "aeec3a78.eec6d8",
+            "5b13b041.ee256",
+            "bbeb26dc.ff7ab8",
+            "4bee8740.f53308",
+            "6dd92229.dda32c",
+            "f99540c.285e1c"
         ],
         "x": 735,
         "y": 160,
@@ -5903,7 +5783,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 510,
-        "y": 40,
+        "y": 140,
         "wires": []
     },
     {
@@ -5962,7 +5842,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 780,
+        "y": 900,
         "wires": [
             [
                 "74b54a3b.4a9634"
@@ -5981,7 +5861,7 @@
         "initialize": "",
         "finalize": "",
         "x": 280,
-        "y": 780,
+        "y": 900,
         "wires": [
             [
                 "6be3562c.613718"
@@ -5997,7 +5877,7 @@
             "a023fb14.897008"
         ],
         "x": 135,
-        "y": 520,
+        "y": 640,
         "wires": [
             [
                 "ec30476f.b2b518"
@@ -6015,7 +5895,7 @@
         "initialize": "",
         "finalize": "",
         "x": 250,
-        "y": 520,
+        "y": 640,
         "wires": [
             [
                 "e06f8bac.c4d578"
@@ -6197,7 +6077,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "x": 980,
-        "y": 580,
+        "y": 700,
         "wires": []
     },
     {
@@ -6219,7 +6099,7 @@
         "payloadType": "str",
         "topic": "",
         "x": 550,
-        "y": 560,
+        "y": 680,
         "wires": [
             [
                 "d3301867.210768"
@@ -6237,7 +6117,7 @@
         "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
         "finalize": "",
         "x": 730,
-        "y": 560,
+        "y": 680,
         "wires": [
             [
                 "8bf467eb.92a0f8"
@@ -6263,7 +6143,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "x": 570,
-        "y": 680,
+        "y": 800,
         "wires": [
             [
                 "a3a01c91.245eb"
@@ -6282,7 +6162,7 @@
         "label": "count",
         "format": "{{msg.payload.event.index}}",
         "layout": "row-spread",
-        "x": 770,
+        "x": 1030,
         "y": 120,
         "wires": []
     },
@@ -6325,6 +6205,330 @@
         "wires": [
             [
                 "2876daa.4b1aa26"
+            ]
+        ]
+    },
+    {
+        "id": "6e513556.7919cc",
+        "type": "link in",
+        "z": "8bcf2d43.2e243",
+        "name": "",
+        "links": [
+            "a023fb14.897008"
+        ],
+        "x": 155,
+        "y": 40,
+        "wires": [
+            [
+                "b05b2198.5e26c"
+            ]
+        ]
+    },
+    {
+        "id": "b05b2198.5e26c",
+        "type": "function",
+        "z": "8bcf2d43.2e243",
+        "name": "setup",
+        "func": "flow.set('controllers', msg.payload.controllers)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cdfb6f1b.4c3e4",
+        "type": "ui_button",
+        "z": "8bcf2d43.2e243",
+        "name": "set-IPv4",
+        "group": "920f64db.d2fd58",
+        "order": 18,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "set",
+        "tooltip": "Sets controller network address, netmask and gateway",
+        "color": "#FFFFFF",
+        "bgcolor": "#A6BBCF",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "set",
+        "x": 520,
+        "y": 280,
+        "wires": [
+            [
+                "45ee145d.a3525c"
+            ]
+        ]
+    },
+    {
+        "id": "aeec3a78.eec6d8",
+        "type": "link in",
+        "z": "8bcf2d43.2e243",
+        "name": "",
+        "links": [
+            "71d6ed03.ece134"
+        ],
+        "x": 155,
+        "y": 200,
+        "wires": [
+            [
+                "43a592be.9cc00c",
+                "e2ef3fce.f8e3b",
+                "808c2dbd.260fc"
+            ]
+        ]
+    },
+    {
+        "id": "e2ef3fce.f8e3b",
+        "type": "function",
+        "z": "8bcf2d43.2e243",
+        "name": "netmask",
+        "func": "const deviceId = Number(msg.payload)\nconst controllers = flow.get('controllers')\n\nif (deviceId && controllers && controllers[deviceId]) {\n    const controller = controllers[deviceId]\n    \n    if (controller.IPv4) {\n       return { \n           topic: 'netmask', \n           payload: controller.IPv4.netmask\n       }\n    }\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "c5052b18.578d98"
+            ]
+        ]
+    },
+    {
+        "id": "808c2dbd.260fc",
+        "type": "function",
+        "z": "8bcf2d43.2e243",
+        "name": "gateway",
+        "func": "const deviceId = Number(msg.payload)\nconst controllers = flow.get('controllers')\n\nif (deviceId && controllers && controllers[deviceId]) {\n    const controller = controllers[deviceId]\n    \n    if (controller.IPv4) {\n       return { \n           topic: 'gateway', \n           payload: controller.IPv4.gateway\n       }\n    }\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 240,
+        "wires": [
+            [
+                "5b16f8e7.972fb8"
+            ]
+        ]
+    },
+    {
+        "id": "e1847d1c.42739",
+        "type": "ui_button",
+        "z": "c56e1667.998748",
+        "name": "set-listener",
+        "group": "920f64db.d2fd58",
+        "order": 31,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "set",
+        "tooltip": "Sets controller network address, netmask and gateway",
+        "color": "#FFFFFF",
+        "bgcolor": "#A6BBCF",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "set",
+        "x": 530,
+        "y": 580,
+        "wires": [
+            [
+                "512a17cd.9fb318"
+            ]
+        ]
+    },
+    {
+        "id": "bc6d752a.1a51a8",
+        "type": "link in",
+        "z": "c56e1667.998748",
+        "name": "",
+        "links": [
+            "a023fb14.897008"
+        ],
+        "x": 155,
+        "y": 40,
+        "wires": [
+            [
+                "d2a1aaaf.3e9318"
+            ]
+        ]
+    },
+    {
+        "id": "d2a1aaaf.3e9318",
+        "type": "function",
+        "z": "c56e1667.998748",
+        "name": "setup",
+        "func": "flow.set('controllers', msg.payload.controllers)    \n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b019c75e.68a738",
+        "type": "function",
+        "z": "c56e1667.998748",
+        "name": "address",
+        "func": "const deviceId = Number(msg.payload)\nconst controllers = flow.get('controllers')\n\nif (deviceId && controllers && controllers[deviceId]) {\n    const controller = controllers[deviceId]\n    \n    if (controller.listener) {\n       return { \n           topic: 'address', \n           payload: controller.listener.address \n       }\n    }\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 500,
+        "wires": [
+            [
+                "3331c261.f5db3e"
+            ]
+        ]
+    },
+    {
+        "id": "4bee8740.f53308",
+        "type": "link in",
+        "z": "c56e1667.998748",
+        "name": "",
+        "links": [
+            "71d6ed03.ece134"
+        ],
+        "x": 155,
+        "y": 540,
+        "wires": [
+            [
+                "b019c75e.68a738",
+                "b70f609a.39ab7"
+            ]
+        ]
+    },
+    {
+        "id": "b70f609a.39ab7",
+        "type": "function",
+        "z": "c56e1667.998748",
+        "name": "port",
+        "func": "const deviceId = Number(msg.payload)\nconst controllers = flow.get('controllers')\n\nif (deviceId && controllers && controllers[deviceId]) {\n    const controller = controllers[deviceId]\n    \n    if (controller.listener) {\n       return { \n           topic: 'port', \n           payload: controller.listener.port\n       }\n    }\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 540,
+        "wires": [
+            [
+                "5217acb4.4afe04"
+            ]
+        ]
+    },
+    {
+        "id": "89a4d64f.aae948",
+        "type": "ui_button",
+        "z": "b5da19a5.72a0c8",
+        "name": "set-event-index",
+        "group": "920f64db.d2fd58",
+        "order": 39,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "set",
+        "tooltip": "Sets controller network address, netmask and gateway",
+        "color": "#FFFFFF",
+        "bgcolor": "#A6BBCF",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "set",
+        "x": 140,
+        "y": 520,
+        "wires": [
+            [
+                "66de5d72.ad8814"
+            ]
+        ]
+    },
+    {
+        "id": "f99540c.285e1c",
+        "type": "link in",
+        "z": "b5da19a5.72a0c8",
+        "name": "",
+        "links": [
+            "71d6ed03.ece134"
+        ],
+        "x": 195,
+        "y": 300,
+        "wires": [
+            [
+                "fde41bec.17d968"
+            ]
+        ]
+    },
+    {
+        "id": "73204863.135928",
+        "type": "get-event-index",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-event-index",
+        "config": "cbd92359.dbf19",
+        "x": 560,
+        "y": 300,
+        "wires": [
+            [
+                "496b76d6.2b9548"
+            ]
+        ]
+    },
+    {
+        "id": "fde41bec.17d968",
+        "type": "function",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-event-index",
+        "func": "if (msg.payload) {\n    msg.payload = {\n        deviceId: Number(msg.payload)\n    }\n    \n    return msg\n}\n\nreturn null\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 360,
+        "y": 300,
+        "wires": [
+            [
+                "73204863.135928"
+            ]
+        ]
+    },
+    {
+        "id": "496b76d6.2b9548",
+        "type": "change",
+        "z": "b5da19a5.72a0c8",
+        "name": "event-index",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "msg.payload.index",
+                "tot": "jsonata"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 750,
+        "y": 300,
+        "wires": [
+            [
+                "27ec3017.bb1d"
             ]
         ]
     }

@@ -13,7 +13,7 @@
         "name": "listen",
         "config": "cbd92359.dbf19",
         "x": 130,
-        "y": 80,
+        "y": 180,
         "wires": [
             [
                 "d378e1d6.40fe9",
@@ -35,7 +35,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 320,
-        "y": 40,
+        "y": 140,
         "wires": []
     },
     {
@@ -142,7 +142,7 @@
         "outputs": 0,
         "cts": false,
         "x": 720,
-        "y": 80,
+        "y": 180,
         "wires": []
     },
     {
@@ -156,30 +156,13 @@
         "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
         "finalize": "",
         "x": 340,
-        "y": 80,
+        "y": 180,
         "wires": [
             [
                 "b9a22810.4f89d8",
                 "f166aff5.ee995"
             ]
         ]
-    },
-    {
-        "id": "b94136c7.ef3808",
-        "type": "debug",
-        "z": "c56e1667.998748",
-        "name": "listener",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 200,
-        "wires": []
     },
     {
         "id": "70a4e5a1.040e3c",
@@ -194,7 +177,7 @@
         "format": "{{msg.payload.address}}",
         "layout": "row-spread",
         "x": 520,
-        "y": 240,
+        "y": 320,
         "wires": []
     },
     {
@@ -207,7 +190,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 155,
-        "y": 240,
+        "y": 340,
         "wires": [
             [
                 "75e6f5f0.c7e47c"
@@ -221,10 +204,9 @@
         "name": "get-listener",
         "config": "cbd92359.dbf19",
         "x": 310,
-        "y": 240,
+        "y": 340,
         "wires": [
             [
-                "b94136c7.ef3808",
                 "70a4e5a1.040e3c",
                 "e36670e.0a94b9"
             ]
@@ -243,7 +225,7 @@
         "format": "{{msg.payload.port}}",
         "layout": "row-spread",
         "x": 510,
-        "y": 280,
+        "y": 360,
         "wires": []
     },
     {
@@ -252,30 +234,11 @@
         "z": "c56e1667.998748",
         "name": "set-listener",
         "config": "cbd92359.dbf19",
-        "x": 730,
-        "y": 400,
+        "x": 910,
+        "y": 460,
         "wires": [
-            [
-                "8463e096.b3a5f"
-            ]
+            []
         ]
-    },
-    {
-        "id": "8463e096.b3a5f",
-        "type": "debug",
-        "z": "c56e1667.998748",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 920,
-        "y": 400,
-        "wires": []
     },
     {
         "id": "3331c261.f5db3e",
@@ -285,15 +248,15 @@
         "label": "address",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 21,
+        "order": 23,
         "width": 3,
         "height": 1,
         "passthru": true,
         "mode": "text",
         "delay": "0",
         "topic": "set-address",
-        "x": 340,
-        "y": 440,
+        "x": 520,
+        "y": 500,
         "wires": [
             [
                 "512a17cd.9fb318"
@@ -305,67 +268,16 @@
         "type": "function",
         "z": "c56e1667.998748",
         "name": "listener",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-listener.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-listener.address', msg.payload)\n        break;\n\n    case 'set-port':\n        flow.set('set-listener.port', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-listener.device')\nlet address = flow.get('set-listener.address')\nlet port = flow.get('set-listener.port')\n\nif (deviceId && address && port) {\n    msg.payload = { \n        deviceId: deviceId,\n        address: address,\n            port: port\n    }\n        \n    return msg\n}\n\nreturn null",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-listener.device', msg.payload)\n        break\n\n    case 'set-address':\n        flow.set('set-listener.address', msg.payload)\n        break\n\n    case 'set-port':\n        flow.set('set-listener.port', msg.payload)\n        break\n        \n    case 'set':\n        let deviceId = flow.get('set-listener.device')\n        let address = flow.get('set-listener.address')\n        let port = flow.get('set-listener.port')\n\n        if (deviceId && address && port) {\n            msg.payload = { \n                deviceId: deviceId,\n                address: address,\n                port: port\n            }\n        \n            return msg\n        }\n        break\n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 560,
-        "y": 400,
-        "wires": [
-            [
-                "48b92667.8a59b8"
-            ]
-        ]
-    },
-    {
-        "id": "89e06038.ac5c8",
-        "type": "inject",
-        "z": "c56e1667.998748",
-        "name": "start",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 130,
-        "y": 360,
-        "wires": [
-            [
-                "8239439e.8e136"
-            ]
-        ],
-        "icon": "node-red/db.svg"
-    },
-    {
-        "id": "8239439e.8e136",
-        "type": "function",
-        "z": "c56e1667.998748",
-        "name": "initialise",
-        "func": "const address = { topic:'address', payload:'192.168.1.100' }\nconst port = { topic:'port', payload:60001 }\n\nreturn [ address, port ]",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 140,
+        "x": 740,
         "y": 460,
         "wires": [
             [
-                "3331c261.f5db3e"
-            ],
-            [
-                "5217acb4.4afe04"
+                "48b92667.8a59b8"
             ]
         ]
     },
@@ -377,15 +289,15 @@
         "label": "port",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 24,
+        "order": 27,
         "width": 3,
         "height": 1,
         "passthru": true,
         "mode": "number",
         "delay": "0",
         "topic": "set-port",
-        "x": 350,
-        "y": 480,
+        "x": 530,
+        "y": 540,
         "wires": [
             [
                 "512a17cd.9fb318"
@@ -398,10 +310,10 @@
         "z": "c56e1667.998748",
         "name": "",
         "links": [
-            "d4e3111f.b25ea"
+            "71d6ed03.ece134"
         ],
-        "x": 395,
-        "y": 400,
+        "x": 575,
+        "y": 460,
         "wires": [
             [
                 "512a17cd.9fb318"
@@ -415,7 +327,7 @@
         "name": "tab-event",
         "events": "change",
         "x": 120,
-        "y": 120,
+        "y": 220,
         "wires": [
             [
                 "89dc1ab0.a68848"
@@ -433,7 +345,7 @@
         "initialize": "",
         "finalize": "",
         "x": 340,
-        "y": 120,
+        "y": 220,
         "wires": [
             [
                 "c488256d.ca2ac8"
@@ -456,7 +368,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "x": 530,
-        "y": 120,
+        "y": 220,
         "wires": [
             [
                 "b9a22810.4f89d8"
@@ -476,7 +388,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 40,
+        "y": 140,
         "wires": []
     },
     {
@@ -493,8 +405,119 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 510,
-        "y": 40,
+        "y": 140,
         "wires": []
+    },
+    {
+        "id": "e1847d1c.42739",
+        "type": "ui_button",
+        "z": "c56e1667.998748",
+        "name": "set-listener",
+        "group": "920f64db.d2fd58",
+        "order": 31,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "set",
+        "tooltip": "Sets controller network address, netmask and gateway",
+        "color": "#FFFFFF",
+        "bgcolor": "#A6BBCF",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "set",
+        "x": 530,
+        "y": 580,
+        "wires": [
+            [
+                "512a17cd.9fb318"
+            ]
+        ]
+    },
+    {
+        "id": "bc6d752a.1a51a8",
+        "type": "link in",
+        "z": "c56e1667.998748",
+        "name": "",
+        "links": [
+            "a023fb14.897008"
+        ],
+        "x": 155,
+        "y": 40,
+        "wires": [
+            [
+                "d2a1aaaf.3e9318"
+            ]
+        ]
+    },
+    {
+        "id": "d2a1aaaf.3e9318",
+        "type": "function",
+        "z": "c56e1667.998748",
+        "name": "setup",
+        "func": "flow.set('controllers', msg.payload.controllers)    \n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b019c75e.68a738",
+        "type": "function",
+        "z": "c56e1667.998748",
+        "name": "address",
+        "func": "const deviceId = Number(msg.payload)\nconst controllers = flow.get('controllers')\n\nif (deviceId && controllers && controllers[deviceId]) {\n    const controller = controllers[deviceId]\n    \n    if (controller.listener) {\n       return { \n           topic: 'address', \n           payload: controller.listener.address \n       }\n    }\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 500,
+        "wires": [
+            [
+                "3331c261.f5db3e"
+            ]
+        ]
+    },
+    {
+        "id": "4bee8740.f53308",
+        "type": "link in",
+        "z": "c56e1667.998748",
+        "name": "",
+        "links": [
+            "71d6ed03.ece134"
+        ],
+        "x": 155,
+        "y": 540,
+        "wires": [
+            [
+                "b019c75e.68a738",
+                "b70f609a.39ab7"
+            ]
+        ]
+    },
+    {
+        "id": "b70f609a.39ab7",
+        "type": "function",
+        "z": "c56e1667.998748",
+        "name": "port",
+        "func": "const deviceId = Number(msg.payload)\nconst controllers = flow.get('controllers')\n\nif (deviceId && controllers && controllers[deviceId]) {\n    const controller = controllers[deviceId]\n    \n    if (controller.listener) {\n       return { \n           topic: 'port', \n           payload: controller.listener.port\n       }\n    }\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 540,
+        "wires": [
+            [
+                "5217acb4.4afe04"
+            ]
+        ]
     },
     {
         "id": "cbd92359.dbf19",

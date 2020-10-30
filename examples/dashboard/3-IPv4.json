@@ -7,69 +7,22 @@
         "info": ""
     },
     {
-        "id": "c601d685.422838",
-        "type": "debug",
-        "z": "8bcf2d43.2e243",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 880,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "45ee145d.a3525c",
         "type": "function",
         "z": "8bcf2d43.2e243",
         "name": "IPv4",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-address.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-address.address', msg.payload)\n        break;\n\n    case 'set-netmask':\n        flow.set('set-address.netmask', msg.payload)\n        break;\n\n    case 'set-gateway':\n        flow.set('set-address.gateway', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-address.device')\nlet address = flow.get('set-address.address')\nlet netmask = flow.get('set-address.netmask')\nlet gateway = flow.get('set-address.gateway')\n\nif (deviceId && address && netmask && gateway) {\n    msg.payload = {\n        deviceId: deviceId,\n        address: address,\n        netmask: netmask,\n        gateway: gateway\n    }        \n        \n    return msg\n}\n\nreturn null\n",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-address.device', msg.payload)\n        break;\n\n    case 'set-address':\n        flow.set('set-address.address', msg.payload)\n        break;\n\n    case 'set-netmask':\n        flow.set('set-address.netmask', msg.payload)\n        break;\n\n    case 'set-gateway':\n        flow.set('set-address.gateway', msg.payload)\n        break;\n\n    case 'set':\n        let deviceId = flow.get('set-address.device')\n        let address = flow.get('set-address.address')\n        let netmask = flow.get('set-address.netmask')\n        let gateway = flow.get('set-address.gateway')\n\n        if (deviceId && address && netmask && gateway) {\n            msg.payload = {\n               deviceId: deviceId,\n               address: address,\n               netmask: netmask,\n               gateway: gateway\n            }        \n        \n            return msg\n        }\n        break;\n}\n\nreturn null\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 550,
-        "y": 140,
+        "x": 710,
+        "y": 120,
         "wires": [
             [
                 "13a984d5.221c9b"
             ]
         ]
-    },
-    {
-        "id": "7a342239.47727c",
-        "type": "inject",
-        "z": "8bcf2d43.2e243",
-        "name": "start",
-        "props": [
-            {
-                "p": "payload"
-            },
-            {
-                "p": "topic",
-                "vt": "str"
-            }
-        ],
-        "repeat": "",
-        "crontab": "",
-        "once": true,
-        "onceDelay": 0.1,
-        "topic": "",
-        "payload": "",
-        "payloadType": "date",
-        "x": 90,
-        "y": 40,
-        "wires": [
-            [
-                "43a592be.9cc00c"
-            ]
-        ],
-        "icon": "node-red/db.svg"
     },
     {
         "id": "b6a91dc2.1e37",
@@ -79,15 +32,15 @@
         "label": "address",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 9,
-        "width": 4,
+        "order": 7,
+        "width": 3,
         "height": 1,
         "passthru": true,
         "mode": "text",
         "delay": "0",
         "topic": "set-address",
-        "x": 330,
-        "y": 180,
+        "x": 510,
+        "y": 160,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -102,15 +55,15 @@
         "label": "netmask",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 13,
-        "width": 4,
+        "order": 10,
+        "width": 3,
         "height": 1,
         "passthru": true,
         "mode": "text",
         "delay": "0",
         "topic": "set-netmask",
-        "x": 340,
-        "y": 220,
+        "x": 500,
+        "y": 200,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -125,15 +78,15 @@
         "label": "gateway",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 17,
-        "width": 4,
+        "order": 14,
+        "width": 3,
         "height": 1,
         "passthru": true,
         "mode": "text",
         "delay": "0",
         "topic": "set-gateway",
-        "x": 340,
-        "y": 260,
+        "x": 500,
+        "y": 240,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -144,23 +97,17 @@
         "id": "43a592be.9cc00c",
         "type": "function",
         "z": "8bcf2d43.2e243",
-        "name": "initialise",
-        "func": "const address = { topic:'address', payload:'192.168.1.100' }\nconst netmask = { topic:'netmask', payload:'255.255.255.0' }\nconst gateway = { topic:'gateway', payload:'192.168.1.1' }\n\nreturn [address, netmask, gateway]",
-        "outputs": 3,
+        "name": "address",
+        "func": "const deviceId = Number(msg.payload)\nconst controllers = flow.get('controllers')\n\nif (deviceId && controllers && controllers[deviceId]) {\n    const controller = controllers[deviceId]\n    \n    if (controller.IPv4) {\n       return { \n           topic: 'address', \n           payload: controller.IPv4.address \n       }\n    }\n}\n\nreturn null",
+        "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 120,
-        "y": 180,
+        "x": 300,
+        "y": 160,
         "wires": [
             [
                 "b6a91dc2.1e37"
-            ],
-            [
-                "c5052b18.578d98"
-            ],
-            [
-                "5b16f8e7.972fb8"
             ]
         ]
     },
@@ -170,10 +117,10 @@
         "z": "8bcf2d43.2e243",
         "name": "",
         "links": [
-            "d4e3111f.b25ea"
+            "71d6ed03.ece134"
         ],
-        "x": 395,
-        "y": 140,
+        "x": 555,
+        "y": 120,
         "wires": [
             [
                 "45ee145d.a3525c"
@@ -186,11 +133,121 @@
         "z": "8bcf2d43.2e243",
         "name": "set-ip",
         "config": "cbd92359.dbf19",
-        "x": 710,
-        "y": 140,
+        "x": 870,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6e513556.7919cc",
+        "type": "link in",
+        "z": "8bcf2d43.2e243",
+        "name": "",
+        "links": [
+            "a023fb14.897008"
+        ],
+        "x": 155,
+        "y": 40,
         "wires": [
             [
-                "c601d685.422838"
+                "b05b2198.5e26c"
+            ]
+        ]
+    },
+    {
+        "id": "b05b2198.5e26c",
+        "type": "function",
+        "z": "8bcf2d43.2e243",
+        "name": "setup",
+        "func": "flow.set('controllers', msg.payload.controllers)",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cdfb6f1b.4c3e4",
+        "type": "ui_button",
+        "z": "8bcf2d43.2e243",
+        "name": "set-IPv4",
+        "group": "920f64db.d2fd58",
+        "order": 18,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "set",
+        "tooltip": "Sets controller network address, netmask and gateway",
+        "color": "#FFFFFF",
+        "bgcolor": "#A6BBCF",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "set",
+        "x": 520,
+        "y": 280,
+        "wires": [
+            [
+                "45ee145d.a3525c"
+            ]
+        ]
+    },
+    {
+        "id": "aeec3a78.eec6d8",
+        "type": "link in",
+        "z": "8bcf2d43.2e243",
+        "name": "",
+        "links": [
+            "71d6ed03.ece134"
+        ],
+        "x": 155,
+        "y": 200,
+        "wires": [
+            [
+                "43a592be.9cc00c",
+                "e2ef3fce.f8e3b",
+                "808c2dbd.260fc"
+            ]
+        ]
+    },
+    {
+        "id": "e2ef3fce.f8e3b",
+        "type": "function",
+        "z": "8bcf2d43.2e243",
+        "name": "netmask",
+        "func": "const deviceId = Number(msg.payload)\nconst controllers = flow.get('controllers')\n\nif (deviceId && controllers && controllers[deviceId]) {\n    const controller = controllers[deviceId]\n    \n    if (controller.IPv4) {\n       return { \n           topic: 'netmask', \n           payload: controller.IPv4.netmask\n       }\n    }\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "c5052b18.578d98"
+            ]
+        ]
+    },
+    {
+        "id": "808c2dbd.260fc",
+        "type": "function",
+        "z": "8bcf2d43.2e243",
+        "name": "gateway",
+        "func": "const deviceId = Number(msg.payload)\nconst controllers = flow.get('controllers')\n\nif (deviceId && controllers && controllers[deviceId]) {\n    const controller = controllers[deviceId]\n    \n    if (controller.IPv4) {\n       return { \n           topic: 'gateway', \n           payload: controller.IPv4.gateway\n       }\n    }\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 300,
+        "y": 240,
+        "wires": [
+            [
+                "5b16f8e7.972fb8"
             ]
         ]
     },

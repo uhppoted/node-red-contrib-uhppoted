@@ -3,6 +3,10 @@
 ## IN PROGRESS
 
 - [ ] dashboard: configure - changing controllers should restore from flow context
+- [ ] dashboard: card edit/update/delete
+      - click on card in list
+      - show doors for all controllers
+      - get-card for all controllers
 - [ ] (maybe) rework codec as map of functions
 - [ ] Release
 - [ ] Publish to NPM, add badges to README and update README installation
