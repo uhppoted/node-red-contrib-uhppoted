@@ -251,7 +251,7 @@
         "id": "e4b36c96.1a567",
         "type": "ui_tab",
         "z": "",
-        "name": "configure",
+        "name": "configuration",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
@@ -268,25 +268,14 @@
         "collapse": false
     },
     {
-        "id": "92a2709b.0ef46",
-        "type": "ui_group",
-        "z": "",
-        "name": "controllers",
-        "tab": "2731970.74c476a",
-        "order": 1,
-        "disp": false,
-        "width": 3,
-        "collapse": false
-    },
-    {
         "id": "920f64db.d2fd58",
         "type": "ui_group",
         "z": "",
-        "name": "configuration",
+        "name": "column-1",
         "tab": "e4b36c96.1a567",
         "order": 1,
         "disp": false,
-        "width": "10",
+        "width": 5,
         "collapse": false
     },
     {
@@ -308,7 +297,7 @@
         "tab": "2731970.74c476a",
         "order": 3,
         "disp": false,
-        "width": "5",
+        "width": 6,
         "collapse": false
     },
     {
@@ -582,313 +571,45 @@
         "height": 1
     },
     {
-        "id": "4d8d68fc.c2e368",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "c03a3b24.d45c48",
-        "order": 2,
-        "width": 1,
-        "height": 1
+        "id": "aee33fcb.43067",
+        "type": "ui_group",
+        "z": "",
+        "name": "column-3",
+        "tab": "e4b36c96.1a567",
+        "order": 3,
+        "disp": false,
+        "width": 8,
+        "collapse": false
     },
     {
-        "id": "357558b1.0f3718",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "c03a3b24.d45c48",
-        "order": 4,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "65ab863b.416878",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "c03a3b24.d45c48",
-        "order": 6,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "cf3f653f.f3e818",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "c03a3b24.d45c48",
-        "order": 8,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "bb469c23.e90e1",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "c03a3b24.d45c48",
-        "order": 10,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "35b0aa84.5d2266",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "c03a3b24.d45c48",
-        "order": 12,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "e8fe12cc.27c82",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "c03a3b24.d45c48",
-        "order": 14,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "89e02aa9.d418c8",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "c03a3b24.d45c48",
-        "order": 16,
-        "width": 6,
-        "height": 1
-    },
-    {
-        "id": "1945a0f1.9e0acf",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "c03a3b24.d45c48",
-        "order": 19,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "13dda107.dce86f",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "c03a3b24.d45c48",
-        "order": 21,
-        "width": 6,
-        "height": 1
-    },
-    {
-        "id": "a6c5402.de351c",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "573f9bfa.7e4564",
-        "order": 10,
-        "width": 5,
-        "height": 1
-    },
-    {
-        "id": "c29b37b6.930198",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "573f9bfa.7e4564",
-        "order": 13,
-        "width": 5,
-        "height": 1
-    },
-    {
-        "id": "b4e780f8.6c268",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "573f9bfa.7e4564",
-        "order": 16,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "41d92270.09833c",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 2,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "4a8c1380.1b0aac",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 4,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "c0f13997.872938",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 6,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "18b9f726.707789",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 8,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "bb4ada8.ec69b28",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 10,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "76ec50cc.4b1b4",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 12,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "5e503246.b392fc",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 14,
-        "width": 4,
-        "height": 1
-    },
-    {
-        "id": "ca7133c5.d018d",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 15,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "3f4b130.a8005ee",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 17,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "f77858e.d54fba8",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 19,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "b0cda378.ec559",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 21,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "9a6ffe4c.109e9",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 23,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "16c7f079.b4a88",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 25,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "5d2791a3.c28bf",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 27,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "26bd58db.937c68",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 29,
-        "width": 7,
-        "height": 1
-    },
-    {
-        "id": "956ef5de.5293c8",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 30,
-        "width": 1,
-        "height": 1
-    },
-    {
-        "id": "36c6050a.f51d7a",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 50,
-        "width": 7,
-        "height": 1
-    },
-    {
-        "id": "e0e7d286.bdff4",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "ffdc2439.246b38",
-        "order": 53,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "92822edb.e5f87",
+        "id": "c2787cda.4b539",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "920f64db.d2fd58",
         "order": 2,
-        "width": 1,
+        "width": 5,
         "height": 1
     },
     {
-        "id": "8c5e8420.0f66c8",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 4,
-        "width": 6,
-        "height": 1
-    },
-    {
-        "id": "5331c89c.87a858",
+        "id": "c4bb3bd0.e5d778",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "920f64db.d2fd58",
         "order": 5,
-        "width": 10,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "fa22dc4a.a1dbf",
+        "id": "7a18dafa.3d2464",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 7,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "17c2eb53.aae775",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "920f64db.d2fd58",
@@ -897,129 +618,453 @@
         "height": 1
     },
     {
-        "id": "ac47900a.fd594",
+        "id": "c269815f.a4a2b",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "920f64db.d2fd58",
         "order": 11,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "37c719c5.a06b36",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 14,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "f6c48e06.de13f",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 16,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "e3450c44.aab16",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 18,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "7bf910dd.7537b",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "920f64db.d2fd58",
+        "order": 21,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "4240a7b6.b7ae28",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "aee33fcb.43067",
+        "order": 1,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "bc13390b.991218",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "aee33fcb.43067",
+        "order": 2,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "58744d4c.f6e594",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "aee33fcb.43067",
+        "order": 5,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "7c6de930.9970b8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "aee33fcb.43067",
+        "order": 7,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "a0cfd30a.0bfaf",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "aee33fcb.43067",
+        "order": 9,
+        "width": 8,
+        "height": 1
+    },
+    {
+        "id": "c223343d.409db8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "aee33fcb.43067",
+        "order": 23,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "7ec1a831.3c2f28",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c03a3b24.d45c48",
+        "order": 3,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "d56468d1.c7f488",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c03a3b24.d45c48",
+        "order": 6,
         "width": 1,
         "height": 1
     },
     {
-        "id": "48a6ac3e.3ef014",
+        "id": "7add4da3.76d3f4",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "920f64db.d2fd58",
+        "group": "c03a3b24.d45c48",
+        "order": 8,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "6c820387.0a605c",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c03a3b24.d45c48",
+        "order": 10,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "6f3928f3.5da298",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c03a3b24.d45c48",
+        "order": 12,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "e32cffc1.4c7de",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c03a3b24.d45c48",
+        "order": 14,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "846d7611.6d60a8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c03a3b24.d45c48",
+        "order": 16,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "1c2f72f7.c161cd",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c03a3b24.d45c48",
+        "order": 18,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "cb8792a.e7ab57",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c03a3b24.d45c48",
+        "order": 19,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "1e96901c.e4908",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c03a3b24.d45c48",
+        "order": 22,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "9418990c.d8d9b8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "c03a3b24.d45c48",
+        "order": 24,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "3bf3a963.bfd676",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "573f9bfa.7e4564",
+        "order": 1,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "54d6ebf7.2641d4",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "573f9bfa.7e4564",
+        "order": 2,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "81b285dd.ae2f08",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "573f9bfa.7e4564",
+        "order": 3,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "a5aac6e1.f7d9e8",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "573f9bfa.7e4564",
+        "order": 13,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "b3b17d2f.9ea6e",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "573f9bfa.7e4564",
+        "order": 16,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "7b6f0adb.6e0554",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "573f9bfa.7e4564",
+        "order": 17,
+        "width": 6,
+        "height": 1
+    },
+    {
+        "id": "2bb9c5c7.a3f2ba",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "573f9bfa.7e4564",
+        "order": 20,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "3edf6cdc.d437d4",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "573f9bfa.7e4564",
+        "order": 21,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "3d6bfa50.dd47e6",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "573f9bfa.7e4564",
+        "order": 23,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "2e3ac03.ab9304",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ffdc2439.246b38",
+        "order": 1,
+        "width": 7,
+        "height": 1
+    },
+    {
+        "id": "a7613b32.2b8408",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ffdc2439.246b38",
+        "order": 2,
+        "width": 7,
+        "height": 1
+    },
+    {
+        "id": "7d9c9db0.bf1434",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ffdc2439.246b38",
+        "order": 3,
+        "width": 7,
+        "height": 1
+    },
+    {
+        "id": "9a584a81.b0aa78",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ffdc2439.246b38",
+        "order": 5,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "61c09c4.ab3e564",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ffdc2439.246b38",
+        "order": 7,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "b42d3851.1e3d28",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ffdc2439.246b38",
+        "order": 9,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "bc027e1c.aa2af",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ffdc2439.246b38",
+        "order": 11,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "94d6733a.5d8c2",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ffdc2439.246b38",
         "order": 13,
         "width": 2,
         "height": 1
     },
     {
-        "id": "3d9455b3.aca36a",
+        "id": "1faa52.9746c5ae",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "920f64db.d2fd58",
+        "group": "ffdc2439.246b38",
         "order": 15,
         "width": 1,
         "height": 1
     },
     {
-        "id": "ce215f76.59177",
+        "id": "1986a71b.84e179",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "920f64db.d2fd58",
+        "group": "ffdc2439.246b38",
         "order": 17,
+        "width": 4,
+        "height": 1
+    },
+    {
+        "id": "34fb236.aa17adc",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ffdc2439.246b38",
+        "order": 18,
         "width": 2,
         "height": 1
     },
     {
-        "id": "e9b2d434.259b58",
+        "id": "a0857b74.f840f8",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 19,
-        "width": 5,
-        "height": 1
-    },
-    {
-        "id": "b65a9523.dbc088",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
+        "group": "ffdc2439.246b38",
         "order": 20,
-        "width": 5,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "e8a9656e.996dd8",
+        "id": "9c60c47f.b85918",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "920f64db.d2fd58",
+        "group": "ffdc2439.246b38",
+        "order": 22,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "f2f2919c.3b6ef",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "ffdc2439.246b38",
         "order": 24,
-        "width": 1,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "4c997625.88b8d8",
+        "id": "fa5eb929.9f58b8",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "920f64db.d2fd58",
+        "group": "ffdc2439.246b38",
         "order": 26,
         "width": 2,
         "height": 1
     },
     {
-        "id": "e4e77498.31e418",
+        "id": "ecce67c8.d7c7b8",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "920f64db.d2fd58",
+        "group": "ffdc2439.246b38",
         "order": 28,
-        "width": 1,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "4fa7bb4.f4e7a44",
+        "id": "b6dead40.e612f",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "920f64db.d2fd58",
+        "group": "ffdc2439.246b38",
         "order": 30,
         "width": 2,
         "height": 1
     },
     {
-        "id": "2bc0ad98.8fe4b2",
+        "id": "8e16aa6.da38a58",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "920f64db.d2fd58",
+        "group": "ffdc2439.246b38",
         "order": 32,
         "width": 1,
         "height": 1
     },
     {
-        "id": "87cedb52.6066e8",
+        "id": "942e3e54.8f1f1",
         "type": "ui_spacer",
         "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 34,
-        "width": 10,
-        "height": 1
-    },
-    {
-        "id": "57b5cbf8.202054",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 35,
-        "width": 5,
-        "height": 1
-    },
-    {
-        "id": "b4f13b7.5d875c8",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "920f64db.d2fd58",
-        "order": 38,
-        "width": 7,
+        "group": "ffdc2439.246b38",
+        "order": 54,
+        "width": 2,
         "height": 1
     },
     {
@@ -1376,7 +1421,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 3,
+        "order": 5,
         "width": 5,
         "height": 1,
         "name": "serial-number",
@@ -1392,7 +1437,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 5,
+        "order": 7,
         "width": 5,
         "height": 1,
         "name": "device-address",
@@ -1408,7 +1453,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 7,
+        "order": 9,
         "width": 5,
         "height": 1,
         "name": "device-netmask",
@@ -1424,7 +1469,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 9,
+        "order": 11,
         "width": 5,
         "height": 1,
         "name": "device-gateway",
@@ -1440,7 +1485,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 11,
+        "order": 13,
         "width": 5,
         "height": 1,
         "name": "device-MAC",
@@ -1456,7 +1501,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 13,
+        "order": 15,
         "width": 5,
         "height": 1,
         "name": "device-version",
@@ -1472,7 +1517,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 15,
+        "order": 17,
         "width": 5,
         "height": 1,
         "name": "device-date",
@@ -1706,7 +1751,7 @@
         "label": "address",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 7,
+        "order": 4,
         "width": 3,
         "height": 1,
         "passthru": true,
@@ -1729,7 +1774,7 @@
         "label": "netmask",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 10,
+        "order": 6,
         "width": 3,
         "height": 1,
         "passthru": true,
@@ -1752,7 +1797,7 @@
         "label": "gateway",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 14,
+        "order": 8,
         "width": 3,
         "height": 1,
         "passthru": true,
@@ -1865,7 +1910,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 3,
+        "order": 6,
         "width": 5,
         "height": 1,
         "name": "status-serial-number",
@@ -1881,7 +1926,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 16,
+        "order": 19,
         "width": 5,
         "height": 1,
         "name": "status-event-index",
@@ -1914,7 +1959,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 20,
+        "order": 23,
         "width": 5,
         "height": 1,
         "name": "status-event-type",
@@ -1930,7 +1975,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 28,
+        "order": 31,
         "width": 5,
         "height": 1,
         "name": "status-event-granted",
@@ -1946,7 +1991,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 24,
+        "order": 27,
         "width": 5,
         "height": 1,
         "name": "status-event-door",
@@ -1962,7 +2007,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 26,
+        "order": 29,
         "width": 5,
         "height": 1,
         "name": "status-event-direction",
@@ -1978,7 +2023,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 22,
+        "order": 25,
         "width": 5,
         "height": 1,
         "name": "status-event-card",
@@ -1994,7 +2039,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 18,
+        "order": 21,
         "width": 5,
         "height": 1,
         "name": "status-event-timestamp",
@@ -2010,7 +2055,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 35,
+        "order": 37,
         "width": 2,
         "height": 1,
         "name": "door-1",
@@ -2026,7 +2071,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 39,
+        "order": 41,
         "width": 2,
         "height": 1,
         "name": "door-2",
@@ -2042,7 +2087,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 43,
+        "order": 45,
         "width": 2,
         "height": 1,
         "name": "door-3",
@@ -2058,7 +2103,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 47,
+        "order": 49,
         "width": 2,
         "height": 1,
         "name": "door-4",
@@ -2074,7 +2119,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 36,
+        "order": 38,
         "width": 2,
         "height": 1,
         "name": "button-1",
@@ -2090,7 +2135,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 40,
+        "order": 42,
         "width": 2,
         "height": 1,
         "name": "button-2",
@@ -2106,7 +2151,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 44,
+        "order": 46,
         "width": 2,
         "height": 1,
         "name": "button-3",
@@ -2122,7 +2167,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 48,
+        "order": 50,
         "width": 2,
         "height": 1,
         "name": "button-4",
@@ -2138,7 +2183,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 5,
+        "order": 8,
         "width": 5,
         "height": 1,
         "name": "system-status",
@@ -2154,7 +2199,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 7,
+        "order": 10,
         "width": 5,
         "height": 1,
         "name": "system-date",
@@ -2170,7 +2215,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 9,
+        "order": 12,
         "width": 5,
         "height": 1,
         "name": "system-time",
@@ -2186,7 +2231,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 11,
+        "order": 14,
         "width": 5,
         "height": 1,
         "name": "special-info",
@@ -2202,7 +2247,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 37,
+        "order": 39,
         "width": 2,
         "height": 1,
         "name": "relay-1",
@@ -2218,7 +2263,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 41,
+        "order": 43,
         "width": 2,
         "height": 1,
         "name": "relay-2",
@@ -2234,7 +2279,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 45,
+        "order": 47,
         "width": 2,
         "height": 1,
         "name": "relay-3",
@@ -2250,7 +2295,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 49,
+        "order": 51,
         "width": 2,
         "height": 1,
         "name": "relay-4",
@@ -2266,7 +2311,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 52,
+        "order": 53,
         "width": 5,
         "height": 1,
         "name": "force-locked",
@@ -2282,7 +2327,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 54,
+        "order": 55,
         "width": 5,
         "height": 1,
         "name": "fire-alarm",
@@ -2300,7 +2345,7 @@
         "name": "get-time",
         "config": "cbd92359.dbf19",
         "x": 300,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "2c2ab991.619516",
@@ -2322,7 +2367,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 480,
-        "y": 40,
+        "y": 80,
         "wires": []
     },
     {
@@ -2330,7 +2375,7 @@
         "type": "ui_text",
         "z": "f7a455cc.3fefe8",
         "group": "c03a3b24.d45c48",
-        "order": 23,
+        "order": 26,
         "width": 4,
         "height": 1,
         "name": "datetime",
@@ -2338,7 +2383,7 @@
         "format": "{{msg.payload.datetime}}",
         "layout": "row-spread",
         "x": 480,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -2351,7 +2396,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 135,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "6a3d799.3fe3688"
@@ -2380,7 +2425,7 @@
         "type": "ui_button",
         "z": "33c9a78a.cc8c18",
         "name": "405419896",
-        "group": "92a2709b.0ef46",
+        "group": "c03a3b24.d45c48",
         "order": 1,
         "width": 3,
         "height": 2,
@@ -2427,7 +2472,7 @@
         "type": "ui_button",
         "z": "33c9a78a.cc8c18",
         "name": "303986753",
-        "group": "92a2709b.0ef46",
+        "group": "c03a3b24.d45c48",
         "order": 2,
         "width": 3,
         "height": 2,
@@ -2461,8 +2506,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 180,
+        "x": 700,
+        "y": 300,
         "wires": []
     },
     {
@@ -2471,8 +2516,8 @@
         "z": "f7a455cc.3fefe8",
         "name": "set-time",
         "config": "cbd92359.dbf19",
-        "x": 480,
-        "y": 180,
+        "x": 520,
+        "y": 300,
         "wires": [
             [
                 "804a318e.14ddb"
@@ -2486,16 +2531,16 @@
         "name": "time",
         "label": "",
         "tooltip": "",
-        "group": "920f64db.d2fd58",
-        "order": 16,
+        "group": "aee33fcb.43067",
+        "order": 6,
         "width": 4,
         "height": 1,
         "passthru": false,
         "mode": "time",
         "delay": "0",
         "topic": "set-time",
-        "x": 110,
-        "y": 260,
+        "x": 150,
+        "y": 420,
         "wires": [
             [
                 "1768d838.2f1398"
@@ -2508,14 +2553,14 @@
         "z": "f7a455cc.3fefe8",
         "name": "date",
         "label": "",
-        "group": "920f64db.d2fd58",
-        "order": 12,
+        "group": "aee33fcb.43067",
+        "order": 4,
         "width": 4,
         "height": 1,
         "passthru": true,
         "topic": "set-date",
-        "x": 110,
-        "y": 220,
+        "x": 150,
+        "y": 380,
         "wires": [
             [
                 "1768d838.2f1398"
@@ -2527,13 +2572,13 @@
         "type": "function",
         "z": "f7a455cc.3fefe8",
         "name": "datetime",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-time.device', msg.payload)\n        break;\n\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        break;\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        break;\n}\n\nlet deviceId = flow.get('set-time.device')\nlet date = flow.get('set-time.date')\nlet time = flow.get('set-time.time')\n\nif (!date) {\n    date = new Date()\n}\n\nif (!time) {\n    time = new Date()\n}\n\nif (deviceId && date && time) {\n    const year = format(date.getFullYear(), 4)\n    const month = format(date.getMonth()+1, 2)\n    const day = format(date.getDate(), 2)\n    const hours = format(time.getHours(), 2)\n    const minutes = format(time.getMinutes(), 2)\n    const seconds = format(time.getSeconds(), 2)\n\n    msg.payload = { \n        deviceId: deviceId,\n        datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n    }\n        \n    return msg\n}\n\nreturn null",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-time.device', msg.payload)\n        break\n\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        break\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        break\n        \n    case 'set':\n        let deviceId = flow.get('set-time.device')\n        let date = flow.get('set-time.date')\n        let time = flow.get('set-time.time')\n\n        if (!date) {\n            date = new Date()\n        }\n\n        if (!time) {\n            time = new Date()\n        }\n\n        if (deviceId && date && time) {\n            const year = format(date.getFullYear(), 4)\n            const month = format(date.getMonth()+1, 2)\n            const day = format(date.getDate(), 2)\n            const hours = format(time.getHours(), 2)\n            const minutes = format(time.getMinutes(), 2)\n            const seconds = format(time.getSeconds(), 2)\n\n            msg.payload = { \n                deviceId: deviceId,\n                datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n            }\n        \n            return msg\n        }\n        break\n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 300,
-        "y": 180,
+        "x": 340,
+        "y": 300,
         "wires": [
             [
                 "ea3bdfee.bf0d1"
@@ -2541,29 +2586,12 @@
         ]
     },
     {
-        "id": "2046730f.81897c",
-        "type": "debug",
-        "z": "86bbf50e.a7f188",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 80,
-        "wires": []
-    },
-    {
         "id": "d0069706.de5418",
         "type": "ui_text",
         "z": "86bbf50e.a7f188",
         "group": "573f9bfa.7e4564",
-        "order": 3,
-        "width": 4,
+        "order": 6,
+        "width": 5,
         "height": 1,
         "name": "door-1",
         "label": "{{msg.payload.door.name}}",
@@ -2600,7 +2628,6 @@
         "y": 120,
         "wires": [
             [
-                "2046730f.81897c",
                 "6c1033a4.e0d67c"
             ]
         ]
@@ -2637,8 +2664,8 @@
         "type": "ui_text",
         "z": "86bbf50e.a7f188",
         "group": "573f9bfa.7e4564",
-        "order": 5,
-        "width": 4,
+        "order": 8,
+        "width": 5,
         "height": 1,
         "name": "door-2",
         "label": "{{msg.payload.door.name}}",
@@ -2667,8 +2694,8 @@
         "type": "ui_text",
         "z": "86bbf50e.a7f188",
         "group": "573f9bfa.7e4564",
-        "order": 7,
-        "width": 4,
+        "order": 10,
+        "width": 5,
         "height": 1,
         "name": "door-3",
         "label": "{{msg.payload.door.name}}",
@@ -2697,8 +2724,8 @@
         "type": "ui_text",
         "z": "86bbf50e.a7f188",
         "group": "573f9bfa.7e4564",
-        "order": 9,
-        "width": 4,
+        "order": 12,
+        "width": 5,
         "height": 1,
         "name": "door-4",
         "label": "{{msg.payload.door.name}}",
@@ -2727,7 +2754,7 @@
         "type": "ui_text",
         "z": "c56e1667.998748",
         "group": "c03a3b24.d45c48",
-        "order": 18,
+        "order": 21,
         "width": 4,
         "height": 1,
         "name": "listen-address",
@@ -2775,7 +2802,7 @@
         "type": "ui_text",
         "z": "c56e1667.998748",
         "group": "c03a3b24.d45c48",
-        "order": 20,
+        "order": 23,
         "width": 4,
         "height": 1,
         "name": "listen-port",
@@ -2806,7 +2833,7 @@
         "label": "address",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 23,
+        "order": 13,
         "width": 3,
         "height": 1,
         "passthru": true,
@@ -2847,7 +2874,7 @@
         "label": "port",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 27,
+        "order": 15,
         "width": 3,
         "height": 1,
         "passthru": true,
@@ -2859,168 +2886,6 @@
         "wires": [
             [
                 "512a17cd.9fb318"
-            ]
-        ]
-    },
-    {
-        "id": "6d8d48f7.397bb8",
-        "type": "set-door-control",
-        "z": "86bbf50e.a7f188",
-        "name": "set-door-control",
-        "config": "cbd92359.dbf19",
-        "x": 860,
-        "y": 340,
-        "wires": [
-            [
-                "552b0a9d.9bc984"
-            ]
-        ]
-    },
-    {
-        "id": "552b0a9d.9bc984",
-        "type": "debug",
-        "z": "86bbf50e.a7f188",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1060,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "2a6bfd65.85b982",
-        "type": "function",
-        "z": "86bbf50e.a7f188",
-        "name": "door-control",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-door-control.device', msg.payload)\n        break;\n\n    case 'set-door':\n        flow.set('set-door-control.door', msg.payload)\n        break;\n\n    case 'set-delay':\n        flow.set('set-door-control.delay', msg.payload)\n        break;\n\n    case 'set-control':\n        flow.set('set-door-control.control', msg.payload)\n        break;\n}\n\nlet deviceId = flow.get('set-door-control.device')\nlet door = flow.get('set-door-control.door')\nlet delay = flow.get('set-door-control.delay')\nlet control = flow.get('set-door-control.control')\n\nif (deviceId && door && delay && control) {\n    msg.payload = { \n        deviceId: deviceId,\n        door: door,\n        delay: delay,\n        control: control\n    }\n        \n    return msg\n}\n\nreturn null;\n\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 650,
-        "y": 340,
-        "wires": [
-            [
-                "6d8d48f7.397bb8"
-            ]
-        ]
-    },
-    {
-        "id": "17002233.3f01ae",
-        "type": "ui_dropdown",
-        "z": "86bbf50e.a7f188",
-        "name": "door",
-        "label": "door:",
-        "tooltip": "",
-        "place": "<select door>",
-        "group": "920f64db.d2fd58",
-        "order": 25,
-        "width": 4,
-        "height": 1,
-        "passthru": false,
-        "multiple": false,
-        "options": [
-            {
-                "label": "1",
-                "value": 1,
-                "type": "num"
-            },
-            {
-                "label": "2",
-                "value": "2",
-                "type": "str"
-            },
-            {
-                "label": "3",
-                "value": "3",
-                "type": "str"
-            },
-            {
-                "label": "4",
-                "value": "4",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "set-door",
-        "x": 450,
-        "y": 380,
-        "wires": [
-            [
-                "2a6bfd65.85b982"
-            ]
-        ]
-    },
-    {
-        "id": "658fc734.2cb608",
-        "type": "ui_numeric",
-        "z": "86bbf50e.a7f188",
-        "name": "delay",
-        "label": "delay:",
-        "tooltip": "",
-        "group": "920f64db.d2fd58",
-        "order": 33,
-        "width": 4,
-        "height": 1,
-        "wrap": false,
-        "passthru": true,
-        "topic": "set-delay",
-        "format": "{{value}}",
-        "min": 0,
-        "max": "15",
-        "step": 1,
-        "x": 450,
-        "y": 420,
-        "wires": [
-            [
-                "2a6bfd65.85b982"
-            ]
-        ]
-    },
-    {
-        "id": "b9f51091.3fdb3",
-        "type": "ui_dropdown",
-        "z": "86bbf50e.a7f188",
-        "name": "control",
-        "label": "control:",
-        "tooltip": "",
-        "place": "<select control state>",
-        "group": "920f64db.d2fd58",
-        "order": 29,
-        "width": 4,
-        "height": 1,
-        "passthru": true,
-        "multiple": false,
-        "options": [
-            {
-                "label": "normally open",
-                "value": "normally open",
-                "type": "str"
-            },
-            {
-                "label": "normally closed",
-                "value": "normally closed",
-                "type": "str"
-            },
-            {
-                "label": "controlled",
-                "value": "controlled",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "set-control",
-        "x": 450,
-        "y": 460,
-        "wires": [
-            [
-                "2a6bfd65.85b982"
             ]
         ]
     },
@@ -3040,8 +2905,8 @@
         "z": "33c9a78a.cc8c18",
         "name": "configuration",
         "info": "",
-        "x": 610,
-        "y": 160,
+        "x": 490,
+        "y": 40,
         "wires": []
     },
     {
@@ -3061,44 +2926,11 @@
         "options": [],
         "payload": "",
         "topic": "set-device",
-        "x": 600,
-        "y": 200,
+        "x": 680,
+        "y": 80,
         "wires": [
             [
-                "9e51b059.74aab",
                 "71d6ed03.ece134"
-            ]
-        ]
-    },
-    {
-        "id": "d4e3111f.b25ea",
-        "type": "link out",
-        "z": "33c9a78a.cc8c18",
-        "name": "configure",
-        "links": [
-            "e90fb8ea.bb5528",
-            "c59a9f6b.b8afe",
-            "91238aa6.25efe8",
-            "750f854e.3e5eac",
-            "90784e04.a4454"
-        ],
-        "x": 895,
-        "y": 200,
-        "wires": []
-    },
-    {
-        "id": "e90fb8ea.bb5528",
-        "type": "link in",
-        "z": "86bbf50e.a7f188",
-        "name": "",
-        "links": [
-            "d4e3111f.b25ea"
-        ],
-        "x": 155,
-        "y": 340,
-        "wires": [
-            [
-                "2a6bfd65.85b982"
             ]
         ]
     },
@@ -3108,10 +2940,10 @@
         "z": "f7a455cc.3fefe8",
         "name": "",
         "links": [
-            "d4e3111f.b25ea"
+            "71d6ed03.ece134"
         ],
-        "x": 135,
-        "y": 180,
+        "x": 175,
+        "y": 340,
         "wires": [
             [
                 "1768d838.2f1398"
@@ -3156,8 +2988,8 @@
         "z": "86bbf50e.a7f188",
         "name": "open-door",
         "config": "cbd92359.dbf19",
-        "x": 470,
-        "y": 700,
+        "x": 650,
+        "y": 1220,
         "wires": [
             []
         ]
@@ -3180,8 +3012,8 @@
         "payload": "{ \"deviceId\":405419896, \"door\":1 }",
         "payloadType": "json",
         "topic": "open-door",
-        "x": 150,
-        "y": 540,
+        "x": 330,
+        "y": 1060,
         "wires": [
             [
                 "6c1b3177.30bd2"
@@ -3206,8 +3038,8 @@
         "payload": "{ \"deviceId\":405419896, \"door\":2 }",
         "payloadType": "json",
         "topic": "open-door",
-        "x": 150,
-        "y": 580,
+        "x": 330,
+        "y": 1100,
         "wires": [
             [
                 "6c1b3177.30bd2"
@@ -3232,8 +3064,8 @@
         "payload": "{ \"deviceId\":405419896, \"door\":3 }",
         "payloadType": "json",
         "topic": "open-door",
-        "x": 150,
-        "y": 620,
+        "x": 330,
+        "y": 1140,
         "wires": [
             [
                 "6c1b3177.30bd2"
@@ -3258,8 +3090,8 @@
         "payload": "{ \"deviceId\":405419896, \"door\":4 }",
         "payloadType": "json",
         "topic": "open-door",
-        "x": 150,
-        "y": 660,
+        "x": 330,
+        "y": 1180,
         "wires": [
             [
                 "6c1b3177.30bd2"
@@ -3271,63 +3103,15 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 6,
+        "order": 3,
         "width": 2,
         "height": 1,
         "name": "label-IPv4",
         "label": "IPv4",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 600,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "552627e8.24d418",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "920f64db.d2fd58",
-        "order": 36,
-        "width": 2,
-        "height": 1,
-        "name": "label-events",
-        "label": "events",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 610,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "62ed9054.f3d32",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "920f64db.d2fd58",
-        "order": 8,
-        "width": 5,
-        "height": 1,
-        "name": "label-datetime",
-        "label": "date/time",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 620,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "26b54fcb.c978d",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "920f64db.d2fd58",
-        "order": 21,
-        "width": 5,
-        "height": 1,
-        "name": "label-doors",
-        "label": "doors",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 610,
-        "y": 400,
+        "x": 540,
+        "y": 160,
         "wires": []
     },
     {
@@ -3348,8 +3132,8 @@
         "payload": "{ \"deviceId\": 303986753, \"door\":1 }",
         "payloadType": "json",
         "topic": "open-door",
-        "x": 150,
-        "y": 740,
+        "x": 330,
+        "y": 1260,
         "wires": [
             [
                 "6c1b3177.30bd2"
@@ -3374,8 +3158,8 @@
         "payload": "{ \"deviceId\": 303986753, \"door\":2 }",
         "payloadType": "json",
         "topic": "open-door",
-        "x": 150,
-        "y": 780,
+        "x": 330,
+        "y": 1300,
         "wires": [
             [
                 "6c1b3177.30bd2"
@@ -3400,8 +3184,8 @@
         "payload": "{ \"deviceId\": 303986753, \"door\":3 }",
         "payloadType": "json",
         "topic": "open-door",
-        "x": 150,
-        "y": 820,
+        "x": 330,
+        "y": 1340,
         "wires": [
             [
                 "6c1b3177.30bd2"
@@ -3426,8 +3210,8 @@
         "payload": "{ \"deviceId\": 303986753, \"door\":4 }",
         "payloadType": "json",
         "topic": "open-door",
-        "x": 150,
-        "y": 860,
+        "x": 330,
+        "y": 1380,
         "wires": [
             [
                 "6c1b3177.30bd2"
@@ -3511,7 +3295,7 @@
         "type": "ui_text",
         "z": "2a36b650.4b9b7a",
         "group": "573f9bfa.7e4564",
-        "order": 12,
+        "order": 15,
         "width": 3,
         "height": 1,
         "name": "cards",
@@ -3559,7 +3343,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "c03a3b24.d45c48",
-        "order": 1,
+        "order": 4,
         "width": 0,
         "height": 0,
         "name": "label-device",
@@ -3575,7 +3359,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "c03a3b24.d45c48",
-        "order": 22,
+        "order": 25,
         "width": 2,
         "height": 1,
         "name": "label-datetime",
@@ -3591,7 +3375,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "573f9bfa.7e4564",
-        "order": 11,
+        "order": 14,
         "width": 2,
         "height": 1,
         "name": "label-cards",
@@ -3607,7 +3391,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "c03a3b24.d45c48",
-        "order": 17,
+        "order": 20,
         "width": 2,
         "height": 1,
         "name": "label-listener",
@@ -3623,8 +3407,8 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "573f9bfa.7e4564",
-        "order": 1,
-        "width": 5,
+        "order": 4,
+        "width": 6,
         "height": 1,
         "name": "label-doors",
         "label": "doors",
@@ -3639,7 +3423,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "ffdc2439.246b38",
-        "order": 1,
+        "order": 4,
         "width": 7,
         "height": 1,
         "name": "label-status",
@@ -3655,7 +3439,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "ffdc2439.246b38",
-        "order": 13,
+        "order": 16,
         "width": 2,
         "height": 1,
         "name": "label-event",
@@ -4291,7 +4075,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "doors",
-        "func": "if (msg.payload.doors) {\n   const controllers = flow.get('controllers')\n   const deviceId = flow.get('get-card.device')\n   const device = controllers[deviceId]\n   const doors = {\n       '1': { topic: 'door 1', payload: msg.payload.doors['1'] },\n       '2': { topic: 'door 2', payload: msg.payload.doors['2'] },\n       '3': { topic: 'door 3', payload: msg.payload.doors['3'] },\n       '4': { topic: 'door 4', payload: msg.payload.doors['4'] }\n   }\n\n   if (device && device.doors) {\n       doors[1].topic = device.doors[1]\n       doors[2].topic = device.doors[2]\n       doors[3].topic = device.doors[3]\n       doors[4].topic = device.doors[4]\n   }\n\n   return [ doors[1], doors[2], doors[3], doors[4] ]\n}\n\nreturn [ null, null, null, null ]\n\n",
+        "func": "if (msg.payload.doors) {\n   const controllers = flow.get('controllers')\n   const deviceId = flow.get('get-card.device')\n   const device = controllers[deviceId]\n   const doors = {\n       '1': { topic: 'door 1', payload: msg.payload.doors['1'] },\n       '2': { topic: 'door 2', payload: msg.payload.doors['2'] },\n       '3': { topic: 'door 3', payload: msg.payload.doors['3'] },\n       '4': { topic: 'door 4', payload: msg.payload.doors['4'] }\n   }\n\n   if (device && device.doors) {\n       doors[1].topic = device.doors[1].name\n       doors[2].topic = device.doors[2].name\n       doors[3].topic = device.doors[3].name\n       doors[4].topic = device.doors[4].name\n   }\n\n   return [ doors[1], doors[2], doors[3], doors[4] ]\n}\n\nreturn [ null, null, null, null ]\n\n",
         "outputs": 4,
         "noerr": 0,
         "initialize": "",
@@ -4716,7 +4500,7 @@
         "type": "ui_text",
         "z": "b5da19a5.72a0c8",
         "group": "573f9bfa.7e4564",
-        "order": 17,
+        "order": 22,
         "width": 3,
         "height": 1,
         "name": "event-index",
@@ -4764,7 +4548,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "573f9bfa.7e4564",
-        "order": 14,
+        "order": 18,
         "width": 2,
         "height": 1,
         "name": "label-events",
@@ -4860,15 +4644,15 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "920f64db.d2fd58",
-        "order": 22,
+        "order": 12,
         "width": 2,
         "height": 1,
         "name": "label-listener",
         "label": "listener",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 610,
-        "y": 440,
+        "x": 550,
+        "y": 320,
         "wires": []
     },
     {
@@ -4879,7 +4663,7 @@
         "label": "index",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 37,
+        "order": 20,
         "width": 3,
         "height": 1,
         "passthru": true,
@@ -5218,7 +5002,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "ffdc2439.246b38",
-        "order": 32,
+        "order": 34,
         "width": 2,
         "height": 1,
         "name": "label-status-doors",
@@ -5234,7 +5018,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "ffdc2439.246b38",
-        "order": 33,
+        "order": 35,
         "width": 2,
         "height": 1,
         "name": "label-status-buttons",
@@ -5250,7 +5034,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "ffdc2439.246b38",
-        "order": 31,
+        "order": 33,
         "width": 2,
         "height": 1,
         "name": "label-status-relays",
@@ -5266,7 +5050,7 @@
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
         "group": "ffdc2439.246b38",
-        "order": 51,
+        "order": 52,
         "width": 2,
         "height": 1,
         "name": "label-status-inputs",
@@ -5296,7 +5080,7 @@
         "once": true,
         "onceDelay": 0.1,
         "topic": "controllers",
-        "payload": "{\"controllers\":{\"303986753\":{\"IPv4\":{\"address\":\"192.168.1.100\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"},\"listener\":{\"address\":\"192.168.1.100\",\"port\":60001},\"doors\":{\"1\":\"door X\",\"2\":\"door Y\",\"3\":\"laboratory\",\"4\":\"kitchen\"}},\"405419896\":{\"IPv4\":{\"address\":\"192.168.1.100\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"},\"listener\":{\"address\":\"192.168.1.100\",\"port\":60001},\"doors\":{\"1\":\"entrance\",\"2\":\"workshop\",\"3\":\"tower\",\"4\":\"dungeon\"}}}}",
+        "payload": "{\"controllers\":{\"303986753\":{\"IPv4\":{\"address\":\"192.168.1.100\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"},\"listener\":{\"address\":\"192.168.1.100\",\"port\":60001},\"doors\":{\"1\":{\"name\":\"door X\",\"delay\":5,\"control\":\"normally closed\"},\"2\":{\"name\":\"door Y\",\"delay\":5,\"control\":\"normally closed\"},\"3\":{\"name\":\"laboratory\",\"delay\":5,\"control\":\"normally closed\"},\"4\":{\"name\":\"kitchen\",\"delay\":5,\"control\":\"normally closed\"}}},\"405419896\":{\"IPv4\":{\"address\":\"192.168.1.100\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"},\"listener\":{\"address\":\"192.168.1.100\",\"port\":60001},\"doors\":{\"1\":{\"name\":\"entrance\",\"delay\":5,\"control\":\"normally closed\"},\"2\":{\"name\":\"workshop\",\"delay\":5,\"control\":\"normally closed\"},\"3\":{\"name\":\"tower\",\"delay\":5,\"control\":\"normally closed\"},\"4\":{\"name\":\"dungeon\",\"delay\":5,\"control\":\"normally closed\"}}}}}",
         "payloadType": "json",
         "x": 90,
         "y": 80,
@@ -5335,55 +5119,11 @@
         "wires": []
     },
     {
-        "id": "ac0a5492.696eb8",
-        "type": "ui_button",
-        "z": "33c9a78a.cc8c18",
-        "name": "update",
-        "group": "920f64db.d2fd58",
-        "order": 3,
-        "width": 4,
-        "height": 2,
-        "passthru": false,
-        "label": "UPDATE",
-        "tooltip": "Update the configuration for the selected controller",
-        "color": "#000080",
-        "bgcolor": "#A6BBCF",
-        "icon": "fa-wrench",
-        "payload": "true",
-        "payloadType": "bool",
-        "topic": "update",
-        "x": 600,
-        "y": 240,
-        "wires": [
-            [
-                "9e51b059.74aab"
-            ]
-        ]
-    },
-    {
-        "id": "9e51b059.74aab",
-        "type": "function",
-        "z": "33c9a78a.cc8c18",
-        "name": "configure",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('configure.device', msg.payload)\n        break\n\n    case 'update':\n        const device = flow.get('configure.device')\n        if (device) {\n            msg.topic = 'set-device'\n            msg.payload = device\n            return msg\n        }\n        break\n}\n\nreturn null",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 780,
-        "y": 200,
-        "wires": [
-            [
-                "d4e3111f.b25ea"
-            ]
-        ]
-    },
-    {
         "id": "6c1033a4.e0d67c",
         "type": "function",
         "z": "86bbf50e.a7f188",
         "name": "door-1",
-        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload.deviceId\nconst device = controllers[deviceId]\nlet   name = 'door 1'\n\nif (device && device.doors && device.doors[1]) {\n    name = device.doors[1]\n}\n\nconst door = {\n    name:  name,\n    state: msg.payload.doorControlState.control.state,\n    delay: msg.payload.doorControlState.delay + 's'\n}\n\nmsg.payload = { door: door }\n\nreturn msg;",
+        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload.deviceId\nconst device = controllers[deviceId]\nlet   name = 'door 1'\n\nif (device && device.doors && device.doors[1]) {\n    name = device.doors[1].name\n}\n\nconst door = {\n    name:  name,\n    state: msg.payload.doorControlState.control.state,\n    delay: msg.payload.doorControlState.delay + 's'\n}\n\nmsg.payload = { door: door }\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5401,7 +5141,7 @@
         "type": "function",
         "z": "86bbf50e.a7f188",
         "name": "door-2",
-        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload.deviceId\nconst device = controllers[deviceId]\nlet   name = 'door 2'\n\nif (device && device.doors && device.doors[2]) {\n    name = device.doors[2]\n}\n\nconst door = {\n    name:  name,\n    state: msg.payload.doorControlState.control.state,\n    delay: msg.payload.doorControlState.delay + 's'\n}\n\nmsg.payload = { door: door }\n\nreturn msg;",
+        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload.deviceId\nconst device = controllers[deviceId]\nlet   name = 'door 2'\n\nif (device && device.doors && device.doors[2]) {\n    name = device.doors[2].name\n}\n\nconst door = {\n    name:  name,\n    state: msg.payload.doorControlState.control.state,\n    delay: msg.payload.doorControlState.delay + 's'\n}\n\nmsg.payload = { door: door }\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5419,7 +5159,7 @@
         "type": "function",
         "z": "86bbf50e.a7f188",
         "name": "door-3",
-        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload.deviceId\nconst device = controllers[deviceId]\nlet   name = 'door 3'\n\nif (device && device.doors && device.doors[3]) {\n    name = device.doors[3]\n}\n\nconst door = {\n    name:  name,\n    state: msg.payload.doorControlState.control.state,\n    delay: msg.payload.doorControlState.delay + 's'\n}\n\nmsg.payload = { door: door }\n\nreturn msg;",
+        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload.deviceId\nconst device = controllers[deviceId]\nlet   name = 'door 3'\n\nif (device && device.doors && device.doors[3]) {\n    name = device.doors[3].name\n}\n\nconst door = {\n    name:  name,\n    state: msg.payload.doorControlState.control.state,\n    delay: msg.payload.doorControlState.delay + 's'\n}\n\nmsg.payload = { door: door }\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5437,7 +5177,7 @@
         "type": "function",
         "z": "86bbf50e.a7f188",
         "name": "door-4",
-        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload.deviceId\nconst device = controllers[deviceId]\nlet   name = 'door 4'\n\nif (device && device.doors && device.doors[4]) {\n    name = device.doors[4]\n}\n\nconst door = {\n    name:  name,\n    state: msg.payload.doorControlState.control.state,\n    delay: msg.payload.doorControlState.delay + 's'\n}\n\nmsg.payload = { door: door }\n\nreturn msg;",
+        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload.deviceId\nconst device = controllers[deviceId]\nlet   name = 'door 4'\n\nif (device && device.doors && device.doors[4]) {\n    name = device.doors[4].name\n}\n\nconst door = {\n    name:  name,\n    state: msg.payload.doorControlState.control.state,\n    delay: msg.payload.doorControlState.delay + 's'\n}\n\nmsg.payload = { door: door }\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5531,7 +5271,7 @@
         "type": "ui_text",
         "z": "86bbf50e.a7f188",
         "group": "573f9bfa.7e4564",
-        "order": 2,
+        "order": 5,
         "width": 1,
         "height": 1,
         "name": "label-door-1",
@@ -5547,7 +5287,7 @@
         "type": "ui_text",
         "z": "86bbf50e.a7f188",
         "group": "573f9bfa.7e4564",
-        "order": 4,
+        "order": 7,
         "width": 1,
         "height": 1,
         "name": "label-door-2",
@@ -5563,7 +5303,7 @@
         "type": "ui_text",
         "z": "86bbf50e.a7f188",
         "group": "573f9bfa.7e4564",
-        "order": 6,
+        "order": 9,
         "width": 1,
         "height": 1,
         "name": "label-door-3",
@@ -5579,7 +5319,7 @@
         "type": "ui_text",
         "z": "86bbf50e.a7f188",
         "group": "573f9bfa.7e4564",
-        "order": 8,
+        "order": 11,
         "width": 1,
         "height": 1,
         "name": "label-door-4",
@@ -5595,7 +5335,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 34,
+        "order": 36,
         "width": 1,
         "height": 1,
         "name": "label-door-1",
@@ -5611,7 +5351,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 38,
+        "order": 40,
         "width": 1,
         "height": 1,
         "name": "label-door-2",
@@ -5627,7 +5367,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 42,
+        "order": 44,
         "width": 1,
         "height": 1,
         "name": "label-door-3",
@@ -5643,7 +5383,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 46,
+        "order": 48,
         "width": 1,
         "height": 1,
         "name": "label-door-4",
@@ -5666,45 +5406,16 @@
             "bbeb26dc.ff7ab8",
             "4bee8740.f53308",
             "6dd92229.dda32c",
-            "f99540c.285e1c"
+            "f99540c.285e1c",
+            "f1f358f4.a86a38",
+            "3c0f330f.3cda1c",
+            "b7011bf3.252e48",
+            "56449e45.562bb",
+            "c59a9f6b.b8afe"
         ],
-        "x": 735,
-        "y": 160,
+        "x": 795,
+        "y": 80,
         "wires": []
-    },
-    {
-        "id": "c0f56704.302048",
-        "type": "link in",
-        "z": "86bbf50e.a7f188",
-        "name": "",
-        "links": [
-            "71d6ed03.ece134"
-        ],
-        "x": 155,
-        "y": 380,
-        "wires": [
-            [
-                "6216993b.584068"
-            ]
-        ]
-    },
-    {
-        "id": "6216993b.584068",
-        "type": "function",
-        "z": "86bbf50e.a7f188",
-        "name": "doors",
-        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload\n\nif (controllers && controllers[deviceId]) {\n    const device = controllers[deviceId]\n    const doors = { \n        topic:'set-doors', \n        options: [ \n            device.doors[1],\n            device.doors[2],\n            device.doors[3],\n            device.doors[4],\n        ] \n    }\n\n    return doors;\n}\n\nreturn null\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 270,
-        "y": 380,
-        "wires": [
-            [
-                "17002233.3f01ae"
-            ]
-        ]
     },
     {
         "id": "3f851cae.42c3e4",
@@ -5740,7 +5451,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "doors",
-        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload\n\nif (controllers && controllers[deviceId]) {\n    const device = controllers[deviceId]\n    const columns = {\n        \"command\": \"setColumns\",\n        \"arguments\": [\n            [\n                {\n                    \"title\": \"card number\",\n                    \"field\": \"number\",\n                    \"align\": \"left\",\n                    \"width\": 134\n                },\n                {\n                    \"title\": \"from\",\n                    \"field\": \"valid.from\",\n                    \"align\": \"left\",\n                    \"width\": 108\n                },\n                {\n                    \"title\": \"to\",\n                    \"field\": \"valid.to\",\n                    \"align\": \"left\",\n                    \"width\": 108\n                },\n                {\n                    \"title\": device.doors[1],\n                    \"field\": \"doors.1\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[2],\n                    \"field\": \"doors.2\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[3],\n                    \"field\": \"doors.3\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[4],\n                    \"field\": \"doors.4\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                }\n            ]\n        ]\n    }\n    \n    return { topic:'set-doors',  payload: columns }\n}\n\nreturn null\n",
+        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload\n\nif (controllers && controllers[deviceId]) {\n    const device = controllers[deviceId]\n    const columns = {\n        \"command\": \"setColumns\",\n        \"arguments\": [\n            [\n                {\n                    \"title\": \"card number\",\n                    \"field\": \"number\",\n                    \"align\": \"left\",\n                    \"width\": 134\n                },\n                {\n                    \"title\": \"from\",\n                    \"field\": \"valid.from\",\n                    \"align\": \"left\",\n                    \"width\": 108\n                },\n                {\n                    \"title\": \"to\",\n                    \"field\": \"valid.to\",\n                    \"align\": \"left\",\n                    \"width\": 108\n                },\n                {\n                    \"title\": device.doors[1].name,\n                    \"field\": \"doors.1\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[2].name,\n                    \"field\": \"doors.2\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[3].name,\n                    \"field\": \"doors.3\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[4].name,\n                    \"field\": \"doors.4\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                }\n            ]\n        ]\n    }\n    \n    return { topic:'set-doors',  payload: columns }\n}\n\nreturn null\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -5794,7 +5505,7 @@
         "links": [
             "a023fb14.897008"
         ],
-        "x": 335,
+        "x": 435,
         "y": 80,
         "wires": [
             [
@@ -5812,7 +5523,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 430,
+        "x": 530,
         "y": 80,
         "wires": [
             [
@@ -6155,7 +5866,7 @@
         "type": "ui_text",
         "z": "b5da19a5.72a0c8",
         "group": "573f9bfa.7e4564",
-        "order": 15,
+        "order": 19,
         "width": 3,
         "height": 1,
         "name": "event-count",
@@ -6246,7 +5957,7 @@
         "z": "8bcf2d43.2e243",
         "name": "set-IPv4",
         "group": "920f64db.d2fd58",
-        "order": 18,
+        "order": 10,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -6326,7 +6037,7 @@
         "z": "c56e1667.998748",
         "name": "set-listener",
         "group": "920f64db.d2fd58",
-        "order": 31,
+        "order": 17,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -6437,7 +6148,7 @@
         "z": "b5da19a5.72a0c8",
         "name": "set-event-index",
         "group": "920f64db.d2fd58",
-        "order": 39,
+        "order": 22,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -6531,5 +6242,702 @@
                 "27ec3017.bb1d"
             ]
         ]
+    },
+    {
+        "id": "cd8e4fed.17487",
+        "type": "set-door-control",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-control-1",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 890,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "646ca32.1f1d75c",
+        "type": "ui_numeric",
+        "z": "86bbf50e.a7f188",
+        "name": "delay-1",
+        "label": "",
+        "tooltip": "",
+        "group": "aee33fcb.43067",
+        "order": 12,
+        "width": 2,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "set-delay",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "15",
+        "step": 1,
+        "x": 460,
+        "y": 500,
+        "wires": [
+            [
+                "f735e4d0.506428"
+            ]
+        ]
+    },
+    {
+        "id": "fd956f89.3ead1",
+        "type": "ui_dropdown",
+        "z": "86bbf50e.a7f188",
+        "name": "control-1",
+        "label": "",
+        "tooltip": "",
+        "place": "<select control state>",
+        "group": "aee33fcb.43067",
+        "order": 13,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "normally open",
+                "value": "normally open",
+                "type": "str"
+            },
+            {
+                "label": "normally closed",
+                "value": "normally closed",
+                "type": "str"
+            },
+            {
+                "label": "controlled",
+                "value": "controlled",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "set-control",
+        "x": 460,
+        "y": 540,
+        "wires": [
+            [
+                "f735e4d0.506428"
+            ]
+        ]
+    },
+    {
+        "id": "b387bd67.ca5f9",
+        "type": "ui_numeric",
+        "z": "86bbf50e.a7f188",
+        "name": "delay-2",
+        "label": "",
+        "tooltip": "",
+        "group": "aee33fcb.43067",
+        "order": 15,
+        "width": 2,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "set-delay",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "15",
+        "step": 1,
+        "x": 460,
+        "y": 640,
+        "wires": [
+            [
+                "3e95cfc.44a1c3"
+            ]
+        ]
+    },
+    {
+        "id": "da0e7b9b.8d5f28",
+        "type": "ui_dropdown",
+        "z": "86bbf50e.a7f188",
+        "name": "control-2",
+        "label": "",
+        "tooltip": "",
+        "place": "<select control state>",
+        "group": "aee33fcb.43067",
+        "order": 16,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "normally open",
+                "value": "normally open",
+                "type": "str"
+            },
+            {
+                "label": "normally closed",
+                "value": "normally closed",
+                "type": "str"
+            },
+            {
+                "label": "controlled",
+                "value": "controlled",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "set-control",
+        "x": 460,
+        "y": 680,
+        "wires": [
+            [
+                "3e95cfc.44a1c3"
+            ]
+        ]
+    },
+    {
+        "id": "6e89f6cc.477eb8",
+        "type": "ui_text",
+        "z": "f7a455cc.3fefe8",
+        "group": "aee33fcb.43067",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "name": "label-datetime",
+        "label": "date/time",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 120,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "884adddc.4d671",
+        "type": "ui_text",
+        "z": "86bbf50e.a7f188",
+        "group": "aee33fcb.43067",
+        "order": 11,
+        "width": 2,
+        "height": 1,
+        "name": "door-1",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 450,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "f56ee65b.b00e98",
+        "type": "ui_text",
+        "z": "86bbf50e.a7f188",
+        "group": "aee33fcb.43067",
+        "order": 14,
+        "width": 2,
+        "height": 1,
+        "name": "door-2",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 450,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "6b8ea67a.0ca0f8",
+        "type": "ui_numeric",
+        "z": "86bbf50e.a7f188",
+        "name": "delay-3",
+        "label": "",
+        "tooltip": "",
+        "group": "aee33fcb.43067",
+        "order": 18,
+        "width": 2,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "set-delay",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "15",
+        "step": 1,
+        "x": 460,
+        "y": 780,
+        "wires": [
+            [
+                "e455630d.7089e"
+            ]
+        ]
+    },
+    {
+        "id": "f21d22a9.a9f9b",
+        "type": "ui_dropdown",
+        "z": "86bbf50e.a7f188",
+        "name": "control-3",
+        "label": "",
+        "tooltip": "",
+        "place": "<select control state>",
+        "group": "aee33fcb.43067",
+        "order": 19,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "normally open",
+                "value": "normally open",
+                "type": "str"
+            },
+            {
+                "label": "normally closed",
+                "value": "normally closed",
+                "type": "str"
+            },
+            {
+                "label": "controlled",
+                "value": "controlled",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "set-control",
+        "x": 460,
+        "y": 820,
+        "wires": [
+            [
+                "e455630d.7089e"
+            ]
+        ]
+    },
+    {
+        "id": "4f2839ae.28bad8",
+        "type": "ui_text",
+        "z": "86bbf50e.a7f188",
+        "group": "aee33fcb.43067",
+        "order": 17,
+        "width": 2,
+        "height": 1,
+        "name": "door-3",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 450,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "8f682ba0.944998",
+        "type": "ui_numeric",
+        "z": "86bbf50e.a7f188",
+        "name": "delay-4",
+        "label": "",
+        "tooltip": "",
+        "group": "aee33fcb.43067",
+        "order": 21,
+        "width": 2,
+        "height": 1,
+        "wrap": false,
+        "passthru": true,
+        "topic": "set-delay",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "15",
+        "step": 1,
+        "x": 460,
+        "y": 920,
+        "wires": [
+            [
+                "a6475900.efa528"
+            ]
+        ]
+    },
+    {
+        "id": "1b53608.94952a",
+        "type": "ui_dropdown",
+        "z": "86bbf50e.a7f188",
+        "name": "control-4",
+        "label": "",
+        "tooltip": "",
+        "place": "<select control state>",
+        "group": "aee33fcb.43067",
+        "order": 22,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "normally open",
+                "value": "normally open",
+                "type": "str"
+            },
+            {
+                "label": "normally closed",
+                "value": "normally closed",
+                "type": "str"
+            },
+            {
+                "label": "controlled",
+                "value": "controlled",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "set-control",
+        "x": 460,
+        "y": 960,
+        "wires": [
+            [
+                "a6475900.efa528"
+            ]
+        ]
+    },
+    {
+        "id": "4e707382.0be21c",
+        "type": "ui_text",
+        "z": "86bbf50e.a7f188",
+        "group": "aee33fcb.43067",
+        "order": 20,
+        "width": 2,
+        "height": 1,
+        "name": "door-4",
+        "label": "",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 450,
+        "y": 880,
+        "wires": []
+    },
+    {
+        "id": "a2ff60b0.e4d4d",
+        "type": "ui_button",
+        "z": "86bbf50e.a7f188",
+        "name": "set-doors",
+        "group": "aee33fcb.43067",
+        "order": 24,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "set",
+        "tooltip": "Sets the controller door delays and control states",
+        "color": "#FFFFFF",
+        "bgcolor": "#A6BBCF",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "set",
+        "x": 460,
+        "y": 400,
+        "wires": [
+            [
+                "f735e4d0.506428",
+                "3e95cfc.44a1c3",
+                "e455630d.7089e",
+                "a6475900.efa528"
+            ]
+        ]
+    },
+    {
+        "id": "46ffef63.319ea",
+        "type": "ui_text",
+        "z": "b5da19a5.72a0c8",
+        "group": "920f64db.d2fd58",
+        "order": 19,
+        "width": 2,
+        "height": 1,
+        "name": "label-events",
+        "label": "events",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 150,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "f1f358f4.a86a38",
+        "type": "link in",
+        "z": "86bbf50e.a7f188",
+        "name": "",
+        "links": [
+            "71d6ed03.ece134"
+        ],
+        "x": 155,
+        "y": 500,
+        "wires": [
+            [
+                "fa1c6034.ba5af",
+                "140a8b07.613185",
+                "db99fac4.013b98",
+                "b9a59a0.a0fd468"
+            ]
+        ]
+    },
+    {
+        "id": "fa1c6034.ba5af",
+        "type": "function",
+        "z": "86bbf50e.a7f188",
+        "name": "door-1",
+        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload\n\nif (controllers && controllers[deviceId]) {\n    const device = controllers[deviceId]\n    \n    door = { topic:\"set-door\", payload: device.doors[1].name}\n    delay = { topic:\"set-delay\", payload: device.doors[1].delay}\n    control = { topic:\"set-control\", payload: device.doors[1].control}\n\n    return [ door,delay,control ]\n}\n\nreturn [ null,null,null ]\n",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 500,
+        "wires": [
+            [
+                "884adddc.4d671"
+            ],
+            [
+                "646ca32.1f1d75c",
+                "f735e4d0.506428"
+            ],
+            [
+                "fd956f89.3ead1"
+            ]
+        ]
+    },
+    {
+        "id": "140a8b07.613185",
+        "type": "function",
+        "z": "86bbf50e.a7f188",
+        "name": "door-2",
+        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload\n\nif (controllers && controllers[deviceId]) {\n    const device = controllers[deviceId]\n    \n    door = { topic:\"set-door\", payload: device.doors[2].name}\n    delay = { topic:\"set-delay\", payload: device.doors[2].delay}\n    control = { topic:\"set-control\", payload: device.doors[2].control}\n\n    return [ door,delay,control ]\n}\n\nreturn [ null,null,null ]\n",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 640,
+        "wires": [
+            [
+                "f56ee65b.b00e98"
+            ],
+            [
+                "b387bd67.ca5f9",
+                "3e95cfc.44a1c3"
+            ],
+            [
+                "da0e7b9b.8d5f28"
+            ]
+        ]
+    },
+    {
+        "id": "db99fac4.013b98",
+        "type": "function",
+        "z": "86bbf50e.a7f188",
+        "name": "door-3",
+        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload\n\nif (controllers && controllers[deviceId]) {\n    const device = controllers[deviceId]\n    \n    door = { topic:\"set-door\", payload: device.doors[3].name}\n    delay = { topic:\"set-delay\", payload: device.doors[3].delay}\n    control = { topic:\"set-control\", payload: device.doors[3].control}\n\n    return [ door,delay,control ]\n}\n\nreturn [ null,null,null ]\n",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 780,
+        "wires": [
+            [
+                "4f2839ae.28bad8"
+            ],
+            [
+                "6b8ea67a.0ca0f8",
+                "e455630d.7089e"
+            ],
+            [
+                "f21d22a9.a9f9b"
+            ]
+        ]
+    },
+    {
+        "id": "b9a59a0.a0fd468",
+        "type": "function",
+        "z": "86bbf50e.a7f188",
+        "name": "door-4",
+        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload\n\nif (controllers && controllers[deviceId]) {\n    const device = controllers[deviceId]\n    \n    door = { topic:\"set-door\", payload: device.doors[4].name}\n    delay = { topic:\"set-delay\", payload: device.doors[4].delay}\n    control = { topic:\"set-control\", payload: device.doors[4].control}\n\n    return [ door,delay,control ]\n}\n\nreturn [ null,null,null ]\n",
+        "outputs": 3,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 290,
+        "y": 920,
+        "wires": [
+            [
+                "4e707382.0be21c"
+            ],
+            [
+                "8f682ba0.944998",
+                "a6475900.efa528"
+            ],
+            [
+                "1b53608.94952a"
+            ]
+        ]
+    },
+    {
+        "id": "f735e4d0.506428",
+        "type": "function",
+        "z": "86bbf50e.a7f188",
+        "name": "door-control-1",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-door-1-control.device', msg.payload)\n        break;\n\n    case 'set-door':\n        flow.set('set-door-1-control.door', msg.payload)\n        break;\n\n    case 'set-delay':\n        flow.set('set-door-1-control.delay', msg.payload)\n        break;\n\n    case 'set-control':\n        flow.set('set-door-1-control.control', msg.payload)\n        break;\n        \n    case 'set':\n        let deviceId = flow.get('set-door-1-control.device')\n        let delay = flow.get('set-door-1-control.delay')\n        let control = flow.get('set-door-1-control.control')\n\n        if (deviceId && delay && control) {\n           msg.payload = { \n               deviceId: deviceId,\n               door: 1,\n               delay: delay,\n               control: control\n           }\n            return msg\n        }\n        break\n}\n\nreturn null;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 680,
+        "y": 460,
+        "wires": [
+            [
+                "cd8e4fed.17487"
+            ]
+        ]
+    },
+    {
+        "id": "3c0f330f.3cda1c",
+        "type": "link in",
+        "z": "86bbf50e.a7f188",
+        "name": "",
+        "links": [
+            "71d6ed03.ece134"
+        ],
+        "x": 515,
+        "y": 340,
+        "wires": [
+            [
+                "f735e4d0.506428",
+                "3e95cfc.44a1c3",
+                "e455630d.7089e",
+                "a6475900.efa528"
+            ]
+        ]
+    },
+    {
+        "id": "3e95cfc.44a1c3",
+        "type": "function",
+        "z": "86bbf50e.a7f188",
+        "name": "door-control-2",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-door-2-control.device', msg.payload)\n        break;\n\n    case 'set-door':\n        flow.set('set-door-2-control.door', msg.payload)\n        break;\n\n    case 'set-delay':\n        flow.set('set-door-2-control.delay', msg.payload)\n        break;\n\n    case 'set-control':\n        flow.set('set-door-2-control.control', msg.payload)\n        break;\n        \n    case 'set':\n        let deviceId = flow.get('set-door-2-control.device')\n        let delay = flow.get('set-door-2-control.delay')\n        let control = flow.get('set-door-2-control.control')\n\n        if (deviceId && delay && control) {\n           msg.payload = { \n               deviceId: deviceId,\n               door: 2,\n               delay: delay,\n               control: control\n           }\n            return msg\n        }\n        break\n}\n\nreturn null;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 680,
+        "y": 600,
+        "wires": [
+            [
+                "79faf369.faabcc"
+            ]
+        ]
+    },
+    {
+        "id": "79faf369.faabcc",
+        "type": "set-door-control",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-control-2",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 890,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e455630d.7089e",
+        "type": "function",
+        "z": "86bbf50e.a7f188",
+        "name": "door-control-3",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-door-3-control.device', msg.payload)\n        break;\n\n    case 'set-door':\n        flow.set('set-door-3-control.door', msg.payload)\n        break;\n\n    case 'set-delay':\n        flow.set('set-door-3-control.delay', msg.payload)\n        break;\n\n    case 'set-control':\n        flow.set('set-door-3-control.control', msg.payload)\n        break;\n        \n    case 'set':\n        let deviceId = flow.get('set-door-3-control.device')\n        let delay = flow.get('set-door-3-control.delay')\n        let control = flow.get('set-door-3-control.control')\n\n        if (deviceId && delay && control) {\n           msg.payload = { \n               deviceId: deviceId,\n               door: 3,\n               delay: delay,\n               control: control\n           }\n            return msg\n        }\n        break\n}\n\nreturn null;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 680,
+        "y": 740,
+        "wires": [
+            [
+                "c258df7c.314b8"
+            ]
+        ]
+    },
+    {
+        "id": "c258df7c.314b8",
+        "type": "set-door-control",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-control-3",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 890,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a6475900.efa528",
+        "type": "function",
+        "z": "86bbf50e.a7f188",
+        "name": "door-control-4",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('set-door-4-control.device', msg.payload)\n        break;\n\n    case 'set-door':\n        flow.set('set-door-4-control.door', msg.payload)\n        break;\n\n    case 'set-delay':\n        flow.set('set-door-4-control.delay', msg.payload)\n        break;\n\n    case 'set-control':\n        flow.set('set-door-4-control.control', msg.payload)\n        break;\n        \n    case 'set':\n        let deviceId = flow.get('set-door-4-control.device')\n        let delay = flow.get('set-door-4-control.delay')\n        let control = flow.get('set-door-4-control.control')\n\n        if (deviceId && delay && control) {\n           msg.payload = { \n               deviceId: deviceId,\n               door: 4,\n               delay: delay,\n               control: control\n           }\n            return msg\n        }\n        break\n}\n\nreturn null;\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 680,
+        "y": 880,
+        "wires": [
+            [
+                "47f22c48.933e04"
+            ]
+        ]
+    },
+    {
+        "id": "47f22c48.933e04",
+        "type": "set-door-control",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-control-4",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 890,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6b260c3c.af71e4",
+        "type": "ui_button",
+        "z": "f7a455cc.3fefe8",
+        "name": "set-datetime",
+        "group": "aee33fcb.43067",
+        "order": 8,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "set",
+        "tooltip": "Sets the controller date and time",
+        "color": "#FFFFFF",
+        "bgcolor": "#A6BBCF",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "set",
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [
+                "1768d838.2f1398"
+            ]
+        ]
+    },
+    {
+        "id": "974e2138.dbd93",
+        "type": "ui_text",
+        "z": "86bbf50e.a7f188",
+        "group": "aee33fcb.43067",
+        "order": 10,
+        "width": 8,
+        "height": 1,
+        "name": "label-doors",
+        "label": "doors",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 210,
+        "y": 400,
+        "wires": []
     }
 ]

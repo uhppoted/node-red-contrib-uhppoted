@@ -13,7 +13,7 @@
         "name": "get-time",
         "config": "cbd92359.dbf19",
         "x": 300,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "2c2ab991.619516",
@@ -35,7 +35,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 480,
-        "y": 40,
+        "y": 80,
         "wires": []
     },
     {
@@ -43,7 +43,7 @@
         "type": "ui_text",
         "z": "f7a455cc.3fefe8",
         "group": "c03a3b24.d45c48",
-        "order": 23,
+        "order": 26,
         "width": 4,
         "height": 1,
         "name": "datetime",
@@ -51,7 +51,7 @@
         "format": "{{msg.payload.datetime}}",
         "layout": "row-spread",
         "x": 480,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -64,7 +64,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 135,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "6a3d799.3fe3688"
@@ -84,8 +84,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
-        "y": 180,
+        "x": 700,
+        "y": 300,
         "wires": []
     },
     {
@@ -94,8 +94,8 @@
         "z": "f7a455cc.3fefe8",
         "name": "set-time",
         "config": "cbd92359.dbf19",
-        "x": 480,
-        "y": 180,
+        "x": 520,
+        "y": 300,
         "wires": [
             [
                 "804a318e.14ddb"
@@ -109,16 +109,16 @@
         "name": "time",
         "label": "",
         "tooltip": "",
-        "group": "920f64db.d2fd58",
-        "order": 16,
+        "group": "aee33fcb.43067",
+        "order": 6,
         "width": 4,
         "height": 1,
         "passthru": false,
         "mode": "time",
         "delay": "0",
         "topic": "set-time",
-        "x": 110,
-        "y": 260,
+        "x": 150,
+        "y": 420,
         "wires": [
             [
                 "1768d838.2f1398"
@@ -131,14 +131,14 @@
         "z": "f7a455cc.3fefe8",
         "name": "date",
         "label": "",
-        "group": "920f64db.d2fd58",
-        "order": 12,
+        "group": "aee33fcb.43067",
+        "order": 4,
         "width": 4,
         "height": 1,
         "passthru": true,
         "topic": "set-date",
-        "x": 110,
-        "y": 220,
+        "x": 150,
+        "y": 380,
         "wires": [
             [
                 "1768d838.2f1398"
@@ -150,13 +150,13 @@
         "type": "function",
         "z": "f7a455cc.3fefe8",
         "name": "datetime",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-time.device', msg.payload)\n        break;\n\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        break;\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        break;\n}\n\nlet deviceId = flow.get('set-time.device')\nlet date = flow.get('set-time.date')\nlet time = flow.get('set-time.time')\n\nif (!date) {\n    date = new Date()\n}\n\nif (!time) {\n    time = new Date()\n}\n\nif (deviceId && date && time) {\n    const year = format(date.getFullYear(), 4)\n    const month = format(date.getMonth()+1, 2)\n    const day = format(date.getDate(), 2)\n    const hours = format(time.getHours(), 2)\n    const minutes = format(time.getMinutes(), 2)\n    const seconds = format(time.getSeconds(), 2)\n\n    msg.payload = { \n        deviceId: deviceId,\n        datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n    }\n        \n    return msg\n}\n\nreturn null",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-time.device', msg.payload)\n        break\n\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        break\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        break\n        \n    case 'set':\n        let deviceId = flow.get('set-time.device')\n        let date = flow.get('set-time.date')\n        let time = flow.get('set-time.time')\n\n        if (!date) {\n            date = new Date()\n        }\n\n        if (!time) {\n            time = new Date()\n        }\n\n        if (deviceId && date && time) {\n            const year = format(date.getFullYear(), 4)\n            const month = format(date.getMonth()+1, 2)\n            const day = format(date.getDate(), 2)\n            const hours = format(time.getHours(), 2)\n            const minutes = format(time.getMinutes(), 2)\n            const seconds = format(time.getSeconds(), 2)\n\n            msg.payload = { \n                deviceId: deviceId,\n                datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n            }\n        \n            return msg\n        }\n        break\n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 300,
-        "y": 180,
+        "x": 340,
+        "y": 300,
         "wires": [
             [
                 "ea3bdfee.bf0d1"
@@ -169,10 +169,52 @@
         "z": "f7a455cc.3fefe8",
         "name": "",
         "links": [
-            "d4e3111f.b25ea"
+            "71d6ed03.ece134"
         ],
-        "x": 135,
-        "y": 180,
+        "x": 175,
+        "y": 340,
+        "wires": [
+            [
+                "1768d838.2f1398"
+            ]
+        ]
+    },
+    {
+        "id": "6e89f6cc.477eb8",
+        "type": "ui_text",
+        "z": "f7a455cc.3fefe8",
+        "group": "aee33fcb.43067",
+        "order": 3,
+        "width": 4,
+        "height": 1,
+        "name": "label-datetime",
+        "label": "date/time",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 120,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "6b260c3c.af71e4",
+        "type": "ui_button",
+        "z": "f7a455cc.3fefe8",
+        "name": "set-datetime",
+        "group": "aee33fcb.43067",
+        "order": 8,
+        "width": 4,
+        "height": 1,
+        "passthru": false,
+        "label": "set",
+        "tooltip": "Sets the controller date and time",
+        "color": "#FFFFFF",
+        "bgcolor": "#A6BBCF",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "set",
+        "x": 130,
+        "y": 300,
         "wires": [
             [
                 "1768d838.2f1398"
@@ -203,14 +245,14 @@
         "collapse": false
     },
     {
-        "id": "920f64db.d2fd58",
+        "id": "aee33fcb.43067",
         "type": "ui_group",
         "z": "",
-        "name": "configuration",
+        "name": "column-3",
         "tab": "e4b36c96.1a567",
-        "order": 1,
+        "order": 3,
         "disp": false,
-        "width": "10",
+        "width": 8,
         "collapse": false
     },
     {
@@ -226,7 +268,7 @@
         "id": "e4b36c96.1a567",
         "type": "ui_tab",
         "z": "",
-        "name": "configure",
+        "name": "configuration",
         "icon": "dashboard",
         "disabled": false,
         "hidden": false
