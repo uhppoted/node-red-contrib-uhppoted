@@ -2,11 +2,13 @@
 
 ## IN PROGRESS
 
-- [ ] dashboard: configure - changing controllers should restore from flow context
 - [ ] dashboard: card edit/update/delete
-      - click on card in list
-      - show doors for all controllers
       - get-card for all controllers
+        -- validity dates
+        -- rework put card
+        -- rework delete card
+      - rethink separate get-card status output
+      - change to dedicated 405../303.. button rather than dropdown lists
 - [ ] (maybe) rework codec as map of functions
 - [ ] Release
 - [ ] Publish to NPM, add badges to README and update README installation
@@ -24,6 +26,7 @@
            [comment]: # ()
            [comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
 
+- [x] dashboard: configure - changing controllers should restore from flow context
 - [x] dashboard: events - show last event index on detail page
 - [x] dashboard: events - reload fetched events on tab
 - [x] dashboard: events - ignore events if event id does not match index

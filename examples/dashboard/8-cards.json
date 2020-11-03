@@ -7,23 +7,6 @@
         "info": ""
     },
     {
-        "id": "60dcbb9f.c0dfa4",
-        "type": "debug",
-        "z": "2a36b650.4b9b7a",
-        "name": "cards",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 450,
-        "y": 180,
-        "wires": []
-    },
-    {
         "id": "78c4fc48.bc5bf4",
         "type": "ui_text",
         "z": "2a36b650.4b9b7a",
@@ -35,7 +18,7 @@
         "label": "count",
         "format": "{{msg.payload.cards}}",
         "layout": "row-spread",
-        "x": 450,
+        "x": 390,
         "y": 220,
         "wires": []
     },
@@ -62,12 +45,11 @@
         "z": "2a36b650.4b9b7a",
         "name": "get-cards",
         "config": "cbd92359.dbf19",
-        "x": 280,
+        "x": 240,
         "y": 220,
         "wires": [
             [
-                "78c4fc48.bc5bf4",
-                "60dcbb9f.c0dfa4"
+                "78c4fc48.bc5bf4"
             ]
         ]
     },
@@ -77,34 +59,16 @@
         "z": "2a36b650.4b9b7a",
         "name": "get-card",
         "config": "cbd92359.dbf19",
-        "x": 460,
+        "x": 520,
         "y": 500,
         "wires": [
             [
                 "4ce6edf2.3af724"
             ],
             [
-                "75f21b8.86ccbe4",
-                "f6808502.b5c9e8"
+                "75f21b8.86ccbe4"
             ]
         ]
-    },
-    {
-        "id": "f6808502.b5c9e8",
-        "type": "debug",
-        "z": "2a36b650.4b9b7a",
-        "name": "card",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 650,
-        "y": 560,
-        "wires": []
     },
     {
         "id": "92910a57.c53858",
@@ -141,29 +105,13 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 270,
+        "x": 370,
         "y": 500,
         "wires": [
             [
                 "6ce7f877.625e48"
             ]
         ]
-    },
-    {
-        "id": "52a5b4e7.d2590c",
-        "type": "ui_text",
-        "z": "2a36b650.4b9b7a",
-        "group": "80ebf5dd.1d2018",
-        "order": 5,
-        "width": 5,
-        "height": 1,
-        "name": "card.status",
-        "label": "",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 1050,
-        "y": 740,
-        "wires": []
     },
     {
         "id": "75f21b8.86ccbe4",
@@ -175,13 +123,10 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 660,
-        "y": 520,
+        "x": 680,
+        "y": 540,
         "wires": [
-            [
-                "ed03620e.d9ff",
-                "e7671a59.2c71c8"
-            ]
+            []
         ]
     },
     {
@@ -194,27 +139,9 @@
         "y": 320,
         "wires": [
             [
-                "6a069f42.59c15",
                 "8194bf5e.b9a13"
             ]
         ]
-    },
-    {
-        "id": "6a069f42.59c15",
-        "type": "debug",
-        "z": "2a36b650.4b9b7a",
-        "name": "stored",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 1590,
-        "y": 280,
-        "wires": []
     },
     {
         "id": "9caadcc7.b679f",
@@ -243,17 +170,19 @@
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
         "order": 3,
-        "width": 6,
+        "width": 3,
         "height": 1,
         "passthru": false,
         "mode": "number",
         "delay": "0",
         "topic": "set-card-number",
-        "x": 110,
-        "y": 420,
+        "x": 1270,
+        "y": 660,
         "wires": [
             [
-                "cb6b878.02d9b78"
+                "cb6b878.02d9b78",
+                "a9146ae5.d65d58",
+                "3abaf9b1.c69bb6"
             ]
         ]
     },
@@ -262,15 +191,15 @@
         "type": "ui_text",
         "z": "2a36b650.4b9b7a",
         "group": "80ebf5dd.1d2018",
-        "order": 7,
+        "order": 6,
         "width": 1,
         "height": 1,
         "name": "label-from",
         "label": "from",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 1050,
-        "y": 380,
+        "x": 2150,
+        "y": 640,
         "wires": []
     },
     {
@@ -278,15 +207,15 @@
         "type": "ui_text",
         "z": "2a36b650.4b9b7a",
         "group": "80ebf5dd.1d2018",
-        "order": 10,
+        "order": 9,
         "width": 1,
         "height": 1,
         "name": "label-to",
         "label": "to",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 1060,
-        "y": 420,
+        "x": 2140,
+        "y": 680,
         "wires": []
     },
     {
@@ -295,20 +224,20 @@
         "z": "2a36b650.4b9b7a",
         "name": "put-card",
         "group": "80ebf5dd.1d2018",
-        "order": 20,
+        "order": 30,
         "width": 3,
         "height": 1,
         "passthru": false,
         "label": "update",
         "tooltip": "",
-        "color": "",
-        "bgcolor": "",
+        "color": "#FFFFFF",
+        "bgcolor": "#A6BBCF",
         "icon": "",
         "payload": "",
         "payloadType": "date",
         "topic": "put-card",
         "x": 1060,
-        "y": 700,
+        "y": 380,
         "wires": [
             [
                 "9caadcc7.b679f"
@@ -328,9 +257,7 @@
         "x": 1590,
         "y": 320,
         "wires": [
-            [
-                "191160b2.4d831f"
-            ]
+            []
         ]
     },
     {
@@ -361,27 +288,9 @@
         "y": 1200,
         "wires": [
             [
-                "d35026f6.29b788",
                 "aad3691e.482588"
             ]
         ]
-    },
-    {
-        "id": "d35026f6.29b788",
-        "type": "debug",
-        "z": "2a36b650.4b9b7a",
-        "name": "deleted",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 1160,
-        "wires": []
     },
     {
         "id": "e09b14f4.d89ca8",
@@ -389,14 +298,14 @@
         "z": "2a36b650.4b9b7a",
         "name": "delete-card",
         "group": "80ebf5dd.1d2018",
-        "order": 21,
+        "order": 31,
         "width": 3,
         "height": 1,
         "passthru": false,
         "label": "delete",
         "tooltip": "",
-        "color": "",
-        "bgcolor": "",
+        "color": "#C00000",
+        "bgcolor": "#F3B567",
         "icon": "",
         "payload": "",
         "payloadType": "date",
@@ -423,7 +332,7 @@
             "f93335b9.2a2448",
             "51859f2a.5f682"
         ],
-        "x": 275,
+        "x": 235,
         "y": 380,
         "wires": []
     },
@@ -435,7 +344,7 @@
         "links": [
             "fe2f6f7f.53fd9"
         ],
-        "x": 135,
+        "x": 255,
         "y": 480,
         "wires": [
             [
@@ -468,10 +377,12 @@
             "bd883038.dbaac",
             "129b9c14.1aba94",
             "3036418d.f8557e",
-            "1fbf5878.4949c8"
+            "1fbf5878.4949c8",
+            "3fcc3324.4503bc",
+            "ec6cc0bf.05356"
         ],
-        "x": 275,
-        "y": 420,
+        "x": 1415,
+        "y": 660,
         "wires": []
     },
     {
@@ -482,7 +393,7 @@
         "links": [
             "cb6b878.02d9b78"
         ],
-        "x": 135,
+        "x": 255,
         "y": 520,
         "wires": [
             [
@@ -539,37 +450,6 @@
         ]
     },
     {
-        "id": "f8233afa.37a5c8",
-        "type": "link in",
-        "z": "2a36b650.4b9b7a",
-        "name": "card-status",
-        "links": [
-            "d5de73fc.318b9",
-            "b00ce9c1.ba59d8",
-            "191160b2.4d831f",
-            "fefda9af.f92c78"
-        ],
-        "x": 895,
-        "y": 740,
-        "wires": [
-            [
-                "52a5b4e7.d2590c"
-            ]
-        ]
-    },
-    {
-        "id": "b00ce9c1.ba59d8",
-        "type": "link out",
-        "z": "2a36b650.4b9b7a",
-        "name": "",
-        "links": [
-            "f8233afa.37a5c8"
-        ],
-        "x": 795,
-        "y": 1200,
-        "wires": []
-    },
-    {
         "id": "aad3691e.482588",
         "type": "function",
         "z": "2a36b650.4b9b7a",
@@ -582,9 +462,7 @@
         "x": 700,
         "y": 1200,
         "wires": [
-            [
-                "b00ce9c1.ba59d8"
-            ]
+            []
         ]
     },
     {
@@ -594,17 +472,15 @@
         "name": "card-from",
         "label": "",
         "group": "80ebf5dd.1d2018",
-        "order": 8,
+        "order": 7,
         "width": 4,
         "height": 1,
         "passthru": true,
         "topic": "set-card-valid-from",
-        "x": 1060,
-        "y": 460,
+        "x": 2000,
+        "y": 640,
         "wires": [
-            [
-                "9caadcc7.b679f"
-            ]
+            []
         ]
     },
     {
@@ -612,13 +488,13 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "valid-dates",
-        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n        \nif (msg.payload.valid) {\n    const from = parse(msg.payload.valid.from)\n    const to = parse(msg.payload.valid.to)\n    let p = null\n    let q = null\n\n    if (from !== null) {\n        p = { topic:msg.topic, payload:from }\n    }\n\n    if (to !== null) {\n        q = { topic:msg.topic, payload:to }\n    }\n\n    return [p,q]\n}\n\nreturn [null, null]\n\n",
+        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconsole.log(msg)\n\nif (msg.payload.card.valid) {\n    const from = parse(msg.payload.card.valid.from)\n    const to = parse(msg.payload.card.valid.to)\n    let p = null\n    let q = null\n\n    if (from !== null) {\n        p = { topic:msg.topic, payload:from }\n    }\n\n    if (to !== null) {\n        q = { topic:msg.topic, payload:to }\n    }\n\n    return [p,q]\n}\n\nreturn [null, null]\n\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 850,
-        "y": 500,
+        "x": 1830,
+        "y": 660,
         "wires": [
             [
                 "e70a1f2e.dcd39"
@@ -635,41 +511,27 @@
         "name": "card-to",
         "label": "",
         "group": "80ebf5dd.1d2018",
-        "order": 11,
+        "order": 10,
         "width": 4,
         "height": 1,
         "passthru": true,
         "topic": "set-card-valid-to",
-        "x": 1060,
-        "y": 500,
+        "x": 2000,
+        "y": 680,
         "wires": [
-            [
-                "9caadcc7.b679f"
-            ]
+            []
         ]
-    },
-    {
-        "id": "191160b2.4d831f",
-        "type": "link out",
-        "z": "2a36b650.4b9b7a",
-        "name": "",
-        "links": [
-            "f8233afa.37a5c8"
-        ],
-        "x": 1715,
-        "y": 320,
-        "wires": []
     },
     {
         "id": "6eac8a4e.b9baf4",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.1",
-        "label": "{{msg.topic}}",
+        "name": "card.doors.entrance",
+        "label": "entrance",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
         "order": 13,
-        "width": 5,
+        "width": 4,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -683,51 +545,22 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 1050,
-        "y": 540,
+        "x": 2020,
+        "y": 440,
         "wires": [
-            [
-                "9caadcc7.b679f"
-            ]
-        ]
-    },
-    {
-        "id": "e7671a59.2c71c8",
-        "type": "function",
-        "z": "2a36b650.4b9b7a",
-        "name": "doors",
-        "func": "if (msg.payload.doors) {\n   const controllers = flow.get('controllers')\n   const deviceId = flow.get('get-card.device')\n   const device = controllers[deviceId]\n   const doors = {\n       '1': { topic: 'door 1', payload: msg.payload.doors['1'] },\n       '2': { topic: 'door 2', payload: msg.payload.doors['2'] },\n       '3': { topic: 'door 3', payload: msg.payload.doors['3'] },\n       '4': { topic: 'door 4', payload: msg.payload.doors['4'] }\n   }\n\n   if (device && device.doors) {\n       doors[1].topic = device.doors[1].name\n       doors[2].topic = device.doors[2].name\n       doors[3].topic = device.doors[3].name\n       doors[4].topic = device.doors[4].name\n   }\n\n   return [ doors[1], doors[2], doors[3], doors[4] ]\n}\n\nreturn [ null, null, null, null ]\n\n",
-        "outputs": 4,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 830,
-        "y": 560,
-        "wires": [
-            [
-                "6eac8a4e.b9baf4"
-            ],
-            [
-                "9eb1f7b1.8b0968"
-            ],
-            [
-                "34ea4d9f.8c2892"
-            ],
-            [
-                "81c28b36.1b34e8"
-            ]
+            []
         ]
     },
     {
         "id": "9eb1f7b1.8b0968",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.2",
-        "label": "{{msg.topic}}",
+        "name": "card.doors.workshop",
+        "label": "workshop",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
         "order": 15,
-        "width": 5,
+        "width": 4,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -741,24 +574,22 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 1050,
-        "y": 580,
+        "x": 2020,
+        "y": 480,
         "wires": [
-            [
-                "9caadcc7.b679f"
-            ]
+            []
         ]
     },
     {
         "id": "34ea4d9f.8c2892",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.3",
-        "label": "{{msg.topic}}",
+        "name": "card.doors.tower",
+        "label": "tower",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
         "order": 17,
-        "width": 5,
+        "width": 4,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -772,24 +603,22 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 1050,
-        "y": 620,
+        "x": 2010,
+        "y": 520,
         "wires": [
-            [
-                "9caadcc7.b679f"
-            ]
+            []
         ]
     },
     {
         "id": "81c28b36.1b34e8",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.4",
-        "label": "{{msg.topic}}",
+        "name": "card.doors.dungeon",
+        "label": "dungeon",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
         "order": 19,
-        "width": 5,
+        "width": 4,
         "height": 1,
         "passthru": true,
         "decouple": "false",
@@ -803,12 +632,10 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 1050,
-        "y": 660,
+        "x": 2020,
+        "y": 560,
         "wires": [
-            [
-                "9caadcc7.b679f"
-            ]
+            []
         ]
     },
     {
@@ -892,11 +719,15 @@
                 }
             }
         ],
-        "outputs": 0,
-        "cts": false,
-        "x": 1130,
-        "y": 960,
-        "wires": []
+        "outputs": 1,
+        "cts": true,
+        "x": 1070,
+        "y": 980,
+        "wires": [
+            [
+                "dc1ee1d3.10c6c"
+            ]
+        ]
     },
     {
         "id": "5b79d6d.06dc728",
@@ -957,23 +788,6 @@
         ]
     },
     {
-        "id": "33497a02.770536",
-        "type": "debug",
-        "z": "2a36b650.4b9b7a",
-        "name": "card@",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 690,
-        "y": 1000,
-        "wires": []
-    },
-    {
         "id": "db72adb4.36261",
         "type": "link in",
         "z": "2a36b650.4b9b7a",
@@ -1003,7 +817,6 @@
                 "4098b71e.12c1b8"
             ],
             [
-                "33497a02.770536",
                 "de510a21.addef8"
             ]
         ]
@@ -1025,23 +838,6 @@
                 "874f55c6.6f00b8"
             ]
         ]
-    },
-    {
-        "id": "3b1532d.e15adce",
-        "type": "debug",
-        "z": "2a36b650.4b9b7a",
-        "name": "deleted",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 1300,
-        "wires": []
     },
     {
         "id": "12b53ea2.d23791",
@@ -1111,8 +907,7 @@
         "y": 1340,
         "wires": [
             [
-                "d5e17469.7208d8",
-                "3b1532d.e15adce"
+                "d5e17469.7208d8"
             ]
         ]
     },
@@ -1127,18 +922,6 @@
         "wires": []
     },
     {
-        "id": "d5de73fc.318b9",
-        "type": "link out",
-        "z": "2a36b650.4b9b7a",
-        "name": "",
-        "links": [
-            "f8233afa.37a5c8"
-        ],
-        "x": 795,
-        "y": 440,
-        "wires": []
-    },
-    {
         "id": "4ce6edf2.3af724",
         "type": "function",
         "z": "2a36b650.4b9b7a",
@@ -1148,12 +931,10 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 650,
+        "x": 670,
         "y": 460,
         "wires": [
-            [
-                "d5de73fc.318b9"
-            ],
+            [],
             [
                 "75f21b8.86ccbe4"
             ]
@@ -1189,7 +970,7 @@
         "y": 40,
         "wires": [
             [
-                "92910a57.c53858"
+                "685b2236.9c598c"
             ]
         ]
     },
@@ -1224,7 +1005,7 @@
         "topic": "",
         "payload": "{\"command\":\"setColumns\",\"arguments\":[[{\"title\":\"card number\",\"field\":\"number\",\"align\":\"left\",\"width\":134},{\"title\":\"from\",\"field\":\"valid.from\",\"align\":\"left\",\"width\":108},{\"title\":\"to\",\"field\":\"valid.to\",\"align\":\"left\",\"width\":108},{\"title\":\"door.1\",\"field\":\"doors.1\",\"align\":\"center\",\"width\":100,\"formatter\":\"tickCross\"},{\"title\":\"door.2\",\"field\":\"doors.2\",\"align\":\"center\",\"width\":100,\"formatter\":\"tickCross\"},{\"title\":\"door.3\",\"field\":\"doors.3\",\"align\":\"center\",\"width\":100,\"formatter\":\"tickCross\"},{\"title\":\"door.4\",\"field\":\"doors.4\",\"align\":\"center\",\"width\":100,\"formatter\":\"tickCross\"}]]}",
         "payloadType": "json",
-        "x": 970,
+        "x": 890,
         "y": 840,
         "wires": [
             [
@@ -1242,7 +1023,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 970,
+        "x": 890,
         "y": 880,
         "wires": [
             [
@@ -1258,7 +1039,7 @@
         "links": [
             "fe2f6f7f.53fd9"
         ],
-        "x": 835,
+        "x": 775,
         "y": 880,
         "wires": [
             [
@@ -1276,8 +1057,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 960,
-        "y": 960,
+        "x": 900,
+        "y": 980,
         "wires": [
             [
                 "32cd75ea.8b84ba"
@@ -1292,7 +1073,7 @@
         "links": [
             "fe2f6f7f.53fd9"
         ],
-        "x": 835,
+        "x": 775,
         "y": 920,
         "wires": [
             [
@@ -1311,7 +1092,7 @@
         "initialize": "",
         "finalize": "",
         "x": 700,
-        "y": 960,
+        "y": 980,
         "wires": [
             [
                 "aa152261.eb314",
@@ -1365,8 +1146,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 710,
-        "y": 840,
+        "x": 690,
+        "y": 820,
         "wires": [
             [
                 "e15d01a.96f34"
@@ -1425,6 +1206,300 @@
         "wires": [
             [
                 "6df1685e.0d8448"
+            ]
+        ]
+    },
+    {
+        "id": "685b2236.9c598c",
+        "type": "delay",
+        "z": "2a36b650.4b9b7a",
+        "name": "delay",
+        "pauseType": "delay",
+        "timeout": "500",
+        "timeoutUnits": "milliseconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "x": 370,
+        "y": 40,
+        "wires": [
+            [
+                "92910a57.c53858"
+            ]
+        ]
+    },
+    {
+        "id": "dc1ee1d3.10c6c",
+        "type": "change",
+        "z": "2a36b650.4b9b7a",
+        "name": "card-number",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.number",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1230,
+        "y": 980,
+        "wires": [
+            [
+                "46db6d43.a9d444",
+                "3abaf9b1.c69bb6",
+                "a9146ae5.d65d58"
+            ]
+        ]
+    },
+    {
+        "id": "25a0a0da.f4024",
+        "type": "ui_switch",
+        "z": "2a36b650.4b9b7a",
+        "name": "card.door-x",
+        "label": "door X",
+        "tooltip": "",
+        "group": "80ebf5dd.1d2018",
+        "order": 22,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "set-card-door-1",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 1990,
+        "y": 760,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "220e452.21212ba",
+        "type": "ui_switch",
+        "z": "2a36b650.4b9b7a",
+        "name": "card.door-y",
+        "label": "door Y",
+        "tooltip": "",
+        "group": "80ebf5dd.1d2018",
+        "order": 24,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "set-card-doors-2",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 1990,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5d88ea6f.ffae74",
+        "type": "ui_switch",
+        "z": "2a36b650.4b9b7a",
+        "name": "card.doors.laboratory",
+        "label": "laboratory",
+        "tooltip": "",
+        "group": "80ebf5dd.1d2018",
+        "order": 26,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "set-card-doors-3",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 2020,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6dc386b8.8a99c8",
+        "type": "ui_switch",
+        "z": "2a36b650.4b9b7a",
+        "name": "card.doors.kitchen",
+        "label": "kitchen",
+        "tooltip": "",
+        "group": "80ebf5dd.1d2018",
+        "order": 28,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "set-card-doors-4",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 2010,
+        "y": 880,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1f5b3aa.93b5a",
+        "type": "get-card",
+        "z": "2a36b650.4b9b7a",
+        "name": "get-card",
+        "config": "cbd92359.dbf19",
+        "x": 1660,
+        "y": 820,
+        "wires": [
+            [
+                "39970811.8889a8"
+            ],
+            [
+                "39970811.8889a8",
+                "ed03620e.d9ff"
+            ]
+        ]
+    },
+    {
+        "id": "3abaf9b1.c69bb6",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "303986753",
+        "func": "const deviceId = 303986753\nconst cardNumber = msg.payload\n\nif (deviceId && cardNumber) {\n    msg.payload = { \n        deviceId: deviceId,\n        cardNumber: cardNumber\n    }\n        \n    return msg\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1490,
+        "y": 820,
+        "wires": [
+            [
+                "f1f5b3aa.93b5a"
+            ]
+        ]
+    },
+    {
+        "id": "39970811.8889a8",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "doors",
+        "func": "if (msg.payload.status && msg.payload.status.code !== 0) {\n    console.log('ooops')\n    return [\n        { topic: 'door 1', payload: false },\n        { topic: 'door 2', payload: false },\n        { topic: 'door 3', payload: false },\n        { topic: 'door 4', payload: false }\n    ]\n}\n\nif (msg.payload.deviceId && msg.payload.deviceId === 303986753) {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },\n        { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n   ]\n}\n\nreturn []\n\n",
+        "outputs": 4,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1810,
+        "y": 820,
+        "wires": [
+            [
+                "25a0a0da.f4024"
+            ],
+            [
+                "220e452.21212ba"
+            ],
+            [
+                "5d88ea6f.ffae74"
+            ],
+            [
+                "6dc386b8.8a99c8"
+            ]
+        ]
+    },
+    {
+        "id": "a9146ae5.d65d58",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "405419896",
+        "func": "const deviceId = 405419896\nconst cardNumber = msg.payload\n\nif (deviceId && cardNumber) {\n    msg.payload = { \n        deviceId: deviceId,\n        cardNumber: cardNumber\n    }\n        \n    return msg\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1490,
+        "y": 500,
+        "wires": [
+            [
+                "cadc65eb.dc7198"
+            ]
+        ]
+    },
+    {
+        "id": "cadc65eb.dc7198",
+        "type": "get-card",
+        "z": "2a36b650.4b9b7a",
+        "name": "get-card",
+        "config": "cbd92359.dbf19",
+        "x": 1660,
+        "y": 500,
+        "wires": [
+            [
+                "dc91a82a.6dc7c8"
+            ],
+            [
+                "dc91a82a.6dc7c8",
+                "ed03620e.d9ff"
+            ]
+        ]
+    },
+    {
+        "id": "dc91a82a.6dc7c8",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "doors",
+        "func": "if (msg.payload.status && msg.payload.status.code !== 0) {\n    console.log('ooops')\n    return [\n        { topic: 'door 1', payload: false },\n        { topic: 'door 2', payload: false },\n        { topic: 'door 3', payload: false },\n        { topic: 'door 4', payload: false }\n    ]\n}\n\nif (msg.payload.deviceId && msg.payload.deviceId === 405419896) {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },\n        { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n   ]\n}\n\nreturn []\n\n",
+        "outputs": 4,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1810,
+        "y": 500,
+        "wires": [
+            [
+                "6eac8a4e.b9baf4"
+            ],
+            [
+                "9eb1f7b1.8b0968"
+            ],
+            [
+                "34ea4d9f.8c2892"
+            ],
+            [
+                "81c28b36.1b34e8"
             ]
         ]
     },
