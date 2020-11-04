@@ -996,25 +996,16 @@
         "height": 1
     },
     {
-        "id": "c96518a5.d22428",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "975ca31.d8d236",
-        "order": 2,
-        "width": 4,
-        "height": 1
-    },
-    {
-        "id": "b65e5cbc.b5031",
+        "id": "3053d242.6a181e",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "975ca31.d8d236",
         "order": 5,
-        "width": 10,
+        "width": 6,
         "height": 1
     },
     {
-        "id": "54e36e58.5b488",
+        "id": "f83c26c0.c413a8",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
@@ -1023,7 +1014,7 @@
         "height": 1
     },
     {
-        "id": "7dac633e.a494cc",
+        "id": "f606647c.dde378",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
@@ -1032,43 +1023,34 @@
         "height": 1
     },
     {
-        "id": "6ca1d48c.70f8dc",
+        "id": "9398bd3b.b2588",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
         "order": 4,
-        "width": 3,
-        "height": 1
-    },
-    {
-        "id": "2ed72280.86637e",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "80ebf5dd.1d2018",
-        "order": 5,
         "width": 1,
         "height": 1
     },
     {
-        "id": "178d12ac.dffdbd",
+        "id": "cecd04b0.d40978",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
-        "order": 8,
+        "order": 7,
         "width": 1,
         "height": 1
     },
     {
-        "id": "a739c93d.2090b8",
+        "id": "57e53c21.1b9854",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
-        "order": 11,
-        "width": 6,
+        "order": 10,
+        "width": 2,
         "height": 1
     },
     {
-        "id": "5147a3c4.94f89c",
+        "id": "b5f80259.eaf49",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
@@ -1077,7 +1059,7 @@
         "height": 1
     },
     {
-        "id": "1cf9d5d5.f28e2a",
+        "id": "6a25d111.0716c",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
@@ -1086,7 +1068,7 @@
         "height": 1
     },
     {
-        "id": "bb7d7ded.cadcc",
+        "id": "21a201fd.ddd87e",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
@@ -1095,43 +1077,34 @@
         "height": 1
     },
     {
-        "id": "87228841.c5c498",
+        "id": "a1cddfd4.f288",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
         "order": 18,
-        "width": 2,
-        "height": 1
-    },
-    {
-        "id": "6cc60ca1.c707f4",
-        "type": "ui_spacer",
-        "name": "spacer",
-        "group": "80ebf5dd.1d2018",
-        "order": 20,
         "width": 6,
         "height": 1
     },
     {
-        "id": "c8f8e646.6f35a8",
+        "id": "455dff8b.1f657",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
-        "order": 21,
-        "width": 2,
+        "order": 19,
+        "width": 1,
         "height": 1
     },
     {
-        "id": "ce3b66d4.3d80c8",
+        "id": "4931e75b.fa38c8",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
-        "order": 23,
-        "width": 2,
+        "order": 22,
+        "width": 1,
         "height": 1
     },
     {
-        "id": "2c9e1655.8e8d0a",
+        "id": "df400ba6.78ea98",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
@@ -1140,7 +1113,7 @@
         "height": 1
     },
     {
-        "id": "8cc87edd.4e358",
+        "id": "91f7ba0f.7a4438",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
@@ -1149,12 +1122,21 @@
         "height": 1
     },
     {
-        "id": "4cc87dd9.efc234",
+        "id": "e709c82.7fa4038",
         "type": "ui_spacer",
         "name": "spacer",
         "group": "80ebf5dd.1d2018",
         "order": 29,
-        "width": 6,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "f0a33ede.580be",
+        "type": "ui_spacer",
+        "name": "spacer",
+        "group": "80ebf5dd.1d2018",
+        "order": 31,
+        "width": 2,
         "height": 1
     },
     {
@@ -3523,111 +3505,15 @@
         "wires": []
     },
     {
-        "id": "6ce7f877.625e48",
-        "type": "get-card",
-        "z": "2a36b650.4b9b7a",
-        "name": "get-card",
-        "config": "cbd92359.dbf19",
-        "x": 520,
-        "y": 500,
-        "wires": [
-            [
-                "4ce6edf2.3af724"
-            ],
-            [
-                "75f21b8.86ccbe4"
-            ]
-        ]
-    },
-    {
-        "id": "92910a57.c53858",
-        "type": "ui_dropdown",
-        "z": "2a36b650.4b9b7a",
-        "name": "controller",
-        "label": "",
-        "tooltip": "",
-        "place": "<select controller>",
-        "group": "975ca31.d8d236",
-        "order": 1,
-        "width": 6,
-        "height": 1,
-        "passthru": true,
-        "multiple": false,
-        "options": [],
-        "payload": "",
-        "topic": "set-device",
-        "x": 120,
-        "y": 380,
-        "wires": [
-            [
-                "fe2f6f7f.53fd9"
-            ]
-        ]
-    },
-    {
-        "id": "6277cd72.6d7ea4",
-        "type": "function",
-        "z": "2a36b650.4b9b7a",
-        "name": "card",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('get-card.device', msg.payload)\n        break;\n\n    case 'set-card-number':\n        flow.set('get-card.cardnumber', msg.payload)\n        break;\n}\n\nconst deviceId = flow.get('get-card.device')\nconst cardNumber = flow.get('get-card.cardnumber')\n\nif (deviceId && cardNumber) {\n    msg.payload = { \n        deviceId: deviceId,\n        cardNumber: cardNumber\n    }\n        \n    return msg\n}\n\nreturn null",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 370,
-        "y": 500,
-        "wires": [
-            [
-                "6ce7f877.625e48"
-            ]
-        ]
-    },
-    {
-        "id": "75f21b8.86ccbe4",
-        "type": "function",
-        "z": "2a36b650.4b9b7a",
-        "name": "retrieved",
-        "func": "card = msg.payload.card\nmsg.payload = card\n\nreturn msg\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 680,
-        "y": 540,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "7fe3bec1.b4483",
         "type": "put-card",
         "z": "2a36b650.4b9b7a",
         "name": "put-card",
         "config": "cbd92359.dbf19",
-        "x": 1420,
-        "y": 320,
+        "x": 2420,
+        "y": 440,
         "wires": [
-            [
-                "8194bf5e.b9a13"
-            ]
-        ]
-    },
-    {
-        "id": "9caadcc7.b679f",
-        "type": "function",
-        "z": "2a36b650.4b9b7a",
-        "name": "card",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\nconst yyyymmdd = (d) => {\n    const year = format(d.getFullYear(), 4)\n    const month = format(d.getMonth()+1, 2)\n    const day = format(d.getDate(), 2)\n    \n    return year + '-' + month + '-' + day\n}\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('put-card.device', msg.payload)\n        break\n\n    case 'set-card-number':\n        flow.set('put-card.card.number', msg.payload)\n        break\n\n    case 'set-card-valid-from':\n        flow.set('put-card.card.valid.from', yyyymmdd(new Date(msg.payload)))\n        break\n\n    case 'set-card-valid-to':\n        flow.set('put-card.card.valid.to', yyyymmdd(new Date(msg.payload)))\n        break\n\n    case 'set-card-doors-1':\n        flow.set('put-card.card.doors.1', msg.payload)\n        break    \n\n    case 'set-card-doors-2':\n        flow.set('put-card.card.doors.2', msg.payload)\n        break    \n\n    case 'set-card-doors-3':\n        flow.set('put-card.card.doors.3', msg.payload)\n        break    \n\n    case 'set-card-doors-4':\n        flow.set('put-card.card.doors.4', msg.payload)\n        break    \n        \n    case 'put-card':\n        const deviceId = flow.get('put-card.device')\n        const cardNumber = flow.get('put-card.card.number')\n        const validFrom = flow.get('put-card.card.valid.from')\n        const validTo = flow.get('put-card.card.valid.to')\n        const door1 = flow.get('put-card.card.doors.1')\n        const door2 = flow.get('put-card.card.doors.2')\n        const door3 = flow.get('put-card.card.doors.3')\n        const door4 = flow.get('put-card.card.doors.4')\n\n        console.log(deviceId, cardNumber, validFrom, validTo)\n        \n        if (deviceId && cardNumber && validFrom && validTo) {\n            msg.payload = { \n                deviceId: deviceId,\n                card: {\n                    number: cardNumber,\n                    valid: {\n                        from: validFrom,\n                        to: validTo\n                    },\n                    doors: {\n                        \"1\": door1 || false,\n                        \"2\": door2 || false,\n                        \"3\": door3 || false,\n                        \"4\": door4 || false\n                    }\n                }\n            }\n        \n            return msg\n        }\n        break\n}\n\nreturn null",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1250,
-        "y": 320,
-        "wires": [
-            [
-                "7fe3bec1.b4483"
-            ]
+            []
         ]
     },
     {
@@ -3639,19 +3525,17 @@
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
         "order": 3,
-        "width": 3,
+        "width": 6,
         "height": 1,
         "passthru": false,
         "mode": "number",
         "delay": "0",
         "topic": "set-card-number",
-        "x": 1270,
-        "y": 660,
+        "x": 1010,
+        "y": 600,
         "wires": [
             [
-                "cb6b878.02d9b78",
-                "a9146ae5.d65d58",
-                "3abaf9b1.c69bb6"
+                "cb6b878.02d9b78"
             ]
         ]
     },
@@ -3660,15 +3544,15 @@
         "type": "ui_text",
         "z": "2a36b650.4b9b7a",
         "group": "80ebf5dd.1d2018",
-        "order": 6,
+        "order": 5,
         "width": 1,
         "height": 1,
-        "name": "label-from",
+        "name": "405419896-from",
         "label": "from",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 2150,
-        "y": 640,
+        "x": 1630,
+        "y": 360,
         "wires": []
     },
     {
@@ -3676,15 +3560,15 @@
         "type": "ui_text",
         "z": "2a36b650.4b9b7a",
         "group": "80ebf5dd.1d2018",
-        "order": 9,
+        "order": 8,
         "width": 1,
         "height": 1,
-        "name": "label-to",
+        "name": "405419896-to",
         "label": "to",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 2140,
-        "y": 680,
+        "x": 1640,
+        "y": 400,
         "wires": []
     },
     {
@@ -3693,7 +3577,7 @@
         "z": "2a36b650.4b9b7a",
         "name": "put-card",
         "group": "80ebf5dd.1d2018",
-        "order": 30,
+        "order": 33,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -3705,28 +3589,13 @@
         "payload": "",
         "payloadType": "date",
         "topic": "put-card",
-        "x": 1060,
-        "y": 380,
+        "x": 2080,
+        "y": 620,
         "wires": [
             [
-                "9caadcc7.b679f"
+                "544ac83b.c7d548",
+                "d8cb11c9.abb4a"
             ]
-        ]
-    },
-    {
-        "id": "8194bf5e.b9a13",
-        "type": "function",
-        "z": "2a36b650.4b9b7a",
-        "name": "stored",
-        "func": "if (msg.payload.stored) {\n    msg.payload = 'card updated'\n} else {\n    msg.payload = 'error adding/updating card'\n}\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1590,
-        "y": 320,
-        "wires": [
-            []
         ]
     },
     {
@@ -3767,7 +3636,7 @@
         "z": "2a36b650.4b9b7a",
         "name": "delete-card",
         "group": "80ebf5dd.1d2018",
-        "order": 31,
+        "order": 34,
         "width": 3,
         "height": 1,
         "passthru": false,
@@ -3784,40 +3653,6 @@
         "wires": [
             [
                 "e7473423.ef6728"
-            ]
-        ]
-    },
-    {
-        "id": "fe2f6f7f.53fd9",
-        "type": "link out",
-        "z": "2a36b650.4b9b7a",
-        "name": "card-controller",
-        "links": [
-            "11c70f5e.08eca1",
-            "36bef050.3e6b9",
-            "93805387.eb6cd",
-            "a74d4fc3.50b25",
-            "db72adb4.36261",
-            "f93335b9.2a2448",
-            "51859f2a.5f682"
-        ],
-        "x": 235,
-        "y": 380,
-        "wires": []
-    },
-    {
-        "id": "f93335b9.2a2448",
-        "type": "link in",
-        "z": "2a36b650.4b9b7a",
-        "name": "",
-        "links": [
-            "fe2f6f7f.53fd9"
-        ],
-        "x": 255,
-        "y": 480,
-        "wires": [
-            [
-                "6277cd72.6d7ea4"
             ]
         ]
     },
@@ -3848,27 +3683,16 @@
             "3036418d.f8557e",
             "1fbf5878.4949c8",
             "3fcc3324.4503bc",
-            "ec6cc0bf.05356"
+            "ec6cc0bf.05356",
+            "a4efbc18.48624",
+            "21be6c0b.4be6d4",
+            "8218fde6.b2437",
+            "80814365.fa3df",
+            "382988ea.0b09d8"
         ],
-        "x": 1415,
-        "y": 660,
+        "x": 1135,
+        "y": 580,
         "wires": []
-    },
-    {
-        "id": "bd883038.dbaac",
-        "type": "link in",
-        "z": "2a36b650.4b9b7a",
-        "name": "",
-        "links": [
-            "cb6b878.02d9b78"
-        ],
-        "x": 255,
-        "y": 520,
-        "wires": [
-            [
-                "6277cd72.6d7ea4"
-            ]
-        ]
     },
     {
         "id": "129b9c14.1aba94",
@@ -3883,38 +3707,6 @@
         "wires": [
             [
                 "e7473423.ef6728"
-            ]
-        ]
-    },
-    {
-        "id": "a74d4fc3.50b25",
-        "type": "link in",
-        "z": "2a36b650.4b9b7a",
-        "name": "",
-        "links": [
-            "fe2f6f7f.53fd9"
-        ],
-        "x": 1075,
-        "y": 300,
-        "wires": [
-            [
-                "9caadcc7.b679f"
-            ]
-        ]
-    },
-    {
-        "id": "3036418d.f8557e",
-        "type": "link in",
-        "z": "2a36b650.4b9b7a",
-        "name": "",
-        "links": [
-            "cb6b878.02d9b78"
-        ],
-        "x": 1075,
-        "y": 340,
-        "wires": [
-            [
-                "9caadcc7.b679f"
             ]
         ]
     },
@@ -3938,32 +3730,34 @@
         "id": "e70a1f2e.dcd39",
         "type": "ui_date_picker",
         "z": "2a36b650.4b9b7a",
-        "name": "card-from",
+        "name": "405419896-from",
         "label": "",
         "group": "80ebf5dd.1d2018",
-        "order": 7,
+        "order": 6,
         "width": 4,
         "height": 1,
         "passthru": true,
         "topic": "set-card-valid-from",
-        "x": 2000,
-        "y": 640,
+        "x": 2050,
+        "y": 360,
         "wires": [
-            []
+            [
+                "544ac83b.c7d548"
+            ]
         ]
     },
     {
         "id": "ed03620e.d9ff",
         "type": "function",
         "z": "2a36b650.4b9b7a",
-        "name": "valid-dates",
-        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconsole.log(msg)\n\nif (msg.payload.card.valid) {\n    const from = parse(msg.payload.card.valid.from)\n    const to = parse(msg.payload.card.valid.to)\n    let p = null\n    let q = null\n\n    if (from !== null) {\n        p = { topic:msg.topic, payload:from }\n    }\n\n    if (to !== null) {\n        q = { topic:msg.topic, payload:to }\n    }\n\n    return [p,q]\n}\n\nreturn [null, null]\n\n",
+        "name": "validity",
+        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconst Jan1 = new Date()\nconst Dec31 = new Date()\n\nJan1.setMonth(0)\nJan1.setDate(1)\nDec31.setMonth(11)\nDec31.setDate(31)\n\nconst from = { topic:msg.topic, payload:Jan1 }\nconst to = { topic:msg.topic, payload:Dec31 }\n\nif (msg.payload.card.valid) {\n    const f = parse(msg.payload.card.valid.from)\n    const t = parse(msg.payload.card.valid.to)\n\n    if (f !== null) {\n        from.payload = f\n    }\n\n    if (t !== null) {\n        to.payload = t\n    }\n\n}\n\nreturn [ from,to ]\n\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1830,
-        "y": 660,
+        "x": 1840,
+        "y": 380,
         "wires": [
             [
                 "e70a1f2e.dcd39"
@@ -3977,18 +3771,20 @@
         "id": "51e5131e.65bf4c",
         "type": "ui_date_picker",
         "z": "2a36b650.4b9b7a",
-        "name": "card-to",
+        "name": "405419896-to",
         "label": "",
         "group": "80ebf5dd.1d2018",
-        "order": 10,
+        "order": 9,
         "width": 4,
         "height": 1,
         "passthru": true,
         "topic": "set-card-valid-to",
-        "x": 2000,
-        "y": 680,
+        "x": 2060,
+        "y": 400,
         "wires": [
-            []
+            [
+                "544ac83b.c7d548"
+            ]
         ]
     },
     {
@@ -3999,7 +3795,7 @@
         "label": "entrance",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
-        "order": 13,
+        "order": 11,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -4014,10 +3810,12 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 2020,
+        "x": 2040,
         "y": 440,
         "wires": [
-            []
+            [
+                "544ac83b.c7d548"
+            ]
         ]
     },
     {
@@ -4028,7 +3826,7 @@
         "label": "workshop",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
-        "order": 15,
+        "order": 13,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -4043,10 +3841,12 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 2020,
+        "x": 2040,
         "y": 480,
         "wires": [
-            []
+            [
+                "544ac83b.c7d548"
+            ]
         ]
     },
     {
@@ -4057,7 +3857,7 @@
         "label": "tower",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
-        "order": 17,
+        "order": 15,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -4072,10 +3872,12 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 2010,
+        "x": 2050,
         "y": 520,
         "wires": [
-            []
+            [
+                "544ac83b.c7d548"
+            ]
         ]
     },
     {
@@ -4086,7 +3888,7 @@
         "label": "dungeon",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
-        "order": 19,
+        "order": 17,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -4101,10 +3903,12 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 2020,
+        "x": 2040,
         "y": 560,
         "wires": [
-            []
+            [
+                "544ac83b.c7d548"
+            ]
         ]
     },
     {
@@ -4190,37 +3994,11 @@
         ],
         "outputs": 1,
         "cts": true,
-        "x": 1070,
-        "y": 980,
+        "x": 850,
+        "y": 560,
         "wires": [
             [
                 "dc1ee1d3.10c6c"
-            ]
-        ]
-    },
-    {
-        "id": "5b79d6d.06dc728",
-        "type": "ui_button",
-        "z": "2a36b650.4b9b7a",
-        "name": "refresh-cards",
-        "group": "975ca31.d8d236",
-        "order": 3,
-        "width": 2,
-        "height": 2,
-        "passthru": false,
-        "label": "refresh",
-        "tooltip": "Get cards from controller",
-        "color": "#008000",
-        "bgcolor": "#A6BBCF",
-        "icon": "fa-refresh",
-        "payload": "",
-        "payloadType": "str",
-        "topic": "refresh",
-        "x": 90,
-        "y": 800,
-        "wires": [
-            [
-                "920606cd.352758"
             ]
         ]
     },
@@ -4230,8 +4008,8 @@
         "z": "2a36b650.4b9b7a",
         "name": "get-cards",
         "config": "cbd92359.dbf19",
-        "x": 420,
-        "y": 780,
+        "x": 320,
+        "y": 680,
         "wires": [
             [
                 "a6377ea9.6a093"
@@ -4243,32 +4021,16 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "refresh",
-        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('refresh.device', Number(msg.payload))\n        break;\n\n    case 'refresh':\n        { const deviceId = flow.get('refresh.device')\n\n          if (deviceId) {\n              return { \n                  topic: 'get-cards',\n                  payload: { deviceId:deviceId } \n              }\n          }\n        }\n        break\n}\n\nreturn null",
+        "func": "flow.set('refresh.device', msg.payload.deviceId)\n\nreturn { \n    topic: 'get-cards',\n    payload: msg.payload\n}\n\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 270,
-        "y": 780,
+        "x": 190,
+        "y": 680,
         "wires": [
             [
                 "196e0519.9c92cb"
-            ]
-        ]
-    },
-    {
-        "id": "db72adb4.36261",
-        "type": "link in",
-        "z": "2a36b650.4b9b7a",
-        "name": "",
-        "links": [
-            "fe2f6f7f.53fd9"
-        ],
-        "x": 135,
-        "y": 760,
-        "wires": [
-            [
-                "920606cd.352758"
             ]
         ]
     },
@@ -4279,8 +4041,8 @@
         "name": "get-card-by-index",
         "topic": "get-card-by-index",
         "config": "cbd92359.dbf19",
-        "x": 490,
-        "y": 900,
+        "x": 350,
+        "y": 820,
         "wires": [
             [
                 "4098b71e.12c1b8"
@@ -4850,25 +4612,6 @@
         ]
     },
     {
-        "id": "4ce6edf2.3af724",
-        "type": "function",
-        "z": "2a36b650.4b9b7a",
-        "name": "status",
-        "func": "const status = { topic: msg.topic, payload: msg.payload.status.message }\nlet card = null\n\nif (msg.payload.status.code !== 0) {\n   card = { \n       topic: msg.topic,\n       payload: { \n           card: { \n               number: '', \n               valid: { \n                   from: '', \n                   to: '' \n                   \n               }, \n               doors: { \n                   1: '', \n                   2: '', \n                   3: '', \n                   4: '' \n                   \n               } \n           }\n           \n       }\n   }\n}\n\nreturn [ status, card ]",
-        "outputs": 2,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 670,
-        "y": 460,
-        "wires": [
-            [],
-            [
-                "75f21b8.86ccbe4"
-            ]
-        ]
-    },
-    {
         "id": "a00f3712.ee7008",
         "type": "ui_text",
         "z": "33c9a78a.cc8c18",
@@ -5309,8 +5052,8 @@
         "topic": "",
         "payload": "{\"command\":\"setColumns\",\"arguments\":[[{\"title\":\"card number\",\"field\":\"number\",\"align\":\"left\",\"width\":134},{\"title\":\"from\",\"field\":\"valid.from\",\"align\":\"left\",\"width\":108},{\"title\":\"to\",\"field\":\"valid.to\",\"align\":\"left\",\"width\":108},{\"title\":\"door.1\",\"field\":\"doors.1\",\"align\":\"center\",\"width\":100,\"formatter\":\"tickCross\"},{\"title\":\"door.2\",\"field\":\"doors.2\",\"align\":\"center\",\"width\":100,\"formatter\":\"tickCross\"},{\"title\":\"door.3\",\"field\":\"doors.3\",\"align\":\"center\",\"width\":100,\"formatter\":\"tickCross\"},{\"title\":\"door.4\",\"field\":\"doors.4\",\"align\":\"center\",\"width\":100,\"formatter\":\"tickCross\"}]]}",
         "payloadType": "json",
-        "x": 890,
-        "y": 840,
+        "x": 710,
+        "y": 520,
         "wires": [
             [
                 "32cd75ea.8b84ba"
@@ -5322,13 +5065,13 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "doors",
-        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload\n\nif (controllers && controllers[deviceId]) {\n    const device = controllers[deviceId]\n    const columns = {\n        \"command\": \"setColumns\",\n        \"arguments\": [\n            [\n                {\n                    \"title\": \"card number\",\n                    \"field\": \"number\",\n                    \"align\": \"left\",\n                    \"width\": 134\n                },\n                {\n                    \"title\": \"from\",\n                    \"field\": \"valid.from\",\n                    \"align\": \"left\",\n                    \"width\": 108\n                },\n                {\n                    \"title\": \"to\",\n                    \"field\": \"valid.to\",\n                    \"align\": \"left\",\n                    \"width\": 108\n                },\n                {\n                    \"title\": device.doors[1].name,\n                    \"field\": \"doors.1\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[2].name,\n                    \"field\": \"doors.2\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[3].name,\n                    \"field\": \"doors.3\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[4].name,\n                    \"field\": \"doors.4\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                }\n            ]\n        ]\n    }\n    \n    return { topic:'set-doors',  payload: columns }\n}\n\nreturn null\n",
+        "func": "const controllers = flow.get('controllers')\nconst deviceId = msg.payload.deviceId\n\nif (controllers && controllers[deviceId]) {\n    const device = controllers[deviceId]\n    const columns = {\n        \"command\": \"setColumns\",\n        \"arguments\": [\n            [\n                {\n                    \"title\": \"card number\",\n                    \"field\": \"number\",\n                    \"align\": \"left\",\n                    \"width\": 134\n                },\n                {\n                    \"title\": \"from\",\n                    \"field\": \"valid.from\",\n                    \"align\": \"left\",\n                    \"width\": 108\n                },\n                {\n                    \"title\": \"to\",\n                    \"field\": \"valid.to\",\n                    \"align\": \"left\",\n                    \"width\": 108\n                },\n                {\n                    \"title\": device.doors[1].name,\n                    \"field\": \"doors.1\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[2].name,\n                    \"field\": \"doors.2\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[3].name,\n                    \"field\": \"doors.3\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                },\n                {\n                    \"title\": device.doors[4].name,\n                    \"field\": \"doors.4\",\n                    \"align\": \"center\",\n                    \"width\": 100,\n                    \"formatter\": \"tickCross\"\n                }\n            ]\n        ]\n    }\n    \n    return { topic:'set-doors',  payload: columns }\n}\n\nreturn null\n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 890,
-        "y": 880,
+        "x": 710,
+        "y": 480,
         "wires": [
             [
                 "32cd75ea.8b84ba"
@@ -5341,10 +5084,10 @@
         "z": "2a36b650.4b9b7a",
         "name": "",
         "links": [
-            "fe2f6f7f.53fd9"
+            "f390fb6c.b0d268"
         ],
-        "x": 775,
-        "y": 880,
+        "x": 615,
+        "y": 480,
         "wires": [
             [
                 "e825163c.2e4f18"
@@ -5494,27 +5237,11 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 900,
-        "y": 980,
+        "x": 700,
+        "y": 560,
         "wires": [
             [
                 "32cd75ea.8b84ba"
-            ]
-        ]
-    },
-    {
-        "id": "51859f2a.5f682",
-        "type": "link in",
-        "z": "2a36b650.4b9b7a",
-        "name": "",
-        "links": [
-            "fe2f6f7f.53fd9"
-        ],
-        "x": 775,
-        "y": 920,
-        "wires": [
-            [
-                "aa152261.eb314"
             ]
         ]
     },
@@ -5528,8 +5255,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 700,
-        "y": 980,
+        "x": 540,
+        "y": 860,
         "wires": [
             [
                 "aa152261.eb314",
@@ -5547,8 +5274,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 130,
-        "y": 900,
+        "x": 490,
+        "y": 680,
         "wires": [
             [
                 "e15d01a.96f34"
@@ -5565,8 +5292,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 300,
-        "y": 900,
+        "x": 160,
+        "y": 820,
         "wires": [
             [
                 "13f668be.c2e417"
@@ -5583,8 +5310,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 690,
-        "y": 820,
+        "x": 570,
+        "y": 780,
         "wires": [
             [
                 "e15d01a.96f34"
@@ -5597,8 +5324,8 @@
         "z": "2a36b650.4b9b7a",
         "name": "tab-event",
         "events": "change",
-        "x": 360,
-        "y": 1040,
+        "x": 120,
+        "y": 560,
         "wires": [
             [
                 "4451de5a.3d5ea"
@@ -5615,8 +5342,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 710,
-        "y": 1040,
+        "x": 430,
+        "y": 560,
         "wires": [
             [
                 "aa152261.eb314"
@@ -5638,8 +5365,8 @@
         "randomLast": "5",
         "randomUnits": "seconds",
         "drop": false,
-        "x": 530,
-        "y": 1040,
+        "x": 270,
+        "y": 560,
         "wires": [
             [
                 "6df1685e.0d8448"
@@ -6861,9 +6588,7 @@
         "x": 370,
         "y": 40,
         "wires": [
-            [
-                "92910a57.c53858"
-            ]
+            []
         ]
     },
     {
@@ -6878,6 +6603,13 @@
                 "pt": "msg",
                 "to": "payload.number",
                 "tot": "msg"
+            },
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "set-card-number",
+                "tot": "str"
             }
         ],
         "action": "",
@@ -6885,13 +6617,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 1230,
-        "y": 980,
+        "x": 1010,
+        "y": 560,
         "wires": [
             [
-                "46db6d43.a9d444",
-                "3abaf9b1.c69bb6",
-                "a9146ae5.d65d58"
+                "cb6b878.02d9b78"
             ]
         ]
     },
@@ -6903,12 +6633,12 @@
         "label": "door X",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
-        "order": 22,
+        "order": 26,
         "width": 4,
         "height": 1,
         "passthru": true,
         "decouple": "false",
-        "topic": "set-card-door-1",
+        "topic": "set-card-doors-1",
         "style": "",
         "onvalue": "true",
         "onvalueType": "bool",
@@ -6918,10 +6648,12 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 1990,
+        "x": 2070,
         "y": 760,
         "wires": [
-            []
+            [
+                "d8cb11c9.abb4a"
+            ]
         ]
     },
     {
@@ -6932,7 +6664,7 @@
         "label": "door Y",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
-        "order": 24,
+        "order": 28,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -6947,10 +6679,12 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 1990,
+        "x": 2070,
         "y": 800,
         "wires": [
-            []
+            [
+                "d8cb11c9.abb4a"
+            ]
         ]
     },
     {
@@ -6961,7 +6695,7 @@
         "label": "laboratory",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
-        "order": 26,
+        "order": 30,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -6976,10 +6710,12 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 2020,
+        "x": 2040,
         "y": 840,
         "wires": [
-            []
+            [
+                "d8cb11c9.abb4a"
+            ]
         ]
     },
     {
@@ -6990,7 +6726,7 @@
         "label": "kitchen",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
-        "order": 28,
+        "order": 32,
         "width": 4,
         "height": 1,
         "passthru": true,
@@ -7005,10 +6741,12 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 2010,
+        "x": 2050,
         "y": 880,
         "wires": [
-            []
+            [
+                "d8cb11c9.abb4a"
+            ]
         ]
     },
     {
@@ -7016,16 +6754,18 @@
         "type": "get-card",
         "z": "2a36b650.4b9b7a",
         "name": "get-card",
+        "topic": "get-card",
         "config": "cbd92359.dbf19",
         "x": 1660,
         "y": 820,
         "wires": [
             [
-                "39970811.8889a8"
+                "39970811.8889a8",
+                "962da3c.91f296"
             ],
             [
                 "39970811.8889a8",
-                "ed03620e.d9ff"
+                "962da3c.91f296"
             ]
         ]
     },
@@ -7052,12 +6792,12 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "doors",
-        "func": "if (msg.payload.status && msg.payload.status.code !== 0) {\n    console.log('ooops')\n    return [\n        { topic: 'door 1', payload: false },\n        { topic: 'door 2', payload: false },\n        { topic: 'door 3', payload: false },\n        { topic: 'door 4', payload: false }\n    ]\n}\n\nif (msg.payload.deviceId && msg.payload.deviceId === 303986753) {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },\n        { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n   ]\n}\n\nreturn []\n\n",
+        "func": "if (msg.topic === 'get-card.status') {\n    if (msg.payload.status && msg.payload.status.code !== 0) {\n        return [\n            { topic: 'door 1', payload: false },\n            { topic: 'door 2', payload: false },\n            { topic: 'door 3', payload: false },\n            { topic: 'door 4', payload: false }\n        ]\n    }\n} else {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },            { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n    ]\n}\n\nreturn []\n",
         "outputs": 4,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1810,
+        "x": 1830,
         "y": 820,
         "wires": [
             [
@@ -7079,7 +6819,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "405419896",
-        "func": "const deviceId = 405419896\nconst cardNumber = msg.payload\n\nif (deviceId && cardNumber) {\n    msg.payload = { \n        deviceId: deviceId,\n        cardNumber: cardNumber\n    }\n        \n    return msg\n}\n\nreturn null",
+        "func": "const deviceId = 405419896\nconst cardNumber = msg.payload\n\nconsole.log('???', deviceId, cardNumber)\nif (deviceId && cardNumber) {\n    msg.payload = { \n        deviceId: deviceId,\n        cardNumber: cardNumber\n    }\n        \n    return msg\n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
@@ -7097,6 +6837,7 @@
         "type": "get-card",
         "z": "2a36b650.4b9b7a",
         "name": "get-card",
+        "topic": "get-card",
         "config": "cbd92359.dbf19",
         "x": 1660,
         "y": 500,
@@ -7115,12 +6856,12 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "doors",
-        "func": "if (msg.payload.status && msg.payload.status.code !== 0) {\n    console.log('ooops')\n    return [\n        { topic: 'door 1', payload: false },\n        { topic: 'door 2', payload: false },\n        { topic: 'door 3', payload: false },\n        { topic: 'door 4', payload: false }\n    ]\n}\n\nif (msg.payload.deviceId && msg.payload.deviceId === 405419896) {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },\n        { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n   ]\n}\n\nreturn []\n\n",
+        "func": "if (msg.topic === 'get-card.status') {\n    if (msg.payload.status && msg.payload.status.code !== 0) {\n        return [\n            { topic: 'door 1', payload: false },\n            { topic: 'door 2', payload: false },\n            { topic: 'door 3', payload: false },\n            { topic: 'door 4', payload: false }\n        ]\n    }\n} else {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },\n        { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n    ]\n}\n\nreturn []\n\n",
         "outputs": 4,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1810,
+        "x": 1830,
         "y": 500,
         "wires": [
             [
@@ -7134,6 +6875,372 @@
             ],
             [
                 "81c28b36.1b34e8"
+            ]
+        ]
+    },
+    {
+        "id": "962da3c.91f296",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "validity",
+        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconst Jan1 = new Date()\nconst Dec31 = new Date()\n\nJan1.setMonth(0)\nJan1.setDate(1)\nDec31.setMonth(11)\nDec31.setDate(31)\n\nconst from = { topic:msg.topic, payload:Jan1 }\nconst to = { topic:msg.topic, payload:Dec31 }\n\nif (msg.payload.card.valid) {\n    const f = parse(msg.payload.card.valid.from)\n    const t = parse(msg.payload.card.valid.to)\n\n    if (f !== null) {\n        from.payload = f\n    }\n\n    if (t !== null) {\n        to.payload = t\n    }\n\n}\n\nreturn [ from,to ]\n\n",
+        "outputs": 2,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 1840,
+        "y": 700,
+        "wires": [
+            [
+                "7bdd1a52.254754"
+            ],
+            [
+                "667ca82a.202558"
+            ]
+        ]
+    },
+    {
+        "id": "7bdd1a52.254754",
+        "type": "ui_date_picker",
+        "z": "2a36b650.4b9b7a",
+        "name": "303986753-from",
+        "label": "",
+        "group": "80ebf5dd.1d2018",
+        "order": 21,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "topic": "set-card-valid-from",
+        "x": 2050,
+        "y": 680,
+        "wires": [
+            [
+                "d8cb11c9.abb4a"
+            ]
+        ]
+    },
+    {
+        "id": "667ca82a.202558",
+        "type": "ui_date_picker",
+        "z": "2a36b650.4b9b7a",
+        "name": "303986753-to",
+        "label": "",
+        "group": "80ebf5dd.1d2018",
+        "order": 24,
+        "width": 4,
+        "height": 1,
+        "passthru": true,
+        "topic": "set-card-valid-to",
+        "x": 2060,
+        "y": 720,
+        "wires": [
+            [
+                "d8cb11c9.abb4a"
+            ]
+        ]
+    },
+    {
+        "id": "7530c6d1.adc3f8",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "80ebf5dd.1d2018",
+        "order": 20,
+        "width": 1,
+        "height": 1,
+        "name": "303986753-from",
+        "label": "from",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1630,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "15b2c40e.e793cc",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "80ebf5dd.1d2018",
+        "order": 23,
+        "width": 1,
+        "height": 1,
+        "name": "303986753-to",
+        "label": "to",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1640,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "40b643f9.077e1c",
+        "type": "ui_button",
+        "z": "2a36b650.4b9b7a",
+        "name": "405419896",
+        "group": "975ca31.d8d236",
+        "order": 2,
+        "width": 3,
+        "height": 2,
+        "passthru": false,
+        "label": "405419896",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-refresh",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "topic": "",
+        "x": 110,
+        "y": 380,
+        "wires": [
+            [
+                "f390fb6c.b0d268",
+                "db1b1604.c39b48"
+            ]
+        ]
+    },
+    {
+        "id": "91869167.e9236",
+        "type": "ui_button",
+        "z": "2a36b650.4b9b7a",
+        "name": "303986753",
+        "group": "975ca31.d8d236",
+        "order": 3,
+        "width": 3,
+        "height": 2,
+        "passthru": false,
+        "label": "303986753",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-refresh",
+        "payload": "{ \"deviceId\": 303986753 }",
+        "payloadType": "json",
+        "topic": "",
+        "x": 110,
+        "y": 420,
+        "wires": [
+            [
+                "f390fb6c.b0d268",
+                "db1b1604.c39b48"
+            ]
+        ]
+    },
+    {
+        "id": "c2c8baca.3c7598",
+        "type": "change",
+        "z": "2a36b650.4b9b7a",
+        "name": "device-id",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.deviceId",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 600,
+        "wires": [
+            [
+                "aa152261.eb314"
+            ]
+        ]
+    },
+    {
+        "id": "db1b1604.c39b48",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "975ca31.d8d236",
+        "order": 1,
+        "width": 6,
+        "height": 1,
+        "name": "controller",
+        "label": "",
+        "format": "{{msg.payload.deviceId}}",
+        "layout": "row-left",
+        "x": 300,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "f390fb6c.b0d268",
+        "type": "link out",
+        "z": "2a36b650.4b9b7a",
+        "name": "controller",
+        "links": [
+            "fe422346.f0c88",
+            "a0a5915b.4df9b",
+            "6c4e3465.e7040c",
+            "11c70f5e.08eca1",
+            "6baa9b6d.1e3624"
+        ],
+        "x": 255,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "fe422346.f0c88",
+        "type": "link in",
+        "z": "2a36b650.4b9b7a",
+        "name": "",
+        "links": [
+            "f390fb6c.b0d268"
+        ],
+        "x": 295,
+        "y": 600,
+        "wires": [
+            [
+                "c2c8baca.3c7598"
+            ]
+        ]
+    },
+    {
+        "id": "544ac83b.c7d548",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "card",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\nconst yyyymmdd = (d) => {\n    const year = format(d.getFullYear(), 4)\n    const month = format(d.getMonth()+1, 2)\n    const day = format(d.getDate(), 2)\n    \n    return year + '-' + month + '-' + day\n}\n\nswitch (msg.topic) {\n    case 'set-card-number':\n        flow.set('put-card.405419896.card', msg.payload)\n        break\n\n    case 'set-card-valid-from':\n        flow.set('put-card.405419896.valid.from', yyyymmdd(new Date(msg.payload)))\n        break\n\n    case 'set-card-valid-to':\n        flow.set('put-card.405419896.valid.to', yyyymmdd(new Date(msg.payload)))\n        break\n\n    case 'set-card-doors-1':\n        flow.set('put-card.405419896.doors.1', msg.payload)\n        break    \n\n    case 'set-card-doors-2':\n        flow.set('put-card.405419896.doors.2', msg.payload)\n        break    \n\n    case 'set-card-doors-3':\n        flow.set('put-card.405419896.doors.3', msg.payload)\n        break    \n\n    case 'set-card-doors-4':\n        flow.set('put-card.405419896.doors.4', msg.payload)\n        break    \n        \n    case 'put-card':\n        const deviceId = 405419896\n        const cardNumber = flow.get('put-card.405419896.card')\n        const validFrom = flow.get('put-card.405419896.valid.from')\n        const validTo = flow.get('put-card.405419896.valid.to')\n        const door1 = flow.get('put-card.405419896.doors.1')\n        const door2 = flow.get('put-card.405419896.doors.2')\n        const door3 = flow.get('put-card.405419896.doors.3')\n        const door4 = flow.get('put-card.405419896.doors.4')\n\n        if (deviceId && cardNumber && validFrom && validTo) {\n            msg.payload = { \n                deviceId: deviceId,\n                card: {\n                    number: cardNumber,\n                    valid: {\n                        from: validFrom,\n                        to: validTo\n                    },\n                    doors: {\n                        \"1\": door1 || false,\n                        \"2\": door2 || false,\n                        \"3\": door3 || false,\n                        \"4\": door4 || false\n                    }\n                }\n            }\n        \n            return msg\n        }\n        break\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 2270,
+        "y": 440,
+        "wires": [
+            [
+                "7fe3bec1.b4483"
+            ]
+        ]
+    },
+    {
+        "id": "a4efbc18.48624",
+        "type": "link in",
+        "z": "2a36b650.4b9b7a",
+        "name": "",
+        "links": [
+            "cb6b878.02d9b78"
+        ],
+        "x": 2115,
+        "y": 320,
+        "wires": [
+            [
+                "544ac83b.c7d548"
+            ]
+        ]
+    },
+    {
+        "id": "d8cb11c9.abb4a",
+        "type": "function",
+        "z": "2a36b650.4b9b7a",
+        "name": "card",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\nconst yyyymmdd = (d) => {\n    const year = format(d.getFullYear(), 4)\n    const month = format(d.getMonth()+1, 2)\n    const day = format(d.getDate(), 2)\n    \n    return year + '-' + month + '-' + day\n}\n\nswitch (msg.topic) {\n    case 'set-card-number':\n        flow.set('put-card.303986753.card', msg.payload)\n        break\n\n    case 'set-card-valid-from':\n        flow.set('put-card.303986753.valid.from', yyyymmdd(new Date(msg.payload)))\n        break\n\n    case 'set-card-valid-to':\n        flow.set('put-card.303986753.valid.to', yyyymmdd(new Date(msg.payload)))\n        break\n\n    case 'set-card-doors-1':\n        flow.set('put-card.303986753.doors.1', msg.payload)\n        break    \n\n    case 'set-card-doors-2':\n        flow.set('put-card.303986753.doors.2', msg.payload)\n        break    \n\n    case 'set-card-doors-3':\n        flow.set('put-card.303986753.doors.3', msg.payload)\n        break    \n\n    case 'set-card-doors-4':\n        flow.set('put-card.303986753.doors.4', msg.payload)\n        break    \n        \n    case 'put-card':\n        const deviceId = 303986753\n        const cardNumber = flow.get('put-card.303986753.card')\n        const validFrom = flow.get('put-card.303986753.valid.from')\n        const validTo = flow.get('put-card.303986753.valid.to')\n        const door1 = flow.get('put-card.303986753.doors.1')\n        const door2 = flow.get('put-card.303986753.doors.2')\n        const door3 = flow.get('put-card.303986753.doors.3')\n        const door4 = flow.get('put-card.303986753.doors.4')\n\n        if (deviceId && cardNumber && validFrom && validTo) {\n            msg.payload = { \n                deviceId: deviceId,\n                card: {\n                    number: cardNumber,\n                    valid: {\n                        from: validFrom,\n                        to: validTo\n                    },\n                    doors: {\n                        \"1\": door1 || false,\n                        \"2\": door2 || false,\n                        \"3\": door3 || false,\n                        \"4\": door4 || false\n                    }\n                }\n            }\n        \n            return msg\n        }\n        break\n}\n\nreturn null",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 2270,
+        "y": 780,
+        "wires": [
+            [
+                "3592ac38.47a7e4"
+            ]
+        ]
+    },
+    {
+        "id": "3592ac38.47a7e4",
+        "type": "put-card",
+        "z": "2a36b650.4b9b7a",
+        "name": "put-card",
+        "config": "cbd92359.dbf19",
+        "x": 2420,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "21be6c0b.4be6d4",
+        "type": "link in",
+        "z": "2a36b650.4b9b7a",
+        "name": "",
+        "links": [
+            "cb6b878.02d9b78"
+        ],
+        "x": 2115,
+        "y": 920,
+        "wires": [
+            [
+                "d8cb11c9.abb4a"
+            ]
+        ]
+    },
+    {
+        "id": "8218fde6.b2437",
+        "type": "link in",
+        "z": "2a36b650.4b9b7a",
+        "name": "",
+        "links": [
+            "cb6b878.02d9b78"
+        ],
+        "x": 1375,
+        "y": 500,
+        "wires": [
+            [
+                "a9146ae5.d65d58"
+            ]
+        ]
+    },
+    {
+        "id": "80814365.fa3df",
+        "type": "link in",
+        "z": "2a36b650.4b9b7a",
+        "name": "",
+        "links": [
+            "cb6b878.02d9b78"
+        ],
+        "x": 1375,
+        "y": 820,
+        "wires": [
+            [
+                "3abaf9b1.c69bb6"
+            ]
+        ]
+    },
+    {
+        "id": "382988ea.0b09d8",
+        "type": "link in",
+        "z": "2a36b650.4b9b7a",
+        "name": "",
+        "links": [
+            "cb6b878.02d9b78"
+        ],
+        "x": 875,
+        "y": 600,
+        "wires": [
+            [
+                "46db6d43.a9d444"
+            ]
+        ]
+    },
+    {
+        "id": "6baa9b6d.1e3624",
+        "type": "link in",
+        "z": "2a36b650.4b9b7a",
+        "name": "",
+        "links": [
+            "f390fb6c.b0d268"
+        ],
+        "x": 95,
+        "y": 680,
+        "wires": [
+            [
+                "920606cd.352758"
             ]
         ]
     }

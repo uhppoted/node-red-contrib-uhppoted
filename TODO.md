@@ -4,11 +4,9 @@
 
 - [ ] dashboard: card edit/update/delete
       - get-card for all controllers
-        -- validity dates
-        -- rework put card
         -- rework delete card
+        -- rework delete all cards
       - rethink separate get-card status output
-      - change to dedicated 405../303.. button rather than dropdown lists
 - [ ] (maybe) rework codec as map of functions
 - [ ] Release
 - [ ] Publish to NPM, add badges to README and update README installation

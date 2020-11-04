@@ -20,7 +20,7 @@ module.exports = function (RED) {
       const emit = function (object) {
         let card = { topic: t, payload: object }
         const status = {
-          topic: t,
+          topic: t + '.status',
           payload: {
             deviceId: deviceId,
             card: {
@@ -36,12 +36,12 @@ module.exports = function (RED) {
         switch (object.card.number) {
           case 0:
             card = null
-            status.status = { code: 1, message: RED._('get-card.cardNotFound') }
+            status.payload.status = { code: 1, message: RED._('get-card.cardNotFound') }
             break
 
           case 0xffffffff:
             card = null
-            status.status = { code: 2, message: RED._('get-card.cardDeleted') }
+            status.payload.status = { code: 2, message: RED._('get-card.cardDeleted') }
             break
         }
 
