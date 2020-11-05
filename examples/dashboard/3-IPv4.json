@@ -252,6 +252,22 @@
         ]
     },
     {
+        "id": "9099a129.d554a",
+        "type": "ui_text",
+        "z": "8bcf2d43.2e243",
+        "group": "920f64db.d2fd58",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "name": "label-IPv4",
+        "label": "IPv4",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 520,
+        "y": 80,
+        "wires": []
+    },
+    {
         "id": "920f64db.d2fd58",
         "type": "ui_group",
         "z": "",

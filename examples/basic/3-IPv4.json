@@ -19,7 +19,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 460,
+        "x": 420,
         "y": 100,
         "wires": []
     },
@@ -58,7 +58,7 @@
         "z": "8bcf2d43.2e243",
         "name": "set-ip",
         "config": "cbd92359.dbf19",
-        "x": 290,
+        "x": 270,
         "y": 100,
         "wires": [
             [

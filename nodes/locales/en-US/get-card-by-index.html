@@ -26,13 +26,6 @@
 
     <h3>Outputs</h3>
     <dl class="message-properties">
-        Card status:
-        <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the card status</dd>
-        <dt>topic<span class="property-type">string</span></dt>
-        <dd>message topic copied from input</dd>
-    </dl>
-    <dl class="message-properties">
         Card record:
         <dt>payload<span class="property-type">object</span></dt>
         <dd>JSON object with the card record</dd>
@@ -56,26 +49,17 @@
     "index": 13728
   }</pre>
 
-    <p>The first output <code>msg.payload</code> is a JSON object containing the card status.</p>
+    <p>The output <code>msg.payload</code> is a JSON object containing the card status and card record retrieved 
+    from the access controller.</p>
     <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>index<span class="property-type">uint32</span></dt>
+        <dd>record index</dd>
         <dt>status.code<span class="property-type">uint32</span></dt>
         <dd><ul><li>0: ok</li><li>1: card not found</li><li>2: card deleted</li></dd>
         <dt>status.message<span class="property-type">string</span></dt>
         <dd>Internationalized message corresponding to the error code</dd>
-    </dl>
-    <h4>Example:</h4>
-    <pre>
-  {
-    "status": {
-        "code": 1,
-        "message": "card not found"
-    }
-  }</pre>
-
-    <p>The second output <code>msg.payload</code> is a JSON object containing the card record retrieved from the access controller.</p>
-    <dl class="message-properties">
-        <dt>deviceId<span class="property-type">uint32</span></dt>
-        <dd>controller serial number</dd>
         <dt>card.number<span class="property-type">uint32</span></dt>
         <dd>card number</d>
         <dt>card.valid.from<span class="property-type">date</span></dt>
@@ -95,6 +79,11 @@
     <pre>
   {
     "deviceId": 405419896,
+    "index": 13728,
+    "status": {
+        "code": 0,
+        "message": "card ok"
+    }    
     "card": {
         "number": 61532836,
         "valid": {

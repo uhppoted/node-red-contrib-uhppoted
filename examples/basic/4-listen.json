@@ -19,7 +19,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
+        "x": 480,
         "y": 180,
         "wires": []
     },
@@ -58,7 +58,7 @@
         "z": "c56e1667.998748",
         "name": "get-listener",
         "config": "cbd92359.dbf19",
-        "x": 310,
+        "x": 290,
         "y": 220,
         "wires": [
             [
@@ -74,7 +74,7 @@
         "z": "c56e1667.998748",
         "name": "set-listener",
         "config": "cbd92359.dbf19",
-        "x": 310,
+        "x": 290,
         "y": 340,
         "wires": [
             [
@@ -124,7 +124,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
+        "x": 480,
         "y": 340,
         "wires": []
     },
@@ -141,7 +141,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 500,
         "y": 220,
         "wires": []
     },
@@ -158,7 +158,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 510,
+        "x": 490,
         "y": 260,
         "wires": []
     },
@@ -189,7 +189,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 290,
+        "x": 270,
         "y": 100,
         "wires": []
     },

@@ -13,30 +13,12 @@
         "name": "get-status",
         "config": "cbd92359.dbf19",
         "x": 310,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
-                "52d5b0c5.0e178",
                 "66b13a53.2d40c4"
             ]
         ]
-    },
-    {
-        "id": "52d5b0c5.0e178",
-        "type": "debug",
-        "z": "b2b669ed.2b50b8",
-        "name": "status",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 490,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "66b13a53.2d40c4",
@@ -49,7 +31,7 @@
         "initialize": "",
         "finalize": "",
         "x": 500,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "a3aed72f.f0e048",
@@ -94,7 +76,7 @@
         "format": "{{state.serialNumber}}",
         "layout": "row-spread",
         "x": 740,
-        "y": 40,
+        "y": 80,
         "wires": []
     },
     {
@@ -110,7 +92,7 @@
         "format": "{{state.event.index}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -123,7 +105,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 155,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "1d2d547f.68acbc"
@@ -143,7 +125,7 @@
         "format": "{{state.event.type.event}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 120,
+        "y": 160,
         "wires": []
     },
     {
@@ -159,7 +141,7 @@
         "format": "{{state.event.granted}}",
         "layout": "row-spread",
         "x": 740,
-        "y": 160,
+        "y": 200,
         "wires": []
     },
     {
@@ -175,7 +157,7 @@
         "format": "{{state.event.door}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -191,7 +173,7 @@
         "format": "{{state.event.direction.direction}}",
         "layout": "row-spread",
         "x": 740,
-        "y": 240,
+        "y": 280,
         "wires": []
     },
     {
@@ -207,7 +189,7 @@
         "format": "{{state.event.card}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 280,
+        "y": 320,
         "wires": []
     },
     {
@@ -223,7 +205,7 @@
         "format": "{{state.event.timestamp}}",
         "layout": "row-spread",
         "x": 750,
-        "y": 320,
+        "y": 360,
         "wires": []
     },
     {
@@ -239,7 +221,7 @@
         "format": "{{state.doors[1]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 360,
+        "y": 400,
         "wires": []
     },
     {
@@ -255,7 +237,7 @@
         "format": "{{state.doors[2]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 400,
+        "y": 440,
         "wires": []
     },
     {
@@ -271,7 +253,7 @@
         "format": "{{state.doors[3]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 440,
+        "y": 480,
         "wires": []
     },
     {
@@ -287,7 +269,7 @@
         "format": "{{state.doors[4]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 480,
+        "y": 520,
         "wires": []
     },
     {
@@ -303,7 +285,7 @@
         "format": "{{state.buttons[1]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 520,
+        "y": 560,
         "wires": []
     },
     {
@@ -319,7 +301,7 @@
         "format": "{{state.buttons[2]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 560,
+        "y": 600,
         "wires": []
     },
     {
@@ -335,7 +317,7 @@
         "format": "{{state.buttons[3]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 600,
+        "y": 640,
         "wires": []
     },
     {
@@ -351,7 +333,7 @@
         "format": "{{state.buttons[4]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 640,
+        "y": 680,
         "wires": []
     },
     {
@@ -367,7 +349,7 @@
         "format": "{{state.system.status}}",
         "layout": "row-spread",
         "x": 960,
-        "y": 40,
+        "y": 80,
         "wires": []
     },
     {
@@ -383,7 +365,7 @@
         "format": "{{state.system.date}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -399,7 +381,7 @@
         "format": "{{state.system.time}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 120,
+        "y": 160,
         "wires": []
     },
     {
@@ -415,7 +397,7 @@
         "format": "{{state.specialInfo}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 160,
+        "y": 200,
         "wires": []
     },
     {
@@ -431,7 +413,7 @@
         "format": "{{state.relays.relays[1]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -447,7 +429,7 @@
         "format": "{{state.relays.relays[2]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 240,
+        "y": 280,
         "wires": []
     },
     {
@@ -463,7 +445,7 @@
         "format": "{{state.relays.relays[3]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 280,
+        "y": 320,
         "wires": []
     },
     {
@@ -479,7 +461,7 @@
         "format": "{{state.relays.relays[4]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 320,
+        "y": 360,
         "wires": []
     },
     {
@@ -495,7 +477,7 @@
         "format": "{{state.inputs.forceLock}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 360,
+        "y": 400,
         "wires": []
     },
     {
@@ -511,7 +493,7 @@
         "format": "{{state.inputs.fireAlarm}}",
         "layout": "row-spread",
         "x": 940,
-        "y": 400,
+        "y": 440,
         "wires": []
     },
     {
@@ -526,8 +508,8 @@
         "label": "1",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 470,
-        "y": 360,
+        "x": 310,
+        "y": 420,
         "wires": []
     },
     {
@@ -542,8 +524,8 @@
         "label": "2",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 470,
-        "y": 400,
+        "x": 310,
+        "y": 460,
         "wires": []
     },
     {
@@ -558,8 +540,8 @@
         "label": "3",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 470,
-        "y": 440,
+        "x": 310,
+        "y": 500,
         "wires": []
     },
     {
@@ -574,8 +556,104 @@
         "label": "4",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 470,
-        "y": 480,
+        "x": 310,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "61d7362c.536bb8",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 4,
+        "width": 7,
+        "height": 1,
+        "name": "label-status",
+        "label": "status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 310,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a0b29b20.114f48",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 16,
+        "width": 2,
+        "height": 1,
+        "name": "label-event",
+        "label": "event",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 310,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b1b1a993.e21788",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 34,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-doors",
+        "label": "doors",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 330,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "95992309.9e993",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 35,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-buttons",
+        "label": "buttons",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 340,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ea17eb9c.94ce78",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 33,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-relays",
+        "label": "relays",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 330,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6b0bfa29.9f0e84",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 52,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-inputs",
+        "label": "inputs",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 330,
+        "y": 380,
         "wires": []
     },
     {

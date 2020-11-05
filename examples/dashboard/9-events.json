@@ -749,6 +749,22 @@
         "wires": []
     },
     {
+        "id": "3066ae14.90e082",
+        "type": "ui_text",
+        "z": "b5da19a5.72a0c8",
+        "group": "573f9bfa.7e4564",
+        "order": 18,
+        "width": 2,
+        "height": 1,
+        "name": "label-events",
+        "label": "events",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1030,
+        "y": 80,
+        "wires": []
+    },
+    {
         "id": "573f9bfa.7e4564",
         "type": "ui_group",
         "z": "",

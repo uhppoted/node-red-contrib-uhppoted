@@ -15,12 +15,12 @@
             },
         },
         inputs: 1,
-        outputs: 2,
+        outputs: 1,
         icon: "icons/uhppoted.svg",
         label: function() {
             return this.name || "get-card";
         },
         inputLabels:  function(index) { return this._('get-card.inputLabel') },
-        outputLabels: function(index) { return this._('get-card.outputLabel' + (index+1)) }
+        outputLabels: function(index) { return this._('get-card.outputLabel') }
     });
 </script>

@@ -19,7 +19,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 500,
         "y": 100,
         "wires": []
     },
@@ -58,7 +58,7 @@
         "z": "b5da19a5.72a0c8",
         "name": "get-event-index",
         "config": "cbd92359.dbf19",
-        "x": 320,
+        "x": 300,
         "y": 100,
         "wires": [
             [
@@ -80,7 +80,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 500,
         "y": 220,
         "wires": []
     },
@@ -120,7 +120,7 @@
         "name": "set-event-index",
         "topic": "",
         "config": "cbd92359.dbf19",
-        "x": 320,
+        "x": 300,
         "y": 220,
         "wires": [
             [
@@ -142,7 +142,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 500,
         "y": 340,
         "wires": []
     },
@@ -181,7 +181,7 @@
         "z": "b5da19a5.72a0c8",
         "name": "get-event",
         "config": "cbd92359.dbf19",
-        "x": 300,
+        "x": 280,
         "y": 340,
         "wires": [
             [
@@ -209,7 +209,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
+        "x": 510,
         "y": 140,
         "wires": []
     },
@@ -226,7 +226,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 500,
         "y": 260,
         "wires": []
     },
@@ -243,7 +243,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
+        "x": 520,
         "y": 380,
         "wires": []
     },
@@ -260,7 +260,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
+        "x": 510,
         "y": 420,
         "wires": []
     },
@@ -277,7 +277,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
+        "x": 530,
         "y": 460,
         "wires": []
     },
@@ -294,7 +294,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
+        "x": 510,
         "y": 500,
         "wires": []
     },
@@ -311,7 +311,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
+        "x": 520,
         "y": 540,
         "wires": []
     },
@@ -328,7 +328,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
+        "x": 520,
         "y": 580,
         "wires": []
     },
@@ -345,7 +345,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
+        "x": 510,
         "y": 620,
         "wires": []
     },

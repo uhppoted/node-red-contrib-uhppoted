@@ -18,22 +18,32 @@ module.exports = function (RED) {
       const index = msg.payload.index
 
       const emit = function (object) {
-        let card = { topic: t, payload: object }
-        let status = { topic: t, payload: { status: { code: 0, message: RED._('get-card-by-index.cardOk') } } }
+        const reply = {
+          topic: t,
+          payload: {
+            deviceId: object.deviceId,
+            index: index,
+            status: {
+              code: 0,
+              message: RED._('get-card-by-index.cardOk')
+            },
+            card: object.card
+          }
+        }
 
         switch (object.card.number) {
           case 0:
-            card = null
-            status = { topic: t, payload: { status: { code: 1, message: RED._('get-card-by-index.cardNotFound') } } }
+            reply.payload.status = { code: 1, message: RED._('get-card-by-index.cardNotFound') }
+            reply.payload.card = null
             break
 
           case 0xffffffff:
-            card = null
-            status = { topic: t, payload: { status: { code: 2, message: RED._('get-card-by-index.cardDeleted') } } }
+            reply.payload.status = { code: 2, message: RED._('get-card-by-index.cardDeleted') }
+            reply.payload.card = null
             break
         }
 
-        node.send([status, card])
+        node.send(reply)
       }
 
       const error = function (err) {

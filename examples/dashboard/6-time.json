@@ -16,27 +16,9 @@
         "y": 120,
         "wires": [
             [
-                "2c2ab991.619516",
                 "7bf9bf1f.c2c11"
             ]
         ]
-    },
-    {
-        "id": "2c2ab991.619516",
-        "type": "debug",
-        "z": "f7a455cc.3fefe8",
-        "name": "date/time",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 80,
-        "wires": []
     },
     {
         "id": "7bf9bf1f.c2c11",
@@ -72,23 +54,6 @@
         ]
     },
     {
-        "id": "804a318e.14ddb",
-        "type": "debug",
-        "z": "f7a455cc.3fefe8",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 300,
-        "wires": []
-    },
-    {
         "id": "ea3bdfee.bf0d1",
         "type": "set-time",
         "z": "f7a455cc.3fefe8",
@@ -97,9 +62,7 @@
         "x": 520,
         "y": 300,
         "wires": [
-            [
-                "804a318e.14ddb"
-            ]
+            []
         ]
     },
     {
@@ -220,6 +183,22 @@
                 "1768d838.2f1398"
             ]
         ]
+    },
+    {
+        "id": "d1da5856.004eb8",
+        "type": "ui_text",
+        "z": "f7a455cc.3fefe8",
+        "group": "c03a3b24.d45c48",
+        "order": 25,
+        "width": 2,
+        "height": 1,
+        "name": "label-datetime",
+        "label": "date/time",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 500,
+        "y": 80,
+        "wires": []
     },
     {
         "id": "cbd92359.dbf19",

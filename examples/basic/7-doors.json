@@ -19,7 +19,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
+        "x": 520,
         "y": 100,
         "wires": []
     },
@@ -58,7 +58,7 @@
         "z": "86bbf50e.a7f188",
         "name": "get-door-control",
         "config": "cbd92359.dbf19",
-        "x": 320,
+        "x": 300,
         "y": 100,
         "wires": [
             [
@@ -74,7 +74,7 @@
         "z": "86bbf50e.a7f188",
         "name": "set-door-control",
         "config": "cbd92359.dbf19",
-        "x": 320,
+        "x": 300,
         "y": 260,
         "wires": [
             [
@@ -97,7 +97,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
+        "x": 520,
         "y": 260,
         "wires": []
     },
@@ -132,7 +132,7 @@
         "z": "86bbf50e.a7f188",
         "name": "open-door",
         "config": "cbd92359.dbf19",
-        "x": 310,
+        "x": 290,
         "y": 420,
         "wires": [
             [
@@ -154,7 +154,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
+        "x": 520,
         "y": 420,
         "wires": []
     },
@@ -196,7 +196,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
+        "x": 530,
         "y": 140,
         "wires": []
     },
@@ -213,7 +213,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
+        "x": 540,
         "y": 180,
         "wires": []
     },
@@ -230,7 +230,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
+        "x": 530,
         "y": 300,
         "wires": []
     },
@@ -247,7 +247,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
+        "x": 540,
         "y": 340,
         "wires": []
     },
@@ -264,7 +264,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 560,
+        "x": 540,
         "y": 460,
         "wires": []
     },

@@ -13,7 +13,7 @@
         "name": "get-time",
         "topic": "",
         "config": "cbd92359.dbf19",
-        "x": 300,
+        "x": 280,
         "y": 100,
         "wires": [
             [
@@ -35,7 +35,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
+        "x": 460,
         "y": 60,
         "wires": []
     },
@@ -110,7 +110,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 660,
+        "x": 580,
         "y": 180,
         "wires": []
     },
@@ -120,7 +120,7 @@
         "z": "f7a455cc.3fefe8",
         "name": "set-time",
         "config": "cbd92359.dbf19",
-        "x": 480,
+        "x": 420,
         "y": 180,
         "wires": [
             [
@@ -141,7 +141,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
+        "x": 460,
         "y": 100,
         "wires": []
     },
@@ -155,7 +155,7 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 290,
+        "x": 270,
         "y": 180,
         "wires": [
             [

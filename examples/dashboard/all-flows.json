@@ -1909,30 +1909,12 @@
         "name": "get-status",
         "config": "cbd92359.dbf19",
         "x": 310,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
-                "52d5b0c5.0e178",
                 "66b13a53.2d40c4"
             ]
         ]
-    },
-    {
-        "id": "52d5b0c5.0e178",
-        "type": "debug",
-        "z": "b2b669ed.2b50b8",
-        "name": "status",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 490,
-        "y": 40,
-        "wires": []
     },
     {
         "id": "66b13a53.2d40c4",
@@ -1945,7 +1927,7 @@
         "initialize": "",
         "finalize": "",
         "x": 500,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "a3aed72f.f0e048",
@@ -1990,7 +1972,7 @@
         "format": "{{state.serialNumber}}",
         "layout": "row-spread",
         "x": 740,
-        "y": 40,
+        "y": 80,
         "wires": []
     },
     {
@@ -2006,7 +1988,7 @@
         "format": "{{state.event.index}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -2019,7 +2001,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 155,
-        "y": 80,
+        "y": 120,
         "wires": [
             [
                 "1d2d547f.68acbc"
@@ -2039,7 +2021,7 @@
         "format": "{{state.event.type.event}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 120,
+        "y": 160,
         "wires": []
     },
     {
@@ -2055,7 +2037,7 @@
         "format": "{{state.event.granted}}",
         "layout": "row-spread",
         "x": 740,
-        "y": 160,
+        "y": 200,
         "wires": []
     },
     {
@@ -2071,7 +2053,7 @@
         "format": "{{state.event.door}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -2087,7 +2069,7 @@
         "format": "{{state.event.direction.direction}}",
         "layout": "row-spread",
         "x": 740,
-        "y": 240,
+        "y": 280,
         "wires": []
     },
     {
@@ -2103,7 +2085,7 @@
         "format": "{{state.event.card}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 280,
+        "y": 320,
         "wires": []
     },
     {
@@ -2119,7 +2101,7 @@
         "format": "{{state.event.timestamp}}",
         "layout": "row-spread",
         "x": 750,
-        "y": 320,
+        "y": 360,
         "wires": []
     },
     {
@@ -2135,7 +2117,7 @@
         "format": "{{state.doors[1]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 360,
+        "y": 400,
         "wires": []
     },
     {
@@ -2151,7 +2133,7 @@
         "format": "{{state.doors[2]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 400,
+        "y": 440,
         "wires": []
     },
     {
@@ -2167,7 +2149,7 @@
         "format": "{{state.doors[3]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 440,
+        "y": 480,
         "wires": []
     },
     {
@@ -2183,7 +2165,7 @@
         "format": "{{state.doors[4]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 480,
+        "y": 520,
         "wires": []
     },
     {
@@ -2199,7 +2181,7 @@
         "format": "{{state.buttons[1]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 520,
+        "y": 560,
         "wires": []
     },
     {
@@ -2215,7 +2197,7 @@
         "format": "{{state.buttons[2]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 560,
+        "y": 600,
         "wires": []
     },
     {
@@ -2231,7 +2213,7 @@
         "format": "{{state.buttons[3]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 600,
+        "y": 640,
         "wires": []
     },
     {
@@ -2247,7 +2229,7 @@
         "format": "{{state.buttons[4]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 640,
+        "y": 680,
         "wires": []
     },
     {
@@ -2263,7 +2245,7 @@
         "format": "{{state.system.status}}",
         "layout": "row-spread",
         "x": 960,
-        "y": 40,
+        "y": 80,
         "wires": []
     },
     {
@@ -2279,7 +2261,7 @@
         "format": "{{state.system.date}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 80,
+        "y": 120,
         "wires": []
     },
     {
@@ -2295,7 +2277,7 @@
         "format": "{{state.system.time}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 120,
+        "y": 160,
         "wires": []
     },
     {
@@ -2311,7 +2293,7 @@
         "format": "{{state.specialInfo}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 160,
+        "y": 200,
         "wires": []
     },
     {
@@ -2327,7 +2309,7 @@
         "format": "{{state.relays.relays[1]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 200,
+        "y": 240,
         "wires": []
     },
     {
@@ -2343,7 +2325,7 @@
         "format": "{{state.relays.relays[2]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 240,
+        "y": 280,
         "wires": []
     },
     {
@@ -2359,7 +2341,7 @@
         "format": "{{state.relays.relays[3]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 280,
+        "y": 320,
         "wires": []
     },
     {
@@ -2375,7 +2357,7 @@
         "format": "{{state.relays.relays[4]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 320,
+        "y": 360,
         "wires": []
     },
     {
@@ -2391,7 +2373,7 @@
         "format": "{{state.inputs.forceLock}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 360,
+        "y": 400,
         "wires": []
     },
     {
@@ -2407,7 +2389,7 @@
         "format": "{{state.inputs.fireAlarm}}",
         "layout": "row-spread",
         "x": 940,
-        "y": 400,
+        "y": 440,
         "wires": []
     },
     {
@@ -2420,27 +2402,9 @@
         "y": 120,
         "wires": [
             [
-                "2c2ab991.619516",
                 "7bf9bf1f.c2c11"
             ]
         ]
-    },
-    {
-        "id": "2c2ab991.619516",
-        "type": "debug",
-        "z": "f7a455cc.3fefe8",
-        "name": "date/time",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 80,
-        "wires": []
     },
     {
         "id": "7bf9bf1f.c2c11",
@@ -2510,7 +2474,7 @@
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "topic": "",
-        "x": 90,
+        "x": 110,
         "y": 200,
         "wires": [
             [
@@ -2535,7 +2499,7 @@
             "c8f3aa0a.3b4ae8",
             "74f184d2.65a5ac"
         ],
-        "x": 215,
+        "x": 235,
         "y": 220,
         "wires": []
     },
@@ -2557,30 +2521,13 @@
         "payload": "{ \"deviceId\": 303986753 }",
         "payloadType": "json",
         "topic": "",
-        "x": 90,
+        "x": 110,
         "y": 240,
         "wires": [
             [
                 "46cebfa2.e38c6"
             ]
         ]
-    },
-    {
-        "id": "804a318e.14ddb",
-        "type": "debug",
-        "z": "f7a455cc.3fefe8",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 300,
-        "wires": []
     },
     {
         "id": "ea3bdfee.bf0d1",
@@ -2591,9 +2538,7 @@
         "x": 520,
         "y": 300,
         "wires": [
-            [
-                "804a318e.14ddb"
-            ]
+            []
         ]
     },
     {
@@ -2967,7 +2912,7 @@
         "z": "33c9a78a.cc8c18",
         "name": "refresh",
         "info": "",
-        "x": 70,
+        "x": 90,
         "y": 160,
         "wires": []
     },
@@ -3171,22 +3116,6 @@
         ]
     },
     {
-        "id": "63876dfb.f45824",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "920f64db.d2fd58",
-        "order": 3,
-        "width": 2,
-        "height": 1,
-        "name": "label-IPv4",
-        "label": "IPv4",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 540,
-        "y": 160,
-        "wires": []
-    },
-    {
         "id": "29dbb7ba.438588",
         "type": "ui_button",
         "z": "86bbf50e.a7f188",
@@ -3358,7 +3287,7 @@
         "format": "{{msg.payload.cards}}",
         "layout": "row-spread",
         "x": 410,
-        "y": 180,
+        "y": 200,
         "wires": []
     },
     {
@@ -3371,7 +3300,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 155,
-        "y": 180,
+        "y": 200,
         "wires": [
             [
                 "4f2ad0e3.4c05e"
@@ -3385,124 +3314,12 @@
         "name": "get-cards",
         "config": "cbd92359.dbf19",
         "x": 260,
-        "y": 180,
+        "y": 200,
         "wires": [
             [
                 "78c4fc48.bc5bf4"
             ]
         ]
-    },
-    {
-        "id": "5e0f520c.488c5c",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "c03a3b24.d45c48",
-        "order": 4,
-        "width": 0,
-        "height": 0,
-        "name": "label-device",
-        "label": "device",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 90,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "eaeac9ae.d9f158",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "c03a3b24.d45c48",
-        "order": 25,
-        "width": 2,
-        "height": 1,
-        "name": "label-datetime",
-        "label": "date/time",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 100,
-        "y": 360,
-        "wires": []
-    },
-    {
-        "id": "e620268a.6479f8",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "573f9bfa.7e4564",
-        "order": 14,
-        "width": 2,
-        "height": 1,
-        "name": "label-cards",
-        "label": "cards",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 90,
-        "y": 440,
-        "wires": []
-    },
-    {
-        "id": "3d04b912.df9496",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "c03a3b24.d45c48",
-        "order": 20,
-        "width": 2,
-        "height": 1,
-        "name": "label-listener",
-        "label": "listener",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 90,
-        "y": 320,
-        "wires": []
-    },
-    {
-        "id": "4476c068.0741c",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "573f9bfa.7e4564",
-        "order": 4,
-        "width": 6,
-        "height": 1,
-        "name": "label-doors",
-        "label": "doors",
-        "format": "{{msg.payload}}",
-        "layout": "row-left",
-        "x": 90,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "52e71095.7d5f8",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "ffdc2439.246b38",
-        "order": 4,
-        "width": 7,
-        "height": 1,
-        "name": "label-status",
-        "label": "status",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 90,
-        "y": 520,
-        "wires": []
-    },
-    {
-        "id": "a2a726be.7c3488",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "ffdc2439.246b38",
-        "order": 16,
-        "width": 2,
-        "height": 1,
-        "name": "label-event",
-        "label": "event",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 90,
-        "y": 560,
-        "wires": []
     },
     {
         "id": "7fe3bec1.b4483",
@@ -3691,7 +3508,7 @@
         "id": "e70a1f2e.dcd39",
         "type": "ui_date_picker",
         "z": "2a36b650.4b9b7a",
-        "name": "405419896-from",
+        "name": "405419896.from",
         "label": "",
         "group": "80ebf5dd.1d2018",
         "order": 6,
@@ -3699,7 +3516,7 @@
         "height": 1,
         "passthru": true,
         "topic": "set-card-valid-from",
-        "x": 850,
+        "x": 840,
         "y": 920,
         "wires": [
             [
@@ -3712,7 +3529,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "validity",
-        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconst Jan1 = new Date()\nconst Dec31 = new Date()\n\nJan1.setMonth(0)\nJan1.setDate(1)\nDec31.setMonth(11)\nDec31.setDate(31)\n\nconst from = { topic:msg.topic, payload:Jan1 }\nconst to = { topic:msg.topic, payload:Dec31 }\n\nif (msg.payload.card.valid) {\n    const f = parse(msg.payload.card.valid.from)\n    const t = parse(msg.payload.card.valid.to)\n\n    if (f !== null) {\n        from.payload = f\n    }\n\n    if (t !== null) {\n        to.payload = t\n    }\n\n}\n\nreturn [ from,to ]\n\n",
+        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconst Jan1 = new Date()\nconst Dec31 = new Date()\n\nJan1.setMonth(0)\nJan1.setDate(1)\nDec31.setMonth(11)\nDec31.setDate(31)\n\nconst from = { topic:msg.topic, payload:Jan1 }\nconst to = { topic:msg.topic, payload:Dec31 }\n\nif (msg.payload.card) {\n    const f = parse(msg.payload.card.valid.from)\n    const t = parse(msg.payload.card.valid.to)\n\n    if (f !== null) {\n        from.payload = f\n    }\n\n    if (t !== null) {\n        to.payload = t\n    }\n\n}\n\nreturn [ from,to ]\n\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -3732,7 +3549,7 @@
         "id": "51e5131e.65bf4c",
         "type": "ui_date_picker",
         "z": "2a36b650.4b9b7a",
-        "name": "405419896-to",
+        "name": "405419896.to",
         "label": "",
         "group": "80ebf5dd.1d2018",
         "order": 9,
@@ -3752,7 +3569,7 @@
         "id": "6eac8a4e.b9baf4",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.entrance",
+        "name": "405419896.entrance",
         "label": "entrance",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -3783,7 +3600,7 @@
         "id": "9eb1f7b1.8b0968",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.workshop",
+        "name": "405419896.workshop",
         "label": "workshop",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -3814,7 +3631,7 @@
         "id": "34ea4d9f.8c2892",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.tower",
+        "name": "405419896.tower",
         "label": "tower",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -3845,7 +3662,7 @@
         "id": "81c28b36.1b34e8",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.dungeon",
+        "name": "405419896.dungeon",
         "label": "dungeon",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -3955,7 +3772,7 @@
         ],
         "outputs": 1,
         "cts": true,
-        "x": 850,
+        "x": 870,
         "y": 480,
         "wires": [
             [
@@ -4002,12 +3819,9 @@
         "name": "get-card-by-index",
         "topic": "get-card-by-index",
         "config": "cbd92359.dbf19",
-        "x": 890,
-        "y": 640,
+        "x": 870,
+        "y": 560,
         "wires": [
-            [
-                "4098b71e.12c1b8"
-            ],
             [
                 "de510a21.addef8"
             ]
@@ -4024,7 +3838,7 @@
         "initialize": "",
         "finalize": "",
         "x": 330,
-        "y": 720,
+        "y": 660,
         "wires": [
             [
                 "874f55c6.6f00b8"
@@ -4050,7 +3864,7 @@
         "payloadType": "date",
         "topic": "delete-cards",
         "x": 130,
-        "y": 740,
+        "y": 680,
         "wires": [
             [
                 "d435a504.9295d8"
@@ -4066,7 +3880,7 @@
             "f390fb6c.b0d268"
         ],
         "x": 175,
-        "y": 700,
+        "y": 640,
         "wires": [
             [
                 "d435a504.9295d8"
@@ -4080,7 +3894,7 @@
         "name": "delete-all-cards",
         "config": "cbd92359.dbf19",
         "x": 500,
-        "y": 720,
+        "y": 660,
         "wires": [
             []
         ]
@@ -4132,22 +3946,6 @@
                 "f6190f5c.e5ef9"
             ]
         ]
-    },
-    {
-        "id": "67a3ecb.770e614",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "573f9bfa.7e4564",
-        "order": 18,
-        "width": 2,
-        "height": 1,
-        "name": "label-events",
-        "label": "events",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 90,
-        "y": 480,
-        "wires": []
     },
     {
         "id": "9499cd07.adf01",
@@ -4228,22 +4026,6 @@
                 "f6190f5c.e5ef9"
             ]
         ]
-    },
-    {
-        "id": "5ad9c8ce.15e9d8",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "920f64db.d2fd58",
-        "order": 12,
-        "width": 2,
-        "height": 1,
-        "name": "label-listener",
-        "label": "listener",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 550,
-        "y": 320,
-        "wires": []
     },
     {
         "id": "27ec3017.bb1d",
@@ -4555,70 +4337,6 @@
         ]
     },
     {
-        "id": "a00f3712.ee7008",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "ffdc2439.246b38",
-        "order": 34,
-        "width": 2,
-        "height": 1,
-        "name": "label-status-doors",
-        "label": "doors",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 110,
-        "y": 600,
-        "wires": []
-    },
-    {
-        "id": "abe27c60.cf061",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "ffdc2439.246b38",
-        "order": 35,
-        "width": 2,
-        "height": 1,
-        "name": "label-status-buttons",
-        "label": "buttons",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 120,
-        "y": 640,
-        "wires": []
-    },
-    {
-        "id": "339d99a1.1a9c16",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "ffdc2439.246b38",
-        "order": 33,
-        "width": 2,
-        "height": 1,
-        "name": "label-status-relays",
-        "label": "relays",
-        "format": "{{msg.payload}}",
-        "layout": "col-center",
-        "x": 110,
-        "y": 680,
-        "wires": []
-    },
-    {
-        "id": "f1bce408.8b6368",
-        "type": "ui_text",
-        "z": "33c9a78a.cc8c18",
-        "group": "ffdc2439.246b38",
-        "order": 52,
-        "width": 2,
-        "height": 1,
-        "name": "label-status-inputs",
-        "label": "inputs",
-        "format": "{{msg.payload}}",
-        "layout": "row-spread",
-        "x": 110,
-        "y": 720,
-        "wires": []
-    },
-    {
         "id": "a9b121e.23fc3e",
         "type": "inject",
         "z": "33c9a78a.cc8c18",
@@ -4899,8 +4617,8 @@
         "label": "1",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 470,
-        "y": 360,
+        "x": 310,
+        "y": 420,
         "wires": []
     },
     {
@@ -4915,8 +4633,8 @@
         "label": "2",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 470,
-        "y": 400,
+        "x": 310,
+        "y": 460,
         "wires": []
     },
     {
@@ -4931,8 +4649,8 @@
         "label": "3",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 470,
-        "y": 440,
+        "x": 310,
+        "y": 500,
         "wires": []
     },
     {
@@ -4947,8 +4665,8 @@
         "label": "4",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 470,
-        "y": 480,
+        "x": 310,
+        "y": 540,
         "wires": []
     },
     {
@@ -5193,13 +4911,13 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "add-card",
-        "func": "const deviceId = msg.payload.deviceId\nconst card = msg.payload.card\n\nconst map = flow.get('cards') || new Map()\nconst cards = map.get(deviceId) || new Map()\n\nif (card.number !== '') {\n    cards.set(card.number, card)\n    map.set(deviceId, cards)\n\n    flow.set('cards', map)\n}\n\nreturn { \n    topic: 'updated',\n    payload: deviceId\n}\n    \n",
+        "func": "const deviceId = msg.payload.deviceId\nconst card = msg.payload.card\n\nconst map = flow.get('cards') || new Map()\nconst cards = map.get(deviceId) || new Map()\n\nif (card) {\n    cards.set(Number(card.number), card)\n    map.set(deviceId, cards)\n\n    flow.set('cards', map)\n}\n\nreturn { \n    topic: 'updated',\n    payload: deviceId\n}\n    \n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1080,
-        "y": 680,
+        "x": 1040,
+        "y": 560,
         "wires": [
             [
                 "aa152261.eb314",
@@ -5237,28 +4955,10 @@
         "initialize": "",
         "finalize": "",
         "x": 700,
-        "y": 640,
+        "y": 560,
         "wires": [
             [
                 "13f668be.c2e417"
-            ]
-        ]
-    },
-    {
-        "id": "4098b71e.12c1b8",
-        "type": "function",
-        "z": "2a36b650.4b9b7a",
-        "name": "not-found?",
-        "func": "if (msg.payload.status.code !== 0) {\n    return { \n        topic: 'get-next',\n        payload: true\n    }\n}\n\nreturn null",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1110,
-        "y": 600,
-        "wires": [
-            [
-                "e15d01a.96f34"
             ]
         ]
     },
@@ -6573,7 +6273,7 @@
         "id": "25a0a0da.f4024",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.door-x",
+        "name": "303986753.door-x",
         "label": "door X",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -6592,7 +6292,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 870,
+        "x": 850,
         "y": 1280,
         "wires": [
             [
@@ -6604,7 +6304,7 @@
         "id": "220e452.21212ba",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.door-y",
+        "name": "303986753.door-y",
         "label": "door Y",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -6623,7 +6323,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 870,
+        "x": 850,
         "y": 1320,
         "wires": [
             [
@@ -6635,7 +6335,7 @@
         "id": "5d88ea6f.ffae74",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.laboratory",
+        "name": "303986753.laboratory",
         "label": "laboratory",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -6666,7 +6366,7 @@
         "id": "6dc386b8.8a99c8",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.kitchen",
+        "name": "303986753.kitchen",
         "label": "kitchen",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -6706,10 +6406,6 @@
             [
                 "39970811.8889a8",
                 "962da3c.91f296"
-            ],
-            [
-                "39970811.8889a8",
-                "962da3c.91f296"
             ]
         ]
     },
@@ -6736,7 +6432,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "doors",
-        "func": "if (msg.topic === 'get-card.status') {\n    if (msg.payload.status && msg.payload.status.code !== 0) {\n        return [\n            { topic: 'door 1', payload: false },\n            { topic: 'door 2', payload: false },\n            { topic: 'door 3', payload: false },\n            { topic: 'door 4', payload: false }\n        ]\n    }\n} else {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },            { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n    ]\n}\n\nreturn []\n",
+        "func": "if (msg.payload.card) {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },\n        { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n    ]\n}\n\nreturn [\n    { topic: 'door 1', payload: false },\n    { topic: 'door 2', payload: false },\n    { topic: 'door 3', payload: false },\n    { topic: 'door 4', payload: false }\n]\n\n",
         "outputs": 4,
         "noerr": 0,
         "initialize": "",
@@ -6787,9 +6483,6 @@
         "y": 1060,
         "wires": [
             [
-                "dc91a82a.6dc7c8"
-            ],
-            [
                 "dc91a82a.6dc7c8",
                 "ed03620e.d9ff"
             ]
@@ -6800,7 +6493,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "doors",
-        "func": "if (msg.topic === 'get-card.status') {\n    if (msg.payload.status && msg.payload.status.code !== 0) {\n        return [\n            { topic: 'door 1', payload: false },\n            { topic: 'door 2', payload: false },\n            { topic: 'door 3', payload: false },\n            { topic: 'door 4', payload: false }\n        ]\n    }\n} else {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },\n        { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n    ]\n}\n\nreturn []\n\n",
+        "func": "if (msg.payload.card) {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },\n        { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n    ]\n}\n\nreturn [\n    { topic: 'door 1', payload: false },\n    { topic: 'door 2', payload: false },\n    { topic: 'door 3', payload: false },\n    { topic: 'door 4', payload: false }\n]\n\n",
         "outputs": 4,
         "noerr": 0,
         "initialize": "",
@@ -6827,7 +6520,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "validity",
-        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconst Jan1 = new Date()\nconst Dec31 = new Date()\n\nJan1.setMonth(0)\nJan1.setDate(1)\nDec31.setMonth(11)\nDec31.setDate(31)\n\nconst from = { topic:msg.topic, payload:Jan1 }\nconst to = { topic:msg.topic, payload:Dec31 }\n\nif (msg.payload.card.valid) {\n    const f = parse(msg.payload.card.valid.from)\n    const t = parse(msg.payload.card.valid.to)\n\n    if (f !== null) {\n        from.payload = f\n    }\n\n    if (t !== null) {\n        to.payload = t\n    }\n\n}\n\nreturn [ from,to ]\n\n",
+        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconst Jan1 = new Date()\nconst Dec31 = new Date()\n\nJan1.setMonth(0)\nJan1.setDate(1)\nDec31.setMonth(11)\nDec31.setDate(31)\n\nconst from = { topic:msg.topic, payload:Jan1 }\nconst to = { topic:msg.topic, payload:Dec31 }\n\nif (msg.payload.card) {\n    const f = parse(msg.payload.card.valid.from)\n    const t = parse(msg.payload.card.valid.to)\n\n    if (f !== null) {\n        from.payload = f\n    }\n\n    if (t !== null) {\n        to.payload = t\n    }\n\n}\n\nreturn [ from,to ]\n\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -6847,7 +6540,7 @@
         "id": "7bdd1a52.254754",
         "type": "ui_date_picker",
         "z": "2a36b650.4b9b7a",
-        "name": "303986753-from",
+        "name": "303986753.from",
         "label": "",
         "group": "80ebf5dd.1d2018",
         "order": 21,
@@ -6855,7 +6548,7 @@
         "height": 1,
         "passthru": true,
         "topic": "set-card-valid-from",
-        "x": 850,
+        "x": 860,
         "y": 1200,
         "wires": [
             [
@@ -6867,7 +6560,7 @@
         "id": "667ca82a.202558",
         "type": "ui_date_picker",
         "z": "2a36b650.4b9b7a",
-        "name": "303986753-to",
+        "name": "303986753.to",
         "label": "",
         "group": "80ebf5dd.1d2018",
         "order": 24,
@@ -7240,7 +6933,7 @@
         "links": [
             "3f39798f.4060e6"
         ],
-        "x": 1165,
+        "x": 1115,
         "y": 480,
         "wires": []
     },
@@ -7260,5 +6953,229 @@
                 "cb6b878.02d9b78"
             ]
         ]
+    },
+    {
+        "id": "5e00d87b.91dc88",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "label-device",
+        "label": "device",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 930,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "9d84fba3.414e88",
+        "type": "ui_text",
+        "z": "c56e1667.998748",
+        "group": "c03a3b24.d45c48",
+        "order": 20,
+        "width": 2,
+        "height": 1,
+        "name": "label-listener",
+        "label": "listener",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 310,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "d1da5856.004eb8",
+        "type": "ui_text",
+        "z": "f7a455cc.3fefe8",
+        "group": "c03a3b24.d45c48",
+        "order": 25,
+        "width": 2,
+        "height": 1,
+        "name": "label-datetime",
+        "label": "date/time",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 500,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "7ec4a718.746368",
+        "type": "ui_text",
+        "z": "c56e1667.998748",
+        "group": "920f64db.d2fd58",
+        "order": 12,
+        "width": 2,
+        "height": 1,
+        "name": "label-listener",
+        "label": "listener",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 310,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "9099a129.d554a",
+        "type": "ui_text",
+        "z": "8bcf2d43.2e243",
+        "group": "920f64db.d2fd58",
+        "order": 3,
+        "width": 2,
+        "height": 1,
+        "name": "label-IPv4",
+        "label": "IPv4",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 520,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "3ba60725.b1d218",
+        "type": "ui_text",
+        "z": "86bbf50e.a7f188",
+        "group": "573f9bfa.7e4564",
+        "order": 4,
+        "width": 6,
+        "height": 1,
+        "name": "label-doors",
+        "label": "doors",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 1010,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "da16ac46.4e224",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "573f9bfa.7e4564",
+        "order": 14,
+        "width": 2,
+        "height": 1,
+        "name": "label-cards",
+        "label": "cards",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 430,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3066ae14.90e082",
+        "type": "ui_text",
+        "z": "b5da19a5.72a0c8",
+        "group": "573f9bfa.7e4564",
+        "order": 18,
+        "width": 2,
+        "height": 1,
+        "name": "label-events",
+        "label": "events",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1030,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "61d7362c.536bb8",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 4,
+        "width": 7,
+        "height": 1,
+        "name": "label-status",
+        "label": "status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 310,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "a0b29b20.114f48",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 16,
+        "width": 2,
+        "height": 1,
+        "name": "label-event",
+        "label": "event",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 310,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "b1b1a993.e21788",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 34,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-doors",
+        "label": "doors",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 330,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "95992309.9e993",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 35,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-buttons",
+        "label": "buttons",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 340,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "ea17eb9c.94ce78",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 33,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-relays",
+        "label": "relays",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "x": 330,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6b0bfa29.9f0e84",
+        "type": "ui_text",
+        "z": "b2b669ed.2b50b8",
+        "group": "ffdc2439.246b38",
+        "order": 52,
+        "width": 2,
+        "height": 1,
+        "name": "label-status-inputs",
+        "label": "inputs",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 330,
+        "y": 380,
+        "wires": []
     }
 ]

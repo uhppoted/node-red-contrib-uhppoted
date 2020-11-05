@@ -192,6 +192,22 @@
         ]
     },
     {
+        "id": "5e00d87b.91dc88",
+        "type": "ui_text",
+        "z": "f0ca7ab6.b09058",
+        "group": "c03a3b24.d45c48",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "label-device",
+        "label": "device",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 930,
+        "y": 80,
+        "wires": []
+    },
+    {
         "id": "c03a3b24.d45c48",
         "type": "ui_group",
         "z": "",

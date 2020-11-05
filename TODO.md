@@ -3,8 +3,7 @@
 ## IN PROGRESS
 
 - [ ] dashboard: card edit/update/delete
-      - rethink separate get-card status output
-      - rethink separate get-card-by-index status output
+      - replace drop down on controller page with dedicated buttons
 - [ ] (maybe) rework codec as map of functions
 - [ ] Release
 - [ ] Publish to NPM, add badges to README and update README installation

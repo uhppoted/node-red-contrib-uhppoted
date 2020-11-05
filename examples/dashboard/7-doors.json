@@ -1230,6 +1230,22 @@
         "wires": []
     },
     {
+        "id": "3ba60725.b1d218",
+        "type": "ui_text",
+        "z": "86bbf50e.a7f188",
+        "group": "573f9bfa.7e4564",
+        "order": 4,
+        "width": 6,
+        "height": 1,
+        "name": "label-doors",
+        "label": "doors",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 1010,
+        "y": 80,
+        "wires": []
+    },
+    {
         "id": "573f9bfa.7e4564",
         "type": "ui_group",
         "z": "",

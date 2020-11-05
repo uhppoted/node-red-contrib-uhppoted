@@ -19,7 +19,7 @@
         "format": "{{msg.payload.cards}}",
         "layout": "row-spread",
         "x": 410,
-        "y": 180,
+        "y": 200,
         "wires": []
     },
     {
@@ -32,7 +32,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 155,
-        "y": 180,
+        "y": 200,
         "wires": [
             [
                 "4f2ad0e3.4c05e"
@@ -46,7 +46,7 @@
         "name": "get-cards",
         "config": "cbd92359.dbf19",
         "x": 260,
-        "y": 180,
+        "y": 200,
         "wires": [
             [
                 "78c4fc48.bc5bf4"
@@ -240,7 +240,7 @@
         "id": "e70a1f2e.dcd39",
         "type": "ui_date_picker",
         "z": "2a36b650.4b9b7a",
-        "name": "405419896-from",
+        "name": "405419896.from",
         "label": "",
         "group": "80ebf5dd.1d2018",
         "order": 6,
@@ -248,7 +248,7 @@
         "height": 1,
         "passthru": true,
         "topic": "set-card-valid-from",
-        "x": 850,
+        "x": 840,
         "y": 920,
         "wires": [
             [
@@ -261,7 +261,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "validity",
-        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconst Jan1 = new Date()\nconst Dec31 = new Date()\n\nJan1.setMonth(0)\nJan1.setDate(1)\nDec31.setMonth(11)\nDec31.setDate(31)\n\nconst from = { topic:msg.topic, payload:Jan1 }\nconst to = { topic:msg.topic, payload:Dec31 }\n\nif (msg.payload.card.valid) {\n    const f = parse(msg.payload.card.valid.from)\n    const t = parse(msg.payload.card.valid.to)\n\n    if (f !== null) {\n        from.payload = f\n    }\n\n    if (t !== null) {\n        to.payload = t\n    }\n\n}\n\nreturn [ from,to ]\n\n",
+        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconst Jan1 = new Date()\nconst Dec31 = new Date()\n\nJan1.setMonth(0)\nJan1.setDate(1)\nDec31.setMonth(11)\nDec31.setDate(31)\n\nconst from = { topic:msg.topic, payload:Jan1 }\nconst to = { topic:msg.topic, payload:Dec31 }\n\nif (msg.payload.card) {\n    const f = parse(msg.payload.card.valid.from)\n    const t = parse(msg.payload.card.valid.to)\n\n    if (f !== null) {\n        from.payload = f\n    }\n\n    if (t !== null) {\n        to.payload = t\n    }\n\n}\n\nreturn [ from,to ]\n\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -281,7 +281,7 @@
         "id": "51e5131e.65bf4c",
         "type": "ui_date_picker",
         "z": "2a36b650.4b9b7a",
-        "name": "405419896-to",
+        "name": "405419896.to",
         "label": "",
         "group": "80ebf5dd.1d2018",
         "order": 9,
@@ -301,7 +301,7 @@
         "id": "6eac8a4e.b9baf4",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.entrance",
+        "name": "405419896.entrance",
         "label": "entrance",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -332,7 +332,7 @@
         "id": "9eb1f7b1.8b0968",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.workshop",
+        "name": "405419896.workshop",
         "label": "workshop",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -363,7 +363,7 @@
         "id": "34ea4d9f.8c2892",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.tower",
+        "name": "405419896.tower",
         "label": "tower",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -394,7 +394,7 @@
         "id": "81c28b36.1b34e8",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.dungeon",
+        "name": "405419896.dungeon",
         "label": "dungeon",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -504,7 +504,7 @@
         ],
         "outputs": 1,
         "cts": true,
-        "x": 850,
+        "x": 870,
         "y": 480,
         "wires": [
             [
@@ -551,12 +551,9 @@
         "name": "get-card-by-index",
         "topic": "get-card-by-index",
         "config": "cbd92359.dbf19",
-        "x": 890,
-        "y": 640,
+        "x": 870,
+        "y": 560,
         "wires": [
-            [
-                "4098b71e.12c1b8"
-            ],
             [
                 "de510a21.addef8"
             ]
@@ -573,7 +570,7 @@
         "initialize": "",
         "finalize": "",
         "x": 330,
-        "y": 720,
+        "y": 660,
         "wires": [
             [
                 "874f55c6.6f00b8"
@@ -599,7 +596,7 @@
         "payloadType": "date",
         "topic": "delete-cards",
         "x": 130,
-        "y": 740,
+        "y": 680,
         "wires": [
             [
                 "d435a504.9295d8"
@@ -615,7 +612,7 @@
             "f390fb6c.b0d268"
         ],
         "x": 175,
-        "y": 700,
+        "y": 640,
         "wires": [
             [
                 "d435a504.9295d8"
@@ -629,7 +626,7 @@
         "name": "delete-all-cards",
         "config": "cbd92359.dbf19",
         "x": 500,
-        "y": 720,
+        "y": 660,
         "wires": [
             []
         ]
@@ -774,13 +771,13 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "add-card",
-        "func": "const deviceId = msg.payload.deviceId\nconst card = msg.payload.card\n\nconst map = flow.get('cards') || new Map()\nconst cards = map.get(deviceId) || new Map()\n\nif (card.number !== '') {\n    cards.set(card.number, card)\n    map.set(deviceId, cards)\n\n    flow.set('cards', map)\n}\n\nreturn { \n    topic: 'updated',\n    payload: deviceId\n}\n    \n",
+        "func": "const deviceId = msg.payload.deviceId\nconst card = msg.payload.card\n\nconst map = flow.get('cards') || new Map()\nconst cards = map.get(deviceId) || new Map()\n\nif (card) {\n    cards.set(Number(card.number), card)\n    map.set(deviceId, cards)\n\n    flow.set('cards', map)\n}\n\nreturn { \n    topic: 'updated',\n    payload: deviceId\n}\n    \n",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 1080,
-        "y": 680,
+        "x": 1040,
+        "y": 560,
         "wires": [
             [
                 "aa152261.eb314",
@@ -818,28 +815,10 @@
         "initialize": "",
         "finalize": "",
         "x": 700,
-        "y": 640,
+        "y": 560,
         "wires": [
             [
                 "13f668be.c2e417"
-            ]
-        ]
-    },
-    {
-        "id": "4098b71e.12c1b8",
-        "type": "function",
-        "z": "2a36b650.4b9b7a",
-        "name": "not-found?",
-        "func": "if (msg.payload.status.code !== 0) {\n    return { \n        topic: 'get-next',\n        payload: true\n    }\n}\n\nreturn null",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 1110,
-        "y": 600,
-        "wires": [
-            [
-                "e15d01a.96f34"
             ]
         ]
     },
@@ -957,7 +936,7 @@
         "id": "25a0a0da.f4024",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.door-x",
+        "name": "303986753.door-x",
         "label": "door X",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -976,7 +955,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 870,
+        "x": 850,
         "y": 1280,
         "wires": [
             [
@@ -988,7 +967,7 @@
         "id": "220e452.21212ba",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.door-y",
+        "name": "303986753.door-y",
         "label": "door Y",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -1007,7 +986,7 @@
         "offvalueType": "bool",
         "officon": "",
         "offcolor": "",
-        "x": 870,
+        "x": 850,
         "y": 1320,
         "wires": [
             [
@@ -1019,7 +998,7 @@
         "id": "5d88ea6f.ffae74",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.laboratory",
+        "name": "303986753.laboratory",
         "label": "laboratory",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -1050,7 +1029,7 @@
         "id": "6dc386b8.8a99c8",
         "type": "ui_switch",
         "z": "2a36b650.4b9b7a",
-        "name": "card.doors.kitchen",
+        "name": "303986753.kitchen",
         "label": "kitchen",
         "tooltip": "",
         "group": "80ebf5dd.1d2018",
@@ -1090,10 +1069,6 @@
             [
                 "39970811.8889a8",
                 "962da3c.91f296"
-            ],
-            [
-                "39970811.8889a8",
-                "962da3c.91f296"
             ]
         ]
     },
@@ -1120,7 +1095,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "doors",
-        "func": "if (msg.topic === 'get-card.status') {\n    if (msg.payload.status && msg.payload.status.code !== 0) {\n        return [\n            { topic: 'door 1', payload: false },\n            { topic: 'door 2', payload: false },\n            { topic: 'door 3', payload: false },\n            { topic: 'door 4', payload: false }\n        ]\n    }\n} else {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },            { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n    ]\n}\n\nreturn []\n",
+        "func": "if (msg.payload.card) {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },\n        { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n    ]\n}\n\nreturn [\n    { topic: 'door 1', payload: false },\n    { topic: 'door 2', payload: false },\n    { topic: 'door 3', payload: false },\n    { topic: 'door 4', payload: false }\n]\n\n",
         "outputs": 4,
         "noerr": 0,
         "initialize": "",
@@ -1171,9 +1146,6 @@
         "y": 1060,
         "wires": [
             [
-                "dc91a82a.6dc7c8"
-            ],
-            [
                 "dc91a82a.6dc7c8",
                 "ed03620e.d9ff"
             ]
@@ -1184,7 +1156,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "doors",
-        "func": "if (msg.topic === 'get-card.status') {\n    if (msg.payload.status && msg.payload.status.code !== 0) {\n        return [\n            { topic: 'door 1', payload: false },\n            { topic: 'door 2', payload: false },\n            { topic: 'door 3', payload: false },\n            { topic: 'door 4', payload: false }\n        ]\n    }\n} else {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },\n        { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n    ]\n}\n\nreturn []\n\n",
+        "func": "if (msg.payload.card) {\n    return [\n        { topic: 'door 1', payload: msg.payload.card.doors['1'] },\n        { topic: 'door 2', payload: msg.payload.card.doors['2'] },\n        { topic: 'door 3', payload: msg.payload.card.doors['3'] },\n        { topic: 'door 4', payload: msg.payload.card.doors['4'] }\n    ]\n}\n\nreturn [\n    { topic: 'door 1', payload: false },\n    { topic: 'door 2', payload: false },\n    { topic: 'door 3', payload: false },\n    { topic: 'door 4', payload: false }\n]\n\n",
         "outputs": 4,
         "noerr": 0,
         "initialize": "",
@@ -1211,7 +1183,7 @@
         "type": "function",
         "z": "2a36b650.4b9b7a",
         "name": "validity",
-        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconst Jan1 = new Date()\nconst Dec31 = new Date()\n\nJan1.setMonth(0)\nJan1.setDate(1)\nDec31.setMonth(11)\nDec31.setDate(31)\n\nconst from = { topic:msg.topic, payload:Jan1 }\nconst to = { topic:msg.topic, payload:Dec31 }\n\nif (msg.payload.card.valid) {\n    const f = parse(msg.payload.card.valid.from)\n    const t = parse(msg.payload.card.valid.to)\n\n    if (f !== null) {\n        from.payload = f\n    }\n\n    if (t !== null) {\n        to.payload = t\n    }\n\n}\n\nreturn [ from,to ]\n\n",
+        "func": "const parse = function(s) {\n    const re = /^([0-9]{4})-([0-9]{2})-([0-9]{2})$/\n    const match = re.exec(s)\n    \n    if (match !== null && match.length > 3) {\n        const year = parseInt(match[1], 10)\n        const month = parseInt(match[2], 10)\n        const day = parseInt(match[3], 10)\n        const date = new Date()\n\n        date.setYear(year)\n        date.setMonth(month - 1)\n        date.setDate(day)\n        \n        return date\n    }\n    \n    return null\n}\n\nconst Jan1 = new Date()\nconst Dec31 = new Date()\n\nJan1.setMonth(0)\nJan1.setDate(1)\nDec31.setMonth(11)\nDec31.setDate(31)\n\nconst from = { topic:msg.topic, payload:Jan1 }\nconst to = { topic:msg.topic, payload:Dec31 }\n\nif (msg.payload.card) {\n    const f = parse(msg.payload.card.valid.from)\n    const t = parse(msg.payload.card.valid.to)\n\n    if (f !== null) {\n        from.payload = f\n    }\n\n    if (t !== null) {\n        to.payload = t\n    }\n\n}\n\nreturn [ from,to ]\n\n",
         "outputs": 2,
         "noerr": 0,
         "initialize": "",
@@ -1231,7 +1203,7 @@
         "id": "7bdd1a52.254754",
         "type": "ui_date_picker",
         "z": "2a36b650.4b9b7a",
-        "name": "303986753-from",
+        "name": "303986753.from",
         "label": "",
         "group": "80ebf5dd.1d2018",
         "order": 21,
@@ -1239,7 +1211,7 @@
         "height": 1,
         "passthru": true,
         "topic": "set-card-valid-from",
-        "x": 850,
+        "x": 860,
         "y": 1200,
         "wires": [
             [
@@ -1251,7 +1223,7 @@
         "id": "667ca82a.202558",
         "type": "ui_date_picker",
         "z": "2a36b650.4b9b7a",
-        "name": "303986753-to",
+        "name": "303986753.to",
         "label": "",
         "group": "80ebf5dd.1d2018",
         "order": 24,
@@ -1624,7 +1596,7 @@
         "links": [
             "3f39798f.4060e6"
         ],
-        "x": 1165,
+        "x": 1115,
         "y": 480,
         "wires": []
     },
@@ -1644,6 +1616,22 @@
                 "cb6b878.02d9b78"
             ]
         ]
+    },
+    {
+        "id": "da16ac46.4e224",
+        "type": "ui_text",
+        "z": "2a36b650.4b9b7a",
+        "group": "573f9bfa.7e4564",
+        "order": 14,
+        "width": 2,
+        "height": 1,
+        "name": "label-cards",
+        "label": "cards",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 430,
+        "y": 160,
+        "wires": []
     },
     {
         "id": "573f9bfa.7e4564",
