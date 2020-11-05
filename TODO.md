@@ -3,10 +3,8 @@
 ## IN PROGRESS
 
 - [ ] dashboard: card edit/update/delete
-      - get-card for all controllers
-        -- rework delete card
-        -- rework delete all cards
       - rethink separate get-card status output
+      - rethink separate get-card-by-index status output
 - [ ] (maybe) rework codec as map of functions
 - [ ] Release
 - [ ] Publish to NPM, add badges to README and update README installation
