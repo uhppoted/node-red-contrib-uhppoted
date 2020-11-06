@@ -2,7 +2,8 @@
 
 ## IN PROGRESS
 
-- [ ] (maybe) rework codec as map of functions
+- [ ] Rework codec as map of functions
+      - doc for encoder/decoder functions
 - [ ] Release
 - [ ] Publish to NPM, add badges to README and update README installation
       e.g. ![NPM version](https://badge.fury.io/js/node-red-contrib-uhppoted.svg)
