@@ -2,8 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] dashboard: card edit/update/delete
-      - replace drop down on controller page with dedicated buttons
 - [ ] (maybe) rework codec as map of functions
 - [ ] Release
 - [ ] Publish to NPM, add badges to README and update README installation
@@ -21,6 +19,7 @@
            [comment]: # ()
            [comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
 
+- [x] dashboard: clean up
 - [x] dashboard: configure - changing controllers should restore from flow context
 - [x] dashboard: events - show last event index on detail page
 - [x] dashboard: events - reload fetched events on tab

@@ -7,23 +7,6 @@
         "info": ""
     },
     {
-        "id": "a308f042.ba17e",
-        "type": "debug",
-        "z": "f0ca7ab6.b09058",
-        "name": "device",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 490,
-        "y": 40,
-        "wires": []
-    },
-    {
         "id": "d1910029.3c322",
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
@@ -145,7 +128,6 @@
         "y": 80,
         "wires": [
             [
-                "a308f042.ba17e",
                 "6114aece.3cdf7"
             ]
         ]
@@ -196,7 +178,7 @@
         "type": "ui_text",
         "z": "f0ca7ab6.b09058",
         "group": "c03a3b24.d45c48",
-        "order": 4,
+        "order": 3,
         "width": 0,
         "height": 0,
         "name": "label-device",
@@ -236,6 +218,7 @@
         "z": "",
         "name": "detail",
         "icon": "dashboard",
+        "order": 2,
         "disabled": false,
         "hidden": false
     }

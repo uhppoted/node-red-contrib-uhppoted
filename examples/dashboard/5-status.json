@@ -13,7 +13,7 @@
         "name": "get-status",
         "config": "cbd92359.dbf19",
         "x": 310,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "66b13a53.2d40c4"
@@ -31,7 +31,7 @@
         "initialize": "",
         "finalize": "",
         "x": 500,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "a3aed72f.f0e048",
@@ -68,7 +68,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 6,
+        "order": 4,
         "width": 5,
         "height": 1,
         "name": "status-serial-number",
@@ -76,7 +76,7 @@
         "format": "{{state.serialNumber}}",
         "layout": "row-spread",
         "x": 740,
-        "y": 80,
+        "y": 60,
         "wires": []
     },
     {
@@ -84,7 +84,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 19,
+        "order": 15,
         "width": 5,
         "height": 1,
         "name": "status-event-index",
@@ -92,7 +92,7 @@
         "format": "{{state.event.index}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 120,
+        "y": 100,
         "wires": []
     },
     {
@@ -105,7 +105,7 @@
             "46cebfa2.e38c6"
         ],
         "x": 155,
-        "y": 120,
+        "y": 100,
         "wires": [
             [
                 "1d2d547f.68acbc"
@@ -117,7 +117,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 23,
+        "order": 19,
         "width": 5,
         "height": 1,
         "name": "status-event-type",
@@ -125,7 +125,7 @@
         "format": "{{state.event.type.event}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 160,
+        "y": 140,
         "wires": []
     },
     {
@@ -133,7 +133,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 31,
+        "order": 27,
         "width": 5,
         "height": 1,
         "name": "status-event-granted",
@@ -141,7 +141,7 @@
         "format": "{{state.event.granted}}",
         "layout": "row-spread",
         "x": 740,
-        "y": 200,
+        "y": 180,
         "wires": []
     },
     {
@@ -149,7 +149,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 27,
+        "order": 23,
         "width": 5,
         "height": 1,
         "name": "status-event-door",
@@ -157,7 +157,7 @@
         "format": "{{state.event.door}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 240,
+        "y": 220,
         "wires": []
     },
     {
@@ -165,7 +165,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 29,
+        "order": 25,
         "width": 5,
         "height": 1,
         "name": "status-event-direction",
@@ -173,7 +173,7 @@
         "format": "{{state.event.direction.direction}}",
         "layout": "row-spread",
         "x": 740,
-        "y": 280,
+        "y": 260,
         "wires": []
     },
     {
@@ -181,7 +181,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 25,
+        "order": 21,
         "width": 5,
         "height": 1,
         "name": "status-event-card",
@@ -189,7 +189,7 @@
         "format": "{{state.event.card}}",
         "layout": "row-spread",
         "x": 730,
-        "y": 320,
+        "y": 300,
         "wires": []
     },
     {
@@ -197,7 +197,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 21,
+        "order": 17,
         "width": 5,
         "height": 1,
         "name": "status-event-timestamp",
@@ -205,7 +205,7 @@
         "format": "{{state.event.timestamp}}",
         "layout": "row-spread",
         "x": 750,
-        "y": 360,
+        "y": 340,
         "wires": []
     },
     {
@@ -213,7 +213,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 37,
+        "order": 34,
         "width": 2,
         "height": 1,
         "name": "door-1",
@@ -221,7 +221,7 @@
         "format": "{{state.doors[1]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 400,
+        "y": 380,
         "wires": []
     },
     {
@@ -229,7 +229,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 41,
+        "order": 38,
         "width": 2,
         "height": 1,
         "name": "door-2",
@@ -237,7 +237,7 @@
         "format": "{{state.doors[2]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 440,
+        "y": 420,
         "wires": []
     },
     {
@@ -245,7 +245,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 45,
+        "order": 42,
         "width": 2,
         "height": 1,
         "name": "door-3",
@@ -253,7 +253,7 @@
         "format": "{{state.doors[3]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 480,
+        "y": 460,
         "wires": []
     },
     {
@@ -261,7 +261,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 49,
+        "order": 46,
         "width": 2,
         "height": 1,
         "name": "door-4",
@@ -269,7 +269,7 @@
         "format": "{{state.doors[4]}}",
         "layout": "col-center",
         "x": 690,
-        "y": 520,
+        "y": 500,
         "wires": []
     },
     {
@@ -277,7 +277,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 38,
+        "order": 35,
         "width": 2,
         "height": 1,
         "name": "button-1",
@@ -285,7 +285,7 @@
         "format": "{{state.buttons[1]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 560,
+        "y": 540,
         "wires": []
     },
     {
@@ -293,7 +293,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 42,
+        "order": 39,
         "width": 2,
         "height": 1,
         "name": "button-2",
@@ -301,7 +301,7 @@
         "format": "{{state.buttons[2]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 600,
+        "y": 580,
         "wires": []
     },
     {
@@ -309,7 +309,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 46,
+        "order": 43,
         "width": 2,
         "height": 1,
         "name": "button-3",
@@ -317,7 +317,7 @@
         "format": "{{state.buttons[3]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 640,
+        "y": 620,
         "wires": []
     },
     {
@@ -325,7 +325,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 50,
+        "order": 47,
         "width": 2,
         "height": 1,
         "name": "button-4",
@@ -333,7 +333,7 @@
         "format": "{{state.buttons[4]}}",
         "layout": "col-center",
         "x": 700,
-        "y": 680,
+        "y": 660,
         "wires": []
     },
     {
@@ -341,7 +341,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 8,
+        "order": 6,
         "width": 5,
         "height": 1,
         "name": "system-status",
@@ -349,7 +349,7 @@
         "format": "{{state.system.status}}",
         "layout": "row-spread",
         "x": 960,
-        "y": 80,
+        "y": 60,
         "wires": []
     },
     {
@@ -357,7 +357,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 10,
+        "order": 8,
         "width": 5,
         "height": 1,
         "name": "system-date",
@@ -365,7 +365,7 @@
         "format": "{{state.system.date}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 120,
+        "y": 100,
         "wires": []
     },
     {
@@ -373,7 +373,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 12,
+        "order": 10,
         "width": 5,
         "height": 1,
         "name": "system-time",
@@ -381,7 +381,7 @@
         "format": "{{state.system.time}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 160,
+        "y": 140,
         "wires": []
     },
     {
@@ -389,7 +389,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 14,
+        "order": 12,
         "width": 5,
         "height": 1,
         "name": "special-info",
@@ -397,7 +397,7 @@
         "format": "{{state.specialInfo}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 200,
+        "y": 180,
         "wires": []
     },
     {
@@ -405,7 +405,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 39,
+        "order": 36,
         "width": 2,
         "height": 1,
         "name": "relay-1",
@@ -413,7 +413,7 @@
         "format": "{{state.relays.relays[1]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 240,
+        "y": 220,
         "wires": []
     },
     {
@@ -421,7 +421,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 43,
+        "order": 40,
         "width": 2,
         "height": 1,
         "name": "relay-2",
@@ -429,7 +429,7 @@
         "format": "{{state.relays.relays[2]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 280,
+        "y": 260,
         "wires": []
     },
     {
@@ -437,7 +437,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 47,
+        "order": 44,
         "width": 2,
         "height": 1,
         "name": "relay-3",
@@ -445,7 +445,7 @@
         "format": "{{state.relays.relays[3]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 320,
+        "y": 300,
         "wires": []
     },
     {
@@ -453,7 +453,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 51,
+        "order": 48,
         "width": 2,
         "height": 1,
         "name": "relay-4",
@@ -461,7 +461,7 @@
         "format": "{{state.relays.relays[4]}}",
         "layout": "col-center",
         "x": 930,
-        "y": 360,
+        "y": 340,
         "wires": []
     },
     {
@@ -469,7 +469,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 53,
+        "order": 51,
         "width": 5,
         "height": 1,
         "name": "force-locked",
@@ -477,7 +477,7 @@
         "format": "{{state.inputs.forceLock}}",
         "layout": "row-spread",
         "x": 950,
-        "y": 400,
+        "y": 380,
         "wires": []
     },
     {
@@ -485,7 +485,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 55,
+        "order": 53,
         "width": 5,
         "height": 1,
         "name": "fire-alarm",
@@ -493,7 +493,7 @@
         "format": "{{state.inputs.fireAlarm}}",
         "layout": "row-spread",
         "x": 940,
-        "y": 440,
+        "y": 420,
         "wires": []
     },
     {
@@ -501,7 +501,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 36,
+        "order": 33,
         "width": 1,
         "height": 1,
         "name": "label-door-1",
@@ -509,7 +509,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 310,
-        "y": 420,
+        "y": 400,
         "wires": []
     },
     {
@@ -517,7 +517,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 40,
+        "order": 37,
         "width": 1,
         "height": 1,
         "name": "label-door-2",
@@ -525,7 +525,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 310,
-        "y": 460,
+        "y": 440,
         "wires": []
     },
     {
@@ -533,7 +533,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 44,
+        "order": 41,
         "width": 1,
         "height": 1,
         "name": "label-door-3",
@@ -541,7 +541,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 310,
-        "y": 500,
+        "y": 480,
         "wires": []
     },
     {
@@ -549,7 +549,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 48,
+        "order": 45,
         "width": 1,
         "height": 1,
         "name": "label-door-4",
@@ -557,7 +557,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 310,
-        "y": 540,
+        "y": 520,
         "wires": []
     },
     {
@@ -565,15 +565,15 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 4,
-        "width": 7,
+        "order": 3,
+        "width": 2,
         "height": 1,
         "name": "label-status",
         "label": "status",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 310,
-        "y": 180,
+        "y": 160,
         "wires": []
     },
     {
@@ -581,15 +581,15 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 16,
+        "order": 14,
         "width": 2,
         "height": 1,
         "name": "label-event",
         "label": "event",
-        "format": "{{msg.payload}}",
+        "format": "",
         "layout": "row-spread",
         "x": 310,
-        "y": 220,
+        "y": 200,
         "wires": []
     },
     {
@@ -597,7 +597,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 34,
+        "order": 31,
         "width": 2,
         "height": 1,
         "name": "label-status-doors",
@@ -605,7 +605,7 @@
         "format": "{{msg.payload}}",
         "layout": "col-center",
         "x": 330,
-        "y": 260,
+        "y": 240,
         "wires": []
     },
     {
@@ -613,7 +613,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 35,
+        "order": 32,
         "width": 2,
         "height": 1,
         "name": "label-status-buttons",
@@ -621,7 +621,7 @@
         "format": "{{msg.payload}}",
         "layout": "col-center",
         "x": 340,
-        "y": 300,
+        "y": 280,
         "wires": []
     },
     {
@@ -629,7 +629,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 33,
+        "order": 30,
         "width": 2,
         "height": 1,
         "name": "label-status-relays",
@@ -637,7 +637,7 @@
         "format": "{{msg.payload}}",
         "layout": "col-center",
         "x": 330,
-        "y": 340,
+        "y": 320,
         "wires": []
     },
     {
@@ -645,7 +645,7 @@
         "type": "ui_text",
         "z": "b2b669ed.2b50b8",
         "group": "ffdc2439.246b38",
-        "order": 52,
+        "order": 50,
         "width": 2,
         "height": 1,
         "name": "label-status-inputs",
@@ -653,7 +653,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-spread",
         "x": 330,
-        "y": 380,
+        "y": 360,
         "wires": []
     },
     {
@@ -685,6 +685,7 @@
         "z": "",
         "name": "detail",
         "icon": "dashboard",
+        "order": 2,
         "disabled": false,
         "hidden": false
     }

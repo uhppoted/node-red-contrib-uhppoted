@@ -12,8 +12,8 @@
         "z": "f7a455cc.3fefe8",
         "name": "get-time",
         "config": "cbd92359.dbf19",
-        "x": 300,
-        "y": 120,
+        "x": 340,
+        "y": 100,
         "wires": [
             [
                 "7bf9bf1f.c2c11"
@@ -24,16 +24,16 @@
         "id": "7bf9bf1f.c2c11",
         "type": "ui_text",
         "z": "f7a455cc.3fefe8",
-        "group": "c03a3b24.d45c48",
-        "order": 26,
+        "group": "573f9bfa.7e4564",
+        "order": 4,
         "width": 4,
         "height": 1,
         "name": "datetime",
         "label": "",
         "format": "{{msg.payload.datetime}}",
         "layout": "row-spread",
-        "x": 480,
-        "y": 120,
+        "x": 520,
+        "y": 100,
         "wires": []
     },
     {
@@ -45,8 +45,8 @@
             "fbd6b7a7.cd1af8",
             "46cebfa2.e38c6"
         ],
-        "x": 135,
-        "y": 120,
+        "x": 175,
+        "y": 100,
         "wires": [
             [
                 "6a3d799.3fe3688"
@@ -60,7 +60,7 @@
         "name": "set-time",
         "config": "cbd92359.dbf19",
         "x": 520,
-        "y": 300,
+        "y": 220,
         "wires": [
             []
         ]
@@ -72,8 +72,8 @@
         "name": "time",
         "label": "",
         "tooltip": "",
-        "group": "aee33fcb.43067",
-        "order": 7,
+        "group": "920f64db.d2fd58",
+        "order": 17,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -81,7 +81,7 @@
         "delay": "0",
         "topic": "set-time",
         "x": 150,
-        "y": 420,
+        "y": 340,
         "wires": [
             [
                 "1768d838.2f1398"
@@ -94,14 +94,14 @@
         "z": "f7a455cc.3fefe8",
         "name": "date",
         "label": "",
-        "group": "aee33fcb.43067",
-        "order": 4,
+        "group": "920f64db.d2fd58",
+        "order": 12,
         "width": 4,
         "height": 1,
         "passthru": true,
         "topic": "set-date",
         "x": 150,
-        "y": 380,
+        "y": 300,
         "wires": [
             [
                 "1768d838.2f1398"
@@ -113,13 +113,13 @@
         "type": "function",
         "z": "f7a455cc.3fefe8",
         "name": "datetime",
-        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-time.device', msg.payload)\n        break\n\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        break\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        break\n        \n    case 'set':\n        let deviceId = flow.get('set-time.device')\n        let date = flow.get('set-time.date')\n        let time = flow.get('set-time.time')\n\n        if (!date) {\n            date = new Date()\n        }\n\n        if (!time) {\n            time = new Date()\n        }\n\n        if (deviceId && date && time) {\n            const year = format(date.getFullYear(), 4)\n            const month = format(date.getMonth()+1, 2)\n            const day = format(date.getDate(), 2)\n            const hours = format(time.getHours(), 2)\n            const minutes = format(time.getMinutes(), 2)\n            const seconds = format(time.getSeconds(), 2)\n\n            msg.payload = { \n                deviceId: deviceId,\n                datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n            }\n        \n            return msg\n        }\n        break\n}\n\nreturn null",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\n\nswitch (msg.topic) {\n    case 'set-device':\n        flow.set('set-time.device', Number(msg.payload.deviceId))\n        break\n\n    case 'set-date':\n        flow.set('set-time.date', new Date(msg.payload))\n        break\n\n    case 'set-time':\n        const dt = new Date(msg.payload)\n        const tz = dt.getTimezoneOffset()\n        flow.set('set-time.time', new Date(msg.payload + tz*60*1000))\n        break\n        \n    case 'set':\n        let deviceId = flow.get('set-time.device')\n        let date = flow.get('set-time.date')\n        let time = flow.get('set-time.time')\n\n        if (!date) {\n            date = new Date()\n        }\n\n        if (!time) {\n            time = new Date()\n        }\n\n        if (deviceId && date && time) {\n            const year = format(date.getFullYear(), 4)\n            const month = format(date.getMonth()+1, 2)\n            const day = format(date.getDate(), 2)\n            const hours = format(time.getHours(), 2)\n            const minutes = format(time.getMinutes(), 2)\n            const seconds = format(time.getSeconds(), 2)\n\n            msg.payload = { \n                deviceId: deviceId,\n                datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n            }\n        \n            return msg\n        }\n        break\n}\n\nreturn null",
         "outputs": 1,
         "noerr": 0,
         "initialize": "",
         "finalize": "",
         "x": 340,
-        "y": 300,
+        "y": 220,
         "wires": [
             [
                 "ea3bdfee.bf0d1"
@@ -132,10 +132,10 @@
         "z": "f7a455cc.3fefe8",
         "name": "",
         "links": [
-            "71d6ed03.ece134"
+            "14775167.8aa25f"
         ],
         "x": 175,
-        "y": 340,
+        "y": 260,
         "wires": [
             [
                 "1768d838.2f1398"
@@ -146,16 +146,16 @@
         "id": "6e89f6cc.477eb8",
         "type": "ui_text",
         "z": "f7a455cc.3fefe8",
-        "group": "aee33fcb.43067",
-        "order": 3,
+        "group": "920f64db.d2fd58",
+        "order": 11,
         "width": 2,
         "height": 1,
         "name": "label-datetime",
         "label": "date/time",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 120,
-        "y": 260,
+        "x": 140,
+        "y": 180,
         "wires": []
     },
     {
@@ -163,8 +163,8 @@
         "type": "ui_button",
         "z": "f7a455cc.3fefe8",
         "name": "set-datetime",
-        "group": "aee33fcb.43067",
-        "order": 10,
+        "group": "920f64db.d2fd58",
+        "order": 22,
         "width": 4,
         "height": 1,
         "passthru": false,
@@ -177,7 +177,7 @@
         "payloadType": "str",
         "topic": "set",
         "x": 130,
-        "y": 300,
+        "y": 220,
         "wires": [
             [
                 "1768d838.2f1398"
@@ -188,16 +188,16 @@
         "id": "d1da5856.004eb8",
         "type": "ui_text",
         "z": "f7a455cc.3fefe8",
-        "group": "c03a3b24.d45c48",
-        "order": 25,
+        "group": "573f9bfa.7e4564",
+        "order": 3,
         "width": 2,
         "height": 1,
         "name": "label-datetime",
         "label": "date/time",
         "format": "{{msg.payload}}",
         "layout": "row-spread",
-        "x": 500,
-        "y": 80,
+        "x": 540,
+        "y": 60,
         "wires": []
     },
     {
@@ -213,25 +213,25 @@
         "debug": true
     },
     {
-        "id": "c03a3b24.d45c48",
+        "id": "573f9bfa.7e4564",
         "type": "ui_group",
         "z": "",
-        "name": "column-1",
+        "name": "column-2",
         "tab": "2731970.74c476a",
-        "order": 2,
+        "order": 3,
         "disp": false,
-        "width": "6",
+        "width": 6,
         "collapse": false
     },
     {
-        "id": "aee33fcb.43067",
+        "id": "920f64db.d2fd58",
         "type": "ui_group",
         "z": "",
-        "name": "column-3",
+        "name": "panel",
         "tab": "e4b36c96.1a567",
-        "order": 3,
+        "order": 1,
         "disp": false,
-        "width": 8,
+        "width": 14,
         "collapse": false
     },
     {
@@ -240,6 +240,7 @@
         "z": "",
         "name": "detail",
         "icon": "dashboard",
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -249,6 +250,7 @@
         "z": "",
         "name": "configuration",
         "icon": "dashboard",
+        "order": 3,
         "disabled": false,
         "hidden": false
     }

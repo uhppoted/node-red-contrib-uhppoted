@@ -25,7 +25,7 @@
         "payloadType": "json",
         "topic": "",
         "x": 110,
-        "y": 200,
+        "y": 220,
         "wires": [
             [
                 "46cebfa2.e38c6"
@@ -50,7 +50,7 @@
             "74f184d2.65a5ac"
         ],
         "x": 235,
-        "y": 220,
+        "y": 240,
         "wires": []
     },
     {
@@ -72,7 +72,7 @@
         "payloadType": "json",
         "topic": "",
         "x": 110,
-        "y": 240,
+        "y": 260,
         "wires": [
             [
                 "46cebfa2.e38c6"
@@ -86,7 +86,7 @@
         "name": "refresh",
         "info": "",
         "x": 90,
-        "y": 160,
+        "y": 180,
         "wires": []
     },
     {
@@ -95,34 +95,9 @@
         "z": "33c9a78a.cc8c18",
         "name": "configuration",
         "info": "",
-        "x": 490,
+        "x": 510,
         "y": 40,
         "wires": []
-    },
-    {
-        "id": "1fa242ff.1717cd",
-        "type": "ui_dropdown",
-        "z": "33c9a78a.cc8c18",
-        "name": "controller",
-        "label": "",
-        "tooltip": "",
-        "place": "<select controller>",
-        "group": "920f64db.d2fd58",
-        "order": 1,
-        "width": 5,
-        "height": 1,
-        "passthru": true,
-        "multiple": false,
-        "options": [],
-        "payload": "",
-        "topic": "set-device",
-        "x": 680,
-        "y": 80,
-        "wires": [
-            [
-                "71d6ed03.ece134"
-            ]
-        ]
     },
     {
         "id": "a9b121e.23fc3e",
@@ -145,8 +120,8 @@
         "topic": "controllers",
         "payload": "{\"controllers\":{\"303986753\":{\"IPv4\":{\"address\":\"192.168.1.100\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"},\"listener\":{\"address\":\"192.168.1.100\",\"port\":60001},\"doors\":{\"1\":{\"name\":\"door X\",\"delay\":5,\"control\":\"normally closed\"},\"2\":{\"name\":\"door Y\",\"delay\":5,\"control\":\"normally closed\"},\"3\":{\"name\":\"laboratory\",\"delay\":5,\"control\":\"normally closed\"},\"4\":{\"name\":\"kitchen\",\"delay\":5,\"control\":\"normally closed\"}}},\"405419896\":{\"IPv4\":{\"address\":\"192.168.1.100\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"},\"listener\":{\"address\":\"192.168.1.100\",\"port\":60001},\"doors\":{\"1\":{\"name\":\"entrance\",\"delay\":5,\"control\":\"normally closed\"},\"2\":{\"name\":\"workshop\",\"delay\":5,\"control\":\"normally closed\"},\"3\":{\"name\":\"tower\",\"delay\":5,\"control\":\"normally closed\"},\"4\":{\"name\":\"dungeon\",\"delay\":5,\"control\":\"normally closed\"}}}}}",
         "payloadType": "json",
-        "x": 90,
-        "y": 80,
+        "x": 110,
+        "y": 100,
         "wires": [
             [
                 "a023fb14.897008"
@@ -159,7 +134,7 @@
         "z": "33c9a78a.cc8c18",
         "name": "system config",
         "info": "",
-        "x": 90,
+        "x": 110,
         "y": 40,
         "wires": []
     },
@@ -177,66 +152,99 @@
             "6e513556.7919cc",
             "bc6d752a.1a51a8"
         ],
-        "x": 255,
-        "y": 80,
+        "x": 275,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "71d6ed03.ece134",
+        "id": "c4401074.37d97",
+        "type": "ui_button",
+        "z": "33c9a78a.cc8c18",
+        "name": "405419896",
+        "group": "920f64db.d2fd58",
+        "order": 1,
+        "width": 3,
+        "height": 2,
+        "passthru": false,
+        "label": "405419896",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-refresh",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "topic": "set-device",
+        "x": 510,
+        "y": 100,
+        "wires": [
+            [
+                "14775167.8aa25f",
+                "6a8ab4a6.29edac"
+            ]
+        ]
+    },
+    {
+        "id": "893bc835.2de548",
+        "type": "ui_button",
+        "z": "33c9a78a.cc8c18",
+        "name": "303986753",
+        "group": "920f64db.d2fd58",
+        "order": 2,
+        "width": 3,
+        "height": 2,
+        "passthru": false,
+        "label": "303986753",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#A6BBCF",
+        "icon": "fa-refresh",
+        "payload": "{ \"deviceId\": 303986753 }",
+        "payloadType": "json",
+        "topic": "set-device",
+        "x": 510,
+        "y": 140,
+        "wires": [
+            [
+                "14775167.8aa25f",
+                "6a8ab4a6.29edac"
+            ]
+        ]
+    },
+    {
+        "id": "14775167.8aa25f",
         "type": "link out",
         "z": "33c9a78a.cc8c18",
         "name": "controller",
         "links": [
-            "c0f56704.302048",
             "aeec3a78.eec6d8",
             "5b13b041.ee256",
-            "bbeb26dc.ff7ab8",
             "4bee8740.f53308",
-            "6dd92229.dda32c",
-            "f99540c.285e1c",
-            "f1f358f4.a86a38",
+            "bbeb26dc.ff7ab8",
+            "c59a9f6b.b8afe",
             "3c0f330f.3cda1c",
-            "b7011bf3.252e48",
-            "56449e45.562bb",
-            "c59a9f6b.b8afe"
+            "f1f358f4.a86a38",
+            "f99540c.285e1c",
+            "6dd92229.dda32c"
         ],
-        "x": 795,
-        "y": 80,
+        "x": 655,
+        "y": 120,
         "wires": []
     },
     {
-        "id": "4a1fbead.20c0e",
-        "type": "link in",
+        "id": "6a8ab4a6.29edac",
+        "type": "ui_text",
         "z": "33c9a78a.cc8c18",
-        "name": "",
-        "links": [
-            "a023fb14.897008"
-        ],
-        "x": 435,
-        "y": 80,
-        "wires": [
-            [
-                "43b42a3.c611ed4"
-            ]
-        ]
-    },
-    {
-        "id": "43b42a3.c611ed4",
-        "type": "function",
-        "z": "33c9a78a.cc8c18",
-        "name": "setup",
-        "func": "const controllers = msg.payload.controllers\n\nif (controllers) {\n    const options = []\n    Object.entries(controllers).forEach(([k,v]) => {\n      options.push(k) \n    })\n\n    return { \n        topic:'set-controllers', \n        options: options\n    }\n}\n\nreturn null\n",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "x": 530,
-        "y": 80,
-        "wires": [
-            [
-                "1fa242ff.1717cd"
-            ]
-        ]
+        "group": "920f64db.d2fd58",
+        "order": 4,
+        "width": 6,
+        "height": 1,
+        "name": "controller",
+        "label": "",
+        "format": "{{msg.payload.deviceId}}",
+        "layout": "row-left",
+        "x": 700,
+        "y": 220,
+        "wires": []
     },
     {
         "id": "c03a3b24.d45c48",
@@ -253,11 +261,11 @@
         "id": "920f64db.d2fd58",
         "type": "ui_group",
         "z": "",
-        "name": "column-1",
+        "name": "panel",
         "tab": "e4b36c96.1a567",
         "order": 1,
         "disp": false,
-        "width": 5,
+        "width": 14,
         "collapse": false
     },
     {
@@ -266,6 +274,7 @@
         "z": "",
         "name": "detail",
         "icon": "dashboard",
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -275,6 +284,7 @@
         "z": "",
         "name": "configuration",
         "icon": "dashboard",
+        "order": 3,
         "disabled": false,
         "hidden": false
     }
