@@ -61,7 +61,6 @@ module.exports = {
     *
     * @param {buffer}   64 byte NodeJS Buffer
     *
-    * @author: TS
     * @exports
     */
   encode: function (code, deviceId, object) {
@@ -86,7 +85,6 @@ module.exports = {
     *
     * @param {object}   Decoded object (or null)
     *
-    * @author: TS
     * @exports
     */
   decode: function (buffer, translator) {

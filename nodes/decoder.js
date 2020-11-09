@@ -6,9 +6,7 @@ module.exports = {
     * @param {function} translator (optional) function to internationalise the text in a
     *                              decoded object
     *
-    * @param {object}   Decoded get-status object
-    *
-    * @author: TS
+    * @param {object}   Decoded get-status response object
     */
   GetStatus: function (bytes, translator) {
     const lookup = require('./lookup.js')
@@ -51,6 +49,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a set-time request (function code 0x30).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded set-time response object
+    */
   SetTime: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -58,6 +65,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a get-time request (function code 0x32).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded get-time response object
+    */
   GetTime: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -65,6 +81,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to an open-door request (function code 0x40).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded open-door response object
+    */
   OpenDoor: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -72,6 +97,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a put-card request (function code 0x50).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded put-card response object
+    */
   PutCard: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -79,6 +113,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a delete-card request (function code 0x52).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded delete-card response object
+    */
   DeleteCard: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -86,6 +129,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a delete-cards request (function code 0x54).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded delete-cards response object
+    */
   DeleteCards: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -93,6 +145,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a get-cards request (function code 0x58).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded get-cards response object
+    */
   GetCards: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -100,6 +161,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a get-card-by-id request (function code 0x5a).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded get-card-by-id response object
+    */
   GetCardByID: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -119,6 +189,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a get-card-by-index request (function code 0x5c).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded get-card-by-index response object
+    */
   GetCardByIndex: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -138,6 +217,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a set-door-control request (function code 0x80).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded set-door-control response object
+    */
   SetDoorControl: function (bytes, translator) {
     const lookup = require('./lookup.js')
 
@@ -151,6 +239,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a get-door-control request (function code 0x82).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded get-door-control response object
+    */
   GetDoorControl: function (bytes, translator) {
     const lookup = require('./lookup.js')
 
@@ -164,6 +261,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a set-listener request (function code 0x90).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded set-listener response object
+    */
   SetListener: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -171,6 +277,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a get-listener request (function code 0x92).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded get-listener response object
+    */
   GetListener: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -183,10 +298,10 @@ module.exports = {
     * Decodes the response to a get-device request (function code 0x94).
     *
     * @param {buffer}   buffer     64 byte NodeJS buffer
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
     *
     * @param {object}   Decoded device object
-    *
-    * @author: TS
     */
   GetDevice: function (bytes, translator) {
     return {
@@ -204,6 +319,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a get-event request (function code 0xb0).
+    *
+    * @param {buffer}   buffer     64 byte NodeJS buffer
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded event object
+    */
   GetEvent: function (bytes, translator) {
     const lookup = require('./lookup.js')
 
@@ -222,6 +346,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a set-event-index request (function code 0xb2).
+    *
+    * @param {buffer}   buffer     64 byte NodeJS buffer
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded set-event-index response object
+    */
   SetEventIndex: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -229,6 +362,15 @@ module.exports = {
     }
   },
 
+  /**
+    * Decodes the response to a get-event-index request (function code 0xb4).
+    *
+    * @param {buffer}   buffer     64 byte NodeJS buffer
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded get-event-index response object
+    */
   GetEventIndex: function (bytes, translator) {
     return {
       deviceId: uint32(bytes, 4),
@@ -244,8 +386,6 @@ module.exports = {
   * @param {number} offset  Index of bool in buffer
   *
   * @param {bool}   true if the byte at the offset is 1, false otherwise.
-  *
-  * @author: TS
   */
 function bool (bytes, offset) {
   return bytes.getUint8(offset, true) === 0x01
@@ -258,8 +398,6 @@ function bool (bytes, offset) {
   * @param {number} offset  Index of uint8 in buffer
   *
   * @param {uint8}  uint8 at offset in buffer.
-  *
-  * @author: TS
   */
 function uint8 (bytes, offset) {
   return bytes.getUint8(offset, true)
@@ -272,8 +410,6 @@ function uint8 (bytes, offset) {
   * @param {number} offset  Index of uint16 in buffer
   *
   * @param {uint16}  Litte-endian uint16 at offset in buffer.
-  *
-  * @author: TS
   */
 function uint16 (bytes, offset) {
   return bytes.getUint16(offset, true)
@@ -286,8 +422,6 @@ function uint16 (bytes, offset) {
   * @param {number} offset  Index of uint32 in buffer
   *
   * @param {uint32}  Litte-endian uint32 at offset in buffer.
-  *
-  * @author: TS
   */
 function uint32 (bytes, offset) {
   return bytes.getUint32(offset, true)
@@ -301,8 +435,6 @@ function uint32 (bytes, offset) {
   * @param {number} length  Number of bytes to decode
   *
   * @param {string}  Decoded number as a string.
-  *
-  * @author: TS
   */
 function bcd (bytes, offset, length) {
   const slice = new Uint8Array(bytes.buffer.slice(offset, offset + length))
@@ -323,8 +455,6 @@ function bcd (bytes, offset, length) {
   * @param {number} offset  Index of timestamp in buffer
   *
   * @param {string}  Decoded 6 byte timestamp in yyy-mm-dd HH:mm:ss format.
-  *
-  * @author: TS
   */
 function yyyymmddHHmmss (bytes, offset) {
   const datetime = bcd(bytes, offset, 7)
@@ -341,8 +471,6 @@ function yyyymmddHHmmss (bytes, offset) {
   * @param {number} offset  Index of date in buffer
   *
   * @param {string}  Decoded 4 byte date in yyyy-mm-dd format.
-  *
-  * @author: TS
   */
 function yyyymmdd (bytes, offset) {
   const date = bcd(bytes, offset, 4)
@@ -361,8 +489,6 @@ function yyyymmdd (bytes, offset) {
   * @param {number} offset  Index of date in buffer
   *
   * @param {string}  Decoded 3 byte date in yyyy-mm-dd format (assumes base centry is 2000).
-  *
-  * @author: TS
   */
 function yymmdd (bytes, offset) {
   const date = '20' + bcd(bytes, offset, 3)
@@ -377,8 +503,6 @@ function yymmdd (bytes, offset) {
   * @param {number} offset  Index of time in buffer
   *
   * @param {string}  Decoded 3 byte time in HH:mm:ss format.
-  *
-  * @author: TS
   */
 function HHmmss (bytes, offset) {
   const time = bcd(bytes, offset, 3)
@@ -393,8 +517,6 @@ function HHmmss (bytes, offset) {
   * @param {number} offset  Index of IP address in buffer
   *
   * @param {string}  Decoded 4 byte IPv4 address as a IP address object.
-  *
-  * @author: TS
   */
 function address (bytes, offset) {
   const ip = require('ip')
@@ -409,8 +531,6 @@ function address (bytes, offset) {
   * @param {number} offset  Index of MAC address in buffer
   *
   * @param {string}  Decoded 6 byte MAC address as a colon delimited string.
-  *
-  * @author: TS
   */
 function mac (bytes, offset) {
   const slice = new Uint8Array(bytes.buffer.slice(offset, offset + 6))

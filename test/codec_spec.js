@@ -179,7 +179,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(opcodes.GetCardByID, 405419896, { card: { number: 61532836 } })
+      const bytes = codec.encode(opcodes.GetCardByID, 405419896, { card: 61532836 })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -192,7 +192,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(opcodes.GetCardByIndex, 405419896, { card: { index: 13726 } })
+      const bytes = codec.encode(opcodes.GetCardByIndex, 405419896, { index: 13726 })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -206,18 +206,14 @@ describe('codec', function () {
       ])
 
       const bytes = codec.encode(opcodes.PutCard, 405419896, {
-        card: {
-          number: 61532836,
-          valid: {
-            from: '2019-01-02',
-            to: '2021-12-31'
-          },
-          doors: {
-            1: true,
-            2: true,
-            3: false,
-            4: true
-          }
+        card: 61532836,
+        from: '2019-01-02',
+        to: '2021-12-31',
+        doors: {
+          1: true,
+          2: true,
+          3: false,
+          4: true
         }
       })
 
@@ -232,7 +228,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(opcodes.DeleteCard, 405419896, { card: { number: 61532836 } })
+      const bytes = codec.encode(opcodes.DeleteCard, 405419896, { card: 61532836 })
 
       expect(bytes).to.deep.equal(msg)
     })

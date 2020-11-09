@@ -32,7 +32,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, opcodes.DeleteCard, { card: { number: cardNumber } })
+        uhppoted.set(context, deviceId, opcodes.DeleteCard, { card: cardNumber })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

@@ -15,14 +15,14 @@ module.exports = function (RED) {
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic
       const deviceId = msg.payload.deviceId
-      const cardNumber = msg.payload.cardNumber
+      const card = msg.payload.cardNumber
 
       const emit = function (object) {
         const reply = {
           topic: t,
           payload: {
             deviceId: object.deviceId,
-            cardNumber: cardNumber,
+            cardNumber: card,
             status: { code: 0, message: RED._('get-card.cardOk') },
             card: object.card
           }
@@ -54,7 +54,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.get(context, deviceId, opcodes.GetCardByID, { card: { number: cardNumber } })
+        uhppoted.get(context, deviceId, opcodes.GetCardByID, { card: card })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

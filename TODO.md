@@ -2,8 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] Rework codec as map of functions
-      - doc for encoder/decoder functions
 - [ ] Release
 - [ ] Publish to NPM, add badges to README and update README installation
       e.g. ![NPM version](https://badge.fury.io/js/node-red-contrib-uhppoted.svg)
@@ -20,6 +18,7 @@
            [comment]: # ()
            [comment]: # (    npm i uhppoted/node-red-contrib-uhppoted)
 
+- [x] Rework codec as map of functions
 - [x] dashboard: clean up
 - [x] dashboard: configure - changing controllers should restore from flow context
 - [x] dashboard: events - show last event index on detail page

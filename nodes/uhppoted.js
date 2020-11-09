@@ -17,7 +17,6 @@ module.exports = {
     *
     * @param {object}   Decoded reply containing the received information
     *
-    * @author: TS
     * @exports
     */
   get: async function (ctx, deviceId, op, request) {
@@ -51,7 +50,6 @@ module.exports = {
     *
     * @param {object}  Decoded result of the operation
     *
-    * @author: TS
     * @exports
     */
   set: async function (ctx, deviceId, op, request) {
@@ -82,7 +80,6 @@ module.exports = {
     * @param {byte}     op       Operation code from 'opcode' module
     * @param {object}   request  Operation parameters for use by codec.encode
     *
-    * @author: TS
     */
   send: async function (ctx, deviceId, op, request) {
     const c = context(deviceId, ctx.config, ctx.logger)
@@ -117,7 +114,6 @@ module.exports = {
     * @param {array} Array of Javascript objects from codec.decode containing the decoded
     *                received responses.
     *
-    * @author: TS
     * @exports
     */
   broadcast: async function (ctx, op, request) {
@@ -159,7 +155,6 @@ module.exports = {
     * @param {object}   ctx      Configuration, internationalisation translation and logger
     * @param {function} handler  Function to invoke with received event
     *
-    * @author: TS
     * @exports
     */
   listen: function (ctx, handler) {
@@ -204,7 +199,6 @@ module.exports = {
   *
   * @return {object}  Decoded reply from access controller
   *
-  * @author: TS
   */
 async function exec (ctx, op, request, receive) {
   const sock = dgram.createSocket(opts)
@@ -271,7 +265,6 @@ async function exec (ctx, op, request, receive) {
   *
   * @param {object} Valid working context
   *
-  * @author: TS
   */
 function context (device, config, logger) {
   const deviceId = Number(device)
@@ -329,7 +322,6 @@ function context (device, config, logger) {
   * @param {uint8array} message 64 byte UDP message
   * @param {object}     rinfo   source/destination IP address and port
   *
-  * @author: TS
   */
 function log (debug, label, message, rinfo) {
   let description = label
@@ -358,7 +350,6 @@ function log (debug, label, message, rinfo) {
   *
   * @returns {string} Message formatted as a hexadecimal chunk
   *
-  * @author: TS
   */
 function format (message, pad) {
   return message
@@ -377,7 +368,6 @@ function format (message, pad) {
   *
   * @returns {object} Object containing IP address and port as properties
   *
-  * @author: TS
   */
 function stringToIP (addr) {
   let address = addr
@@ -409,7 +399,6 @@ function stringToIP (addr) {
   *
   * @returns {bool} 'true' if the address is a broadcast address. Defaults to 'false'.
   *
-  * @author: TS
   */
 function isBroadcast (addr) {
   const interfaces = os.networkInterfaces()
@@ -437,7 +426,6 @@ function isBroadcast (addr) {
   *
   * @returns {promise} Constructed Promised with a 'received' function.
   *
-  * @author: TS
   */
 function receiveAny (timeout) {
   var timer

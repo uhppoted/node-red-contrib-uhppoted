@@ -1,4 +1,11 @@
 module.exports = {
+  /**
+    * Encodes a get-device request.
+    *
+    * @param {number} deviceId  Controller serial number (0 implies a get-all-devices)
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-device request
+    */
   GetDevice: function (deviceId) {
     const request = Buffer.alloc(64)
 
@@ -11,22 +18,61 @@ module.exports = {
     return request
   },
 
-  SetIP: function (deviceId, object) {
+  /**
+    * Encodes a set-address request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {string} address   IPv4 address assigned to controller
+    * @param {string} netmask   IPv4 subnet mask assigned to controller
+    * @param {string} gateway   IPv4 gateway address
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded set-address request
+    */
+  SetIP: function (deviceId, { address, netmask, gateway } = {}) {
     const ip = require('ip')
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
     request.writeUInt8(0x96, 1)
     request.writeUInt32LE(deviceId, 4)
-    ip.toBuffer(object.address, request, 8)
-    ip.toBuffer(object.netmask, request, 12)
-    ip.toBuffer(object.gateway, request, 16)
+    ip.toBuffer(address, request, 8)
+    ip.toBuffer(netmask, request, 12)
+    ip.toBuffer(gateway, request, 16)
     request.writeUInt32LE(0x55aaaa55, 20)
 
     return request
   },
 
-  GetListener: function (deviceId, object) {
+  /**
+    * Encodes a set-listener request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {string} address   IPv4 listener address for controller events
+    * @param {number} port      IPv4 listener port for controller events
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded set-address request
+    */
+  SetListener: function (deviceId, { address, port } = {}) {
+    const ip = require('ip')
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0x90, 1)
+    request.writeUInt32LE(deviceId, 4)
+    ip.toBuffer(address, request, 8)
+    request.writeUInt16LE(port, 12)
+
+    return request
+  },
+
+  /**
+    * Encodes a get-listener request.
+    *
+    * @param {number} deviceId  Controller serial number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-listener request
+    */
+  GetListener: function (deviceId) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
@@ -36,20 +82,33 @@ module.exports = {
     return request
   },
 
-  SetListener: function (deviceId, object) {
-    const ip = require('ip')
+  /**
+    * Encodes a set-time request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {date}   datetime  Date and time to which to set controller time
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded set-time request
+    */
+  SetTime: function (deviceId, { datetime } = {}) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
-    request.writeUInt8(0x90, 1)
+    request.writeUInt8(0x30, 1)
     request.writeUInt32LE(deviceId, 4)
-    ip.toBuffer(object.address, request, 8)
-    request.writeUInt16LE(object.port, 12)
+    datetime2bin(datetime).copy(request, 8)
 
     return request
   },
 
-  GetTime: function (deviceId, object) {
+  /**
+    * Encodes a get-time request.
+    *
+    * @param {number} deviceId  Controller serial number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-time request.
+    */
+  GetTime: function (deviceId) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
@@ -59,29 +118,17 @@ module.exports = {
     return request
   },
 
-  SetTime: function (deviceId, object) {
-    const request = Buffer.alloc(64)
-
-    request.writeUInt8(0x17, 0)
-    request.writeUInt8(0x30, 1)
-    request.writeUInt32LE(deviceId, 4)
-    datetime2bin(object.datetime).copy(request, 8)
-
-    return request
-  },
-
-  GetDoorControl: function (deviceId, object) {
-    const request = Buffer.alloc(64)
-
-    request.writeUInt8(0x17, 0)
-    request.writeUInt8(0x82, 1)
-    request.writeUInt32LE(deviceId, 4)
-    request.writeUInt8(object.door, 8)
-
-    return request
-  },
-
-  SetDoorControl: function (deviceId, object) {
+  /**
+    * Encodes a set-door-control request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} door      Door number in the range [1..4]
+    * @param {number} delay     Door open delay (in seconds)
+    * @param {string} control   Door control state ('normally open', 'normally closed' or 'controlled')
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded set-door-control request
+    */
+  SetDoorControl: function (deviceId, { door, delay, control } = {}) {
     const opcodes = require('../nodes/opcodes.js')
 
     const request = Buffer.alloc(64)
@@ -89,9 +136,9 @@ module.exports = {
     request.writeUInt8(0x17, 0)
     request.writeUInt8(0x80, 1)
     request.writeUInt32LE(deviceId, 4)
-    request.writeUInt8(object.door, 8)
-    request.writeUInt8(object.delay, 10)
-    switch (object.control) {
+    request.writeUInt8(door, 8)
+    request.writeUInt8(delay, 10)
+    switch (control) {
       case opcodes.NormallyOpen:
         request.writeUInt8(1, 9)
         break
@@ -105,13 +152,39 @@ module.exports = {
         break
 
       default:
-        throw new Error(`invalid door control ${object.control}`)
+        throw new Error(`invalid door control ${control}`)
     }
 
     return request
   },
 
-  GetStatus: function (deviceId, object) {
+  /**
+    * Encodes a get-door-control request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} door      Door number in the range [1..4]
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-door-control request.
+    */
+  GetDoorControl: function (deviceId, { door } = {}) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0x82, 1)
+    request.writeUInt32LE(deviceId, 4)
+    request.writeUInt8(door, 8)
+
+    return request
+  },
+
+  /**
+    * Encodes a get-status request.
+    *
+    * @param {number} deviceId  Controller serial number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-status request.
+    */
+  GetStatus: function (deviceId) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
@@ -121,17 +194,32 @@ module.exports = {
     return request
   },
 
-  OpenDoor: function (deviceId, object) {
+  /**
+    * Encodes an open-door request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} door      Door number in the range [1..4]
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded open-door request.
+    */
+  OpenDoor: function (deviceId, { door } = {}) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
     request.writeUInt8(0x40, 1)
     request.writeUInt32LE(deviceId, 4)
-    request.writeUInt8(object.door, 8)
+    request.writeUInt8(door, 8)
 
     return request
   },
 
+  /**
+    * Encodes a get-cards request.
+    *
+    * @param {number} deviceId  Controller serial number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-cards request.
+    */
   GetCards: function (deviceId, object) {
     const request = Buffer.alloc(64)
 
@@ -142,57 +230,99 @@ module.exports = {
     return request
   },
 
-  GetCardByID: function (deviceId, object) {
+  /**
+    * Encode a get-card-by-id request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} card      Card number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-card-by-id request.
+    */
+  GetCardByID: function (deviceId, { card } = {}) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
     request.writeUInt8(0x5a, 1)
     request.writeUInt32LE(deviceId, 4)
-    request.writeUInt32LE(object.card.number, 8)
+    request.writeUInt32LE(card, 8)
 
     return request
   },
 
-  GetCardByIndex: function (deviceId, object) {
+  /**
+    * Encode a get-card-by-index request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} index     Card index
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-card-by-index request.
+    */
+  GetCardByIndex: function (deviceId, { index } = {}) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
     request.writeUInt8(0x5c, 1)
     request.writeUInt32LE(deviceId, 4)
-    request.writeUInt32LE(object.card.index, 8)
+    request.writeUInt32LE(index, 8)
 
     return request
   },
 
-  PutCard: function (deviceId, object) {
+  /**
+    * Encode a put-card request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} card      Card number
+    * @param {date}   from      Card validity start date
+    * @param {date}   to        Card validity end date
+    * @param {object} doors     Object mapping door numbers 1..4 to true/false access rights
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded put-card request.
+    */
+  PutCard: function (deviceId, { card, from, to, doors } = {}) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
     request.writeUInt8(0x50, 1)
     request.writeUInt32LE(deviceId, 4)
-    request.writeUInt32LE(object.card.number, 8)
-    date2bin(object.card.valid.from).copy(request, 12)
-    date2bin(object.card.valid.to).copy(request, 16)
-    request.writeUInt8(object.card.doors['1'] ? 0x01 : 0x00, 20)
-    request.writeUInt8(object.card.doors['2'] ? 0x01 : 0x00, 21)
-    request.writeUInt8(object.card.doors['3'] ? 0x01 : 0x00, 22)
-    request.writeUInt8(object.card.doors['4'] ? 0x01 : 0x00, 23)
+    request.writeUInt32LE(card, 8)
+    date2bin(from).copy(request, 12)
+    date2bin(to).copy(request, 16)
+    request.writeUInt8(doors['1'] ? 0x01 : 0x00, 20)
+    request.writeUInt8(doors['2'] ? 0x01 : 0x00, 21)
+    request.writeUInt8(doors['3'] ? 0x01 : 0x00, 22)
+    request.writeUInt8(doors['4'] ? 0x01 : 0x00, 23)
 
     return request
   },
 
-  DeleteCard: function (deviceId, object) {
+  /**
+    * Encode a delete-card request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} card      Card number to delete
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded delete-card request.
+    */
+  DeleteCard: function (deviceId, { card } = {}) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
     request.writeUInt8(0x52, 1)
     request.writeUInt32LE(deviceId, 4)
-    request.writeUInt32LE(object.card.number, 8)
+    request.writeUInt32LE(card, 8)
 
     return request
   },
 
-  DeleteCards: function (deviceId, object) {
+  /**
+    * Encode a delete-all-cards request.
+    *
+    * @param {number} deviceId  Controller serial number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded delete-all-cards request.
+    */
+  DeleteCards: function (deviceId) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
@@ -203,7 +333,14 @@ module.exports = {
     return request
   },
 
-  GetEventIndex: function (deviceId, object) {
+  /**
+    * Encode a get-event-index request.
+    *
+    * @param {number} deviceId  Controller serial number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-event-index request.
+    */
+  GetEventIndex: function (deviceId) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
@@ -213,25 +350,41 @@ module.exports = {
     return request
   },
 
-  SetEventIndex: function (deviceId, object) {
+  /**
+    * Encode a set-event-index request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} index     Index to which to set controller internal event index
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded set-event-index request.
+    */
+  SetEventIndex: function (deviceId, { index } = {}) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
     request.writeUInt8(0xb2, 1)
     request.writeUInt32LE(deviceId, 4)
-    request.writeUInt32LE(object.index, 8)
+    request.writeUInt32LE(index, 8)
     request.writeUInt32LE(0x55aaaa55, 12)
 
     return request
   },
 
-  GetEvent: function (deviceId, object) {
+  /**
+    * Encode a get-event request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} index     Index of event to retrieve
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-event request.
+    */
+  GetEvent: function (deviceId, { index } = {}) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
     request.writeUInt8(0xb0, 1)
     request.writeUInt32LE(deviceId, 4)
-    request.writeUInt32LE(object.index, 8)
+    request.writeUInt32LE(index, 8)
 
     return request
   }
@@ -244,8 +397,6 @@ module.exports = {
   * @param {number} offset   Index of time in buffer
   *
   * @param {buffer} 6 byte NodeJS buffer with BCD encoded timestamp.
-  *
-  * @author: TS
   */
 function datetime2bin (datetime) {
   const bytes = []
@@ -269,7 +420,6 @@ function datetime2bin (datetime) {
   *
   * @param {buffer} 4 byte NodeJS buffer with BCD encoded timestamp
   *
-  * @author: TS
   */
 function date2bin (date) {
   const bytes = []

@@ -7,9 +7,9 @@ const GET_STATUS = 0x20
 const SET_TIME = 0x30
 const GET_TIME = 0x32
 
+const OPEN_DOOR = 0x40
 const GET_DOOR_CONTROL = 0x82
 const SET_DOOR_CONTROL = 0x80
-const OPEN_DOOR = 0x40
 
 const GET_CARDS = 0x58
 const GET_CARD_BY_ID = 0x5a

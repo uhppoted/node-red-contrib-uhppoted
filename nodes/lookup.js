@@ -66,7 +66,6 @@ module.exports = {
     *
     * @param {object}   { code:byte, event:string }
     *
-    * @author: TS
     * @exports
     */
   eventType: function (bytes, offset, translator) {
@@ -115,7 +114,6 @@ module.exports = {
     *
     * @param {object}   { code: byte, direction: string }
     *
-    * @author: TS
     * @exports
     */
   direction: function (bytes, offset, translator) {
@@ -152,7 +150,6 @@ module.exports = {
     *
     * @param {object}   { code: byte, reason: string }
     *
-    * @author: TS
     * @exports
     */
   reason: function (bytes, offset, translator) {
@@ -303,7 +300,6 @@ module.exports = {
     *
     * @param {object}   { state: byte, 1: open/closed, 2: open/closed, 3: open/closed, 4: open/closed }
     *
-    * @author: TS
     * @exports
     */
   relays: function (bytes, offset) {
@@ -330,7 +326,6 @@ module.exports = {
     *
     * @param {object}   { state: byte, forceLock: open/closed, fireAlarm: open/closed }
     *
-    * @author: TS
     * @exports
     */
   inputs: function (bytes, offset) {
@@ -353,7 +348,6 @@ module.exports = {
     *
     * @param {object}   { value: byte, state: 'normally open', 'normally closed', 'controlled' or 'unknown' }
     *
-    * @author: TS
     * @exports
     */
   doorState: function (bytes, offset, translator) {
