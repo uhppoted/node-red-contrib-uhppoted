@@ -1,6 +1,8 @@
 # node-red-contrib-uhppoted
 
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
+![NPM version](https://badge.fury.io/js/node-red-contrib-uhppoted.svg)
+![NPM](https://img.shields.io/npm/l/node-red-contrib-uhppoted)
 
 Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports device and card management as well as handling for events.
 
@@ -13,10 +15,17 @@ For the latest updates see the [CHANGELOG.md](https://github.com/uhppoted/node-r
 
 #### Installation
 
-The nodes are currently only installable from the [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository:
+To install the stable version use the `Menu - Manage palette` option and search for `node-red-contrib-uhppoted`,
+or run the following command in your Node-RED user directory (typically `~/.node-red`:
 
+    npm i node-red-contrib-uhppoted
 
-    cd ~\.node-red\node_modules
+Restart your Node-RED instance and you should have the `uhppoted` nodes available in the palette.
+
+If you want to try the development version from the [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_
+repository:
+
+    cd ~/.node-red/node_modules
     git clone https://github.com/uhppoted/node-red-contrib-uhppoted.git
     cd node-red-contrib-uhppoted
     npm install

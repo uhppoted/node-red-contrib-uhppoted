@@ -1,8 +1,8 @@
 {
   "name": "node-red-contrib-uhppoted",
-  "version": "0.0.0-alpha",
+  "version": "0.6.5",
   "description": "A set of nodes for the UHPPOTE Wiegand Access Controller",
-  "main": "none",
+  "main": "index.js",
   "keywords": [
     "node-red", "uhppote", "Wiegand", "access control"
   ],
