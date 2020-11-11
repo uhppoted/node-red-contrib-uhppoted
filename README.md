@@ -16,9 +16,9 @@ For the latest updates see the [CHANGELOG.md](https://github.com/uhppoted/node-r
 #### Installation
 
 To install the stable version use the `Menu - Manage palette` option and search for `node-red-contrib-uhppoted`,
-or run the following command in your Node-RED user directory (typically `~/.node-red`:
+or run the following command in your Node-RED user directory (e.g. `~/.node-red` on MacOS and Linux):
 
-    npm i node-red-contrib-uhppoted
+    npm install node-red-contrib-uhppoted
 
 Restart your Node-RED instance and you should have the `uhppoted` nodes available in the palette.
 

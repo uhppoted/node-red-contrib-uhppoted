@@ -2,9 +2,9 @@
 
 ## IN PROGRESS
 
-- [ ] Publish to NPM
-- [ ] Release
-
+- [x] Publish to NodeRED
+- [x] Publish to NPM
+- [x] Release
 - [x] Rework codec as map of functions
 - [x] dashboard: clean up
 - [x] dashboard: configure - changing controllers should restore from flow context
