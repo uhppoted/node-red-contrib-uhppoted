@@ -13,6 +13,7 @@ module.exports = function (RED) {
     common.ok(node)
 
     this.on('input', function (msg, send, done) {
+      console.log('debug/1', msg)
       const t = (topic && topic !== '') ? topic : msg.topic
       const deviceId = msg.payload.deviceId
       const door = msg.payload.door
@@ -29,7 +30,8 @@ module.exports = function (RED) {
           break
 
         case 'controlled':
-          control = opcodes.controlled
+          control = opcodes.Controlled
+          console.log('debug/2', control)
           break
 
         default:

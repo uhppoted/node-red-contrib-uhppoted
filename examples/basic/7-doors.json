@@ -116,7 +116,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"deviceId\":405419896,\"door\":1,\"delay\":6,\"control\":\"normally closed\"}",
+        "payload": "{\"deviceId\":405419896,\"door\":1,\"delay\":6,\"control\":\"controlled\"}",
         "payloadType": "json",
         "x": 130,
         "y": 260,
