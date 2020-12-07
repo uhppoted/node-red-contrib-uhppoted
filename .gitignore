@@ -10,3 +10,4 @@ node_modules
 # node-red
 examples/.examples.json.backup
 examples/.dashboard.json.backup
+integration-tests/.integration-tests.json.backup

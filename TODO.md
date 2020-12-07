@@ -2,7 +2,7 @@
 
 ## IN PROGRESS
 
-- [ ] https://github.com/uhppoted/node-red-contrib-uhppoted/issues/1
+- [x] https://github.com/uhppoted/node-red-contrib-uhppoted/issues/1
       - integration test
 
 - [x] unhandled promise rejection
@@ -17,5 +17,6 @@
 
 ## TODO
 
-- [ ] integration tests
+- [ ] NPX integration tests
+- [ ] (?) use JSON.parse if node input is a string
 
