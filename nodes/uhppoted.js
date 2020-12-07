@@ -23,19 +23,23 @@ module.exports = {
     const c = context(deviceId, ctx.config, ctx.logger)
     const receiver = receiveAny(c.timeout)
 
-    const decode = function (reply) {
-      if (reply) {
-        const response = codec.decode(reply, ctx.translator)
+    try {
+      const decode = function (reply) {
+        if (reply) {
+          const response = codec.decode(reply, ctx.translator)
 
-        if (response && (response.deviceId === c.deviceId)) {
-          return response
+          if (response && (response.deviceId === c.deviceId)) {
+            return response
+          }
         }
+
+        throw new Error(`no reply from ${deviceId}`)
       }
 
-      throw new Error(`no reply from ${deviceId}`)
+      return exec(c, op, request, receiver).then(decode)
+    } finally {
+      receiver.cancel()
     }
-
-    return exec(c, op, request, receiver).then(decode)
   },
 
   /**
@@ -56,18 +60,22 @@ module.exports = {
     const c = context(deviceId, ctx.config, ctx.logger)
     const receiver = receiveAny(c.timeout)
 
-    const decode = function (reply) {
-      if (reply) {
-        const response = codec.decode(reply, ctx.translator)
-        if (response && (response.deviceId === c.deviceId)) {
-          return response
+    try {
+      const decode = function (reply) {
+        if (reply) {
+          const response = codec.decode(reply, ctx.translator)
+          if (response && (response.deviceId === c.deviceId)) {
+            return response
+          }
         }
+
+        throw new Error(`no reply from ${deviceId}`)
       }
 
-      throw new Error(`no reply from ${deviceId}`)
+      return exec(c, op, request, receiver).then(decode)
+    } finally {
+      receiver.cancel()
     }
-
-    return exec(c, op, request, receiver).then(decode)
   },
 
   /**
@@ -428,8 +436,8 @@ function isBroadcast (addr) {
   *
   */
 function receiveAny (timeout) {
-  var timer
-  var f
+  let timer = null
+  let f = null
 
   const p = new Promise((resolve, reject) => {
     f = resolve
@@ -437,6 +445,12 @@ function receiveAny (timeout) {
       timer = setTimeout(() => { reject(new Error('timeout')) }, timeout)
     }
   })
+
+  p.cancel = () => {
+    if (timer) {
+      clearTimeout(timer)
+    }
+  }
 
   p.received = (message) => {
     if (timer) {

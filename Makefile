@@ -19,6 +19,9 @@ test: build
 	npx eslint --fix test/*.js  
 	npm test
 
+integration-tests: build
+	node-red ./integration-tests/integration-tests.json
+
 dashboard: build
 	node-red ./examples/dashboard.json
 

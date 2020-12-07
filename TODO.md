@@ -3,9 +3,9 @@
 ## IN PROGRESS
 
 - [ ] https://github.com/uhppoted/node-red-contrib-uhppoted/issues/1
-      - unit test
+      - integration test
 
-- [ ] unhandled promise rejection
+- [x] unhandled promise rejection
       5 Dec 13:35:25 - [warn] [set-door-control:set-door-control] uhppoted::Error: invalid door control undefined
       (node:947) UnhandledPromiseRejectionWarning: Error: timeout
          at Timeout._onTimeout (/Users/tonyseebregts/Development/uhppote/uhppoted/node-red-contrib-uhppoted/nodes/uhppoted.js:437:41)

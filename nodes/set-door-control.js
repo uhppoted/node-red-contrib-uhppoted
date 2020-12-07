@@ -13,11 +13,11 @@ module.exports = function (RED) {
     common.ok(node)
 
     this.on('input', function (msg, send, done) {
-      console.log('debug/1', msg)
       const t = (topic && topic !== '') ? topic : msg.topic
       const deviceId = msg.payload.deviceId
       const door = msg.payload.door
       const delay = msg.payload.delay
+
       let control = 0x00
 
       switch (msg.payload.control) {
@@ -31,7 +31,6 @@ module.exports = function (RED) {
 
         case 'controlled':
           control = opcodes.Controlled
-          console.log('debug/2', control)
           break
 
         default:
