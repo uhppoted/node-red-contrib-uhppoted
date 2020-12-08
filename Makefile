@@ -28,3 +28,5 @@ dashboard: build
 examples: build
 	node-red ./examples/examples.json
 
+release:
+	npm pack

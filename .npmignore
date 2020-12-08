@@ -2,3 +2,4 @@ Makefile
 TODO.md
 docker
 examples/*.backup
+integration-tests/*.backup
