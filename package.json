@@ -43,6 +43,7 @@
       "put-card": "nodes/put-card.js",
       "delete-card": "nodes/delete-card.js",
       "delete-all-cards": "nodes/delete-cards.js",
+      "record-special-events": "nodes/record-special-events.js",
       "get-event-index": "nodes/get-event-index.js",
       "set-event-index": "nodes/set-event-index.js",
       "get-event": "nodes/get-event.js",
@@ -54,19 +55,20 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
-    "bl": "^2.2.1",
+    "bl": "^4.0.3",
     "ip": "^1.1.5"
   },
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^7.16.0",
-    "eslint-config-standard": "^14.1.1",
+    "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.1.0",
+    "eslint-plugin-standard": "^5.0.0",
     "mocha": "^8.2.1",
     "node-red": "^1.2.6",
+    "node-red-dashboard": "^2.26.0",
     "node-red-node-test-helper": "^0.2.5",
     "node-red-node-ui-list": "^0.3.4",
     "node-red-node-ui-table": "^0.3.10"

@@ -1,0 +1,6 @@
+{
+    "record-special-events": {
+        "inputLabel": "controller ID\nenable",
+        "outputLabel": "record special events updated"
+    }
+}

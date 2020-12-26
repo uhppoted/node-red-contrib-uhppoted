@@ -334,6 +334,30 @@ module.exports = {
   },
 
   /**
+    * Encode a record-special-events request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} enable    true/false
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded record-special-events request.
+    */
+  RecordSpecialEvents: function (deviceId, { enable } = {}) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0x8e, 1)
+    request.writeUInt32LE(deviceId, 4)
+
+    if (enable) {
+      request.writeUInt8(1, 8)
+    } else {
+      request.writeUInt8(0, 8)
+    }
+
+    return request
+  },
+
+  /**
     * Encode a get-event-index request.
     *
     * @param {number} deviceId  Controller serial number

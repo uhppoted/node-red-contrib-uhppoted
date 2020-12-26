@@ -320,6 +320,22 @@ module.exports = {
   },
 
   /**
+    * Decodes the response to a record-special-events request (function code 0x8e).
+    *
+    * @param {buffer}   buffer     64 byte NodeJS buffer
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded record-special-events response object
+    */
+  RecordSpecialEvents: function (bytes, translator) {
+    return {
+      deviceId: uint32(bytes, 4),
+      updated: bool(bytes, 8)
+    }
+  },
+
+  /**
     * Decodes the response to a get-event request (function code 0xb0).
     *
     * @param {buffer}   buffer     64 byte NodeJS buffer

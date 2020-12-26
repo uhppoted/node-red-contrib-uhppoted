@@ -1,4 +1,4 @@
-<script type="text/html" data-template-name="set-event-index">
+<script type="text/html" data-template-name="record-special-events">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -13,13 +13,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="set-event-index">
-    <p>Sets the access controller current event index.</p>
+<script type="text/html" data-help-name="record-special-events">
+    <p>Enables or disables events on door open, door closed and door button pressed.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the device ID and event index for 'set-event-index'</dd>
+        <dd>JSON object with the device ID and event index for 'record-special-events'</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -34,26 +34,27 @@
 
     <h3>Details</h3>
     <p>The input <code>msg.payload</code> is a JSON object containing the access
-    controller serial number and the value to which the event index should be set.</p>
+    controller serial number and true/false to enable/disable recording door sensor events.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
-        <dt>index<span class="property-type">uint32</span></dt>
-        <dd>event index in the range 1 to 100000</dd>
+        <dt>enable<span class="property-type">boolean</span></dt>
+        <dd>true or false</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896,
-    "index": 54321
+    "enable": true
   }</pre>
 
-    <p>The output is a JSON object containing the success/failure result for setting the event index.</p>
+    <p>The output is a JSON object containing the success/failure result for enabling or disabling 
+    record special events.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
         <dt>updated<span class="property-type">boolean</span></dt>
-        <dd>true if the event index was successfully set</dd>
+        <dd>true if the record special events was successfully set</dd>
     </dl>
     <h4>Example:</h4>
     <pre>

@@ -22,6 +22,7 @@ const enc = new Map([
   [opcodes.PutCard, encoder.PutCard],
   [opcodes.DeleteCard, encoder.DeleteCard],
   [opcodes.DeleteCards, encoder.DeleteCards],
+  [opcodes.RecordSpecialEvents, encoder.RecordSpecialEvents],
   [opcodes.GetEventIndex, encoder.GetEventIndex],
   [opcodes.SetEventIndex, encoder.SetEventIndex],
   [opcodes.GetEvent, encoder.GetEvent]
@@ -46,6 +47,7 @@ const dec = new Map([
   [0x90, decoder.SetListener],
   [0x92, decoder.GetListener],
   [0x94, decoder.GetDevice],
+  [0x8e, decoder.RecordSpecialEvents],
   [0xb0, decoder.GetEvent],
   [0xb2, decoder.SetEventIndex],
   [0xb4, decoder.GetEventIndex]

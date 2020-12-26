@@ -18,6 +18,7 @@ const PUT_CARD = 0x50
 const DELETE_CARD = 0x52
 const DELETE_CARDS = 0x54
 
+const RECORD_SPECIAL_EVENTS = 0x8e
 const GET_EVENT_INDEX = 0xb4
 const SET_EVENT_INDEX = 0xb2
 const GET_EVENT = 0xb0
@@ -43,6 +44,7 @@ module.exports = {
   PutCard: PUT_CARD,
   DeleteCard: DELETE_CARD,
   DeleteCards: DELETE_CARDS,
+  RecordSpecialEvents: RECORD_SPECIAL_EVENTS,
   GetEventIndex: GET_EVENT_INDEX,
   SetEventIndex: SET_EVENT_INDEX,
   GetEvent: GET_EVENT,
