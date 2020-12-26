@@ -132,7 +132,7 @@
         "label": "index",
         "tooltip": "",
         "group": "920f64db.d2fd58",
-        "order": 54,
+        "order": 48,
         "width": 3,
         "height": 1,
         "passthru": true,
@@ -170,7 +170,7 @@
         "name": "events page",
         "info": "",
         "x": 150,
-        "y": 580,
+        "y": 720,
         "wires": []
     },
     {
@@ -184,7 +184,7 @@
         "initialize": "",
         "finalize": "",
         "x": 370,
-        "y": 740,
+        "y": 820,
         "wires": [
             [
                 "7cf7e46b.641d4c",
@@ -208,7 +208,7 @@
         "delay": "0",
         "topic": "set-event-index",
         "x": 170,
-        "y": 800,
+        "y": 880,
         "wires": [
             [
                 "969e6ec3.60ba6"
@@ -223,7 +223,7 @@
         "topic": "get-event-reply",
         "config": "cbd92359.dbf19",
         "x": 560,
-        "y": 760,
+        "y": 840,
         "wires": [
             [
                 "fae74f01.5e9fb"
@@ -241,7 +241,7 @@
         "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
         "finalize": "",
         "x": 740,
-        "y": 740,
+        "y": 820,
         "wires": [
             [
                 "8bf467eb.92a0f8"
@@ -345,7 +345,7 @@
         "outputs": 0,
         "cts": false,
         "x": 970,
-        "y": 760,
+        "y": 840,
         "wires": []
     },
     {
@@ -355,7 +355,7 @@
         "name": "tab-event",
         "events": "change",
         "x": 380,
-        "y": 800,
+        "y": 880,
         "wires": [
             [
                 "4fe93047.b30f5"
@@ -373,7 +373,7 @@
         "initialize": "",
         "finalize": "",
         "x": 740,
-        "y": 800,
+        "y": 880,
         "wires": [
             [
                 "fcd11c8b.3687f"
@@ -402,7 +402,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 130,
-        "y": 900,
+        "y": 980,
         "wires": [
             [
                 "74b54a3b.4a9634"
@@ -421,7 +421,7 @@
         "initialize": "",
         "finalize": "",
         "x": 280,
-        "y": 900,
+        "y": 980,
         "wires": [
             [
                 "6be3562c.613718"
@@ -441,7 +441,7 @@
         "format": "{{msg.payload}}",
         "layout": "row-left",
         "x": 980,
-        "y": 700,
+        "y": 780,
         "wires": []
     },
     {
@@ -463,7 +463,7 @@
         "payloadType": "str",
         "topic": "",
         "x": 550,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "d3301867.210768"
@@ -481,7 +481,7 @@
         "initialize": "const doors = {\n    405419896: {\n        1: 'ENTRANCE',\n        2: 'WORKSHOP',\n        3: 'TOWER',\n        4: 'DUNGEON'\n    },\n    303986753: {\n        1: 'DOOR X',\n        2: 'DOOR Y',\n        3: 'LABORATORY',\n        4: 'KITCHEN'\n    }\n}\n\nflow.set('doors', doors)",
         "finalize": "",
         "x": 730,
-        "y": 680,
+        "y": 760,
         "wires": [
             [
                 "8bf467eb.92a0f8"
@@ -507,7 +507,7 @@
         "randomUnits": "seconds",
         "drop": false,
         "x": 570,
-        "y": 800,
+        "y": 880,
         "wires": [
             [
                 "a3a01c91.245eb"
@@ -578,12 +578,12 @@
         "z": "b5da19a5.72a0c8",
         "name": "set-event-index",
         "group": "920f64db.d2fd58",
-        "order": 58,
+        "order": 54,
         "width": 3,
         "height": 1,
         "passthru": false,
         "label": "set",
-        "tooltip": "Sets controller network address, netmask and gateway",
+        "tooltip": "Sets controller event index",
         "color": "#FFFFFF",
         "bgcolor": "#A6BBCF",
         "icon": "",
@@ -678,7 +678,7 @@
         "type": "ui_text",
         "z": "b5da19a5.72a0c8",
         "group": "920f64db.d2fd58",
-        "order": 53,
+        "order": 47,
         "width": 2,
         "height": 1,
         "name": "label-events",
@@ -724,7 +724,7 @@
         "payloadType": "json",
         "topic": "set-device",
         "x": 170,
-        "y": 720,
+        "y": 800,
         "wires": [
             [
                 "969e6ec3.60ba6",
@@ -751,7 +751,7 @@
         "payloadType": "json",
         "topic": "set-device",
         "x": 170,
-        "y": 760,
+        "y": 840,
         "wires": [
             [
                 "969e6ec3.60ba6",
@@ -772,7 +772,129 @@
         "format": "{{msg.payload.deviceId}}",
         "layout": "row-left",
         "x": 360,
-        "y": 700,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "f210d780.bfc978",
+        "type": "ui_switch",
+        "z": "b5da19a5.72a0c8",
+        "name": "record-special-events",
+        "label": "record special events",
+        "tooltip": "",
+        "group": "920f64db.d2fd58",
+        "order": 56,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "record-special-events",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "x": 140,
+        "y": 620,
+        "wires": [
+            [
+                "55865cdd.bd6d84"
+            ]
+        ]
+    },
+    {
+        "id": "55865cdd.bd6d84",
+        "type": "function",
+        "z": "b5da19a5.72a0c8",
+        "name": "record-special-events",
+        "func": "switch (msg.topic) {\n    case 'set-device':\n        flow.set('record-special-events.device', Number(msg.payload.deviceId))\n        break;\n\n    case 'record-special-events':\n        flow.set('record-special-events.enable', msg.payload)\n        break;\n\n    case 'set':\n        const deviceId = flow.get('record-special-events.device')\n        const enable = flow.get('record-special-events.enable')\n\n        if (deviceId) {\n            msg.payload = { \n                deviceId: deviceId,\n                enable: enable\n            }\n        \n            return msg\n        }\n        break\n}\n\nreturn null\n\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 420,
+        "y": 580,
+        "wires": [
+            [
+                "c1ea8d3f.2f9a2"
+            ]
+        ]
+    },
+    {
+        "id": "9d826267.c5b79",
+        "type": "link in",
+        "z": "b5da19a5.72a0c8",
+        "name": "",
+        "links": [
+            "14775167.8aa25f"
+        ],
+        "x": 215,
+        "y": 580,
+        "wires": [
+            [
+                "55865cdd.bd6d84"
+            ]
+        ]
+    },
+    {
+        "id": "c1ea8d3f.2f9a2",
+        "type": "record-special-events",
+        "z": "b5da19a5.72a0c8",
+        "name": "record-special-events",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 660,
+        "y": 580,
+        "wires": [
+            [
+                "6cbf3207.88b46c"
+            ]
+        ]
+    },
+    {
+        "id": "920b2b10.a1f8d8",
+        "type": "ui_button",
+        "z": "b5da19a5.72a0c8",
+        "name": "set-record-special-events",
+        "group": "920f64db.d2fd58",
+        "order": 62,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "set",
+        "tooltip": "Sets record special events",
+        "color": "#FFFFFF",
+        "bgcolor": "#A6BBCF",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "set",
+        "x": 130,
+        "y": 660,
+        "wires": [
+            [
+                "55865cdd.bd6d84"
+            ]
+        ]
+    },
+    {
+        "id": "6cbf3207.88b46c",
+        "type": "debug",
+        "z": "b5da19a5.72a0c8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 580,
         "wires": []
     },
     {

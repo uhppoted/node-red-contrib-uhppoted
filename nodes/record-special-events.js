@@ -18,7 +18,11 @@ module.exports = function (RED) {
       const enable = msg.payload.enable
 
       const emit = function (object) {
-        common.emit(node, t, object)
+        common.emit(node, t, {
+          deviceId: object.deviceId,
+          enable: enable,
+          updated: object.updated
+        })
       }
 
       const error = function (err) {
