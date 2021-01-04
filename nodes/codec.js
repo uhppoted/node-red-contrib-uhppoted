@@ -90,13 +90,15 @@ module.exports = {
     * @exports
     */
   decode: function (buffer, translator) {
-    if ((buffer.length !== 64) || (buffer[0] !== 0x17) || !dec.has(buffer[1])) {
-      return null
+    // NOTE: v6.62 firmware sends events with SOM code 0x19
+    //       Ref. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/3
+    if (buffer.length === 64 && (buffer[0] === 0x17 || (buffer[0] === 0x19 && buffer[1] === 0x20)) && dec.has(buffer[1])) {
+      const f = dec.get(buffer[1])
+      const bytes = new DataView(buffer.buffer)
+
+      return f(bytes, translator)
     }
 
-    const f = dec.get(buffer[1])
-    const bytes = new DataView(buffer.buffer)
-
-    return f(bytes, translator)
+    return null
   }
 }

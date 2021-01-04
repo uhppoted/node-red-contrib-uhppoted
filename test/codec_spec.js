@@ -1130,5 +1130,73 @@ describe('codec', function () {
 
       expect(object).to.deep.equal(expected)
     })
+
+    // NOTE: v6.62 firmware sends events with SOM code 0x19
+    //       Ref. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/3
+    it('should decode a v6.62 event message', function () {
+      const expected = {
+        deviceId: 405419896,
+        state: {
+          serialNumber: 405419896,
+          event: {
+            index: 71,
+            type: {
+              code: 1,
+              event: '** card swipe'
+            },
+            granted: false,
+            door: 3,
+            direction: {
+              code: 1,
+              direction: '** in'
+            },
+            card: 65538,
+            timestamp: '2020-08-25 10:08:40',
+            reason: {
+              code: 6,
+              reason: '** no access rights'
+            }
+          },
+          doors: {
+            1: false,
+            2: false,
+            3: false,
+            4: false
+          },
+          buttons: {
+            1: false,
+            2: false,
+            3: false,
+            4: false
+          },
+          system: {
+            status: 0,
+            date: '2020-08-25',
+            time: '10:08:40'
+          },
+          specialInfo: 0,
+          relays: {
+            state: 0,
+            relays: { 1: false, 2: false, 3: false, 4: false }
+          },
+          inputs: {
+            state: 0,
+            forceLock: false,
+            fireAlarm: false
+          }
+        }
+      }
+
+      const msg = Buffer.from([
+        0x19, 0x20, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x47, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x01,
+        0x02, 0x00, 0x01, 0x00, 0x20, 0x20, 0x08, 0x25, 0x10, 0x08, 0x40, 0x06, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x00, 0x00, 0x10, 0x08, 0x40, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+        0x00, 0x00, 0x00, 0x20, 0x08, 0x25, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+      ])
+
+      const object = codec.decode(new Uint8Array(msg), translator)
+
+      expect(object).to.deep.equal(expected)
+    })
   })
 })
