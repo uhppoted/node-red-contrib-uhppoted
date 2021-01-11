@@ -84,7 +84,7 @@ The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contr
 | [`6‑time`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/6-time.json)               | Example _flow_ for the `get‑time` and `set‑time` nodes |
 | [`7‑doors`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/7-doors.json)             | Example _flow_ for the `get‑door‑control`, `set‑door‑control` and `open‑door` nodes |
 | [`8‑cards`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/8-cards.json)             | Example _flow_ for the `get‑cards`, `get‑card`, `get‑card‑by‑index`, `put‑card`, `delete‑card` and `delete‑cards` nodes |
-| [`9-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/9-events.json)           | Example _flow_ for the `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
+| [`9-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/9-events.json)           | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
 
 
 ### Issues and Feature Requests
