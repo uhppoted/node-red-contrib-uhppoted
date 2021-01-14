@@ -67,7 +67,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^5.0.0",
     "mocha": "^8.2.1",
-    "node-red": "^1.2.6",
+    "node-red": "^1.2.7",
     "node-red-dashboard": "^2.26.1",
     "node-red-node-test-helper": "^0.2.5",
     "node-red-node-ui-list": "^0.3.4",
