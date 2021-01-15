@@ -1,6 +1,6 @@
 ### v0.6.9: Security fix for CVE-2020-28168
 
-1. Updates node-red dependency to v1.2.7 with axios v0.21.1 with patch for 
+1. Updates node-red dependency to v1.2.7 with axios v0.21.1 patched for 
    [CVE-2020-28168](https://github.com/advisories/GHSA-4w2v-q235-vp99)
 
 ### v0.6.8: Implements decoding for _UHPPOTE_ firmware `v6.62` _listen events_
