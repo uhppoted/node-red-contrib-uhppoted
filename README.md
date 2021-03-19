@@ -86,6 +86,10 @@ The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contr
 | [`8‑cards`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/8-cards.json)             | Example _flow_ for the `get‑cards`, `get‑card`, `get‑card‑by‑index`, `put‑card`, `delete‑card` and `delete‑cards` nodes |
 | [`9-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/9-events.json)           | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
 
+The dashboard example requires the following additional components to be installed into the palette:
+
+- [node-red-node-ui-list](https://flows.nodered.org/node/node-red-node-ui-list)
+- [node-red-node-ui-table](https://flows.nodered.org/node/node-red-node-ui-table)
 
 ### Issues and Feature Requests
 
