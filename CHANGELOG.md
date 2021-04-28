@@ -1,3 +1,7 @@
+### v0.6.12: Maintenance release to update dependencies
+
+1. Updates NodeRED dependency to 1.3.3
+
 ### v0.6.10: Maintenance release to update dependencies
 
 1. Updates NodeRED dependency to 1.2.9
