@@ -1,6 +1,6 @@
 {
     "delete-card": {
         "inputLabel": "controller ID\ncard number",
-        "outputLabel": "ard deleted"
+        "outputLabel": "card deleted"
     }
 }

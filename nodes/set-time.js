@@ -1,6 +1,7 @@
 module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
+  const opcodes = require('../nodes/opcodes.js')
 
   function SetTimeNode (config) {
     RED.nodes.createNode(this, config)
@@ -31,7 +32,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, 0x30, { datetime: datetime })
+        uhppoted.set(context, deviceId, opcodes.SetTime, { datetime: datetime })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

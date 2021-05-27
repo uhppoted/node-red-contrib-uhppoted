@@ -279,7 +279,7 @@ function context (device, config, logger) {
   let timeout = 5000
   let bind = '0.0.0.0'
   let dest = '255.255.255.255:60000'
-  let listen = '0.0.0.0:60000'
+  let listen = '0.0.0.0:60001'
   let forceBroadcast = false
   let debug = false
 

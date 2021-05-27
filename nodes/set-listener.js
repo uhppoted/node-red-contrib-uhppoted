@@ -1,6 +1,7 @@
 module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
+  const opcodes = require('../nodes/opcodes.js')
 
   function SetListenerNode (config) {
     RED.nodes.createNode(this, config)
@@ -40,7 +41,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, 0x90, { address: address, port: port })
+        uhppoted.set(context, deviceId, opcodes.SetListener, { address: address, port: port })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })
