@@ -2,7 +2,7 @@
     {
         "id": "b5da19a5.72a0c8",
         "type": "tab",
-        "label": "9-events",
+        "label": "10-events",
         "disabled": false,
         "info": "# event retrieval: basic examples\n\nBasic examples for the _get-event-index_, _set-event-index_ and _get-event_ nodes.\n\n - the _get-event-index_ example retrieves the current 'downloaded event index' from the controller with serial number 405419896.\n\n - the _set-event-index_ example set the 'downloaded event index' to 17 for the controller with serial number 405419896.\n\n - the _get-event_ example retrieves the event record at record #3 from the controller with serial number 405419896.\n\nThe _events_ flow in the _dashboard_ flowset contains a more complete example."
     },
@@ -431,7 +431,6 @@
     {
         "id": "cbd92359.dbf19",
         "type": "config",
-        "z": "",
         "name": "examples",
         "timeout": "5000",
         "bind": "192.168.1.100",

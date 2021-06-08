@@ -56,9 +56,16 @@
         "info": "# card management: basic examples\n\nBasic examples for the _get-cards_, _get-card_, _get-card-by-index_, _put-card_, _delete-card_ and _delete-cards_ nodes.\n\n - the _get-cards_ example retrieves the number of stored card records from the controller with serial number 405419896.\n\n - the _get-card_ example retrieves the card record for card number 65538 from the controller with serial number 405419896.\n\n- the _get-card-by-index_ example retrieves the card record at record #3 from the controller with serial number 405419896.\n\n - the _put-card_ example stores card number 61532836 (valid from 2021-01-01 to 2021-13-31 and with access to doors 1, 3 and 4) to the controller with serial number 405419896.\n\n - the _delete-card_ example deletes the card record for card number 61532836 from the controller with serial number 405419896.\n\n - the _delete-cards_ example deletes all card records from the controller with serial number 405419896.\n\nThe _cards_ flow in the _dashboard_ flowset contains a more complete example."
     },
     {
+        "id": "590b5d52.6f70e4",
+        "type": "tab",
+        "label": "9-time-profiles",
+        "disabled": false,
+        "info": ""
+    },
+    {
         "id": "b5da19a5.72a0c8",
         "type": "tab",
-        "label": "9-events",
+        "label": "10-events",
         "disabled": false,
         "info": "# event retrieval: basic examples\n\nBasic examples for the _get-event-index_, _set-event-index_ and _get-event_ nodes.\n\n - the _get-event-index_ example retrieves the current 'downloaded event index' from the controller with serial number 405419896.\n\n - the _set-event-index_ example set the 'downloaded event index' to 17 for the controller with serial number 405419896.\n\n - the _get-event_ example retrieves the event record at record #3 from the controller with serial number 405419896.\n\nThe _events_ flow in the _dashboard_ flowset contains a more complete example."
     },
@@ -161,7 +168,6 @@
     {
         "id": "c03a3b24.d45c48",
         "type": "ui_group",
-        "z": "",
         "name": "column-1",
         "tab": "",
         "order": 1,
@@ -172,7 +178,6 @@
     {
         "id": "659dc42b.91f43c",
         "type": "ui_group",
-        "z": "",
         "name": "events",
         "tab": "",
         "order": 1,
@@ -183,7 +188,6 @@
     {
         "id": "ffdc2439.246b38",
         "type": "ui_group",
-        "z": "",
         "name": "column-3",
         "tab": "",
         "order": 3,
@@ -194,7 +198,6 @@
     {
         "id": "920f64db.d2fd58",
         "type": "ui_group",
-        "z": "",
         "name": "configuration",
         "tab": "",
         "order": 1,
@@ -205,7 +208,6 @@
     {
         "id": "573f9bfa.7e4564",
         "type": "ui_group",
-        "z": "",
         "name": "column-2",
         "tab": "",
         "order": 2,
@@ -216,7 +218,6 @@
     {
         "id": "80ebf5dd.1d2018",
         "type": "ui_group",
-        "z": "",
         "name": "card",
         "tab": "",
         "order": 2,
@@ -299,7 +300,6 @@
     {
         "id": "975ca31.d8d236",
         "type": "ui_group",
-        "z": "",
         "name": "cards",
         "tab": "",
         "order": 1,
@@ -823,7 +823,6 @@
     {
         "id": "cbd92359.dbf19",
         "type": "config",
-        "z": "",
         "name": "examples",
         "timeout": "5000",
         "bind": "192.168.1.100",
@@ -3681,6 +3680,67 @@
             [
                 "8321868.c35fa78",
                 "2b58807c.84593"
+            ]
+        ]
+    },
+    {
+        "id": "d9f2a76f.385308",
+        "type": "inject",
+        "z": "590b5d52.6f70e4",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896, \"profileId\": 3 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "8a160494.ad27f8"
+            ]
+        ]
+    },
+    {
+        "id": "b4fb88e0.f808a8",
+        "type": "debug",
+        "z": "590b5d52.6f70e4",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8a160494.ad27f8",
+        "type": "get-time-profile",
+        "z": "590b5d52.6f70e4",
+        "name": "",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "b4fb88e0.f808a8"
             ]
         ]
     }

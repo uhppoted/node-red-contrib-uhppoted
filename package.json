@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-uhppoted",
-  "version": "0.6.12",
+  "version": "0.7.0",
   "description": "A set of nodes for the UHPPOTE Wiegand Access Controller",
   "main": "index.js",
   "keywords": [
@@ -29,14 +29,13 @@
       "get-devices": "nodes/get-devices.js",
       "get-device": "nodes/get-device.js",
       "set-ip": "nodes/set-ip.js",
-      "get-listener": "nodes/get-listener.js",
-      "set-listener": "nodes/set-listener.js",
-      "get-status": "nodes/get-status.js",
       "get-time": "nodes/get-time.js",
       "set-time": "nodes/set-time.js",
       "get-door-control": "nodes/get-door-control.js",
       "set-door-control": "nodes/set-door-control.js",
-      "open-door": "nodes/open-door.js",
+      "get-listener": "nodes/get-listener.js",
+      "set-listener": "nodes/set-listener.js",
+      "get-status": "nodes/get-status.js",
       "get-cards": "nodes/get-cards.js",
       "get-card": "nodes/get-card.js",
       "get-card-by-index": "nodes/get-card-by-index.js",
@@ -47,6 +46,8 @@
       "get-event-index": "nodes/get-event-index.js",
       "set-event-index": "nodes/set-event-index.js",
       "get-event": "nodes/get-event.js",
+      "get-time-profile": "nodes/get-time-profile.js",
+      "open-door": "nodes/open-door.js",
       "listen": "nodes/listen.js"
     },
     "engines": {

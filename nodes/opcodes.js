@@ -18,6 +18,8 @@ const PUT_CARD = 0x50
 const DELETE_CARD = 0x52
 const DELETE_CARDS = 0x54
 
+const GET_TIME_PROFILE = 0x98
+
 const RECORD_SPECIAL_EVENTS = 0x8e
 const GET_EVENT_INDEX = 0xb4
 const SET_EVENT_INDEX = 0xb2
@@ -30,24 +32,25 @@ const CONTROLLED = 0x03
 module.exports = {
   GetDevice: GET_DEVICE,
   SetIP: SET_IP,
-  GetListener: GET_LISTENER,
-  SetListener: SET_LISTENER,
-  GetStatus: GET_STATUS,
   SetTime: SET_TIME,
   GetTime: GET_TIME,
   GetDoorControl: GET_DOOR_CONTROL,
   SetDoorControl: SET_DOOR_CONTROL,
-  OpenDoor: OPEN_DOOR,
+  GetListener: GET_LISTENER,
+  SetListener: SET_LISTENER,
+  GetStatus: GET_STATUS,
   GetCards: GET_CARDS,
   GetCardByID: GET_CARD_BY_ID,
   GetCardByIndex: GET_CARD_BY_INDEX,
   PutCard: PUT_CARD,
   DeleteCard: DELETE_CARD,
   DeleteCards: DELETE_CARDS,
+  GetTimeProfile: GET_TIME_PROFILE,
   RecordSpecialEvents: RECORD_SPECIAL_EVENTS,
   GetEventIndex: GET_EVENT_INDEX,
   SetEventIndex: SET_EVENT_INDEX,
   GetEvent: GET_EVENT,
+  OpenDoor: OPEN_DOOR,
 
   NormallyOpen: NORMALLY_OPEN,
   NormallyClosed: NORMALLY_CLOSED,
