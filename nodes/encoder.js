@@ -288,10 +288,33 @@ module.exports = {
     request.writeUInt32LE(card, 8)
     date2bin(from).copy(request, 12)
     date2bin(to).copy(request, 16)
-    request.writeUInt8(doors['1'] ? 0x01 : 0x00, 20)
-    request.writeUInt8(doors['2'] ? 0x01 : 0x00, 21)
-    request.writeUInt8(doors['3'] ? 0x01 : 0x00, 22)
-    request.writeUInt8(doors['4'] ? 0x01 : 0x00, 23)
+
+    let offset = 20;
+
+    ['1', '2', '3', '4'].forEach(door => {
+      const permission = doors[door]
+
+      if (permission) {
+        if (typeof permission === 'boolean') {
+          request.writeUInt8(permission ? 0x01 : 0x00, offset)
+        } else {
+          const profileID = Number(permission)
+
+          if (!Number.isNaN(profileID) && Number.isInteger(profileID) && profileID >= 2 && profileID <= 254) {
+            request.writeUInt8(profileID, offset)
+          } else {
+            throw new Error(`invalid time profile (${permission}) for door ${door}`)
+          }
+        }
+      }
+
+      offset = offset + 1
+    })
+
+    // request.writeUInt8(doors['1'] ? 0x01 : 0x00, 20)
+    // request.writeUInt8(doors['2'] ? 0x01 : 0x00, 21)
+    // request.writeUInt8(doors['3'] ? 0x01 : 0x00, 22)
+    // request.writeUInt8(doors['4'] ? 0x01 : 0x00, 23)
 
     return request
   },

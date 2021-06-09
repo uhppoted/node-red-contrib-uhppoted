@@ -45,14 +45,14 @@
         <dd>card active 'from' date (yyyy-MM-dd)</dd>
         <dt>card.valid.to<span class="property-type">date</span></dt>
         <dd>card active 'to' date (yyyy-MM-dd)</dd>
-        <dt>card.door.1<span class="property-type">boolean</span></dt>
-        <dd>access granted to door 1 if true</dd>
-        <dt>card.door.2<span class="property-type">boolean</span></dt>
-        <dd>access granted to door 2 if true</dd>
-        <dt>card.door.3<span class="property-type">boolean</span></dt>
-        <dd>access granted to door 3 if true</dd>
-        <dt>card.door.4<span class="property-type">boolean</span></dt>
-        <dd>access granted to door 4 if true</dd>
+        <dt>card.door.1<span class="property-type">boolean|uint8</span></dt>
+        <dd>access door 1 granted if true, managed by a time profile if uint8 in the range [2..254]</dd>
+        <dt>card.door.2<span class="property-type">boolean|uint8</span></dt>
+        <dd>access door 2 granted if true, managed by a time profile if uint8 in the range [2..254]</dd>
+        <dt>card.door.3<span class="property-type">boolean|uint8</span></dt>
+        <dd>access door 3 granted if true, managed by a time profile if uint8 in the range [2..254]</dd>
+        <dt>card.door.4<span class="property-type">boolean|uint8</span></dt>
+        <dd>access door 4 granted if true, managed by a time profile if uint8 in the range [2..254]</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
@@ -61,13 +61,13 @@
     "card": {
         "number": 61532836,
         "valid": {
-            "from": "2020-01-01",
-            "to": "2020-12-31"
+            "from": "2021-01-01",
+            "to": "2021-12-31"
         },
         "doors": {
             "1": true,
-            "2": true,
-            "3": false,
+            "2": false,
+            "3": 29,
             "4": true
         }
     }

@@ -190,6 +190,128 @@
         ]
     },
     {
+        "id": "8c3a28ff.bb9a08",
+        "type": "put-card",
+        "z": "590b5d52.6f70e4",
+        "name": "put-card-with-time-profile",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 330,
+        "y": 380,
+        "wires": [
+            [
+                "bad92d49.a0e61"
+            ]
+        ]
+    },
+    {
+        "id": "924ed50d.855988",
+        "type": "inject",
+        "z": "590b5d52.6f70e4",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "test",
+        "payload": "{\"deviceId\":405419896,\"card\":{\"number\":6153283,\"valid\":{\"from\":\"2021-01-01\",\"to\":\"2021-12-31\"},\"doors\":{\"1\":true,\"2\":false,\"3\":29,\"4\":true}}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "8c3a28ff.bb9a08"
+            ]
+        ]
+    },
+    {
+        "id": "bad92d49.a0e61",
+        "type": "debug",
+        "z": "590b5d52.6f70e4",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "75098299.b6febc",
+        "type": "get-card",
+        "z": "590b5d52.6f70e4",
+        "name": "get-card-with-time-profile",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 330,
+        "y": 460,
+        "wires": [
+            [
+                "30f08ba4.620154"
+            ]
+        ]
+    },
+    {
+        "id": "94300170.74219",
+        "type": "inject",
+        "z": "590b5d52.6f70e4",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896,\"cardNumber\":6153283}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "75098299.b6febc"
+            ]
+        ]
+    },
+    {
+        "id": "30f08ba4.620154",
+        "type": "debug",
+        "z": "590b5d52.6f70e4",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 460,
+        "wires": []
+    },
+    {
         "id": "cbd92359.dbf19",
         "type": "config",
         "name": "examples",
