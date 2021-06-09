@@ -47,6 +47,7 @@
       "set-event-index": "nodes/set-event-index.js",
       "get-event": "nodes/get-event.js",
       "get-time-profile": "nodes/get-time-profile.js",
+      "set-time-profile": "nodes/set-time-profile.js",
       "open-door": "nodes/open-door.js",
       "listen": "nodes/listen.js"
     },

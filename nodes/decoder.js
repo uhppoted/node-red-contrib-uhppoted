@@ -384,16 +384,13 @@ module.exports = {
       const linked = uint8(bytes, 36)
 
       profile = {
-        deviceId: uint32(bytes, 4),
-        profile: {
-          id: profileID,
-          valid: {
-            from: yyyymmdd(bytes, 9),
-            to: yyyymmdd(bytes, 13)
-          },
-          weekdays: weekdays,
-          segments: segments
-        }
+        id: profileID,
+        valid: {
+          from: yyyymmdd(bytes, 9),
+          to: yyyymmdd(bytes, 13)
+        },
+        weekdays: weekdays,
+        segments: segments
       }
 
       if (linked !== 0) {
@@ -404,6 +401,22 @@ module.exports = {
     return {
       deviceId: uint32(bytes, 4),
       profile: profile
+    }
+  },
+
+  /**
+    * Decodes the response to a set-time-profile request (function code 0x88).
+    *
+    * @param {buffer}   buffer     64 byte NodeJS buffer
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded set-event-index response object
+    */
+  SetTimeProfile: function (bytes, translator) {
+    return {
+      deviceId: uint32(bytes, 4),
+      updated: bool(bytes, 8)
     }
   },
 

@@ -1,0 +1,6 @@
+{
+    "set-time-profile": {
+        "inputLabel": "controller ID\nprofile",
+        "outputLabel": "profile updated"
+    }
+}
