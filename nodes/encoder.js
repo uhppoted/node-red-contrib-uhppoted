@@ -339,7 +339,7 @@ module.exports = {
     * @param {number} deviceId  Controller serial number
     * @param {number} profileId Time profile ID [2..254]
     *
-    * @return {buffer} 64 byte NodeJS buffer with encoded get-door-control request.
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-time-profile request.
     */
   GetTimeProfile: function (deviceId, { profileId } = {}) {
     const request = Buffer.alloc(64)
@@ -358,7 +358,7 @@ module.exports = {
     * @param {number} deviceId  Controller serial number
     * @param {number} profile   Time profile
     *
-    * @return {buffer} 64 byte NodeJS buffer with encoded get-door-control request.
+    * @return {buffer} 64 byte NodeJS buffer with encoded set-time-profile request.
     */
   SetTimeProfile: function (deviceId, { profile } = {}) {
     const map = new Map([
@@ -423,6 +423,24 @@ module.exports = {
     }
 
     request.writeUInt8(linked, 36)
+
+    return request
+  },
+
+  /**
+    * Encodes a clear-time-profiles request.
+    *
+    * @param {number} deviceId  Controller serial number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded clear-time-profiles request.
+    */
+  ClearTimeProfiles: function (deviceId) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0x8a, 1)
+    request.writeUInt32LE(deviceId, 4)
+    request.writeUInt32LE(0x55aaaa55, 8)
 
     return request
   },
@@ -560,19 +578,15 @@ function date2bin (date) {
   * @param {buffer} 4 byte NodeJS buffer with BCD encoded timestamp
   */
 function HHmm2bin (hhmm) {
-  console.log(hhmm)
   const bytes = []
   const re = /([0-9]{2}):([0-9]{2})/
   const match = hhmm.match(re)
 
-  console.log(match)
   for (const m of match.slice(1)) {
     const b = parseInt(m, 10)
     const byte = ((b / 10) << 4) | (b % 10)
     bytes.push(byte)
   }
-
-  console.log(bytes)
 
   return Buffer.from(bytes)
 }

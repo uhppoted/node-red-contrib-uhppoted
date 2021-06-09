@@ -2,7 +2,6 @@
 
 ## IN PROGRESS
 
-- [ ] `clear-time-profiles`
 - [ ] `put-card` with time profiles
 - [ ] `get-card` with time profiles
 - [ ] Update examples
@@ -11,6 +10,7 @@
 - [ ] Update CHANGELOG
 - [ ] Cleanup .npmignore
 
+- [x] `clear-time-profiles`
 - [x] `set-time-profile`
 - [x] `get-time-profile`
 
