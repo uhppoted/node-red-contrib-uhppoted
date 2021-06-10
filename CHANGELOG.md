@@ -1,3 +1,14 @@
+### v0.7.0: Implements the time profile functions from the extended API
+
+1. Implements:
+   - `get-time-profile`
+   - `set-time-profile`
+   - `clear-time-profile`
+
+2. Reworks `put-card` to support time profiles
+3. Reworks `get-card` and `get-card-by-index` to support time profiles
+4. Updates dependencies versions
+
 ### v0.6.12: Maintenance release to update dependencies
 
 1. Updates NodeRED dependency to 1.3.3

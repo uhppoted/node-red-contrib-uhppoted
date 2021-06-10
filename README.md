@@ -49,11 +49,14 @@ repository:
 | `put‑card`              | Adds or updates a card record on a controller                |
 | `delete‑card`           | Deletes a card record from a controller                      |
 | `delete‑all‑cards`      | Deletes all card records stored on a controller              |
-| `listen`                | Establishes a listening connection for controller events     |
+| `clear-time-profiles`   | Deletes all time profiles defined on a controller            |
+| `get-time-profile`      | Retrieve a time profile from a controller                    |
+| `set-time-profile`      | Defines a time profile on a controller                       |
 | `record-special-events` | Enables or disables door events                              | 
 | `get‑event‑index`       | Retrieves the current event index from a controller          | 
 | `set‑event‑index`       | Sets the current event index on a controller                 |
 | `get‑event`             | Retrieves a single event from a controller                   |
+| `listen`                | Establishes a listening connection for controller events     |
 
 All nodes take a message with JSON object payload as input and send a message with a JSON object payload as output.
 
