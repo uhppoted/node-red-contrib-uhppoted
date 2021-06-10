@@ -213,7 +213,6 @@
     {
         "id": "cbd92359.dbf19",
         "type": "config",
-        "z": "",
         "name": "examples",
         "timeout": "5000",
         "bind": "192.168.1.100",
