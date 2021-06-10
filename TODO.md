@@ -2,11 +2,11 @@
 
 ## IN PROGRESS
 
-- [ ] Update integration tests
 - [ ] Update README
 - [ ] Update CHANGELOG
 - [ ] Cleanup .npmignore
 
+- [x] Update integration tests
 - [x] Update examples
 - [x] `put-card` with time profiles
 - [x] `get-card` with time profiles
