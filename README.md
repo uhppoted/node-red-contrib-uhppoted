@@ -49,9 +49,9 @@ repository:
 | `put‑card`              | Adds or updates a card record on a controller                |
 | `delete‑card`           | Deletes a card record from a controller                      |
 | `delete‑all‑cards`      | Deletes all card records stored on a controller              |
-| `clear-time-profiles`   | Deletes all time profiles defined on a controller            |
 | `get-time-profile`      | Retrieve a time profile from a controller                    |
 | `set-time-profile`      | Defines a time profile on a controller                       |
+| `clear-time-profiles`   | Deletes all time profiles defined on a controller            |
 | `record-special-events` | Enables or disables door events                              | 
 | `get‑event‑index`       | Retrieves the current event index from a controller          | 
 | `set‑event‑index`       | Sets the current event index on a controller                 |
@@ -87,7 +87,8 @@ The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contr
 | [`6‑time`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/6-time.json)               | Example _flow_ for the `get‑time` and `set‑time` nodes |
 | [`7‑doors`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/7-doors.json)             | Example _flow_ for the `get‑door‑control`, `set‑door‑control` and `open‑door` nodes |
 | [`8‑cards`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/8-cards.json)             | Example _flow_ for the `get‑cards`, `get‑card`, `get‑card‑by‑index`, `put‑card`, `delete‑card` and `delete‑cards` nodes |
-| [`9-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/9-events.json)           | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
+| [`9-time-profiles`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/9-time-profiles.json) | Example _flow_ for the `get-time-profile`, `set‑time-profile` and `clear-time-profiles` nodes |
+| [`10-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/10-events.json)         | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
 
 The dashboard example requires the following additional components to be installed into the palette:
 

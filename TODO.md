@@ -1,9 +1,6 @@
-## v0.7.x
+## v0.7.0
 
-## IN PROGRESS
-
-- [ ] Bump package.json version to 0.7.0 for release
-
+- [x] Bump package.json version to 0.7.0 for release
 - [x] Cleanup .npmignore
 - [x] Update CHANGELOG
 - [x] Update README
