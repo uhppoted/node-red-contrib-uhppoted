@@ -172,10 +172,10 @@ module.exports = {
     */
   GetCardByID: function (bytes, translator) {
     const doors = {}
+    const offset = 20;
 
-    let offset = 20;
-    ['1', '2', '3', '4'].forEach(door => {
-      const permission = uint8(bytes, offset)
+    ['1', '2', '3', '4'].forEach((door, index) => {
+      const permission = uint8(bytes, offset + index)
 
       if (permission === 0) {
         doors[door] = false
@@ -184,8 +184,6 @@ module.exports = {
       } else if (permission >= 2 && permission <= 254) {
         doors[door] = permission
       }
-
-      offset = offset + 1
     })
 
     return {
@@ -211,6 +209,21 @@ module.exports = {
     * @param {object}   Decoded get-card-by-index response object
     */
   GetCardByIndex: function (bytes, translator) {
+    const doors = {}
+    const offset = 20;
+
+    ['1', '2', '3', '4'].forEach((door, index) => {
+      const permission = uint8(bytes, offset + index)
+
+      if (permission === 0) {
+        doors[door] = false
+      } else if (permission === 1) {
+        doors[door] = true
+      } else if (permission >= 2 && permission <= 254) {
+        doors[door] = permission
+      }
+    })
+
     return {
       deviceId: uint32(bytes, 4),
       card: {
@@ -219,12 +232,7 @@ module.exports = {
           from: yyyymmdd(bytes, 12),
           to: yyyymmdd(bytes, 16)
         },
-        doors: {
-          1: bool(bytes, 20),
-          2: bool(bytes, 21),
-          3: bool(bytes, 22),
-          4: bool(bytes, 23)
-        }
+        doors: doors
       }
     }
   },

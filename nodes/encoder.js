@@ -275,7 +275,8 @@ module.exports = {
     * @param {number} card      Card number
     * @param {date}   from      Card validity start date
     * @param {date}   to        Card validity end date
-    * @param {object} doors     Object mapping door numbers 1..4 to true/false access rights
+    * @param {object} doors     Object mapping door numbers 1..4 to access permission. A permission
+    *                           may be true, false or a time profile in the range [2..254]
     *
     * @return {buffer} 64 byte NodeJS buffer with encoded put-card request.
     */
@@ -287,14 +288,13 @@ module.exports = {
     request.writeUInt32LE(deviceId, 4)
     request.writeUInt32LE(card, 8)
     date2bin(from).copy(request, 12)
-    date2bin(to).copy(request, 16)
+    date2bin(to).copy(request, 16);
 
-    let offset = 20;
+    ['1', '2', '3', '4'].forEach((door, index) => {
+      if (Object.prototype.hasOwnProperty.call(doors, door)) {
+        const permission = doors[door]
+        const offset = 20 + index
 
-    ['1', '2', '3', '4'].forEach(door => {
-      const permission = doors[door]
-
-      if (permission) {
         if (typeof permission === 'boolean') {
           request.writeUInt8(permission ? 0x01 : 0x00, offset)
         } else {
@@ -302,19 +302,10 @@ module.exports = {
 
           if (!Number.isNaN(profileID) && Number.isInteger(profileID) && profileID >= 2 && profileID <= 254) {
             request.writeUInt8(profileID, offset)
-          } else {
-            throw new Error(`invalid time profile (${permission}) for door ${door}`)
           }
         }
       }
-
-      offset = offset + 1
     })
-
-    // request.writeUInt8(doors['1'] ? 0x01 : 0x00, 20)
-    // request.writeUInt8(doors['2'] ? 0x01 : 0x00, 21)
-    // request.writeUInt8(doors['3'] ? 0x01 : 0x00, 22)
-    // request.writeUInt8(doors['4'] ? 0x01 : 0x00, 23)
 
     return request
   },
@@ -379,7 +370,7 @@ module.exports = {
     * Encodes a set-time-profile request.
     *
     * @param {number} deviceId  Controller serial number
-    * @param {number} profile   Time profile
+    * @param {object} profile   Time profile
     *
     * @return {buffer} 64 byte NodeJS buffer with encoded set-time-profile request.
     */
