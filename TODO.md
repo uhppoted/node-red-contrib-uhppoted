@@ -1,16 +1,10 @@
-## v0.7.0
+## v0.7.x
 
-- [x] Bump package.json version to 0.7.0 for release
-- [x] Cleanup .npmignore
-- [x] Update CHANGELOG
+- [ ] Publish to NPM
 - [x] Update README
-- [x] Update integration tests
-- [x] Update examples
-- [x] `put-card` with time profiles
-- [x] `get-card` with time profiles
-- [x] `clear-time-profiles`
-- [x] `set-time-profile`
-- [x] `get-time-profile`
+- [x] `clear-task-list`
+- [x] `add-task`
+- [x] `refresh-task`
 
 ## TODO
 

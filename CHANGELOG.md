@@ -1,6 +1,13 @@
+### v0.7.1: Implements the task list management functions from the extended API
+
+1. New nodes:
+   - `clear-task-list`
+   - `add-task`
+   - `refresh-task-list`
+
 ### v0.7.0: Implements the time profile functions from the extended API
 
-1. Implements:
+1. New nodes:
    - `get-time-profile`
    - `set-time-profile`
    - `clear-time-profiles`

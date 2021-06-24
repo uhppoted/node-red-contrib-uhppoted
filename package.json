@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-uhppoted",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "A set of nodes for the UHPPOTE Wiegand Access Controller",
   "main": "index.js",
   "keywords": [
@@ -46,6 +46,9 @@
       "get-time-profile": "nodes/get-time-profile.js",
       "set-time-profile": "nodes/set-time-profile.js",
       "clear-time-profiles": "nodes/clear-time-profiles.js",
+      "clear-task-list": "nodes/clear-task-list.js",
+      "add-task": "nodes/add-task.js",
+      "refresh-task-list": "nodes/refresh-task-list.js",
       "get-event-index": "nodes/get-event-index.js",
       "set-event-index": "nodes/set-event-index.js",
       "get-event": "nodes/get-event.js",

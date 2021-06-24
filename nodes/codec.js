@@ -14,6 +14,7 @@ const enc = new Map([
   [opcodes.SetTime, encoder.SetTime],
   [opcodes.GetDoorControl, encoder.GetDoorControl],
   [opcodes.SetDoorControl, encoder.SetDoorControl],
+  [opcodes.RecordSpecialEvents, encoder.RecordSpecialEvents],
   [opcodes.GetStatus, encoder.GetStatus],
   [opcodes.OpenDoor, encoder.OpenDoor],
   [opcodes.GetCards, encoder.GetCards],
@@ -25,7 +26,9 @@ const enc = new Map([
   [opcodes.GetTimeProfile, encoder.GetTimeProfile],
   [opcodes.SetTimeProfile, encoder.SetTimeProfile],
   [opcodes.ClearTimeProfiles, encoder.ClearTimeProfiles],
-  [opcodes.RecordSpecialEvents, encoder.RecordSpecialEvents],
+  [opcodes.ClearTaskList, encoder.ClearTaskList],
+  [opcodes.AddTask, encoder.AddTask],
+  [opcodes.RefreshTaskList, encoder.RefreshTaskList],
   [opcodes.GetEventIndex, encoder.GetEventIndex],
   [opcodes.SetEventIndex, encoder.SetEventIndex],
   [opcodes.GetEvent, encoder.GetEvent]
@@ -54,6 +57,9 @@ const dec = new Map([
   [0x88, decoder.SetTimeProfile],
   [0x8a, decoder.ClearTimeProfiles],
   [0x8e, decoder.RecordSpecialEvents],
+  [0xa6, decoder.ClearTaskList],
+  [0xa8, decoder.AddTask],
+  [0xac, decoder.RefreshTaskList],
   [0xb0, decoder.GetEvent],
   [0xb2, decoder.SetEventIndex],
   [0xb4, decoder.GetEventIndex]

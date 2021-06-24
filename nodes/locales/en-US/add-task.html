@@ -1,0 +1,105 @@
+<script type="text/html" data-template-name="add-task">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tag"></i>Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Message topic" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-tag"></i>Configuration</label>
+        <input id="node-input-config" />
+    </div>
+</script>
+
+<script type="text/html" data-help-name="add-task">
+    <p>Creates a new task on a UHPPOTE access controller.</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>JSON object with the device ID and task for 'add-task'</dd>
+        <dt class="optional">topic<span class="property-type">string</span></dt>
+        <dd>identifying message topic for output</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>JSON object with the succeeded/failed result</dd>
+        <dt>topic<span class="property-type">string</span></dt>
+        <dd>message topic copied from input</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p>The input <code>msg.payload</code> is a JSON object containing the serial number
+    for the controller and the task definition of the task to be added.</p>
+    <p>Valid tasks are:</p>
+    <ul>
+      <li>1: door controlled</li>
+      <li>2: door normally open</li>
+      <li>3: door normally closed</li>
+      <li>4: disable time profile</li>
+      <li>5: enable time profile</li>
+      <li>6: card+no password</li>
+      <li>7: card+in password</li>
+      <li>8: card+password</li>
+      <li>9: enable more cards</li>
+      <li>10: disable more cards</li>
+      <li>11: trigger once</li>
+      <li>12: disable push button</li>
+      <li>13: enable push button</li>
+    </ul>
+    <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>task.task<span class="property-type">string</span></dt>
+        <dd>Task type from the list of task types</dd>
+        <dt>door<span class="property-type">uint8</span></dt>
+        <dd>Door ID [1..4] of the door to which the task applies</dd>
+        <dt>task.valid.from<span class="property-type">date</span></dt>
+        <dd>start date (inclusive) from which the task is active</d>
+        <dt>task.valid.to<span class="property-type">date</span></dt>
+        <dd>end date (incusive) after which the task is no longer active</d>
+        <dt>task.weekdays<span class="property-type">array of string</span></dt>
+        <dd>List of weekdays on which the task is active</d>
+        <dt>task.start<span class="property-type">array of segment</span></dt>
+        <dd>Time at which task should be run</d>
+        <dt>task.cards<span class="property-type">uint8</span></dt>
+        <dd>Number of cards for the 'enable more cards' task type (optional)</d>
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+    "deviceId": 405419896,
+    "task": {
+        "task": "enable time profile", 
+        "from": "2021-01-01",
+        "to": "2021-12-31",
+        "weekdays": "Monday,Wednesday,Friday",
+        "start": "08:30",
+        "cards": 4
+    }
+  }</pre>
+
+    <p>The output is a JSON object containing the result of creating the task.</p>
+    <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>added<span class="property-type">boolean</span></dt>
+        <dd>true if the task was created successfully. NOTE: the task is only activated after invoking refresh-task-list</dd>
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+    "deviceId": 405419896,
+    "added": true
+  }</pre>
+
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://github.com/uhppoted">uhppoted</a>: GitHub umbrella project</li>
+        <li><a href="https://github.com/uhppoted/node-red-contrib-uhppoted">node-red-contrib-uhppoted</a>: GitHub project</li>
+    </ul>
+</script>

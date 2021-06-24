@@ -1,0 +1,264 @@
+[
+    {
+        "id": "66c3d22e.434c7c",
+        "type": "tab",
+        "label": "10-tasklist",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "a9922968.8bbee8",
+        "type": "inject",
+        "z": "66c3d22e.434c7c",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "f980b203.9b821"
+            ]
+        ]
+    },
+    {
+        "id": "f5331de1.7dc18",
+        "type": "debug",
+        "z": "66c3d22e.434c7c",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "f980b203.9b821",
+        "type": "clear-task-list",
+        "z": "66c3d22e.434c7c",
+        "name": "",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "f5331de1.7dc18"
+            ]
+        ]
+    },
+    {
+        "id": "5dac42cd.fc4c8c",
+        "type": "inject",
+        "z": "66c3d22e.434c7c",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "13d7bc91.a53133"
+            ]
+        ]
+    },
+    {
+        "id": "775d352c.a8155c",
+        "type": "debug",
+        "z": "66c3d22e.434c7c",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "13d7bc91.a53133",
+        "type": "refresh-task-list",
+        "z": "66c3d22e.434c7c",
+        "name": "",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "775d352c.a8155c"
+            ]
+        ]
+    },
+    {
+        "id": "885f0991.1066e8",
+        "type": "inject",
+        "z": "66c3d22e.434c7c",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896,\"task\":{\"task\":5,\"door\":3,\"valid\":{\"from\":\"2021-01-01\",\"to\":\"2021-12-31\"},\"weekdays\":[\"Monday\",\"Wednesday\",\"Friday\"],\"start\":\"08:30\",\"cards\":7}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "cdc76803.768e88"
+            ]
+        ]
+    },
+    {
+        "id": "476c6a89.2ced14",
+        "type": "debug",
+        "z": "66c3d22e.434c7c",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "cdc76803.768e88",
+        "type": "add-task",
+        "z": "66c3d22e.434c7c",
+        "name": "add-numeric-task",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 310,
+        "y": 180,
+        "wires": [
+            [
+                "476c6a89.2ced14"
+            ]
+        ]
+    },
+    {
+        "id": "6c00cf3a.3fe4d",
+        "type": "inject",
+        "z": "66c3d22e.434c7c",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896,\"task\":{\"task\":\"enable time profile\",\"door\":3,\"valid\":{\"from\":\"2021-01-01\",\"to\":\"2021-12-31\"},\"weekdays\":[\"Monday\",\"Wednesday\",\"Friday\"],\"start\":\"08:30\",\"cards\":7}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "cc7f21cd.1853b"
+            ]
+        ]
+    },
+    {
+        "id": "460d928b.c7737c",
+        "type": "debug",
+        "z": "66c3d22e.434c7c",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "cc7f21cd.1853b",
+        "type": "add-task",
+        "z": "66c3d22e.434c7c",
+        "name": "add-text-task",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 300,
+        "y": 260,
+        "wires": [
+            [
+                "460d928b.c7737c"
+            ]
+        ]
+    },
+    {
+        "id": "cbd92359.dbf19",
+        "type": "config",
+        "name": "examples",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":true}}",
+        "debug": true
+    }
+]

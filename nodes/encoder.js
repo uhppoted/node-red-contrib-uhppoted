@@ -44,45 +44,6 @@ module.exports = {
   },
 
   /**
-    * Encodes a set-listener request.
-    *
-    * @param {number} deviceId  Controller serial number
-    * @param {string} address   IPv4 listener address for controller events
-    * @param {number} port      IPv4 listener port for controller events
-    *
-    * @return {buffer} 64 byte NodeJS buffer with encoded set-address request
-    */
-  SetListener: function (deviceId, { address, port } = {}) {
-    const ip = require('ip')
-    const request = Buffer.alloc(64)
-
-    request.writeUInt8(0x17, 0)
-    request.writeUInt8(0x90, 1)
-    request.writeUInt32LE(deviceId, 4)
-    ip.toBuffer(address, request, 8)
-    request.writeUInt16LE(port, 12)
-
-    return request
-  },
-
-  /**
-    * Encodes a get-listener request.
-    *
-    * @param {number} deviceId  Controller serial number
-    *
-    * @return {buffer} 64 byte NodeJS buffer with encoded get-listener request
-    */
-  GetListener: function (deviceId) {
-    const request = Buffer.alloc(64)
-
-    request.writeUInt8(0x17, 0)
-    request.writeUInt8(0x92, 1)
-    request.writeUInt32LE(deviceId, 4)
-
-    return request
-  },
-
-  /**
     * Encodes a set-time request.
     *
     * @param {number} deviceId  Controller serial number
@@ -173,6 +134,69 @@ module.exports = {
     request.writeUInt8(0x82, 1)
     request.writeUInt32LE(deviceId, 4)
     request.writeUInt8(door, 8)
+
+    return request
+  },
+
+  /**
+    * Encodes a get-listener request.
+    *
+    * @param {number} deviceId  Controller serial number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded get-listener request
+    */
+  GetListener: function (deviceId) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0x92, 1)
+    request.writeUInt32LE(deviceId, 4)
+
+    return request
+  },
+
+  /**
+    * Encodes a set-listener request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {string} address   IPv4 listener address for controller events
+    * @param {number} port      IPv4 listener port for controller events
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded set-address request
+    */
+  SetListener: function (deviceId, { address, port } = {}) {
+    const ip = require('ip')
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0x90, 1)
+    request.writeUInt32LE(deviceId, 4)
+    ip.toBuffer(address, request, 8)
+    request.writeUInt16LE(port, 12)
+
+    return request
+  },
+
+  /**
+    * Encode a record-special-events request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} enable    true/false
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded record-special-events request.
+    */
+  RecordSpecialEvents: function (deviceId, { enable } = {}) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0x8e, 1)
+    request.writeUInt32LE(deviceId, 4)
+
+    if (enable) {
+      request.writeUInt8(1, 8)
+    } else {
+      request.writeUInt8(0, 8)
+    }
 
     return request
   },
@@ -460,25 +484,123 @@ module.exports = {
   },
 
   /**
-    * Encode a record-special-events request.
+    * Encodes an add-task request.
     *
     * @param {number} deviceId  Controller serial number
-    * @param {number} enable    true/false
+    * @param {object} task      Task definition
     *
-    * @return {buffer} 64 byte NodeJS buffer with encoded record-special-events request.
+    * @return {buffer} 64 byte NodeJS buffer with encoded add-task request.
     */
-  RecordSpecialEvents: function (deviceId, { enable } = {}) {
+  AddTask: function (deviceId, { task } = {}) {
+    const days = new Map([
+      ['mo', 16],
+      ['tu', 17],
+      ['we', 18],
+      ['th', 19],
+      ['fr', 20],
+      ['sa', 21],
+      ['su', 22]
+    ])
+
+    const tasks = new Map([
+      ['doorcontrolled', 0],
+      ['doornormallyopen', 1],
+      ['doornormallyclosed', 2],
+      ['disabletimeprofile', 3],
+      ['enabletimeprofile', 4],
+      ['cardnopassword', 5],
+      ['cardinpassword', 6],
+      ['cardpassword', 7],
+      ['enablemorecards', 8],
+      ['disablemorecards', 9],
+      ['triggeronce', 10],
+      ['disablepushbutton', 11],
+      ['enablepushbutton', 12]
+    ])
+
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
-    request.writeUInt8(0x8e, 1)
+    request.writeUInt8(0xa8, 1)
     request.writeUInt32LE(deviceId, 4)
 
-    if (enable) {
-      request.writeUInt8(1, 8)
-    } else {
-      request.writeUInt8(0, 8)
+    date2bin(task.valid.from).copy(request, 8)
+    date2bin(task.valid.to).copy(request, 12)
+
+    if (task.weekdays) {
+      task.weekdays.forEach(day => {
+        days.forEach((v, k) => {
+          if (day.toLowerCase().startsWith(k)) {
+            request.writeUInt8(1, v)
+          }
+        })
+      })
     }
+
+    if (task.start && /[0-9]{2}:[0-9]{2}/.test(task.start)) {
+      HHmm2bin(task.start).copy(request, 23)
+    } else {
+      throw new Error(`invalid task start time (${task.start})`)
+    }
+
+    request.writeUInt8(task.door, 25)
+
+    if (isNaN(task.task)) {
+      const key = task.task.replaceAll(/[^a-z]+/ig, '')
+      if (tasks.has(key)) {
+        request.writeUInt8(tasks.get(key), 26)
+      } else {
+        throw new Error(`invalid task '${task.task}'`)
+      }
+    } else if (!Number.isInteger(task.task) || task.task < 1 || task > 13) {
+      throw new Error(`invalid task ID '${task.task}' - valid range is [1..13]`)
+    } else {
+      request.writeUInt8(task.task - 1, 26)
+    }
+
+    if (task.cards) {
+      if (!isNaN(task.cards) && Number.isInteger(task.cards)) {
+        request.writeUInt8(task.cards, 27)
+      } else {
+        throw new Error(`invalid value for 'cards' (${task.cards})`)
+      }
+    }
+
+    return request
+  },
+
+  /**
+    * Encodes a clear-task-list request.
+    *
+    * @param {number} deviceId  Controller serial number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded clear-task-list request.
+    */
+  ClearTaskList: function (deviceId) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0xa6, 1)
+    request.writeUInt32LE(deviceId, 4)
+    request.writeUInt32LE(0x55aaaa55, 8)
+
+    return request
+  },
+
+  /**
+    * Encodes a refresh-task-list request.
+    *
+    * @param {number} deviceId  Controller serial number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded refresh-task-list request.
+    */
+  RefreshTaskList: function (deviceId) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0xac, 1)
+    request.writeUInt32LE(deviceId, 4)
+    request.writeUInt32LE(0x55aaaa55, 8)
 
     return request
   },

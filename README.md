@@ -52,6 +52,9 @@ repository:
 | `get-time-profile`      | Retrieve a time profile from a controller                    |
 | `set-time-profile`      | Defines a time profile on a controller                       |
 | `clear-time-profiles`   | Deletes all time profiles defined on a controller            |
+| `clear-task-list`       | Clears a controller task list                                |
+| `add-task`              | Adds a new task to a controller's task list                  |
+| `refresh-task-list`     | Refreshes a controller task list                             |
 | `record-special-events` | Enables or disables door events                              | 
 | `get‑event‑index`       | Retrieves the current event index from a controller          | 
 | `set‑event‑index`       | Sets the current event index on a controller                 |
@@ -88,7 +91,8 @@ The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contr
 | [`7‑doors`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/7-doors.json)             | Example _flow_ for the `get‑door‑control`, `set‑door‑control` and `open‑door` nodes |
 | [`8‑cards`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/8-cards.json)             | Example _flow_ for the `get‑cards`, `get‑card`, `get‑card‑by‑index`, `put‑card`, `delete‑card` and `delete‑cards` nodes |
 | [`9-time-profiles`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/9-time-profiles.json) | Example _flow_ for the `get-time-profile`, `set‑time-profile` and `clear-time-profiles` nodes |
-| [`10-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/10-events.json)         | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
+| [`10-task-list`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/10-task-list.json) | Example _flow_ for the `clear-task-list`, `add-task` and `refresh-task-list` nodes |
+| [`11-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/11-events.json)         | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
 
 The dashboard example requires the following additional components to be installed into the palette:
 

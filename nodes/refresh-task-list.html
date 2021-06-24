@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    RED.nodes.registerType('refresh-task-list', {
+        category: 'uhppoted',
+        color: '#A6BBCF',
+        defaults: {
+            name: { 
+                value: "" 
+            },
+            topic: { 
+                value: "" 
+            },
+            config: {
+                value: "", 
+                type: "config"
+            },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: "icons/uhppoted.svg",
+        label: function() {
+            return this.name || "refresh-task-list";
+        },
+        inputLabels:  function(index) { return this._('refresh-task-list.inputLabel')  },
+        outputLabels: function(index) { return this._('refresh-task-list.outputLabel') }
+    });
+</script>

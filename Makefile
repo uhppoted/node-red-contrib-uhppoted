@@ -1,4 +1,4 @@
-VERSION   = v0.7.0
+VERSION   = v0.7.x
 DIST     ?= development
 
 SERIALNO ?= 405419896
