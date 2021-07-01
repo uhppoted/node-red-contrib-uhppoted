@@ -1,6 +1,3 @@
-VERSION   = v0.7.x
-DIST     ?= development
-
 SERIALNO ?= 405419896
 CARD     ?= 65538
 DOOR     ?= 3

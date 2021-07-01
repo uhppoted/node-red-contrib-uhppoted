@@ -1,6 +1,6 @@
 ### v0.7.1: Implements the task list management functions from the extended API
 
-1. New nodes:
+1. Added nodes for managing a controller task list:
    - `clear-task-list`
    - `add-task`
    - `refresh-task-list`
