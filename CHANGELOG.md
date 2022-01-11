@@ -1,3 +1,11 @@
+### v0.7.2: Minor bug fixes
+
+1. Update NodeRED dependency to v2.1.4
+2. Updated associated NodeRED components
+3. Throws an 'no event' error if `get-event` retrieves an event that does not exist
+4. Throws an 'overwritten event' error if `get-event` retrieves an event that has been overwritten
+   (cf. https://github.com/uhppoted/uhppote-cli/issues/7)
+
 ### v0.7.1: Implements the task list management functions from the extended API
 
 1. Added nodes for managing a controller task list:

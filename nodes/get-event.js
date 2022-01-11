@@ -18,7 +18,11 @@ module.exports = function (RED) {
       const index = msg.payload.index
 
       const emit = function (object) {
-        if (object.index !== 0) {
+        if (object.event.index === 0 && object.event.type.code === 0xff) {
+          common.error(node, new Error(`event for ${deviceId}/${index} has been overwritten`))
+        } else if (object.event.index === 0) {
+          common.error(node, new Error(`no event for ${deviceId}/${index}`))
+        } else {
           common.emit(node, t, object)
         }
       }

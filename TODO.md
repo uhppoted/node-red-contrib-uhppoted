@@ -1,10 +1,6 @@
-## v0.7.1
+## v0.7.2
 
-- [x] Publish to NPM
-- [x] Update README
-- [x] `clear-task-list`
-- [x] `add-task`
-- [x] `refresh-task`
+- [x] Throw error on `get-event` for overwritten event
 
 ## TODO
 
