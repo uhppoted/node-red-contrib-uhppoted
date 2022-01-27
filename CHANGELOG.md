@@ -8,7 +8,7 @@ Updated dependencies and reworked event handling for _overwritten_ events.
 
 1. Update NodeRED dependency to v2.1.4
 2. Updated associated NodeRED components
-3. Replaced regexes with NodeJS v14.18.3 compatible syntax
+3. Replaced regular expressions with NodeJS v14.18.3 compatible syntax
    (cf. https://github.com/uhppoted/uhppoted-nodejs/issues/5)
 4. Throws an 'no event' error if `get-event` retrieves an event that does not exist
 5. Throws an 'overwritten event' error if `get-event` retrieves an event that has been overwritten
