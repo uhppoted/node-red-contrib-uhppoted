@@ -546,7 +546,7 @@ module.exports = {
     request.writeUInt8(task.door, 25)
 
     if (isNaN(task.task)) {
-      const key = task.task.replaceAll(/[^a-z]+/ig, '')
+      const key = task.task.replace(/[^a-z]+/ig, '')
       if (tasks.has(key)) {
         request.writeUInt8(tasks.get(key), 26)
       } else {

@@ -56,7 +56,7 @@
       "listen": "nodes/listen.js"
     },
     "engines": {
-      "node": ">=15.14.0"
+      "node": ">=14.18.3"
     }
   },
   "dependencies": {
