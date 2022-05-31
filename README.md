@@ -7,7 +7,7 @@
 Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports device and card management as well as handling for events.
 
 #### Requirements:
-- `node‑red` version 2.1.4+
+- `node‑red` version 2.2.0+
 - `node.js` version 14.18.3+
 - `ip.js` version 1.1.5+ 
 

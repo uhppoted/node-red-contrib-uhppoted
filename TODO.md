@@ -1,6 +1,6 @@
-## v0.7.2
+## v0.7.3
 
-- [x] Throw error on `get-event` for overwritten event
+### IN PROGRESS
 
 ## TODO
 
