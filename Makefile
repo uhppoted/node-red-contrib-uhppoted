@@ -9,6 +9,14 @@ DEBUG    ?= --debug
 .PHONY: build
 .PHONY: test
 
+update:
+	npm update
+#	npm audit fix
+
+update-release:
+	npm update
+#	npm audit fix
+
 build:
 	npx eslint --fix nodes/*.js  
 
@@ -24,6 +32,8 @@ dashboard: build
 
 examples: build
 	node-red ./examples/examples.json
+
+build-all: build
 
 release:
 	npm pack

@@ -1,10 +1,22 @@
 # CHANGELOG
 
-## [0.7.3](https://github.com/uhppoted/uhppote-cli/releases/tag/v0.7.3) - 2022-06-01
+
+## [0.8.1](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.8.1) - 2022-08-01
+
+### Changed
+1. Updated dependencies.
+
+## [0.8.1](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.8.1) - 2022-08-01
+
+### Changed
+1. Updated dependencies.
+
+
+## [0.7.3](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.7.3) - 2022-06-01
 
 Updated dependencies.
 
-## [0.7.2](https://github.com/uhppoted/uhppote-cli/releases/tag/v0.7.2) - 2022-01-26
+## [0.7.2](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.7.2) - 2022-01-26
 
 Updated dependencies and reworked event handling for _overwritten_ events.
 
@@ -16,10 +28,10 @@ Updated dependencies and reworked event handling for _overwritten_ events.
    (cf. https://github.com/uhppoted/uhppoted-nodejs/issues/5)
 4. Throws an 'no event' error if `get-event` retrieves an event that does not exist
 5. Throws an 'overwritten event' error if `get-event` retrieves an event that has been overwritten
-   (cf. https://github.com/uhppoted/uhppote-cli/issues/7)
+   (cf. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/7)
 
 
-## [v0.7.1](https://github.com/uhppoted/uhppote-cli/releases/tag/v0.7.1) 
+## [v0.7.1](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.7.1) 
 
 Implements the task list management functions from the extended API
 
@@ -29,7 +41,7 @@ Implements the task list management functions from the extended API
    - `refresh-task-list`
 
 
-## [v0.7.0](https://github.com/uhppoted/uhppote-cli/releases/tag/v0.7.0)
+## [v0.7.0](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.7.0)
 
 Implements the time profile functions from the extended API.
 

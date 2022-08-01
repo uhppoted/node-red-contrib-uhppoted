@@ -1,6 +1,8 @@
-## v0.7.3
+# TODO
 
 ### IN PROGRESS
+
+- [ ] Update to NodeRED 3.0
 
 ## TODO
 
