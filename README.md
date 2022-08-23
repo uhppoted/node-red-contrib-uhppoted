@@ -4,6 +4,17 @@
 ![NPM version](https://badge.fury.io/js/node-red-contrib-uhppoted.svg)
 ![NPM](https://img.shields.io/npm/l/node-red-contrib-uhppoted)
 
+---
+| ***ANNOUNCEMENT: BREAKING CHANGE*** |
+| :---: |
+| **Please note that `node-red-contrib-uhppoted` v1.0.0 will be released in the near future as a breaking change.** |
+| **Unfortunately there are several node name conflicts with other NodeRED modules and no easy way to fix it without a breaking change.** |
+
+_Please see:_
+- _[Issue #11: config node name conflict](https://github.com/uhppoted/node-red-contrib-uhppoted/issues/11) for the original cause_
+- _[Discussion: prefixing all nodes with uhppoted- to avoid naming conflicts](https://github.com/uhppoted/node-red-contrib-uhppoted/discussions/12) for any comments and further discussion._
+
+---
 Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports device and card management as well as handling for events.
 
 #### Requirements:
