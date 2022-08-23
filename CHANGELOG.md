@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## [Unreleased]
+
+### Changed
+1. Cleaned up _examples.json_
+2. Added `engines` section to _package.json_
 
 ## [0.8.1](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.8.1) - 2022-08-01
 
