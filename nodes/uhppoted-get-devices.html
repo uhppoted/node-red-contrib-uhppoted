@@ -1,7 +1,7 @@
 <script type="text/javascript">
-    RED.nodes.registerType('get-devices', {
+    RED.nodes.registerType('uhppoted-get-devices', {
         category: 'uhppoted',
-        color: '#ff0000',
+        color: '#A6BBCF',
         defaults: {
             name: { 
                 value: "" 
@@ -11,7 +11,7 @@
             },
             config: {
                 value: "", 
-                type: "config"
+                type: "uhppoted-config"
             },
          },
         inputs: 1,
@@ -20,10 +20,7 @@
         label: function() {
             return this.name || "get-devices";
         },
-        labelStyle: function() {
-            return this.name? "node_label_italic" : "";
-        },
-        paletteLabel: "get-devices-deprecated",
+        paletteLabel: "get-devices",
         inputLabels:  function(index) { return this._('get-devices.inputLabel')  },
         outputLabels: function(index) { return this._('get-devices.outputLabel') }
     });

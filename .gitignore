@@ -9,6 +9,5 @@ node_modules
 .eslintcache
 
 # node-red
-examples/.examples.json.backup
-examples/.dashboard.json.backup
-integration-tests/.integration-tests.json.backup
+examples/*.backup
+integration-tests/*.backup

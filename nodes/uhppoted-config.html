@@ -1,7 +1,7 @@
 <script type="text/javascript">
-    RED.nodes.registerType('config',{
+    RED.nodes.registerType('uhppoted-config',{
         category: 'config',
-        color: '#ff0000',
+        color: '#FDF0C2',
         defaults: {
             name: { 
                 value: "" 
@@ -31,9 +31,9 @@
         },
 
         label: function() {
-            return this.name || "config-deprecated";
+            return this.name || "config";
         },
-
+        paletteLabel: "config",
         oneditprepare: function () {
             const table = document.getElementById('node-config-input-controllers-editor')
 

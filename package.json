@@ -26,7 +26,11 @@
     "version": ">=2.2.0",
     "nodes": {
       "config": "nodes/config.js",
+      "uhppoted-config": "nodes/uhppoted-config.js",
+
       "get-devices": "nodes/get-devices.js",
+      "uhppoted-get-devices": "nodes/uhppoted-get-devices.js",
+
       "get-device": "nodes/get-device.js",
       "set-ip": "nodes/set-ip.js",
       "get-time": "nodes/get-time.js",
@@ -61,7 +65,7 @@
   },
   "engines": {
     "node": ">=14.18.3"
-  }
+  },
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bl": "^5.0.0",

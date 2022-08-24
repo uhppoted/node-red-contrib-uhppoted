@@ -2,10 +2,15 @@
 
 ### IN PROGRESS
 
+- [ ] Duplicate existing nodes with _uhppoted-_ prefix and _uhppoted-config_
+      - [x] _get-devices_
+
+- [ ] Mark all existing nodes deprecated
+      - [ ] `red` background
+      - [ ] `deprecated` note in HTML
+      - [ ] `-deprecated` paletteLabel
+
 - [ ] Update to NodeRED 3.0
-- [ ] Fix _config_ node conflict
-- (?) Fix _listen_ node conflict
-- (?) Fix _get-status_ conflict
 
 ## TODO
 
