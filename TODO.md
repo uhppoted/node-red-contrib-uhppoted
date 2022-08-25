@@ -33,8 +33,8 @@
       - [ ] _listen_
 
 - [ ] Mark all existing nodes deprecated 
+      - [x] `deprecated` note in locale HTML
       - `red` background
-      - `deprecated` note in HTML
       - `-deprecated` paletteLabel
       - "config": "cf35d9904542f0af",
 
