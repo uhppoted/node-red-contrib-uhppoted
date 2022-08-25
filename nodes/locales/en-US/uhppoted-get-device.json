@@ -1,0 +1,6 @@
+{
+    "uhppoted-get-device": {
+        "inputLabel": "controller ID",
+        "outputLabel": "controller summary"
+    }
+}

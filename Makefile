@@ -33,6 +33,9 @@ dashboard: build
 examples: build
 	node-red ./examples/examples.json
 
+examples-deprecated: build
+	node-red ./examples/examples-deprecated.json
+
 build-all: build
 
 release:

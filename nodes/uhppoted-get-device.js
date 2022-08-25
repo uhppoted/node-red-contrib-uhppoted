@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function GetDevicesNodeDeprecated (config) {
+  function GetDeviceNode (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -14,9 +14,10 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic
+      const deviceId = msg.payload.deviceId
 
-      const emit = function (devices) {
-        common.emit(node, t, devices)
+      const emit = function (object) {
+        common.emit(node, t, object)
       }
 
       const error = function (err) {
@@ -26,17 +27,17 @@ module.exports = function (RED) {
       try {
         const context = {
           config: uhppote,
-          translator: (k) => { return RED._('get-devices.' + k) },
+          translator: (k) => { return RED._('get-device.' + k) },
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.broadcast(context, opcodes.GetDevice, {})
-          .then(objects => { emit(objects) })
+        uhppoted.get(context, deviceId, opcodes.GetDevice, {})
+          .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })
       } catch (err) { error(err) }
     })
   }
 
-  RED.nodes.registerType('get-devices', GetDevicesNodeDeprecated)
+  RED.nodes.registerType('uhppoted-get-device', GetDeviceNode)
 }

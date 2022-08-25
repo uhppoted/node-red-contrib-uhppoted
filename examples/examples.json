@@ -99,19 +99,6 @@
         "debug": true
     },
     {
-        "id": "6a470566.d4725c",
-        "type": "get-devices",
-        "z": "a640a000.d83cb",
-        "name": "get-devices",
-        "topic": "get-devices",
-        "config": "cbd92359.dbf19",
-        "x": 310,
-        "y": 40,
-        "wires": [
-            []
-        ]
-    },
-    {
         "id": "31429769.0664e8",
         "type": "debug",
         "z": "a640a000.d83cb",
@@ -364,10 +351,10 @@
     },
     {
         "id": "cf961bd6.504938",
-        "type": "get-device",
+        "type": "uhppoted-get-device",
         "z": "f0ca7ab6.b09058",
         "name": "get-device",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 310,
         "y": 100,
         "wires": [

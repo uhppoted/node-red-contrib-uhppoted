@@ -32,6 +32,8 @@
       "uhppoted-get-devices": "nodes/uhppoted-get-devices.js",
 
       "get-device": "nodes/get-device.js",
+      "uhppoted-get-device": "nodes/uhppoted-get-device.js",
+
       "set-ip": "nodes/set-ip.js",
       "get-time": "nodes/get-time.js",
       "set-time": "nodes/set-time.js",

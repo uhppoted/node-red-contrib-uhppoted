@@ -4,23 +4,23 @@
         color: '#A6BBCF',
         defaults: {
             name: { 
-                value: "" 
+                value: '' 
             },
             topic: { 
-                value: "" 
+                value: '' 
             },
             config: {
-                value: "", 
-                type: "uhppoted-config"
+                value: '', 
+                type: 'uhppoted-config'
             },
          },
         inputs: 1,
         outputs: 1,
-        icon: "icons/uhppoted.svg",
+        icon: 'icons/uhppoted.svg',
         label: function() {
-            return this.name || "get-devices";
+            return this.name || 'get-devices';
         },
-        paletteLabel: "get-devices",
+        paletteLabel: 'get-devices',
         inputLabels:  function(index) { return this._('get-devices.inputLabel')  },
         outputLabels: function(index) { return this._('get-devices.outputLabel') }
     });

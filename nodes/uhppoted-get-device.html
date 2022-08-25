@@ -1,29 +1,26 @@
 <script type="text/javascript">
-    RED.nodes.registerType('get-device', {
+    RED.nodes.registerType('uhppoted-get-device', {
         category: 'uhppoted',
-        color: 'red',
+        color: '#A6BBCF',
         defaults: {
             name: { 
-                value: ''
+                value: '' 
             },
             topic: { 
-                value: ''
+                value: '' 
             },
             config: {
                 value: '', 
-                type: 'config'
+                type: 'uhppoted-config'
             },
         },
         inputs: 1,
         outputs: 1,
-        icon: "icons/uhppoted.svg",
+        icon: 'icons/uhppoted.svg',
         label: function() {
-            return this.name || "get-device";
+            return this.name || 'get-device';
         },
-        labelStyle: function() {
-            return this.name? "node_label_italic" : "";
-        },
-        paletteLabel: "get-devices-deprecated",
+        paletteLabel: 'get-device',
         inputLabels:  function(index) { return this._('get-device.inputLabel')  },
         outputLabels: function(index) { return this._('get-device.outputLabel') }
     });

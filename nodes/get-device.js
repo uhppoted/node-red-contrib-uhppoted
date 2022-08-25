@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function GetDeviceNode (config) {
+  function GetDeviceNodeDeprecated (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -39,5 +39,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('get-device', GetDeviceNode)
+  RED.nodes.registerType('get-device', GetDeviceNodeDeprecated)
 }
