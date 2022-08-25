@@ -77,17 +77,6 @@
         "info": "# event retrieval: basic examples\n\nBasic examples for the _get-event-index_, _set-event-index_ and _get-event_ nodes.\n\n - the _get-event-index_ example retrieves the current 'downloaded event index' from the controller with serial number 405419896.\n\n - the _set-event-index_ example set the 'downloaded event index' to 17 for the controller with serial number 405419896.\n\n - the _get-event_ example retrieves the event record at record #3 from the controller with serial number 405419896.\n\nThe _events_ flow in the _dashboard_ flowset contains a more complete example."
     },
     {
-        "id": "cbd92359.dbf19",
-        "type": "config",
-        "name": "examples-deprecated",
-        "timeout": "5000",
-        "bind": "192.168.1.100",
-        "broadcast": "192.168.1.255:60000",
-        "listen": "192.168.1.100:60001",
-        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":true}}",
-        "debug": true
-    },
-    {
         "id": "cf35d9904542f0af",
         "type": "uhppoted-config",
         "name": "examples",
@@ -615,10 +604,10 @@
     },
     {
         "id": "75e6f5f0.c7e47c",
-        "type": "get-listener",
+        "type": "uhppoted-get-listener",
         "z": "c56e1667.998748",
         "name": "get-listener",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 290,
         "y": 220,
         "wires": [
@@ -631,10 +620,10 @@
     },
     {
         "id": "48b92667.8a59b8",
-        "type": "set-listener",
+        "type": "uhppoted-set-listener",
         "z": "c56e1667.998748",
         "name": "set-listener",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 290,
         "y": 340,
         "wires": [
@@ -725,10 +714,10 @@
     },
     {
         "id": "18a61437.de498c",
-        "type": "listen",
+        "type": "uhppoted-listen",
         "z": "c56e1667.998748",
         "name": "listen",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 130,
         "y": 100,
         "wires": [
@@ -785,10 +774,10 @@
     },
     {
         "id": "1d2d547f.68acbc",
-        "type": "get-status",
+        "type": "uhppoted-get-status",
         "z": "b2b669ed.2b50b8",
         "name": "get-status",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 290,
         "y": 100,
         "wires": [
@@ -1302,11 +1291,11 @@
     },
     {
         "id": "6a3d799.3fe3688",
-        "type": "get-time",
+        "type": "uhppoted-get-time",
         "z": "f7a455cc.3fefe8",
         "name": "get-time",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 280,
         "y": 100,
         "wires": [
@@ -1410,10 +1399,10 @@
     },
     {
         "id": "ea3bdfee.bf0d1",
-        "type": "set-time",
+        "type": "uhppoted-set-time",
         "z": "f7a455cc.3fefe8",
         "name": "set-time",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 420,
         "y": 180,
         "wires": [
@@ -1505,10 +1494,10 @@
     },
     {
         "id": "bedb99cc.cc0768",
-        "type": "get-door-control",
+        "type": "uhppoted-get-door-control",
         "z": "86bbf50e.a7f188",
         "name": "get-door-control",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 300,
         "y": 100,
         "wires": [
@@ -1521,10 +1510,10 @@
     },
     {
         "id": "6d8d48f7.397bb8",
-        "type": "set-door-control",
+        "type": "uhppoted-set-door-control",
         "z": "86bbf50e.a7f188",
         "name": "set-door-control",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 300,
         "y": 260,
         "wires": [
@@ -1579,10 +1568,10 @@
     },
     {
         "id": "6c1b3177.30bd2",
-        "type": "open-door",
+        "type": "uhppoted-open-door",
         "z": "86bbf50e.a7f188",
         "name": "open-door",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 290,
         "y": 420,
         "wires": [
@@ -1767,10 +1756,10 @@
     },
     {
         "id": "4f2ad0e3.4c05e",
-        "type": "get-cards",
+        "type": "uhppoted-get-cards",
         "z": "2a36b650.4b9b7a",
         "name": "get-cards",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 280,
         "y": 100,
         "wires": [
@@ -1782,10 +1771,10 @@
     },
     {
         "id": "6ce7f877.625e48",
-        "type": "get-card",
+        "type": "uhppoted-get-card",
         "z": "2a36b650.4b9b7a",
         "name": "get-card",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 280,
         "y": 240,
         "wires": [
@@ -1897,10 +1886,10 @@
     },
     {
         "id": "4ac01a83.a74ec4",
-        "type": "delete-card",
+        "type": "uhppoted-delete-card",
         "z": "2a36b650.4b9b7a",
         "name": "delete-card",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 310,
         "y": 1120,
         "wires": [
@@ -1958,10 +1947,10 @@
     },
     {
         "id": "13f668be.c2e417",
-        "type": "get-card-by-index",
+        "type": "uhppoted-get-card-by-index",
         "z": "2a36b650.4b9b7a",
         "name": "get-card-by-index",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 310,
         "y": 640,
         "wires": [
@@ -2020,10 +2009,10 @@
     },
     {
         "id": "874f55c6.6f00b8",
-        "type": "delete-all-cards",
+        "type": "uhppoted-delete-all-cards",
         "z": "2a36b650.4b9b7a",
         "name": "delete-all-cards",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 320,
         "y": 1240,
         "wires": [
@@ -2188,10 +2177,10 @@
     },
     {
         "id": "7fe3bec1.b4483",
-        "type": "put-card",
+        "type": "uhppoted-put-card",
         "z": "2a36b650.4b9b7a",
         "name": "put-card",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 300,
         "y": 1000,
         "wires": [
@@ -2576,11 +2565,11 @@
     },
     {
         "id": "8a160494.ad27f8",
-        "type": "get-time-profile",
+        "type": "uhppoted-get-time-profile",
         "z": "590b5d52.6f70e4",
         "name": "",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 300,
         "y": 100,
         "wires": [
@@ -2620,11 +2609,11 @@
     },
     {
         "id": "eff19860.5c6da8",
-        "type": "set-time-profile",
+        "type": "uhppoted-set-time-profile",
         "z": "590b5d52.6f70e4",
         "name": "",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 300,
         "y": 180,
         "wires": [
@@ -2698,11 +2687,11 @@
     },
     {
         "id": "5bf5bd59.814154",
-        "type": "clear-time-profiles",
+        "type": "uhppoted-clear-time-profiles",
         "z": "590b5d52.6f70e4",
         "name": "",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 310,
         "y": 260,
         "wires": [
@@ -2713,11 +2702,11 @@
     },
     {
         "id": "8c3a28ff.bb9a08",
-        "type": "put-card",
+        "type": "uhppoted-put-card",
         "z": "590b5d52.6f70e4",
         "name": "put-card-with-time-profile",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 330,
         "y": 380,
         "wires": [
@@ -2774,11 +2763,11 @@
     },
     {
         "id": "75098299.b6febc",
-        "type": "get-card",
+        "type": "uhppoted-get-card",
         "z": "590b5d52.6f70e4",
         "name": "get-card-with-time-profile",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 330,
         "y": 460,
         "wires": [
@@ -2881,11 +2870,11 @@
     },
     {
         "id": "f980b203.9b821",
-        "type": "clear-task-list",
+        "type": "uhppoted-clear-task-list",
         "z": "66c3d22e.434c7c",
         "name": "",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 300,
         "y": 100,
         "wires": [
@@ -2942,11 +2931,11 @@
     },
     {
         "id": "13d7bc91.a53133",
-        "type": "refresh-task-list",
+        "type": "uhppoted-refresh-task-list",
         "z": "66c3d22e.434c7c",
         "name": "",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 300,
         "y": 340,
         "wires": [
@@ -3003,11 +2992,11 @@
     },
     {
         "id": "cdc76803.768e88",
-        "type": "add-task",
+        "type": "uhppoted-add-task",
         "z": "66c3d22e.434c7c",
         "name": "add-numeric-task",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 310,
         "y": 180,
         "wires": [
@@ -3064,11 +3053,11 @@
     },
     {
         "id": "cc7f21cd.1853b",
-        "type": "add-task",
+        "type": "uhppoted-add-task",
         "z": "66c3d22e.434c7c",
         "name": "add-text-task",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 300,
         "y": 260,
         "wires": [
@@ -3125,10 +3114,10 @@
     },
     {
         "id": "9e7ddaee.4eaa48",
-        "type": "get-event-index",
+        "type": "uhppoted-get-event-index",
         "z": "b5da19a5.72a0c8",
         "name": "get-event-index",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 300,
         "y": 220,
         "wires": [
@@ -3186,11 +3175,11 @@
     },
     {
         "id": "738563e5.ad729c",
-        "type": "set-event-index",
+        "type": "uhppoted-set-event-index",
         "z": "b5da19a5.72a0c8",
         "name": "set-event-index",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 300,
         "y": 340,
         "wires": [
@@ -3248,10 +3237,10 @@
     },
     {
         "id": "7cf7e46b.641d4c",
-        "type": "get-event",
+        "type": "uhppoted-get-event",
         "z": "b5da19a5.72a0c8",
         "name": "get-event",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 280,
         "y": 460,
         "wires": [
@@ -3485,11 +3474,11 @@
     },
     {
         "id": "6f2638b.e4c53c8",
-        "type": "record-special-events",
+        "type": "uhppoted-record-special-events",
         "z": "b5da19a5.72a0c8",
         "name": "",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 320,
         "y": 100,
         "wires": [
@@ -3547,11 +3536,11 @@
     },
     {
         "id": "0f093ad785df38d1",
-        "type": "get-event",
+        "type": "uhppoted-get-event",
         "z": "b5da19a5.72a0c8",
         "name": "get-event",
         "topic": "",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 380,
         "y": 800,
         "wires": [
