@@ -1,7 +1,7 @@
 <script type="text/javascript">
     RED.nodes.registerType('put-card', {
         category: 'uhppoted',
-        color: '#A6BBCF',
+        color: 'red',
         defaults: {
             name: { 
                 value: "" 
@@ -20,6 +20,10 @@
         label: function() {
             return this.name || "put-card";
         },
+        labelStyle: function() {
+            return this.name? "node_label_italic" : "";
+        },
+        paletteLabel: 'put-card-deprecated',
         inputLabels:  function(index) { return this._('put-card.inputLabel')  },
         outputLabels: function(index) { return this._('put-card.outputLabel') }
     });

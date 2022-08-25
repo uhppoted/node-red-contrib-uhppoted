@@ -2,7 +2,7 @@ module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
 
-  function ListenNode (config) {
+  function ListenNodeDeprecated (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -38,5 +38,5 @@ module.exports = function (RED) {
     }
   }
 
-  RED.nodes.registerType('listen', ListenNode)
+  RED.nodes.registerType('listen', ListenNodeDeprecated)
 }

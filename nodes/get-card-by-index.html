@@ -1,7 +1,7 @@
 <script type="text/javascript">
     RED.nodes.registerType('get-card-by-index', {
         category: 'uhppoted',
-        color: '#A6BBCF',
+        color: 'red',
         defaults: {
             name: { 
                 value: "" 
@@ -20,6 +20,10 @@
         label: function() {
             return this.name || "get-card-by-index";
         },
+        labelStyle: function() {
+            return this.name? "node_label_italic" : "";
+        },
+        paletteLabel: 'get-card-by-index-deprecated',
         inputLabels:  function(index) { return this._('get-card-by-index.inputLabel') },
         outputLabels: function(index) { return this._('get-card-by-index.outputLabel') }
     });

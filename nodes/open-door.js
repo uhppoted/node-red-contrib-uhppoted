@@ -2,7 +2,7 @@ module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
 
-  function OpenDoorNode (config) {
+  function OpenDoorNodeDeprecated (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -39,5 +39,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('open-door', OpenDoorNode)
+  RED.nodes.registerType('open-door', OpenDoorNodeDeprecated)
 }

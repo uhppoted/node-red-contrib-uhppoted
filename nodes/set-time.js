@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function SetTimeNode (config) {
+  function SetTimeNodeDeprecated (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -40,5 +40,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('set-time', SetTimeNode)
+  RED.nodes.registerType('set-time', SetTimeNodeDeprecated)
 }

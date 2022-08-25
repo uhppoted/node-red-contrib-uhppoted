@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function GetDoorControlNode (config) {
+  function GetDoorControlNodeDeprecated (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -44,5 +44,5 @@ module.exports = function (RED) {
     }
   }
 
-  RED.nodes.registerType('get-door-control', GetDoorControlNode)
+  RED.nodes.registerType('get-door-control', GetDoorControlNodeDeprecated)
 }

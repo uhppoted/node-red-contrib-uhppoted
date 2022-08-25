@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function GetCardsNode (config) {
+  function GetCardsNodeDeprecated (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -41,5 +41,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('get-cards', GetCardsNode)
+  RED.nodes.registerType('get-cards', GetCardsNodeDeprecated)
 }

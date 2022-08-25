@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function GetListenerNode (config) {
+  function GetListenerNodeDeprecated (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -39,5 +39,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('get-listener', GetListenerNode)
+  RED.nodes.registerType('get-listener', GetListenerNodeDeprecated)
 }

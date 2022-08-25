@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function ClearTimeProfilesNode (config) {
+  function ClearTimeProfilesNodeDeprecated (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -43,5 +43,5 @@ module.exports = function (RED) {
     }
   }
 
-  RED.nodes.registerType('clear-time-profiles', ClearTimeProfilesNode)
+  RED.nodes.registerType('clear-time-profiles', ClearTimeProfilesNodeDeprecated)
 }

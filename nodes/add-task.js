@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function AddTaskNode (config) {
+  function AddTaskNodeDeprecated (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -44,5 +44,5 @@ module.exports = function (RED) {
     }
   }
 
-  RED.nodes.registerType('add-task', AddTaskNode)
+  RED.nodes.registerType('add-task', AddTaskNodeDeprecated)
 }
