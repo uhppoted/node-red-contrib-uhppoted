@@ -1,0 +1,9 @@
+{
+    "uhppoted-get-card": {
+        "cardOk": "card ok",
+        "cardNotFound": "card not found",
+        "cardDeleted": "card deleted",
+        "inputLabel": "controller ID\ncard number",
+        "outputLabel": "card status\ncard record"
+    }
+}

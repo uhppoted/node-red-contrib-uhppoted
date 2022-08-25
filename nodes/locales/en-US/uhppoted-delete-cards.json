@@ -1,0 +1,6 @@
+{
+    "uhppoted-delete-cards": {
+        "inputLabel": "controller ID",
+        "outputLabel": "cards deleted"
+    }
+}

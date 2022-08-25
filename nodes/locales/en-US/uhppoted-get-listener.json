@@ -1,0 +1,6 @@
+{
+    "uhppoted-get-listener": {
+        "inputLabel": "controller ID",
+        "outputLabel": "listener address:port"
+    }
+}

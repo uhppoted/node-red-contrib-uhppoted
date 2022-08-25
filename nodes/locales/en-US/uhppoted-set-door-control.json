@@ -1,0 +1,12 @@
+{
+    "uhppoted-set-door-control": {
+        "normallyOpen": "normally open",
+        "normallyClosed": "normally closed",
+        "controlled": "controlled",
+        "unknown": "unknown",
+
+        "invalidDoorControl": "invalid door control ('${code}')",
+        "inputLabel": "controller ID\ndoor delay\ndoor control state",
+        "outputLabel": "door delay\ndoor control state"        
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "uhppoted-add-task": {
+        "inputLabel": "controller ID\task",
+        "outputLabel": "task added"
+    }
+}

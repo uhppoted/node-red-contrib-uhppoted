@@ -1,0 +1,6 @@
+{
+    "uhppoted-put-card": {
+        "inputLabel": "controller ID\ncard record",
+        "outputLabel": "paycard stored"
+    }
+}
