@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    RED.nodes.registerType('uhppoted-set-door-control', {
+        category: 'uhppoted',
+        color: '#A6BBCF',
+        defaults: {
+            name: { 
+                value: '' 
+            },
+            topic: { 
+                value: '' 
+            },
+            config: {
+                value: '', 
+                type: 'uhppoted-config'
+            },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'icons/uhppoted.svg',
+        label: function() {
+            return this.name || 'set-door-control';
+        },
+        paletteLabel: 'set-door-control',
+        inputLabels:  function(index) { return this._('set-door-control.inputLabel')  },
+        outputLabels: function(index) { return this._('set-door-control.outputLabel') }
+    });
+</script>

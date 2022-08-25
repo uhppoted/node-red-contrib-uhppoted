@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    RED.nodes.registerType('uhppoted-get-status', {
+        category: 'uhppoted',
+        color: '#A6BBCF',
+        defaults: {
+            name: { 
+                value: '' 
+            },
+            topic: { 
+                value: '' 
+            },
+            config: {
+                value: '', 
+                type: 'uhppoted-config'
+            },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'icons/uhppoted.svg',
+        label: function() {
+            return this.name || 'get-status';
+        },
+        paletteLabel: 'get-status',
+        inputLabels:  function(index) { return this._('get-status.inputLabel')  },
+        outputLabels: function(index) { return this._('get-status.outputLabel') }
+    });
+</script>

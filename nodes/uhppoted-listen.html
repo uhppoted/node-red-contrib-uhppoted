@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    RED.nodes.registerType('uhppoted-listen', {
+        category: 'uhppoted',
+        color: '#A6BBCF',
+        defaults: {
+            name: { 
+                value: '' 
+            },
+            topic: { 
+                value: '' 
+            },
+            config: {
+                value: '', 
+                type: 'uhppoted-config'
+            },
+        },
+        inputs: 0,
+        outputs: 1,
+        icon: 'watch.svg',
+        label: function() {
+            return this.name || 'listen';
+        },
+        paletteLabel: 'listen',
+        outputLabels: function(index) { return this._('listen.outputLabel') }
+    });
+</script>
