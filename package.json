@@ -35,6 +35,8 @@
       "uhppoted-get-device": "nodes/uhppoted-get-device.js",
 
       "set-ip": "nodes/set-ip.js",
+      "uhppoted-set-ip": "nodes/uhppoted-set-ip.js",
+
       "get-time": "nodes/get-time.js",
       "set-time": "nodes/set-time.js",
       "get-door-control": "nodes/get-door-control.js",

@@ -555,10 +555,10 @@
     },
     {
         "id": "13a984d5.221c9b",
-        "type": "set-ip",
+        "type": "uhppoted-set-ip",
         "z": "8bcf2d43.2e243",
         "name": "set-ip",
-        "config": "cbd92359.dbf19",
+        "config": "cf35d9904542f0af",
         "x": 270,
         "y": 100,
         "wires": [

@@ -5,7 +5,7 @@
 - [ ] Duplicate existing nodes with _uhppoted-_ prefix and _uhppoted-config_
       - [x] _get-devices_
       - [x] _get-device_
-      - [ ] _set-ip_
+      - [x] _set-ip_
       - [ ] _get-time_
       - [ ] _set-time_
       - [ ] _get-door-control_
@@ -40,7 +40,7 @@
 
       - [x] _get-devices_
       - [x] _get-device_
-      - [ ] _get-device_
+      - [x] _get-device_
       - [ ] _set-ip_
       - [ ] _get-time_
       - [ ] _set-time_
