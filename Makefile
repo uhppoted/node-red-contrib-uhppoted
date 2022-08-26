@@ -27,8 +27,10 @@ test: build
 integration-tests: build
 	node-red ./integration-tests/integration-tests.json
 
-dashboard: build
-	node-red ./examples/dashboard.json
+build-all: build
+
+release:
+	npm pack
 
 examples: build
 	node-red ./examples/examples.json
@@ -36,7 +38,9 @@ examples: build
 examples-deprecated: build
 	node-red ./examples/examples-deprecated.json
 
-build-all: build
+dashboard: build
+	node-red ./examples/dashboard.json
 
-release:
-	npm pack
+dashboard-deprecated: build
+	node-red ./examples/dashboard-deprecated.json
+
