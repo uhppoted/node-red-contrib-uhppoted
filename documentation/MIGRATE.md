@@ -52,7 +52,7 @@ AFTER
         "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\"},\"405419896\":{\"address\":\"192.168.1.100:60000\"}}",
         "debug": true
     },
-```   
+```
 
    2.2 Update the node _type_ for all existing nodes to use the _uhppoted-_ prefix, e.g.:
 ```

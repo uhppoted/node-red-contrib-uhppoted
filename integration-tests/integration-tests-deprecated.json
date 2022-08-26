@@ -759,7 +759,7 @@
     },
     {
         "id": "cbd92359.dbf19",
-        "type": "uhppoted-config",
+        "type": "config",
         "name": "integration-tests",
         "timeout": "1000",
         "bind": "192.168.1.100",
@@ -859,7 +859,7 @@
     },
     {
         "id": "e9060ec9.fe371",
-        "type": "uhppoted-get-devices",
+        "type": "get-devices",
         "z": "de85fbbc.953fc8",
         "name": "get-devices",
         "topic": "",
@@ -875,7 +875,7 @@
     },
     {
         "id": "bf5563db.210cb",
-        "type": "uhppoted-get-device",
+        "type": "get-device",
         "z": "de85fbbc.953fc8",
         "name": "get-device",
         "topic": "",
@@ -937,7 +937,7 @@
     },
     {
         "id": "56ef93c6.8d8c1c",
-        "type": "uhppoted-set-ip",
+        "type": "set-ip",
         "z": "de85fbbc.953fc8",
         "name": "set-ip",
         "topic": "",
@@ -1072,7 +1072,7 @@
     },
     {
         "id": "c0da3ea7.48856",
-        "type": "uhppoted-get-listener",
+        "type": "get-listener",
         "z": "de85fbbc.953fc8",
         "name": "get-listener",
         "topic": "get-listener",
@@ -1127,7 +1127,7 @@
     },
     {
         "id": "57bc7521.18562c",
-        "type": "uhppoted-set-listener",
+        "type": "set-listener",
         "z": "de85fbbc.953fc8",
         "name": "set-listener",
         "topic": "set-listener",
@@ -1182,7 +1182,7 @@
     },
     {
         "id": "1f07292c.cfdc67",
-        "type": "uhppoted-get-time",
+        "type": "get-time",
         "z": "de85fbbc.953fc8",
         "name": "get-time",
         "topic": "get-time",
@@ -1228,7 +1228,7 @@
     },
     {
         "id": "a739a69a.0fb768",
-        "type": "uhppoted-set-time",
+        "type": "set-time",
         "z": "de85fbbc.953fc8",
         "name": "set-time",
         "topic": "set-time",
@@ -1283,7 +1283,7 @@
     },
     {
         "id": "d17948ed.f07db8",
-        "type": "uhppoted-get-status",
+        "type": "get-status",
         "z": "de85fbbc.953fc8",
         "name": "get-status",
         "topic": "get-status",
@@ -1338,7 +1338,7 @@
     },
     {
         "id": "9a3a716.1076d9",
-        "type": "uhppoted-get-door-control",
+        "type": "get-door-control",
         "z": "de85fbbc.953fc8",
         "name": "get-door-control",
         "topic": "get-door-control",
@@ -1393,7 +1393,7 @@
     },
     {
         "id": "80547728.e83688",
-        "type": "uhppoted-set-door-control",
+        "type": "set-door-control",
         "z": "de85fbbc.953fc8",
         "name": "set-door-control",
         "topic": "set-door-control-normally-open",
@@ -1448,7 +1448,7 @@
     },
     {
         "id": "356e1b30.f3d974",
-        "type": "uhppoted-set-door-control",
+        "type": "set-door-control",
         "z": "de85fbbc.953fc8",
         "name": "set-door-control",
         "topic": "set-door-control-normally-closed",
@@ -1503,7 +1503,7 @@
     },
     {
         "id": "65b92504.2f897c",
-        "type": "uhppoted-set-door-control",
+        "type": "set-door-control",
         "z": "de85fbbc.953fc8",
         "name": "set-door-control",
         "topic": "set-door-control-controlled",
@@ -1558,7 +1558,7 @@
     },
     {
         "id": "40b99c79.0a1ce4",
-        "type": "uhppoted-open-door",
+        "type": "open-door",
         "z": "de85fbbc.953fc8",
         "name": "open-door",
         "topic": "open-door",
@@ -1613,7 +1613,7 @@
     },
     {
         "id": "13322554.1846db",
-        "type": "uhppoted-get-cards",
+        "type": "get-cards",
         "z": "de85fbbc.953fc8",
         "name": "get-cards",
         "topic": "get-cards",
@@ -1675,7 +1675,7 @@
     },
     {
         "id": "dc98aa64.a856d8",
-        "type": "uhppoted-get-card",
+        "type": "get-card",
         "z": "de85fbbc.953fc8",
         "name": "get-card",
         "topic": "",
@@ -1737,7 +1737,7 @@
     },
     {
         "id": "8446af5d.11658",
-        "type": "uhppoted-get-card-by-index",
+        "type": "get-card-by-index",
         "z": "de85fbbc.953fc8",
         "name": "get-card-by-index",
         "topic": "",
@@ -1799,7 +1799,7 @@
     },
     {
         "id": "316db87a.7bef58",
-        "type": "uhppoted-get-event-index",
+        "type": "get-event-index",
         "z": "de85fbbc.953fc8",
         "name": "get-event-index",
         "config": "cbd92359.dbf19",
@@ -1860,7 +1860,7 @@
     },
     {
         "id": "6020c163.dfce9",
-        "type": "uhppoted-set-event-index",
+        "type": "set-event-index",
         "z": "de85fbbc.953fc8",
         "name": "set-event-index",
         "topic": "",
@@ -1922,7 +1922,7 @@
     },
     {
         "id": "25b91212.57c65e",
-        "type": "uhppoted-get-event",
+        "type": "get-event",
         "z": "de85fbbc.953fc8",
         "name": "get-event",
         "config": "cbd92359.dbf19",
@@ -1949,7 +1949,7 @@
     },
     {
         "id": "d24e1c75.37ef7",
-        "type": "uhppoted-listen",
+        "type": "listen",
         "z": "de85fbbc.953fc8",
         "name": "listen",
         "config": "cbd92359.dbf19",
@@ -2058,7 +2058,7 @@
     },
     {
         "id": "5d9e1107.f32d9",
-        "type": "uhppoted-record-special-events",
+        "type": "record-special-events",
         "z": "de85fbbc.953fc8",
         "name": "record-special-events",
         "topic": "",
@@ -2673,7 +2673,7 @@
     },
     {
         "id": "8fa92401.5f4928",
-        "type": "uhppoted-set-listener",
+        "type": "set-listener",
         "z": "de85fbbc.953fc8",
         "name": "",
         "topic": "",
@@ -2686,7 +2686,7 @@
     },
     {
         "id": "79c64098.4d0c1",
-        "type": "uhppoted-record-special-events",
+        "type": "record-special-events",
         "z": "de85fbbc.953fc8",
         "name": "",
         "topic": "",
@@ -2757,7 +2757,7 @@
     },
     {
         "id": "cefcd8d2.d1f318",
-        "type": "uhppoted-set-listener",
+        "type": "set-listener",
         "z": "de85fbbc.953fc8",
         "name": "",
         "topic": "",
@@ -2770,7 +2770,7 @@
     },
     {
         "id": "faac5fa2.4529a",
-        "type": "uhppoted-record-special-events",
+        "type": "record-special-events",
         "z": "de85fbbc.953fc8",
         "name": "",
         "topic": "",
@@ -2874,7 +2874,7 @@
     },
     {
         "id": "af07c9d1.a3e5b8",
-        "type": "uhppoted-put-card",
+        "type": "put-card",
         "z": "de85fbbc.953fc8",
         "name": "put-card",
         "topic": "",
@@ -2936,7 +2936,7 @@
     },
     {
         "id": "318c6c.cc364394",
-        "type": "uhppoted-clear-time-profiles",
+        "type": "clear-time-profiles",
         "z": "de85fbbc.953fc8",
         "name": "clear-time-profiles",
         "topic": "",
@@ -2998,7 +2998,7 @@
     },
     {
         "id": "a1aae0b5.eb954",
-        "type": "uhppoted-set-time-profile",
+        "type": "set-time-profile",
         "z": "de85fbbc.953fc8",
         "name": "set-time-profile",
         "topic": "",
@@ -3060,7 +3060,7 @@
     },
     {
         "id": "c163f70.64dba08",
-        "type": "uhppoted-get-time-profile",
+        "type": "get-time-profile",
         "z": "de85fbbc.953fc8",
         "name": "get-time-profile",
         "topic": "",
@@ -3237,7 +3237,7 @@
     },
     {
         "id": "cd0b487a.6ccae8",
-        "type": "uhppoted-clear-task-list",
+        "type": "clear-task-list",
         "z": "de85fbbc.953fc8",
         "name": "",
         "topic": "",
@@ -3253,7 +3253,7 @@
     },
     {
         "id": "a33da4f.8356a58",
-        "type": "uhppoted-add-task",
+        "type": "add-task",
         "z": "de85fbbc.953fc8",
         "name": "",
         "topic": "",
@@ -3269,7 +3269,7 @@
     },
     {
         "id": "d3f44e29.c58ab",
-        "type": "uhppoted-refresh-task-list",
+        "type": "refresh-task-list",
         "z": "de85fbbc.953fc8",
         "name": "",
         "topic": "",

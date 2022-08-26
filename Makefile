@@ -27,6 +27,9 @@ test: build
 integration-tests: build
 	node-red ./integration-tests/integration-tests.json
 
+integration-tests-deprecated: build
+	node-red ./integration-tests/integration-tests-deprecated.json
+
 build-all: build
 
 release:

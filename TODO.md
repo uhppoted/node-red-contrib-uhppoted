@@ -3,7 +3,7 @@
 ### IN PROGRESS
 
 - [x] Update dashboard.json
-- [ ] Update integration tests
+- [x] Update integration tests
 - [x] Migration HOWTO
 
 - [ ] Update to NodeRED 3.0
