@@ -5,6 +5,8 @@
 - [x] Update dashboard.json
 - [x] Update integration tests
 - [x] Migration HOWTO
+- [ ] Bump version
+- [ ] Release as v0.9.0
 
 - [ ] Update to NodeRED 3.0
 

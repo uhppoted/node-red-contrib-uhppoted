@@ -3,8 +3,13 @@
 ## [Unreleased]
 
 ### Changed
-1. Cleaned up _examples.json_
-2. Added `engines` section to _package.json_
+1. Created duplicate set of nodes with _uhppoted-_ prefix (cf. [Config node name conflict](https://github.com/uhppoted/node-red-contrib-uhppoted/issues/11)
+2. Updated examples.json and dashboard.json to use _uhppoted-_ prefixed nodes
+3. Updated integration tests to use _uhppoted-_ prefixed nodes
+4. Added 'notice of breaking change' to README 
+5. Added MIGRATE.md with instructions for migrating from v0.9.0 to v1.0.0
+6. Cleaned up _examples.json_
+7. Added `engines` section to _package.json_
 
 ## [0.8.1](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.8.1) - 2022-08-01
 
