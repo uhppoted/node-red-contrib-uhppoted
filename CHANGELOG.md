@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [Unreleased]
+## [0.9.0](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.9.0) - 2022-08-27
 
 ### Changed
 1. Created duplicate set of nodes with _uhppoted-_ prefix (cf. [Config node name conflict](https://github.com/uhppoted/node-red-contrib-uhppoted/issues/11)
