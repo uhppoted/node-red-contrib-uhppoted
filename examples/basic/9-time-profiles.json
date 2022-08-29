@@ -1,0 +1,325 @@
+[
+    {
+        "id": "590b5d52.6f70e4",
+        "type": "tab",
+        "label": "9-time-profiles",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d9f2a76f.385308",
+        "type": "inject",
+        "z": "590b5d52.6f70e4",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896,\"profileId\":29}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "8a160494.ad27f8"
+            ]
+        ]
+    },
+    {
+        "id": "b4fb88e0.f808a8",
+        "type": "debug",
+        "z": "590b5d52.6f70e4",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "8a160494.ad27f8",
+        "type": "uhppoted-get-time-profile",
+        "z": "590b5d52.6f70e4",
+        "name": "",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "b4fb88e0.f808a8"
+            ]
+        ]
+    },
+    {
+        "id": "1a80cd98.b11242",
+        "type": "inject",
+        "z": "590b5d52.6f70e4",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896,\"profile\":{\"id\":29,\"valid\":{\"from\":\"2021-01-01\",\"to\":\"2021-12-31\"},\"weekdays\":[\"Monday\",\"Thursday\",\"Friday\"],\"segments\":[{\"start\":\"08:00\",\"end\":\"11:30\"},{\"start\":\"13:15\",\"end\":\"17:45\"}],\"linkedTo\":3}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "eff19860.5c6da8"
+            ]
+        ]
+    },
+    {
+        "id": "eff19860.5c6da8",
+        "type": "uhppoted-set-time-profile",
+        "z": "590b5d52.6f70e4",
+        "name": "",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 180,
+        "wires": [
+            [
+                "1438b372.807b6d"
+            ]
+        ]
+    },
+    {
+        "id": "1438b372.807b6d",
+        "type": "debug",
+        "z": "590b5d52.6f70e4",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "3c1aa5c1.4d2a0a",
+        "type": "inject",
+        "z": "590b5d52.6f70e4",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "5bf5bd59.814154"
+            ]
+        ]
+    },
+    {
+        "id": "c9080b4.9da3bf8",
+        "type": "debug",
+        "z": "590b5d52.6f70e4",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5bf5bd59.814154",
+        "type": "uhppoted-clear-time-profiles",
+        "z": "590b5d52.6f70e4",
+        "name": "",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 310,
+        "y": 260,
+        "wires": [
+            [
+                "c9080b4.9da3bf8"
+            ]
+        ]
+    },
+    {
+        "id": "8c3a28ff.bb9a08",
+        "type": "uhppoted-put-card",
+        "z": "590b5d52.6f70e4",
+        "name": "put-card-with-time-profile",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 330,
+        "y": 380,
+        "wires": [
+            [
+                "bad92d49.a0e61"
+            ]
+        ]
+    },
+    {
+        "id": "924ed50d.855988",
+        "type": "inject",
+        "z": "590b5d52.6f70e4",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "test",
+        "payload": "{\"deviceId\":405419896,\"card\":{\"number\":6153283,\"valid\":{\"from\":\"2021-01-01\",\"to\":\"2021-12-31\"},\"doors\":{\"1\":true,\"2\":false,\"3\":29,\"4\":true}}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "8c3a28ff.bb9a08"
+            ]
+        ]
+    },
+    {
+        "id": "bad92d49.a0e61",
+        "type": "debug",
+        "z": "590b5d52.6f70e4",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "75098299.b6febc",
+        "type": "uhppoted-get-card",
+        "z": "590b5d52.6f70e4",
+        "name": "get-card-with-time-profile",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 330,
+        "y": 460,
+        "wires": [
+            [
+                "30f08ba4.620154"
+            ]
+        ]
+    },
+    {
+        "id": "94300170.74219",
+        "type": "inject",
+        "z": "590b5d52.6f70e4",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896,\"cardNumber\":6153283}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 460,
+        "wires": [
+            [
+                "75098299.b6febc"
+            ]
+        ]
+    },
+    {
+        "id": "30f08ba4.620154",
+        "type": "debug",
+        "z": "590b5d52.6f70e4",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "cf35d9904542f0af",
+        "type": "uhppoted-config",
+        "name": "examples",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":true}}",
+        "debug": true
+    }
+]

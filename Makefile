@@ -23,6 +23,7 @@ build:
 test: build
 	npx eslint --fix test/*.js  
 	npm test
+	node-red-dev validate
 
 integration-tests: build
 	node-red ./integration-tests/integration-tests.json

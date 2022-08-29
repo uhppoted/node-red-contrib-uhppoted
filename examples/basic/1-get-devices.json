@@ -1,0 +1,225 @@
+[
+    {
+        "id": "a640a000.d83cb",
+        "type": "tab",
+        "label": "1-get-devices",
+        "disabled": false,
+        "info": "# get-devices: basic example\n\nIssues a _get-devices_ broadcast command and displays the received information for the access controller with serial number 405419896.\n\nThe _get-devices_ flow in the _dashboard_ flowset contains a more complete example."
+    },
+    {
+        "id": "31429769.0664e8",
+        "type": "debug",
+        "z": "a640a000.d83cb",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "82a8517a.6ef88",
+        "type": "inject",
+        "z": "a640a000.d83cb",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "test-get-controllers",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "fa5c3f4666ddf394"
+            ]
+        ]
+    },
+    {
+        "id": "6699677.c355098",
+        "type": "function",
+        "z": "a640a000.d83cb",
+        "name": "parse",
+        "func": "for (i=0; i<msg.payload.length; i++) {\n    deviceId = msg.payload[i].deviceId\n    device = msg.payload[i].device;\n    if (deviceId == 405419896) {\n        return msg.payload[i];        \n    }\n}\n\nreturn { device: {} }",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 510,
+        "y": 100,
+        "wires": [
+            [
+                "86fc5747.ceaf78",
+                "27be4ab8.2eac96",
+                "301b11ef.dbf73e",
+                "10c3ab90.e85124",
+                "5707c80e.570f78",
+                "86dd1102.ee59d",
+                "c6be71d1.b0f19"
+            ]
+        ]
+    },
+    {
+        "id": "86fc5747.ceaf78",
+        "type": "debug",
+        "z": "a640a000.d83cb",
+        "name": "serial-number",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.serialNumber",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "27be4ab8.2eac96",
+        "type": "debug",
+        "z": "a640a000.d83cb",
+        "name": "address",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.address",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "301b11ef.dbf73e",
+        "type": "debug",
+        "z": "a640a000.d83cb",
+        "name": "netmask",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.netmask",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "10c3ab90.e85124",
+        "type": "debug",
+        "z": "a640a000.d83cb",
+        "name": "gateway",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.gateway",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "5707c80e.570f78",
+        "type": "debug",
+        "z": "a640a000.d83cb",
+        "name": "MAC",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.MAC",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "86dd1102.ee59d",
+        "type": "debug",
+        "z": "a640a000.d83cb",
+        "name": "version",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.version",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "c6be71d1.b0f19",
+        "type": "debug",
+        "z": "a640a000.d83cb",
+        "name": "date",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.date",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 690,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "fa5c3f4666ddf394",
+        "type": "uhppoted-get-devices",
+        "z": "a640a000.d83cb",
+        "name": "get-devices",
+        "topic": "get-devices",
+        "config": "cf35d9904542f0af",
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "31429769.0664e8",
+                "6699677.c355098"
+            ]
+        ]
+    },
+    {
+        "id": "cf35d9904542f0af",
+        "type": "uhppoted-config",
+        "name": "examples",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":true}}",
+        "debug": true
+    }
+]
