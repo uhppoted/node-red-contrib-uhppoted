@@ -1,6 +1,0 @@
-{
-    "get-devices": {
-        "inputLabel": "trigger message",
-        "outputLabel": "list of controllers"
-    }
-}

@@ -1,6 +1,0 @@
-{
-    "get-cards": {
-        "inputLabel": "controller ID",
-        "outputLabel": "number of card records"
-    }
-}

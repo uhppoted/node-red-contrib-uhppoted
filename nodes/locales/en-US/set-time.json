@@ -1,6 +1,0 @@
-{
-    "set-time": {
-        "inputLabel": "controller ID\ndate\/time",
-        "outputLabel": "controller date + time"
-    }
-}

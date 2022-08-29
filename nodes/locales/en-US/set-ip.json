@@ -1,6 +1,0 @@
-{
-    "set-ip": {
-        "inputLabel": "controller ID\nIPv4 config",
-        "outputLabel": "(none)"
-    }
-}

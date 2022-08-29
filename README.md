@@ -7,8 +7,8 @@
 ---
 | ***NOTICE OF BREAKING CHANGE*** |
 | :---: |
-| **Please note that `node-red-contrib-uhppoted` v1.0.0 will be released in the near future as a breaking change.** |
-| _Unfortunately there are several node name conflicts with other NodeRED modules and no easy way to fix it without a breaking change._ |
+| **Please note that `node-red-contrib-uhppoted` v1.0.0 is a breaking change.** |
+| _Unfortunately there were several node name conflicts with other NodeRED modules and no easy way to fix it without a breaking change._ |
 
 _Please see:_
 - _[Issue #11: config node name conflict](https://github.com/uhppoted/node-red-contrib-uhppoted/issues/11) for the original cause_

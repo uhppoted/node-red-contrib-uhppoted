@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [Unreleased]
+
+### Removed
+1. Removed all nodes without a _uhppote-_ prefix
+2. Remove examples, dashboard and integration tests using deprecated nodes
+
+
 ## [0.9.0](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.9.0) - 2022-08-27
 
 ### Changed
@@ -10,6 +17,7 @@
 5. Added MIGRATE.md with instructions for migrating from v0.9.0 to v1.0.0
 6. Cleaned up _examples.json_
 7. Added `engines` section to _package.json_
+
 
 ## [0.8.1](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.8.1) - 2022-08-01
 

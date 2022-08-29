@@ -1,6 +1,0 @@
-{
-    "get-time": {
-        "inputLabel": "controller ID",
-        "outputLabel": "controller date + time"
-    }
-}
