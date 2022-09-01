@@ -5,10 +5,11 @@
 ![NPM](https://img.shields.io/npm/l/node-red-contrib-uhppoted)
 
 ---
-| ***NOTICE OF BREAKING CHANGE*** |
-| :---: |
-| **Please note that `node-red-contrib-uhppoted` v1.0.0 will be released in the near future as a breaking change.** |
-| _Unfortunately there are several node name conflicts with other NodeRED modules and no easy way to fix it without a breaking change._ |
+#### NOTICE OF BREAKING CHANGE
+
+**Please note that `node-red-contrib-uhppoted` v1.0.0 will be released in the near future as a breaking change.**
+
+_Unfortunately there are several node name conflicts with other NodeRED modules and no easy way to fix it without a breaking change._
 
 _Please see:_
 - _[Issue #11: config node name conflict](https://github.com/uhppoted/node-red-contrib-uhppoted/issues/11) for the original cause_
@@ -90,23 +91,23 @@ The nodes can (optionally) accept a configuration that overrides the default set
 
 ### Examples
 
-The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository includes a set of [basic examples](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/basic) that demonstrate the usage of each node, as well as a more complex [dashboard project](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/dashboard) that combines the nodes to create a dashboard:
+The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository includes a set of [basic examples](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/examples.json) that demonstrate the usage of each node, as well as a more complex [dashboard project](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/dashboard) that combines the nodes to create a dashboard:
 
 | Node               | Description                                                  |
 | ------------------ | ------------------------------------------------------------ |
 | [`1‑get‑devices`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/1-get-devices.json) | Example _flow_ for the `get‑devices` node |
 | [`2‑get‑device`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/2-get-device.json)   | Example _flow_ for the `get‑device` node |
-| [`3‑IPv4`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/3-IPv4.json)               | Example _flow_ for the `set‑ip` node |
-| [`4‑listen`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/4-listen.json)           | Example _flow_ for the `listen`. `get-listener` and `set‑listener` nodes |
-| [`5‑status`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/5-status.json)           | Example _flow_ for the `get‑status` node |
+| [`3‑set-ip`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/set-ip.json)               | Example _flow_ for the `set‑ip` node |
+| [`4‑event-listener`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/4-event-listener.json)           | Example _flow_ for the `listen`. `get-listener` and `set‑listener` nodes |
+| [`5‑get-status`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/5-get-status.json)           | Example _flow_ for the `get‑status` node |
 | [`6‑time`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/6-time.json)               | Example _flow_ for the `get‑time` and `set‑time` nodes |
 | [`7‑doors`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/7-doors.json)             | Example _flow_ for the `get‑door‑control`, `set‑door‑control` and `open‑door` nodes |
 | [`8‑cards`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/8-cards.json)             | Example _flow_ for the `get‑cards`, `get‑card`, `get‑card‑by‑index`, `put‑card`, `delete‑card` and `delete‑cards` nodes |
 | [`9-time-profiles`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/9-time-profiles.json) | Example _flow_ for the `get-time-profile`, `set‑time-profile` and `clear-time-profiles` nodes |
-| [`10-task-list`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/10-task-list.json) | Example _flow_ for the `clear-task-list`, `add-task` and `refresh-task-list` nodes |
+| [`10-tasklist`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/10-tasklist.json) | Example _flow_ for the `clear-task-list`, `add-task` and `refresh-task-list` nodes |
 | [`11-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/11-events.json)         | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
 
-The dashboard example requires the following additional components to be installed into the palette:
+The [_dashboard_](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/dashboard.json) example requires the following additional components to be installed into the palette:
 
 - [node-red-node-ui-list](https://flows.nodered.org/node/node-red-node-ui-list)
 - [node-red-node-ui-table](https://flows.nodered.org/node/node-red-node-ui-table)

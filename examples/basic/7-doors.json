@@ -1,0 +1,282 @@
+[
+    {
+        "id": "86bbf50e.a7f188",
+        "type": "tab",
+        "label": "7-doors",
+        "disabled": false,
+        "info": "# door control: basic examples\n\nBasic examples for the _get-door-control_, _set-door-control_ and _open-door_ nodes.\n\n - the _get-door-control_ example retrieves the current open delay to 5 seconds and control state for door 1 from the controller with serial number 405419896.\n\n - the _set-door-control_ example sets the open delay to 5 seconds and control state to 'normally closed' for door 1 on the controller with serial number 405419896.\n\n - the _open-door_ example opens door 1 on the controller with serial number 405419896 to the current time\n\nThe _doors_ flow in the _dashboard_ flowset contains a more complete example."
+    },
+    {
+        "id": "2046730f.81897c",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7317e0e6.862af",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896, \"door\":1 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "bedb99cc.cc0768"
+            ]
+        ]
+    },
+    {
+        "id": "bedb99cc.cc0768",
+        "type": "uhppoted-get-door-control",
+        "z": "86bbf50e.a7f188",
+        "name": "get-door-control",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 100,
+        "wires": [
+            [
+                "2046730f.81897c",
+                "ed5427f.86328d8",
+                "e6a2598d.e7f958"
+            ]
+        ]
+    },
+    {
+        "id": "6d8d48f7.397bb8",
+        "type": "uhppoted-set-door-control",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-control",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 260,
+        "wires": [
+            [
+                "552b0a9d.9bc984",
+                "742df092.553a2",
+                "6ef964a9.7c2b4c"
+            ]
+        ]
+    },
+    {
+        "id": "552b0a9d.9bc984",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "5fb4202c.0de66",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896,\"door\":1,\"delay\":6,\"control\":\"controlled\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "6d8d48f7.397bb8"
+            ]
+        ]
+    },
+    {
+        "id": "6c1b3177.30bd2",
+        "type": "uhppoted-open-door",
+        "z": "86bbf50e.a7f188",
+        "name": "open-door",
+        "config": "cf35d9904542f0af",
+        "x": 290,
+        "y": 420,
+        "wires": [
+            [
+                "cf49a18d.73b92",
+                "e35ca985.ab1a28"
+            ]
+        ]
+    },
+    {
+        "id": "cf49a18d.73b92",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "23ed32e1.98a00e",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\":405419896, \"door\":1 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 420,
+        "wires": [
+            [
+                "6c1b3177.30bd2"
+            ]
+        ]
+    },
+    {
+        "id": "ed5427f.86328d8",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "door-1.delay",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doorControlState.delay",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e6a2598d.e7f958",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "door-1.control",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doorControlState.control.state",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "742df092.553a2",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "door-1.delay",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doorControlState.delay",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "6ef964a9.7c2b4c",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "door-1.control",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doorControlState.control.state",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "e35ca985.ab1a28",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "door-1.opened",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.opened",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "cf35d9904542f0af",
+        "type": "uhppoted-config",
+        "name": "examples",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":true}}",
+        "debug": true
+    }
+]

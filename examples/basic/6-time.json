@@ -1,0 +1,177 @@
+[
+    {
+        "id": "f7a455cc.3fefe8",
+        "type": "tab",
+        "label": "6-time",
+        "disabled": false,
+        "info": "# system date/time: basic examples\n\nBasic examples for the _get-time_ and _set-time_ nodes.\n\n - the _get-time_ example retrieves the current system date and time from the controller with serial number 405419896.\n\n - the _set-time_ example sets the system date and time for the controller with serial number 405419896 to the current time\n\nThe _time_ flow in the _dashboard_ flowset contains a more complete example."
+    },
+    {
+        "id": "6a3d799.3fe3688",
+        "type": "uhppoted-get-time",
+        "z": "f7a455cc.3fefe8",
+        "name": "get-time",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 280,
+        "y": 100,
+        "wires": [
+            [
+                "2c2ab991.619516",
+                "cab00341.6e077"
+            ]
+        ]
+    },
+    {
+        "id": "2c2ab991.619516",
+        "type": "debug",
+        "z": "f7a455cc.3fefe8",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "d84c21e5.b2692",
+        "type": "inject",
+        "z": "f7a455cc.3fefe8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "6a3d799.3fe3688"
+            ]
+        ]
+    },
+    {
+        "id": "9d254489.c08578",
+        "type": "inject",
+        "z": "f7a455cc.3fefe8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "set-time",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "50ebe86.e579018"
+            ]
+        ]
+    },
+    {
+        "id": "804a318e.14ddb",
+        "type": "debug",
+        "z": "f7a455cc.3fefe8",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ea3bdfee.bf0d1",
+        "type": "uhppoted-set-time",
+        "z": "f7a455cc.3fefe8",
+        "name": "set-time",
+        "config": "cf35d9904542f0af",
+        "x": 420,
+        "y": 180,
+        "wires": [
+            [
+                "804a318e.14ddb"
+            ]
+        ]
+    },
+    {
+        "id": "cab00341.6e077",
+        "type": "debug",
+        "z": "f7a455cc.3fefe8",
+        "name": "date-time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.datetime",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "50ebe86.e579018",
+        "type": "function",
+        "z": "f7a455cc.3fefe8",
+        "name": "format",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\nconst datetime = new Date()\n\nconst year = format(datetime.getFullYear(), 4)\nconst month = format(datetime.getMonth()+1, 2)\nconst day = format(datetime.getDate(), 2)\nconst hours = format(datetime.getHours(), 2)\nconst minutes = format(datetime.getMinutes(), 2)\nconst seconds = format(datetime.getSeconds(), 2)\n\nmsg.payload = { \n    deviceId: 405419896,\n    datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n}\n        \nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 270,
+        "y": 180,
+        "wires": [
+            [
+                "ea3bdfee.bf0d1"
+            ]
+        ]
+    },
+    {
+        "id": "cf35d9904542f0af",
+        "type": "uhppoted-config",
+        "name": "examples",
+        "timeout": "5000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":true}}",
+        "debug": true
+    }
+]
