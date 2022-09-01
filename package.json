@@ -54,9 +54,6 @@
       "uhppoted-get-event": "nodes/uhppoted-get-event.js",
       "uhppoted-open-door": "nodes/uhppoted-open-door.js",
       "uhppoted-listen": "nodes/uhppoted-listen.js"
-    },
-    "engines": {
-      "node": ">=14.18.3"
     }
   },
   "engines": {
