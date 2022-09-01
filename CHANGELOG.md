@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## [0.9.1](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.9.1) - 2022-09-01
+
+### Changed
+1. Reworked README formatting (was breaking NodeRED page)
+2. Reinstated examples removed from v0.9.0
+
 ## [0.9.0](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.9.0) - 2022-08-27
 
 ### Changed
