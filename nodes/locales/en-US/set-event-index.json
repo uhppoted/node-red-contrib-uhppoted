@@ -1,6 +1,0 @@
-{
-    "set-event-index": {
-        "inputLabel": "controller ID\nevent index",
-        "outputLabel": "event index updated"
-    }
-}

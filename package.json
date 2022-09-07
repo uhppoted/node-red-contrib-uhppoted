@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-uhppoted",
-  "version": "0.9.1",
+  "version": "0.9.9",
   "description": "A set of nodes for the UHPPOTE Wiegand Access Controller",
   "main": "index.js",
   "keywords": [
@@ -25,95 +25,35 @@
   "node-red": {
     "version": ">=2.2.0",
     "nodes": {
-      "config": "nodes/config.js",
       "uhppoted-config": "nodes/uhppoted-config.js",
-
-      "get-devices": "nodes/get-devices.js",
       "uhppoted-get-devices": "nodes/uhppoted-get-devices.js",
-
-      "get-device": "nodes/get-device.js",
       "uhppoted-get-device": "nodes/uhppoted-get-device.js",
-
-      "set-ip": "nodes/set-ip.js",
       "uhppoted-set-ip": "nodes/uhppoted-set-ip.js",
-
-      "get-time": "nodes/get-time.js",
       "uhppoted-get-time": "nodes/uhppoted-get-time.js",
-
-      "set-time": "nodes/set-time.js",
       "uhppoted-set-time": "nodes/uhppoted-set-time.js",
-
-      "get-door-control": "nodes/get-door-control.js",
       "uhppoted-get-door-control": "nodes/uhppoted-get-door-control.js",
-
-      "set-door-control": "nodes/set-door-control.js",
       "uhppoted-set-door-control": "nodes/uhppoted-set-door-control.js",
-
-      "get-listener": "nodes/get-listener.js",
       "uhppoted-get-listener": "nodes/uhppoted-get-listener.js",
-
-      "set-listener": "nodes/set-listener.js",
       "uhppoted-set-listener": "nodes/uhppoted-set-listener.js",
-
-      "record-special-events": "nodes/record-special-events.js",
       "uhppoted-record-special-events": "nodes/uhppoted-record-special-events.js",
-
-      "get-status": "nodes/get-status.js",
       "uhppoted-get-status": "nodes/uhppoted-get-status.js",
-
-      "get-cards": "nodes/get-cards.js",
       "uhppoted-get-cards": "nodes/uhppoted-get-cards.js",
-
-      "get-card": "nodes/get-card.js",
       "uhppoted-get-card": "nodes/uhppoted-get-card.js",
-
-      "get-card-by-index": "nodes/get-card-by-index.js",
       "uhppoted-get-card-by-index": "nodes/uhppoted-get-card-by-index.js",
-
-      "put-card": "nodes/put-card.js",
       "uhppoted-put-card": "nodes/uhppoted-put-card.js",
-
-      "delete-card": "nodes/delete-card.js",
       "uhppoted-delete-card": "nodes/uhppoted-delete-card.js",
-
-      "delete-all-cards": "nodes/delete-cards.js",
       "uhppoted-delete-all-cards": "nodes/uhppoted-delete-cards.js",
-
-      "get-time-profile": "nodes/get-time-profile.js",
       "uhppoted-get-time-profile": "nodes/uhppoted-get-time-profile.js",
-
-      "set-time-profile": "nodes/set-time-profile.js",
       "uhppoted-set-time-profile": "nodes/uhppoted-set-time-profile.js",
-
-      "clear-time-profiles": "nodes/clear-time-profiles.js",
       "uhppoted-clear-time-profiles": "nodes/uhppoted-clear-time-profiles.js",
-
-      "clear-task-list": "nodes/clear-task-list.js",
-      "uhppoted-clear-task-list": "nodes/uhppoted-clear-task-list.js",
-
-      "add-task": "nodes/add-task.js",
       "uhppoted-add-task": "nodes/uhppoted-add-task.js",
-
-      "refresh-task-list": "nodes/refresh-task-list.js",
+      "uhppoted-clear-task-list": "nodes/uhppoted-clear-task-list.js",
       "uhppoted-refresh-task-list": "nodes/uhppoted-refresh-task-list.js",
-
-      "get-event-index": "nodes/get-event-index.js",
       "uhppoted-get-event-index": "nodes/uhppoted-get-event-index.js",
-
-      "set-event-index": "nodes/set-event-index.js",
       "uhppoted-set-event-index": "nodes/uhppoted-set-event-index.js",
-
-      "get-event": "nodes/get-event.js",
       "uhppoted-get-event": "nodes/uhppoted-get-event.js",
-
-      "open-door": "nodes/open-door.js",
       "uhppoted-open-door": "nodes/uhppoted-open-door.js",
-
-      "listen": "nodes/listen.js",
       "uhppoted-listen": "nodes/uhppoted-listen.js"
-    },
-    "engines": {
-      "node": ">=14.18.3"
     }
   },
   "engines": {

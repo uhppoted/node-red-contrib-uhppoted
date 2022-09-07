@@ -23,12 +23,10 @@ build:
 test: build
 	npx eslint --fix test/*.js  
 	npm test
+	node-red-dev validate
 
 integration-tests: build
 	node-red ./integration-tests/integration-tests.json
-
-integration-tests-deprecated: build
-	node-red ./integration-tests/integration-tests-deprecated.json
 
 build-all: build
 
@@ -38,12 +36,5 @@ release:
 examples: build
 	node-red ./examples/examples.json
 
-examples-deprecated: build
-	node-red ./examples/examples-deprecated.json
-
 dashboard: build
 	node-red ./examples/dashboard.json
-
-dashboard-deprecated: build
-	node-red ./examples/dashboard-deprecated.json
-

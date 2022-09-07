@@ -1,6 +1,0 @@
-{
-    "get-event-index": {
-        "inputLabel": "controller ID",
-        "outputLabel": "event index"
-    }
-}

@@ -1,6 +1,0 @@
-{
-    "get-time-profile": {
-        "inputLabel": "controller ID\nprofile ID",
-        "outputLabel": "profile"
-    }
-}
