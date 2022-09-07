@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [Unreleased]
+
+### Removed
+1. Removed all nodes without a _uhppote-_ prefix
+2. Remove examples, dashboard and integration tests using deprecated nodes
+
+
 ## [0.9.1](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.9.1) - 2022-09-01
 
 ### Changed
