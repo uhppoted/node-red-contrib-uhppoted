@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [Unreleased]
+## [1.0.0](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.0.0) - 2022-09-10
 
 ### Removed
 1. Removed all nodes without a _uhppote-_ prefix
