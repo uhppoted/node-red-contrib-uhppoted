@@ -20,7 +20,7 @@ update-release:
 build:
 	npx eslint --fix nodes/*.js  
 
-test: build
+test: 
 	npx eslint --fix test/*.js  
 	npm test
 	node-red-dev validate
@@ -28,7 +28,7 @@ test: build
 integration-tests: build
 	node-red ./integration-tests/integration-tests.json
 
-build-all: build
+build-all: build test
 
 release:
 	npm pack

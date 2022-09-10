@@ -2,7 +2,7 @@
 
 ### IN PROGRESS
 
-- [ ] Release as v1.0.0
+- [x] Release as v1.0.0
 
 ## TODO
 
