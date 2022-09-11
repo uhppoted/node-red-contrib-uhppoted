@@ -29,5 +29,8 @@ jobs:
     - name: Install eslint
       run: npm install eslint eslint-config-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node --save-dev
 
+    - name: Install node-red-dev
+      run: npm install -g node-red-dev
+
     - name: Build
       run: make build-all
