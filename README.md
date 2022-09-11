@@ -1,7 +1,7 @@
 # node-red-contrib-uhppoted
 
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
-![NPM version](https://badge.fury.io/js/node-red-contrib-uhppoted.svg)
+[![NPM version](https://badge.fury.io/js/node-red-contrib-uhppoted.svg)](https://badge.fury.io/js/node-red-contrib-uhppoted)
 ![NPM](https://img.shields.io/npm/l/node-red-contrib-uhppoted)
 ![build](https://github.com/uhppoted/node-red-contrib-uhppoted/workflows/build/badge.svg)
 

@@ -1,11 +1,17 @@
 # CHANGELOG
 
+## [Unreleased]
+
+### Added
+1. github workflow 
+2. node-red-dev sanity check
+
+
 ## [1.0.0](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.0.0) - 2022-09-10
 
 ### Removed
 1. Removed all nodes without a _uhppote-_ prefix
 2. Remove examples, dashboard and integration tests using deprecated nodes
-
 
 ## [0.9.1](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.9.1) - 2022-09-01
 
