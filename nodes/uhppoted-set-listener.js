@@ -24,9 +24,9 @@ module.exports = function (RED) {
         }
 
         common.emit(node, t, {
-          deviceId: deviceId,
-          address: address,
-          port: port
+          deviceId,
+          address,
+          port
         })
       }
 
@@ -41,7 +41,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, opcodes.SetListener, { address: address, port: port })
+        uhppoted.set(context, deviceId, opcodes.SetListener, { address, port })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

@@ -32,7 +32,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, opcodes.SetTime, { datetime: datetime })
+        uhppoted.set(context, deviceId, opcodes.SetTime, { datetime })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

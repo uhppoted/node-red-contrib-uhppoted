@@ -31,7 +31,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, 0x40, { door: door })
+        uhppoted.set(context, deviceId, 0x40, { door })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

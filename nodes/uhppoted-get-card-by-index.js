@@ -22,7 +22,7 @@ module.exports = function (RED) {
           topic: t,
           payload: {
             deviceId: object.deviceId,
-            index: index,
+            index,
             status: {
               code: 0,
               message: RED._('get-card-by-index.cardOk')
@@ -57,7 +57,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.get(context, deviceId, opcodes.GetCardByIndex, { index: index })
+        uhppoted.get(context, deviceId, opcodes.GetCardByIndex, { index })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

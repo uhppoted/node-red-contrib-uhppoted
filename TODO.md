@@ -2,7 +2,7 @@
 
 ### IN PROGRESS
 
-- [ ] Update to NodeRED 3.0
+- [x] Update to NodeRED 3.0
 
 ## TODO
 

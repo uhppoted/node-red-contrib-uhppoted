@@ -54,7 +54,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.get(context, deviceId, opcodes.GetCardByID, { card: card })
+        uhppoted.get(context, deviceId, opcodes.GetCardByID, { card })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

@@ -3,11 +3,11 @@ module.exports = {
     browser: true,
     es2021: true
   },
-  extends: [
-    'standard'
+  extends: 'standard',
+  overrides: [
   ],
   parserOptions: {
-    ecmaVersion: 12,
+    ecmaVersion: 'latest',
     sourceType: 'module'
   },
   rules: {

@@ -32,7 +32,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.get(context, deviceId, opcodes.SetTimeProfile, { profile: profile })
+        uhppoted.get(context, deviceId, opcodes.SetTimeProfile, { profile })
           .then(object => {
             if (object) {
               object.profileId = profile.id

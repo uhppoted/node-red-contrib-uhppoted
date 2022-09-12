@@ -6,6 +6,10 @@
 1. github workflow 
 2. node-red-dev sanity check
 
+### Changed
+1. Updated NodeRED version to 3.0.2
+2. Updated package dependencies to latest for security patches
+3. Included examples in package
 
 ## [1.0.0](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.0.0) - 2022-09-10
 

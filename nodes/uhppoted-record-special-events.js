@@ -20,7 +20,7 @@ module.exports = function (RED) {
       const emit = function (object) {
         common.emit(node, t, {
           deviceId: object.deviceId,
-          enable: enable,
+          enable,
           updated: object.updated
         })
       }
@@ -36,7 +36,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, opcodes.RecordSpecialEvents, { enable: enable })
+        uhppoted.set(context, deviceId, opcodes.RecordSpecialEvents, { enable })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

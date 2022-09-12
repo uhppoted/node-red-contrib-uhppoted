@@ -38,7 +38,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, opcodes.GetEvent, { index: index })
+        uhppoted.set(context, deviceId, opcodes.GetEvent, { index })
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

@@ -1,6 +1,6 @@
 module.exports = {
   emit: function (node, topic, object) {
-    node.send({ topic: topic, payload: object })
+    node.send({ topic, payload: object })
   },
 
   ok: function (node, err) {
