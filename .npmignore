@@ -1,6 +1,7 @@
 Makefile
 .eslintrc.js  
 *.tgz
+.github
 TODO.md
 docker
 test
