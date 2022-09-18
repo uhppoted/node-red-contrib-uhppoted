@@ -282,7 +282,7 @@ describe('codec', function () {
         linkedTo: 3
       }
 
-      const bytes = codec.encode(opcodes.SetTimeProfile, 405419896, { profile: profile })
+      const bytes = codec.encode(opcodes.SetTimeProfile, 405419896, { profile })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -333,7 +333,7 @@ describe('codec', function () {
         cards: 7
       }
 
-      const bytes = codec.encode(opcodes.AddTask, 405419896, { task: task })
+      const bytes = codec.encode(opcodes.AddTask, 405419896, { task })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -358,7 +358,7 @@ describe('codec', function () {
         cards: 7
       }
 
-      const bytes = codec.encode(opcodes.AddTask, 405419896, { task: task })
+      const bytes = codec.encode(opcodes.AddTask, 405419896, { task })
 
       expect(bytes).to.deep.equal(msg)
     })

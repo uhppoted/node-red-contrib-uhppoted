@@ -8,7 +8,7 @@
 ---
 #### NOTICE OF BREAKING CHANGE
 
-**Please note that `node-red-contrib-uhppoted` v1.0.0 is a breaking change.**
+**Please note that `node-red-contrib-uhppoted` v1.x is a breaking change.**
 
 _Unfortunately there were several node name conflicts with other NodeRED modules and no easy way to fix it without a breaking change._
 
