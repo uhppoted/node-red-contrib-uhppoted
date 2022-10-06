@@ -16,7 +16,10 @@ const map = {
   out: 'directionOut',
 
   // event reason
+  'no reason': '(none)',
   swipe: 'swipe',
+  'swipe open': 'swipe open',
+  'swipe close': 'swipe close',
   'swipe:denied (system)': 'swipeDenied',
   'no access rights': 'noAccess',
   'incorrect password': 'incorrectPassword',
@@ -160,8 +163,20 @@ module.exports = {
     }
 
     switch (byte) {
+      case 0:
+        reason.reason = translate(translator, 'no reason')
+        break
+
       case 1:
         reason.reason = translate(translator, 'swipe')
+        break
+
+      case 2:
+        reason.reason = translate(translator, 'swipe open')
+        break
+
+      case 3:
+        reason.reason = translate(translator, 'swipe close')
         break
 
       case 5:
@@ -209,7 +224,7 @@ module.exports = {
         break
 
       case 20:
-        reason.reason = translate(translator, 'push button ok')
+        reason.reason = translate(translator, 'pushbutton ok')
         break
 
       case 23:
