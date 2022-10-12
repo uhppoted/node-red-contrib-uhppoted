@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [Unreleased]
+## [1.1.1](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.1) - 2022-10-14
 
 ### Changed
 1. Added 'swipe open' and 'swipe close' event reasons.

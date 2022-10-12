@@ -11,11 +11,11 @@ DEBUG    ?= --debug
 
 update:
 	npm update
-	npm audit fix
+	# npm audit fix
 
 update-release:
 	npm update
-	npm audit fix
+	# npm audit fix
 
 build:
 	npx eslint --fix nodes/*.js  
