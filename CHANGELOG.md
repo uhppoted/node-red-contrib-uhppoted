@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## [Unreleased]
+
+### Changed
+1. Reduced visiblity of 'upgrading from v0.x' notes to a section under _Installation_.
+2. Multiple dependency updates for security patches.
+
+
 ## [1.1.1](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.1) - 2022-10-14
 
 ### Changed

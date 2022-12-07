@@ -5,19 +5,6 @@
 ![NPM](https://img.shields.io/npm/l/node-red-contrib-uhppoted)
 ![build](https://github.com/uhppoted/node-red-contrib-uhppoted/workflows/build/badge.svg)
 
----
-#### NOTICE OF BREAKING CHANGE
-
-**Please note that `node-red-contrib-uhppoted` v1.x is a breaking change.**
-
-_Unfortunately there were several node name conflicts with other NodeRED modules and no easy way to fix it without a breaking change._
-
-_Please see:_
-- _[Issue #11: config node name conflict](https://github.com/uhppoted/node-red-contrib-uhppoted/issues/11) for the original cause_
-- _[Discussion: prefixing all nodes with uhppoted- to avoid naming conflicts](https://github.com/uhppoted/node-red-contrib-uhppoted/discussions/12) for any comments and further discussion._
-- [HOWTO: Migrating a NodeRED flow from v0.9.x to v1.0.x](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/documentation/MIGRATE.md)
-
----
 Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports device and card management as well as handling for events.
 
 #### Requirements:
@@ -43,6 +30,16 @@ repository:
     git clone https://github.com/uhppoted/node-red-contrib-uhppoted.git
     cd node-red-contrib-uhppoted
     npm install
+
+##### _Upgrading from v0.x_
+
+_Please note that updating from `node-red-contrib-uhppoted` v0.x to v1.x is a breaking change. `node-red-contrib-uhppoted` v1.0
+fixed node name conflicts with other NodeRED modules and unfortunately changing node names throughout requires a breaking change._
+
+_Please see:_
+- _[Issue #11: config node name conflict](https://github.com/uhppoted/node-red-contrib-uhppoted/issues/11) for the original cause_
+- _[Discussion: prefixing all nodes with uhppoted- to avoid naming conflicts](https://github.com/uhppoted/node-red-contrib-uhppoted/discussions/12) for any comments and further discussion._
+- _[HOWTO: Migrating a NodeRED flow from v0.9.x to v1.0.x](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/documentation/MIGRATE.md)_
 
 
 ### Nodes
