@@ -1,6 +1,7 @@
 .DS_Store
 *.tgz
 runtime
+release-notes.md
 
 # dependencies
 node_modules
@@ -11,3 +12,5 @@ node_modules
 # node-red
 examples/*.backup
 integration-tests/*.backup
+
+
