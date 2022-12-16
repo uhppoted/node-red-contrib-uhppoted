@@ -30,8 +30,13 @@ integration-tests: build
 
 build-all: build test
 
-release:
+release: build-all
 	npm pack
+
+publish: release
+	echo "Releasing version $(VERSION)"
+	# gh release create "$(VERSION)" *.tgz --draft --prerelease --title "$(VERSION)-beta" --notes-file release-notes.md
+	# npm --dry-run publish
 
 examples: build
 	node-red ./examples/examples.json
