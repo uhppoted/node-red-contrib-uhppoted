@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/uhppoted/node-red-contrib-uhppoted",
   "node-red": {
-    "version": ">=3.0.2",
+    "version": ">=2.2.3",
     "nodes": {
       "uhppoted-config": "nodes/uhppoted-config.js",
       "uhppoted-get-devices": "nodes/uhppoted-get-devices.js",
@@ -53,6 +53,7 @@
       "uhppoted-set-event-index": "nodes/uhppoted-set-event-index.js",
       "uhppoted-get-event": "nodes/uhppoted-get-event.js",
       "uhppoted-open-door": "nodes/uhppoted-open-door.js",
+      "uhppoted-set-pc-control": "nodes/uhppoted-set-pc-control.js",
       "uhppoted-listen": "nodes/uhppoted-listen.js"
     }
   },
@@ -61,7 +62,7 @@
   },
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "bl": "^5.0.0",
+    "bl": ">=5.0.0",
     "ip": "^1.1.5",
     "node-red": "^3.0.2"
   },

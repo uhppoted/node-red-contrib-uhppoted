@@ -2,6 +2,7 @@
 
 ### IN PROGRESS
 
+- [x] set-pc-control node (https://github.com/uhppoted/uhppote-core/issues/7)
 - [x] Update to NodeRED 3.0
 
 ## TODO

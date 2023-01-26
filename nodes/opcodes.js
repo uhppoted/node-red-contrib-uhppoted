@@ -18,6 +18,7 @@ module.exports = {
   GetTimeProfile: 0x98,
   SetTimeProfile: 0x88,
   ClearTimeProfiles: 0x8a,
+  SetPCControl: 0xa0,
   ClearTaskList: 0xa6,
   AddTask: 0xa8,
   RefreshTaskList: 0xac,
