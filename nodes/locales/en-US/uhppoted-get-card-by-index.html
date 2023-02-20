@@ -74,6 +74,8 @@
         <dd>true if the card number has access to door 3</d>
         <dt>card.doors.4<span class="property-type">boolean</span></dt>
         <dd>true if the card number has access to door 4</d>
+        <dt>card.PIN<span class="property-type">uint32</span></dt>
+        <dd>card keypad PIN (in the range [0..999999]</d>
     </dl>
     <h4>Example:</h4>
     <pre>
@@ -95,7 +97,8 @@
             2: false,
             3: false,
             4: true
-        }
+        },
+        PIN: 7531
     }
   }</pre>
     

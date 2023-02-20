@@ -4,6 +4,7 @@
 
 ### Added
 1. uhppoted-set-pc-control node.
+2. Card PIN field to `put-card`, `get-card` and `get-card-by-index`.
 
 ### Updated
 1. Changed package.json to support NodeRED v2.2.3+

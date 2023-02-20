@@ -53,6 +53,8 @@
         <dd>access door 3 granted if true, managed by a time profile if uint8 in the range [2..254]</dd>
         <dt>card.door.4<span class="property-type">boolean|uint8</span></dt>
         <dd>access door 4 granted if true, managed by a time profile if uint8 in the range [2..254]</dd>
+        <dt>card.PIN<span class="property-type">uint32 in the range [0..999999]</span></dt>
+        <dd>card keypad PIN (optional)</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
@@ -69,7 +71,8 @@
             "2": false,
             "3": 29,
             "4": true
-        }
+        },
+        PIN: 7531
     }
   }</pre>
 
