@@ -14,7 +14,7 @@
         "reasonSwipe": "swipe",
         "reasonSwipeOpen": "swipe open",
         "reasonSwipeClose": "swipe close",
-        "reasonSystemDenied": "swipe:denied (system)",
+        "reasonSystemDenied": "swipe:denied (remote access control)",
         "reasonNoAccess": "no access rights",
         "reasonInvalidPassword": "incorrect password",
         "reasonAntiPassback": "anti-passback",

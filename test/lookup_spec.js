@@ -152,7 +152,7 @@ describe('lookup', function () {
       expect(object.state.event.reason.reason).to.equal('swipe close')
     })
 
-    it('should decode "swipe denied (system)" event message (reason code 5)', function () {
+    it('should decode "swipe denied (remote access control)" event message (reason code 5)', function () {
       const msg = Buffer.from([
         0x17, 0x20, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x47, 0x00, 0x00, 0x00, 0x01, 0x00, 0x03, 0x01,
         0x02, 0x00, 0x01, 0x00, 0x20, 0x20, 0x08, 0x25, 0x10, 0x08, 0x40, 0x05, 0x00, 0x00, 0x00, 0x00,
@@ -162,7 +162,7 @@ describe('lookup', function () {
 
       const object = codec.decode(new Uint8Array(msg))
 
-      expect(object.state.event.reason.reason).to.equal('swipe:denied (system)')
+      expect(object.state.event.reason.reason).to.equal('swipe:denied (remote access control)')
     })
 
     it('should decode "no access rights" event message (reason code 6)', function () {

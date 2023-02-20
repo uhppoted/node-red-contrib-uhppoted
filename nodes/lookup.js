@@ -20,7 +20,7 @@ const map = {
   swipe: 'swipe',
   'swipe open': 'swipe open',
   'swipe close': 'swipe close',
-  'swipe:denied (system)': 'swipeDenied',
+  'swipe:denied (remote access control)': 'swipeDenied',
   'no access rights': 'noAccess',
   'incorrect password': 'incorrectPassword',
   'anti-passback': 'antiPassback',
@@ -180,7 +180,7 @@ module.exports = {
         break
 
       case 5:
-        reason.reason = translate(translator, 'swipe:denied (system)') // Access is managed by the system not the controller
+        reason.reason = translate(translator, 'swipe:denied (remote access control)') // Access is managed by the system not the controller
         break
 
       case 6:

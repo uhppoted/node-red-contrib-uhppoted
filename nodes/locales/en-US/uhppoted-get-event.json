@@ -12,7 +12,7 @@
         "directionOut": "out",
 
         "swipe": "swipe",
-        "swipeDenied": "swipe:denied (system)",
+        "swipeDenied": "swipe:denied (remote access control)",
         "noAccess": "no access rights",
         "incorrectPassword": "incorrect password",
         "antiPassback": "anti-passback",
