@@ -277,6 +277,23 @@ describe('codec', function () {
       }).to.throw('invalid card PIN value -1')
     })
 
+    it('should fail with error when encoding a put-card request with an invalid PIN (3)', function () {
+      expect(() => {
+        codec.encode(opcodes.PutCard, 405419896, {
+          card: 61532836,
+          from: '2019-01-02',
+          to: '2021-12-31',
+          doors: {
+            1: true,
+            2: 29,
+            3: false,
+            4: true
+          },
+          PIN: 'qwerty'
+        })
+      }).to.throw('invalid card PIN value qwerty')
+    })
+
     it('should encode delete-card request', function () {
       const msg = Buffer.from([
         0x17, 0x52, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0xa4, 0xea, 0xaa, 0x03, 0x00, 0x00, 0x00, 0x00,

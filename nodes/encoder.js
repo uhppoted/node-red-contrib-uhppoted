@@ -301,7 +301,7 @@ module.exports = {
     * @param {date}   to        Card validity end date
     * @param {object} doors     Object mapping door numbers 1..4 to access permission. A permission
     *                           may be true, false or a time profile in the range [2..254]
-    * @param {number} PIN       Optional card PIN code (in the range 0..999999)
+    * @param {number} PIN       Optional card PIN code in the range [0..999999]
     *
     * @return {buffer} 64 byte NodeJS buffer with encoded put-card request.
     */
@@ -335,12 +335,10 @@ module.exports = {
     if (PIN) {
       const pin = Number.parseInt(`${PIN}`)
 
-      if (!Number.isNaN(pin) && pin >= 0 && pin < 1000000) {
-        request.writeUInt8((pin >> 0) & 0x00ff, 24)
-        request.writeUInt8((pin >> 8) & 0x00ff, 25)
-        request.writeUInt8((pin >> 16) & 0x00ff, 26)
-      } else {
+      if (Number.isNaN(pin) || pin < 0 || pin > 999999) {
         throw new Error(`invalid card PIN value ${PIN}`)
+      } else {
+        uint24(pin).copy(request, 24)
       }
     }
 
@@ -698,6 +696,25 @@ module.exports = {
 
     return request
   }
+}
+
+/**
+  * Internal utility function to encode a PIN code 24-bit binary.
+  *
+  * @param {number} PIN     Numeric PIN code in the rangee 0 to 999999
+  * @param {number} offset  Index of time in buffer
+  *
+  * @param {buffer} 3 byte NodeJS buffer with little-endian encoded PIN
+  * @private
+  */
+function uint24 (PIN) {
+  const bytes = []
+
+  bytes.push((PIN >> 0) & 0x00ff)
+  bytes.push((PIN >> 8) & 0x00ff)
+  bytes.push((PIN >> 16) & 0x00ff)
+
+  return Buffer.from(bytes)
 }
 
 /**
