@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## [Unreleased]
+## [1.1.3](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.3) - 2023-03-15
 
 ### Added
 1. uhppoted-set-pc-control node.
