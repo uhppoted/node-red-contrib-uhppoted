@@ -8,7 +8,7 @@
 Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports device and card management as well as handling for events.
 
 #### Requirements:
-- `node‑red` version 3.0.2+
+- `node‑red` version 2.2.3+
 - `node.js` version 14.18.3+
 - `ip.js` version 1.1.5+ 
 
@@ -70,6 +70,8 @@ _Please see:_
 | `get‑event‑index`       | Retrieves the current event index from a controller          | 
 | `set‑event‑index`       | Sets the current event index on a controller                 |
 | `get‑event`             | Retrieves a single event from a controller                   |
+| `set-pc-control`        | Delegates access control to an offboard application          |
+| `set-interlock`         | Sets the controller door interlock mode                      |
 | `listen`                | Establishes a listening connection for controller events     |
 
 All nodes take a message with JSON object payload as input and send a message with a JSON object payload as output.
@@ -104,6 +106,8 @@ The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contr
 | [`9-time-profiles`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/9-time-profiles.json) | Example _flow_ for the `get-time-profile`, `set‑time-profile` and `clear-time-profiles` nodes |
 | [`10-tasklist`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/10-tasklist.json) | Example _flow_ for the `clear-task-list`, `add-task` and `refresh-task-list` nodes |
 | [`11-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/11-events.json)         | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
+| [`12-set-pc-control`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/12-set-pc-control.json) | Example _flow_ for the `set-pc-control` node |
+| [`13-set-interlock`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/13-set-interlock.json) | Example _flow_ for the `set-interlock` node |
 
 The [_dashboard_](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/dashboard.json) example requires the following additional components to be installed into the palette:
 

@@ -85,6 +85,14 @@
         "env": []
     },
     {
+        "id": "17ac43b079dc0788",
+        "type": "tab",
+        "label": "13-set-interlock",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "cf35d9904542f0af",
         "type": "uhppoted-config",
         "name": "examples",
@@ -4086,6 +4094,85 @@
         "wires": [
             [
                 "fc341cfabe5d9a38"
+            ]
+        ]
+    },
+    {
+        "id": "8d9e23e3fc3ef45c",
+        "type": "debug",
+        "z": "17ac43b079dc0788",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "5ea032df07f2af52",
+        "type": "inject",
+        "z": "17ac43b079dc0788",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896, \"interlock\": 4 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 100,
+        "wires": [
+            [
+                "de3b45665b6aec40"
+            ]
+        ]
+    },
+    {
+        "id": "4dd316821f27ffc7",
+        "type": "debug",
+        "z": "17ac43b079dc0788",
+        "name": "updated",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.updated",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "de3b45665b6aec40",
+        "type": "uhppoted-set-interlock",
+        "z": "17ac43b079dc0788",
+        "name": "set-interlock",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 310,
+        "y": 100,
+        "wires": [
+            [
+                "8d9e23e3fc3ef45c",
+                "4dd316821f27ffc7"
             ]
         ]
     }

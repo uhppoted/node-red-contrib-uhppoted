@@ -695,6 +695,30 @@ module.exports = {
     }
 
     return request
+  },
+
+  /**
+    * Encode a set-interlock request.
+    *
+    * @param {number} deviceId  Controller serial number
+    * @param {number} interlock 0,1,2,3,4 or 8, corresponding to modes
+    *                 - 1&2
+    *                 - 3&4
+    *                 - 1&2,3&4
+    *                 - 1&2&3
+    *                 - 1&2&3&4
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded set-interlock request.
+    */
+  SetInterlock: function (deviceId, { interlock } = {}) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0xa2, 1)
+    request.writeUInt32LE(deviceId, 4)
+    request.writeUInt8(interlock, 8)
+
+    return request
   }
 }
 

@@ -7,6 +7,17 @@
         "info": ""
     },
     {
+        "id": "cbd92359.dbf19",
+        "type": "uhppoted-config",
+        "name": "integration-tests",
+        "timeout": "1000",
+        "bind": "192.168.1.100",
+        "broadcast": "192.168.1.255:60000",
+        "listen": "192.168.1.100:60001",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":true}}",
+        "debug": false
+    },
+    {
         "id": "c226e86b.bcaf58",
         "type": "inject",
         "z": "de85fbbc.953fc8",
@@ -68,7 +79,9 @@
             "b64d3e12.1547",
             "701b8859.3dfea8",
             "10a66e62.9d0c02",
-            "e3dffe9e.66a8"
+            "e3dffe9e.66a8",
+            "c0e6bb33a19db488",
+            "9a31bb8724c61ced"
         ],
         "x": 135,
         "y": 60,
@@ -1163,13 +1176,14 @@
         "type": "uhppoted-get-event",
         "z": "de85fbbc.953fc8",
         "name": "get-event",
+        "topic": "",
         "config": "cbd92359.dbf19",
         "x": 780,
         "y": 1320,
         "wires": [
             [
                 "f8a731fb.97baa",
-                "d8a9007b.456b3"
+                "4e8722aa55ba76cc"
             ]
         ]
     },
@@ -1192,7 +1206,7 @@
         "name": "listen",
         "config": "cbd92359.dbf19",
         "x": 110,
-        "y": 1300,
+        "y": 1500,
         "wires": [
             [
                 "e601bdca.da8e2"
@@ -1213,7 +1227,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 230,
-        "y": 1300,
+        "y": 1500,
         "wires": []
     },
     {
@@ -1253,7 +1267,7 @@
         "to": "",
         "reg": false,
         "x": 480,
-        "y": 1360,
+        "y": 1440,
         "wires": [
             [
                 "78dd925c.9213cc"
@@ -1344,7 +1358,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1500,
+        "y": 1700,
         "wires": [
             [
                 "4fd62a58.d31924"
@@ -1365,7 +1379,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1500,
+        "y": 1700,
         "wires": [
             []
         ]
@@ -1381,7 +1395,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1500,
+        "y": 1700,
         "wires": [
             [
                 "f58bbd2e.e973e"
@@ -1410,7 +1424,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1580,
+        "y": 1780,
         "wires": [
             [
                 "49bc3a8.93c2cc4"
@@ -1431,7 +1445,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1580,
+        "y": 1780,
         "wires": [
             []
         ]
@@ -1447,7 +1461,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1580,
+        "y": 1780,
         "wires": [
             [
                 "a5c073b0.f390b"
@@ -1460,8 +1474,8 @@
         "z": "de85fbbc.953fc8",
         "name": "v8.94 events",
         "info": "",
-        "x": 150,
-        "y": 1360,
+        "x": 130,
+        "y": 1560,
         "wires": []
     },
     {
@@ -1486,7 +1500,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1620,
+        "y": 1820,
         "wires": [
             [
                 "a9a84279.4277c"
@@ -1507,7 +1521,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1620,
+        "y": 1820,
         "wires": [
             []
         ]
@@ -1523,7 +1537,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1620,
+        "y": 1820,
         "wires": [
             [
                 "34982885.3e7ca8"
@@ -1552,7 +1566,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1540,
+        "y": 1740,
         "wires": [
             [
                 "eaca70e7.13719"
@@ -1573,7 +1587,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1540,
+        "y": 1740,
         "wires": [
             []
         ]
@@ -1589,7 +1603,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1540,
+        "y": 1740,
         "wires": [
             [
                 "857c3a91.e68b48"
@@ -1618,7 +1632,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 1840,
+        "y": 2020,
         "wires": [
             [
                 "f6efe6ae.0c3648"
@@ -1639,7 +1653,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 1840,
+        "y": 2020,
         "wires": [
             []
         ]
@@ -1655,7 +1669,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 1840,
+        "y": 2020,
         "wires": [
             [
                 "d33a00dc.d36fe"
@@ -1684,7 +1698,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 1920,
+        "y": 2100,
         "wires": [
             [
                 "41a96bac.a93724"
@@ -1705,7 +1719,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 1920,
+        "y": 2100,
         "wires": [
             []
         ]
@@ -1721,7 +1735,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 1920,
+        "y": 2100,
         "wires": [
             [
                 "1084cf83.1a3ab"
@@ -1735,7 +1749,7 @@
         "name": "v6.62 events",
         "info": "",
         "x": 130,
-        "y": 1700,
+        "y": 1880,
         "wires": []
     },
     {
@@ -1760,7 +1774,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 1960,
+        "y": 2140,
         "wires": [
             [
                 "f0529c8e.367bf"
@@ -1781,7 +1795,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 1960,
+        "y": 2140,
         "wires": [
             []
         ]
@@ -1797,7 +1811,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 1960,
+        "y": 2140,
         "wires": [
             [
                 "b1c7c22d.29ff2"
@@ -1826,7 +1840,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 1880,
+        "y": 2060,
         "wires": [
             [
                 "d9f150e1.cb7f4"
@@ -1847,7 +1861,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 1880,
+        "y": 2060,
         "wires": [
             []
         ]
@@ -1863,7 +1877,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 1880,
+        "y": 2060,
         "wires": [
             [
                 "f2b6513c.1e36f"
@@ -1877,7 +1891,7 @@
         "name": "listen",
         "info": "",
         "x": 110,
-        "y": 1260,
+        "y": 1460,
         "wires": []
     },
     {
@@ -1901,8 +1915,8 @@
         "topic": "",
         "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001}",
         "payloadType": "json",
-        "x": 180,
-        "y": 1400,
+        "x": 160,
+        "y": 1600,
         "wires": [
             [
                 "8fa92401.5f4928"
@@ -1916,8 +1930,8 @@
         "name": "",
         "topic": "",
         "config": "cbd92359.dbf19",
-        "x": 350,
-        "y": 1400,
+        "x": 330,
+        "y": 1600,
         "wires": [
             []
         ]
@@ -1929,8 +1943,8 @@
         "name": "",
         "topic": "",
         "config": "cbd92359.dbf19",
-        "x": 380,
-        "y": 1440,
+        "x": 360,
+        "y": 1640,
         "wires": [
             []
         ]
@@ -1956,8 +1970,8 @@
         "topic": "",
         "payload": "{ \"deviceId\": 405419896, \"enable\":true }",
         "payloadType": "json",
-        "x": 180,
-        "y": 1440,
+        "x": 160,
+        "y": 1640,
         "wires": [
             [
                 "79c64098.4d0c1"
@@ -1986,7 +2000,7 @@
         "payload": "{\"deviceId\":201020304,\"address\":\"192.168.1.100\",\"port\":60001}",
         "payloadType": "json",
         "x": 160,
-        "y": 1740,
+        "y": 1920,
         "wires": [
             [
                 "cefcd8d2.d1f318"
@@ -2001,7 +2015,7 @@
         "topic": "",
         "config": "cbd92359.dbf19",
         "x": 330,
-        "y": 1740,
+        "y": 1920,
         "wires": [
             []
         ]
@@ -2014,7 +2028,7 @@
         "topic": "",
         "config": "cbd92359.dbf19",
         "x": 360,
-        "y": 1780,
+        "y": 1960,
         "wires": [
             []
         ]
@@ -2041,7 +2055,7 @@
         "payload": "{ \"deviceId\": 201020304, \"enable\":true }",
         "payloadType": "json",
         "x": 160,
-        "y": 1780,
+        "y": 1960,
         "wires": [
             [
                 "faac5fa2.4529a"
@@ -2057,7 +2071,7 @@
             "c6197be1.382738"
         ],
         "x": 615,
-        "y": 1360,
+        "y": 1440,
         "wires": []
     },
     {
@@ -2226,7 +2240,7 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 480,
+        "x": 500,
         "y": 940,
         "wires": [
             [
@@ -2683,14 +2697,129 @@
         "wires": []
     },
     {
-        "id": "cbd92359.dbf19",
-        "type": "uhppoted-config",
-        "name": "integration-tests",
-        "timeout": "1000",
-        "bind": "192.168.1.100",
-        "broadcast": "192.168.1.255:60000",
-        "listen": "192.168.1.100:60001",
-        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":true}}",
-        "debug": false
+        "id": "f6c8f5ec13a9b82d",
+        "type": "uhppoted-set-pc-control",
+        "z": "de85fbbc.953fc8",
+        "name": "set-pc-control",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 800,
+        "y": 1360,
+        "wires": [
+            [
+                "c0e6bb33a19db488",
+                "0771ec06dfd023a3"
+            ]
+        ]
+    },
+    {
+        "id": "4e8722aa55ba76cc",
+        "type": "change",
+        "z": "de85fbbc.953fc8",
+        "name": "set-pc-control",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "set-pc-control",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"deviceId\": 405419896, \"enabled\":true }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 500,
+        "y": 1360,
+        "wires": [
+            [
+                "f6c8f5ec13a9b82d"
+            ]
+        ]
+    },
+    {
+        "id": "c0e6bb33a19db488",
+        "type": "link out",
+        "z": "de85fbbc.953fc8",
+        "name": "get-event",
+        "mode": "link",
+        "links": [
+            "ee75260d.e57f48"
+        ],
+        "x": 955,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "0771ec06dfd023a3",
+        "type": "change",
+        "z": "de85fbbc.953fc8",
+        "name": "set-interlock",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "set-interlock",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{ \"deviceId\": 405419896, \"interlock\":3 }",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 490,
+        "y": 1400,
+        "wires": [
+            [
+                "444eda2a1508f290"
+            ]
+        ]
+    },
+    {
+        "id": "444eda2a1508f290",
+        "type": "uhppoted-set-interlock",
+        "z": "de85fbbc.953fc8",
+        "name": "set-interlock",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 790,
+        "y": 1400,
+        "wires": [
+            [
+                "d8a9007b.456b3",
+                "9a31bb8724c61ced"
+            ]
+        ]
+    },
+    {
+        "id": "9a31bb8724c61ced",
+        "type": "link out",
+        "z": "de85fbbc.953fc8",
+        "name": "get-event",
+        "mode": "link",
+        "links": [
+            "ee75260d.e57f48"
+        ],
+        "x": 955,
+        "y": 1400,
+        "wires": []
     }
 ]

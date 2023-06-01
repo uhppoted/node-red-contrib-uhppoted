@@ -54,6 +54,7 @@
       "uhppoted-get-event": "nodes/uhppoted-get-event.js",
       "uhppoted-open-door": "nodes/uhppoted-open-door.js",
       "uhppoted-set-pc-control": "nodes/uhppoted-set-pc-control.js",
+      "uhppoted-set-interlock": "nodes/uhppoted-set-interlock.js",
       "uhppoted-listen": "nodes/uhppoted-listen.js"
     }
   },

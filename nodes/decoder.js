@@ -579,6 +579,22 @@ module.exports = {
       deviceId: uint32(bytes, 4),
       updated: bool(bytes, 8)
     }
+  },
+
+  /**
+    * Decodes the response to a set-interlock request (function code 0xa2).
+    *
+    * @param {buffer}   buffer     64 byte NodeJS buffer
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded set-interlock response object
+    */
+  SetInterlock: function (bytes, translator) {
+    return {
+      deviceId: uint32(bytes, 4),
+      updated: bool(bytes, 8)
+    }
   }
 }
 

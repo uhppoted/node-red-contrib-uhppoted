@@ -2,8 +2,12 @@
 
 ### IN PROGRESS
 
-- [x] set-pc-control node (https://github.com/uhppoted/uhppote-core/issues/7)
-- [x] Update to NodeRED 3.0
+- [x] set-interlock (https://github.com/uhppoted/uhppote-core/issues/14)
+      - [x] `set-interlock` node
+      - [x] example
+      - [x] integration test
+      - [x] CHANGELOG
+      - [x] README
 
 ## TODO
 

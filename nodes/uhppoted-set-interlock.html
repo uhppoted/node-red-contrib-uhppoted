@@ -1,0 +1,27 @@
+<script type="text/javascript">
+    RED.nodes.registerType('uhppoted-set-interlock', {
+        category: 'uhppoted',
+        color: '#A6BBCF',
+        defaults: {
+            name: { 
+                value: '' 
+            },
+            topic: { 
+                value: '' 
+            },
+            config: {
+                value: '', 
+                type: 'uhppoted-config'
+            },
+        },
+        inputs: 1,
+        outputs: 1,
+        icon: 'icons/uhppoted.svg',
+        label: function() {
+            return this.name || 'set-interlock';
+        },
+        paletteLabel: 'set-interlock',
+        inputLabels:  function(index) { return this._('set-interlock.inputLabel')  },
+        outputLabels: function(index) { return this._('set-interlock.outputLabel') }
+    });
+</script>

@@ -32,7 +32,8 @@ const enc = new Map([
   [opcodes.GetEventIndex, encoder.GetEventIndex],
   [opcodes.SetEventIndex, encoder.SetEventIndex],
   [opcodes.GetEvent, encoder.GetEvent],
-  [opcodes.SetPCControl, encoder.SetPCControl]
+  [opcodes.SetPCControl, encoder.SetPCControl],
+  [opcodes.SetInterlock, encoder.SetInterlock]
 ])
 
 /**
@@ -59,6 +60,7 @@ const dec = new Map([
   [0x8a, decoder.ClearTimeProfiles],
   [0x8e, decoder.RecordSpecialEvents],
   [0xa0, decoder.SetPCControl],
+  [0xa2, decoder.SetInterlock],
   [0xa6, decoder.ClearTaskList],
   [0xa8, decoder.AddTask],
   [0xac, decoder.RefreshTaskList],

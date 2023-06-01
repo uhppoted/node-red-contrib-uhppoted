@@ -1,0 +1,83 @@
+<script type="text/html" data-template-name="uhppoted-set-interlock">
+    <div class="form-row">
+        <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+        <input type="text" id="node-input-name" placeholder="Name" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-topic"><i class="fa fa-tag"></i>Topic</label>
+        <input type="text" id="node-input-topic" placeholder="Message topic" />
+    </div>
+    <div class="form-row">
+        <label for="node-input-config"><i class="fa fa-tag"></i>Configuration</label>
+        <input id="node-input-config" />
+    </div>
+</script>
+
+<script type="text/html" data-help-name="uhppoted-set-interlock">
+    <p>Sets the controller door interlock mode.</p>
+
+    <h3>Inputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>JSON object with the device ID and event index for 'set-interlock'</dd>
+        <dt class="optional">topic<span class="property-type">string</span></dt>
+        <dd>identifying message topic for output</dd>
+    </dl>
+
+    <h3>Outputs</h3>
+    <dl class="message-properties">
+        <dt>payload<span class="property-type">object</span></dt>
+        <dd>JSON object with the succeeded/failed result</dd>
+        <dt>topic<span class="property-type">string</span></dt>
+        <dd>message topic copied from input</dd>
+    </dl>
+
+    <h3>Details</h3>
+    <p>The input <code>msg.payload</code> is a JSON object containing the access
+    controller serial number and the door interlock mode.</p>
+    <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>interlock<span class="property-type">uint8</span></dt>
+        <dd>
+            <ul>
+                <li>0: no interlock</li>
+                <li>1: doors 1 and 2 interlocked</li>
+                <li>2: doors 3 and 4 interlocked</li>
+                <li>3: doors 1 and 2 interlocked, doors 3 and 4 interlocked</li>
+                <li>4: doors 1 and 2 and 3 interlocked</li>
+                <li>8: doors 1 and 2 and 3 and 4 interlocked</li>
+            </ul>
+        </dd>
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+    "deviceId": 405419896,
+    "interlock": 3
+  }</pre>
+
+    <p>The output is a JSON object containing the success/failure result for setting the controller
+    door interlock mode.</p>
+    <dl class="message-properties">
+        <dt>deviceId<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>interlock<span class="property-type">uint8</span></dt>
+        <dd>interlock mode, from input</dd>
+        <dt>updated<span class="property-type">boolean</span></dt>
+        <dd>true if the door interlock was successfully set</dd>
+    </dl>
+    <h4>Example:</h4>
+    <pre>
+  {
+    "deviceId": 405419896,
+    "interlock": 4,
+    "updated": true
+  }</pre>
+    
+    <h3>References</h3>
+    <ul>
+        <li><a href="https://github.com/uhppoted">uhppoted</a>: GitHub umbrella project</li>
+        <li><a href="https://github.com/uhppoted/node-red-contrib-uhppoted">node-red-contrib-uhppoted</a>: GitHub project</li>
+    </ul>
+</script>
