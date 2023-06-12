@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [1.1.4](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.4) - 2023-06-14
 
 ### Added
 1. `uhppoted-set-interlock` node.
