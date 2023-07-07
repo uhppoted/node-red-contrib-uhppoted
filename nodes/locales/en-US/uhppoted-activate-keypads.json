@@ -1,0 +1,6 @@
+{
+    "uhppoted-activate-keypads": {
+        "inputLabel": "controller ID\nkeypads",
+        "outputLabel": "deviceID\nkeypads\nupdated"
+    }
+}

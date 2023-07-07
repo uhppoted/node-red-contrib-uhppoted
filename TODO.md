@@ -2,8 +2,8 @@
 
 ### IN PROGRESS
 
-- [x] set-interlock (https://github.com/uhppoted/uhppote-core/issues/14)
-      - [x] `set-interlock` node
+- [x] activate-keypads (cf https://github.com/uhppoted/uhppoted/issues/35)
+      - [x] `activate-keypads` node
       - [x] example
       - [x] integration test
       - [x] CHANGELOG

@@ -719,6 +719,34 @@ module.exports = {
     request.writeUInt8(interlock, 8)
 
     return request
+  },
+
+  /**
+    * Encode an activate-keypads request.
+    *
+    * @param {number}  deviceId  Controller serial number
+    * @param {object}  keypads   Object with activated/deactivated keypads:
+    *                            {
+    *                              1: true/false,
+    *                              2: true/false,
+    *                              3: true/false,
+    *                              4: true/false
+    *                            }
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded activate-keypads request.
+    */
+  ActivateKeypads: function (deviceId, { keypads } = {}) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0xa4, 1)
+    request.writeUInt32LE(deviceId, 4)
+    request.writeUInt8(keypads[1] ? 0x01 : 0x00, 8)
+    request.writeUInt8(keypads[2] ? 0x01 : 0x00, 9)
+    request.writeUInt8(keypads[3] ? 0x01 : 0x00, 10)
+    request.writeUInt8(keypads[4] ? 0x01 : 0x00, 11)
+
+    return request
   }
 }
 

@@ -1,0 +1,6 @@
+{
+    "uhppoted-set-interlock": {
+        "inputLabel": "controller ID\ninterlock",
+        "outputLabel": "deviceID\ninterlock\nupdated"
+    }
+}

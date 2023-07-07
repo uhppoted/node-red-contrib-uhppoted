@@ -1,4 +1,4 @@
-<script type="text/html" data-template-name="uhppoted-set-interlock">
+<script type="text/html" data-template-name="uhppoted-activate-keypads">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -13,13 +13,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="uhppoted-set-interlock">
-    <p>Sets the controller door interlock mode.</p>
+<script type="text/html" data-help-name="uhppoted-activate-keypads">
+    <p>Activates or deactivates a controller reader access keypads.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the device ID and interlock mode for 'set-interlock'</dd>
+        <dd>JSON object with the device ID and activated keypads</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -34,27 +34,32 @@
 
     <h3>Details</h3>
     <p>The input <code>msg.payload</code> is a JSON object containing the access
-    controller serial number and the door interlock mode.</p>
+    controller serial number and the activated keypads.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
-        <dt>interlock<span class="property-type">uint8</span></dt>
-        <dd>
-            <ul>
-                <li>0: no interlock</li>
-                <li>1: doors 1 and 2 interlocked</li>
-                <li>2: doors 3 and 4 interlocked</li>
-                <li>3: doors 1 and 2 interlocked, doors 3 and 4 interlocked</li>
-                <li>4: doors 1 and 2 and 3 interlocked</li>
-                <li>8: doors 1 and 2 and 3 and 4 interlocked</li>
-            </ul>
+        <dt>keypads<span class="property-type">uint8</span></dt>
+        <dd>Activated keypads</dd>
+        <dt>keypads.1<span class="property-type">boolean</span></dt>
+        <dd>Reader 1 keypad active</dd>
+        <dt>keypads.2<span class="property-type">boolean</span></dt>
+        <dd>Reader 2 keypad active</dd>
+        <dt>keypads.3<span class="property-type">boolean</span></dt>
+        <dd>Reader 3 keypad active</dd>
+        <dt>keypads.4<span class="property-type">boolean</span></dt>
+        <dd>Reader 4 keypad active</dd>
         </dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896,
-    "interlock": 3
+    "keypads": {
+        1: true,
+        2: true,
+        3: false,
+        4: true
+    }
   }</pre>
 
     <p>The output is a JSON object containing the success/failure result for setting the controller
@@ -62,16 +67,21 @@
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
-        <dt>interlock<span class="property-type">uint8</span></dt>
-        <dd>interlock mode, from input</dd>
+        <dt>keypads<span class="property-type">uint8</span></dt>
+        <dd>activated keypads, from input</dd>
         <dt>updated<span class="property-type">boolean</span></dt>
-        <dd>true if the door interlock was successfully set</dd>
+        <dd>true if the keypads were successfully activated/deactivated</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896,
-    "interlock": 4,
+    "keypads": {
+        1: true,
+        2: true,
+        3: false,
+        4: true
+    },
     "updated": true
   }</pre>
     

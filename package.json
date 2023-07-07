@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-uhppoted",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "A set of nodes for the UHPPOTE Wiegand Access Controller",
   "main": "index.js",
   "keywords": [
@@ -55,6 +55,7 @@
       "uhppoted-open-door": "nodes/uhppoted-open-door.js",
       "uhppoted-set-pc-control": "nodes/uhppoted-set-pc-control.js",
       "uhppoted-set-interlock": "nodes/uhppoted-set-interlock.js",
+      "uhppoted-activate-keypads": "nodes/uhppoted-activate-keypads.js",
       "uhppoted-listen": "nodes/uhppoted-listen.js"
     }
   },

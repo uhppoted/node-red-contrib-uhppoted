@@ -33,7 +33,8 @@ const enc = new Map([
   [opcodes.SetEventIndex, encoder.SetEventIndex],
   [opcodes.GetEvent, encoder.GetEvent],
   [opcodes.SetPCControl, encoder.SetPCControl],
-  [opcodes.SetInterlock, encoder.SetInterlock]
+  [opcodes.SetInterlock, encoder.SetInterlock],
+  [opcodes.ActivateKeypads, encoder.ActivateKeypads]
 ])
 
 /**
@@ -61,6 +62,7 @@ const dec = new Map([
   [0x8e, decoder.RecordSpecialEvents],
   [0xa0, decoder.SetPCControl],
   [0xa2, decoder.SetInterlock],
+  [0xa4, decoder.ActivateKeypads],
   [0xa6, decoder.ClearTaskList],
   [0xa8, decoder.AddTask],
   [0xac, decoder.RefreshTaskList],

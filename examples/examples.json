@@ -1725,6 +1725,98 @@
         "wires": []
     },
     {
+        "id": "6fb4de2c034f070e",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "5cebf8a91adb13bb",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"deviceId\":405419896,\"keypads\":{\"1\":true,\"2\":true,\"3\":false,\"4\":true}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "76ada944ebac3023"
+            ]
+        ]
+    },
+    {
+        "id": "4de9ec54d837178c",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "keypads",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.keypads",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "76ada944ebac3023",
+        "type": "uhppoted-activate-keypads",
+        "z": "86bbf50e.a7f188",
+        "name": "",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 310,
+        "y": 540,
+        "wires": [
+            [
+                "4de9ec54d837178c",
+                "6fb4de2c034f070e"
+            ]
+        ]
+    },
+    {
+        "id": "92cf53d41bac1edc",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "updated",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.updated",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 620,
+        "wires": []
+    },
+    {
         "id": "60dcbb9f.c0dfa4",
         "type": "debug",
         "z": "2a36b650.4b9b7a",

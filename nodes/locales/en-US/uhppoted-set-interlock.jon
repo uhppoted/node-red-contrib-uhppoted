@@ -1,6 +1,0 @@
-{
-    "uhppoted-set-interlock": {
-        "inputLabel": "controller ID\nenable",
-        "outputLabel": "deviceID\interlock\nupdated"
-    }
-}
