@@ -2,7 +2,7 @@
 
 ### IN PROGRESS
 
-- [x] activate-keypads (cf https://github.com/uhppoted/uhppoted/issues/35)
+- [x] activate-keypads (cf. https://github.com/uhppoted/uhppoted/issues/35)
       - [x] `activate-keypads` node
       - [x] example
       - [x] integration test
