@@ -11,10 +11,12 @@ DEBUG    ?= --debug
 
 update:
 	npm update
+	npm i --lockfile-version 1 --package-lock-only 
 	# npm audit fix
 
 update-release:
 	npm update
+	npm i --lockfile-version 1 --package-lock-only 
 	# npm audit fix
 
 build:
