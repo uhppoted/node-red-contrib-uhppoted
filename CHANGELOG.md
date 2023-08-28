@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [1.1.5](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.5) - 2023-08-30
 
 ### Added
 1. `uhppoted-activate-keypads` node.
