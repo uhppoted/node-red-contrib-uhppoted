@@ -9,6 +9,8 @@
       - [x] CHANGELOG
       - [x] README
 
+- [x] Fix input/output labels
+
 ## TODO
 
 - [ ] GetEvents
