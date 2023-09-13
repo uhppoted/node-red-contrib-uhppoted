@@ -73,6 +73,7 @@ _Please see:_
 | `set-pc-control`        | Delegates access control to an offboard application          |
 | `set-interlock`         | Sets the controller door interlock mode                      |
 | `activate-keypads`      | Activates/deactivates the reader access keypads              |
+| `set-super-passwords`   | Sets the supervisor keypad passwords for a door              |
 | `listen`                | Establishes a listening connection for controller events     |
 
 All nodes take a message with JSON object payload as input and send a message with a JSON object payload as output.

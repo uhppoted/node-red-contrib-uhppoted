@@ -698,7 +698,7 @@ module.exports = {
   },
 
   /**
-    * Encode a set-interlock request.
+    * Encodes a set-interlock request.
     *
     * @param {number} deviceId  Controller serial number
     * @param {number} interlock 0,1,2,3,4 or 8, corresponding to modes
@@ -722,7 +722,7 @@ module.exports = {
   },
 
   /**
-    * Encode an activate-keypads request.
+    * Encodes an activate-keypads request.
     *
     * @param {number}  deviceId  Controller serial number
     * @param {object}  keypads   Object with activated/deactivated keypads:
@@ -745,6 +745,34 @@ module.exports = {
     request.writeUInt8(keypads[2] ? 0x01 : 0x00, 9)
     request.writeUInt8(keypads[3] ? 0x01 : 0x00, 10)
     request.writeUInt8(keypads[4] ? 0x01 : 0x00, 11)
+
+    return request
+  },
+
+  /**
+    * Encodes a set-super-passwords request.
+    *
+    * @param {number}  deviceId  Controller serial number
+    * @param {number}  door      Controller door ID (in the range [1..4])
+    * @param {array}   passwords Array of passwords (in the range [0..999999])
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded activate-keypads request.
+    */
+  SetSuperPasswords: function (deviceId, { door, passwords } = {}) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0x8c, 1)
+    request.writeUInt32LE(deviceId, 4)
+    request.writeUInt8(door, 8)
+
+    for (let i = 0; i < 4; i++) {
+      if (passwords && passwords.length > i) {
+        const passcode = passwords[i] > 0 && passwords[i] < 1000000 ? passwords[i] : 0
+
+        request.writeUInt32LE(passcode, 12 + 4 * i)
+      }
+    }
 
     return request
   }

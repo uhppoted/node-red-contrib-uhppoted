@@ -82,7 +82,8 @@
             "e3dffe9e.66a8",
             "c0e6bb33a19db488",
             "9a31bb8724c61ced",
-            "48ff7ac7019f5179"
+            "48ff7ac7019f5179",
+            "252b172a8418a0f4"
         ],
         "x": 135,
         "y": 60,
@@ -1073,7 +1074,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 955,
+        "x": 1005,
         "y": 1240,
         "wires": []
     },
@@ -1135,7 +1136,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 955,
+        "x": 1005,
         "y": 1280,
         "wires": []
     },
@@ -1197,7 +1198,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 955,
+        "x": 1005,
         "y": 1320,
         "wires": []
     },
@@ -1208,7 +1209,7 @@
         "name": "listen",
         "config": "cbd92359.dbf19",
         "x": 110,
-        "y": 1580,
+        "y": 1660,
         "wires": [
             [
                 "e601bdca.da8e2"
@@ -1229,7 +1230,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 230,
-        "y": 1580,
+        "y": 1660,
         "wires": []
     },
     {
@@ -1269,7 +1270,7 @@
         "to": "",
         "reg": false,
         "x": 480,
-        "y": 1480,
+        "y": 1520,
         "wires": [
             [
                 "78dd925c.9213cc"
@@ -1334,7 +1335,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 955,
+        "x": 1005,
         "y": 1200,
         "wires": []
     },
@@ -1360,7 +1361,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1780,
+        "y": 1860,
         "wires": [
             [
                 "4fd62a58.d31924"
@@ -1381,7 +1382,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1780,
+        "y": 1860,
         "wires": [
             []
         ]
@@ -1397,7 +1398,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1780,
+        "y": 1860,
         "wires": [
             [
                 "f58bbd2e.e973e"
@@ -1426,7 +1427,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1860,
+        "y": 1940,
         "wires": [
             [
                 "49bc3a8.93c2cc4"
@@ -1447,7 +1448,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1860,
+        "y": 1940,
         "wires": [
             []
         ]
@@ -1463,7 +1464,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1860,
+        "y": 1940,
         "wires": [
             [
                 "a5c073b0.f390b"
@@ -1477,7 +1478,7 @@
         "name": "v8.94 events",
         "info": "",
         "x": 130,
-        "y": 1640,
+        "y": 1720,
         "wires": []
     },
     {
@@ -1502,7 +1503,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1900,
+        "y": 1980,
         "wires": [
             [
                 "a9a84279.4277c"
@@ -1523,7 +1524,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1900,
+        "y": 1980,
         "wires": [
             []
         ]
@@ -1539,7 +1540,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1900,
+        "y": 1980,
         "wires": [
             [
                 "34982885.3e7ca8"
@@ -1568,7 +1569,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1820,
+        "y": 1900,
         "wires": [
             [
                 "eaca70e7.13719"
@@ -1589,7 +1590,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1820,
+        "y": 1900,
         "wires": [
             []
         ]
@@ -1605,7 +1606,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1820,
+        "y": 1900,
         "wires": [
             [
                 "857c3a91.e68b48"
@@ -1634,7 +1635,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 2100,
+        "y": 2180,
         "wires": [
             [
                 "f6efe6ae.0c3648"
@@ -1655,7 +1656,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 2100,
+        "y": 2180,
         "wires": [
             []
         ]
@@ -1671,7 +1672,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 2100,
+        "y": 2180,
         "wires": [
             [
                 "d33a00dc.d36fe"
@@ -1700,7 +1701,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 2180,
+        "y": 2260,
         "wires": [
             [
                 "41a96bac.a93724"
@@ -1721,7 +1722,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 2180,
+        "y": 2260,
         "wires": [
             []
         ]
@@ -1737,7 +1738,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 2180,
+        "y": 2260,
         "wires": [
             [
                 "1084cf83.1a3ab"
@@ -1751,7 +1752,7 @@
         "name": "v6.62 events",
         "info": "",
         "x": 130,
-        "y": 1960,
+        "y": 2040,
         "wires": []
     },
     {
@@ -1776,7 +1777,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 2220,
+        "y": 2300,
         "wires": [
             [
                 "f0529c8e.367bf"
@@ -1797,7 +1798,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 2220,
+        "y": 2300,
         "wires": [
             []
         ]
@@ -1813,7 +1814,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 2220,
+        "y": 2300,
         "wires": [
             [
                 "b1c7c22d.29ff2"
@@ -1842,7 +1843,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 2140,
+        "y": 2220,
         "wires": [
             [
                 "d9f150e1.cb7f4"
@@ -1863,7 +1864,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 2140,
+        "y": 2220,
         "wires": [
             []
         ]
@@ -1879,7 +1880,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 2140,
+        "y": 2220,
         "wires": [
             [
                 "f2b6513c.1e36f"
@@ -1893,7 +1894,7 @@
         "name": "listen",
         "info": "",
         "x": 110,
-        "y": 1540,
+        "y": 1620,
         "wires": []
     },
     {
@@ -1918,7 +1919,7 @@
         "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001}",
         "payloadType": "json",
         "x": 160,
-        "y": 1680,
+        "y": 1760,
         "wires": [
             [
                 "8fa92401.5f4928"
@@ -1933,7 +1934,7 @@
         "topic": "",
         "config": "cbd92359.dbf19",
         "x": 330,
-        "y": 1680,
+        "y": 1760,
         "wires": [
             []
         ]
@@ -1946,7 +1947,7 @@
         "topic": "",
         "config": "cbd92359.dbf19",
         "x": 360,
-        "y": 1720,
+        "y": 1800,
         "wires": [
             []
         ]
@@ -1973,7 +1974,7 @@
         "payload": "{ \"deviceId\": 405419896, \"enable\":true }",
         "payloadType": "json",
         "x": 160,
-        "y": 1720,
+        "y": 1800,
         "wires": [
             [
                 "79c64098.4d0c1"
@@ -2002,7 +2003,7 @@
         "payload": "{\"deviceId\":201020304,\"address\":\"192.168.1.100\",\"port\":60001}",
         "payloadType": "json",
         "x": 160,
-        "y": 2000,
+        "y": 2080,
         "wires": [
             [
                 "cefcd8d2.d1f318"
@@ -2017,7 +2018,7 @@
         "topic": "",
         "config": "cbd92359.dbf19",
         "x": 330,
-        "y": 2000,
+        "y": 2080,
         "wires": [
             []
         ]
@@ -2030,7 +2031,7 @@
         "topic": "",
         "config": "cbd92359.dbf19",
         "x": 360,
-        "y": 2040,
+        "y": 2120,
         "wires": [
             []
         ]
@@ -2057,7 +2058,7 @@
         "payload": "{ \"deviceId\": 201020304, \"enable\":true }",
         "payloadType": "json",
         "x": 160,
-        "y": 2040,
+        "y": 2120,
         "wires": [
             [
                 "faac5fa2.4529a"
@@ -2073,7 +2074,7 @@
             "c6197be1.382738"
         ],
         "x": 615,
-        "y": 1480,
+        "y": 1520,
         "wires": []
     },
     {
@@ -2757,7 +2758,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 955,
+        "x": 1005,
         "y": 1360,
         "wires": []
     },
@@ -2820,7 +2821,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 955,
+        "x": 1005,
         "y": 1400,
         "wires": []
     },
@@ -2869,8 +2870,8 @@
         "y": 1440,
         "wires": [
             [
-                "d8a9007b.456b3",
-                "48ff7ac7019f5179"
+                "48ff7ac7019f5179",
+                "72aeeecb90ad24f4"
             ]
         ]
     },
@@ -2883,8 +2884,71 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 955,
+        "x": 1005,
         "y": 1440,
+        "wires": []
+    },
+    {
+        "id": "72aeeecb90ad24f4",
+        "type": "change",
+        "z": "de85fbbc.953fc8",
+        "name": "set-super-passwords",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "set-super-passwords",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"deviceId\":405419896,\"door\":3,\"passwords\":[12345,999999,54321]}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 520,
+        "y": 1480,
+        "wires": [
+            [
+                "343b60a053b57df9"
+            ]
+        ]
+    },
+    {
+        "id": "343b60a053b57df9",
+        "type": "uhppoted-set-super-passwords",
+        "z": "de85fbbc.953fc8",
+        "name": "",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 820,
+        "y": 1480,
+        "wires": [
+            [
+                "d8a9007b.456b3",
+                "252b172a8418a0f4"
+            ]
+        ]
+    },
+    {
+        "id": "252b172a8418a0f4",
+        "type": "link out",
+        "z": "de85fbbc.953fc8",
+        "name": "set-super-passwords",
+        "mode": "link",
+        "links": [
+            "ee75260d.e57f48"
+        ],
+        "x": 1005,
+        "y": 1480,
         "wires": []
     }
 ]
