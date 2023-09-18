@@ -56,7 +56,7 @@
       "uhppoted-set-pc-control": "nodes/uhppoted-set-pc-control.js",
       "uhppoted-set-interlock": "nodes/uhppoted-set-interlock.js",
       "uhppoted-activate-keypads": "nodes/uhppoted-activate-keypads.js",
-      "uhppoted-set-super-passwords": "nodes/uhppoted-set-super-passwords.js",
+      "uhppoted-set-door-passcodes": "nodes/uhppoted-set-door-passcodes.js",
       "uhppoted-listen": "nodes/uhppoted-listen.js"
     }
   },

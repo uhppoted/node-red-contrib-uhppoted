@@ -1,0 +1,6 @@
+{
+    "uhppoted-set-door-passcodes": {
+        "inputLabel": "controller ID\ndoor\passcodes",
+        "outputLabel": "passcodes updated"
+    }
+}

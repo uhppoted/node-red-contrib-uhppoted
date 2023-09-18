@@ -750,15 +750,15 @@ module.exports = {
   },
 
   /**
-    * Encodes a set-super-passwords request.
+    * Encodes a set-door-passcodes request.
     *
     * @param {number}  deviceId  Controller serial number
     * @param {number}  door      Controller door ID (in the range [1..4])
-    * @param {array}   passwords Array of passwords (in the range [0..999999])
+    * @param {array}   passcodes Array of passcodes (in the range [0..999999])
     *
     * @return {buffer} 64 byte NodeJS buffer with encoded activate-keypads request.
     */
-  SetSuperPasswords: function (deviceId, { door, passwords } = {}) {
+  SetDoorPasscodes: function (deviceId, { door, passcodes } = {}) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)
@@ -767,8 +767,8 @@ module.exports = {
     request.writeUInt8(door, 8)
 
     for (let i = 0; i < 4; i++) {
-      if (passwords && passwords.length > i) {
-        const passcode = passwords[i] > 0 && passwords[i] < 1000000 ? passwords[i] : 0
+      if (passcodes && passcodes.length > i) {
+        const passcode = passcodes[i] > 0 && passcodes[i] < 1000000 ? passcodes[i] : 0
 
         request.writeUInt32LE(passcode, 12 + 4 * i)
       }

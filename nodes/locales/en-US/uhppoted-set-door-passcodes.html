@@ -1,4 +1,4 @@
-<script type="text/html" data-template-name="uhppoted-set-super-passwords">
+<script type="text/html" data-template-name="uhppoted-set-door-passcodes">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -13,13 +13,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="uhppoted-set-super-passwords">
-    <p>Sets the supervisor passwords assigned to a door.</p>
+<script type="text/html" data-help-name="uhppoted-set-door-passcodes">
+    <p>Sets the supervisor passcodes assigned to a door.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the device ID, door and supervisor passwords for 'uhppoted-set-super-password'</dd>
+        <dd>JSON object with the device ID, door and supervisor passcodes for 'uhppoted-set-door-passcodes'</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -35,21 +35,21 @@
     <h3>Details</h3>
     <p>The input <code>msg.payload</code> is a JSON object containing the access
     controller serial number, the door ID and an array of up to four supervisor
-    passwords to be assigned to the door.</p>
+    passcodes to be assigned to the door.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
         <dt>door<span class="property-type">uint8</span></dt>
         <dd>door number [1..4]</dd>
-        <dt>passwords<span class="property-type">array</span></dt>
-        <dd>array of passwords in the range [1..999999]</dd>
+        <dt>passcodes<span class="property-type">array</span></dt>
+        <dd>array of passcodes in the range [1..999999]</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896,
     "door": 4,
-    "passwords": [ 12345, 999999, 54321 ]
+    "passcodes": [ 12345, 999999, 54321 ]
   }</pre>
 
     <p>The output is a JSON object containing the success/failure result.</p>
@@ -57,7 +57,7 @@
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
         <dt>ok<span class="property-type">boolean</span></dt>
-        <dd>true if the supervisor passwords were assigned to the door</dd>
+        <dd>true if the supervisor passcodes were assigned to the door</dd>
     </dl>
     <h4>Example:</h4>
     <pre>

@@ -528,7 +528,7 @@ describe('codec', function () {
       expect(bytes).to.deep.equal(msg)
     })
 
-    it('should encode set-super-passwords request', function () {
+    it('should encode set-door-passcodes request', function () {
       const msg = Buffer.from([
         0x17, 0x8c, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x03, 0x00, 0x00, 0x00, 0x39, 0x30, 0x00, 0x00,
         0x00, 0x00, 0x00, 0x00, 0x3f, 0x42, 0x0f, 0x00, 0x31, 0xd4, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -536,7 +536,7 @@ describe('codec', function () {
         0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
       ])
 
-      const bytes = codec.encode(opcodes.SetSuperPasswords, 405419896, { door: 3, passwords: [12345, 0, 999999, 54321] })
+      const bytes = codec.encode(opcodes.SetDoorPasscodes, 405419896, { door: 3, passcodes: [12345, 0, 999999, 54321] })
 
       expect(bytes).to.deep.equal(msg)
     })
@@ -1646,7 +1646,7 @@ describe('codec', function () {
       expect(object).to.deep.equal(expected)
     })
 
-    it('should decode set-super-passwords response', function () {
+    it('should decode set-door-passcodes response', function () {
       const expected = {
         deviceId: 405419896,
         ok: true

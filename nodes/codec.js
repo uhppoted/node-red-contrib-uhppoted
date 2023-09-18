@@ -35,7 +35,7 @@ const enc = new Map([
   [opcodes.SetPCControl, encoder.SetPCControl],
   [opcodes.SetInterlock, encoder.SetInterlock],
   [opcodes.ActivateKeypads, encoder.ActivateKeypads],
-  [opcodes.SetSuperPasswords, encoder.SetSuperPasswords]
+  [opcodes.SetDoorPasscodes, encoder.SetDoorPasscodes]
 ])
 
 /**
@@ -60,7 +60,7 @@ const dec = new Map([
   [0x98, decoder.GetTimeProfile],
   [0x88, decoder.SetTimeProfile],
   [0x8a, decoder.ClearTimeProfiles],
-  [opcodes.SetSuperPasswords, decoder.SetSuperPasswords],
+  [opcodes.SetDoorPasscodes, decoder.SetDoorPasscodes],
   [0x8e, decoder.RecordSpecialEvents],
   [0xa0, decoder.SetPCControl],
   [0xa2, decoder.SetInterlock],

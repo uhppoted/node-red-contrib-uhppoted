@@ -2892,20 +2892,20 @@
         "id": "72aeeecb90ad24f4",
         "type": "change",
         "z": "de85fbbc.953fc8",
-        "name": "set-super-passwords",
+        "name": "set-door-passcodes",
         "rules": [
             {
                 "t": "set",
                 "p": "topic",
                 "pt": "msg",
-                "to": "set-super-passwords",
+                "to": "set-door-passcodes",
                 "tot": "str"
             },
             {
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"deviceId\":405419896,\"door\":3,\"passwords\":[12345,999999,54321]}",
+                "to": "{\"deviceId\":405419896,\"door\":3,\"passcodes\":[12345,999999,54321]}",
                 "tot": "json"
             }
         ],
@@ -2924,7 +2924,7 @@
     },
     {
         "id": "343b60a053b57df9",
-        "type": "uhppoted-set-super-passwords",
+        "type": "uhppoted-set-door-passcodes",
         "z": "de85fbbc.953fc8",
         "name": "",
         "topic": "",
@@ -2942,7 +2942,7 @@
         "id": "252b172a8418a0f4",
         "type": "link out",
         "z": "de85fbbc.953fc8",
-        "name": "set-super-passwords",
+        "name": "set-door-passcodes",
         "mode": "link",
         "links": [
             "ee75260d.e57f48"

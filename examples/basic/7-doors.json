@@ -421,7 +421,7 @@
     },
     {
         "id": "d642fe8a140a7ba2",
-        "type": "uhppoted-set-super-passwords",
+        "type": "uhppoted-set-door-passcodes",
         "z": "86bbf50e.a7f188",
         "name": "",
         "topic": "",

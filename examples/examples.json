@@ -1848,7 +1848,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"deviceId\":405419896,\"door\":3,\"passwords\":[12345,999999,54321]}",
+        "payload": "{\"deviceId\":405419896,\"door\":3,\"passcodes\":[12345,999999,54321]}",
         "payloadType": "json",
         "x": 130,
         "y": 700,
@@ -1877,7 +1877,7 @@
     },
     {
         "id": "d642fe8a140a7ba2",
-        "type": "uhppoted-set-super-passwords",
+        "type": "uhppoted-set-door-passcodes",
         "z": "86bbf50e.a7f188",
         "name": "",
         "topic": "",

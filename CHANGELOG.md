@@ -3,7 +3,7 @@
 ## Unreleased
 
 ### Added
-1. `uhppoted-set-super-passwords` node.
+1. `uhppoted-set-door-passcodes` node.
 
 ### Updated
 1. Fixed input/output labels for renamed nodes.

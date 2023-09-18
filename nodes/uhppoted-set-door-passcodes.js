@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function SetSuperPasswordsNode (config) {
+  function SetDoorPasscodesNode (config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -18,10 +18,10 @@ module.exports = function (RED) {
       const door = msg.payload.door
       const passcodes = [0, 0, 0, 0]
 
-      if (msg.payload.passwords) {
-        for (const [ix, password] of msg.payload.passwords.entries()) {
-          if (ix < 4 && password > 0 && password < 1000000) {
-            passcodes[ix] = password
+      if (msg.payload.passcodes) {
+        for (const [ix, code] of msg.payload.passcodes.entries()) {
+          if (ix < 4 && code > 0 && code < 1000000) {
+            passcodes[ix] = code
           }
         }
       }
@@ -37,13 +37,13 @@ module.exports = function (RED) {
       try {
         const context = {
           config: uhppote,
-          translator: (k) => { return RED._('put-card.' + k) },
+          translator: (k) => { return RED._('set-door-passcodes.' + k) },
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, opcodes.SetSuperPasswords, {
+        uhppoted.set(context, deviceId, opcodes.SetDoorPasscodes, {
           door,
-          passwords: passcodes
+          passcodes
         })
           .then(object => { emit(object) })
           .then(done())
@@ -52,5 +52,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType('uhppoted-set-super-passwords', SetSuperPasswordsNode)
+  RED.nodes.registerType('uhppoted-set-door-passcodes', SetDoorPasscodesNode)
 }

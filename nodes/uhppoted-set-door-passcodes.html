@@ -1,5 +1,5 @@
 <script type="text/javascript">
-    RED.nodes.registerType('uhppoted-set-super-passwords', {
+    RED.nodes.registerType('uhppoted-set-door-passcodes', {
         category: 'uhppoted',
         color: '#A6BBCF',
         defaults: {
@@ -18,10 +18,10 @@
         outputs: 1,
         icon: 'icons/uhppoted.svg',
         label: function() {
-            return this.name || 'set-super-passwords';
+            return this.name || 'set-door-passcodes';
         },
-        paletteLabel: 'set-super-passwords',
-        inputLabels:  function(index) { return this._('uhppoted-set-super-passwords.inputLabel')  },
-        outputLabels: function(index) { return this._('uhppoted-set-super-passwords.outputLabel') }
+        paletteLabel: 'set-door-passcodes',
+        inputLabels:  function(index) { return this._('uhppoted-set-door-passcodes.inputLabel')  },
+        outputLabels: function(index) { return this._('uhppoted-set-door-passcodes.outputLabel') }
     });
 </script>
