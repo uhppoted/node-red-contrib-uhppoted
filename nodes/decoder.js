@@ -22,7 +22,7 @@ module.exports = {
           door: uint8(bytes, 14),
           direction: lookup.direction(bytes, 15, translator),
           card: uint32(bytes, 16),
-          timestamp: yyyymmddHHmmss(bytes, 20),
+          timestamp: optionalDatetime(bytes, 20),
           reason: lookup.reason(bytes, 27, translator)
         },
         doors: {
@@ -733,6 +733,29 @@ function yyyymmddHHmmss (bytes, offset) {
   const time = datetime.substr(8, 2) + ':' + datetime.substr(10, 2) + ':' + datetime.substr(12, 2)
 
   return date + ' ' + time
+}
+
+/**
+  * Internal utility function to extract a BCD timestamp from a response message that may (legitimately)
+  * not have a valid timestamp (e.g. get-status response without an event).
+  *
+  * @param {array}  buffer  64 byte DataView
+  * @param {number} offset  Index of timestamp in buffer
+  *
+  * @param {string}  Decoded 6 byte timestamp in yyy-mm-dd HH:mm:ss format, or '' if the timestamp is
+  *                  zero.
+  */
+function optionalDatetime (bytes, offset) {
+  const datetime = bcd(bytes, offset, 7)
+
+  if (datetime === '00000000000000') {
+    return ''
+  } else {
+    const date = datetime.substr(0, 4) + '-' + datetime.substr(4, 2) + '-' + datetime.substr(6, 2)
+    const time = datetime.substr(8, 2) + ':' + datetime.substr(10, 2) + ':' + datetime.substr(12, 2)
+
+    return date + ' ' + time
+  }
 }
 
 /**

@@ -3,13 +3,10 @@
 ### IN PROGRESS
 
 - [x] set-door-passcodes (cf. https://github.com/uhppoted/uhppoted/issues/40)
-      - [x] `set-door-passcodes` node
-      - [x] example
-      - [x] integration test
-      - [x] CHANGELOG
-      - [x] README
-
 - [x] Fix input/output labels
+- [x] Rework `get-status` to return '' for zero timestamp (cf. https://github.com/uhppoted/uhppoted-dll/issues/7)
+- [ ] Replace Event pointer in GetStatusResponse with zero value (cf. https://github.com/uhppoted/uhppote-core/issues/18)
+
 
 ## TODO
 
