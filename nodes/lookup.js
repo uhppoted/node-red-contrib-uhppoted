@@ -391,6 +391,57 @@ module.exports = {
     }
 
     return control
+  },
+
+  /**
+    * Expands an event type '0' (no event) into an object with event code and internationalised
+    * event message.
+    *
+    * @param {function} translator (optional) function to translate event message.
+    *
+    * @param {object}   { code:byte, event:string }
+    *
+    * @exports
+    */
+  noEventType: function (translator) {
+    return {
+      code: 0,
+      event: translate(translator, 'none')
+    }
+  },
+
+  /**
+    * Expands an event direction '0' (no event) into an object with event code and internationalised
+    * event message.
+    *
+    * @param {function} translator (optional) function to translate event message.
+    *
+    * @param {object}   { code:byte, event:string }
+    *
+    * @exports
+    */
+  noEventDirection: function (translator) {
+    return {
+      code: 0,
+      direction: translate(translator, 'unknown')
+    }
+  },
+
+  /**
+    * Expands an event reason '0' (no event) into an object with event reason and internationalised
+    * reason description.
+    *
+    * @param {function} translator (optional) function to translate reason description.
+    *
+    * @param {object}   { code: byte, reason: string }
+    *
+    * @exports
+    */
+  noEventReason: function (translator) {
+    return {
+      code: 0,
+      reason: translate(translator, 'no reason')
+    }
   }
 }
 

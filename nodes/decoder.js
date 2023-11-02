@@ -11,20 +11,33 @@ module.exports = {
   GetStatus: function (bytes, translator) {
     const lookup = require('./lookup.js')
 
+    const evt = {
+      index: uint32(bytes, 8),
+      type: lookup.eventType(bytes, 12, translator),
+      granted: bool(bytes, 13),
+      door: uint8(bytes, 14),
+      direction: lookup.direction(bytes, 15, translator),
+      card: uint32(bytes, 16),
+      timestamp: optionalDatetime(bytes, 20),
+      reason: lookup.reason(bytes, 27, translator)
+    }
+
+    // No event?
+    if (evt.index === 0) {
+      evt.type = lookup.noEventType(translator)
+      evt.granted = false
+      evt.door = 0
+      evt.direction = lookup.noEventDirection(translator)
+      evt.card = 0
+      evt.timestamp = ''
+      evt.reason = lookup.noEventReason(translator)
+    }
+
     return {
       deviceId: uint32(bytes, 4),
       state: {
         serialNumber: uint32(bytes, 4),
-        event: {
-          index: uint32(bytes, 8),
-          type: lookup.eventType(bytes, 12, translator),
-          granted: bool(bytes, 13),
-          door: uint8(bytes, 14),
-          direction: lookup.direction(bytes, 15, translator),
-          card: uint32(bytes, 16),
-          timestamp: optionalDatetime(bytes, 20),
-          reason: lookup.reason(bytes, 27, translator)
-        },
+        event: evt,
         doors: {
           1: bool(bytes, 28),
           2: bool(bytes, 29),

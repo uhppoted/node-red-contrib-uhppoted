@@ -52,23 +52,23 @@
         <dt>state.serialNumber<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
         <dt>state.event.index<span class="property-type">uint32</span></dt>
-        <dd>event record number</d>
+        <dd>event record number (0 for no event)</d>
         <dt>state.event.type.code<span class="property-type">uint8</span></dt>
-        <dd>raw event type</dd>
+        <dd>raw event type (0 for no event)</dd>
         <dt>state.event.type.event<span class="property-type">string</span></dt>
         <dd>decoded event type</dd>
         <dt>state.event.granted<span class="property-type">boolean</span></dt>
         <dd>access granted/denied</dd>
         <dt>state.event.door<span class="property-type">uint8</span></dt>
-        <dd>event door ID for swipe/door events</dd>
+        <dd>event door ID for swipe/door events (0 for unknown)</dd>
         <dt>state.event.direction.code<span class="property-type">uint8</span></dt>
-        <dd>event door direction for swipe/door events</dd>
+        <dd>event door direction for swipe/door events (0 for unknown)</dd>
         <dt>state.event.direction.direction<span class="property-type">uint8</span></dt>
         <dd>decoded event door direction for swipe/door events</dd>
         <dt>state.event.card<span class="property-type">uint32</span></dt>
         <dd>card number for swipe/door events</dd>
         <dt>state.event.timestamp<span class="property-type">timestamp</span></dt>
-        <dd>event timestamp, formatted as YYYY-mm-dd HH:mm:ss</dd>
+        <dd>event timestamp, formatted as YYYY-mm-dd HH:mm:ss ('' for no timestamp)</dd>
         <dt>state.event.reason.code<span class="property-type">uint8</span></dt>
         <dd>raw event reason</dd>
         <dt>state.event.reason.reason<span class="property-type">string</span></dt>
