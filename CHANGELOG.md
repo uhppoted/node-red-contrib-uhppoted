@@ -8,7 +8,7 @@
 ### Updated
 1. Fixed input/output labels for renamed nodes.
 2. Reworked `get-status` to return '' for zero value event timestamps.
-3. Reworked `get-status` to explicitly set fields for response with no event.
+3. Reworked `get-status` to explicitly handle response with no event.
 
 
 ## [1.1.5](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.5) - 2023-08-30

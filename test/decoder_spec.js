@@ -85,23 +85,7 @@ describe('decode', function () {
       state: {
         serialNumber: 405419896,
         event: {
-          index: 0,
-          type: {
-            code: 0,
-            event: 'none'
-          },
-          granted: false,
-          door: 0,
-          direction: {
-            code: 0,
-            direction: 'unknown'
-          },
-          card: 0,
-          timestamp: '',
-          reason: {
-            code: 0,
-            reason: 'no reason'
-          }
+          index: 0
         },
         doors: {
           1: false,

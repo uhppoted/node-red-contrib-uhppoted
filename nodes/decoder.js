@@ -22,22 +22,11 @@ module.exports = {
       reason: lookup.reason(bytes, 27, translator)
     }
 
-    // No event?
-    if (evt.index === 0) {
-      evt.type = lookup.noEventType(translator)
-      evt.granted = false
-      evt.door = 0
-      evt.direction = lookup.noEventDirection(translator)
-      evt.card = 0
-      evt.timestamp = ''
-      evt.reason = lookup.noEventReason(translator)
-    }
-
     return {
       deviceId: uint32(bytes, 4),
       state: {
         serialNumber: uint32(bytes, 4),
-        event: evt,
+        event: evt.index === 0 ? { index: 0 } : evt,
         doors: {
           1: bool(bytes, 28),
           2: bool(bytes, 29),
