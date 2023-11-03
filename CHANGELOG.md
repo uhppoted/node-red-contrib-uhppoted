@@ -7,7 +7,7 @@
 
 ### Updated
 1. Fixed input/output labels for renamed nodes.
-2. Reworked `get-status` to return '' for zero value event timestamps.
+2. Reworked `get-status` and `get-event` to return '' for zero value event timestamps.
 3. Reworked `get-status` to explicitly handle response with no event.
 
 

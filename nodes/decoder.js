@@ -6,7 +6,8 @@ module.exports = {
     * @param {function} translator (optional) function to internationalise the text in a
     *                              decoded object
     *
-    * @param {object}   Decoded get-status response object
+    * @param {object}   Decoded get-status response object. The event field will contain
+    *                   only the event index (0) if the response does not contain an event.
     */
   GetStatus: function (bytes, translator) {
     const lookup = require('./lookup.js')
@@ -529,7 +530,7 @@ module.exports = {
         door: uint8(bytes, 14),
         direction: lookup.direction(bytes, 15, translator),
         card: uint32(bytes, 16),
-        timestamp: yyyymmddHHmmss(bytes, 20),
+        timestamp: optionalDatetime(bytes, 20),
         reason: lookup.reason(bytes, 27, translator)
       }
     }
