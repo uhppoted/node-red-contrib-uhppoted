@@ -15,7 +15,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.18.3, 16.20.2, 18.19.1, 20.11.1]
+        node-version: [14.21.3, 16.20.2, 18.19.1, 20.11.1]
 
     steps:
     - name: Setup NodeJS
@@ -27,7 +27,7 @@ jobs:
       uses: actions/checkout@v3
 
     - name: Install eslint
-      run: npm install eslint eslint-config-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node --save-dev
+      run: npm install eslint@8.23.1 eslint-config-standard eslint-plugin-promise eslint-plugin-import eslint-plugin-node --save-dev
 
     - name: Install node-red-dev
       run: npm install -g node-red-dev
