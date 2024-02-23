@@ -44,37 +44,38 @@ _Please see:_
 
 ### Nodes
 
-| Node                    | Description                                                  |
-| ----------------------- | ------------------------------------------------------------ |
-| `get‑devices`           | Fetches a list of access controllers on the local LAN        |
-| `get‑device`            | Retrieves the information for a single access controller     |
-| `set‑ip`                | Sets the controller IP address, net mask and gateway address |
-| `get‑status`            | Retrieves the current controller status                      |
-| `get‑time`              | Retrieves the current controller date and time               |
-| `set‑time`              | Sets the controller date and time                            |
-| `get‑door‑control`      | Retrieves the control configuration for a controller door    |
-| `set‑door‑control`      | Sets the control configuration for a controller door         |
-| `open‑door`             | Remotely opens a controller door                             |
-| `get‑card`              | Retrieves a card record from a controller                    |
-| `get‑card-by-index`     | Retrieves a card record from a controller by record number   |
-| `put‑card`              | Adds or updates a card record on a controller                |
-| `delete‑card`           | Deletes a card record from a controller                      |
-| `delete‑all‑cards`      | Deletes all card records stored on a controller              |
-| `get-time-profile`      | Retrieve a time profile from a controller                    |
-| `set-time-profile`      | Defines a time profile on a controller                       |
-| `clear-time-profiles`   | Deletes all time profiles defined on a controller            |
-| `clear-task-list`       | Clears a controller task list                                |
-| `add-task`              | Adds a new task to a controller's task list                  |
-| `refresh-task-list`     | Refreshes a controller task list                             |
-| `record-special-events` | Enables or disables door events                              | 
-| `get‑event‑index`       | Retrieves the current event index from a controller          | 
-| `set‑event‑index`       | Sets the current event index on a controller                 |
-| `get‑event`             | Retrieves a single event from a controller                   |
-| `set-pc-control`        | Delegates access control to an offboard application          |
-| `set-interlock`         | Sets the controller door interlock mode                      |
-| `activate-keypads`      | Activates/deactivates the reader access keypads              |
-| `set-door-passcodes`    | Sets the supervisor keypad passcodes for a door              |
-| `listen`                | Establishes a listening connection for controller events     |
+| Node                         | Description                                                   |
+| ---------------------------- | ------------------------------------------------------------- |
+| `get‑devices`                | Fetches a list of access controllers on the local LAN         |
+| `get‑device`                 | Retrieves the information for a single access controller      |
+| `set‑ip`                     | Sets the controller IP address, net mask and gateway address  |
+| `get‑status`                 | Retrieves the current controller status                       |
+| `get‑time`                   | Retrieves the current controller date and time                |
+| `set‑time`                   | Sets the controller date and time                             |
+| `get‑door‑control`           | Retrieves the control configuration for a controller door     |
+| `set‑door‑control`           | Sets the control configuration for a controller door          |
+| `open‑door`                  | Remotely opens a controller door                              |
+| `get‑card`                   | Retrieves a card record from a controller                     |
+| `get‑card-by-index`          | Retrieves a card record from a controller by record number    |
+| `put‑card`                   | Adds or updates a card record on a controller                 |
+| `delete‑card`                | Deletes a card record from a controller                       |
+| `delete‑all‑cards`           | Deletes all card records stored on a controller               |
+| `get-time-profile`           | Retrieve a time profile from a controller                     |
+| `set-time-profile`           | Defines a time profile on a controller                        |
+| `clear-time-profiles`        | Deletes all time profiles defined on a controller             |
+| `clear-task-list`            | Clears a controller task list                                 |
+| `add-task`                   | Adds a new task to a controller's task list                   |
+| `refresh-task-list`          | Refreshes a controller task list                              |
+| `record-special-events`      | Enables or disables door events                               | 
+| `get‑event‑index`            | Retrieves the current event index from a controller           | 
+| `set‑event‑index`            | Sets the current event index on a controller                  |
+| `get‑event`                  | Retrieves a single event from a controller                    |
+| `set-pc-control`             | Delegates access control to an offboard application           |
+| `set-interlock`              | Sets the controller door interlock mode                       |
+| `activate-keypads`           | Activates/deactivates the reader access keypads               |
+| `set-door-passcodes`         | Sets the supervisor keypad passcodes for a door               |
+| `restore-default-parameters` | Resets a controller to the manufacturer default configuration |
+| `listen`                     | Establishes a listening connection for controller events      |
 
 All nodes take a message with JSON object payload as input and send a message with a JSON object payload as output.
 

@@ -83,7 +83,8 @@
             "c0e6bb33a19db488",
             "9a31bb8724c61ced",
             "48ff7ac7019f5179",
-            "252b172a8418a0f4"
+            "252b172a8418a0f4",
+            "0a0dd7840eab8341"
         ],
         "x": 135,
         "y": 60,
@@ -98,7 +99,7 @@
         "type": "debug",
         "z": "de85fbbc.953fc8",
         "name": "trace",
-        "active": false,
+        "active": true,
         "tosidebar": true,
         "console": false,
         "tostatus": false,
@@ -1074,7 +1075,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 1005,
+        "x": 1015,
         "y": 1240,
         "wires": []
     },
@@ -1136,7 +1137,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 1005,
+        "x": 1015,
         "y": 1280,
         "wires": []
     },
@@ -1198,7 +1199,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 1005,
+        "x": 1015,
         "y": 1320,
         "wires": []
     },
@@ -1270,7 +1271,7 @@
         "to": "",
         "reg": false,
         "x": 480,
-        "y": 1520,
+        "y": 1560,
         "wires": [
             [
                 "78dd925c.9213cc"
@@ -1335,7 +1336,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 1005,
+        "x": 1015,
         "y": 1200,
         "wires": []
     },
@@ -2073,8 +2074,8 @@
         "links": [
             "c6197be1.382738"
         ],
-        "x": 615,
-        "y": 1520,
+        "x": 645,
+        "y": 1560,
         "wires": []
     },
     {
@@ -2404,7 +2405,7 @@
         "type": "function",
         "z": "de85fbbc.953fc8",
         "name": "validate-get-device",
-        "func": "const device = msg.payload.device\n\nif (device.serialNumber !== 405419896) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (device.address !== '192.168.1.125') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (device.netmask !== '255.255.255.0') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (device.gateway !== '192.168.1.1') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (device.MAC !== '00:12:23:34:45:56') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n    \nif (device.version !== '0892') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (device.date !== '2018-11-05') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nnode.status({ fill:'green', shape:'dot', text:'ok' })\n\nreturn msg;",
+        "func": "const device = msg.payload.device\n\nif (device.serialNumber !== 405419896) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    console.log('debug/1')\n    return msg\n}\n\nif (device.address !== '192.168.1.100') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (device.netmask !== '255.255.255.0') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (device.gateway !== '192.168.1.1') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (device.MAC !== '00:12:23:34:45:56') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n    \nif (device.version !== '0892') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (device.date !== '2018-11-05') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nnode.status({ fill:'green', shape:'dot', text:'ok' })\n\nreturn msg;",
         "outputs": 1,
         "noerr": 0,
         "initialize": "\n",
@@ -2758,7 +2759,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 1005,
+        "x": 1015,
         "y": 1360,
         "wires": []
     },
@@ -2821,7 +2822,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 1005,
+        "x": 1015,
         "y": 1400,
         "wires": []
     },
@@ -2884,7 +2885,7 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 1005,
+        "x": 1015,
         "y": 1440,
         "wires": []
     },
@@ -2933,8 +2934,8 @@
         "y": 1480,
         "wires": [
             [
-                "d8a9007b.456b3",
-                "252b172a8418a0f4"
+                "252b172a8418a0f4",
+                "6bb4a0284a9ac5c8"
             ]
         ]
     },
@@ -2947,8 +2948,90 @@
         "links": [
             "ee75260d.e57f48"
         ],
-        "x": 1005,
+        "x": 1015,
         "y": 1480,
         "wires": []
+    },
+    {
+        "id": "af67c84b94cbd035",
+        "type": "uhppoted-restore-default-parameters",
+        "z": "de85fbbc.953fc8",
+        "name": "",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 840,
+        "y": 1520,
+        "wires": [
+            [
+                "d8a9007b.456b3",
+                "8d0af2edd19663eb"
+            ]
+        ]
+    },
+    {
+        "id": "6bb4a0284a9ac5c8",
+        "type": "change",
+        "z": "de85fbbc.953fc8",
+        "name": "restore-default-parameters",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "restore-default-parameters",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"deviceId\":405419896}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 540,
+        "y": 1520,
+        "wires": [
+            [
+                "af67c84b94cbd035"
+            ]
+        ]
+    },
+    {
+        "id": "0a0dd7840eab8341",
+        "type": "link out",
+        "z": "de85fbbc.953fc8",
+        "name": "restore-default-parameters",
+        "mode": "link",
+        "links": [
+            "ee75260d.e57f48"
+        ],
+        "x": 1325,
+        "y": 1520,
+        "wires": []
+    },
+    {
+        "id": "8d0af2edd19663eb",
+        "type": "function",
+        "z": "de85fbbc.953fc8",
+        "name": "validate-restore-default-parameters",
+        "func": "const result = msg.payload\n\nif (result.deviceId !== 405419896) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (!result.reset) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nnode.status({ fill:'green', shape:'dot', text:'ok' })\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 1140,
+        "y": 1520,
+        "wires": [
+            [
+                "0a0dd7840eab8341"
+            ]
+        ]
     }
 ]

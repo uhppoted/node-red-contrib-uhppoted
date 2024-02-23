@@ -9,19 +9,23 @@
     "Wiegand",
     "access control"
   ],
+
   "scripts": {
     "test": "mocha 'test/**/*_spec.js'"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uhppoted/node-red-contrib-uhppoted.git"
   },
+
   "author": "uhppoted@twyst.co.za",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/uhppoted/node-red-contrib-uhppoted/issues"
   },
   "homepage": "https://github.com/uhppoted/node-red-contrib-uhppoted",
+
   "node-red": {
     "version": ">=2.2.3",
     "nodes": {
@@ -57,18 +61,22 @@
       "uhppoted-set-interlock": "nodes/uhppoted-set-interlock.js",
       "uhppoted-activate-keypads": "nodes/uhppoted-activate-keypads.js",
       "uhppoted-set-door-passcodes": "nodes/uhppoted-set-door-passcodes.js",
+      "uhppoted-restore-default-parameters": "nodes/uhppoted-restore-default-parameters.js",
       "uhppoted-listen": "nodes/uhppoted-listen.js"
     }
   },
+
   "engines": {
     "node": ">=14.18.3"
   },
+
   "dependencies": {
     "bcrypt": "^5.0.1",
     "bl": ">=5.0.0",
     "ip": "^1.1.5",
     "node-red": "^3.1.0"
   },
+
   "devDependencies": {
     "chai": "^4.3.6",
     "eslint": "^8.23.1",

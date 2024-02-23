@@ -630,6 +630,22 @@ module.exports = {
       deviceId: uint32(bytes, 4),
       ok: bool(bytes, 8)
     }
+  },
+
+  /**
+    * Decodes the response to a restore-default-parameters request (function code 0xc8).
+    *
+    * @param {buffer}   bytes      64 byte array
+    * @param {function} translator (optional) function to internationalise the text in a
+    *                              decoded object
+    *
+    * @param {object}   Decoded restore-default-parameters response object
+    */
+  RestoreDefaultParameters: function (bytes, translator) {
+    return {
+      deviceId: uint32(bytes, 4),
+      reset: bool(bytes, 8)
+    }
   }
 }
 

@@ -35,7 +35,8 @@ const enc = new Map([
   [opcodes.SetPCControl, encoder.SetPCControl],
   [opcodes.SetInterlock, encoder.SetInterlock],
   [opcodes.ActivateKeypads, encoder.ActivateKeypads],
-  [opcodes.SetDoorPasscodes, encoder.SetDoorPasscodes]
+  [opcodes.SetDoorPasscodes, encoder.SetDoorPasscodes],
+  [opcodes.RestoreDefaultParameters, encoder.RestoreDefaultParameters]
 ])
 
 /**
@@ -70,7 +71,8 @@ const dec = new Map([
   [0xac, decoder.RefreshTaskList],
   [0xb0, decoder.GetEvent],
   [0xb2, decoder.SetEventIndex],
-  [0xb4, decoder.GetEventIndex]
+  [0xb4, decoder.GetEventIndex],
+  [0xc8, decoder.RestoreDefaultParameters]
 ])
 
 module.exports = {

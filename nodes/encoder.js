@@ -775,6 +775,24 @@ module.exports = {
     }
 
     return request
+  },
+
+  /**
+    * Encode a restore-default-parameters request.
+    *
+    * @param {number} deviceId  Controller serial number
+    *
+    * @return {buffer} 64 byte NodeJS buffer with encoded restore-default-parameters request.
+    */
+  RestoreDefaultParameters: function (deviceId) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0xc8, 1)
+    request.writeUInt32LE(deviceId, 4)
+    request.writeUInt32LE(0x55aaaa55, 8)
+
+    return request
   }
 }
 

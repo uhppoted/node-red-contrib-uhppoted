@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+### Added
+1. `uhppoted-restore-default-parameters` node.
+
 
 ## [1.1.6](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.6) - 2023-12-01
 
