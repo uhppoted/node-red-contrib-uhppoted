@@ -42,7 +42,11 @@ release: build-all
 publish: release
 	echo "Releasing version $(VERSION)"
 	gh release create "$(VERSION)" *.tgz --draft --latest --title "$(VERSION)" --notes-file release-notes.md
+
+publish-npm: release
+	echo "Publishing version $(VERSION) to npm"
 	npm --dry-run publish
+	npm publish
 
 examples: build
 	node-red ./examples/examples.json
