@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## Unreleased
+
+
 ## [1.1.7](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.7) - 2024-03-26
 
 ### Added
