@@ -10,17 +10,20 @@ module.exports = {
     * 'get' and 'set' are functionally identical but are defined separately for
     * semantic clarity.
     *
-    * @param {object}   ctx      Configuration, internationalisation translation and logger
-    * @param {number}   deviceId The serial number for the target access controller
-    * @param {byte}     op       Operation code from 'opcode' module
-    * @param {object}   request  Operation parameters for use by codec.encode
+    * @param {object}   ctx        Configuration, internationalisation translation and logger
+    * @param {number}   controller The serial number for the target access controller
+    * @param {byte}     op         Operation code from 'opcode' module
+    * @param {object}   request    Operation parameters for use by codec.encode
+    * @param {string}   dest       Optional controller IPv4 address. Defaults to UDP broadcast.
+    * @param {string}   protocol   Optional connection protocol ('udp' or 'tcp'). Defaults to
+    *                              'udp' unless 'tcp'
     *
     * @param {object}   Decoded reply containing the received information
     *
     * @exports
     */
-  get: async function (ctx, deviceId, op, request) {
-    const c = context(deviceId, ctx.config, ctx.logger)
+  get: async function (ctx, controller, op, request, dest = null, protocol = 'udp') {
+    const c = context(controller, ctx.config, ctx.logger)
     const receiver = receiveAny(c.timeout)
 
     try {
@@ -33,10 +36,14 @@ module.exports = {
           }
         }
 
-        throw new Error(`no reply from ${deviceId}`)
+        throw new Error(`no reply from ${controller}`)
       }
 
-      return exec(c, op, request, receiver).then(decode)
+      if (protocol === 'tcp' && dest != null) {
+        return tcp(c, dest, op, request, receiver).then(decode)
+      } else {
+        return udp(c, op, request, receiver).then(decode)
+      }
     } finally {
       receiver.cancel()
     }
@@ -47,17 +54,20 @@ module.exports = {
     * 'get' and 'set' are functionally identical but are defined separately for
     * semantic clarity.
     *
-    * @param {object}   ctx      Configuration, internationalisation translation and logger
-    * @param {number}   deviceId The serial number for the target access controller
-    * @param {byte}     op       Operation code from 'opcode' module
-    * @param {object}   request  Operation parameters for use by codec.encode
+    * @param {object}   ctx        Configuration, internationalisation translation and logger
+    * @param {number}   controller The serial number for the target access controller
+    * @param {byte}     op         Operation code from 'opcode' module
+    * @param {object}   request    Operation parameters for use by codec.encode
+    * @param {string}   dest       Optional controller IPv4 address. Defaults to UDP broadcast.
+    * @param {string}   protocol   Optional connection protocol ('udp' or 'tcp'). Defaults to
+    *                              'udp' unless 'tcp'
     *
     * @param {object}  Decoded result of the operation
     *
     * @exports
     */
-  set: async function (ctx, deviceId, op, request) {
-    const c = context(deviceId, ctx.config, ctx.logger)
+  set: async function (ctx, controller, op, request, dest = null, protocol = 'udp') {
+    const c = context(controller, ctx.config, ctx.logger)
     const receiver = receiveAny(c.timeout)
 
     try {
@@ -69,10 +79,14 @@ module.exports = {
           }
         }
 
-        throw new Error(`no reply from ${deviceId}`)
+        throw new Error(`no reply from ${controller}`)
       }
 
-      return exec(c, op, request, receiver).then(decode)
+      if (protocol === 'tcp' && dest != null) {
+        return tcp(c, dest, op, request, receiver).then(decode)
+      } else {
+        return udp(c, op, request, receiver).then(decode)
+      }
     } finally {
       receiver.cancel()
     }
@@ -83,14 +97,17 @@ module.exports = {
     * expecting a reply. Used solely by the 'set-ip' node - the UHPPOTE access controller
     * does not reply to the set IP command.
     *
-    * @param {object}   ctx      Configuration, internationalisation translation and logger
-    * @param {number}   deviceId The serial number for the target access controller
-    * @param {byte}     op       Operation code from 'opcode' module
-    * @param {object}   request  Operation parameters for use by codec.encode
+    * @param {object}   ctx        Configuration, internationalisation translation and logger
+    * @param {number}   controller The serial number for the target access controller
+    * @param {byte}     op         Operation code from 'opcode' module
+    * @param {object}   request    Operation parameters for use by codec.encode
+    * @param {string}   dest       Optional controller IPv4 address. Defaults to UDP broadcast.
+    * @param {string}   protocol   Optional connection protocol ('udp' or 'tcp'). Defaults to
+    *                              'udp' unless 'tcp'
     *
     */
-  send: async function (ctx, deviceId, op, request) {
-    const c = context(deviceId, ctx.config, ctx.logger)
+  send: async function (ctx, controller, op, request, dest = null, protocol = 'udp') {
+    const c = context(controller, ctx.config, ctx.logger)
 
     const receiver = new Promise((resolve, reject) => {
       resolve()
@@ -102,7 +119,11 @@ module.exports = {
 
     receiver.received = (message) => {}
 
-    return exec(c, op, request, receiver).then(decode)
+    if (protocol === 'tcp' && dest != null) {
+      return tcp(c, dest, op, request, receiver).then(decode)
+    } else {
+      return udp(c, op, request, receiver).then(decode)
+    }
   },
 
   /**
@@ -151,7 +172,7 @@ module.exports = {
       replies.push(new Uint8Array(message))
     }
 
-    return exec(c, op, request, receiver).then(decode)
+    return udp(c, op, request, receiver).then(decode)
   },
 
   /**
@@ -208,7 +229,7 @@ module.exports = {
   * @return {object}  Decoded reply from access controller
   *
   */
-async function exec (ctx, op, request, receive) {
+async function udp (ctx, op, request, receive) {
   const sock = dgram.createSocket(opts)
   const rq = codec.encode(op, ctx.deviceId, request)
 
@@ -260,10 +281,80 @@ async function exec (ctx, op, request, receive) {
 }
 
 /**
+  * Sends a UDP command to a UHPPOTE access controller and returns the decoded
+  * reply, for use by 'get' and 'set'.
+  *
+  * configuration to receive events from UHPPOTE access controllers configured
+  * to send events to this host:port. Received events are forwarded to the
+  * supplied handler for dispatch to the application.
+  *
+  * @param {object}   context  Addresses, logger, debug, etc.
+  * @param {object}   dest     Destination { address,port }
+  * @param {byte}     op       Operation code from 'opcode' module
+  * @param {object}   request  Operation parameters for use by codec.encode
+  * @param {function} receive  Handler for received messages
+  *
+  * @return {object}  Decoded reply from access controller
+  *
+  */
+async function tcp (ctx, dest, op, request, receive) {
+  // const sock = dgram.createSocket(opts)
+  // const rq = codec.encode(op, ctx.deviceId, request)
+  //
+  // const onerror = new Promise((resolve, reject) => {
+  //   sock.on('error', (err) => {
+  //     reject(err)
+  //   })
+  // })
+  //
+  // const send = new Promise((resolve, reject) => {
+  //   sock.on('listening', () => {
+  //     if (ctx.forceBroadcast || isBroadcast(ctx.addr.address)) {
+  //       sock.setBroadcast(true)
+  //     }
+  //
+  //     sock.send(new Uint8Array(rq), 0, 64, ctx.addr.port, ctx.addr.address, (err, bytes) => {
+  //       if (err) {
+  //         reject(err)
+  //       } else {
+  //         log(ctx.debug, 'sent', rq, ctx.addr)
+  //         resolve(bytes)
+  //       }
+  //     })
+  //   })
+  //
+  //   sock.bind({
+  //     address: ctx.bind,
+  //     port: 0
+  //   })
+  // })
+  //
+  // sock.on('message', (message, rinfo) => {
+  //   log(ctx.debug, 'received', message, rinfo)
+  //
+  //   receive.received(new Uint8Array(message))
+  // })
+  //
+  // try {
+  //   const result = await Promise.race([onerror, Promise.all([receive, send])])
+  //
+  //   if (result && result.length === 2) {
+  //     return result[0]
+  //   }
+  // } finally {
+  //   sock.close()
+  // }
+  //
+  // throw new Error('no reply to request')
+
+  throw new Error('** NOT IMPLEMENTED **')
+}
+
+/**
   * Utility function to reconcile supplied configuration against the default
   * values. Returns a working 'exec' context with valid:
-  * - UDP bind address:port
-  * - UDP destination address:port
+  * - bind address:port
+  * - destination address:port
   * - timeout
   * - debug enabled
   *

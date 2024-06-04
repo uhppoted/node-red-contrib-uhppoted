@@ -10,5 +10,9 @@ module.exports = {
   error: function (node, err) {
     node.status({ fill: 'red', shape: 'dot', text: 'node-red:common.status.error' })
     node.warn('uhppoted::' + err)
+  },
+
+  resolve: function(controller) {
+    return { controller:controller, address: null, protocol: 'udp'}
   }
 }
