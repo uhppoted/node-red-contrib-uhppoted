@@ -20,14 +20,14 @@ update-release:
 	# npm audit fix
 
 build:
-	npx eslint --fix nodes/*.js  
+	npx eslint --fix nodes/**/*.js  
 
 debug: build
-	npx eslint --fix test/*.js  
+	npx eslint --fix test/**/*.js  
 	npm run test
 
 test: 
-	npx eslint --fix test/*.js  
+	npx eslint --fix test/**/*.js  
 	npm test
 	node-red-dev validate
 

@@ -1,5 +1,6 @@
 const codec = require('./codec.js')
 const dgram = require('dgram')
+const net = require('net')
 const os = require('os')
 const ip = require('ip')
 const opts = { type: 'udp4', reuseAddr: true }
@@ -298,56 +299,48 @@ async function udp (ctx, op, request, receive) {
   *
   */
 async function tcp (ctx, dest, op, request, receive) {
-  // const sock = dgram.createSocket(opts)
-  // const rq = codec.encode(op, ctx.deviceId, request)
-  //
-  // const onerror = new Promise((resolve, reject) => {
-  //   sock.on('error', (err) => {
-  //     reject(err)
-  //   })
-  // })
-  //
-  // const send = new Promise((resolve, reject) => {
-  //   sock.on('listening', () => {
-  //     if (ctx.forceBroadcast || isBroadcast(ctx.addr.address)) {
-  //       sock.setBroadcast(true)
-  //     }
-  //
-  //     sock.send(new Uint8Array(rq), 0, 64, ctx.addr.port, ctx.addr.address, (err, bytes) => {
-  //       if (err) {
-  //         reject(err)
-  //       } else {
-  //         log(ctx.debug, 'sent', rq, ctx.addr)
-  //         resolve(bytes)
-  //       }
-  //     })
-  //   })
-  //
-  //   sock.bind({
-  //     address: ctx.bind,
-  //     port: 0
-  //   })
-  // })
-  //
-  // sock.on('message', (message, rinfo) => {
-  //   log(ctx.debug, 'received', message, rinfo)
-  //
-  //   receive.received(new Uint8Array(message))
-  // })
-  //
-  // try {
-  //   const result = await Promise.race([onerror, Promise.all([receive, send])])
-  //
-  //   if (result && result.length === 2) {
-  //     return result[0]
-  //   }
-  // } finally {
-  //   sock.close()
-  // }
-  //
-  // throw new Error('no reply to request')
+  const sock = new net.Socket()
+  const rq = codec.encode(op, ctx.deviceId, request)
 
-  throw new Error('** NOT IMPLEMENTED **')
+  const onerror = new Promise((resolve, reject) => {
+    sock.on('error', (err) => {
+      reject(err)
+    })
+  })
+
+  const send = new Promise((resolve, reject) => {
+    sock.on('connect', () => {
+      sock.write(new Uint8Array(rq), (err) => {
+        if (err) {
+          reject(err)
+        } else {
+          log(ctx.debug, 'TCP::sent', rq, dest)
+          resolve()
+        }
+      })
+    })
+
+    sock.connect(dest)
+
+    sock.on('data', (message) => {
+      log(ctx.debug, 'TCP::received', message)
+
+      receive.received(new Uint8Array(message))
+    })
+  })
+
+  try {
+    const result = await Promise.race([onerror, Promise.all([receive, send])])
+
+    if (result && result.length === 2) {
+      return result[0]
+    }
+  } finally {
+    sock.end()
+    receive.cancel()
+  }
+
+  throw new Error('no reply to request')
 }
 
 /**

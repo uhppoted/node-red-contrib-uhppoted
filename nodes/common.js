@@ -12,7 +12,52 @@ module.exports = {
     node.warn('uhppoted::' + err)
   },
 
-  resolve: function(controller) {
-    return { controller:controller, address: null, protocol: 'udp'}
+  resolve: function (payload) {
+    if (payload.controller != null) {
+      return _resolve(payload.controller)
+    }
+
+    if (payload.deviceId != null) {
+      return { controller: payload.deviceId, address: null, protocol: 'udp' }
+    }
+
+    throw new Error("missing 'controller' parameter")
+  }
+}
+
+function _resolve (controller) {
+  if (typeof (controller) === 'number') {
+    return { controller, address: null, protocol: 'udp' }
+  }
+
+  if (typeof (controller) === 'object') {
+    const { controller: id, address = null, protocol = 'udp' } = controller
+    const proto = `${protocol}`.toLowerCase() === 'tcp' ? 'tcp' : 'udp'
+
+    if ((address != null) && (typeof (address) === 'string')) {
+      const match = `${address}`.match(/^(.+?):([0-9]+)$/)
+
+      if (match) {
+        const addr = match[1]
+        const port = parseInt(match[2], 10)
+
+        return { controller: id, address: { address: addr, port }, protocol: proto }
+      } else {
+        return { controller: id, address: { address, port: 60000 }, protocol: proto }
+      }
+    }
+
+    if ((address != null) && (typeof (address) === 'object')) {
+      const { address: addr, port } = address
+      const p = parseInt(`${port}`)
+
+      if (!Number.isNaN(p) && p > 0 && p < 65536) {
+        return { controller: id, address: { address: addr, port: p }, protocol: proto }
+      } else {
+        return { controller: id, address: { address: addr, port: 60000 }, protocol: proto }
+      }
+    }
+
+    return { controller: id, address, protocol: 'udp' }
   }
 }

@@ -3,8 +3,8 @@
 ### IN PROGRESS
 
 - [ ] TCP/IP protocol (cf. https://github.com/uhppoted/uhppote-core/issues/17)
-      - [ ] uhppoted
-      - [ ] uhppoted-get-device
+      - [x] uhppoted
+      - [x] uhppoted-get-device
       - [ ] uhppoted-set-ip
       - [ ] uhppoted-get-time
       - [ ] uhppoted-set-time

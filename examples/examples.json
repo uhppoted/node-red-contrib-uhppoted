@@ -521,6 +521,211 @@
         "wires": []
     },
     {
+        "id": "78a35c24f5a1f2f7",
+        "type": "debug",
+        "z": "f0ca7ab6.b09058",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "4cfaeb95fa7b0084",
+        "type": "inject",
+        "z": "f0ca7ab6.b09058",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 440,
+        "wires": [
+            [
+                "f12b1459d211e6d6"
+            ]
+        ]
+    },
+    {
+        "id": "f12b1459d211e6d6",
+        "type": "uhppoted-get-device",
+        "z": "f0ca7ab6.b09058",
+        "name": "get-device-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 320,
+        "y": 440,
+        "wires": [
+            [
+                "78a35c24f5a1f2f7",
+                "0d89280c91e6ae59"
+            ]
+        ]
+    },
+    {
+        "id": "0d89280c91e6ae59",
+        "type": "function",
+        "z": "f0ca7ab6.b09058",
+        "name": "parse",
+        "func": "return { \n    device: msg.payload.device \n}\n",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 490,
+        "y": 440,
+        "wires": [
+            [
+                "89ee4a2a3e4d6c87",
+                "a911f784db14c6c8",
+                "275f60f1abfe2775",
+                "187dee1670747667",
+                "48197925f3624535",
+                "a2148856d751e8bd",
+                "7dad7ae5d17ae824"
+            ]
+        ]
+    },
+    {
+        "id": "89ee4a2a3e4d6c87",
+        "type": "debug",
+        "z": "f0ca7ab6.b09058",
+        "name": "serial-number",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.serialNumber",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "a911f784db14c6c8",
+        "type": "debug",
+        "z": "f0ca7ab6.b09058",
+        "name": "address",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.address",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "275f60f1abfe2775",
+        "type": "debug",
+        "z": "f0ca7ab6.b09058",
+        "name": "netmask",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.netmask",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "187dee1670747667",
+        "type": "debug",
+        "z": "f0ca7ab6.b09058",
+        "name": "gateway",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.gateway",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "48197925f3624535",
+        "type": "debug",
+        "z": "f0ca7ab6.b09058",
+        "name": "MAC",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.MAC",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "a2148856d751e8bd",
+        "type": "debug",
+        "z": "f0ca7ab6.b09058",
+        "name": "version",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.version",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "7dad7ae5d17ae824",
+        "type": "debug",
+        "z": "f0ca7ab6.b09058",
+        "name": "date",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "device.date",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 670,
+        "y": 680,
+        "wires": []
+    },
+    {
         "id": "c601d685.422838",
         "type": "debug",
         "z": "8bcf2d43.2e243",
