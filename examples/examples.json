@@ -786,6 +786,67 @@
         ]
     },
     {
+        "id": "f6a34498213a5766",
+        "type": "debug",
+        "z": "8bcf2d43.2e243",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "b267a94cc5f28f8e",
+        "type": "inject",
+        "z": "8bcf2d43.2e243",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "set-address",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"address\":\"192.168.1.125\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 180,
+        "wires": [
+            [
+                "2312b07b0bdde6e8"
+            ]
+        ]
+    },
+    {
+        "id": "2312b07b0bdde6e8",
+        "type": "uhppoted-set-ip",
+        "z": "8bcf2d43.2e243",
+        "name": "set-ip-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 280,
+        "y": 180,
+        "wires": [
+            [
+                "f6a34498213a5766"
+            ]
+        ]
+    },
+    {
         "id": "b94136c7.ef3808",
         "type": "debug",
         "z": "c56e1667.998748",
@@ -854,7 +915,7 @@
         "name": "set-listener",
         "config": "cf35d9904542f0af",
         "x": 290,
-        "y": 340,
+        "y": 480,
         "wires": [
             [
                 "8463e096.b3a5f"
@@ -883,7 +944,7 @@
         "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001}",
         "payloadType": "json",
         "x": 130,
-        "y": 340,
+        "y": 480,
         "wires": [
             [
                 "48b92667.8a59b8"
@@ -904,7 +965,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 480,
-        "y": 340,
+        "y": 480,
         "wires": []
     },
     {
@@ -970,6 +1031,164 @@
         "statusType": "auto",
         "x": 270,
         "y": 100,
+        "wires": []
+    },
+    {
+        "id": "08829fbbe177a0e2",
+        "type": "debug",
+        "z": "c56e1667.998748",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "86aa48a9e620c6cf",
+        "type": "inject",
+        "z": "c56e1667.998748",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 360,
+        "wires": [
+            [
+                "c7466e083310bf9b"
+            ]
+        ]
+    },
+    {
+        "id": "c7466e083310bf9b",
+        "type": "uhppoted-get-listener",
+        "z": "c56e1667.998748",
+        "name": "get-listener-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 360,
+        "wires": [
+            [
+                "08829fbbe177a0e2",
+                "ab8db78b320eb9fb",
+                "855631832896d28c"
+            ]
+        ]
+    },
+    {
+        "id": "ab8db78b320eb9fb",
+        "type": "debug",
+        "z": "c56e1667.998748",
+        "name": "listener-address",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.address",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "855631832896d28c",
+        "type": "debug",
+        "z": "c56e1667.998748",
+        "name": "listener-port",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.port",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 490,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "8dc08c333b80e03c",
+        "type": "uhppoted-set-listener",
+        "z": "c56e1667.998748",
+        "name": "set-listener-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 540,
+        "wires": [
+            [
+                "9654600eb7374f06"
+            ]
+        ]
+    },
+    {
+        "id": "22512f8ce8fabe30",
+        "type": "inject",
+        "z": "c56e1667.998748",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "set-listener",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"address\":\"192.168.1.100\",\"port\":60001}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "8dc08c333b80e03c"
+            ]
+        ]
+    },
+    {
+        "id": "9654600eb7374f06",
+        "type": "debug",
+        "z": "c56e1667.998748",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 540,
         "wires": []
     },
     {
@@ -1602,7 +1821,7 @@
         "payload": "{}",
         "payloadType": "json",
         "x": 130,
-        "y": 180,
+        "y": 340,
         "wires": [
             [
                 "50ebe86.e579018"
@@ -1623,7 +1842,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 580,
-        "y": 180,
+        "y": 340,
         "wires": []
     },
     {
@@ -1633,7 +1852,7 @@
         "name": "set-time",
         "config": "cf35d9904542f0af",
         "x": 420,
-        "y": 180,
+        "y": 340,
         "wires": [
             [
                 "804a318e.14ddb"
@@ -1668,10 +1887,170 @@
         "initialize": "",
         "finalize": "",
         "x": 270,
-        "y": 180,
+        "y": 340,
         "wires": [
             [
                 "ea3bdfee.bf0d1"
+            ]
+        ]
+    },
+    {
+        "id": "296aa0e2884f2bf7",
+        "type": "uhppoted-get-time",
+        "z": "f7a455cc.3fefe8",
+        "name": "get-time-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 290,
+        "y": 200,
+        "wires": [
+            [
+                "d6bd38fff41a5cf4",
+                "fe1664d755f2e926"
+            ]
+        ]
+    },
+    {
+        "id": "d6bd38fff41a5cf4",
+        "type": "debug",
+        "z": "f7a455cc.3fefe8",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "71e32904692a6463",
+        "type": "inject",
+        "z": "f7a455cc.3fefe8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "296aa0e2884f2bf7"
+            ]
+        ]
+    },
+    {
+        "id": "fe1664d755f2e926",
+        "type": "debug",
+        "z": "f7a455cc.3fefe8",
+        "name": "date-time",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.datetime",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "a195b6e24d2fb8e0",
+        "type": "inject",
+        "z": "f7a455cc.3fefe8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "set-time",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 400,
+        "wires": [
+            [
+                "a582159b9006a6a5"
+            ]
+        ]
+    },
+    {
+        "id": "cacac9cf5676c159",
+        "type": "debug",
+        "z": "f7a455cc.3fefe8",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "0d96f9c39f461e84",
+        "type": "uhppoted-set-time",
+        "z": "f7a455cc.3fefe8",
+        "name": "set-time-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 430,
+        "y": 400,
+        "wires": [
+            [
+                "cacac9cf5676c159"
+            ]
+        ]
+    },
+    {
+        "id": "a582159b9006a6a5",
+        "type": "function",
+        "z": "f7a455cc.3fefe8",
+        "name": "format",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\nconst datetime = new Date()\n\nconst year = format(datetime.getFullYear(), 4)\nconst month = format(datetime.getMonth()+1, 2)\nconst day = format(datetime.getDate(), 2)\nconst hours = format(datetime.getHours(), 2)\nconst minutes = format(datetime.getMinutes(), 2)\nconst seconds = format(datetime.getSeconds(), 2)\n\nmsg.payload = { \n    \"controller\": {\n        \"controller\": 405419896,\n        \"address\": \"192.168.1.100\",\n        \"protocol\": \"tcp\"\n     },\n    datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n}\n        \nreturn msg",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 400,
+        "wires": [
+            [
+                "0d96f9c39f461e84"
             ]
         ]
     },
@@ -1744,7 +2123,7 @@
         "name": "set-door-control",
         "config": "cf35d9904542f0af",
         "x": 300,
-        "y": 260,
+        "y": 400,
         "wires": [
             [
                 "552b0a9d.9bc984",
@@ -1767,7 +2146,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 260,
+        "y": 400,
         "wires": []
     },
     {
@@ -1788,7 +2167,7 @@
         "payload": "{\"deviceId\":405419896,\"door\":1,\"delay\":6,\"control\":\"controlled\"}",
         "payloadType": "json",
         "x": 130,
-        "y": 260,
+        "y": 400,
         "wires": [
             [
                 "6d8d48f7.397bb8"
@@ -1802,7 +2181,7 @@
         "name": "open-door",
         "config": "cf35d9904542f0af",
         "x": 290,
-        "y": 420,
+        "y": 700,
         "wires": [
             [
                 "cf49a18d.73b92",
@@ -1824,7 +2203,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 420,
+        "y": 700,
         "wires": []
     },
     {
@@ -1845,7 +2224,7 @@
         "payload": "{ \"deviceId\":405419896, \"door\":1 }",
         "payloadType": "json",
         "x": 130,
-        "y": 420,
+        "y": 700,
         "wires": [
             [
                 "6c1b3177.30bd2"
@@ -1900,7 +2279,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 530,
-        "y": 300,
+        "y": 440,
         "wires": []
     },
     {
@@ -1917,7 +2296,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 540,
-        "y": 340,
+        "y": 480,
         "wires": []
     },
     {
@@ -1934,7 +2313,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 540,
-        "y": 460,
+        "y": 740,
         "wires": []
     },
     {
@@ -1951,7 +2330,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 540,
+        "y": 820,
         "wires": []
     },
     {
@@ -1972,7 +2351,7 @@
         "payload": "{\"deviceId\":405419896,\"keypads\":{\"1\":true,\"2\":true,\"3\":false,\"4\":true}}",
         "payloadType": "json",
         "x": 130,
-        "y": 540,
+        "y": 820,
         "wires": [
             [
                 "76ada944ebac3023"
@@ -1993,7 +2372,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 580,
+        "y": 860,
         "wires": []
     },
     {
@@ -2004,7 +2383,7 @@
         "topic": "",
         "config": "cf35d9904542f0af",
         "x": 310,
-        "y": 540,
+        "y": 820,
         "wires": [
             [
                 "4de9ec54d837178c",
@@ -2026,7 +2405,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 620,
+        "y": 900,
         "wires": []
     },
     {
@@ -2043,7 +2422,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 520,
-        "y": 700,
+        "y": 980,
         "wires": []
     },
     {
@@ -2064,7 +2443,7 @@
         "payload": "{\"deviceId\":405419896,\"door\":3,\"passcodes\":[12345,999999,54321]}",
         "payloadType": "json",
         "x": 130,
-        "y": 700,
+        "y": 980,
         "wires": [
             [
                 "d642fe8a140a7ba2"
@@ -2085,7 +2464,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 510,
-        "y": 740,
+        "y": 1020,
         "wires": []
     },
     {
@@ -2096,13 +2475,203 @@
         "topic": "",
         "config": "cf35d9904542f0af",
         "x": 320,
-        "y": 700,
+        "y": 980,
         "wires": [
             [
                 "d156b212adf0a68b",
                 "b67a695c34e6a8f8"
             ]
         ]
+    },
+    {
+        "id": "e86f034f65d101fb",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "d6a948ce207fa5f8",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"door\":1}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 240,
+        "wires": [
+            [
+                "5201a1df3a6ee4f7"
+            ]
+        ]
+    },
+    {
+        "id": "5201a1df3a6ee4f7",
+        "type": "uhppoted-get-door-control",
+        "z": "86bbf50e.a7f188",
+        "name": "get-door-control-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 320,
+        "y": 240,
+        "wires": [
+            [
+                "e86f034f65d101fb",
+                "8e70abd472fc3fc0",
+                "4928f992daf01ec5"
+            ]
+        ]
+    },
+    {
+        "id": "8e70abd472fc3fc0",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "door-1.delay",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doorControlState.delay",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "4928f992daf01ec5",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "door-1.control",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doorControlState.control.state",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "dead4074a99e4f8d",
+        "type": "uhppoted-set-door-control",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-control-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 320,
+        "y": 540,
+        "wires": [
+            [
+                "82b2868de8304652",
+                "505a94d4e1ec0d37",
+                "0ab5bd7e8304a2b7"
+            ]
+        ]
+    },
+    {
+        "id": "82b2868de8304652",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "7c0d25f83ae1467c",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"door\":1,\"delay\":6,\"control\":\"controlled\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "dead4074a99e4f8d"
+            ]
+        ]
+    },
+    {
+        "id": "505a94d4e1ec0d37",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "door-1.delay",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doorControlState.delay",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 530,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "0ab5bd7e8304a2b7",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "door-1.control",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.doorControlState.control.state",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 540,
+        "y": 620,
+        "wires": []
     },
     {
         "id": "60dcbb9f.c0dfa4",

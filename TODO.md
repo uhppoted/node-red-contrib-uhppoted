@@ -5,13 +5,13 @@
 - [ ] TCP/IP protocol (cf. https://github.com/uhppoted/uhppote-core/issues/17)
       - [x] uhppoted
       - [x] uhppoted-get-device
-      - [ ] uhppoted-set-ip
-      - [ ] uhppoted-get-time
-      - [ ] uhppoted-set-time
-      - [ ] uhppoted-get-door-control
-      - [ ] uhppoted-set-door-control
-      - [ ] uhppoted-get-listener
-      - [ ] uhppoted-set-listener
+      - [x] uhppoted-set-ip
+      - [x] uhppoted-get-time
+      - [x] uhppoted-set-time
+      - [x] uhppoted-get-door-control
+      - [x] uhppoted-set-door-control
+      - [x] uhppoted-get-listener
+      - [x] uhppoted-set-listener
       - [ ] uhppoted-record-special-events
       - [ ] uhppoted-get-status
       - [ ] uhppoted-get-cards
@@ -40,6 +40,7 @@
       - [ ] documentation
       - [ ] CHANGELOG
       - [ ] README
+      - [ ] // FIXME remove (debugging only
 
 ## TODO
 

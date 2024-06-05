@@ -19,7 +19,7 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the device ID for 'get-door-control'</dd>
+        <dd>JSON object with the controller ID and door number for 'get-door-control'</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -33,18 +33,37 @@
     </dl>
 
     <h3>Details</h3>
-    <p>The input <code>msg.payload</code> is a JSON object containing the serial number
-    for the controller for which the current door control state should be retrieved</p>
+    <p>The input <code>msg.payload</code> is a JSON object identifying the destination controller
+    and the door number.</p>
+    <p>The controller is identified by specifying either the (legacy) 'deviceId' or the composite
+    controller' object which supports both UDP and TCP connections. Defaults to broadcast UDP if
+    the address or protocol are not valid.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
+        <dt>controller.controller<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>controller.address<span class="property-type">string</span></dt>
+        <dd>controller IPv4 address</dd>
+        <dt>controller.protocol<span class="property-type">string</span></dt>
+        <dd>controller connection protocol ('udp' or 'tcp')</dd>
         <dt>door<span class="property-type">uint8</span></dt>
         <dd>Door number (1-4)</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
-    "deviceId": 405419896
+    "deviceId": 405419896,
+    "door": 3
+  }</pre>
+    <pre>
+  {
+    "controller": {
+        "controller": 405419896,
+        "address": "192.168.1.100",
+        "protocol": "tcp"
+    },
+    "door": 3
   }</pre>
 
     <p>The output <code>msg.payload</code> is a JSON object containing the door control state 

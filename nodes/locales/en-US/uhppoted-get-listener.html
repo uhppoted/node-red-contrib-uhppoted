@@ -14,7 +14,7 @@
 </script>
 
 <script type="text/html" data-help-name="uhppoted-get-listener">
-    <p>Retrieves the current listener IPv4 address:port for a single UHPPOTE access controller.</p>
+    <p>Retrieves the current listener IPv4 address:port for a UHPPOTE access controller.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
@@ -33,16 +33,32 @@
     </dl>
 
     <h3>Details</h3>
-    <p>The input <code>msg.payload</code> is a JSON object containing the serial number
-    for the controller for which the current listener IPv4 address and port should be retrieved</p>
+    <p>The input <code>msg.payload</code> is a JSON object identifying the destination controller.</p>
+    <p>The controller is identified by specifying either the (legacy) 'deviceId' or the composite
+    'controller' object which supports both UDP and TCP connections. Defaults to broadcast UDP if
+    the address or protocol are not valid.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
+        <dt>controller.controller<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>controller.address<span class="property-type">string</span></dt>
+        <dd>controller IPv4 address</dd>
+        <dt>controller.protocol<span class="property-type">string</span></dt>
+        <dd>controller connection protocol ('udp' or 'tcp')</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896
+  }</pre>
+    <pre>
+  {
+    "controller": {
+        "controller": 405419896,
+        "address": "192.168.1.100",
+        "protocol": "tcp"
+    }
   }</pre>
 
     <p>The output <code>msg.payload</code> is a JSON object containing the current

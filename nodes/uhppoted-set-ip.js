@@ -14,7 +14,7 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic
-      const deviceId = msg.payload.deviceId
+      const controller = common.resolve(msg.payload)
       const address = msg.payload.address
       const netmask = msg.payload.netmask
       const gateway = msg.payload.gateway
@@ -34,7 +34,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.send(context, deviceId, opcodes.SetIP, { address, netmask, gateway })
+        uhppoted.send(context, controller.controller, opcodes.SetIP, { address, netmask, gateway }, controller.address, controller.protocol)
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

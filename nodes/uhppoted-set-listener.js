@@ -14,17 +14,17 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic
-      const deviceId = msg.payload.deviceId
+      const controller = common.resolve(msg.payload)
       const address = msg.payload.address
       const port = msg.payload.port
 
       const emit = function (object) {
         if (!object.updated) {
-          throw new Error(`failed to update listener address for ${deviceId}`, deviceId)
+          throw new Error(`failed to update listener address for ${controller.controller}`, controller.controller)
         }
 
         common.emit(node, t, {
-          deviceId,
+          controller: controller.controller,
           address,
           port
         })
@@ -41,7 +41,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, opcodes.SetListener, { address, port })
+        uhppoted.set(context, controller.controller, opcodes.SetListener, { address, port }, controller.address, controller.protocol)
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

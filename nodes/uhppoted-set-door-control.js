@@ -14,7 +14,7 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic
-      const deviceId = msg.payload.deviceId
+      const controller = common.resolve(msg.payload)
       const door = msg.payload.door
       const delay = msg.payload.delay
 
@@ -53,7 +53,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .set(context, deviceId, opcodes.SetDoorControl, { door, delay, control })
+          .set(context, controller.controller, opcodes.SetDoorControl, { door, delay, control }, controller.address, controller.protocol)
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

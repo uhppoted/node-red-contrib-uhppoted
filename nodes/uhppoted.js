@@ -299,6 +299,8 @@ async function udp (ctx, op, request, receive) {
   *
   */
 async function tcp (ctx, dest, op, request, receive) {
+  // FIXME remove (debugging only)
+  console.log('>>>>>>>>>>>>>>>>>>>>>> TCP')
   const sock = new net.Socket()
   const rq = codec.encode(op, ctx.deviceId, request)
 
@@ -337,7 +339,6 @@ async function tcp (ctx, dest, op, request, receive) {
     }
   } finally {
     sock.end()
-    receive.cancel()
   }
 
   throw new Error('no reply to request')
