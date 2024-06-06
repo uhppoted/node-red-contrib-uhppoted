@@ -14,7 +14,7 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic
-      const deviceId = msg.payload.deviceId
+      const controller = common.resolve(msg.payload)
       const profile = msg.payload.profile
 
       const emit = function (object) {
@@ -32,7 +32,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.get(context, deviceId, opcodes.SetTimeProfile, { profile })
+        uhppoted.get(context, controller.controller, opcodes.SetTimeProfile, { profile }, controller.address, controller.protocol)
           .then(object => {
             if (object) {
               object.profileId = profile.id

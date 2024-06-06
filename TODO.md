@@ -20,9 +20,9 @@
       - [x] uhppoted-put-card
       - [x] uhppoted-delete-card
       - [x] uhppoted-delete-all-cards
-      - [ ] uhppoted-get-time-profile
-      - [ ] uhppoted-set-time-profile
-      - [ ] uhppoted-clear-time-profiles
+      - [x] uhppoted-get-time-profile
+      - [x] uhppoted-set-time-profile
+      - [x] uhppoted-clear-time-profiles
       - [ ] uhppoted-add-task
       - [ ] uhppoted-clear-task-list
       - [ ] uhppoted-refresh-task-list
@@ -41,6 +41,38 @@
       - [ ] CHANGELOG
       - [ ] README
       - [ ] // FIXME remove (debugging only
+
+```
+      const controller = common.resolve(msg.payload)
+
+controller.controller
+, controller.address, controller.protocol
+
+    <p>The input <code>msg.payload</code> is a JSON object identifying the destination controller.</p>
+    <p>The controller is identified by specifying either the (legacy) 'deviceId' or the composite
+       'controller' object which supports both UDP and TCP connections. Defaults to broadcast UDP if
+       the address or protocol are not valid.</p>
+
+        <dt>controller.controller<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>controller.address<span class="property-type">string</span></dt>
+        <dd>controller IPv4 address</dd>
+        <dt>controller.protocol<span class="property-type">string</span></dt>
+        <dd>controller connection protocol ('udp' or 'tcp')</dd>
+
+
+    "controller": {
+        "controller": 405419896,
+        "address": "192.168.1.100",
+        "protocol": "tcp"
+    }
+
+    "controller": {
+        "controller": 405419896,
+        "address": "192.168.1.100",
+        "protocol": "tcp"
+    },
+```
 
 ## TODO
 
