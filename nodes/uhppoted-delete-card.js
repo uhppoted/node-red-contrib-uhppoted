@@ -14,7 +14,7 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic
-      const deviceId = msg.payload.deviceId
+      const controller = common.resolve(msg.payload)
       const cardNumber = msg.payload.cardNumber
 
       const emit = function (object) {
@@ -32,7 +32,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, opcodes.DeleteCard, { card: cardNumber })
+        uhppoted.set(context, controller.controller, opcodes.DeleteCard, { card: cardNumber }, controller.address, controller.protocol)
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

@@ -12,14 +12,14 @@
       - [x] uhppoted-set-door-control
       - [x] uhppoted-get-listener
       - [x] uhppoted-set-listener
-      - [ ] uhppoted-record-special-events
-      - [ ] uhppoted-get-status
-      - [ ] uhppoted-get-cards
-      - [ ] uhppoted-get-card
-      - [ ] uhppoted-get-card-by-index
-      - [ ] uhppoted-put-card
-      - [ ] uhppoted-delete-card
-      - [ ] uhppoted-delete-all-cards
+      - [x] uhppoted-record-special-events
+      - [x] uhppoted-get-status
+      - [x] uhppoted-get-cards
+      - [x] uhppoted-get-card
+      - [x] uhppoted-get-card-by-index
+      - [x] uhppoted-put-card
+      - [x] uhppoted-delete-card
+      - [x] uhppoted-delete-all-cards
       - [ ] uhppoted-get-time-profile
       - [ ] uhppoted-set-time-profile
       - [ ] uhppoted-clear-time-profiles

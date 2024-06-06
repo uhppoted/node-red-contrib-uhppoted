@@ -33,11 +33,20 @@
     </dl>
 
     <h3>Details</h3>
-    <p>The input <code>msg.payload</code> is a JSON object containing the access
-    controller serial number and true/false to enable/disable recording door sensor events.</p>
+    <p>The input <code>msg.payload</code> is a JSON object identifying the destination controller 
+    and the record special events enabled setting.</p>
+    <p>The controller is identified by specifying either the (legacy) 'deviceId' or the composite
+    'controller' object which supports both UDP and TCP connections. Defaults to broadcast UDP if
+    the address or protocol are not valid.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
+        <dt>controller.controller<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>controller.address<span class="property-type">string</span></dt>
+        <dd>controller IPv4 address</dd>
+        <dt>controller.protocol<span class="property-type">string</span></dt>
+        <dd>controller connection protocol ('udp' or 'tcp')</dd>
         <dt>enable<span class="property-type">boolean</span></dt>
         <dd>true or false</dd>
     </dl>
@@ -45,6 +54,15 @@
     <pre>
   {
     "deviceId": 405419896,
+    "enable": true
+  }</pre>
+    <pre>
+  {
+    "controller": {
+        "controller": 405419896,
+        "address": "192.168.1.100",
+        "protocol": "tcp"
+    },
     "enable": true
   }</pre>
 
