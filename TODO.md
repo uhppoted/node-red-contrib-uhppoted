@@ -12,7 +12,6 @@
       - [x] uhppoted-set-door-control
       - [x] uhppoted-get-listener
       - [x] uhppoted-set-listener
-      - [x] uhppoted-record-special-events
       - [x] uhppoted-get-status
       - [x] uhppoted-get-cards
       - [x] uhppoted-get-card
@@ -23,18 +22,19 @@
       - [x] uhppoted-get-time-profile
       - [x] uhppoted-set-time-profile
       - [x] uhppoted-clear-time-profiles
-      - [ ] uhppoted-add-task
-      - [ ] uhppoted-clear-task-list
-      - [ ] uhppoted-refresh-task-list
-      - [ ] uhppoted-get-event-index
-      - [ ] uhppoted-set-event-index
-      - [ ] uhppoted-get-event
-      - [ ] uhppoted-open-door
-      - [ ] uhppoted-set-pc-control
-      - [ ] uhppoted-set-interlock
-      - [ ] uhppoted-activate-keypads
-      - [ ] uhppoted-set-door-passcodes
-      - [ ] uhppoted-restore-default-parameters
+      - [x] uhppoted-add-task
+      - [x] uhppoted-clear-task-list
+      - [x] uhppoted-refresh-task-list
+      - [x] uhppoted-record-special-events
+      - [x] uhppoted-get-event-index
+      - [x] uhppoted-set-event-index
+      - [x] uhppoted-get-event
+      - [x] uhppoted-open-door
+      - [x] uhppoted-set-pc-control
+      - [x] uhppoted-set-interlock
+      - [x] uhppoted-activate-keypads
+      - [x] uhppoted-set-door-passcodes
+      - [x] uhppoted-restore-default-parameters
       - [ ] examples
       - [ ] integration-tests
       - [ ] documentation

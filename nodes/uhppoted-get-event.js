@@ -14,14 +14,14 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic
-      const deviceId = msg.payload.deviceId
+      const controller = common.resolve(msg.payload)
       const index = msg.payload.index
 
       const emit = function (object) {
         if (object.event.index === 0 && object.event.type.code === 0xff) {
-          common.error(node, new Error(`event for ${deviceId}/${index} has been overwritten`))
+          common.error(node, new Error(`event for ${controller.controller}/${index} has been overwritten`))
         } else if (object.event.index === 0) {
-          common.error(node, new Error(`no event for ${deviceId}/${index}`))
+          common.error(node, new Error(`no event for ${controller.controller}/${index}`))
         } else {
           common.emit(node, t, object)
         }
@@ -38,7 +38,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, opcodes.GetEvent, { index })
+        uhppoted.set(context, controller.controller, opcodes.GetEvent, { index }, controller.address, controller.protocol)
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

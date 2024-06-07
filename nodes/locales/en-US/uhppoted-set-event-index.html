@@ -33,18 +33,36 @@
     </dl>
 
     <h3>Details</h3>
-    <p>The input <code>msg.payload</code> is a JSON object containing the access
-    controller serial number and the value to which the event index should be set.</p>
+    <p>The input <code>msg.payload</code> is a JSON object identifying the destination controller
+       and the event index value.</p>
+    <p>The controller is identified by specifying either the (legacy) 'deviceId' or the composite
+       'controller' object which supports both UDP and TCP connections. Defaults to broadcast UDP if
+       the address or protocol are not valid.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
+        <dt>controller.controller<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>controller.address<span class="property-type">string</span></dt>
+        <dd>controller IPv4 address</dd>
+        <dt>controller.protocol<span class="property-type">string</span></dt>
+        <dd>controller connection protocol ('udp' or 'tcp')</dd>
         <dt>index<span class="property-type">uint32</span></dt>
-        <dd>event index in the range 1 to 100000</dd>
+        <dd>event index in the range 1 to (approximately) 200000</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896,
+    "index": 54321
+  }</pre>
+    <pre>
+  {
+    "controller": {
+        "controller": 405419896,
+        "address": "192.168.1.100",
+        "protocol": "tcp"
+    },
     "index": 54321
   }</pre>
 

@@ -14,7 +14,7 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic
-      const deviceId = msg.payload.deviceId
+      const controller = common.resolve(msg.payload)
       const keypads = {
         1: !!msg.payload.keypads['1'],
         2: !!msg.payload.keypads['2'],
@@ -41,7 +41,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, opcodes.ActivateKeypads, { keypads })
+        uhppoted.set(context, controller.controller, opcodes.ActivateKeypads, { keypads }, controller.address, controller.protocol)
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

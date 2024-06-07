@@ -33,8 +33,11 @@
     </dl>
 
     <h3>Details</h3>
-    <p>The input <code>msg.payload</code> is a JSON object containing the serial number
-    for the controller and the task definition of the task to be added.</p>
+    <p>The input <code>msg.payload</code> is a JSON object identifying the destination controller and
+       the task definition for the task to be added.</p>
+    <p>The controller is identified by specifying either the (legacy) 'deviceId' or the composite
+       'controller' object which supports both UDP and TCP connections. Defaults to broadcast UDP if
+       the address or protocol are not valid.</p>
     <p>Valid tasks are:</p>
     <ul>
       <li>1: door controlled</li>
@@ -54,6 +57,12 @@
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
+        <dt>controller.controller<span class="property-type">uint32</span></dt>
+        <dd>controller serial number</dd>
+        <dt>controller.address<span class="property-type">string</span></dt>
+        <dd>controller IPv4 address</dd>
+        <dt>controller.protocol<span class="property-type">string</span></dt>
+        <dd>controller connection protocol ('udp' or 'tcp')</dd>
         <dt>task.task<span class="property-type">string</span></dt>
         <dd>Task type from the list of task types</dd>
         <dt>door<span class="property-type">uint8</span></dt>
@@ -73,6 +82,22 @@
     <pre>
   {
     "deviceId": 405419896,
+    "task": {
+        "task": "enable time profile", 
+        "from": "2021-01-01",
+        "to": "2021-12-31",
+        "weekdays": "Monday,Wednesday,Friday",
+        "start": "08:30",
+        "cards": 4
+    }
+  }</pre>
+    <pre>
+  {
+    "controller": {
+        "controller": 405419896,
+        "address": "192.168.1.100",
+        "protocol": "tcp"
+    },
     "task": {
         "task": "enable time profile", 
         "from": "2021-01-01",

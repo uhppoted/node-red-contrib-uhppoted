@@ -14,7 +14,7 @@ module.exports = function (RED) {
 
     this.on('input', function (msg, send, done) {
       const t = (topic && topic !== '') ? topic : msg.topic
-      const deviceId = msg.payload.deviceId
+      const controller = common.resolve(msg.payload)
       const door = msg.payload.door
       const passcodes = [0, 0, 0, 0]
 
@@ -41,10 +41,10 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, deviceId, opcodes.SetDoorPasscodes, {
+        uhppoted.set(context, controller.controller, opcodes.SetDoorPasscodes, {
           door,
           passcodes
-        })
+        }, controller.address, controller.protocol)
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })
