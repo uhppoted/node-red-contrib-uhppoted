@@ -321,8 +321,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 180,
+        "x": 660,
+        "y": 100,
         "wires": []
     },
     {
@@ -347,7 +347,7 @@
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "x": 130,
-        "y": 200,
+        "y": 100,
         "wires": [
             [
                 "cf961bd6.504938"
@@ -360,12 +360,11 @@
         "z": "f0ca7ab6.b09058",
         "name": "get-device",
         "config": "cf35d9904542f0af",
-        "x": 310,
-        "y": 200,
+        "x": 290,
+        "y": 100,
         "wires": [
             [
-                "a308f042.ba17e",
-                "6114aece.3cdf7"
+                "1b475bda78fb39d0"
             ]
         ]
     },
@@ -379,8 +378,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 530,
-        "y": 220,
+        "x": 650,
+        "y": 140,
         "wires": [
             [
                 "58ed0404.db248c",
@@ -406,8 +405,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 800,
-        "y": 100,
+        "x": 920,
+        "y": 140,
         "wires": []
     },
     {
@@ -423,8 +422,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 140,
+        "x": 900,
+        "y": 180,
         "wires": []
     },
     {
@@ -440,8 +439,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 180,
+        "x": 900,
+        "y": 220,
         "wires": []
     },
     {
@@ -457,8 +456,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 220,
+        "x": 900,
+        "y": 260,
         "wires": []
     },
     {
@@ -474,8 +473,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 260,
+        "x": 890,
+        "y": 300,
         "wires": []
     },
     {
@@ -491,8 +490,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 780,
-        "y": 300,
+        "x": 900,
+        "y": 340,
         "wires": []
     },
     {
@@ -508,8 +507,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 770,
-        "y": 340,
+        "x": 890,
+        "y": 380,
         "wires": []
     },
     {
@@ -534,7 +533,7 @@
         "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
         "payloadType": "json",
         "x": 130,
-        "y": 240,
+        "y": 140,
         "wires": [
             [
                 "f12b1459d211e6d6"
@@ -548,30 +547,74 @@
         "name": "get-device-tcp",
         "topic": "",
         "config": "cf35d9904542f0af",
-        "x": 320,
-        "y": 240,
+        "x": 300,
+        "y": 140,
         "wires": [
             [
-                "6114aece.3cdf7",
-                "d2f9ca79f64620ed"
+                "68a62e02b458d87a"
             ]
         ]
     },
     {
-        "id": "d2f9ca79f64620ed",
-        "type": "debug",
+        "id": "e31739459dec6f32",
+        "type": "link in",
         "z": "f0ca7ab6.b09058",
         "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "true",
-        "targetType": "full",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 540,
-        "y": 260,
+        "links": [
+            "1b475bda78fb39d0",
+            "68a62e02b458d87a"
+        ],
+        "x": 545,
+        "y": 100,
+        "wires": [
+            [
+                "a308f042.ba17e"
+            ]
+        ]
+    },
+    {
+        "id": "45d6c42b45d140b7",
+        "type": "link in",
+        "z": "f0ca7ab6.b09058",
+        "name": "get-device",
+        "links": [
+            "1b475bda78fb39d0",
+            "68a62e02b458d87a"
+        ],
+        "x": 545,
+        "y": 140,
+        "wires": [
+            [
+                "6114aece.3cdf7"
+            ]
+        ]
+    },
+    {
+        "id": "1b475bda78fb39d0",
+        "type": "link out",
+        "z": "f0ca7ab6.b09058",
+        "name": "get-device-udp",
+        "mode": "link",
+        "links": [
+            "45d6c42b45d140b7",
+            "e31739459dec6f32"
+        ],
+        "x": 435,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "68a62e02b458d87a",
+        "type": "link out",
+        "z": "f0ca7ab6.b09058",
+        "name": "get-device-tcp",
+        "mode": "link",
+        "links": [
+            "45d6c42b45d140b7",
+            "e31739459dec6f32"
+        ],
+        "x": 435,
+        "y": 140,
         "wires": []
     },
     {
