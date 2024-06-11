@@ -92,6 +92,35 @@ The nodes can (optionally) accept a configuration that overrides the default set
 | `controllers` | List of controller specific IPv4 address:port overrides for systems where a controller is either not located on the same LAN (i.e. cannot receive or respond to UDP broadcasts) or where directed UDP messages are preferred. | `(none)` |
 | `debug`      | Enables logging of request/response messages to the console | `false` |
 
+##### Controllers
+
+All nodes (other than `get-devices`) expect a controller in the input message payload. v1.8+ supports two formats for the controller:
+- the (legacy) implementation which expects the controller serial number as a device ID:
+```
+{
+    "deviceId": 405419896
+}
+```
+- the revised implementation which expects the `controller` as an object:
+```
+{
+    "controller": {
+        "controller": 405419896,
+        "address": "192.168.1.100",
+        "protocol": "tcp"
+    }
+}
+
+- controller: controller serial number
+- address: controller IPv4 address (optional)
+- protocol: 'udp' or 'tcp' (optional)
+
+Defaults to UDP broadcast transport if the address is null or the protocol is not 'tcp'.
+```
+
+The legacy implementation will be supported for the forseeable future but you are encouraged to update your flows to the new format. 
+
+
 ### Examples
 
 The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository includes a set of [basic examples](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/examples.json) that demonstrate the usage of each node, as well as a more complex [dashboard project](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/dashboard) that combines the nodes to create a dashboard:
@@ -101,16 +130,16 @@ The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contr
 | [`1‑get‑devices`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/1-get-devices.json) | Example _flow_ for the `get‑devices` node |
 | [`2‑get‑device`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/2-get-device.json)   | Example _flow_ for the `get‑device` node |
 | [`3‑set-ip`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/3-set-ip.json)           | Example _flow_ for the `set‑ip` node |
-| [`4‑event-listener`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/4-event-listener.json)           | Example _flow_ for the `listen`. `get-listener` and `set‑listener` nodes |
+| [`4‑event-listener`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/4-event-listener.json)   | Example _flow_ for the `listen`. `get-listener` and `set‑listener` nodes |
 | [`5‑get-status`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/5-get-status.json)           | Example _flow_ for the `get‑status` node |
 | [`6‑time`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/6-time.json)               | Example _flow_ for the `get‑time` and `set‑time` nodes |
-| [`7‑doors`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/7-doors.json)             | Example _flow_ for the `get‑door‑control`, `set‑door‑control`, `open‑door` and `activate-keypads` nodes |
+| [`7‑doors`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/7-doors.json)             | Example _flow_ for the `get‑door‑control`, `set‑door‑control`, `open‑door`, `activate-keypads` and `set-interlock` nodes |
 | [`8‑cards`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/8-cards.json)             | Example _flow_ for the `get‑cards`, `get‑card`, `get‑card‑by‑index`, `put‑card`, `delete‑card` and `delete‑cards` nodes |
 | [`9-time-profiles`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/9-time-profiles.json) | Example _flow_ for the `get-time-profile`, `set‑time-profile` and `clear-time-profiles` nodes |
 | [`10-tasklist`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/10-tasklist.json) | Example _flow_ for the `clear-task-list`, `add-task` and `refresh-task-list` nodes |
-| [`11-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/11-events.json)         | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
+| [`11-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/11-events.json)     | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
 | [`12-set-pc-control`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/12-set-pc-control.json) | Example _flow_ for the `set-pc-control` node |
-| [`13-set-interlock`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/13-set-interlock.json) | Example _flow_ for the `set-interlock` node |
+| [`13-restore-default-parameters`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/13-13-restore-default-parameters.json) | Example _flow_ for the `restore-default-parameters` node |
 
 The [_dashboard_](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/dashboard.json) example requires the following additional components to be installed into the palette:
 

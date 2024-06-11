@@ -2,7 +2,7 @@
 
 ### IN PROGRESS
 
-- [ ] TCP/IP protocol (cf. https://github.com/uhppoted/uhppote-core/issues/17)
+- [x] TCP/IP protocol (cf. https://github.com/uhppoted/uhppote-core/issues/17)
       - [x] uhppoted
       - [x] uhppoted-get-device
       - [x] uhppoted-set-ip
@@ -37,17 +37,10 @@
       - [x] uhppoted-restore-default-parameters
       - [x] integration-tests
       - [x] examples
-      - [ ] documentation
-      - [ ] CHANGELOG
-      - [ ] README
-      - [ ] // FIXME remove (debugging only
-```
-    "controller": {
-        "controller": 405419896,
-        "address": "192.168.1.100",
-        "protocol": "tcp"
-    }
-```
+      - [x] documentation
+      - [x] CHANGELOG
+      - [x] README
+      - [x] // FIXME remove (debugging only
 
 ## TODO
 
