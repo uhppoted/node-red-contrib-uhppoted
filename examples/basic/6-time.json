@@ -17,8 +17,7 @@
         "y": 100,
         "wires": [
             [
-                "2c2ab991.619516",
-                "cab00341.6e077"
+                "9aad52af6b62af8c"
             ]
         ]
     },
@@ -35,8 +34,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 460,
-        "y": 60,
+        "x": 780,
+        "y": 100,
         "wires": []
     },
     {
@@ -90,29 +89,12 @@
         "payload": "{}",
         "payloadType": "json",
         "x": 130,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "50ebe86.e579018"
             ]
         ]
-    },
-    {
-        "id": "804a318e.14ddb",
-        "type": "debug",
-        "z": "f7a455cc.3fefe8",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 580,
-        "y": 180,
-        "wires": []
     },
     {
         "id": "ea3bdfee.bf0d1",
@@ -121,10 +103,10 @@
         "name": "set-time",
         "config": "cf35d9904542f0af",
         "x": 420,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
-                "804a318e.14ddb"
+                "ef82c758f4a627fe"
             ]
         ]
     },
@@ -141,8 +123,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 460,
-        "y": 100,
+        "x": 780,
+        "y": 140,
         "wires": []
     },
     {
@@ -156,12 +138,210 @@
         "initialize": "",
         "finalize": "",
         "x": 270,
-        "y": 180,
+        "y": 240,
         "wires": [
             [
                 "ea3bdfee.bf0d1"
             ]
         ]
+    },
+    {
+        "id": "296aa0e2884f2bf7",
+        "type": "uhppoted-get-time",
+        "z": "f7a455cc.3fefe8",
+        "name": "get-time-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "1f5c7ad7c4d8e3d6"
+            ]
+        ]
+    },
+    {
+        "id": "71e32904692a6463",
+        "type": "inject",
+        "z": "f7a455cc.3fefe8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "296aa0e2884f2bf7"
+            ]
+        ]
+    },
+    {
+        "id": "a195b6e24d2fb8e0",
+        "type": "inject",
+        "z": "f7a455cc.3fefe8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "set-time",
+        "payload": "{}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 280,
+        "wires": [
+            [
+                "a582159b9006a6a5"
+            ]
+        ]
+    },
+    {
+        "id": "0d96f9c39f461e84",
+        "type": "uhppoted-set-time",
+        "z": "f7a455cc.3fefe8",
+        "name": "set-time-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 430,
+        "y": 280,
+        "wires": [
+            [
+                "ebd4ba354bada159"
+            ]
+        ]
+    },
+    {
+        "id": "a582159b9006a6a5",
+        "type": "function",
+        "z": "f7a455cc.3fefe8",
+        "name": "format",
+        "func": "const format = (n, l) => String(n).padStart(l, '0')\nconst datetime = new Date()\n\nconst year = format(datetime.getFullYear(), 4)\nconst month = format(datetime.getMonth()+1, 2)\nconst day = format(datetime.getDate(), 2)\nconst hours = format(datetime.getHours(), 2)\nconst minutes = format(datetime.getMinutes(), 2)\nconst seconds = format(datetime.getSeconds(), 2)\n\nmsg.payload = { \n    \"controller\": {\n        \"controller\": 405419896,\n        \"address\": \"192.168.1.100\",\n        \"protocol\": \"tcp\"\n     },\n    datetime: year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds\n}\n        \nreturn msg",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 280,
+        "wires": [
+            [
+                "0d96f9c39f461e84"
+            ]
+        ]
+    },
+    {
+        "id": "ebbb06164d63fc83",
+        "type": "link in",
+        "z": "f7a455cc.3fefe8",
+        "name": "received",
+        "links": [
+            "9aad52af6b62af8c",
+            "1f5c7ad7c4d8e3d6",
+            "ef82c758f4a627fe",
+            "ebd4ba354bada159"
+        ],
+        "x": 665,
+        "y": 100,
+        "wires": [
+            [
+                "2c2ab991.619516"
+            ]
+        ]
+    },
+    {
+        "id": "ec9d863bf948c0c0",
+        "type": "link in",
+        "z": "f7a455cc.3fefe8",
+        "name": "get-time",
+        "links": [
+            "9aad52af6b62af8c",
+            "1f5c7ad7c4d8e3d6"
+        ],
+        "x": 665,
+        "y": 140,
+        "wires": [
+            [
+                "cab00341.6e077"
+            ]
+        ]
+    },
+    {
+        "id": "9aad52af6b62af8c",
+        "type": "link out",
+        "z": "f7a455cc.3fefe8",
+        "name": "get-time-udp",
+        "mode": "link",
+        "links": [
+            "ebbb06164d63fc83",
+            "ec9d863bf948c0c0"
+        ],
+        "x": 415,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "1f5c7ad7c4d8e3d6",
+        "type": "link out",
+        "z": "f7a455cc.3fefe8",
+        "name": "get-time-tcp",
+        "mode": "link",
+        "links": [
+            "ebbb06164d63fc83",
+            "ec9d863bf948c0c0"
+        ],
+        "x": 415,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "ef82c758f4a627fe",
+        "type": "link out",
+        "z": "f7a455cc.3fefe8",
+        "name": "set-time-udp",
+        "mode": "link",
+        "links": [
+            "ebbb06164d63fc83"
+        ],
+        "x": 555,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ebd4ba354bada159",
+        "type": "link out",
+        "z": "f7a455cc.3fefe8",
+        "name": "set-time-tcp",
+        "mode": "link",
+        "links": [
+            "ebbb06164d63fc83"
+        ],
+        "x": 555,
+        "y": 280,
+        "wires": []
     },
     {
         "id": "cf35d9904542f0af",

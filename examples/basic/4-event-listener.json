@@ -19,8 +19,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
-        "y": 180,
+        "x": 760,
+        "y": 80,
         "wires": []
     },
     {
@@ -45,7 +45,7 @@
         "payload": "{ \"deviceId\": 405419896 }",
         "payloadType": "json",
         "x": 130,
-        "y": 220,
+        "y": 180,
         "wires": [
             [
                 "75e6f5f0.c7e47c"
@@ -59,12 +59,10 @@
         "name": "get-listener",
         "config": "cf35d9904542f0af",
         "x": 290,
-        "y": 220,
+        "y": 180,
         "wires": [
             [
-                "b94136c7.ef3808",
-                "4a5cf0bf.725ff",
-                "e37a3ee9.78969"
+                "dd4eef340b555843"
             ]
         ]
     },
@@ -75,10 +73,10 @@
         "name": "set-listener",
         "config": "cf35d9904542f0af",
         "x": 290,
-        "y": 340,
+        "y": 300,
         "wires": [
             [
-                "8463e096.b3a5f"
+                "2be6914f23d7b2a5"
             ]
         ]
     },
@@ -104,29 +102,12 @@
         "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001}",
         "payloadType": "json",
         "x": 130,
-        "y": 340,
+        "y": 300,
         "wires": [
             [
                 "48b92667.8a59b8"
             ]
         ]
-    },
-    {
-        "id": "8463e096.b3a5f",
-        "type": "debug",
-        "z": "c56e1667.998748",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 480,
-        "y": 340,
-        "wires": []
     },
     {
         "id": "4a5cf0bf.725ff",
@@ -141,8 +122,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
-        "y": 220,
+        "x": 780,
+        "y": 120,
         "wires": []
     },
     {
@@ -158,8 +139,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 490,
-        "y": 260,
+        "x": 770,
+        "y": 160,
         "wires": []
     },
     {
@@ -191,6 +172,185 @@
         "statusType": "auto",
         "x": 270,
         "y": 100,
+        "wires": []
+    },
+    {
+        "id": "86aa48a9e620c6cf",
+        "type": "inject",
+        "z": "c56e1667.998748",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 220,
+        "wires": [
+            [
+                "c7466e083310bf9b"
+            ]
+        ]
+    },
+    {
+        "id": "c7466e083310bf9b",
+        "type": "uhppoted-get-listener",
+        "z": "c56e1667.998748",
+        "name": "get-listener-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 220,
+        "wires": [
+            [
+                "11b333706a2d406b"
+            ]
+        ]
+    },
+    {
+        "id": "8dc08c333b80e03c",
+        "type": "uhppoted-set-listener",
+        "z": "c56e1667.998748",
+        "name": "set-listener-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "822c4512104ba471"
+            ]
+        ]
+    },
+    {
+        "id": "22512f8ce8fabe30",
+        "type": "inject",
+        "z": "c56e1667.998748",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "set-listener",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"address\":\"192.168.1.100\",\"port\":60001}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "8dc08c333b80e03c"
+            ]
+        ]
+    },
+    {
+        "id": "fac10babfa379001",
+        "type": "link in",
+        "z": "c56e1667.998748",
+        "name": "received",
+        "links": [
+            "dd4eef340b555843",
+            "11b333706a2d406b",
+            "2be6914f23d7b2a5",
+            "822c4512104ba471"
+        ],
+        "x": 645,
+        "y": 80,
+        "wires": [
+            [
+                "b94136c7.ef3808"
+            ]
+        ]
+    },
+    {
+        "id": "6732b5b29ab98d3a",
+        "type": "link in",
+        "z": "c56e1667.998748",
+        "name": "get-listener",
+        "links": [
+            "dd4eef340b555843",
+            "11b333706a2d406b"
+        ],
+        "x": 645,
+        "y": 120,
+        "wires": [
+            [
+                "4a5cf0bf.725ff",
+                "e37a3ee9.78969"
+            ]
+        ]
+    },
+    {
+        "id": "dd4eef340b555843",
+        "type": "link out",
+        "z": "c56e1667.998748",
+        "name": "get-listener-udp",
+        "mode": "link",
+        "links": [
+            "6732b5b29ab98d3a",
+            "fac10babfa379001"
+        ],
+        "x": 435,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "11b333706a2d406b",
+        "type": "link out",
+        "z": "c56e1667.998748",
+        "name": "get-listener-tcp",
+        "mode": "link",
+        "links": [
+            "6732b5b29ab98d3a",
+            "fac10babfa379001"
+        ],
+        "x": 435,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "2be6914f23d7b2a5",
+        "type": "link out",
+        "z": "c56e1667.998748",
+        "name": "set-listener-udp",
+        "mode": "link",
+        "links": [
+            "fac10babfa379001"
+        ],
+        "x": 425,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "822c4512104ba471",
+        "type": "link out",
+        "z": "c56e1667.998748",
+        "name": "set-listener-tcp",
+        "mode": "link",
+        "links": [
+            "fac10babfa379001"
+        ],
+        "x": 425,
+        "y": 340,
         "wires": []
     },
     {

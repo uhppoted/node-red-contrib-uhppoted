@@ -45,8 +45,7 @@
         "y": 100,
         "wires": [
             [
-                "52d5b0c5.0e178",
-                "66b13a53.2d40c4"
+                "5d4523a5d21855c8"
             ]
         ]
     },
@@ -63,8 +62,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 480,
-        "y": 60,
+        "x": 760,
+        "y": 100,
         "wires": []
     },
     {
@@ -77,8 +76,8 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 470,
-        "y": 100,
+        "x": 750,
+        "y": 140,
         "wires": [
             [
                 "ef31d4ba.63efa8",
@@ -123,8 +122,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 700,
-        "y": 100,
+        "x": 1000,
+        "y": 140,
         "wires": []
     },
     {
@@ -140,8 +139,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 280,
+        "x": 990,
+        "y": 320,
         "wires": []
     },
     {
@@ -157,8 +156,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 320,
+        "x": 990,
+        "y": 360,
         "wires": []
     },
     {
@@ -174,8 +173,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 700,
-        "y": 360,
+        "x": 1000,
+        "y": 400,
         "wires": []
     },
     {
@@ -191,8 +190,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 400,
+        "x": 990,
+        "y": 440,
         "wires": []
     },
     {
@@ -208,8 +207,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 700,
-        "y": 440,
+        "x": 1000,
+        "y": 480,
         "wires": []
     },
     {
@@ -225,8 +224,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 480,
+        "x": 990,
+        "y": 520,
         "wires": []
     },
     {
@@ -242,8 +241,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
-        "y": 520,
+        "x": 1010,
+        "y": 560,
         "wires": []
     },
     {
@@ -259,8 +258,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 580,
+        "x": 970,
+        "y": 620,
         "wires": []
     },
     {
@@ -276,8 +275,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 620,
+        "x": 970,
+        "y": 660,
         "wires": []
     },
     {
@@ -293,8 +292,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 660,
+        "x": 970,
+        "y": 700,
         "wires": []
     },
     {
@@ -310,8 +309,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 700,
+        "x": 970,
+        "y": 740,
         "wires": []
     },
     {
@@ -327,8 +326,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 760,
+        "x": 980,
+        "y": 800,
         "wires": []
     },
     {
@@ -344,8 +343,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 800,
+        "x": 980,
+        "y": 840,
         "wires": []
     },
     {
@@ -361,8 +360,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 840,
+        "x": 980,
+        "y": 880,
         "wires": []
     },
     {
@@ -378,8 +377,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 880,
+        "x": 980,
+        "y": 920,
         "wires": []
     },
     {
@@ -395,8 +394,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 700,
-        "y": 140,
+        "x": 1000,
+        "y": 180,
         "wires": []
     },
     {
@@ -412,8 +411,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 180,
+        "x": 990,
+        "y": 220,
         "wires": []
     },
     {
@@ -429,8 +428,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 220,
+        "x": 990,
+        "y": 260,
         "wires": []
     },
     {
@@ -446,8 +445,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 1120,
+        "x": 990,
+        "y": 1160,
         "wires": []
     },
     {
@@ -463,8 +462,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 940,
+        "x": 970,
+        "y": 980,
         "wires": []
     },
     {
@@ -480,8 +479,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 980,
+        "x": 970,
+        "y": 1020,
         "wires": []
     },
     {
@@ -497,8 +496,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 1020,
+        "x": 970,
+        "y": 1060,
         "wires": []
     },
     {
@@ -514,8 +513,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 670,
-        "y": 1060,
+        "x": 970,
+        "y": 1100,
         "wires": []
     },
     {
@@ -531,8 +530,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 690,
-        "y": 1160,
+        "x": 990,
+        "y": 1200,
         "wires": []
     },
     {
@@ -548,8 +547,114 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 680,
-        "y": 1200,
+        "x": 980,
+        "y": 1240,
+        "wires": []
+    },
+    {
+        "id": "345ecd1b51ecbc87",
+        "type": "inject",
+        "z": "b2b669ed.2b50b8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "c1164d125de7fb37"
+            ]
+        ]
+    },
+    {
+        "id": "c1164d125de7fb37",
+        "type": "uhppoted-get-status",
+        "z": "b2b669ed.2b50b8",
+        "name": "get-status-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "0116cfccc8a58852"
+            ]
+        ]
+    },
+    {
+        "id": "a4fd2e7b593a4f6e",
+        "type": "link in",
+        "z": "b2b669ed.2b50b8",
+        "name": "received",
+        "links": [
+            "5d4523a5d21855c8",
+            "0116cfccc8a58852"
+        ],
+        "x": 645,
+        "y": 100,
+        "wires": [
+            [
+                "52d5b0c5.0e178"
+            ]
+        ]
+    },
+    {
+        "id": "665c34da74b0cd5c",
+        "type": "link in",
+        "z": "b2b669ed.2b50b8",
+        "name": "get-status",
+        "links": [
+            "5d4523a5d21855c8",
+            "0116cfccc8a58852"
+        ],
+        "x": 645,
+        "y": 140,
+        "wires": [
+            [
+                "66b13a53.2d40c4"
+            ]
+        ]
+    },
+    {
+        "id": "5d4523a5d21855c8",
+        "type": "link out",
+        "z": "b2b669ed.2b50b8",
+        "name": "get-status-udp",
+        "mode": "link",
+        "links": [
+            "665c34da74b0cd5c",
+            "a4fd2e7b593a4f6e"
+        ],
+        "x": 435,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "0116cfccc8a58852",
+        "type": "link out",
+        "z": "b2b669ed.2b50b8",
+        "name": "get-status-tcp",
+        "mode": "link",
+        "links": [
+            "665c34da74b0cd5c",
+            "a4fd2e7b593a4f6e"
+        ],
+        "x": 435,
+        "y": 140,
         "wires": []
     },
     {

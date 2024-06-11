@@ -7,23 +7,6 @@
         "info": "# event retrieval: basic examples\n\nBasic examples for the _get-event-index_, _set-event-index_ and _get-event_ nodes.\n\n - the _get-event-index_ example retrieves the current 'downloaded event index' from the controller with serial number 405419896.\n\n - the _set-event-index_ example set the 'downloaded event index' to 17 for the controller with serial number 405419896.\n\n - the _get-event_ example retrieves the event record at record #3 from the controller with serial number 405419896.\n\nThe _events_ flow in the _dashboard_ flowset contains a more complete example."
     },
     {
-        "id": "639ffbe2.214cc4",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 220,
-        "wires": []
-    },
-    {
         "id": "3be8dcd9.c0ec74",
         "type": "inject",
         "z": "b5da19a5.72a0c8",
@@ -62,27 +45,9 @@
         "y": 220,
         "wires": [
             [
-                "639ffbe2.214cc4",
-                "8778c04a.5b27b"
+                "93720d51e19ed5ef"
             ]
         ]
-    },
-    {
-        "id": "e08eaeaa.741ee",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 340,
-        "wires": []
     },
     {
         "id": "701112a1.4079dc",
@@ -124,27 +89,9 @@
         "y": 340,
         "wires": [
             [
-                "e08eaeaa.741ee",
-                "80d37f1b.e049a"
+                "06c6c0cbc28d7a2b"
             ]
         ]
-    },
-    {
-        "id": "a75552ac.fbf6a",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 460,
-        "wires": []
     },
     {
         "id": "959338c3.e9e528",
@@ -180,55 +127,15 @@
         "type": "uhppoted-get-event",
         "z": "b5da19a5.72a0c8",
         "name": "get-event",
+        "topic": "",
         "config": "cf35d9904542f0af",
-        "x": 280,
+        "x": 380,
         "y": 460,
         "wires": [
             [
-                "a75552ac.fbf6a",
-                "a9cd7169.9f80b",
-                "d0248137.40611",
-                "efd22b62.f8dd98",
-                "528f92e2.4cc88c",
-                "10303c8c.5ee653",
-                "6b2ec04b.e162e",
-                "3e133140.9cd2ce"
+                "2be2e9d5d77c54d9"
             ]
         ]
-    },
-    {
-        "id": "8778c04a.5b27b",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "event-index",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.index",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 260,
-        "wires": []
-    },
-    {
-        "id": "80d37f1b.e049a",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "updated",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.updated",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 380,
-        "wires": []
     },
     {
         "id": "a9cd7169.9f80b",
@@ -243,8 +150,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 500,
+        "x": 820,
+        "y": 180,
         "wires": []
     },
     {
@@ -260,8 +167,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
-        "y": 540,
+        "x": 810,
+        "y": 220,
         "wires": []
     },
     {
@@ -277,8 +184,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 550,
-        "y": 580,
+        "x": 830,
+        "y": 260,
         "wires": []
     },
     {
@@ -294,8 +201,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
-        "y": 620,
+        "x": 810,
+        "y": 300,
         "wires": []
     },
     {
@@ -311,8 +218,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 660,
+        "x": 820,
+        "y": 340,
         "wires": []
     },
     {
@@ -328,8 +235,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 700,
+        "x": 820,
+        "y": 380,
         "wires": []
     },
     {
@@ -345,8 +252,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
-        "y": 740,
+        "x": 810,
+        "y": 420,
         "wires": []
     },
     {
@@ -362,7 +269,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 800,
         "y": 100,
         "wires": []
     },
@@ -408,7 +315,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
+        "x": 800,
         "y": 140,
         "wires": []
     },
@@ -416,34 +323,16 @@
         "id": "6f2638b.e4c53c8",
         "type": "uhppoted-record-special-events",
         "z": "b5da19a5.72a0c8",
-        "name": "",
+        "name": "record-special-events",
         "topic": "",
         "config": "cf35d9904542f0af",
         "x": 320,
         "y": 100,
         "wires": [
             [
-                "8321868.c35fa78",
-                "2b58807c.84593"
+                "5cc40db6d9f925d3"
             ]
         ]
-    },
-    {
-        "id": "151d9f771d865c35",
-        "type": "debug",
-        "z": "b5da19a5.72a0c8",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 620,
-        "y": 800,
-        "wires": []
     },
     {
         "id": "711dac43b52c5446",
@@ -467,7 +356,7 @@
         "payload": "{ \"deviceId\": 201020304, \"index\":73 }",
         "payloadType": "json",
         "x": 180,
-        "y": 800,
+        "y": 540,
         "wires": [
             [
                 "0f093ad785df38d1"
@@ -482,137 +371,382 @@
         "topic": "",
         "config": "cf35d9904542f0af",
         "x": 380,
-        "y": 800,
+        "y": 540,
         "wires": [
             [
-                "151d9f771d865c35",
-                "84662bc59ae14e03",
-                "b6b04fd356bf712a",
-                "b595fcb13cd56f4f",
-                "017af93e48751394",
-                "616da492f4b6121c",
-                "fa8b8cf3b7335faf",
-                "ab7ff3bbed4907d7"
+                "dd522d0b58b29a6b"
             ]
         ]
     },
     {
-        "id": "84662bc59ae14e03",
-        "type": "debug",
+        "id": "2b28e0b04eb5932c",
+        "type": "inject",
         "z": "b5da19a5.72a0c8",
-        "name": "serial-number",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.deviceId",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 640,
-        "y": 840,
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"enable\":true}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "e1a931b276724b43"
+            ]
+        ]
+    },
+    {
+        "id": "e1a931b276724b43",
+        "type": "uhppoted-record-special-events",
+        "z": "b5da19a5.72a0c8",
+        "name": "record-special-events-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 330,
+        "y": 140,
+        "wires": [
+            [
+                "5f4fe1a469cb67c5"
+            ]
+        ]
+    },
+    {
+        "id": "b990cf094cd11447",
+        "type": "link in",
+        "z": "b5da19a5.72a0c8",
+        "name": "received",
+        "links": [
+            "06c6c0cbc28d7a2b",
+            "5cc40db6d9f925d3",
+            "5f4fe1a469cb67c5",
+            "93720d51e19ed5ef",
+            "ac4d232bf71b7dd9",
+            "add09a1b97f51d1e",
+            "2be2e9d5d77c54d9",
+            "dd522d0b58b29a6b",
+            "a66eaca2a0b98aae"
+        ],
+        "x": 655,
+        "y": 100,
+        "wires": [
+            [
+                "8321868.c35fa78"
+            ]
+        ]
+    },
+    {
+        "id": "1d3b15ec44a91b94",
+        "type": "link in",
+        "z": "b5da19a5.72a0c8",
+        "name": "updated",
+        "links": [
+            "06c6c0cbc28d7a2b",
+            "5cc40db6d9f925d3",
+            "5f4fe1a469cb67c5",
+            "93720d51e19ed5ef",
+            "ac4d232bf71b7dd9",
+            "add09a1b97f51d1e"
+        ],
+        "x": 655,
+        "y": 140,
+        "wires": [
+            [
+                "2b58807c.84593"
+            ]
+        ]
+    },
+    {
+        "id": "5cc40db6d9f925d3",
+        "type": "link out",
+        "z": "b5da19a5.72a0c8",
+        "name": "record-special-events",
+        "mode": "link",
+        "links": [
+            "1d3b15ec44a91b94",
+            "b990cf094cd11447"
+        ],
+        "x": 495,
+        "y": 100,
         "wires": []
     },
     {
-        "id": "b6b04fd356bf712a",
-        "type": "debug",
+        "id": "5f4fe1a469cb67c5",
+        "type": "link out",
         "z": "b5da19a5.72a0c8",
-        "name": "event.index",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.event.index",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 630,
-        "y": 880,
+        "name": "record-special-events",
+        "mode": "link",
+        "links": [
+            "1d3b15ec44a91b94",
+            "b990cf094cd11447"
+        ],
+        "x": 495,
+        "y": 140,
         "wires": []
     },
     {
-        "id": "b595fcb13cd56f4f",
-        "type": "debug",
+        "id": "93720d51e19ed5ef",
+        "type": "link out",
         "z": "b5da19a5.72a0c8",
-        "name": "event.timestamp",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.event.timestamp",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 650,
-        "y": 920,
+        "name": "get-event-index",
+        "mode": "link",
+        "links": [
+            "1d3b15ec44a91b94",
+            "b990cf094cd11447"
+        ],
+        "x": 495,
+        "y": 220,
         "wires": []
     },
     {
-        "id": "017af93e48751394",
-        "type": "debug",
+        "id": "97cffd0c62fae4c4",
+        "type": "inject",
         "z": "b5da19a5.72a0c8",
-        "name": "event.type",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.event.type.event",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 630,
-        "y": 960,
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "402b143d8493ddc5"
+            ]
+        ]
+    },
+    {
+        "id": "402b143d8493ddc5",
+        "type": "uhppoted-get-event-index",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-event-index-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "ac4d232bf71b7dd9"
+            ]
+        ]
+    },
+    {
+        "id": "ac4d232bf71b7dd9",
+        "type": "link out",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-event-index",
+        "mode": "link",
+        "links": [
+            "1d3b15ec44a91b94",
+            "b990cf094cd11447"
+        ],
+        "x": 495,
+        "y": 260,
         "wires": []
     },
     {
-        "id": "616da492f4b6121c",
-        "type": "debug",
+        "id": "06c6c0cbc28d7a2b",
+        "type": "link out",
         "z": "b5da19a5.72a0c8",
-        "name": "event.granted",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.event.granted",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 640,
-        "y": 1000,
+        "name": "set-event-index",
+        "mode": "link",
+        "links": [
+            "1d3b15ec44a91b94",
+            "b990cf094cd11447"
+        ],
+        "x": 495,
+        "y": 340,
         "wires": []
     },
     {
-        "id": "fa8b8cf3b7335faf",
-        "type": "debug",
+        "id": "5f2772ca8c65f298",
+        "type": "inject",
         "z": "b5da19a5.72a0c8",
-        "name": "event.direction",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.event.direction.direction",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 640,
-        "y": 1040,
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"index\":14}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "ab64d6ba6fc5a49a"
+            ]
+        ]
+    },
+    {
+        "id": "ab64d6ba6fc5a49a",
+        "type": "uhppoted-set-event-index",
+        "z": "b5da19a5.72a0c8",
+        "name": "set-event-index-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 320,
+        "y": 380,
+        "wires": [
+            [
+                "add09a1b97f51d1e"
+            ]
+        ]
+    },
+    {
+        "id": "add09a1b97f51d1e",
+        "type": "link out",
+        "z": "b5da19a5.72a0c8",
+        "name": "set-event-index",
+        "mode": "link",
+        "links": [
+            "1d3b15ec44a91b94",
+            "b990cf094cd11447"
+        ],
+        "x": 495,
+        "y": 380,
         "wires": []
     },
     {
-        "id": "ab7ff3bbed4907d7",
-        "type": "debug",
+        "id": "ce7525a4e7180451",
+        "type": "link in",
         "z": "b5da19a5.72a0c8",
-        "name": "event.reason",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.event.reason.reason",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 630,
-        "y": 1080,
+        "name": "get-event",
+        "links": [
+            "2be2e9d5d77c54d9",
+            "dd522d0b58b29a6b",
+            "a66eaca2a0b98aae"
+        ],
+        "x": 655,
+        "y": 180,
+        "wires": [
+            [
+                "a9cd7169.9f80b",
+                "d0248137.40611",
+                "efd22b62.f8dd98",
+                "528f92e2.4cc88c",
+                "10303c8c.5ee653",
+                "6b2ec04b.e162e",
+                "3e133140.9cd2ce"
+            ]
+        ]
+    },
+    {
+        "id": "2be2e9d5d77c54d9",
+        "type": "link out",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-event",
+        "mode": "link",
+        "links": [
+            "b990cf094cd11447",
+            "ce7525a4e7180451"
+        ],
+        "x": 525,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "dd522d0b58b29a6b",
+        "type": "link out",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-event",
+        "mode": "link",
+        "links": [
+            "b990cf094cd11447",
+            "ce7525a4e7180451"
+        ],
+        "x": 525,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "07f844fb94bc5be0",
+        "type": "inject",
+        "z": "b5da19a5.72a0c8",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"index\":17}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 500,
+        "wires": [
+            [
+                "46d0db7d4370b8d1"
+            ]
+        ]
+    },
+    {
+        "id": "46d0db7d4370b8d1",
+        "type": "uhppoted-get-event",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-event-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 400,
+        "y": 500,
+        "wires": [
+            [
+                "a66eaca2a0b98aae"
+            ]
+        ]
+    },
+    {
+        "id": "a66eaca2a0b98aae",
+        "type": "link out",
+        "z": "b5da19a5.72a0c8",
+        "name": "get-event",
+        "mode": "link",
+        "links": [
+            "b990cf094cd11447",
+            "ce7525a4e7180451"
+        ],
+        "x": 525,
+        "y": 500,
         "wires": []
     },
     {

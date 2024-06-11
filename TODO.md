@@ -36,7 +36,7 @@
       - [x] uhppoted-set-door-passcodes
       - [x] uhppoted-restore-default-parameters
       - [x] integration-tests
-      - [ ] examples
+      - [x] examples
       - [ ] documentation
       - [ ] CHANGELOG
       - [ ] README

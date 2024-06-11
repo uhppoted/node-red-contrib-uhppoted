@@ -7,23 +7,6 @@
         "info": "# door control: basic examples\n\nBasic examples for the _get-door-control_, _set-door-control_ and _open-door_ nodes.\n\n - the _get-door-control_ example retrieves the current open delay to 5 seconds and control state for door 1 from the controller with serial number 405419896.\n\n - the _set-door-control_ example sets the open delay to 5 seconds and control state to 'normally closed' for door 1 on the controller with serial number 405419896.\n\n - the _open-door_ example opens door 1 on the controller with serial number 405419896 to the current time\n\nThe _doors_ flow in the _dashboard_ flowset contains a more complete example."
     },
     {
-        "id": "2046730f.81897c",
-        "type": "debug",
-        "z": "86bbf50e.a7f188",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "7317e0e6.862af",
         "type": "inject",
         "z": "86bbf50e.a7f188",
@@ -62,9 +45,7 @@
         "y": 100,
         "wires": [
             [
-                "2046730f.81897c",
-                "ed5427f.86328d8",
-                "e6a2598d.e7f958"
+                "e73ce23aa19abe5b"
             ]
         ]
     },
@@ -75,31 +56,12 @@
         "name": "set-door-control",
         "config": "cf35d9904542f0af",
         "x": 300,
-        "y": 260,
+        "y": 220,
         "wires": [
             [
-                "552b0a9d.9bc984",
-                "742df092.553a2",
-                "6ef964a9.7c2b4c"
+                "170a8997f0f967f4"
             ]
         ]
-    },
-    {
-        "id": "552b0a9d.9bc984",
-        "type": "debug",
-        "z": "86bbf50e.a7f188",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 260,
-        "wires": []
     },
     {
         "id": "5fb4202c.0de66",
@@ -119,7 +81,7 @@
         "payload": "{\"deviceId\":405419896,\"door\":1,\"delay\":6,\"control\":\"controlled\"}",
         "payloadType": "json",
         "x": 130,
-        "y": 260,
+        "y": 220,
         "wires": [
             [
                 "6d8d48f7.397bb8"
@@ -133,30 +95,12 @@
         "name": "open-door",
         "config": "cf35d9904542f0af",
         "x": 290,
-        "y": 420,
+        "y": 340,
         "wires": [
             [
-                "cf49a18d.73b92",
-                "e35ca985.ab1a28"
+                "f294c9c72caecaf3"
             ]
         ]
-    },
-    {
-        "id": "cf49a18d.73b92",
-        "type": "debug",
-        "z": "86bbf50e.a7f188",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 420,
-        "wires": []
     },
     {
         "id": "23ed32e1.98a00e",
@@ -176,7 +120,7 @@
         "payload": "{ \"deviceId\":405419896, \"door\":1 }",
         "payloadType": "json",
         "x": 130,
-        "y": 420,
+        "y": 340,
         "wires": [
             [
                 "6c1b3177.30bd2"
@@ -196,7 +140,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 530,
+        "x": 750,
         "y": 140,
         "wires": []
     },
@@ -213,42 +157,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
+        "x": 760,
         "y": 180,
-        "wires": []
-    },
-    {
-        "id": "742df092.553a2",
-        "type": "debug",
-        "z": "86bbf50e.a7f188",
-        "name": "door-1.delay",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.doorControlState.delay",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 530,
-        "y": 300,
-        "wires": []
-    },
-    {
-        "id": "6ef964a9.7c2b4c",
-        "type": "debug",
-        "z": "86bbf50e.a7f188",
-        "name": "door-1.control",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload.doorControlState.control.state",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 540,
-        "y": 340,
         "wires": []
     },
     {
@@ -264,25 +174,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 540,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "6fb4de2c034f070e",
-        "type": "debug",
-        "z": "86bbf50e.a7f188",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 540,
+        "x": 760,
+        "y": 220,
         "wires": []
     },
     {
@@ -303,7 +196,7 @@
         "payload": "{\"deviceId\":405419896,\"keypads\":{\"1\":true,\"2\":true,\"3\":false,\"4\":true}}",
         "payloadType": "json",
         "x": 130,
-        "y": 540,
+        "y": 460,
         "wires": [
             [
                 "76ada944ebac3023"
@@ -323,23 +216,22 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
-        "y": 580,
+        "x": 740,
+        "y": 260,
         "wires": []
     },
     {
         "id": "76ada944ebac3023",
         "type": "uhppoted-activate-keypads",
         "z": "86bbf50e.a7f188",
-        "name": "",
+        "name": "activate-keypads",
         "topic": "",
         "config": "cf35d9904542f0af",
         "x": 310,
-        "y": 540,
+        "y": 460,
         "wires": [
             [
-                "4de9ec54d837178c",
-                "6fb4de2c034f070e"
+                "fc496019bae03531"
             ]
         ]
     },
@@ -356,25 +248,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
-        "y": 620,
-        "wires": []
-    },
-    {
-        "id": "d156b212adf0a68b",
-        "type": "debug",
-        "z": "86bbf50e.a7f188",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 520,
-        "y": 700,
+        "x": 740,
+        "y": 300,
         "wires": []
     },
     {
@@ -392,7 +267,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"deviceId\":405419896,\"door\":3,\"passwords\":[12345,999999,54321]}",
+        "payload": "{\"deviceId\":405419896,\"door\":3,\"passcodes\":[12345,999999,54321]}",
         "payloadType": "json",
         "x": 130,
         "y": 700,
@@ -415,25 +290,634 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 510,
-        "y": 740,
+        "x": 730,
+        "y": 380,
         "wires": []
     },
     {
         "id": "d642fe8a140a7ba2",
         "type": "uhppoted-set-door-passcodes",
         "z": "86bbf50e.a7f188",
-        "name": "",
+        "name": "set-door-passcodes",
         "topic": "",
         "config": "cf35d9904542f0af",
         "x": 320,
         "y": 700,
         "wires": [
             [
-                "d156b212adf0a68b",
+                "6787ef29ca04b5cc"
+            ]
+        ]
+    },
+    {
+        "id": "d6a948ce207fa5f8",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"door\":1}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "5201a1df3a6ee4f7"
+            ]
+        ]
+    },
+    {
+        "id": "5201a1df3a6ee4f7",
+        "type": "uhppoted-get-door-control",
+        "z": "86bbf50e.a7f188",
+        "name": "get-door-control-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 320,
+        "y": 140,
+        "wires": [
+            [
+                "b897e63817f2cb2c"
+            ]
+        ]
+    },
+    {
+        "id": "dead4074a99e4f8d",
+        "type": "uhppoted-set-door-control",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-control-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "0f881fcbd72d349b"
+            ]
+        ]
+    },
+    {
+        "id": "7c0d25f83ae1467c",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"door\":1,\"delay\":6,\"control\":\"controlled\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "dead4074a99e4f8d"
+            ]
+        ]
+    },
+    {
+        "id": "cff6891472c50262",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "received",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "d874dfb06a4698ca",
+        "type": "link in",
+        "z": "86bbf50e.a7f188",
+        "name": "received",
+        "links": [
+            "e73ce23aa19abe5b",
+            "b897e63817f2cb2c",
+            "170a8997f0f967f4",
+            "0f881fcbd72d349b",
+            "f294c9c72caecaf3",
+            "a1e0d05308b13aa7",
+            "fc496019bae03531",
+            "d91dcf9c43d204bc",
+            "6787ef29ca04b5cc",
+            "7eb5ceccaa9a254f",
+            "0eb1407bfc40f24c",
+            "abf8e4f13a69d570"
+        ],
+        "x": 605,
+        "y": 100,
+        "wires": [
+            [
+                "cff6891472c50262"
+            ]
+        ]
+    },
+    {
+        "id": "e73ce23aa19abe5b",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "get-door-control",
+        "mode": "link",
+        "links": [
+            "d874dfb06a4698ca",
+            "eb7d6e1b706abf04"
+        ],
+        "x": 455,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "eb7d6e1b706abf04",
+        "type": "link in",
+        "z": "86bbf50e.a7f188",
+        "name": "door-control",
+        "links": [
+            "0f881fcbd72d349b",
+            "170a8997f0f967f4",
+            "b897e63817f2cb2c",
+            "e73ce23aa19abe5b"
+        ],
+        "x": 605,
+        "y": 140,
+        "wires": [
+            [
+                "ed5427f.86328d8",
+                "e6a2598d.e7f958"
+            ]
+        ]
+    },
+    {
+        "id": "b897e63817f2cb2c",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "get-door-control",
+        "mode": "link",
+        "links": [
+            "d874dfb06a4698ca",
+            "eb7d6e1b706abf04"
+        ],
+        "x": 455,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "170a8997f0f967f4",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-control",
+        "mode": "link",
+        "links": [
+            "d874dfb06a4698ca",
+            "eb7d6e1b706abf04"
+        ],
+        "x": 465,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0f881fcbd72d349b",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-control",
+        "mode": "link",
+        "links": [
+            "d874dfb06a4698ca",
+            "eb7d6e1b706abf04"
+        ],
+        "x": 465,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "f27e6d7fd8dce889",
+        "type": "link in",
+        "z": "86bbf50e.a7f188",
+        "name": "open-door",
+        "links": [
+            "f294c9c72caecaf3",
+            "a1e0d05308b13aa7"
+        ],
+        "x": 605,
+        "y": 220,
+        "wires": [
+            [
+                "e35ca985.ab1a28"
+            ]
+        ]
+    },
+    {
+        "id": "f294c9c72caecaf3",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "open-door",
+        "mode": "link",
+        "links": [
+            "d874dfb06a4698ca",
+            "f27e6d7fd8dce889"
+        ],
+        "x": 465,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "094e6132ad3273c7",
+        "type": "uhppoted-open-door",
+        "z": "86bbf50e.a7f188",
+        "name": "open-door-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 380,
+        "wires": [
+            [
+                "a1e0d05308b13aa7"
+            ]
+        ]
+    },
+    {
+        "id": "954d9da7d9090e4c",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"door\":1}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "094e6132ad3273c7"
+            ]
+        ]
+    },
+    {
+        "id": "a1e0d05308b13aa7",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "open-door",
+        "mode": "link",
+        "links": [
+            "d874dfb06a4698ca",
+            "f27e6d7fd8dce889"
+        ],
+        "x": 465,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "63171c88ba09fd77",
+        "type": "link in",
+        "z": "86bbf50e.a7f188",
+        "name": "activate-keypads",
+        "links": [
+            "fc496019bae03531",
+            "d91dcf9c43d204bc"
+        ],
+        "x": 605,
+        "y": 260,
+        "wires": [
+            [
+                "4de9ec54d837178c",
+                "92cf53d41bac1edc"
+            ]
+        ]
+    },
+    {
+        "id": "fc496019bae03531",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "activate-keypads",
+        "mode": "link",
+        "links": [
+            "63171c88ba09fd77",
+            "d874dfb06a4698ca"
+        ],
+        "x": 465,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "f2bb7abbb67ee78c",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"keypads\":{\"1\":true,\"2\":true,\"3\":false,\"4\":true}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 500,
+        "wires": [
+            [
+                "a75f73ebbaa467c6"
+            ]
+        ]
+    },
+    {
+        "id": "a75f73ebbaa467c6",
+        "type": "uhppoted-activate-keypads",
+        "z": "86bbf50e.a7f188",
+        "name": "activate-keypads-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 320,
+        "y": 500,
+        "wires": [
+            [
+                "d91dcf9c43d204bc"
+            ]
+        ]
+    },
+    {
+        "id": "d91dcf9c43d204bc",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "activate-keypads",
+        "mode": "link",
+        "links": [
+            "63171c88ba09fd77",
+            "d874dfb06a4698ca"
+        ],
+        "x": 465,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "5ea032df07f2af52",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{ \"deviceId\": 405419896, \"interlock\": 4 }",
+        "payloadType": "json",
+        "x": 130,
+        "y": 580,
+        "wires": [
+            [
+                "de3b45665b6aec40"
+            ]
+        ]
+    },
+    {
+        "id": "4dd316821f27ffc7",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "updated",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.updated",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 740,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "de3b45665b6aec40",
+        "type": "uhppoted-set-interlock",
+        "z": "86bbf50e.a7f188",
+        "name": "set-interlock",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 290,
+        "y": 580,
+        "wires": [
+            [
+                "7eb5ceccaa9a254f"
+            ]
+        ]
+    },
+    {
+        "id": "ac4ac298e9509a82",
+        "type": "link in",
+        "z": "86bbf50e.a7f188",
+        "name": "set-interlock",
+        "links": [
+            "7eb5ceccaa9a254f",
+            "0eb1407bfc40f24c"
+        ],
+        "x": 605,
+        "y": 340,
+        "wires": [
+            [
+                "4dd316821f27ffc7"
+            ]
+        ]
+    },
+    {
+        "id": "7eb5ceccaa9a254f",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "set-interlock",
+        "mode": "link",
+        "links": [
+            "ac4ac298e9509a82",
+            "d874dfb06a4698ca"
+        ],
+        "x": 435,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "7ac327cd0bfbb29f",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"interlock\":4}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 620,
+        "wires": [
+            [
+                "8cf93a80729e7a1f"
+            ]
+        ]
+    },
+    {
+        "id": "8cf93a80729e7a1f",
+        "type": "uhppoted-set-interlock",
+        "z": "86bbf50e.a7f188",
+        "name": "set-interlock-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 620,
+        "wires": [
+            [
+                "0eb1407bfc40f24c"
+            ]
+        ]
+    },
+    {
+        "id": "0eb1407bfc40f24c",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "set-interlock",
+        "mode": "link",
+        "links": [
+            "ac4ac298e9509a82",
+            "d874dfb06a4698ca"
+        ],
+        "x": 435,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "8b8fd882c7c39b2d",
+        "type": "link in",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-passcodes",
+        "links": [
+            "6787ef29ca04b5cc",
+            "abf8e4f13a69d570"
+        ],
+        "x": 605,
+        "y": 380,
+        "wires": [
+            [
                 "b67a695c34e6a8f8"
             ]
         ]
+    },
+    {
+        "id": "6787ef29ca04b5cc",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-passcodes",
+        "mode": "link",
+        "links": [
+            "8b8fd882c7c39b2d",
+            "d874dfb06a4698ca"
+        ],
+        "x": 495,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "23b2963a3061710b",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"door\":3,\"passcodes\":[12345,999999,54321]}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 740,
+        "wires": [
+            [
+                "c6418d53588430c8"
+            ]
+        ]
+    },
+    {
+        "id": "c6418d53588430c8",
+        "type": "uhppoted-set-door-passcodes",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-passcodes-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 330,
+        "y": 740,
+        "wires": [
+            [
+                "abf8e4f13a69d570"
+            ]
+        ]
+    },
+    {
+        "id": "abf8e4f13a69d570",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "set-door-passcodes",
+        "mode": "link",
+        "links": [
+            "8b8fd882c7c39b2d",
+            "d874dfb06a4698ca"
+        ],
+        "x": 495,
+        "y": 740,
+        "wires": []
     },
     {
         "id": "cf35d9904542f0af",

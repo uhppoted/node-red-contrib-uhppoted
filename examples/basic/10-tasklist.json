@@ -36,34 +36,17 @@
         ]
     },
     {
-        "id": "f5331de1.7dc18",
-        "type": "debug",
-        "z": "66c3d22e.434c7c",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 100,
-        "wires": []
-    },
-    {
         "id": "f980b203.9b821",
         "type": "uhppoted-clear-task-list",
         "z": "66c3d22e.434c7c",
-        "name": "",
+        "name": "clear-task-list",
         "topic": "",
         "config": "cf35d9904542f0af",
         "x": 300,
         "y": 100,
         "wires": [
             [
-                "f5331de1.7dc18"
+                "a6dbc452a08a5021"
             ]
         ]
     },
@@ -89,7 +72,7 @@
         "payload": "{\"deviceId\":405419896}",
         "payloadType": "json",
         "x": 130,
-        "y": 340,
+        "y": 460,
         "wires": [
             [
                 "13d7bc91.a53133"
@@ -97,34 +80,17 @@
         ]
     },
     {
-        "id": "775d352c.a8155c",
-        "type": "debug",
-        "z": "66c3d22e.434c7c",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 340,
-        "wires": []
-    },
-    {
         "id": "13d7bc91.a53133",
         "type": "uhppoted-refresh-task-list",
         "z": "66c3d22e.434c7c",
-        "name": "",
+        "name": "refresh-tasklist",
         "topic": "",
         "config": "cf35d9904542f0af",
         "x": 300,
-        "y": 340,
+        "y": 460,
         "wires": [
             [
-                "775d352c.a8155c"
+                "65d2bb446e743803"
             ]
         ]
     },
@@ -150,29 +116,12 @@
         "payload": "{\"deviceId\":405419896,\"task\":{\"task\":5,\"door\":3,\"valid\":{\"from\":\"2021-01-01\",\"to\":\"2021-12-31\"},\"weekdays\":[\"Monday\",\"Wednesday\",\"Friday\"],\"start\":\"08:30\",\"cards\":7}}",
         "payloadType": "json",
         "x": 130,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "cdc76803.768e88"
             ]
         ]
-    },
-    {
-        "id": "476c6a89.2ced14",
-        "type": "debug",
-        "z": "66c3d22e.434c7c",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 500,
-        "y": 180,
-        "wires": []
     },
     {
         "id": "cdc76803.768e88",
@@ -182,10 +131,10 @@
         "topic": "",
         "config": "cf35d9904542f0af",
         "x": 310,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
-                "476c6a89.2ced14"
+                "f3f91ce72d015bfc"
             ]
         ]
     },
@@ -211,7 +160,7 @@
         "payload": "{\"deviceId\":405419896,\"task\":{\"task\":\"enable time profile\",\"door\":3,\"valid\":{\"from\":\"2021-01-01\",\"to\":\"2021-12-31\"},\"weekdays\":[\"Monday\",\"Wednesday\",\"Friday\"],\"start\":\"08:30\",\"cards\":7}}",
         "payloadType": "json",
         "x": 130,
-        "y": 260,
+        "y": 340,
         "wires": [
             [
                 "cc7f21cd.1853b"
@@ -219,7 +168,133 @@
         ]
     },
     {
-        "id": "460d928b.c7737c",
+        "id": "cc7f21cd.1853b",
+        "type": "uhppoted-add-task",
+        "z": "66c3d22e.434c7c",
+        "name": "add-text-task",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 340,
+        "wires": [
+            [
+                "121cb192bc3b8618"
+            ]
+        ]
+    },
+    {
+        "id": "c39ce007ded20d5f",
+        "type": "inject",
+        "z": "66c3d22e.434c7c",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"task\":{\"task\":5,\"door\":3,\"valid\":{\"from\":\"2021-01-01\",\"to\":\"2021-12-31\"},\"weekdays\":[\"Monday\",\"Wednesday\",\"Friday\"],\"start\":\"08:30\",\"cards\":7}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 260,
+        "wires": [
+            [
+                "f0d5e84dd2cf4647"
+            ]
+        ]
+    },
+    {
+        "id": "f0d5e84dd2cf4647",
+        "type": "uhppoted-add-task",
+        "z": "66c3d22e.434c7c",
+        "name": "add-numeric-task-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 320,
+        "y": 260,
+        "wires": [
+            [
+                "35c9f9d4a30e34e2"
+            ]
+        ]
+    },
+    {
+        "id": "1adb548b8ceb841f",
+        "type": "uhppoted-add-task",
+        "z": "66c3d22e.434c7c",
+        "name": "add-text-task-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 310,
+        "y": 380,
+        "wires": [
+            [
+                "9bd3326c04e55986"
+            ]
+        ]
+    },
+    {
+        "id": "04bb740ae4534f9d",
+        "type": "inject",
+        "z": "66c3d22e.434c7c",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"task\":{\"task\":\"enable time profile\",\"door\":3,\"valid\":{\"from\":\"2021-01-01\",\"to\":\"2021-12-31\"},\"weekdays\":[\"Monday\",\"Wednesday\",\"Friday\"],\"start\":\"08:30\",\"cards\":7}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 380,
+        "wires": [
+            [
+                "1adb548b8ceb841f"
+            ]
+        ]
+    },
+    {
+        "id": "557f359eb41f42e6",
+        "type": "link in",
+        "z": "66c3d22e.434c7c",
+        "name": "received",
+        "links": [
+            "a6dbc452a08a5021",
+            "f3f91ce72d015bfc",
+            "35c9f9d4a30e34e2",
+            "121cb192bc3b8618",
+            "9bd3326c04e55986",
+            "65d2bb446e743803",
+            "2d3c1a5a5885d602",
+            "819316292d1aee2b"
+        ],
+        "x": 655,
+        "y": 100,
+        "wires": [
+            [
+                "92eb38760f8be20a"
+            ]
+        ]
+    },
+    {
+        "id": "92eb38760f8be20a",
         "type": "debug",
         "z": "66c3d22e.434c7c",
         "name": "received",
@@ -231,24 +306,209 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 500,
+        "x": 760,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "f3f91ce72d015bfc",
+        "type": "link out",
+        "z": "66c3d22e.434c7c",
+        "name": "debug",
+        "mode": "link",
+        "links": [
+            "557f359eb41f42e6",
+            "28066563a0e05d51"
+        ],
+        "x": 475,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "35c9f9d4a30e34e2",
+        "type": "link out",
+        "z": "66c3d22e.434c7c",
+        "name": "debug",
+        "mode": "link",
+        "links": [
+            "557f359eb41f42e6",
+            "28066563a0e05d51"
+        ],
+        "x": 475,
         "y": 260,
         "wires": []
     },
     {
-        "id": "cc7f21cd.1853b",
-        "type": "uhppoted-add-task",
+        "id": "121cb192bc3b8618",
+        "type": "link out",
         "z": "66c3d22e.434c7c",
-        "name": "add-text-task",
+        "name": "debug",
+        "mode": "link",
+        "links": [
+            "557f359eb41f42e6",
+            "28066563a0e05d51"
+        ],
+        "x": 475,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "9bd3326c04e55986",
+        "type": "link out",
+        "z": "66c3d22e.434c7c",
+        "name": "debug",
+        "mode": "link",
+        "links": [
+            "557f359eb41f42e6",
+            "28066563a0e05d51"
+        ],
+        "x": 475,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "65d2bb446e743803",
+        "type": "link out",
+        "z": "66c3d22e.434c7c",
+        "name": "debug",
+        "mode": "link",
+        "links": [
+            "557f359eb41f42e6",
+            "28066563a0e05d51"
+        ],
+        "x": 475,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "a6dbc452a08a5021",
+        "type": "link out",
+        "z": "66c3d22e.434c7c",
+        "name": "debug",
+        "mode": "link",
+        "links": [
+            "557f359eb41f42e6",
+            "28066563a0e05d51"
+        ],
+        "x": 475,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "29e68d484d463771",
+        "type": "inject",
+        "z": "66c3d22e.434c7c",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
         "topic": "",
-        "config": "cf35d9904542f0af",
-        "x": 300,
-        "y": 260,
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 140,
         "wires": [
             [
-                "460d928b.c7737c"
+                "b0707aebb18358c0"
             ]
         ]
+    },
+    {
+        "id": "b0707aebb18358c0",
+        "type": "uhppoted-clear-task-list",
+        "z": "66c3d22e.434c7c",
+        "name": "clear-tasklist-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "2d3c1a5a5885d602"
+            ]
+        ]
+    },
+    {
+        "id": "2d3c1a5a5885d602",
+        "type": "link out",
+        "z": "66c3d22e.434c7c",
+        "name": "debug",
+        "mode": "link",
+        "links": [
+            "557f359eb41f42e6",
+            "28066563a0e05d51"
+        ],
+        "x": 475,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "129bd51bf5c508fc",
+        "type": "inject",
+        "z": "66c3d22e.434c7c",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 500,
+        "wires": [
+            [
+                "cffb69d4674cf72d"
+            ]
+        ]
+    },
+    {
+        "id": "cffb69d4674cf72d",
+        "type": "uhppoted-refresh-task-list",
+        "z": "66c3d22e.434c7c",
+        "name": "refresh-tasklist-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 310,
+        "y": 500,
+        "wires": [
+            [
+                "819316292d1aee2b"
+            ]
+        ]
+    },
+    {
+        "id": "819316292d1aee2b",
+        "type": "link out",
+        "z": "66c3d22e.434c7c",
+        "name": "debug",
+        "mode": "link",
+        "links": [
+            "557f359eb41f42e6",
+            "28066563a0e05d51"
+        ],
+        "x": 475,
+        "y": 500,
+        "wires": []
     },
     {
         "id": "cf35d9904542f0af",

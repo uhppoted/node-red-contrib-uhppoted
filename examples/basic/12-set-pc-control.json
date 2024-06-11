@@ -20,7 +20,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
+        "x": 920,
         "y": 100,
         "wires": []
     },
@@ -66,7 +66,7 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 720,
+        "x": 920,
         "y": 140,
         "wires": []
     },
@@ -74,15 +74,14 @@
         "id": "533ddcf57003f6c5",
         "type": "uhppoted-set-pc-control",
         "z": "084b05a6c596f92a",
-        "name": "",
+        "name": "set-pc-control",
         "topic": "",
         "config": "cf35d9904542f0af",
         "x": 500,
         "y": 100,
         "wires": [
             [
-                "8a7531d7b8109a99",
-                "66ebd6872aee5190"
+                "97abc613d2ae57c9"
             ]
         ]
     },
@@ -92,8 +91,8 @@
         "z": "084b05a6c596f92a",
         "name": "listen",
         "config": "cf35d9904542f0af",
-        "x": 130,
-        "y": 320,
+        "x": 110,
+        "y": 340,
         "wires": [
             [
                 "2190c4453a0eb105",
@@ -114,8 +113,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 310,
-        "y": 260,
+        "x": 290,
+        "y": 280,
         "wires": []
     },
     {
@@ -129,8 +128,8 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 320,
-        "y": 320,
+        "x": 300,
+        "y": 340,
         "wires": [
             [
                 "0974ea4cdb46c4d0"
@@ -159,8 +158,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 510,
-        "y": 260,
+        "x": 490,
+        "y": 280,
         "wires": []
     },
     {
@@ -176,8 +175,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 520,
-        "y": 300,
+        "x": 500,
+        "y": 320,
         "wires": []
     },
     {
@@ -193,8 +192,8 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 510,
-        "y": 340,
+        "x": 490,
+        "y": 360,
         "wires": []
     },
     {
@@ -203,31 +202,13 @@
         "z": "084b05a6c596f92a",
         "name": "open-door",
         "config": "cf35d9904542f0af",
-        "x": 530,
-        "y": 380,
+        "x": 510,
+        "y": 400,
         "wires": [
             [
-                "748949c6bd00c596",
-                "a942a9ad5d0ab0ca"
+                "131a0ec7a483a6c6"
             ]
         ]
-    },
-    {
-        "id": "748949c6bd00c596",
-        "type": "debug",
-        "z": "084b05a6c596f92a",
-        "name": "received",
-        "active": true,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "payload",
-        "targetType": "msg",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 700,
-        "y": 360,
-        "wires": []
     },
     {
         "id": "a942a9ad5d0ab0ca",
@@ -242,8 +223,8 @@
         "targetType": "msg",
         "statusVal": "",
         "statusType": "auto",
-        "x": 710,
-        "y": 400,
+        "x": 930,
+        "y": 180,
         "wires": []
     },
     {
@@ -292,12 +273,202 @@
         "allowrate": false,
         "outputs": 1,
         "x": 300,
-        "y": 180,
+        "y": 40,
         "wires": [
             [
                 "fc341cfabe5d9a38"
             ]
         ]
+    },
+    {
+        "id": "97abc613d2ae57c9",
+        "type": "link out",
+        "z": "084b05a6c596f92a",
+        "name": "set-pc-control",
+        "mode": "link",
+        "links": [
+            "4673fbe24b57e489",
+            "d745375e148f24be"
+        ],
+        "x": 655,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "4673fbe24b57e489",
+        "type": "link in",
+        "z": "084b05a6c596f92a",
+        "name": "received",
+        "links": [
+            "97abc613d2ae57c9",
+            "d3536688fd49afd7",
+            "131a0ec7a483a6c6"
+        ],
+        "x": 795,
+        "y": 100,
+        "wires": [
+            [
+                "8a7531d7b8109a99"
+            ]
+        ]
+    },
+    {
+        "id": "d745375e148f24be",
+        "type": "link in",
+        "z": "084b05a6c596f92a",
+        "name": "set-pc-control",
+        "links": [
+            "97abc613d2ae57c9",
+            "d3536688fd49afd7"
+        ],
+        "x": 795,
+        "y": 140,
+        "wires": [
+            [
+                "66ebd6872aee5190"
+            ]
+        ]
+    },
+    {
+        "id": "6d8447065f249ef3",
+        "type": "inject",
+        "z": "084b05a6c596f92a",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"enable\":true}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "8fd48c489217ae19"
+            ]
+        ]
+    },
+    {
+        "id": "4b2b86039e25553d",
+        "type": "uhppoted-set-pc-control",
+        "z": "084b05a6c596f92a",
+        "name": "set-pc-control-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 510,
+        "y": 140,
+        "wires": [
+            [
+                "d3536688fd49afd7"
+            ]
+        ]
+    },
+    {
+        "id": "8fd48c489217ae19",
+        "type": "trigger",
+        "z": "084b05a6c596f92a",
+        "name": "send",
+        "op1": "",
+        "op2": "",
+        "op1type": "pay",
+        "op2type": "pay",
+        "duration": "250",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 2,
+        "x": 290,
+        "y": 140,
+        "wires": [
+            [
+                "4b2b86039e25553d"
+            ],
+            [
+                "e3c9453e1a5378c9"
+            ]
+        ]
+    },
+    {
+        "id": "e3c9453e1a5378c9",
+        "type": "delay",
+        "z": "084b05a6c596f92a",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "15",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 300,
+        "y": 200,
+        "wires": [
+            [
+                "8fd48c489217ae19"
+            ]
+        ]
+    },
+    {
+        "id": "d3536688fd49afd7",
+        "type": "link out",
+        "z": "084b05a6c596f92a",
+        "name": "set-pc-control",
+        "mode": "link",
+        "links": [
+            "4673fbe24b57e489",
+            "d745375e148f24be"
+        ],
+        "x": 655,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "401ed47b9894ba1d",
+        "type": "link in",
+        "z": "084b05a6c596f92a",
+        "name": "open-door",
+        "links": [
+            "131a0ec7a483a6c6"
+        ],
+        "x": 795,
+        "y": 180,
+        "wires": [
+            [
+                "a942a9ad5d0ab0ca"
+            ]
+        ]
+    },
+    {
+        "id": "131a0ec7a483a6c6",
+        "type": "link out",
+        "z": "084b05a6c596f92a",
+        "name": "open-door",
+        "mode": "link",
+        "links": [
+            "401ed47b9894ba1d",
+            "4673fbe24b57e489"
+        ],
+        "x": 635,
+        "y": 400,
+        "wires": []
     },
     {
         "id": "cf35d9904542f0af",

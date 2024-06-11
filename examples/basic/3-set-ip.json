@@ -19,7 +19,7 @@
         "targetType": "full",
         "statusVal": "",
         "statusType": "auto",
-        "x": 420,
+        "x": 620,
         "y": 100,
         "wires": []
     },
@@ -62,9 +62,96 @@
         "y": 100,
         "wires": [
             [
+                "142d6c4246ae8ffb"
+            ]
+        ]
+    },
+    {
+        "id": "b267a94cc5f28f8e",
+        "type": "inject",
+        "z": "8bcf2d43.2e243",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "set-address",
+        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"address\":\"192.168.1.125\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "2312b07b0bdde6e8"
+            ]
+        ]
+    },
+    {
+        "id": "2312b07b0bdde6e8",
+        "type": "uhppoted-set-ip",
+        "z": "8bcf2d43.2e243",
+        "name": "set-ip-tcp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "6c1d1b24d0c2e59f"
+            ]
+        ]
+    },
+    {
+        "id": "6936a212ffa86446",
+        "type": "link in",
+        "z": "8bcf2d43.2e243",
+        "name": "received",
+        "links": [
+            "142d6c4246ae8ffb",
+            "6c1d1b24d0c2e59f"
+        ],
+        "x": 505,
+        "y": 100,
+        "wires": [
+            [
                 "c601d685.422838"
             ]
         ]
+    },
+    {
+        "id": "142d6c4246ae8ffb",
+        "type": "link out",
+        "z": "8bcf2d43.2e243",
+        "name": "set-ip-udp",
+        "mode": "link",
+        "links": [
+            "6936a212ffa86446"
+        ],
+        "x": 395,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6c1d1b24d0c2e59f",
+        "type": "link out",
+        "z": "8bcf2d43.2e243",
+        "name": "set-ip-tcp",
+        "mode": "link",
+        "links": [
+            "6936a212ffa86446"
+        ],
+        "x": 395,
+        "y": 140,
+        "wires": []
     },
     {
         "id": "cf35d9904542f0af",
