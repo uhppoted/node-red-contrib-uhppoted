@@ -53,7 +53,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .set(context, controller.controller, opcodes.SetDoorControl, { door, delay, control }, controller.address, controller.protocol)
+          .set(context, controller.id, opcodes.SetDoorControl, { door, delay, control }, controller.address, controller.protocol)
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

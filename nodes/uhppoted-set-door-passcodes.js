@@ -41,7 +41,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, controller.controller, opcodes.SetDoorPasscodes, {
+        uhppoted.set(context, controller.id, opcodes.SetDoorPasscodes, {
           door,
           passcodes
         }, controller.address, controller.protocol)

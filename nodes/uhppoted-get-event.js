@@ -19,9 +19,9 @@ module.exports = function (RED) {
 
       const emit = function (object) {
         if (object.event.index === 0 && object.event.type.code === 0xff) {
-          common.error(node, new Error(`event for ${controller.controller}/${index} has been overwritten`))
+          common.error(node, new Error(`event for ${controller.id}/${index} has been overwritten`))
         } else if (object.event.index === 0) {
-          common.error(node, new Error(`no event for ${controller.controller}/${index}`))
+          common.error(node, new Error(`no event for ${controller.id}/${index}`))
         } else {
           common.emit(node, t, object)
         }
@@ -38,7 +38,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, controller.controller, opcodes.GetEvent, { index }, controller.address, controller.protocol)
+        uhppoted.set(context, controller.id, opcodes.GetEvent, { index }, controller.address, controller.protocol)
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

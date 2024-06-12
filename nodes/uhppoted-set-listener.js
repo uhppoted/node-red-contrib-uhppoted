@@ -20,11 +20,11 @@ module.exports = function (RED) {
 
       const emit = function (object) {
         if (!object.updated) {
-          throw new Error(`failed to update listener address for ${controller.controller}`, controller.controller)
+          throw new Error(`failed to update listener address for ${controller.id}`, controller.id)
         }
 
         common.emit(node, t, {
-          controller: controller.controller,
+          controller: controller.id,
           address,
           port
         })
@@ -41,7 +41,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, controller.controller, opcodes.SetListener, { address, port }, controller.address, controller.protocol)
+        uhppoted.set(context, controller.id, opcodes.SetListener, { address, port }, controller.address, controller.protocol)
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

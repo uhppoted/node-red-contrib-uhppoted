@@ -32,7 +32,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, controller.controller, opcodes.PutCard, {
+        uhppoted.set(context, controller.id, opcodes.PutCard, {
           card: card.number,
           from: card.valid.from,
           to: card.valid.to,

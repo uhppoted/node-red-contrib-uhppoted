@@ -36,7 +36,7 @@ module.exports = function (RED) {
           logger: (m) => { node.log(m) }
         }
 
-        uhppoted.set(context, controller.controller, opcodes.SetInterlock, { interlock }, controller.address, controller.protocol)
+        uhppoted.set(context, controller.id, opcodes.SetInterlock, { interlock }, controller.address, controller.protocol)
           .then(object => { emit(object) })
           .then(done())
           .catch(err => { error(err) })

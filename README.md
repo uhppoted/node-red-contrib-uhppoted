@@ -105,13 +105,13 @@ All nodes (other than `get-devices`) expect a controller in the input message pa
 ```
 {
     "controller": {
-        "controller": 405419896,
+        "id": 405419896,
         "address": "192.168.1.100",
         "protocol": "tcp"
     }
 }
 
-- controller: controller serial number
+- id: controller serial number
 - address: controller IPv4 address (optional)
 - protocol: 'udp' or 'tcp' (optional)
 

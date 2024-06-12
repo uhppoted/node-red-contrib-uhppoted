@@ -228,7 +228,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
         "payloadType": "json",
         "x": 130,
         "y": 140,

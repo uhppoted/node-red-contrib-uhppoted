@@ -397,7 +397,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"enable\":true}",
+        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"enable\":true}",
         "payloadType": "json",
         "x": 130,
         "y": 140,
@@ -455,8 +455,6 @@
             "06c6c0cbc28d7a2b",
             "5cc40db6d9f925d3",
             "5f4fe1a469cb67c5",
-            "93720d51e19ed5ef",
-            "ac4d232bf71b7dd9",
             "add09a1b97f51d1e"
         ],
         "x": 655,
@@ -502,7 +500,6 @@
         "name": "get-event-index",
         "mode": "link",
         "links": [
-            "1d3b15ec44a91b94",
             "b990cf094cd11447"
         ],
         "x": 495,
@@ -528,7 +525,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
         "payloadType": "json",
         "x": 130,
         "y": 260,
@@ -560,7 +557,6 @@
         "name": "get-event-index",
         "mode": "link",
         "links": [
-            "1d3b15ec44a91b94",
             "b990cf094cd11447"
         ],
         "x": 495,
@@ -600,7 +596,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"index\":14}",
+        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"index\":14}",
         "payloadType": "json",
         "x": 130,
         "y": 380,
@@ -710,7 +706,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"index\":17}",
+        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"index\":17}",
         "payloadType": "json",
         "x": 130,
         "y": 500,

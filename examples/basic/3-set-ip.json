@@ -85,7 +85,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "set-address",
-        "payload": "{\"controller\":{\"controller\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"address\":\"192.168.1.125\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
+        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"address\":\"192.168.1.125\",\"netmask\":\"255.255.255.0\",\"gateway\":\"192.168.1.1\"}",
         "payloadType": "json",
         "x": 130,
         "y": 140,
