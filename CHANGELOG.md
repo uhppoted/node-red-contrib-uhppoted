@@ -5,6 +5,9 @@
 ### Added
 1. Implemented for TCP transport.
 
+### Updated
+1. Replaced _ip.js_ dependency with local module.
+
 
 ## [1.1.7](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.7) - 2024-03-26
 

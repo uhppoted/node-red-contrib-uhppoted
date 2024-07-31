@@ -10,7 +10,6 @@ Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wie
 #### Requirements:
 - `node‑red` version 2.2.3+
 - `node.js` version 14.18.3+
-- `ip.js` version 1.1.5+ 
 
 For the latest updates see the [CHANGELOG.md](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/CHANGELOG.md)
 

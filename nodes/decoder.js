@@ -1,3 +1,5 @@
+const ipx = require('./ipx.js')
+
 module.exports = {
   /**
     * Decodes the response to a get-status request (function code 0x20).
@@ -846,9 +848,7 @@ function HHmmss (bytes, offset) {
   * @param {string}  Decoded 4 byte IPv4 address as a IP address object.
   */
 function address (bytes, offset) {
-  const ip = require('ip')
-
-  return ip.fromLong(bytes.getUint32(offset, false))
+  return ipx.fromLong(bytes.getUint32(offset, false))
 }
 
 /**
