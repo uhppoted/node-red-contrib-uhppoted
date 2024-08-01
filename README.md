@@ -131,7 +131,7 @@ Defaults to UDP broadcast transport if the address is null or the protocol is no
 _The legacy implementation will be supported until at least the next major release but any future enhancements will expect the _controller_
 object and you are encouraged to update your flows accordingly._ 
 
-In most cases, this is simply a matter of updating the input message payload to a _uhppoted_ node from something like:
+In most cases, this is simply a matter of updating the input message payload to a _uhppoted_ node from e.g.:
 ```
 {
     "deviceId": 405419896,
