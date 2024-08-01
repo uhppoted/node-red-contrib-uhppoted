@@ -8,13 +8,13 @@
 Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports controller and card management as well 
 support for controller events.
 
-**PLEASE NOTE**
-
-_As of version 1.1.8 the `controllers` list in the `config` is being deprecated in favour of using a `controller` object in the input 
-message payload to a `uhppoted` node. The legacy implementation will be supported until at least the next major release but you are encouraged
-to update your flows._
-
-_For more information see the [controllers](#controllers) section._
+> **PLEASE NOTE**
+>
+> _As of v1.1.8 the `controllers` list in the `config` is being deprecated in favour of using a `controller` object in the input 
+> message payload to a `uhppoted` node. The legacy implementation will be supported until at least the next major release but you are
+> encouraged to update your flows._
+>
+> _For more information see the [controllers](#controllers) section._
 
 #### Requirements:
 - `node‑red` version 2.2.3+
