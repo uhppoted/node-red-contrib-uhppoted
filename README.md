@@ -5,7 +5,8 @@
 ![NPM](https://img.shields.io/npm/l/node-red-contrib-uhppoted)
 ![build](https://github.com/uhppoted/node-red-contrib-uhppoted/workflows/build/badge.svg)
 
-Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports device and card management as well as handling for events.
+Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports controller and card management as well 
+support for controller events.
 
 **PLEASE NOTE**
 
