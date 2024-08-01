@@ -101,7 +101,7 @@ The nodes can (optionally) accept a configuration that overrides the default set
 
 ##### Controllers
 
-All nodes (other than `get-devices`) expect a controller in the input message payload. v1.8+ supports two formats for the controller:
+All nodes (other than `get-devices`) expect a controller in the input message payload. v1.1.8+ supports two formats for the controller:
 - the (legacy) implementation which expects the controller serial number as a device ID:
 ```
 {
