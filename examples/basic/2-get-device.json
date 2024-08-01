@@ -42,7 +42,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{ \"deviceId\": 405419896 }",
+        "payload": "{\"controller\":{\"id\":405419896}}",
         "payloadType": "json",
         "x": 130,
         "y": 100,

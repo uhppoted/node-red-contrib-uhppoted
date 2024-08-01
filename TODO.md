@@ -12,10 +12,11 @@
       - [x] README
       - [x] CHANGELOG
 
-- [ ] Deprecate controllers section in config
-      - [ ] Deprecation notice in UI
-      - [ ] README
-      - [ ] examples
+- [x] Deprecate controllers section in config (cfr. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/29)
+      - [x] Deprecation notice in UI
+      - [x] README
+      - [x] examples
+      - [x] integration tests
 
 ## TODO
 

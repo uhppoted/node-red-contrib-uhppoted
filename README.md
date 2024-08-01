@@ -7,6 +7,10 @@
 
 Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports device and card management as well as handling for events.
 
+**Please note that as of version 1.1.8, the _controllers_ list in the _config_ is being deprecated in favour of using a _controller_ object
+in the input message payload to a _uhppoted_ node. Although the legacy implementation will be supported at least until the next major release
+you are encouraged to update your flows. For more information see the [controllers](#controllers) section.**
+
 #### Requirements:
 - `node‑red` version 2.2.3+
 - `node.js` version 14.18.3+
@@ -117,7 +121,27 @@ All nodes (other than `get-devices`) expect a controller in the input message pa
 Defaults to UDP broadcast transport if the address is null or the protocol is not 'tcp'.
 ```
 
-The legacy implementation will be supported for the forseeable future but you are encouraged to update your flows to the new format. 
+**NOTE:**
+
+_The legacy implementation will be supported until at least the next major release but any future enhancements will expect the _controller_
+object and you are encouraged to update your flows accordingly._ 
+
+In most cases, this is simply a matter of updating the input message payload to a _uhppoted_ node from something like:
+```
+{
+    "deviceId": 405419896,
+    "cardNumber": 65537
+}
+```
+to
+```
+{
+    "controller": {
+        "id": 405419896
+    },
+    "cardNumber": 65537
+}
+```
 
 
 ### Examples
