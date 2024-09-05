@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [1.1.8](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.8) - 2024-09-06
 
 ### Added
 1. Implemented for TCP transport.
