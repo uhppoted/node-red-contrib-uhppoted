@@ -5,7 +5,6 @@ DEVICEIP ?= 192.168.1.125
 DATETIME  = $(shell date "+%Y-%m-%d %H:%M:%S")
 LISTEN   ?= 192.168.1.100:60001
 DEBUG    ?= --debug
-VERSION   = 1.1.8
 
 .PHONY: build
 .PHONY: test
