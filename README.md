@@ -20,7 +20,7 @@ support for controller events.
 
 ##### Current Release
 
-**[v0.8.9](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v0.8.9) - 2024-09-06**
+**[v1.1.8](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.8) - 2024-09-06**
 
 1. Added TCP transport.
 2. Replaced _ip.js_ dependency with local module.
