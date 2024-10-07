@@ -1,6 +1,6 @@
 {
     "uhppoted-set-listener": {
-        "inputLabel": "controller ID\nlistener address:port",
+        "inputLabel": "controller ID\nlistener address:port\nauto-send interval",
         "outputLabel": "device ID\nlistener address:port"
     }
 }

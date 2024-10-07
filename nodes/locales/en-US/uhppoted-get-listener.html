@@ -27,7 +27,7 @@
     <h3>Outputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the controller current device listener IP address:port</dd>
+        <dd>JSON object with the controller event listener IP address:port and auto-send interval.</dd>
         <dt>topic<span class="property-type">string</span></dt>
         <dd>message topic copied from input</dd>
     </dl>
@@ -61,9 +61,8 @@
     }
   }</pre>
 
-    <p>The output <code>msg.payload</code> is a JSON object containing the current
-    IPv4 listener address:port retrieved from the UHPPOTE controller with 
-    serial number matching the request:</p>
+    <p>The output <code>msg.payload</code> is a JSON object containing the configured 
+       controller event listener IPv4 address:port and auto-send interval (seconds):</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
@@ -71,13 +70,16 @@
         <dd>listener IPv4 address</d>
         <dt>port<span class="property-type">uint16</span></dt>
         <dd>listener UDP port</d>
+        <dt>interval<span class="property-type">uint8</span></dt>
+        <dd>auto-send interval</d>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896,
     "address": "192.168.1.100",
-    "port": 60001
+    "port": 60001,
+    "interval": 15
   }</pre>
     
     <h3>References</h3>

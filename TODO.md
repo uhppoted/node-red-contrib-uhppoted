@@ -2,9 +2,12 @@
 
 ### IN PROGRESS
 
-- [x] TCP/IP protocol (cf. https://github.com/uhppoted/uhppote-core/issues/17)
-- [x] Remove ip.js dependency (cf. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/26)
-- [x] Deprecate controllers section in config (cfr. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/29)
+- [x] event listener: add listen auto-send interval (cf. https://github.com/uhppoted/uhppote-core/issues/21)
+      - [x] set-event-listener
+      - [x] get-event-listener
+      - [x] CHANGELOG
+      - [x] README
+
 
 ## TODO
 

@@ -19,7 +19,7 @@
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the controller ID and listener address:port for 'set-listener'</dd>
+        <dd>JSON object with the controller ID, listener address:port and auto-send interval for 'set-listener'</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -27,17 +27,20 @@
     <h3>Outputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the updated controller device listener IP address:port</dd>
+        <dd>JSON object with the updated controller listener IP address:port and auto-send interval</dd>
         <dt>topic<span class="property-type">string</span></dt>
         <dd>message topic copied from input</dd>
     </dl>
 
     <h3>Details</h3>
-    <p>The input <code>msg.payload</code> is a JSON object identifying the destination controller 
-    and the event listener host IPv4 address and port.</p>
+    <p>The input <code>msg.payload</code> is a JSON object identifying the destination controller,
+    the event listener host IPv4 address and port and the auto-send interval.</p>
     <p>The controller is identified by specifying either the (legacy) 'deviceId' or the composite
     'controller' object which supports both UDP and TCP connections. Defaults to broadcast UDP if
     the address or protocol are not valid.</p>
+    <p>The auto-send interval is the interval (0-255, in seconds) at which the controller sends
+    the current controller status and most recent event. Events are always sent on occurrence and
+    a zero interval disables auto-send.</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
@@ -51,13 +54,16 @@
         <dd>listener IPv4 address</dd>
         <dt>port<span class="property-type">uint16</span></dt>
         <dd>listener UDP port</dd>
+        <dt>interval<span class="property-type">uint8</span></dt>
+        <dd>auto-send interval</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896,
     "address": "192.168.1.100",
-    "port": 60001
+    "port": 60001,
+    "interval": 30
   }</pre>
     <pre>
   {
@@ -67,13 +73,13 @@
         "protocol": "tcp"
     },
     "address": "192.168.1.100",
-    "port": 60001
+    "port": 60001,
+    "interval": 30
   }</pre>
 
 
-    <p>The output <code>msg.payload</code> is a JSON object containing the updated
-    IPv4 listener address:port retrieved from the UHPPOTE controller with 
-    serial number matching the request:</p>
+    <p>The output <code>msg.payload</code> is a JSON object that echoes the request IPv4 
+       listener address:port and auto-send interval:</p>
     <dl class="message-properties">
         <dt>id<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
@@ -81,6 +87,8 @@
         <dd>listener IPv4 address</d>
         <dt>port<span class="property-type">uint16</span></dt>
         <dd>listener port</d>
+        <dt>interval<span class="property-type">uint8</span></dt>
+        <dd>auto-send interval</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
@@ -88,6 +96,7 @@
     "deviceId": 405419896,
     "address": "192.168.1.100",
     "port": 60001
+    "interval": 30
   }</pre>
     
     <h3>References</h3>

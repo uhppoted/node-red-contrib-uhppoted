@@ -379,7 +379,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001}",
+                "to": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001,\"interval\":30}",
                 "tot": "json"
             }
         ],
@@ -3421,7 +3421,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"controller\":{\"id\":405419896},\"address\":\"192.168.1.100\",\"port\":60001}",
+                "to": "{\"controller\":{\"id\":405419896},\"address\":\"192.168.1.100\",\"port\":60001,\"interval\":30}",
                 "tot": "json"
             }
         ],
@@ -6467,7 +6467,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"address\":\"192.168.1.100\",\"port\":60001}",
+                "to": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"address\":\"192.168.1.100\",\"port\":60001,\"interval\":30}",
                 "tot": "json"
             }
         ],

@@ -99,7 +99,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "set-listener",
-        "payload": "{\"controller\":{\"id\":405419896},\"address\":\"192.168.1.100\",\"port\":60001}",
+        "payload": "{\"controller\":{\"id\":405419896},\"address\":\"192.168.1.100\",\"port\":60001,\"interval\":15}",
         "payloadType": "json",
         "x": 130,
         "y": 300,
@@ -252,7 +252,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "set-listener",
-        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"address\":\"192.168.1.100\",\"port\":60001}",
+        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"},\"address\":\"192.168.1.100\",\"port\":60001,\"interval\":15}",
         "payloadType": "json",
         "x": 130,
         "y": 340,
@@ -273,7 +273,7 @@
             "2be6914f23d7b2a5",
             "822c4512104ba471"
         ],
-        "x": 645,
+        "x": 615,
         "y": 80,
         "wires": [
             [
@@ -290,12 +290,13 @@
             "dd4eef340b555843",
             "11b333706a2d406b"
         ],
-        "x": 645,
+        "x": 615,
         "y": 120,
         "wires": [
             [
                 "4a5cf0bf.725ff",
-                "e37a3ee9.78969"
+                "e37a3ee9.78969",
+                "7957838146c94697"
             ]
         ]
     },
@@ -351,6 +352,23 @@
         ],
         "x": 425,
         "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7957838146c94697",
+        "type": "debug",
+        "z": "c56e1667.998748",
+        "name": "auto-send-interval",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.interval",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 790,
+        "y": 200,
         "wires": []
     },
     {
