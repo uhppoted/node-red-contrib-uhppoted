@@ -163,8 +163,8 @@ module.exports = {
     *
     * @param {number} deviceId  Controller serial number
     * @param {string} address   IPv4 listener address for controller events
-    * @param {number} port      IPv4 listener port for controller events
-    * @param {number} interval  Auto-send interval (seconds) - 0 for no auto-send.
+    * @param {uint16} port      IPv4 listener port for controller events
+    * @param {uint8}  interval  Auto-send interval (seconds) - 0 for no auto-send.
     *
     * @return {buffer} 64 byte NodeJS buffer with encoded set-address request
     */
@@ -178,10 +178,7 @@ module.exports = {
     ipx.toBuffer(address, request, 8)
 
     request.writeUInt16LE(port, 12)
-
-    if (!Number.isNaN(interval) && interval >= 0 && interval < 256) {
-      request.writeUInt8(interval, 14)
-    }
+    request.writeUInt8(interval, 14)
 
     return request
   },
