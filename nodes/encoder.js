@@ -321,7 +321,6 @@ module.exports = {
     request.writeUInt32LE(card, 8)
     date2bin(from).copy(request, 12)
     date2bin(to).copy(request, 16)
-
     ;['1', '2', '3', '4'].forEach((door, index) => {
       if (Object.prototype.hasOwnProperty.call(doors, door)) {
         const permission = doors[door]

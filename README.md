@@ -20,11 +20,9 @@ support for controller events.
 
 ##### Current Release
 
-**[v1.1.8](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.8) - 2024-09-06**
+**[v1.1.9](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.9) - 2025-01-29**
 
-1. Added TCP transport.
-2. Replaced _ip.js_ dependency with local module.
-3. Deprecating _controllers_ list in _config_.
+1. Added event _auto-send interval_ to the `get-listener` and `set-listener` nodes.
 
 
 #### Requirements:

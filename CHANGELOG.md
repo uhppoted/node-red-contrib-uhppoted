@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [1.1.9](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.9) - 2025-01-29
 
 ### Updated
 1. Added auto-send interval to get/set-listener nodes.
