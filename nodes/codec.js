@@ -1,3 +1,5 @@
+const { Buffer } = require('node:buffer')
+
 const opcodes = require('../nodes/opcodes.js')
 const encoder = require('../nodes/encoder.js')
 const decoder = require('../nodes/decoder.js')

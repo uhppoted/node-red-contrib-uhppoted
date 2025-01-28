@@ -3,7 +3,7 @@ module.exports = {
     node.send({ topic, payload: object })
   },
 
-  ok: function (node, err) {
+  ok: function (node, _err) {
     node.status({})
   },
 

@@ -1,3 +1,4 @@
+const { Buffer } = require('node:buffer')
 const ipx = require('./ipx.js')
 
 module.exports = {
@@ -250,7 +251,7 @@ module.exports = {
     *
     * @return {buffer} 64 byte NodeJS buffer with encoded get-cards request.
     */
-  GetCards: function (deviceId, object) {
+  GetCards: function (deviceId, _object) {
     const request = Buffer.alloc(64)
 
     request.writeUInt8(0x17, 0)

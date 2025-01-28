@@ -63,7 +63,7 @@ module.exports = {
     *
     * @param {object}   Decoded set-time response object
     */
-  SetTime: function (bytes, translator) {
+  SetTime: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       datetime: yyyymmddHHmmss(bytes, 8)
@@ -79,7 +79,7 @@ module.exports = {
     *
     * @param {object}   Decoded get-time response object
     */
-  GetTime: function (bytes, translator) {
+  GetTime: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       datetime: yyyymmddHHmmss(bytes, 8)
@@ -95,7 +95,7 @@ module.exports = {
     *
     * @param {object}   Decoded open-door response object
     */
-  OpenDoor: function (bytes, translator) {
+  OpenDoor: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       opened: bool(bytes, 8)
@@ -111,7 +111,7 @@ module.exports = {
     *
     * @param {object}   Decoded put-card response object
     */
-  PutCard: function (bytes, translator) {
+  PutCard: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       stored: bool(bytes, 8)
@@ -127,7 +127,7 @@ module.exports = {
     *
     * @param {object}   Decoded delete-card response object
     */
-  DeleteCard: function (bytes, translator) {
+  DeleteCard: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       deleted: bool(bytes, 8)
@@ -143,7 +143,7 @@ module.exports = {
     *
     * @param {object}   Decoded delete-cards response object
     */
-  DeleteCards: function (bytes, translator) {
+  DeleteCards: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       deleted: bool(bytes, 8)
@@ -159,7 +159,7 @@ module.exports = {
     *
     * @param {object}   Decoded get-cards response object
     */
-  GetCards: function (bytes, translator) {
+  GetCards: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       cards: uint32(bytes, 8)
@@ -175,7 +175,7 @@ module.exports = {
     *
     * @param {object}   Decoded get-card-by-id response object
     */
-  GetCardByID: function (bytes, translator) {
+  GetCardByID: function (bytes, _translator) {
     const doors = {}
     const offset = 20;
 
@@ -214,7 +214,7 @@ module.exports = {
     *
     * @param {object}   Decoded get-card-by-index response object
     */
-  GetCardByIndex: function (bytes, translator) {
+  GetCardByIndex: function (bytes, _translator) {
     const doors = {}
     const offset = 20;
 
@@ -297,7 +297,7 @@ module.exports = {
     *
     * @param {object}   Decoded set-listener response object
     */
-  SetListener: function (bytes, translator) {
+  SetListener: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       updated: bool(bytes, 8)
@@ -313,7 +313,7 @@ module.exports = {
     *
     * @param {object}   Decoded get-listener response object
     */
-  GetListener: function (bytes, translator) {
+  GetListener: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       address: address(bytes, 8),
@@ -331,7 +331,7 @@ module.exports = {
     *
     * @param {object}   Decoded device object
     */
-  GetDevice: function (bytes, translator) {
+  GetDevice: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       device: {
@@ -356,7 +356,7 @@ module.exports = {
     *
     * @param {object}   Decoded record-special-events response object
     */
-  RecordSpecialEvents: function (bytes, translator) {
+  RecordSpecialEvents: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       updated: bool(bytes, 8)
@@ -372,7 +372,7 @@ module.exports = {
     *
     * @param {object}   Decoded response to a get-time-profile object
     */
-  GetTimeProfile: function (bytes, translator) {
+  GetTimeProfile: function (bytes, _translator) {
     const map = new Map([
       [17, 'Monday'],
       [18, 'Tuesday'],
@@ -441,7 +441,7 @@ module.exports = {
     *
     * @param {object}   Decoded set-time-profile response object
     */
-  SetTimeProfile: function (bytes, translator) {
+  SetTimeProfile: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       updated: bool(bytes, 8)
@@ -457,7 +457,7 @@ module.exports = {
     *
     * @param {object}   Decoded clear-time-profiles response object
     */
-  ClearTimeProfiles: function (bytes, translator) {
+  ClearTimeProfiles: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       cleared: bool(bytes, 8)
@@ -473,7 +473,7 @@ module.exports = {
     *
     * @param {object}   Decoded clear-task-list response object
     */
-  ClearTaskList: function (bytes, translator) {
+  ClearTaskList: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       cleared: bool(bytes, 8)
@@ -489,7 +489,7 @@ module.exports = {
     *
     * @param {object}   Decoded add-task response object
     */
-  AddTask: function (bytes, translator) {
+  AddTask: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       added: bool(bytes, 8)
@@ -505,7 +505,7 @@ module.exports = {
     *
     * @param {object}   Decoded refresh-task-list response object
     */
-  RefreshTaskList: function (bytes, translator) {
+  RefreshTaskList: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       refreshed: bool(bytes, 8)
@@ -548,7 +548,7 @@ module.exports = {
     *
     * @param {object}   Decoded set-event-index response object
     */
-  SetEventIndex: function (bytes, translator) {
+  SetEventIndex: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       updated: bool(bytes, 8)
@@ -564,7 +564,7 @@ module.exports = {
     *
     * @param {object}   Decoded get-event-index response object
     */
-  GetEventIndex: function (bytes, translator) {
+  GetEventIndex: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       index: uint32(bytes, 8)
@@ -580,7 +580,7 @@ module.exports = {
     *
     * @param {object}   Decoded set-pc-control response object
     */
-  SetPCControl: function (bytes, translator) {
+  SetPCControl: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       updated: bool(bytes, 8)
@@ -596,7 +596,7 @@ module.exports = {
     *
     * @param {object}   Decoded set-interlock response object
     */
-  SetInterlock: function (bytes, translator) {
+  SetInterlock: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       updated: bool(bytes, 8)
@@ -612,7 +612,7 @@ module.exports = {
     *
     * @param {object}   Decoded activate-keypads response object
     */
-  ActivateKeypads: function (bytes, translator) {
+  ActivateKeypads: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       updated: bool(bytes, 8)
@@ -628,7 +628,7 @@ module.exports = {
     *
     * @param {object}   Decoded set-door-passcodes response object
     */
-  SetDoorPasscodes: function (bytes, translator) {
+  SetDoorPasscodes: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       ok: bool(bytes, 8)
@@ -644,7 +644,7 @@ module.exports = {
     *
     * @param {object}   Decoded restore-default-parameters response object
     */
-  RestoreDefaultParameters: function (bytes, translator) {
+  RestoreDefaultParameters: function (bytes, _translator) {
     return {
       deviceId: uint32(bytes, 4),
       reset: bool(bytes, 8)
