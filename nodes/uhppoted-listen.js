@@ -2,7 +2,7 @@ module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
 
-  function ListenNode (config) {
+  function ListenNode(config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -12,8 +12,12 @@ module.exports = function (RED) {
 
     const context = {
       config: RED.nodes.getNode(config.config),
-      translator: (k) => { return RED._('listen.' + k) },
-      logger: (m) => { node.log(m) }
+      translator: (k) => {
+        return RED._('listen.' + k)
+      },
+      logger: (m) => {
+        node.log(m)
+      },
     }
 
     const listener = uhppoted.listen(context, this)

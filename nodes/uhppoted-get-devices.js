@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function UhppotedGetDevicesNode (config) {
+  function UhppotedGetDevicesNode(config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -13,7 +13,7 @@ module.exports = function (RED) {
     common.ok(node)
 
     this.on('input', function (msg, send, done) {
-      const t = (topic && topic !== '') ? topic : msg.topic
+      const t = topic && topic !== '' ? topic : msg.topic
 
       const emit = function (devices) {
         common.emit(node, t, devices)
@@ -26,14 +26,21 @@ module.exports = function (RED) {
       try {
         const context = {
           config: uhppote,
-          translator: (k) => { return RED._('get-devices.' + k) },
-          logger: (m) => { node.log(m) }
+          translator: (k) => {
+            return RED._('get-devices.' + k)
+          },
+          logger: (m) => {
+            node.log(m)
+          },
         }
 
-        uhppoted.broadcast(context, opcodes.GetDevice, {})
-          .then(objects => { emit(objects) })
+        uhppoted
+          .broadcast(context, opcodes.GetDevice, {})
+          .then((objects) => {
+            emit(objects)
+          })
           .then(done())
-          .catch(err => {
+          .catch((err) => {
             error(err)
           })
       } catch (err) {

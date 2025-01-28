@@ -8,7 +8,11 @@ module.exports = {
   },
 
   error: function (node, err) {
-    node.status({ fill: 'red', shape: 'dot', text: 'node-red:common.status.error' })
+    node.status({
+      fill: 'red',
+      shape: 'dot',
+      text: 'node-red:common.status.error',
+    })
     node.warn('uhppoted::' + err)
   },
 
@@ -26,19 +30,19 @@ module.exports = {
 
   clamp: function (v, min, max) {
     return Math.min(Math.max(v, min), max)
-  }
+  },
 }
 
-function _resolve (controller) {
-  if (typeof (controller) === 'number') {
+function _resolve(controller) {
+  if (typeof controller === 'number') {
     return { id: controller, address: null, protocol: 'udp' }
   }
 
-  if (typeof (controller) === 'object') {
+  if (typeof controller === 'object') {
     const { id, address = null, protocol = 'udp' } = controller
     const proto = `${protocol}`.toLowerCase() === 'tcp' ? 'tcp' : 'udp'
 
-    if ((address != null) && (typeof (address) === 'string')) {
+    if (address != null && typeof address === 'string') {
       const match = `${address}`.match(/^(.+?):([0-9]+)$/)
 
       if (match) {
@@ -51,7 +55,7 @@ function _resolve (controller) {
       }
     }
 
-    if ((address != null) && (typeof (address) === 'object')) {
+    if (address != null && typeof address === 'object') {
       const { address: addr, port } = address
       const p = parseInt(`${port}`)
 

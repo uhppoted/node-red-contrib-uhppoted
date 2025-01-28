@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function GetCardNode (config) {
+  function GetCardNode(config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -13,7 +13,7 @@ module.exports = function (RED) {
     common.ok(node)
 
     this.on('input', function (msg, send, done) {
-      const t = (topic && topic !== '') ? topic : msg.topic
+      const t = topic && topic !== '' ? topic : msg.topic
       const controller = common.resolve(msg.payload)
       const card = msg.payload.cardNumber
 
@@ -24,19 +24,25 @@ module.exports = function (RED) {
             deviceId: object.deviceId,
             cardNumber: card,
             status: { code: 0, message: RED._('get-card.cardOk') },
-            card: object.card
-          }
+            card: object.card,
+          },
         }
 
         switch (object.card.number) {
           case 0:
             reply.payload.card = null
-            reply.payload.status = { code: 1, message: RED._('get-card.cardNotFound') }
+            reply.payload.status = {
+              code: 1,
+              message: RED._('get-card.cardNotFound'),
+            }
             break
 
           case 0xffffffff:
             reply.payload.card = null
-            reply.payload.status = { code: 2, message: RED._('get-card.cardDeleted') }
+            reply.payload.status = {
+              code: 2,
+              message: RED._('get-card.cardDeleted'),
+            }
             break
         }
 
@@ -50,15 +56,33 @@ module.exports = function (RED) {
       try {
         const context = {
           config: uhppote,
-          translator: (k) => { return RED._('get-card.' + k) },
-          logger: (m) => { node.log(m) }
+          translator: (k) => {
+            return RED._('get-card.' + k)
+          },
+          logger: (m) => {
+            node.log(m)
+          },
         }
 
-        uhppoted.get(context, controller.id, opcodes.GetCardByID, { card }, controller.address, controller.protocol)
-          .then(object => { emit(object) })
+        uhppoted
+          .get(
+            context,
+            controller.id,
+            opcodes.GetCardByID,
+            { card },
+            controller.address,
+            controller.protocol,
+          )
+          .then((object) => {
+            emit(object)
+          })
           .then(done())
-          .catch(err => { error(err) })
-      } catch (err) { error(err) }
+          .catch((err) => {
+            error(err)
+          })
+      } catch (err) {
+        error(err)
+      }
     })
   }
 

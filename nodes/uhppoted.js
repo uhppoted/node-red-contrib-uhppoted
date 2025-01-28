@@ -8,23 +8,30 @@ const opts = { type: 'udp4', reuseAddr: true }
 
 module.exports = {
   /**
-    * Executes a 'get' command to retrieve information from a UHPPOTE access controller.
-    * 'get' and 'set' are functionally identical but are defined separately for
-    * semantic clarity.
-    *
-    * @param {object}   ctx        Configuration, internationalisation translation and logger
-    * @param {number}   controller The serial number for the target access controller
-    * @param {byte}     op         Operation code from 'opcode' module
-    * @param {object}   request    Operation parameters for use by codec.encode
-    * @param {string}   dest       Optional controller IPv4 address. Defaults to UDP broadcast.
-    * @param {string}   protocol   Optional connection protocol ('udp' or 'tcp'). Defaults to
-    *                              'udp' unless 'tcp'
-    *
-    * @param {object}   Decoded reply containing the received information
-    *
-    * @exports
-    */
-  get: async function (ctx, controller, op, request, dest = null, protocol = 'udp') {
+   * Executes a 'get' command to retrieve information from a UHPPOTE access controller.
+   * 'get' and 'set' are functionally identical but are defined separately for
+   * semantic clarity.
+   *
+   * @param {object}   ctx        Configuration, internationalisation translation and logger
+   * @param {number}   controller The serial number for the target access controller
+   * @param {byte}     op         Operation code from 'opcode' module
+   * @param {object}   request    Operation parameters for use by codec.encode
+   * @param {string}   dest       Optional controller IPv4 address. Defaults to UDP broadcast.
+   * @param {string}   protocol   Optional connection protocol ('udp' or 'tcp'). Defaults to
+   *                              'udp' unless 'tcp'
+   *
+   * @param {object}   Decoded reply containing the received information
+   *
+   * @exports
+   */
+  get: async function (
+    ctx,
+    controller,
+    op,
+    request,
+    dest = null,
+    protocol = 'udp',
+  ) {
     const c = context(controller, ctx.config, ctx.logger)
     const receiver = receiveAny(c.timeout)
 
@@ -33,7 +40,7 @@ module.exports = {
         if (reply) {
           const response = codec.decode(reply, ctx.translator)
 
-          if (response && (response.deviceId === c.deviceId)) {
+          if (response && response.deviceId === c.deviceId) {
             return response
           }
         }
@@ -52,23 +59,30 @@ module.exports = {
   },
 
   /**
-    * Executes a 'set' command to update information on a UHPPOTE access controller.
-    * 'get' and 'set' are functionally identical but are defined separately for
-    * semantic clarity.
-    *
-    * @param {object}   ctx        Configuration, internationalisation translation and logger
-    * @param {number}   controller The serial number for the target access controller
-    * @param {byte}     op         Operation code from 'opcode' module
-    * @param {object}   request    Operation parameters for use by codec.encode
-    * @param {string}   dest       Optional controller IPv4 address. Defaults to UDP broadcast.
-    * @param {string}   protocol   Optional connection protocol ('udp' or 'tcp'). Defaults to
-    *                              'udp' unless 'tcp'
-    *
-    * @param {object}  Decoded result of the operation
-    *
-    * @exports
-    */
-  set: async function (ctx, controller, op, request, dest = null, protocol = 'udp') {
+   * Executes a 'set' command to update information on a UHPPOTE access controller.
+   * 'get' and 'set' are functionally identical but are defined separately for
+   * semantic clarity.
+   *
+   * @param {object}   ctx        Configuration, internationalisation translation and logger
+   * @param {number}   controller The serial number for the target access controller
+   * @param {byte}     op         Operation code from 'opcode' module
+   * @param {object}   request    Operation parameters for use by codec.encode
+   * @param {string}   dest       Optional controller IPv4 address. Defaults to UDP broadcast.
+   * @param {string}   protocol   Optional connection protocol ('udp' or 'tcp'). Defaults to
+   *                              'udp' unless 'tcp'
+   *
+   * @param {object}  Decoded result of the operation
+   *
+   * @exports
+   */
+  set: async function (
+    ctx,
+    controller,
+    op,
+    request,
+    dest = null,
+    protocol = 'udp',
+  ) {
     const c = context(controller, ctx.config, ctx.logger)
     const receiver = receiveAny(c.timeout)
 
@@ -76,7 +90,7 @@ module.exports = {
       const decode = function (reply) {
         if (reply) {
           const response = codec.decode(reply, ctx.translator)
-          if (response && (response.deviceId === c.deviceId)) {
+          if (response && response.deviceId === c.deviceId) {
             return response
           }
         }
@@ -95,20 +109,27 @@ module.exports = {
   },
 
   /**
-    * Sends a command to update information on a UHPPOTE access controller without
-    * expecting a reply. Used solely by the 'set-ip' node - the UHPPOTE access controller
-    * does not reply to the set IP command.
-    *
-    * @param {object}   ctx        Configuration, internationalisation translation and logger
-    * @param {number}   controller The serial number for the target access controller
-    * @param {byte}     op         Operation code from 'opcode' module
-    * @param {object}   request    Operation parameters for use by codec.encode
-    * @param {string}   dest       Optional controller IPv4 address. Defaults to UDP broadcast.
-    * @param {string}   protocol   Optional connection protocol ('udp' or 'tcp'). Defaults to
-    *                              'udp' unless 'tcp'
-    *
-    */
-  send: async function (ctx, controller, op, request, dest = null, protocol = 'udp') {
+   * Sends a command to update information on a UHPPOTE access controller without
+   * expecting a reply. Used solely by the 'set-ip' node - the UHPPOTE access controller
+   * does not reply to the set IP command.
+   *
+   * @param {object}   ctx        Configuration, internationalisation translation and logger
+   * @param {number}   controller The serial number for the target access controller
+   * @param {byte}     op         Operation code from 'opcode' module
+   * @param {object}   request    Operation parameters for use by codec.encode
+   * @param {string}   dest       Optional controller IPv4 address. Defaults to UDP broadcast.
+   * @param {string}   protocol   Optional connection protocol ('udp' or 'tcp'). Defaults to
+   *                              'udp' unless 'tcp'
+   *
+   */
+  send: async function (
+    ctx,
+    controller,
+    op,
+    request,
+    dest = null,
+    protocol = 'udp',
+  ) {
     const c = context(controller, ctx.config, ctx.logger)
 
     const receiver = new Promise((resolve) => {
@@ -129,30 +150,32 @@ module.exports = {
   },
 
   /**
-    * Broadcasts a command to retrieve information from all responding UHPPOTE access
-    * controllers. In this implementation it is used exclusively by the 'get-devices'
-    * node.
-    *
-    * It differs from 'get' in that it waits for a timeout before returning an array of
-    * received responses rather than returning the first received response. It also
-    * explicity issues a UDP broadcast message - 'get' will issue a UDP 'sendto' if
-    * possible.
-    *
-    * @param {object}   ctx      Configuration, internationalisation translation and logger
-    * @param {byte}     op       Operation code from 'opcode' module
-    * @param {object}   request  Operation parameters for use by codec.encode
-    *
-    * @param {array} Array of Javascript objects from codec.decode containing the decoded
-    *                received responses.
-    *
-    * @exports
-    */
+   * Broadcasts a command to retrieve information from all responding UHPPOTE access
+   * controllers. In this implementation it is used exclusively by the 'get-devices'
+   * node.
+   *
+   * It differs from 'get' in that it waits for a timeout before returning an array of
+   * received responses rather than returning the first received response. It also
+   * explicity issues a UDP broadcast message - 'get' will issue a UDP 'sendto' if
+   * possible.
+   *
+   * @param {object}   ctx      Configuration, internationalisation translation and logger
+   * @param {byte}     op       Operation code from 'opcode' module
+   * @param {object}   request  Operation parameters for use by codec.encode
+   *
+   * @param {array} Array of Javascript objects from codec.decode containing the decoded
+   *                received responses.
+   *
+   * @exports
+   */
   broadcast: async function (ctx, op, request) {
     const c = context(0, ctx.config, ctx.logger)
     const replies = []
 
     const receiver = new Promise((resolve) => {
-      setTimeout(() => { resolve(replies) }, c.timeout)
+      setTimeout(() => {
+        resolve(replies)
+      }, c.timeout)
     })
 
     const decode = function (replies) {
@@ -178,16 +201,16 @@ module.exports = {
   },
 
   /**
-    * Establishes a 'listening' UDP connection on the 'listen' port defined in the
-    * configuration to receive events from UHPPOTE access controllers configured
-    * to send events to this host:port. Received events are forwarded to the
-    * supplied handler for dispatch to the application.
-    *
-    * @param {object}   ctx      Configuration, internationalisation translation and logger
-    * @param {function} handler  Function to invoke with received event
-    *
-    * @exports
-    */
+   * Establishes a 'listening' UDP connection on the 'listen' port defined in the
+   * configuration to receive events from UHPPOTE access controllers configured
+   * to send events to this host:port. Received events are forwarded to the
+   * supplied handler for dispatch to the application.
+   *
+   * @param {object}   ctx      Configuration, internationalisation translation and logger
+   * @param {function} handler  Function to invoke with received event
+   *
+   * @exports
+   */
   listen: function (ctx, handler) {
     const c = context(0, ctx.config, ctx.logger)
     const sock = dgram.createSocket(opts)
@@ -208,30 +231,30 @@ module.exports = {
 
     sock.bind({
       address: c.listen.address,
-      port: c.listen.port
+      port: c.listen.port,
     })
 
     return sock
-  }
+  },
 }
 
 /**
-  * Sends a UDP command to a UHPPOTE access controller and returns the decoded
-  * reply, for use by 'get' and 'set'.
-  *
-  * configuration to receive events from UHPPOTE access controllers configured
-  * to send events to this host:port. Received events are forwarded to the
-  * supplied handler for dispatch to the application.
-  *
-  * @param {object}   context  Addresses, logger, debug, etc.
-  * @param {byte}     op       Operation code from 'opcode' module
-  * @param {object}   request  Operation parameters for use by codec.encode
-  * @param {function} receive  Handler for received messages
-  *
-  * @return {object}  Decoded reply from access controller
-  *
-  */
-async function udp (ctx, op, request, receive) {
+ * Sends a UDP command to a UHPPOTE access controller and returns the decoded
+ * reply, for use by 'get' and 'set'.
+ *
+ * configuration to receive events from UHPPOTE access controllers configured
+ * to send events to this host:port. Received events are forwarded to the
+ * supplied handler for dispatch to the application.
+ *
+ * @param {object}   context  Addresses, logger, debug, etc.
+ * @param {byte}     op       Operation code from 'opcode' module
+ * @param {object}   request  Operation parameters for use by codec.encode
+ * @param {function} receive  Handler for received messages
+ *
+ * @return {object}  Decoded reply from access controller
+ *
+ */
+async function udp(ctx, op, request, receive) {
   const sock = dgram.createSocket(opts)
   const rq = codec.encode(op, ctx.deviceId, request)
 
@@ -247,19 +270,26 @@ async function udp (ctx, op, request, receive) {
         sock.setBroadcast(true)
       }
 
-      sock.send(new Uint8Array(rq), 0, 64, ctx.addr.port, ctx.addr.address, (err, bytes) => {
-        if (err) {
-          reject(err)
-        } else {
-          log(ctx.debug, 'sent', rq, ctx.addr)
-          resolve(bytes)
-        }
-      })
+      sock.send(
+        new Uint8Array(rq),
+        0,
+        64,
+        ctx.addr.port,
+        ctx.addr.address,
+        (err, bytes) => {
+          if (err) {
+            reject(err)
+          } else {
+            log(ctx.debug, 'sent', rq, ctx.addr)
+            resolve(bytes)
+          }
+        },
+      )
     })
 
     sock.bind({
       address: ctx.bind,
-      port: 0
+      port: 0,
     })
   })
 
@@ -283,23 +313,23 @@ async function udp (ctx, op, request, receive) {
 }
 
 /**
-  * Sends a UDP command to a UHPPOTE access controller and returns the decoded
-  * reply, for use by 'get' and 'set'.
-  *
-  * configuration to receive events from UHPPOTE access controllers configured
-  * to send events to this host:port. Received events are forwarded to the
-  * supplied handler for dispatch to the application.
-  *
-  * @param {object}   context  Addresses, logger, debug, etc.
-  * @param {object}   dest     Destination { address,port }
-  * @param {byte}     op       Operation code from 'opcode' module
-  * @param {object}   request  Operation parameters for use by codec.encode
-  * @param {function} receive  Handler for received messages
-  *
-  * @return {object}  Decoded reply from access controller
-  *
-  */
-async function tcp (ctx, dest, op, request, receive) {
+ * Sends a UDP command to a UHPPOTE access controller and returns the decoded
+ * reply, for use by 'get' and 'set'.
+ *
+ * configuration to receive events from UHPPOTE access controllers configured
+ * to send events to this host:port. Received events are forwarded to the
+ * supplied handler for dispatch to the application.
+ *
+ * @param {object}   context  Addresses, logger, debug, etc.
+ * @param {object}   dest     Destination { address,port }
+ * @param {byte}     op       Operation code from 'opcode' module
+ * @param {object}   request  Operation parameters for use by codec.encode
+ * @param {function} receive  Handler for received messages
+ *
+ * @return {object}  Decoded reply from access controller
+ *
+ */
+async function tcp(ctx, dest, op, request, receive) {
   const sock = new net.Socket()
   const rq = codec.encode(op, ctx.deviceId, request)
 
@@ -344,21 +374,21 @@ async function tcp (ctx, dest, op, request, receive) {
 }
 
 /**
-  * Utility function to reconcile supplied configuration against the default
-  * values. Returns a working 'exec' context with valid:
-  * - bind address:port
-  * - destination address:port
-  * - timeout
-  * - debug enabled
-  *
-  * @param {number}   device   The serial number for the target access controller
-  * @param {object}   config   Configuration object supplied to requesting node
-  * @param {function} logger   Log function for sent/received messages
-  *
-  * @param {object} Valid working context
-  *
-  */
-function context (device, config, logger) {
+ * Utility function to reconcile supplied configuration against the default
+ * values. Returns a working 'exec' context with valid:
+ * - bind address:port
+ * - destination address:port
+ * - timeout
+ * - debug enabled
+ *
+ * @param {number}   device   The serial number for the target access controller
+ * @param {object}   config   Configuration object supplied to requesting node
+ * @param {function} logger   Log function for sent/received messages
+ *
+ * @param {object} Valid working context
+ *
+ */
+function context(device, config, logger) {
   const deviceId = Number(device)
   let timeout = 5000
   let bind = '0.0.0.0'
@@ -372,7 +402,11 @@ function context (device, config, logger) {
     bind = config.bind
     dest = config.broadcast
     listen = config.listen
-    debug = config.debug ? function (l, m) { logger(l + '\n' + m) } : null
+    debug = config.debug
+      ? function (l, m) {
+          logger(l + '\n' + m)
+        }
+      : null
 
     if (config.controllers) {
       try {
@@ -402,20 +436,20 @@ function context (device, config, logger) {
     addr: stringToIP(dest),
     listen: stringToIP(listen),
     forceBroadcast,
-    debug
+    debug,
   }
 }
 
 /**
-  * Utility function to write a sent/received UDP message to the log function.
-  *
-  * @param {function}   debug  The log function that will write the formatted message
-  * @param {string}     label  'sent' or 'received'
-  * @param {uint8array} message 64 byte UDP message
-  * @param {object}     rinfo   source/destination IP address and port
-  *
-  */
-function log (debug, label, message, rinfo) {
+ * Utility function to write a sent/received UDP message to the log function.
+ *
+ * @param {function}   debug  The log function that will write the formatted message
+ * @param {string}     label  'sent' or 'received'
+ * @param {uint8array} message 64 byte UDP message
+ * @param {object}     rinfo   source/destination IP address and port
+ *
+ */
+function log(debug, label, message, rinfo) {
   let description = label
 
   if (rinfo) {
@@ -429,21 +463,23 @@ function log (debug, label, message, rinfo) {
     } else {
       const prefix = ' '.repeat(18)
       const pad = ' '.repeat(26)
-      console.log(prefix + '[debug] ' + description + '\n' + pad + format(message, pad))
+      console.log(
+        prefix + '[debug] ' + description + '\n' + pad + format(message, pad),
+      )
     }
   }
 }
 
 /**
-  * Utility function to format a 64 byte UDP message.
-  *
-  * @param {uint8array} message 64 byte UDP message
-  * @param {string}     pad     prefix used to align the message to the log entries
-  *
-  * @returns {string} Message formatted as a hexadecimal chunk
-  *
-  */
-function format (message, pad) {
+ * Utility function to format a 64 byte UDP message.
+ *
+ * @param {uint8array} message 64 byte UDP message
+ * @param {string}     pad     prefix used to align the message to the log entries
+ *
+ * @returns {string} Message formatted as a hexadecimal chunk
+ *
+ */
+function format(message, pad) {
   return message
     .toString('hex')
     .replace(/(.{2})/g, '$& ')
@@ -453,46 +489,46 @@ function format (message, pad) {
 }
 
 /**
-  * Utility function to convert an IP address in host:port format an object with
-  * address and port.
-  *
-  * @param {string} addr  IP address in host:port format
-  *
-  * @returns {object} Object containing IP address and port as properties
-  *
-  */
-function stringToIP (addr) {
+ * Utility function to convert an IP address in host:port format an object with
+ * address and port.
+ *
+ * @param {string} addr  IP address in host:port format
+ *
+ * @returns {object} Object containing IP address and port as properties
+ *
+ */
+function stringToIP(addr) {
   let address = addr
   let port = 60000
 
   const re = /^(.*?)(?::([0-9]+))?$/
   const match = addr.match(re)
 
-  if ((match.length > 1) && match[1]) {
+  if (match.length > 1 && match[1]) {
     address = match[1]
   }
 
-  if ((match.length > 2) && match[2]) {
+  if (match.length > 2 && match[2]) {
     port = parseInt(match[2], 10)
   }
 
   return {
     address,
-    port
+    port,
   }
 }
 
 /**
-  * Utility function that takes a best guess as to whether an IP address is likely to be
-  * a broadcast address. It uses the OS interface list, returning 'true' if the address
-  * matches one of the 'bit flipped' netmasks.
-  *
-  * @param {string} addr  IP address
-  *
-  * @returns {bool} 'true' if the address is a broadcast address. Defaults to 'false'.
-  *
-  */
-function isBroadcast (addr) {
+ * Utility function that takes a best guess as to whether an IP address is likely to be
+ * a broadcast address. It uses the OS interface list, returning 'true' if the address
+ * matches one of the 'bit flipped' netmasks.
+ *
+ * @param {string} addr  IP address
+ *
+ * @returns {bool} 'true' if the address is a broadcast address. Defaults to 'false'.
+ *
+ */
+function isBroadcast(addr) {
   const interfaces = os.networkInterfaces()
 
   for (const v of Object.entries(interfaces)) {
@@ -511,22 +547,24 @@ function isBroadcast (addr) {
 }
 
 /**
-  * Utility function construct a Promise that can resolves on receiving a single reply. Used by 'get' and 'set'.
-  *
-  * @param {number} timeout  Timeout (in seconds). Ignored if 'undefined' (e.g. for send() which does not expect
-  *                          a reply)
-  *
-  * @returns {promise} Constructed Promised with a 'received' function.
-  *
-  */
-function receiveAny (timeout) {
+ * Utility function construct a Promise that can resolves on receiving a single reply. Used by 'get' and 'set'.
+ *
+ * @param {number} timeout  Timeout (in seconds). Ignored if 'undefined' (e.g. for send() which does not expect
+ *                          a reply)
+ *
+ * @returns {promise} Constructed Promised with a 'received' function.
+ *
+ */
+function receiveAny(timeout) {
   let timer = null
   let f = null
 
   const p = new Promise((resolve, reject) => {
     f = resolve
     if (timeout) {
-      timer = setTimeout(() => { reject(new Error('timeout')) }, timeout)
+      timer = setTimeout(() => {
+        reject(new Error('timeout'))
+      }, timeout)
     }
   })
 

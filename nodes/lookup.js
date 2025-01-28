@@ -1,6 +1,6 @@
 /**
-  * Lookup table to associate message text to the equivalent internationalisation key.
-  */
+ * Lookup table to associate message text to the equivalent internationalisation key.
+ */
 const map = {
   unknown: 'unknown',
 
@@ -55,27 +55,27 @@ const map = {
   // doors
   'normally open': 'normallyOpen',
   'normally closed': 'normallyClosed',
-  controlled: 'controlled'
+  controlled: 'controlled',
 }
 
 module.exports = {
   /**
-    * Expands an event type byte into an object with event code and internationalised
-    * event message.
-    *
-    * @param {array}    bytes      64 byte message as a Uint8Array
-    * @param {number}   offset     Index of event type byte in message
-    * @param {function} translator (optional) function to translate event message.
-    *
-    * @param {object}   { code:byte, event:string }
-    *
-    * @exports
-    */
+   * Expands an event type byte into an object with event code and internationalised
+   * event message.
+   *
+   * @param {array}    bytes      64 byte message as a Uint8Array
+   * @param {number}   offset     Index of event type byte in message
+   * @param {function} translator (optional) function to translate event message.
+   *
+   * @param {object}   { code:byte, event:string }
+   *
+   * @exports
+   */
   eventType: function (bytes, offset, translator) {
     const byte = bytes.getUint8(offset, true)
 
     const event = {
-      code: byte
+      code: byte,
     }
 
     switch (byte) {
@@ -108,22 +108,22 @@ module.exports = {
   },
 
   /**
-    * Expands an event direction byte into an object with event direction and internationalised
-    * direction description.
-    *
-    * @param {array}    bytes      64 byte message as a Uint8Array
-    * @param {number}   offset     Index of event direction byte in message
-    * @param {function} translator (optional) function to translate direction description.
-    *
-    * @param {object}   { code: byte, direction: string }
-    *
-    * @exports
-    */
+   * Expands an event direction byte into an object with event direction and internationalised
+   * direction description.
+   *
+   * @param {array}    bytes      64 byte message as a Uint8Array
+   * @param {number}   offset     Index of event direction byte in message
+   * @param {function} translator (optional) function to translate direction description.
+   *
+   * @param {object}   { code: byte, direction: string }
+   *
+   * @exports
+   */
   direction: function (bytes, offset, translator) {
     const byte = bytes.getUint8(offset, true)
 
     const direction = {
-      code: byte
+      code: byte,
     }
 
     switch (byte) {
@@ -144,22 +144,22 @@ module.exports = {
   },
 
   /**
-    * Expands an event reason byte into an object with event reason and internationalised
-    * reason description.
-    *
-    * @param {array}    bytes      64 byte message as a Uint8Array
-    * @param {number}   offset     Index of event reason byte in message
-    * @param {function} translator (optional) function to translate reason description.
-    *
-    * @param {object}   { code: byte, reason: string }
-    *
-    * @exports
-    */
+   * Expands an event reason byte into an object with event reason and internationalised
+   * reason description.
+   *
+   * @param {array}    bytes      64 byte message as a Uint8Array
+   * @param {number}   offset     Index of event reason byte in message
+   * @param {function} translator (optional) function to translate reason description.
+   *
+   * @param {object}   { code: byte, reason: string }
+   *
+   * @exports
+   */
   reason: function (bytes, offset, translator) {
     const byte = bytes.getUint8(offset, true)
 
     const reason = {
-      code: byte
+      code: byte,
     }
 
     switch (byte) {
@@ -180,7 +180,10 @@ module.exports = {
         break
 
       case 5:
-        reason.reason = translate(translator, 'swipe:denied (remote access control)') // Access is managed by the system not the controller
+        reason.reason = translate(
+          translator,
+          'swipe:denied (remote access control)',
+        ) // Access is managed by the system not the controller
         break
 
       case 6:
@@ -236,7 +239,10 @@ module.exports = {
         break
 
       case 25:
-        reason.reason = translate(translator, 'door opened (supervisor password)')
+        reason.reason = translate(
+          translator,
+          'door opened (supervisor password)',
+        )
         break
 
       case 28:
@@ -248,7 +254,10 @@ module.exports = {
         break
 
       case 31:
-        reason.reason = translate(translator, 'pushbutton invalid (door locked)')
+        reason.reason = translate(
+          translator,
+          'pushbutton invalid (door locked)',
+        )
         break
 
       case 32:
@@ -308,15 +317,15 @@ module.exports = {
   },
 
   /**
-    * Expands a status relay state byte into an object with the relays as keys.
-    *
-    * @param {array}    bytes      64 byte message as a Uint8Array
-    * @param {number}   offset     Index of relay state  byte in message
-    *
-    * @param {object}   { state: byte, 1: open/closed, 2: open/closed, 3: open/closed, 4: open/closed }
-    *
-    * @exports
-    */
+   * Expands a status relay state byte into an object with the relays as keys.
+   *
+   * @param {array}    bytes      64 byte message as a Uint8Array
+   * @param {number}   offset     Index of relay state  byte in message
+   *
+   * @param {object}   { state: byte, 1: open/closed, 2: open/closed, 3: open/closed, 4: open/closed }
+   *
+   * @exports
+   */
   relays: function (bytes, offset) {
     const byte = bytes.getUint8(offset, true)
 
@@ -326,50 +335,50 @@ module.exports = {
         1: (byte & 0x01) === 1,
         2: (byte & 0x02) === 1,
         3: (byte & 0x03) === 1,
-        4: (byte & 0x08) === 1
-      }
+        4: (byte & 0x08) === 1,
+      },
     }
 
     return relays
   },
 
   /**
-    * Expands a status input state byte into an object with the inputs as keys.
-    *
-    * @param {array}    bytes      64 byte message as a Uint8Array
-    * @param {number}   offset     Index of relay state  byte in message
-    *
-    * @param {object}   { state: byte, forceLock: open/closed, fireAlarm: open/closed }
-    *
-    * @exports
-    */
+   * Expands a status input state byte into an object with the inputs as keys.
+   *
+   * @param {array}    bytes      64 byte message as a Uint8Array
+   * @param {number}   offset     Index of relay state  byte in message
+   *
+   * @param {object}   { state: byte, forceLock: open/closed, fireAlarm: open/closed }
+   *
+   * @exports
+   */
   inputs: function (bytes, offset) {
     const byte = bytes.getUint8(offset, true)
 
     const inputs = {
       state: byte,
       forceLock: (byte & 0x01) === 0x01,
-      fireAlarm: (byte & 0x02) === 0x02
+      fireAlarm: (byte & 0x02) === 0x02,
     }
 
     return inputs
   },
 
   /**
-    * Translates a door state Expands a status door state byte into an object with the doors as keys.
-    *
-    * @param {array}    bytes      64 byte message as a Uint8Array
-    * @param {number}   offset     Index of door state  byte in message
-    *
-    * @param {object}   { value: byte, state: 'normally open', 'normally closed', 'controlled' or 'unknown' }
-    *
-    * @exports
-    */
+   * Translates a door state Expands a status door state byte into an object with the doors as keys.
+   *
+   * @param {array}    bytes      64 byte message as a Uint8Array
+   * @param {number}   offset     Index of door state  byte in message
+   *
+   * @param {object}   { value: byte, state: 'normally open', 'normally closed', 'controlled' or 'unknown' }
+   *
+   * @exports
+   */
   doorState: function (bytes, offset, translator) {
     const byte = bytes.getUint8(offset, true)
 
     const control = {
-      value: byte
+      value: byte,
     }
 
     switch (byte) {
@@ -394,58 +403,58 @@ module.exports = {
   },
 
   /**
-    * Expands an event type '0' (no event) into an object with event code and internationalised
-    * event message.
-    *
-    * @param {function} translator (optional) function to translate event message.
-    *
-    * @param {object}   { code:byte, event:string }
-    *
-    * @exports
-    */
+   * Expands an event type '0' (no event) into an object with event code and internationalised
+   * event message.
+   *
+   * @param {function} translator (optional) function to translate event message.
+   *
+   * @param {object}   { code:byte, event:string }
+   *
+   * @exports
+   */
   noEventType: function (translator) {
     return {
       code: 0,
-      event: translate(translator, 'none')
+      event: translate(translator, 'none'),
     }
   },
 
   /**
-    * Expands an event direction '0' (no event) into an object with event code and internationalised
-    * event message.
-    *
-    * @param {function} translator (optional) function to translate event message.
-    *
-    * @param {object}   { code:byte, event:string }
-    *
-    * @exports
-    */
+   * Expands an event direction '0' (no event) into an object with event code and internationalised
+   * event message.
+   *
+   * @param {function} translator (optional) function to translate event message.
+   *
+   * @param {object}   { code:byte, event:string }
+   *
+   * @exports
+   */
   noEventDirection: function (translator) {
     return {
       code: 0,
-      direction: translate(translator, 'unknown')
+      direction: translate(translator, 'unknown'),
     }
   },
 
   /**
-    * Expands an event reason '0' (no event) into an object with event reason and internationalised
-    * reason description.
-    *
-    * @param {function} translator (optional) function to translate reason description.
-    *
-    * @param {object}   { code: byte, reason: string }
-    *
-    * @exports
-    */
+   * Expands an event reason '0' (no event) into an object with event reason and internationalised
+   * reason description.
+   *
+   * @param {function} translator (optional) function to translate reason description.
+   *
+   * @param {object}   { code: byte, reason: string }
+   *
+   * @exports
+   */
   noEventReason: function (translator) {
     return {
       code: 0,
-      reason: translate(translator, 'no reason')
+      reason: translate(translator, 'no reason'),
     }
-  }
+  },
 }
 
-function translate (translator, text) {
+function translate(translator, text) {
   if (translator && Object.keys(map).includes(text)) {
     return translator(map[text])
   }

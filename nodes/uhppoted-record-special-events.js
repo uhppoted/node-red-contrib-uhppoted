@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function RecordSpecialEventsNode (config) {
+  function RecordSpecialEventsNode(config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -13,7 +13,7 @@ module.exports = function (RED) {
     common.ok(node)
 
     this.on('input', function (msg, send, done) {
-      const t = (topic && topic !== '') ? topic : msg.topic
+      const t = topic && topic !== '' ? topic : msg.topic
       const controller = common.resolve(msg.payload)
       const enable = msg.payload.enable
 
@@ -21,7 +21,7 @@ module.exports = function (RED) {
         common.emit(node, t, {
           deviceId: object.deviceId,
           enable,
-          updated: object.updated
+          updated: object.updated,
         })
       }
 
@@ -32,17 +32,38 @@ module.exports = function (RED) {
       try {
         const context = {
           config: uhppote,
-          translator: (k) => { return RED._('record-special-events.' + k) },
-          logger: (m) => { node.log(m) }
+          translator: (k) => {
+            return RED._('record-special-events.' + k)
+          },
+          logger: (m) => {
+            node.log(m)
+          },
         }
 
-        uhppoted.set(context, controller.id, opcodes.RecordSpecialEvents, { enable }, controller.address, controller.protocol)
-          .then(object => { emit(object) })
+        uhppoted
+          .set(
+            context,
+            controller.id,
+            opcodes.RecordSpecialEvents,
+            { enable },
+            controller.address,
+            controller.protocol,
+          )
+          .then((object) => {
+            emit(object)
+          })
           .then(done())
-          .catch(err => { error(err) })
-      } catch (err) { error(err) }
+          .catch((err) => {
+            error(err)
+          })
+      } catch (err) {
+        error(err)
+      }
     })
   }
 
-  RED.nodes.registerType('uhppoted-record-special-events', RecordSpecialEventsNode)
+  RED.nodes.registerType(
+    'uhppoted-record-special-events',
+    RecordSpecialEventsNode,
+  )
 }

@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function DeleteCardNode (config) {
+  function DeleteCardNode(config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -13,7 +13,7 @@ module.exports = function (RED) {
     common.ok(node)
 
     this.on('input', function (msg, send, done) {
-      const t = (topic && topic !== '') ? topic : msg.topic
+      const t = topic && topic !== '' ? topic : msg.topic
       const controller = common.resolve(msg.payload)
       const cardNumber = msg.payload.cardNumber
 
@@ -28,15 +28,33 @@ module.exports = function (RED) {
       try {
         const context = {
           config: uhppote,
-          translator: (k) => { return RED._('delete-card.' + k) },
-          logger: (m) => { node.log(m) }
+          translator: (k) => {
+            return RED._('delete-card.' + k)
+          },
+          logger: (m) => {
+            node.log(m)
+          },
         }
 
-        uhppoted.set(context, controller.id, opcodes.DeleteCard, { card: cardNumber }, controller.address, controller.protocol)
-          .then(object => { emit(object) })
+        uhppoted
+          .set(
+            context,
+            controller.id,
+            opcodes.DeleteCard,
+            { card: cardNumber },
+            controller.address,
+            controller.protocol,
+          )
+          .then((object) => {
+            emit(object)
+          })
           .then(done())
-          .catch(err => { error(err) })
-      } catch (err) { error(err) }
+          .catch((err) => {
+            error(err)
+          })
+      } catch (err) {
+        error(err)
+      }
     })
   }
 

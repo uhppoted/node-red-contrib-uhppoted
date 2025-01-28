@@ -19,7 +19,11 @@ update-release:
 	npm i --lockfile-version 1 --package-lock-only 
 	# npm audit fix
 
-build:
+format:
+	npx prettier --write nodes/*.js
+	npx prettier --write test/*.js
+
+build: format
 	npx eslint --fix nodes/**/*.js  
 
 debug: build

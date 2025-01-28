@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function AddTaskNode (config) {
+  function AddTaskNode(config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -13,7 +13,7 @@ module.exports = function (RED) {
     common.ok(node)
 
     this.on('input', function (msg, send, done) {
-      const t = (topic && topic !== '') ? topic : msg.topic
+      const t = topic && topic !== '' ? topic : msg.topic
       const controller = common.resolve(msg.payload)
       const task = msg.payload.task
 
@@ -28,15 +28,33 @@ module.exports = function (RED) {
       try {
         const context = {
           config: uhppote,
-          translator: (k) => { return RED._('add-task.' + k) },
-          logger: (m) => { node.log(m) }
+          translator: (k) => {
+            return RED._('add-task.' + k)
+          },
+          logger: (m) => {
+            node.log(m)
+          },
         }
 
-        uhppoted.get(context, controller.id, opcodes.AddTask, { task }, controller.address, controller.protocol)
-          .then(object => { emit(object) })
+        uhppoted
+          .get(
+            context,
+            controller.id,
+            opcodes.AddTask,
+            { task },
+            controller.address,
+            controller.protocol,
+          )
+          .then((object) => {
+            emit(object)
+          })
           .then(done())
-          .catch(err => { error(err) })
-      } catch (err) { error(err) }
+          .catch((err) => {
+            error(err)
+          })
+      } catch (err) {
+        error(err)
+      }
     })
 
     this.translate = function (key) {

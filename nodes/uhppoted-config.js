@@ -1,5 +1,5 @@
 module.exports = function (RED) {
-  function UhppotedConfigNode (node) {
+  function UhppotedConfigNode(node) {
     RED.nodes.createNode(this, node)
 
     this.name = node.name

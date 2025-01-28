@@ -3,7 +3,7 @@ module.exports = function (RED) {
   const uhppoted = require('./uhppoted.js')
   const opcodes = require('../nodes/opcodes.js')
 
-  function SetIPNode (config) {
+  function SetIPNode(config) {
     RED.nodes.createNode(this, config)
 
     const node = this
@@ -13,7 +13,7 @@ module.exports = function (RED) {
     this.status({})
 
     this.on('input', function (msg, send, done) {
-      const t = (topic && topic !== '') ? topic : msg.topic
+      const t = topic && topic !== '' ? topic : msg.topic
       const controller = common.resolve(msg.payload)
       const address = msg.payload.address
       const netmask = msg.payload.netmask
@@ -30,15 +30,33 @@ module.exports = function (RED) {
       try {
         const context = {
           config: uhppote,
-          translator: (k) => { return RED._('set-ip.' + k) },
-          logger: (m) => { node.log(m) }
+          translator: (k) => {
+            return RED._('set-ip.' + k)
+          },
+          logger: (m) => {
+            node.log(m)
+          },
         }
 
-        uhppoted.send(context, controller.id, opcodes.SetIP, { address, netmask, gateway }, controller.address, controller.protocol)
-          .then(object => { emit(object) })
+        uhppoted
+          .send(
+            context,
+            controller.id,
+            opcodes.SetIP,
+            { address, netmask, gateway },
+            controller.address,
+            controller.protocol,
+          )
+          .then((object) => {
+            emit(object)
+          })
           .then(done())
-          .catch(err => { error(err) })
-      } catch (err) { error(err) }
+          .catch((err) => {
+            error(err)
+          })
+      } catch (err) {
+        error(err)
+      }
     })
   }
 

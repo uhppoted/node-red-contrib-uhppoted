@@ -5,8 +5,8 @@ const encoder = require('../nodes/encoder.js')
 const decoder = require('../nodes/decoder.js')
 
 /**
-  * Lookup table that maps op codes to the equivalent encoder function.
-  */
+ * Lookup table that maps op codes to the equivalent encoder function.
+ */
 const enc = new Map([
   [opcodes.GetDevice, encoder.GetDevice],
   [opcodes.SetIP, encoder.SetIP],
@@ -38,12 +38,12 @@ const enc = new Map([
   [opcodes.SetInterlock, encoder.SetInterlock],
   [opcodes.ActivateKeypads, encoder.ActivateKeypads],
   [opcodes.SetDoorPasscodes, encoder.SetDoorPasscodes],
-  [opcodes.RestoreDefaultParameters, encoder.RestoreDefaultParameters]
+  [opcodes.RestoreDefaultParameters, encoder.RestoreDefaultParameters],
 ])
 
 /**
-  * Lookup table that maps message codes to the equivalent decoder function.
-  */
+ * Lookup table that maps message codes to the equivalent decoder function.
+ */
 const dec = new Map([
   [0x20, decoder.GetStatus],
   [0x30, decoder.SetTime],
@@ -74,21 +74,21 @@ const dec = new Map([
   [0xb0, decoder.GetEvent],
   [0xb2, decoder.SetEventIndex],
   [0xb4, decoder.GetEventIndex],
-  [0xc8, decoder.RestoreDefaultParameters]
+  [0xc8, decoder.RestoreDefaultParameters],
 ])
 
 module.exports = {
   /**
-    * Encodes a request as a 64 byte UDP message.
-    *
-    * @param {opcode}   code     Function opcode, translated into message function byte
-    * @param {number}   deviceId The serial number for the target access controller
-    * @param {object}   object   Additional request specific information.
-    *
-    * @param {buffer}   64 byte NodeJS Buffer
-    *
-    * @exports
-    */
+   * Encodes a request as a 64 byte UDP message.
+   *
+   * @param {opcode}   code     Function opcode, translated into message function byte
+   * @param {number}   deviceId The serial number for the target access controller
+   * @param {object}   object   Additional request specific information.
+   *
+   * @param {buffer}   64 byte NodeJS Buffer
+   *
+   * @exports
+   */
   encode: function (code, deviceId, object) {
     const request = Buffer.alloc(64)
 
@@ -104,19 +104,23 @@ module.exports = {
   },
 
   /**
-    * Decodes a 64 byte received message into the corresponding object.
-    *
-    * @param {buffer}   buffer     64 byte NodeJS buffer
-    * @param {function} translator (optional) function to internationalise the text in a decoded object
-    *
-    * @param {object}   Decoded object (or null)
-    *
-    * @exports
-    */
+   * Decodes a 64 byte received message into the corresponding object.
+   *
+   * @param {buffer}   buffer     64 byte NodeJS buffer
+   * @param {function} translator (optional) function to internationalise the text in a decoded object
+   *
+   * @param {object}   Decoded object (or null)
+   *
+   * @exports
+   */
   decode: function (buffer, translator) {
     // NOTE: v6.62 firmware sends events with SOM code 0x19
     //       Ref. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/3
-    if (buffer.length === 64 && (buffer[0] === 0x17 || (buffer[0] === 0x19 && buffer[1] === 0x20)) && dec.has(buffer[1])) {
+    if (
+      buffer.length === 64 &&
+      (buffer[0] === 0x17 || (buffer[0] === 0x19 && buffer[1] === 0x20)) &&
+      dec.has(buffer[1])
+    ) {
       const f = dec.get(buffer[1])
       const bytes = new DataView(buffer.buffer)
 
@@ -124,5 +128,5 @@ module.exports = {
     }
 
     return null
-  }
+  },
 }
