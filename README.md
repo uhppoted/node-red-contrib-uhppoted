@@ -20,6 +20,10 @@ support for controller events.
 
 ##### Current Release
 
+** [1.1.10](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.10) - 2025-02-12**
+
+1. Fixed bug 'connected UDP' logic (not using using injected controller address:port).
+
 **[v1.1.9](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.9) - 2025-01-29**
 
 1. Added event _auto-send interval_ to the `get-listener` and `set-listener` nodes.

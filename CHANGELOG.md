@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+## [1.1.10](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.10) - 2025-02-12
+
+### Updated
+1. Fixed bug in 'connected UDP' logic (not using injected controller address:port).
+
 
 ## [1.1.9](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.9) - 2025-01-29
 
