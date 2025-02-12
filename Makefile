@@ -59,3 +59,6 @@ examples: build
 dashboard: build
 	node-red ./examples/dashboard.json
 
+simulator:
+	docker run --detach --publish 8000:8000 --publish 60005:60000 --publish 60005:60000/udp --name simulator --rm uhppoted/simulator-dev
+
