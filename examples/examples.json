@@ -359,6 +359,7 @@
         "type": "uhppoted-get-device",
         "z": "f0ca7ab6.b09058",
         "name": "get-device",
+        "topic": "",
         "config": "cf35d9904542f0af",
         "x": 290,
         "y": 100,
@@ -533,7 +534,7 @@
         "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
         "payloadType": "json",
         "x": 130,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "f12b1459d211e6d6"
@@ -548,7 +549,7 @@
         "topic": "",
         "config": "cf35d9904542f0af",
         "x": 300,
-        "y": 140,
+        "y": 180,
         "wires": [
             [
                 "68a62e02b458d87a"
@@ -562,7 +563,8 @@
         "name": "received",
         "links": [
             "1b475bda78fb39d0",
-            "68a62e02b458d87a"
+            "68a62e02b458d87a",
+            "ef8850a20f5f68b0"
         ],
         "x": 545,
         "y": 100,
@@ -579,7 +581,8 @@
         "name": "get-device",
         "links": [
             "1b475bda78fb39d0",
-            "68a62e02b458d87a"
+            "68a62e02b458d87a",
+            "ef8850a20f5f68b0"
         ],
         "x": 545,
         "y": 140,
@@ -605,6 +608,64 @@
     },
     {
         "id": "68a62e02b458d87a",
+        "type": "link out",
+        "z": "f0ca7ab6.b09058",
+        "name": "get-device-tcp",
+        "mode": "link",
+        "links": [
+            "45d6c42b45d140b7",
+            "e31739459dec6f32"
+        ],
+        "x": 435,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "441f9cddf524f6bb",
+        "type": "inject",
+        "z": "f0ca7ab6.b09058",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\"}}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 140,
+        "wires": [
+            [
+                "05b93141d184148d"
+            ]
+        ]
+    },
+    {
+        "id": "05b93141d184148d",
+        "type": "uhppoted-get-device",
+        "z": "f0ca7ab6.b09058",
+        "name": "get-device-udp",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "ef8850a20f5f68b0"
+            ]
+        ]
+    },
+    {
+        "id": "ef8850a20f5f68b0",
         "type": "link out",
         "z": "f0ca7ab6.b09058",
         "name": "get-device-tcp",
