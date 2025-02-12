@@ -27,8 +27,9 @@ build: format
 	npx eslint --fix nodes/**/*.js  
 
 debug: build
-	npx eslint --fix test/**/*.js  
-	npm run test
+#	npx eslint --fix test/**/*.js
+#	npm run test
+	node-red ./examples/debug.json
 
 test: 
 	npx eslint --fix test/**/*.js  
@@ -57,3 +58,4 @@ examples: build
 
 dashboard: build
 	node-red ./examples/dashboard.json
+

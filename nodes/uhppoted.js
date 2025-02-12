@@ -50,8 +50,16 @@ module.exports = {
 
       if (protocol === 'tcp' && dest != null) {
         return tcp(c, dest, op, request, receiver).then(decode)
+      } else if (dest != null) {
+        return udp(c, dest, op, request, receiver).then(decode)
       } else {
-        return udp(c, op, request, receiver).then(decode)
+        return udp(
+          c,
+          { address: c.addr.address, port: c.addr.port },
+          op,
+          request,
+          receiver,
+        ).then(decode)
       }
     } finally {
       receiver.cancel()
@@ -100,8 +108,16 @@ module.exports = {
 
       if (protocol === 'tcp' && dest != null) {
         return tcp(c, dest, op, request, receiver).then(decode)
+      } else if (dest != null) {
+        return udp(c, dest, op, request, receiver).then(decode)
       } else {
-        return udp(c, op, request, receiver).then(decode)
+        return udp(
+          c,
+          { address: c.addr.address, port: c.addr.port },
+          op,
+          request,
+          receiver,
+        ).then(decode)
       }
     } finally {
       receiver.cancel()
@@ -144,8 +160,16 @@ module.exports = {
 
     if (protocol === 'tcp' && dest != null) {
       return tcp(c, dest, op, request, receiver).then(decode)
+    } else if (dest != null) {
+      return udp(c, dest, op, request, receiver).then(decode)
     } else {
-      return udp(c, op, request, receiver).then(decode)
+      return udp(
+        c,
+        { address: c.addr.address, port: c.addr.port },
+        op,
+        request,
+        receiver,
+      ).then(decode)
     }
   },
 
@@ -197,7 +221,13 @@ module.exports = {
       replies.push(new Uint8Array(message))
     }
 
-    return udp(c, op, request, receiver).then(decode)
+    return udp(
+      c,
+      { address: c.addr.address, port: c.addr.port },
+      op,
+      request,
+      receiver,
+    ).then(decode)
   },
 
   /**
@@ -247,6 +277,7 @@ module.exports = {
  * supplied handler for dispatch to the application.
  *
  * @param {object}   context  Addresses, logger, debug, etc.
+ * @param {object}   dest     Destination { address,port }
  * @param {byte}     op       Operation code from 'opcode' module
  * @param {object}   request  Operation parameters for use by codec.encode
  * @param {function} receive  Handler for received messages
@@ -254,7 +285,7 @@ module.exports = {
  * @return {object}  Decoded reply from access controller
  *
  */
-async function udp(ctx, op, request, receive) {
+async function udp(ctx, dest, op, request, receive) {
   const sock = dgram.createSocket(opts)
   const rq = codec.encode(op, ctx.deviceId, request)
 
@@ -266,7 +297,7 @@ async function udp(ctx, op, request, receive) {
 
   const send = new Promise((resolve, reject) => {
     sock.on('listening', () => {
-      if (ctx.forceBroadcast || isBroadcast(ctx.addr.address)) {
+      if (ctx.forceBroadcast || isBroadcast(dest.address)) {
         sock.setBroadcast(true)
       }
 
@@ -274,8 +305,8 @@ async function udp(ctx, op, request, receive) {
         new Uint8Array(rq),
         0,
         64,
-        ctx.addr.port,
-        ctx.addr.address,
+        dest.port,
+        dest.address,
         (err, bytes) => {
           if (err) {
             reject(err)

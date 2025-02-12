@@ -11,6 +11,7 @@ node_modules
 
 # node-red
 examples/*.backup
+examples/debug.json
 integration-tests/*.backup
 
 
