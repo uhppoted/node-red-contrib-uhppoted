@@ -6,7 +6,7 @@
       - [x] use addr:port from dest for connected UDP
       - [x] add 'connected UDP' example
       - [x] remove controllers list from TCP integration tests configuration
-      - [ ] connected UDP integration tests
+      - [x] remove controllers list from 'connected UDP' integration tests configuration
 
 - [ ] TCP/IP 'AggregateError' if it can't connect
 
