@@ -17,16 +17,11 @@ module.exports = function (RED) {
       const controller = common.resolve(msg.payload)
       const address = msg.payload.address
       const port = msg.payload.port
-      const interval = Number.isNaN(msg.payload.interval)
-        ? 0
-        : common.clamp(msg.payload.interval, 0, 255)
+      const interval = Number.isNaN(msg.payload.interval) ? 0 : common.clamp(msg.payload.interval, 0, 255)
 
       const emit = function (object) {
         if (!object.updated) {
-          throw new Error(
-            `failed to update listener address for ${controller.id}`,
-            controller.id,
-          )
+          throw new Error(`failed to update listener address for ${controller.id}`, controller.id)
         }
 
         common.emit(node, t, {

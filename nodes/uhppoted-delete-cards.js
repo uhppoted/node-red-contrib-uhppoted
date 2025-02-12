@@ -36,14 +36,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .set(
-            context,
-            controller.id,
-            opcodes.DeleteCards,
-            {},
-            controller.address,
-            controller.protocol,
-          )
+          .set(context, controller.id, opcodes.DeleteCards, {}, controller.address, controller.protocol)
           .then((object) => {
             emit(object)
           })

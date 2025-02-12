@@ -41,14 +41,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .set(
-            context,
-            controller.id,
-            opcodes.RecordSpecialEvents,
-            { enable },
-            controller.address,
-            controller.protocol,
-          )
+          .set(context, controller.id, opcodes.RecordSpecialEvents, { enable }, controller.address, controller.protocol)
           .then((object) => {
             emit(object)
           })
@@ -62,8 +55,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType(
-    'uhppoted-record-special-events',
-    RecordSpecialEventsNode,
-  )
+  RED.nodes.registerType('uhppoted-record-special-events', RecordSpecialEventsNode)
 }

@@ -24,14 +24,7 @@ module.exports = {
    *
    * @exports
    */
-  get: async function (
-    ctx,
-    controller,
-    op,
-    request,
-    dest = null,
-    protocol = 'udp',
-  ) {
+  get: async function (ctx, controller, op, request, dest = null, protocol = 'udp') {
     const c = context(controller, ctx.config, ctx.logger)
     const receiver = receiveAny(c.timeout)
 
@@ -53,13 +46,7 @@ module.exports = {
       } else if (dest != null) {
         return udp(c, dest, op, request, receiver).then(decode)
       } else {
-        return udp(
-          c,
-          { address: c.addr.address, port: c.addr.port },
-          op,
-          request,
-          receiver,
-        ).then(decode)
+        return udp(c, { address: c.addr.address, port: c.addr.port }, op, request, receiver).then(decode)
       }
     } finally {
       receiver.cancel()
@@ -83,14 +70,7 @@ module.exports = {
    *
    * @exports
    */
-  set: async function (
-    ctx,
-    controller,
-    op,
-    request,
-    dest = null,
-    protocol = 'udp',
-  ) {
+  set: async function (ctx, controller, op, request, dest = null, protocol = 'udp') {
     const c = context(controller, ctx.config, ctx.logger)
     const receiver = receiveAny(c.timeout)
 
@@ -111,13 +91,7 @@ module.exports = {
       } else if (dest != null) {
         return udp(c, dest, op, request, receiver).then(decode)
       } else {
-        return udp(
-          c,
-          { address: c.addr.address, port: c.addr.port },
-          op,
-          request,
-          receiver,
-        ).then(decode)
+        return udp(c, { address: c.addr.address, port: c.addr.port }, op, request, receiver).then(decode)
       }
     } finally {
       receiver.cancel()
@@ -138,14 +112,7 @@ module.exports = {
    *                              'udp' unless 'tcp'
    *
    */
-  send: async function (
-    ctx,
-    controller,
-    op,
-    request,
-    dest = null,
-    protocol = 'udp',
-  ) {
+  send: async function (ctx, controller, op, request, dest = null, protocol = 'udp') {
     const c = context(controller, ctx.config, ctx.logger)
 
     const receiver = new Promise((resolve) => {
@@ -163,13 +130,7 @@ module.exports = {
     } else if (dest != null) {
       return udp(c, dest, op, request, receiver).then(decode)
     } else {
-      return udp(
-        c,
-        { address: c.addr.address, port: c.addr.port },
-        op,
-        request,
-        receiver,
-      ).then(decode)
+      return udp(c, { address: c.addr.address, port: c.addr.port }, op, request, receiver).then(decode)
     }
   },
 
@@ -221,13 +182,7 @@ module.exports = {
       replies.push(new Uint8Array(message))
     }
 
-    return udp(
-      c,
-      { address: c.addr.address, port: c.addr.port },
-      op,
-      request,
-      receiver,
-    ).then(decode)
+    return udp(c, { address: c.addr.address, port: c.addr.port }, op, request, receiver).then(decode)
   },
 
   /**
@@ -301,21 +256,14 @@ async function udp(ctx, dest, op, request, receive) {
         sock.setBroadcast(true)
       }
 
-      sock.send(
-        new Uint8Array(rq),
-        0,
-        64,
-        dest.port,
-        dest.address,
-        (err, bytes) => {
-          if (err) {
-            reject(err)
-          } else {
-            log(ctx.debug, 'sent', rq, ctx.addr)
-            resolve(bytes)
-          }
-        },
-      )
+      sock.send(new Uint8Array(rq), 0, 64, dest.port, dest.address, (err, bytes) => {
+        if (err) {
+          reject(err)
+        } else {
+          log(ctx.debug, 'sent', rq, ctx.addr)
+          resolve(bytes)
+        }
+      })
     })
 
     sock.bind({
@@ -494,9 +442,7 @@ function log(debug, label, message, rinfo) {
     } else {
       const prefix = ' '.repeat(18)
       const pad = ' '.repeat(26)
-      console.log(
-        prefix + '[debug] ' + description + '\n' + pad + format(message, pad),
-      )
+      console.log(prefix + '[debug] ' + description + '\n' + pad + format(message, pad))
     }
   }
 }

@@ -750,18 +750,8 @@ function bcd(bytes, offset, length) {
  */
 function yyyymmddHHmmss(bytes, offset) {
   const datetime = bcd(bytes, offset, 7)
-  const date =
-    datetime.substr(0, 4) +
-    '-' +
-    datetime.substr(4, 2) +
-    '-' +
-    datetime.substr(6, 2)
-  const time =
-    datetime.substr(8, 2) +
-    ':' +
-    datetime.substr(10, 2) +
-    ':' +
-    datetime.substr(12, 2)
+  const date = datetime.substr(0, 4) + '-' + datetime.substr(4, 2) + '-' + datetime.substr(6, 2)
+  const time = datetime.substr(8, 2) + ':' + datetime.substr(10, 2) + ':' + datetime.substr(12, 2)
 
   return date + ' ' + time
 }
@@ -782,18 +772,8 @@ function optionalDatetime(bytes, offset) {
   if (datetime === '00000000000000') {
     return ''
   } else {
-    const date =
-      datetime.substr(0, 4) +
-      '-' +
-      datetime.substr(4, 2) +
-      '-' +
-      datetime.substr(6, 2)
-    const time =
-      datetime.substr(8, 2) +
-      ':' +
-      datetime.substr(10, 2) +
-      ':' +
-      datetime.substr(12, 2)
+    const date = datetime.substr(0, 4) + '-' + datetime.substr(4, 2) + '-' + datetime.substr(6, 2)
+    const time = datetime.substr(8, 2) + ':' + datetime.substr(10, 2) + ':' + datetime.substr(12, 2)
 
     return date + ' ' + time
   }

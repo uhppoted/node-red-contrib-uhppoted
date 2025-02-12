@@ -34,12 +34,7 @@ module.exports = function (RED) {
           break
 
         default:
-          throw new Error(
-            RED._('set-door-control.invalidDoorControl').replace(
-              /\${code}/,
-              msg.payload.control,
-            ),
-          )
+          throw new Error(RED._('set-door-control.invalidDoorControl').replace(/\${code}/, msg.payload.control))
       }
 
       const emit = function (object) {

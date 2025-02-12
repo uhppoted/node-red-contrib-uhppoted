@@ -331,12 +331,7 @@ module.exports = {
         } else {
           const profileID = Number(permission)
 
-          if (
-            !Number.isNaN(profileID) &&
-            Number.isInteger(profileID) &&
-            profileID >= 2 &&
-            profileID <= 254
-          ) {
+          if (!Number.isNaN(profileID) && Number.isInteger(profileID) && profileID >= 2 && profileID <= 254) {
             request.writeUInt8(profileID, offset)
           }
         }
@@ -438,24 +433,14 @@ module.exports = {
       profileID = Number(profile.id)
     }
 
-    if (
-      Number.isNaN(profileID) ||
-      !Number.isInteger(profileID) ||
-      profileID < 2 ||
-      profileID > 254
-    ) {
+    if (Number.isNaN(profileID) || !Number.isInteger(profileID) || profileID < 2 || profileID > 254) {
       throw new Error(`invalid profile ID (${profile.id})`)
     }
 
     if (profile.linkedTo) {
       linked = Number(profile.linkedTo)
 
-      if (
-        Number.isNaN(linked) ||
-        !Number.isInteger(linked) ||
-        linked < 2 ||
-        linked > 254
-      ) {
+      if (Number.isNaN(linked) || !Number.isInteger(linked) || linked < 2 || linked > 254) {
         throw new Error(`invalid linked profile (${profile.linkedTo})`)
       }
     }
@@ -484,12 +469,7 @@ module.exports = {
       const re = /[0-9]{2}:[0-9]{2}/
       let offset = 24
       profile.segments.slice(0, 3).forEach((segment) => {
-        if (
-          segment.start &&
-          segment.end &&
-          re.test(segment.start) &&
-          re.test(segment.end)
-        ) {
+        if (segment.start && segment.end && re.test(segment.start) && re.test(segment.end)) {
           HHmm2bin(segment.start).copy(request, offset)
           HHmm2bin(segment.end).copy(request, offset + 2)
           offset = offset + 4
@@ -794,8 +774,7 @@ module.exports = {
 
     for (let i = 0; i < 4; i++) {
       if (passcodes && passcodes.length > i) {
-        const passcode =
-          passcodes[i] > 0 && passcodes[i] < 1000000 ? passcodes[i] : 0
+        const passcode = passcodes[i] > 0 && passcodes[i] < 1000000 ? passcodes[i] : 0
 
         request.writeUInt32LE(passcode, 12 + 4 * i)
       }
@@ -852,8 +831,7 @@ function uint24(PIN) {
  */
 function datetime2bin(datetime) {
   const bytes = []
-  const re =
-    /([0-9]{2})([0-9]{2})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2})/
+  const re = /([0-9]{2})([0-9]{2})-([0-9]{2})-([0-9]{2}) ([0-9]{2}):([0-9]{2}):([0-9]{2})/
   const match = datetime.match(re)
 
   for (const m of match.slice(1)) {

@@ -180,10 +180,7 @@ module.exports = {
         break
 
       case 5:
-        reason.reason = translate(
-          translator,
-          'swipe:denied (remote access control)',
-        ) // Access is managed by the system not the controller
+        reason.reason = translate(translator, 'swipe:denied (remote access control)') // Access is managed by the system not the controller
         break
 
       case 6:
@@ -239,10 +236,7 @@ module.exports = {
         break
 
       case 25:
-        reason.reason = translate(
-          translator,
-          'door opened (supervisor password)',
-        )
+        reason.reason = translate(translator, 'door opened (supervisor password)')
         break
 
       case 28:
@@ -254,10 +248,7 @@ module.exports = {
         break
 
       case 31:
-        reason.reason = translate(
-          translator,
-          'pushbutton invalid (door locked)',
-        )
+        reason.reason = translate(translator, 'pushbutton invalid (door locked)')
         break
 
       case 32:

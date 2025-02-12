@@ -37,14 +37,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .get(
-            context,
-            controller.id,
-            opcodes.SetTimeProfile,
-            { profile },
-            controller.address,
-            controller.protocol,
-          )
+          .get(context, controller.id, opcodes.SetTimeProfile, { profile }, controller.address, controller.protocol)
           .then((object) => {
             if (object) {
               object.profileId = profile.id

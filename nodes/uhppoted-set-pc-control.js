@@ -41,14 +41,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .set(
-            context,
-            controller.id,
-            opcodes.SetPCControl,
-            { enable },
-            controller.address,
-            controller.protocol,
-          )
+          .set(context, controller.id, opcodes.SetPCControl, { enable }, controller.address, controller.protocol)
           .then((object) => {
             emit(object)
           })

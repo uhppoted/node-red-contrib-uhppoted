@@ -36,14 +36,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .set(
-            context,
-            controller.id,
-            opcodes.RestoreDefaultParameters,
-            {},
-            controller.address,
-            controller.protocol,
-          )
+          .set(context, controller.id, opcodes.RestoreDefaultParameters, {}, controller.address, controller.protocol)
           .then((object) => {
             emit(object)
           })
@@ -57,8 +50,5 @@ module.exports = function (RED) {
     })
   }
 
-  RED.nodes.registerType(
-    'uhppoted-restore-default-parameters',
-    RestoreDefaultParametersNode,
-  )
+  RED.nodes.registerType('uhppoted-restore-default-parameters', RestoreDefaultParametersNode)
 }

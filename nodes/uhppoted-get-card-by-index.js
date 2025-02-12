@@ -68,14 +68,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .get(
-            context,
-            controller.id,
-            opcodes.GetCardByIndex,
-            { index },
-            controller.address,
-            controller.protocol,
-          )
+          .get(context, controller.id, opcodes.GetCardByIndex, { index }, controller.address, controller.protocol)
           .then((object) => {
             emit(object)
           })
