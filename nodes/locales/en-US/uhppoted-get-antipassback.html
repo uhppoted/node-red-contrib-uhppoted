@@ -1,4 +1,4 @@
-<script type="text/html" data-template-name="uhppoted-get-door-control">
+<script type="text/html" data-template-name="uhppoted-get-antipassback">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -13,13 +13,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="uhppoted-get-door-control">
-    <p>Retrieves the current device door control state for a UHPPOTE access controller.</p>
+<script type="text/html" data-help-name="uhppoted-get-antipassback">
+    <p>Retrieves the controller anti-passback mode.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the controller ID and door number for 'get-door-control'</dd>
+        <dd>JSON object with the controller ID for 'get-antipassback'</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -27,14 +27,13 @@
     <h3>Outputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the controller current device door control state</dd>
+        <dd>JSON object with the controller anti-passback code and mode.</dd>
         <dt>topic<span class="property-type">string</span></dt>
         <dd>message topic copied from input</dd>
     </dl>
 
     <h3>Details</h3>
-    <p>The input <code>msg.payload</code> is a JSON object identifying the destination controller
-    and the door number.</p>
+    <p>The input <code>msg.payload</code> is a JSON object identifying the destination controller.</p>
     <p>The controller is identified by specifying either the (legacy) 'deviceId' or the composite
     controller' object which supports both UDP and TCP connections. Defaults to broadcast UDP if
     the address or protocol are not valid.</p>
@@ -47,14 +46,11 @@
         <dd>controller IPv4 address</dd>
         <dt>controller.protocol<span class="property-type">string</span></dt>
         <dd>controller connection protocol ('udp' or 'tcp')</dd>
-        <dt>door<span class="property-type">uint8</span></dt>
-        <dd>Door number (1-4)</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
-    "deviceId": 405419896,
-    "door": 3
+    "deviceId": 405419896
   }</pre>
     <pre>
   {
@@ -62,36 +58,29 @@
         "controller": 405419896,
         "address": "192.168.1.100",
         "protocol": "tcp"
-    },
-    "door": 3
+    }
   }</pre>
 
-    <p>The output <code>msg.payload</code> is a JSON object containing the door control state 
-    (normally open, normally closed or controlled) from the UHPPOTE controller with 
+    <p>The output <code>msg.payload</code> is a JSON object containing the anti-passback code and
+    mode from the UHPPOTE controller with 
     serial number matching the request:</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
-        <dt>doorControlState.door<span class="property-type">uint8</span></dt>
-        <dd>Door ID (1-4)</dd>
-        <dt>doorControlState.delay<span class="property-type">uint8</span></dt>
-        <dd>Door unlock duration (seconds)</dd>
-        <dt>doorControlState.control.value<span class="property-type">uint8</span></dt>
+        <dt>antipassback.code<span class="property-type">uint8</span></dt>
+        <dd>Numeric code for anti-passback mode (0: disabled, 1:(1:2);3:4), 2:(1,3):2,4), 3:1:(2,3),4:1:(2,3,4)</dd>
+        <dt>antipassback.mode<span class="property-type">string</span></dt>
         <dd>Numeric code for door control state (normally open:1, normally closed:2, controlled:3)</dd>
-        <dt>doorControlState.control.state<span class="property-type">string</span></dt>
-        <dd>'normally open', 'normally closed', 'controlled' or 'unknown'</dd>
+        <dd>'disabled', '(1:2);(3:4)', '(1,3):(2,4)', '1:(2,3)', '1:(2,3,4)'' or 'unknown'</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896,
-    "doorControlState": {
-        door: 1, 
-        delay: 5,
-        control: {
-            value: 3,
-            state: "controlled"
-        }
+    "antipassback": {
+        code: 2, 
+        mode: "(1,3):(2,4)"
+      }
     }
   }</pre>
     

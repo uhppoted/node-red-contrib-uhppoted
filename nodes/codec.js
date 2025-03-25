@@ -38,6 +38,7 @@ const enc = new Map([
   [opcodes.SetInterlock, encoder.SetInterlock],
   [opcodes.ActivateKeypads, encoder.ActivateKeypads],
   [opcodes.SetDoorPasscodes, encoder.SetDoorPasscodes],
+  [opcodes.GetAntiPassback, encoder.GetAntiPassback],
   [opcodes.RestoreDefaultParameters, encoder.RestoreDefaultParameters],
 ])
 
@@ -57,6 +58,7 @@ const dec = new Map([
   [0x5c, decoder.GetCardByIndex],
   [0x80, decoder.SetDoorControl],
   [0x82, decoder.GetDoorControl],
+  [0x86, decoder.GetAntiPassback],
   [0x90, decoder.SetListener],
   [0x92, decoder.GetListener],
   [0x94, decoder.GetDevice],
@@ -116,11 +118,7 @@ module.exports = {
   decode: function (buffer, translator) {
     // NOTE: v6.62 firmware sends events with SOM code 0x19
     //       Ref. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/3
-    if (
-      buffer.length === 64 &&
-      (buffer[0] === 0x17 || (buffer[0] === 0x19 && buffer[1] === 0x20)) &&
-      dec.has(buffer[1])
-    ) {
+    if (buffer.length === 64 && (buffer[0] === 0x17 || (buffer[0] === 0x19 && buffer[1] === 0x20)) && dec.has(buffer[1])) {
       const f = dec.get(buffer[1])
       const bytes = new DataView(buffer.buffer)
 

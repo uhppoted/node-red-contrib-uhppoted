@@ -784,6 +784,23 @@ module.exports = {
   },
 
   /**
+   * Encodes a get-antipassback request.
+   *
+   * @param {number} deviceId  Controller serial number
+   *
+   * @return {buffer} 64 byte NodeJS buffer with encoded get-antipassback request.
+   */
+  GetAntiPassback: function (deviceId) {
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0x86, 1)
+    request.writeUInt32LE(deviceId, 4)
+
+    return request
+  },
+
+  /**
    * Encode a restore-default-parameters request.
    *
    * @param {number} deviceId  Controller serial number

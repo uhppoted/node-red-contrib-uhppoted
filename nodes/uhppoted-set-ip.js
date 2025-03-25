@@ -39,14 +39,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .send(
-            context,
-            controller.id,
-            opcodes.SetIP,
-            { address, netmask, gateway },
-            controller.address,
-            controller.protocol,
-          )
+          .send(context, controller.id, opcodes.SetIP, { address, netmask, gateway }, controller.address, controller.protocol)
           .then((object) => {
             emit(object)
           })

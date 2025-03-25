@@ -1,4 +1,5 @@
 const ipx = require('./ipx.js')
+const lookup = require('./lookup.js')
 
 module.exports = {
   /**
@@ -12,8 +13,6 @@ module.exports = {
    *                   only the event index (0) if the response does not contain an event.
    */
   GetStatus: function (bytes, translator) {
-    const lookup = require('./lookup.js')
-
     const evt = {
       index: uint32(bytes, 8),
       type: lookup.eventType(bytes, 12, translator),
@@ -254,8 +253,6 @@ module.exports = {
    * @param {object}   Decoded set-door-control response object
    */
   SetDoorControl: function (bytes, translator) {
-    const lookup = require('./lookup.js')
-
     return {
       deviceId: uint32(bytes, 4),
       doorControlState: {
@@ -276,8 +273,6 @@ module.exports = {
    * @param {object}   Decoded get-door-control response object
    */
   GetDoorControl: function (bytes, translator) {
-    const lookup = require('./lookup.js')
-
     return {
       deviceId: uint32(bytes, 4),
       doorControlState: {
@@ -521,8 +516,6 @@ module.exports = {
    * @param {object}   Decoded event object
    */
   GetEvent: function (bytes, translator) {
-    const lookup = require('./lookup.js')
-
     return {
       deviceId: uint32(bytes, 4),
       event: {
@@ -631,6 +624,22 @@ module.exports = {
     return {
       deviceId: uint32(bytes, 4),
       ok: bool(bytes, 8),
+    }
+  },
+
+  /**
+   * Decodes the response to a get-antipassback request (function code 0x86).
+   *
+   * @param {buffer}   bytes      64 byte array
+   * @param {function} translator (optional) function to internationalise the text in a
+   *                              decoded object
+   *
+   * @param {object}   Decoded get-antipassback response object
+   */
+  GetAntiPassback: function (bytes, translator) {
+    return {
+      deviceId: uint32(bytes, 4),
+      antipassback: lookup.antipassback(bytes, 8, translator),
     }
   },
 

@@ -1,23 +1,22 @@
 /**
  * Lookup table to associate message text to the equivalent internationalisation key.
  */
+// prettier-ignore
 const map = {
-  unknown: 'unknown',
+  'unknown': 'unknown',
 
   // event type
-  none: 'eventNone',
-  'card swipe': 'eventSwipe',
-  door: 'eventDoor',
-  alarm: 'eventAlarm',
-  '<overwritten>': 'eventOverwritten',
+  'none': 'eventNone','card swipe': 'eventSwipe',
+  'door': 'eventDoor',
+  'alarm': 'eventAlarm', '<overwritten>': 'eventOverwritten',
 
   // event direction
-  in: 'directionIn',
-  out: 'directionOut',
+  'in': 'directionIn',
+  'out': 'directionOut',
 
   // event reason
   'no reason': '(none)',
-  swipe: 'swipe',
+  'swipe': 'swipe',
   'swipe open': 'swipe open',
   'swipe close': 'swipe close',
   'swipe:denied (remote access control)': 'swipeDenied',
@@ -27,7 +26,7 @@ const map = {
   'more cards': 'moreCards',
   'first card open': 'firstCardOpen',
   'door is normally closed': 'doorNormallyClosed',
-  interlock: 'interlock',
+  'interlock': 'interlock',
   'not in allowed time period': 'notInAllowedTimePeriod',
   'invalid timezone': 'invalidTimezone',
   'access denied': 'accessDenied',
@@ -41,13 +40,14 @@ const map = {
   'pushbutton invalid (offline)': 'pushbuttonOffline',
   'pushbutton invalid (interlock)': 'pushbuttonInterlock',
   'pushbutton invalid (threat)': 'pushbuttonThreat',
-  'door open too long': 'doorOpenTooLong',
-  'forced open': 'forcedOpen',
-  fire: 'fire',
+  'door open too long': 'doorOpenTooLong', 'forced open': 'forcedOpen',
+
+  'fire': 'fire',
   'forced closed': 'forcedClosed',
   'theft prevention': 'theftPrevention',
   '24x7 zone': 'zone24x7',
-  emergency: 'emergency',
+
+  'emergency': 'emergency',
   'remote open door': 'remoteOpenDoor',
   'remote open door (USB reader)': 'usbOpenDoor',
   '(reserved)': 'reserved',
@@ -55,7 +55,7 @@ const map = {
   // doors
   'normally open': 'normallyOpen',
   'normally closed': 'normallyClosed',
-  controlled: 'controlled',
+  'controlled': 'controlled',
 }
 
 module.exports = {
@@ -391,6 +391,54 @@ module.exports = {
     }
 
     return control
+  },
+
+  /**
+   * Expands an antipassback byte into an object with antipassback code and internationalised mode
+   * description.
+   *
+   * @param {array}    bytes      64 byte message as a Uint8Array
+   * @param {number}   offset     Index of event direction byte in message
+   * @param {function} translator (optional) function to translate direction description.
+   *
+   * @param {object}   { code: byte, mode: string }
+   *
+   * @exports
+   */
+  antipassback: function (bytes, offset, translator) {
+    const byte = bytes.getUint8(offset, true)
+
+    const antipassback = {
+      code: byte,
+    }
+
+    switch (byte) {
+      case 0x00:
+        antipassback.mode = translate(translator, 'disabled')
+        break
+
+      case 0x01:
+        antipassback.mode = translate(translator, '(1:2);(3:4)')
+        break
+
+      case 0x02:
+        antipassback.mode = translate(translator, '(1,3):(2,4)')
+        break
+
+      case 0x03:
+        antipassback.mode = translate(translator, '1:(2,3)')
+        break
+
+      case 0x04:
+        antipassback.mode = translate(translator, '1:(2,3,4)')
+        break
+
+      default:
+        antipassback.mode = translate(translator, 'unknown')
+        break
+    }
+
+    return antipassback
   },
 
   /**
