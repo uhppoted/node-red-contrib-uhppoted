@@ -1,4 +1,4 @@
-<script type="text/html" data-template-name="uhppoted-set-door-control">
+<script type="text/html" data-template-name="uhppoted-set-antipassback">
     <div class="form-row">
         <label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
         <input type="text" id="node-input-name" placeholder="Name" />
@@ -13,14 +13,13 @@
     </div>
 </script>
 
-<script type="text/html" data-help-name="uhppoted-set-door-control">
-    <p>Sets the controller door control mode and unlocked interval.</p>
+<script type="text/html" data-help-name="uhppoted-set-antipassback">
+    <p>Sets the controller antipassback mode.</p>
 
     <h3>Inputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the controller ID and door operational parameters for 
-        'set-door-control'</dd>
+        <dd>JSON object with the controller ID and anti-passback mode</dd>
         <dt class="optional">topic<span class="property-type">string</span></dt>
         <dd>identifying message topic for output</dd>
     </dl>
@@ -28,14 +27,14 @@
     <h3>Outputs</h3>
     <dl class="message-properties">
         <dt>payload<span class="property-type">object</span></dt>
-        <dd>JSON object with the controller current device door control state</dd>
+        <dd>JSON object with the controller ID and a success/fail result</dd>
         <dt>topic<span class="property-type">string</span></dt>
         <dd>message topic copied from input</dd>
     </dl>
 
     <h3>Details</h3>
     <p>The input <code>msg.payload</code> is a JSON object identifying the destination controller
-    and the door number, delay and control mode.</p>
+    and the anti-passback mode.</p>
     <p>The controller is identified by specifying either the (legacy) 'deviceId' or the composite
     controller' object which supports both UDP and TCP connections. Defaults to broadcast UDP if
     the address or protocol are not valid.</p>
@@ -48,20 +47,14 @@
         <dd>controller IPv4 address</dd>
         <dt>controller.protocol<span class="property-type">string</span></dt>
         <dd>controller connection protocol ('udp' or 'tcp')</dd>
-        <dt>door<span class="property-type">uint8</span></dt>
-        <dd>Door ID (1-4)</dd>
-        <dt>delay<span class="property-type">uint8</span></dt>
-        <dd>Door unlock duration (seconds)</dd>
-        <dt>control<span class="property-type">string</span></dt>
-        <dd>'normally open', 'normally closed', 'controlled'</dd>
+        <dt>antipassback<span class="property-type">string</span></dt>
+        <dd>'disabled', '(1:2);(3:4)', '(1,3):(2,4)', '1:(2,3)', '1:(2,3,4)'</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896,
-    "door": 1, 
-    "delay": 5,
-    "control": "controlled"
+    "antipassback": "(1,3):(2,4)"
   }</pre>
     <pre>
   {
@@ -70,37 +63,22 @@
         "address": "192.168.1.100",
         "protocol": "tcp"
     },
-    "door": 1, 
-    "delay": 5,
-    "control": "controlled"
+    "antipassback": "(1,3):(2,4)"
   }</pre>
 
-    <p>The output <code>msg.payload</code> is a JSON object containing the door control state 
-    (normally open, normally closed or controlled) from the UHPPOTE controller with 
-    serial number matching the request:</p>
+    <p>The output <code>msg.payload</code> is a JSON object with the controller ID and 
+    a success/fail result:</p>
     <dl class="message-properties">
         <dt>deviceId<span class="property-type">uint32</span></dt>
         <dd>controller serial number</dd>
-        <dt>doorControlState.door<span class="property-type">uint8</span></dt>
-        <dd>Door ID (1-4)</dd>
-        <dt>doorControlState.delay<span class="property-type">uint8</span></dt>
-        <dd>Door unlock duration (seconds)</dd>
-        <dt>doorControlState.control.value<span class="property-type">uint8</span></dt>
-        <dd>Numeric code for door control state (normally open:1, normally closed:2, controlled:3)</dd>
-        <dt>doorControlState.control.state<span class="property-type">string</span></dt>
-        <dd>'normally open', 'normally closed', 'controlled' or 'unknown'</dd>
+        <dt>ok<span class="property-type">boolean</span></dt>
+        <dd>true if the anti-passback mode was set</dd>
     </dl>
     <h4>Example:</h4>
     <pre>
   {
     "deviceId": 405419896,
-    "doorControlState": {
-        "door": 1, 
-        "delay": 5,
-        "control": {
-            "value": 3,
-            "state": "controlled"
-        }
+    "ok": true
     }
   }</pre>
     

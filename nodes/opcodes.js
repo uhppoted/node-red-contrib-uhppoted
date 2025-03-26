@@ -1,10 +1,8 @@
 module.exports = {
   GetDevice: 0x94,
   SetIP: 0x96,
-  GetTime: 0x32,
   SetTime: 0x30,
-  GetDoorControl: 0x82,
-  SetDoorControl: 0x80,
+  GetTime: 0x32,
   GetListener: 0x92,
   SetListener: 0x90,
   RecordSpecialEvents: 0x8e,
@@ -29,10 +27,19 @@ module.exports = {
   SetEventIndex: 0xb2,
   GetEvent: 0xb0,
   OpenDoor: 0x40,
+  SetDoorControl: 0x80,
+  GetDoorControl: 0x82,
+  SetAntiPassback: 0x84,
   GetAntiPassback: 0x86,
   RestoreDefaultParameters: 0xc8,
 
   NormallyOpen: 0x01,
   NormallyClosed: 0x02,
   Controlled: 0x03,
+
+  AntiPassbackDisabled: 0,
+  AntiPassback12_34: 1,
+  AntiPassback13_24: 2,
+  AntiPassback1_23: 3,
+  AntiPassback1_234: 4,
 }

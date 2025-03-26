@@ -801,6 +801,51 @@ module.exports = {
   },
 
   /**
+   * Encodes a set-antipassback request.
+   *
+   * @param {number} deviceId     Controller serial number
+   * @param {string} antipassback Anti-passback mode ('disabled', '(1:2);(3:4)', '(1,3):(2,4)', '1:(2,3)' or '1:(2,3,4)')
+   *
+   * @return {buffer} 64 byte NodeJS buffer with encoded set-antipassback request
+   */
+  SetAntiPassback: function (deviceId, { antipassback } = {}) {
+    const opcodes = require('../nodes/opcodes.js')
+
+    const request = Buffer.alloc(64)
+
+    request.writeUInt8(0x17, 0)
+    request.writeUInt8(0x84, 1)
+    request.writeUInt32LE(deviceId, 4)
+
+    switch (antipassback) {
+      case opcodes.AntiPassbackDisabled:
+        request.writeUInt8(0, 8)
+        break
+
+      case opcodes.AntiPassback12_34:
+        request.writeUInt8(1, 8)
+        break
+
+      case opcodes.AntiPassback13_24:
+        request.writeUInt8(2, 8)
+        break
+
+      case opcodes.AntiPassback1_23:
+        request.writeUInt8(3, 8)
+        break
+
+      case opcodes.AntiPassback1_234:
+        request.writeUInt8(4, 8)
+        break
+
+      default:
+        throw new Error(`invalid anti-passback ${antipassback}`)
+    }
+
+    return request
+  },
+
+  /**
    * Encode a restore-default-parameters request.
    *
    * @param {number} deviceId  Controller serial number

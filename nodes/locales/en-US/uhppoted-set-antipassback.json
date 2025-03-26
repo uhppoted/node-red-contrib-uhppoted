@@ -1,0 +1,14 @@
+{
+    "uhppoted-set-antipassback": {
+        "disabled": "disabled",
+        "12_34": "(1:2);(3:4)",
+        "13_24": "(1,3):(2,4)",
+        "1_23": "1:(2,3)",
+        "1_234": "1:(2,3,4)",
+        "unknown": "unknown",
+
+        "invalidAntiPassback": "invalid antipassback ('${code}')",
+        "inputLabel": "controller ID\nanti-passback",
+        "outputLabel": "antipassback set"        
+    }
+}

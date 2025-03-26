@@ -1,6 +1,6 @@
 {
     "uhppoted-get-antipassback": {
         "inputLabel": "controller ID",
-        "outputLabel": "controller antipassback mode"
+        "outputLabel": "antipassback mode"
     }
 }

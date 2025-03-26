@@ -4,9 +4,10 @@
 
 - [ ] anti-passback (cf. https://github.com/uhppoted/uhppoted/issues/60)
       - [x] `get-antipassback`
-      - [ ] `set-antipassback`
+      - [x] `set-antipassback`
+      - [x] examples
       - [ ] internationalisation
-      - [ ] examples
+            - `26 Mar 10:23:29 - [error] [uhppoted-set-antipassback:set-antipassback] Error: set-antipassback.invalidAntiPassback`
       - [ ] integration tests
       - [ ] CHANGELOG
       - [ ] README

@@ -644,6 +644,22 @@ module.exports = {
   },
 
   /**
+   * Decodes the response to a set-antipassback request (function code 0x84).
+   *
+   * @param {buffer}   bytes      64 byte array
+   * @param {function} translator (optional) function to internationalise the text in a
+   *                              decoded object
+   *
+   * @param {object}   Decoded set-antipassback response object
+   */
+  SetAntiPassback: function (bytes, _translator) {
+    return {
+      deviceId: uint32(bytes, 4),
+      ok: bool(bytes, 8),
+    }
+  },
+
+  /**
    * Decodes the response to a restore-default-parameters request (function code 0xc8).
    *
    * @param {buffer}   bytes      64 byte array

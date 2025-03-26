@@ -2603,7 +2603,8 @@
             "0eb1407bfc40f24c",
             "abf8e4f13a69d570",
             "e646c18d505fcd6f",
-            "d3175c9b3379689b"
+            "d3175c9b3379689b",
+            "e4b06e7eeeeef37b"
         ],
         "x": 605,
         "y": 100,
@@ -3250,7 +3251,7 @@
         "id": "750a149ea7b6ea73",
         "type": "link in",
         "z": "86bbf50e.a7f188",
-        "name": "door-control",
+        "name": "get-antipassback",
         "links": [
             "d3175c9b3379689b"
         ],
@@ -3260,6 +3261,97 @@
             [
                 "b8a2eb444a16be65",
                 "086b806382d5b15c"
+            ]
+        ]
+    },
+    {
+        "id": "7bcdefd1c479efe1",
+        "type": "uhppoted-set-antipassback",
+        "z": "86bbf50e.a7f188",
+        "name": "set-antipassback",
+        "topic": "",
+        "config": "cf35d9904542f0af",
+        "x": 310,
+        "y": 1000,
+        "wires": [
+            [
+                "e4b06e7eeeeef37b"
+            ]
+        ]
+    },
+    {
+        "id": "005ec5f8ced155f3",
+        "type": "inject",
+        "z": "86bbf50e.a7f188",
+        "name": "test",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"controller\":{\"id\":405419896},\"antipassback\":\"1:(2,3)\"}",
+        "payloadType": "json",
+        "x": 130,
+        "y": 1000,
+        "wires": [
+            [
+                "7bcdefd1c479efe1"
+            ]
+        ]
+    },
+    {
+        "id": "e4b06e7eeeeef37b",
+        "type": "link out",
+        "z": "86bbf50e.a7f188",
+        "name": "set-antipassback",
+        "mode": "link",
+        "links": [
+            "d874dfb06a4698ca",
+            "be4b68ccf5ca253e"
+        ],
+        "x": 455,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "36d242ec039f4458",
+        "type": "debug",
+        "z": "86bbf50e.a7f188",
+        "name": "antipassback.ok",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload.ok",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 1000,
+        "wires": []
+    },
+    {
+        "id": "be4b68ccf5ca253e",
+        "type": "link in",
+        "z": "86bbf50e.a7f188",
+        "name": "set-antipassback",
+        "links": [
+            "e4b06e7eeeeef37b"
+        ],
+        "x": 555,
+        "y": 1000,
+        "wires": [
+            [
+                "36d242ec039f4458"
             ]
         ]
     },

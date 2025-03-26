@@ -58,6 +58,7 @@
       "uhppoted-activate-keypads": "nodes/uhppoted-activate-keypads.js",
       "uhppoted-set-door-passcodes": "nodes/uhppoted-set-door-passcodes.js",
       "uhppoted-get-antipassback": "nodes/uhppoted-get-antipassback.js",
+      "uhppoted-set-antipassback": "nodes/uhppoted-set-antipassback.js",
       "uhppoted-restore-default-parameters": "nodes/uhppoted-restore-default-parameters.js",
       "uhppoted-listen": "nodes/uhppoted-listen.js"
     }

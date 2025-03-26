@@ -39,6 +39,7 @@ const enc = new Map([
   [opcodes.ActivateKeypads, encoder.ActivateKeypads],
   [opcodes.SetDoorPasscodes, encoder.SetDoorPasscodes],
   [opcodes.GetAntiPassback, encoder.GetAntiPassback],
+  [opcodes.SetAntiPassback, encoder.SetAntiPassback],
   [opcodes.RestoreDefaultParameters, encoder.RestoreDefaultParameters],
 ])
 
@@ -58,7 +59,8 @@ const dec = new Map([
   [0x5c, decoder.GetCardByIndex],
   [0x80, decoder.SetDoorControl],
   [0x82, decoder.GetDoorControl],
-  [0x86, decoder.GetAntiPassback],
+  [opcodes.SetAntiPassback, decoder.SetAntiPassback],
+  [opcodes.GetAntiPassback, decoder.GetAntiPassback],
   [0x90, decoder.SetListener],
   [0x92, decoder.GetListener],
   [0x94, decoder.GetDevice],

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Added
+1. `uhppoted-get-antipassback` node.
+2. `uhppoted-set-antipassback` node.
+
 
 ## [1.1.10](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.10) - 2025-02-12
 
