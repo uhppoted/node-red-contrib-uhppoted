@@ -6,6 +6,9 @@
 1. `uhppoted-get-antipassback` node.
 2. `uhppoted-set-antipassback` node.
 
+### Updated
+1. Updated dependencies for security patches.
+
 
 ## [1.1.10](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.10) - 2025-02-12
 

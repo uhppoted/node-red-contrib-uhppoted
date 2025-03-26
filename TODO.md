@@ -19,7 +19,7 @@ Node-RED Keyword Found
  ›   Warning: P06 Not Compatible with any current Node-RED versions
 ```
 
-- [ ] Deprecation warning
+- [x] ~~`[DEP0040] DeprecationWarning: The `punycode` module is deprecated`~~
 ```
 Package uses a valid name
 (node:2452) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
