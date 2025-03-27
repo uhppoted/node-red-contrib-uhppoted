@@ -29,7 +29,7 @@ module.exports = function (RED) {
         const context = {
           config: uhppote,
           translator: (k) => {
-            return RED._('get-time-profile.' + k)
+            return RED._('uhppoted-get-time-profile.' + k)
           },
           logger: (m) => {
             node.log(m)
@@ -51,7 +51,7 @@ module.exports = function (RED) {
     })
 
     this.translate = function (key) {
-      return RED._('get-time-profile.' + key)
+      return RED._('uhppoted-get-time-profile.' + key)
     }
   }
 

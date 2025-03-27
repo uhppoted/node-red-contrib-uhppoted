@@ -28,9 +28,7 @@ module.exports = function (RED) {
       try {
         const context = {
           config: uhppote,
-          translator: (k) => {
-            return RED._('delete-card.' + k)
-          },
+          translator: this.translate,
           logger: (m) => {
             node.log(m)
           },
@@ -49,6 +47,10 @@ module.exports = function (RED) {
         error(err)
       }
     })
+
+    this.translate = function (key) {
+      return RED._('uhppoted-delete-card.' + key)
+    }
   }
 
   RED.nodes.registerType('uhppoted-delete-card', DeleteCardNode)

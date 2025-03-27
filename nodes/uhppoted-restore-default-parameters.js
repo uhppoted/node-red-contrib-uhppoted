@@ -1,3 +1,5 @@
+const TAG = 'uhppoted-restore-default-parameters'
+
 module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
@@ -27,9 +29,7 @@ module.exports = function (RED) {
       try {
         const context = {
           config: uhppote,
-          translator: (k) => {
-            return RED._('restore-default-parameters.' + k)
-          },
+          translator: this.translate,
           logger: (m) => {
             node.log(m)
           },
@@ -48,7 +48,11 @@ module.exports = function (RED) {
         error(err)
       }
     })
+
+    this.translate = function (key) {
+      return RED._(`${TAG}.${key}`)
+    }
   }
 
-  RED.nodes.registerType('uhppoted-restore-default-parameters', RestoreDefaultParametersNode)
+  RED.nodes.registerType(TAG, RestoreDefaultParametersNode)
 }

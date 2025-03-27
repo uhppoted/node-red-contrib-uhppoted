@@ -40,7 +40,7 @@ module.exports = function (RED) {
         const context = {
           config: uhppote,
           translator: (k) => {
-            return RED._('set-listener.' + k)
+            return RED._('uhppoted-set-listener.' + k)
           },
           logger: (m) => {
             node.log(m)

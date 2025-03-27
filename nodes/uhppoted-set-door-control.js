@@ -34,7 +34,7 @@ module.exports = function (RED) {
           break
 
         default:
-          throw new Error(RED._('set-door-control.invalidDoorControl').replace(/\${code}/, msg.payload.control))
+          throw new Error(RED._('uhppoted-set-door-control.invalidDoorControl').replace(/\${code}/, msg.payload.control))
       }
 
       const emit = function (object) {
@@ -49,7 +49,7 @@ module.exports = function (RED) {
         const context = {
           config: uhppote,
           translator: (k) => {
-            return RED._('set-door-control.' + k)
+            return RED._('uhppoted-set-door-control.' + k)
           },
           logger: (m) => {
             node.log(m)
@@ -71,7 +71,7 @@ module.exports = function (RED) {
     })
 
     this.translate = function (key) {
-      return RED._('set-door-control.' + key)
+      return RED._('uhppoted-set-door-control.' + key)
     }
   }
 

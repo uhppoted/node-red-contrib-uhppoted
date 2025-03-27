@@ -23,7 +23,7 @@ module.exports = function (RED) {
           payload: {
             deviceId: object.deviceId,
             cardNumber: card,
-            status: { code: 0, message: RED._('get-card.cardOk') },
+            status: { code: 0, message: RED._('uhppoted-get-card.cardOk') },
             card: object.card,
           },
         }
@@ -33,7 +33,7 @@ module.exports = function (RED) {
             reply.payload.card = null
             reply.payload.status = {
               code: 1,
-              message: RED._('get-card.cardNotFound'),
+              message: RED._('uhppoted-get-card.cardNotFound'),
             }
             break
 
@@ -41,7 +41,7 @@ module.exports = function (RED) {
             reply.payload.card = null
             reply.payload.status = {
               code: 2,
-              message: RED._('get-card.cardDeleted'),
+              message: RED._('uhppoted-get-card.cardDeleted'),
             }
             break
         }
@@ -57,7 +57,7 @@ module.exports = function (RED) {
         const context = {
           config: uhppote,
           translator: (k) => {
-            return RED._('get-card.' + k)
+            return RED._('uhppoted-get-card.' + k)
           },
           logger: (m) => {
             node.log(m)

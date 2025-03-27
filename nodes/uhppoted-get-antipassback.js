@@ -1,3 +1,5 @@
+const TAG = 'uhppoted-get-antipassback'
+
 module.exports = function (RED) {
   const common = require('./common.js')
   const uhppoted = require('./uhppoted.js')
@@ -27,9 +29,7 @@ module.exports = function (RED) {
       try {
         const context = {
           config: uhppote,
-          translator: (k) => {
-            return RED._('get-antipassback.' + k)
-          },
+          translator: this.translate,
           logger: (m) => {
             node.log(m)
           },
@@ -48,7 +48,11 @@ module.exports = function (RED) {
         error(err)
       }
     })
+
+    this.translate = function (key) {
+      return RED._(`${TAG}.${key}`)
+    }
   }
 
-  RED.nodes.registerType('uhppoted-get-antipassback', GetAntiPassbackNode)
+  RED.nodes.registerType(TAG, GetAntiPassbackNode)
 }

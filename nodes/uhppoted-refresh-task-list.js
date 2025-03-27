@@ -28,7 +28,7 @@ module.exports = function (RED) {
         const context = {
           config: uhppote,
           translator: (k) => {
-            return RED._('refresh-task-list.' + k)
+            return RED._('uhppoted-refresh-task-list.' + k)
           },
           logger: (m) => {
             node.log(m)
@@ -50,7 +50,7 @@ module.exports = function (RED) {
     })
 
     this.translate = function (key) {
-      return RED._('refresh-task-list.' + key)
+      return RED._('uhppoted-refresh-task-list.' + key)
     }
   }
 

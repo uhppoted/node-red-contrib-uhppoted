@@ -25,7 +25,7 @@ module.exports = function (RED) {
             index,
             status: {
               code: 0,
-              message: RED._('get-card-by-index.cardOk'),
+              message: RED._('uhppoted-get-card-by-index.cardOk'),
             },
             card: object.card,
           },
@@ -35,7 +35,7 @@ module.exports = function (RED) {
           case 0:
             reply.payload.status = {
               code: 1,
-              message: RED._('get-card-by-index.cardNotFound'),
+              message: RED._('uhppoted-get-card-by-index.cardNotFound'),
             }
             reply.payload.card = null
             break
@@ -43,7 +43,7 @@ module.exports = function (RED) {
           case 0xffffffff:
             reply.payload.status = {
               code: 2,
-              message: RED._('get-card-by-index.cardDeleted'),
+              message: RED._('uhppoted-get-card-by-index.cardDeleted'),
             }
             reply.payload.card = null
             break
@@ -60,7 +60,7 @@ module.exports = function (RED) {
         const context = {
           config: uhppote,
           translator: (k) => {
-            return RED._('get-card-by-index.' + k)
+            return RED._('uhppoted-get-card-by-index.' + k)
           },
           logger: (m) => {
             node.log(m)

@@ -6,9 +6,11 @@
         "eventDoor": "door",
         "eventAlarm": "alarm",
         "eventOverwritten": "<overwritten>",
+    
         "directionUnknown": "unknown",
         "directionIn": "in",
         "directionOut": "out",
+    
         "reasonUnknown": "unknown",
         "reasonNone": "no reason",
         "reasonSwipe": "swipe",
@@ -45,9 +47,16 @@
         "reasonRemoteOpenDoor": "remote open door",
         "reasonRemoteOpenDoorUSB": "remote open door (USB reader)",
         "reasonReserved": "(reserved)",
+    
         "doorStateNormallyOpen": "normally open",
         "doorStateNormallyClosed": "normally closed",
         "doorStateControlled": "controlled",
         "doorStateUnknown": "unknown"
+
+        "antipassbackDisabled": "disabled",
+        "antipassback12_34": "(1:2);(3:4)",
+        "antipassback13_24": "(1,3):(2,4)",
+        "antipassback1_23": "1:(2,3)",
+        "antipassback1_234": "1:(2,3,4)",
     }
 }

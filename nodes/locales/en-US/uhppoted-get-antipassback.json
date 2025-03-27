@@ -1,5 +1,12 @@
 {
     "uhppoted-get-antipassback": {
+        "antipassbackDisabled": "disabled",
+        "antipassback12_34": "(1:2);(3:4)",
+        "antipassback13_24": "(1,3):(2,4)",
+        "antipassback1_23": "1:(2,3)",
+        "antipassback1_234": "1:(2,3,4)",
+        "unknown": "unknown",
+
         "inputLabel": "controller ID",
         "outputLabel": "antipassback mode"
     }

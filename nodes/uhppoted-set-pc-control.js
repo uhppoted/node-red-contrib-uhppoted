@@ -33,7 +33,7 @@ module.exports = function (RED) {
         const context = {
           config: uhppote,
           translator: (k) => {
-            return RED._('set-pc-control.' + k)
+            return RED._('uhppoted-set-pc-control.' + k)
           },
           logger: (m) => {
             node.log(m)

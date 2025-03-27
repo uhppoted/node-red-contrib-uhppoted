@@ -6,8 +6,7 @@
       - [x] `get-antipassback`
       - [x] `set-antipassback`
       - [x] examples
-      - [ ] internationalisation
-            - `26 Mar 10:23:29 - [error] [uhppoted-set-antipassback:set-antipassback] Error: set-antipassback.invalidAntiPassback`
+      - [x] internationalisation
       - [ ] integration tests
       - [ ] CHANGELOG
       - [ ] README
@@ -18,6 +17,7 @@ Node-RED Keyword Found
  ›   Warning: P06 NOT Compatible with Node-RED v1.3.7
  ›   Warning: P06 Not Compatible with any current Node-RED versions
 ```
+    - https://github.com/node-red/node-red-dev-cli/blob/main/docs/P06.md
 
 - [x] ~~`[DEP0040] DeprecationWarning: The `punycode` module is deprecated`~~
 ```

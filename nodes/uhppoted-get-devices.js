@@ -27,7 +27,7 @@ module.exports = function (RED) {
         const context = {
           config: uhppote,
           translator: (k) => {
-            return RED._('get-devices.' + k)
+            return RED._('uhppoted-get-devices.' + k)
           },
           logger: (m) => {
             node.log(m)

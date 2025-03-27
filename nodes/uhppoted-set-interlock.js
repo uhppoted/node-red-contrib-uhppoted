@@ -33,7 +33,7 @@ module.exports = function (RED) {
         const context = {
           config: uhppote,
           translator: (k) => {
-            return RED._('set-interlock.' + k)
+            return RED._('uhppoted-set-interlock.' + k)
           },
           logger: (m) => {
             node.log(m)

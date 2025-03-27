@@ -56,6 +56,13 @@ const map = {
   'normally open': 'normallyOpen',
   'normally closed': 'normallyClosed',
   'controlled': 'controlled',
+
+  // anti-passback
+  'disabled': 'antipassbackDisabled',
+  '(1:2);(3:4)': 'antipassback12_34',
+  '(1,3):(2,4)': 'antipassback13_24',
+  '1:(2,3)': 'antipassback1_23',
+  '1:(2,3,4)': 'antipassback1_234',
 }
 
 module.exports = {

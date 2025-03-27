@@ -31,7 +31,7 @@ module.exports = function (RED) {
         const context = {
           config: uhppote,
           translator: (k) => {
-            return RED._('set-ip.' + k)
+            return RED._('uhppoted-set-ip.' + k)
           },
           logger: (m) => {
             node.log(m)
