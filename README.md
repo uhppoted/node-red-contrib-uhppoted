@@ -95,6 +95,8 @@ _Please see:_
 | `set-interlock`              | Sets the controller door interlock mode                       |
 | `activate-keypads`           | Activates/deactivates the reader access keypads               |
 | `set-door-passcodes`         | Sets the supervisor keypad passcodes for a door               |
+| `get-antipassback`           | Retrieves the controller anti-passback mode                   |
+| `set-antipassback`           | Sets the controller anti-passback mode                        |
 | `restore-default-parameters` | Resets a controller to the manufacturer default configuration |
 | `listen`                     | Establishes a listening connection for controller events      |
 
@@ -174,7 +176,7 @@ The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contr
 | [`4‑event-listener`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/4-event-listener.json)   | Example _flow_ for the `listen`. `get-listener` and `set‑listener` nodes |
 | [`5‑get-status`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/5-get-status.json)           | Example _flow_ for the `get‑status` node |
 | [`6‑time`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/6-time.json)               | Example _flow_ for the `get‑time` and `set‑time` nodes |
-| [`7‑doors`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/7-doors.json)             | Example _flow_ for the `get‑door‑control`, `set‑door‑control`, `open‑door`, `activate-keypads` and `set-interlock` nodes |
+| [`7‑doors`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/7-doors.json)             | Example _flow_ for the `get‑door‑control`, `set‑door‑control`, `open‑door`, `activate-keypads`, `set-interlock`, `set-door-passcodes`, `get-antipassback` and `set-antipassback` nodes |
 | [`8‑cards`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/8-cards.json)             | Example _flow_ for the `get‑cards`, `get‑card`, `get‑card‑by‑index`, `put‑card`, `delete‑card` and `delete‑cards` nodes |
 | [`9-time-profiles`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/9-time-profiles.json) | Example _flow_ for the `get-time-profile`, `set‑time-profile` and `clear-time-profiles` nodes |
 | [`10-tasklist`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/10-tasklist.json) | Example _flow_ for the `clear-task-list`, `add-task` and `refresh-task-list` nodes |

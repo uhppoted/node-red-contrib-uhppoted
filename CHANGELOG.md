@@ -8,6 +8,7 @@
 
 ### Updated
 1. Updated dependencies for security patches.
+2. Fix lookup tags for internationalisation.
 
 
 ## [1.1.10](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.10) - 2025-02-12

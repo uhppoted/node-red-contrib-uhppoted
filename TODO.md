@@ -7,9 +7,9 @@
       - [x] `set-antipassback`
       - [x] examples
       - [x] internationalisation
-      - [ ] integration tests
-      - [ ] CHANGELOG
-      - [ ] README
+      - [x] integration tests
+      - [x] CHANGELOG
+      - [x] README
 
 - [ ] Validation warning
 ```

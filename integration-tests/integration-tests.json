@@ -130,7 +130,9 @@
             "7da9bf6c793f5957",
             "718b54e3ef5f5665",
             "15c6528e4d32c4ed",
-            "a2f5a32eab4a3095"
+            "a2f5a32eab4a3095",
+            "4e8a28eae88e64f9",
+            "4091e4255b4acc16"
         ],
         "x": 135,
         "y": 60,
@@ -1256,7 +1258,7 @@
         "name": "listen",
         "config": "cbd92359.dbf19",
         "x": 110,
-        "y": 1660,
+        "y": 1780,
         "wires": [
             [
                 "1c5c42e8572b32f5"
@@ -1277,7 +1279,7 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 230,
-        "y": 1660,
+        "y": 1780,
         "wires": []
     },
     {
@@ -1317,7 +1319,7 @@
         "to": "",
         "reg": false,
         "x": 480,
-        "y": 1600,
+        "y": 1740,
         "wires": [
             [
                 "f02682ce97d5dd41"
@@ -1408,7 +1410,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1860,
+        "y": 1980,
         "wires": [
             [
                 "b9ce930e0ede7216"
@@ -1429,7 +1431,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1860,
+        "y": 1980,
         "wires": [
             []
         ]
@@ -1445,7 +1447,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1860,
+        "y": 1980,
         "wires": [
             [
                 "4de76a3990601247"
@@ -1474,7 +1476,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1940,
+        "y": 2060,
         "wires": [
             [
                 "3a656bb9269ada59"
@@ -1495,7 +1497,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1940,
+        "y": 2060,
         "wires": [
             []
         ]
@@ -1511,7 +1513,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1940,
+        "y": 2060,
         "wires": [
             [
                 "96e61f56ca68f965"
@@ -1525,7 +1527,7 @@
         "name": "v8.94 events",
         "info": "",
         "x": 130,
-        "y": 1720,
+        "y": 1840,
         "wires": []
     },
     {
@@ -1550,7 +1552,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1980,
+        "y": 2100,
         "wires": [
             [
                 "c7b817b145d79c4e"
@@ -1571,7 +1573,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1980,
+        "y": 2100,
         "wires": [
             []
         ]
@@ -1587,7 +1589,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1980,
+        "y": 2100,
         "wires": [
             [
                 "e7513858e7cc47e3"
@@ -1616,7 +1618,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 170,
-        "y": 1900,
+        "y": 2020,
         "wires": [
             [
                 "fdbaa797a7bcbacb"
@@ -1637,7 +1639,7 @@
         "proxy": "",
         "authType": "",
         "x": 470,
-        "y": 1900,
+        "y": 2020,
         "wires": [
             []
         ]
@@ -1653,7 +1655,7 @@
         "initialize": "",
         "finalize": "",
         "x": 310,
-        "y": 1900,
+        "y": 2020,
         "wires": [
             [
                 "7412af84f6e7fef0"
@@ -1682,7 +1684,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 2180,
+        "y": 2300,
         "wires": [
             [
                 "5d5a81213f21aedc"
@@ -1703,7 +1705,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 2180,
+        "y": 2300,
         "wires": [
             []
         ]
@@ -1719,7 +1721,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 2180,
+        "y": 2300,
         "wires": [
             [
                 "baeee3154a6d2e78"
@@ -1748,7 +1750,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 2260,
+        "y": 2380,
         "wires": [
             [
                 "59cd693fa19be958"
@@ -1769,7 +1771,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 2260,
+        "y": 2380,
         "wires": [
             []
         ]
@@ -1785,7 +1787,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 2260,
+        "y": 2380,
         "wires": [
             [
                 "eb68e014287b9868"
@@ -1799,7 +1801,7 @@
         "name": "v6.62 events",
         "info": "",
         "x": 130,
-        "y": 2040,
+        "y": 2160,
         "wires": []
     },
     {
@@ -1824,7 +1826,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 2300,
+        "y": 2420,
         "wires": [
             [
                 "4ded1711a1338bef"
@@ -1845,7 +1847,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 2300,
+        "y": 2420,
         "wires": [
             []
         ]
@@ -1861,7 +1863,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 2300,
+        "y": 2420,
         "wires": [
             [
                 "a2b37c23c15a1389"
@@ -1890,7 +1892,7 @@
         "payload": "",
         "payloadType": "date",
         "x": 150,
-        "y": 2220,
+        "y": 2340,
         "wires": [
             [
                 "b3770c3e1a4ae7f8"
@@ -1911,7 +1913,7 @@
         "proxy": "",
         "authType": "",
         "x": 450,
-        "y": 2220,
+        "y": 2340,
         "wires": [
             []
         ]
@@ -1927,7 +1929,7 @@
         "initialize": "",
         "finalize": "",
         "x": 290,
-        "y": 2220,
+        "y": 2340,
         "wires": [
             [
                 "e0577b3850e0f413"
@@ -1941,7 +1943,7 @@
         "name": "listen",
         "info": "",
         "x": 110,
-        "y": 1620,
+        "y": 1740,
         "wires": []
     },
     {
@@ -1966,7 +1968,7 @@
         "payload": "{\"deviceId\":405419896,\"address\":\"192.168.1.100\",\"port\":60001}",
         "payloadType": "json",
         "x": 160,
-        "y": 1760,
+        "y": 1880,
         "wires": [
             [
                 "7901a08597ac5d84"
@@ -1981,7 +1983,7 @@
         "topic": "",
         "config": "cbd92359.dbf19",
         "x": 330,
-        "y": 1760,
+        "y": 1880,
         "wires": [
             []
         ]
@@ -1994,7 +1996,7 @@
         "topic": "",
         "config": "cbd92359.dbf19",
         "x": 360,
-        "y": 1800,
+        "y": 1920,
         "wires": [
             []
         ]
@@ -2021,7 +2023,7 @@
         "payload": "{ \"deviceId\": 405419896, \"enable\":true }",
         "payloadType": "json",
         "x": 160,
-        "y": 1800,
+        "y": 1920,
         "wires": [
             [
                 "6e12556592a984b5"
@@ -2050,7 +2052,7 @@
         "payload": "{\"deviceId\":201020304,\"address\":\"192.168.1.100\",\"port\":60001}",
         "payloadType": "json",
         "x": 160,
-        "y": 2080,
+        "y": 2200,
         "wires": [
             [
                 "2867d93a4adf0495"
@@ -2065,7 +2067,7 @@
         "topic": "",
         "config": "cbd92359.dbf19",
         "x": 330,
-        "y": 2080,
+        "y": 2200,
         "wires": [
             []
         ]
@@ -2078,7 +2080,7 @@
         "topic": "",
         "config": "cbd92359.dbf19",
         "x": 360,
-        "y": 2120,
+        "y": 2240,
         "wires": [
             []
         ]
@@ -2105,7 +2107,7 @@
         "payload": "{ \"deviceId\": 201020304, \"enable\":true }",
         "payloadType": "json",
         "x": 160,
-        "y": 2120,
+        "y": 2240,
         "wires": [
             [
                 "bf3354fe10a688d5"
@@ -2121,7 +2123,7 @@
             "db90684e0cbc697d"
         ],
         "x": 645,
-        "y": 1600,
+        "y": 1740,
         "wires": []
     },
     {
@@ -2985,7 +2987,7 @@
         "wires": [
             [
                 "a2f5a32eab4a3095",
-                "8ef451bd60bc3de1"
+                "32d474e4cbd7d487"
             ]
         ]
     },
@@ -3010,7 +3012,7 @@
         "topic": "",
         "config": "cbd92359.dbf19",
         "x": 840,
-        "y": 1560,
+        "y": 1680,
         "wires": [
             [
                 "4d65e98563ae5de4",
@@ -3045,7 +3047,7 @@
         "to": "",
         "reg": false,
         "x": 540,
-        "y": 1560,
+        "y": 1680,
         "wires": [
             [
                 "966a04d24dd129a1"
@@ -3062,7 +3064,7 @@
             "b6fa899a80625dec"
         ],
         "x": 1325,
-        "y": 1560,
+        "y": 1680,
         "wires": []
     },
     {
@@ -3077,7 +3079,7 @@
         "finalize": "",
         "libs": [],
         "x": 1140,
-        "y": 1560,
+        "y": 1680,
         "wires": [
             [
                 "74e6f992f3a20743"
@@ -3103,6 +3105,172 @@
                 "81ccc4481bda04db"
             ]
         ]
+    },
+    {
+        "id": "32d474e4cbd7d487",
+        "type": "change",
+        "z": "1d79f140bbe2166a",
+        "name": "set-antipassback",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "set-antipassback",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"deviceId\":405419896,\"antipassback\":\"(1,3):(2,4)\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1560,
+        "wires": [
+            [
+                "04b99c5f17e1f2b3"
+            ]
+        ]
+    },
+    {
+        "id": "04b99c5f17e1f2b3",
+        "type": "uhppoted-set-antipassback",
+        "z": "1d79f140bbe2166a",
+        "name": "",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 810,
+        "y": 1560,
+        "wires": [
+            [
+                "dbf5b5edb9447461",
+                "fa0c2d59477b9544"
+            ]
+        ]
+    },
+    {
+        "id": "dbf5b5edb9447461",
+        "type": "function",
+        "z": "1d79f140bbe2166a",
+        "name": "validate-set-antipassback",
+        "func": "const result = msg.payload\n\nif (result.deviceId !== 405419896) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (!result.ok) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nnode.status({ fill:'green', shape:'dot', text:'ok' })\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 1560,
+        "wires": [
+            [
+                "4e8a28eae88e64f9"
+            ]
+        ]
+    },
+    {
+        "id": "4e8a28eae88e64f9",
+        "type": "link out",
+        "z": "1d79f140bbe2166a",
+        "name": "restore-default-parameters",
+        "mode": "link",
+        "links": [
+            "b6fa899a80625dec"
+        ],
+        "x": 1325,
+        "y": 1560,
+        "wires": []
+    },
+    {
+        "id": "fa0c2d59477b9544",
+        "type": "change",
+        "z": "1d79f140bbe2166a",
+        "name": "get-antipassback",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "get-antipassback",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"deviceId\":405419896}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1620,
+        "wires": [
+            [
+                "2f783dfbe0687fe0"
+            ]
+        ]
+    },
+    {
+        "id": "2f783dfbe0687fe0",
+        "type": "uhppoted-get-antipassback",
+        "z": "1d79f140bbe2166a",
+        "name": "",
+        "topic": "",
+        "config": "cbd92359.dbf19",
+        "x": 810,
+        "y": 1620,
+        "wires": [
+            [
+                "8ef451bd60bc3de1",
+                "65ce8e401b56224f"
+            ]
+        ]
+    },
+    {
+        "id": "65ce8e401b56224f",
+        "type": "function",
+        "z": "1d79f140bbe2166a",
+        "name": "validate-get-antipassback",
+        "func": "const result = msg.payload\n\nif (result.deviceId !== 405419896) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (result.antipassback.code !== 2) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (result.antipassback.mode !== '(1,3):(2,4)') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nnode.status({ fill:'green', shape:'dot', text:'ok' })\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 1620,
+        "wires": [
+            [
+                "4091e4255b4acc16"
+            ]
+        ]
+    },
+    {
+        "id": "4091e4255b4acc16",
+        "type": "link out",
+        "z": "1d79f140bbe2166a",
+        "name": "restore-default-parameters",
+        "mode": "link",
+        "links": [
+            "b6fa899a80625dec"
+        ],
+        "x": 1325,
+        "y": 1620,
+        "wires": []
     },
     {
         "id": "6002aa450a2be2b5",
@@ -3170,7 +3338,9 @@
             "e701a9c3530d22af",
             "eafcd811d1830fc8",
             "f4443e187dc5cfd7",
-            "fd2d21181605721b"
+            "fd2d21181605721b",
+            "e3fa80a488ac8b38",
+            "7f6f7999b452118e"
         ],
         "x": 135,
         "y": 60,
@@ -4266,7 +4436,7 @@
         "to": "",
         "reg": false,
         "x": 480,
-        "y": 1380,
+        "y": 1520,
         "wires": [
             [
                 "5235808f9ff57b8a"
@@ -4344,7 +4514,7 @@
             "ea23613c0eb9c32b"
         ],
         "x": 585,
-        "y": 1380,
+        "y": 1520,
         "wires": []
     },
     {
@@ -5191,7 +5361,7 @@
         "wires": [
             [
                 "fd2d21181605721b",
-                "0720efee3e5003c2"
+                "32fb24facbcdd307"
             ]
         ]
     },
@@ -5216,7 +5386,7 @@
         "topic": "",
         "config": "57e98ae3e84be38d",
         "x": 840,
-        "y": 1340,
+        "y": 1460,
         "wires": [
             [
                 "19796bd2685d0d7a",
@@ -5251,7 +5421,7 @@
         "to": "",
         "reg": false,
         "x": 540,
-        "y": 1340,
+        "y": 1460,
         "wires": [
             [
                 "01456d1d270fa6ec"
@@ -5267,8 +5437,8 @@
         "links": [
             "7716609065dd388a"
         ],
-        "x": 1295,
-        "y": 1340,
+        "x": 1335,
+        "y": 1460,
         "wires": []
     },
     {
@@ -5282,8 +5452,8 @@
         "initialize": "\n",
         "finalize": "",
         "libs": [],
-        "x": 1120,
-        "y": 1340,
+        "x": 1140,
+        "y": 1460,
         "wires": [
             [
                 "07ab41f99712467c"
@@ -5309,6 +5479,172 @@
                 "8e70f13687d4e57a"
             ]
         ]
+    },
+    {
+        "id": "32fb24facbcdd307",
+        "type": "change",
+        "z": "fa3ebf1aec7ecf05",
+        "name": "set-antipassback",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "set-antipassback",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100:60005\",\"protocol\":\"udp\"},\"antipassback\":\"1:(2,3)\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1340,
+        "wires": [
+            [
+                "d6b33f349aea1ca9"
+            ]
+        ]
+    },
+    {
+        "id": "d6b33f349aea1ca9",
+        "type": "uhppoted-set-antipassback",
+        "z": "fa3ebf1aec7ecf05",
+        "name": "",
+        "topic": "",
+        "config": "57e98ae3e84be38d",
+        "x": 810,
+        "y": 1340,
+        "wires": [
+            [
+                "2471b0dc3fa0f8ac",
+                "e3eb64206e57e976"
+            ]
+        ]
+    },
+    {
+        "id": "e3fa80a488ac8b38",
+        "type": "link out",
+        "z": "fa3ebf1aec7ecf05",
+        "name": "set-door-passcodes",
+        "mode": "link",
+        "links": [
+            "7716609065dd388a"
+        ],
+        "x": 1335,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "2471b0dc3fa0f8ac",
+        "type": "function",
+        "z": "fa3ebf1aec7ecf05",
+        "name": "validate-set-antipassback",
+        "func": "const result = msg.payload\n\nif (result.deviceId !== 405419896) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (!result.ok) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nnode.status({ fill:'green', shape:'dot', text:'ok' })\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 1340,
+        "wires": [
+            [
+                "e3fa80a488ac8b38"
+            ]
+        ]
+    },
+    {
+        "id": "e3eb64206e57e976",
+        "type": "change",
+        "z": "fa3ebf1aec7ecf05",
+        "name": "get-antipassback",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "get-antipassback",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100:60005\",\"protocol\":\"udp\"}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1400,
+        "wires": [
+            [
+                "3e787ec9403c4c67"
+            ]
+        ]
+    },
+    {
+        "id": "3e787ec9403c4c67",
+        "type": "uhppoted-get-antipassback",
+        "z": "fa3ebf1aec7ecf05",
+        "name": "",
+        "topic": "",
+        "config": "57e98ae3e84be38d",
+        "x": 810,
+        "y": 1400,
+        "wires": [
+            [
+                "0720efee3e5003c2",
+                "e569d55dfb1c9222"
+            ]
+        ]
+    },
+    {
+        "id": "e569d55dfb1c9222",
+        "type": "function",
+        "z": "fa3ebf1aec7ecf05",
+        "name": "validate-get-antipassback",
+        "func": "const result = msg.payload\n\nif (result.deviceId !== 405419896) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (result.antipassback.code !== 3) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (result.antipassback.mode !== '1:(2,3)') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nnode.status({ fill:'green', shape:'dot', text:'ok' })\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 1400,
+        "wires": [
+            [
+                "7f6f7999b452118e"
+            ]
+        ]
+    },
+    {
+        "id": "7f6f7999b452118e",
+        "type": "link out",
+        "z": "fa3ebf1aec7ecf05",
+        "name": "set-door-passcodes",
+        "mode": "link",
+        "links": [
+            "7716609065dd388a"
+        ],
+        "x": 1335,
+        "y": 1400,
+        "wires": []
     },
     {
         "id": "c226e86b.bcaf58",
@@ -5376,7 +5712,9 @@
             "9a31bb8724c61ced",
             "48ff7ac7019f5179",
             "252b172a8418a0f4",
-            "0a0dd7840eab8341"
+            "0a0dd7840eab8341",
+            "0343035147d25a9e",
+            "88e6e9697729ed6c"
         ],
         "x": 135,
         "y": 60,
@@ -6473,7 +6811,7 @@
         "to": "",
         "reg": false,
         "x": 480,
-        "y": 1380,
+        "y": 1520,
         "wires": [
             [
                 "78dd925c.9213cc"
@@ -6551,7 +6889,7 @@
             "c6197be1.382738"
         ],
         "x": 645,
-        "y": 1380,
+        "y": 1520,
         "wires": []
     },
     {
@@ -7392,7 +7730,7 @@
         "wires": [
             [
                 "252b172a8418a0f4",
-                "6bb4a0284a9ac5c8"
+                "0cd8867a163d3a2b"
             ]
         ]
     },
@@ -7417,7 +7755,7 @@
         "topic": "",
         "config": "252506f5c69631f8",
         "x": 840,
-        "y": 1340,
+        "y": 1460,
         "wires": [
             [
                 "d8a9007b.456b3",
@@ -7452,7 +7790,7 @@
         "to": "",
         "reg": false,
         "x": 540,
-        "y": 1340,
+        "y": 1460,
         "wires": [
             [
                 "af67c84b94cbd035"
@@ -7469,7 +7807,7 @@
             "ee75260d.e57f48"
         ],
         "x": 1325,
-        "y": 1340,
+        "y": 1460,
         "wires": []
     },
     {
@@ -7484,7 +7822,7 @@
         "finalize": "",
         "libs": [],
         "x": 1140,
-        "y": 1340,
+        "y": 1460,
         "wires": [
             [
                 "0a0dd7840eab8341"
@@ -7512,43 +7850,179 @@
         ]
     },
     {
+        "id": "b70bed661569181a",
+        "type": "uhppoted-set-antipassback",
+        "z": "de85fbbc.953fc8",
+        "name": "",
+        "topic": "",
+        "config": "252506f5c69631f8",
+        "x": 810,
+        "y": 1340,
+        "wires": [
+            [
+                "2ec535acd7b723c4",
+                "b43cef27248ca2a1"
+            ]
+        ]
+    },
+    {
+        "id": "0cd8867a163d3a2b",
+        "type": "change",
+        "z": "de85fbbc.953fc8",
+        "name": "set-antipassback",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "set-antipassback",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100:60005\",\"protocol\":\"tcp\"},\"antipassback\":\"1:(2,3,4)\"}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1340,
+        "wires": [
+            [
+                "b70bed661569181a"
+            ]
+        ]
+    },
+    {
+        "id": "0343035147d25a9e",
+        "type": "link out",
+        "z": "de85fbbc.953fc8",
+        "name": "set-door-passcodes",
+        "mode": "link",
+        "links": [
+            "ee75260d.e57f48"
+        ],
+        "x": 1335,
+        "y": 1340,
+        "wires": []
+    },
+    {
+        "id": "2ec535acd7b723c4",
+        "type": "function",
+        "z": "de85fbbc.953fc8",
+        "name": "validate-set-antipassback",
+        "func": "const result = msg.payload\n\nif (result.deviceId !== 405419896) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (!result.ok) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nnode.status({ fill:'green', shape:'dot', text:'ok' })\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 1340,
+        "wires": [
+            [
+                "0343035147d25a9e"
+            ]
+        ]
+    },
+    {
+        "id": "b43cef27248ca2a1",
+        "type": "change",
+        "z": "de85fbbc.953fc8",
+        "name": "get-antipassback",
+        "rules": [
+            {
+                "t": "set",
+                "p": "topic",
+                "pt": "msg",
+                "to": "get-antipassback",
+                "tot": "str"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100:60005\",\"protocol\":\"tcp\"}}",
+                "tot": "json"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 510,
+        "y": 1400,
+        "wires": [
+            [
+                "33317a2ab0d85dc7"
+            ]
+        ]
+    },
+    {
+        "id": "33317a2ab0d85dc7",
+        "type": "uhppoted-get-antipassback",
+        "z": "de85fbbc.953fc8",
+        "name": "",
+        "topic": "",
+        "config": "252506f5c69631f8",
+        "x": 810,
+        "y": 1400,
+        "wires": [
+            [
+                "6bb4a0284a9ac5c8",
+                "0c500703abdd6482"
+            ]
+        ]
+    },
+    {
+        "id": "0c500703abdd6482",
+        "type": "function",
+        "z": "de85fbbc.953fc8",
+        "name": "validate-get-antipassback",
+        "func": "const result = msg.payload\n\nif (result.deviceId !== 405419896) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (result.antipassback.code !== 4) {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nif (result.antipassback.mode !== '1:(2,3,4)') {\n    node.status({ fill:'red', shape:'dot', text:'failed'})\n    return msg\n}\n\nnode.status({ fill:'green', shape:'dot', text:'ok' })\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "\n",
+        "finalize": "",
+        "libs": [],
+        "x": 1110,
+        "y": 1400,
+        "wires": [
+            [
+                "88e6e9697729ed6c"
+            ]
+        ]
+    },
+    {
+        "id": "88e6e9697729ed6c",
+        "type": "link out",
+        "z": "de85fbbc.953fc8",
+        "name": "set-door-passcodes",
+        "mode": "link",
+        "links": [
+            "ee75260d.e57f48"
+        ],
+        "x": 1325,
+        "y": 1400,
+        "wires": []
+    },
+    {
         "id": "1151589add8c3cc1",
         "type": "link in",
         "z": "84a8a444edd23fc3",
         "name": "trace",
         "links": [
             "cbd02e846387c18b",
-            "f867d326ca15da96",
-            "226bde6c6243c89c",
-            "4cc36093e4997aa4",
-            "02344d834305e5f1",
-            "d3d5debf16d83f16",
-            "50fd2664515099b7",
-            "f4ed2abf30153fb7",
-            "cab06fcc85870d3c",
-            "dad26d652978cbae",
-            "37bef50ca2a4b862",
-            "3bff19f0d7a0bd79",
-            "30fc494e603ae7e9",
-            "1b24512fe45a43fc",
-            "d9fa298da40fdfc3",
-            "b0c1a616b512c999",
-            "b2a97262c9d7c824",
-            "945554d24f93c3c5",
-            "25c8890708aee90d",
-            "2a7f794b544a6eda",
-            "0ae657e8647d83bc",
-            "ab330fbdd597ef3b",
-            "01a4cbb45352fb2f",
-            "fc44814a802d450e",
-            "ce6f28d39726408d",
-            "a3a01566f54687db",
-            "74523a20da5f72d3",
-            "86dd4cd9822e65f2",
-            "548f2f2e39539552",
-            "6c5d6ede6bac1c2f",
-            "a534844d42bce8ce",
-            "b8c93e3178f91e94"
+            "945554d24f93c3c5"
         ],
         "x": 135,
         "y": 60,
