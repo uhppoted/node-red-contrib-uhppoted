@@ -36,7 +36,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .get(context, controller.id, opcodes.RefreshTaskList, {}, controller.address, controller.protocol)
+          .set(context, controller.id, opcodes.RefreshTaskList, {}, controller.address, controller.protocol)
           .then((object) => {
             emit(object)
           })

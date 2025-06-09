@@ -43,7 +43,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .set(context, controller.id, opcodes.GetEvent, { index }, controller.address, controller.protocol)
+          .get(context, controller.id, opcodes.GetEvent, { index }, controller.address, controller.protocol)
           .then((object) => {
             emit(object)
           })

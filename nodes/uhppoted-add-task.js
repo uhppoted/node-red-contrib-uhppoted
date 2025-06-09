@@ -35,7 +35,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .get(context, controller.id, opcodes.AddTask, { task }, controller.address, controller.protocol)
+          .set(context, controller.id, opcodes.AddTask, { task }, controller.address, controller.protocol)
           .then((object) => {
             emit(object)
           })

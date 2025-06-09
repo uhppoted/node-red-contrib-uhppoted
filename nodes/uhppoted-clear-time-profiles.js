@@ -34,7 +34,7 @@ module.exports = function (RED) {
         }
 
         uhppoted
-          .get(context, controller.id, opcodes.ClearTimeProfiles, {}, controller.address, controller.protocol)
+          .set(context, controller.id, opcodes.ClearTimeProfiles, {}, controller.address, controller.protocol)
           .then((object) => {
             emit(object)
           })
