@@ -22,7 +22,13 @@ support for controller events.
 
 **[v1.1.11](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.11) - 2025-06-09**
 
-1. Fixed bug in 'connected UDP' logic (not using using injected controller address:port).
+1. Fixed TCP transport [bug](https://github.com/uhppoted/node-red-contrib-uhppoted/issues/41) (destination address ignored).
+2. Fixed UDP transport timeout implementation.
+3. Added `uhppoted-get-antipassback` node.
+4. Added `uhppoted-set-antipassback` node.
+5. Fixed lookup tags for internationalisation.
+6. Fixed inconsistent get/set semantics.
+7. Updated dependencies for security patches.
 
 #### Requirements:
 - `node‑red` version 2.2.3+
