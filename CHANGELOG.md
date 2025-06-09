@@ -1,6 +1,6 @@
 # CHANGELOG
 
-## Unreleased
+## [1.1.11](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.11) - 2025-06-09
 
 ### Added
 1. `uhppoted-get-antipassback` node.
@@ -10,7 +10,9 @@
 1. Updated dependencies for security patches.
 2. Fixed lookup tags for internationalisation.
 3. Fixed inconsistent get/set semantics.
-4. Fixed TCP transport bug (destination address ignored)
+4. Fixed TCP transport bug (destination address ignored).
+5. Fixed UDP transport timeout implementation.
+
 
 ## [1.1.10](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.10) - 2025-02-12
 
@@ -27,7 +29,7 @@
 ## [1.1.8](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.8) - 2024-09-06
 
 ### Added
-1. Implemented for TCP transport.
+1. Implemented TCP transport.
 
 ### Updated
 1. Replaced _ip.js_ dependency with local module.

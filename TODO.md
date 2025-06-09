@@ -19,7 +19,9 @@
     - https://github.com/node-red/node-red-dev-cli/blob/main/docs/P06.md
     - https://github.com/node-red/node-red-dev-cli/blob/main/src/libs/checkpackage.js#L182-L200
 
-- [ ] TCP destination is always localhost (cf. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/41)
+- [x] TCP destination is always localhost (cf. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/41)
+
+- [ ] Decoding an invalid reply throws `AggregateError` (cf. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/41)
 
 ## TODO
 
