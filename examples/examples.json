@@ -96,7 +96,7 @@
         "id": "cf35d9904542f0af",
         "type": "uhppoted-config",
         "name": "examples",
-        "timeout": "5000",
+        "timeout": "2500",
         "bind": "192.168.1.100",
         "broadcast": "192.168.1.255:60000",
         "listen": "192.168.1.100:60001",

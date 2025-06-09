@@ -243,11 +243,16 @@ module.exports = {
 async function udp(ctx, dest, op, request, receive) {
   const sock = dgram.createSocket(opts)
   const rq = codec.encode(op, ctx.deviceId, request)
+  let timer = 0
 
   const onerror = new Promise((resolve, reject) => {
     sock.on('error', (err) => {
       reject(err)
     })
+  })
+
+  const ontimeout = new Promise((_, reject) => {
+    timer = setTimeout(() => reject(new Error('timeout')), ctx.timeout)
   })
 
   const send = new Promise((resolve, reject) => {
@@ -279,12 +284,13 @@ async function udp(ctx, dest, op, request, receive) {
   })
 
   try {
-    const result = await Promise.race([onerror, Promise.all([receive, send])])
+    const result = await Promise.race([onerror, ontimeout, Promise.all([receive, send])])
 
     if (result && result.length === 2) {
       return result[0]
     }
   } finally {
+    clearTimeout(timer)
     sock.close()
   }
 
@@ -311,7 +317,6 @@ async function udp(ctx, dest, op, request, receive) {
 async function tcp(ctx, dest, op, request, receive) {
   const sock = new net.Socket()
   const rq = codec.encode(op, ctx.deviceId, request)
-  const timeout = Number.parseInt(ctx.timeout)
   let timer = 0
 
   const onerror = new Promise((resolve, reject) => {
@@ -321,7 +326,7 @@ async function tcp(ctx, dest, op, request, receive) {
   })
 
   const ontimeout = new Promise((_, reject) => {
-    timer = setTimeout(() => reject(new Error('timeout')), timeout)
+    timer = setTimeout(() => reject(new Error('timeout')), ctx.timeout)
   })
 
   const send = new Promise((resolve, reject) => {
@@ -338,6 +343,7 @@ async function tcp(ctx, dest, op, request, receive) {
 
     sock.on('data', (message) => {
       log(ctx.debug, 'TCP::received', message)
+
       receive.received(new Uint8Array(message))
     })
 
@@ -390,7 +396,7 @@ function context(device, config, logger) {
   let debug = false
 
   if (config) {
-    timeout = config.timeout
+    timeout = Number.parseInt(config.timeout)
     bind = config.bind
     dest = config.broadcast
     listen = config.listen
