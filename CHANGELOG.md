@@ -8,8 +8,9 @@
 
 ### Updated
 1. Updated dependencies for security patches.
-2. Fix lookup tags for internationalisation.
-
+2. Fixed lookup tags for internationalisation.
+3. Fixed inconsistent get/set semantics.
+4. Fixed TCP transport bug (destination address ignored)
 
 ## [1.1.10](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.10) - 2025-02-12
 

@@ -16,16 +16,10 @@
 
 - [x] ~~Validation warning~~
       - cf. https://github.com/node-red/node-red-dev-cli/issues/30
-```
-Node-RED Keyword Found
- ›   Warning: P06 NOT Compatible with Node-RED v1.3.7
- ›   Warning: P06 Not Compatible with any current Node-RED versions
-```
     - https://github.com/node-red/node-red-dev-cli/blob/main/docs/P06.md
     - https://github.com/node-red/node-red-dev-cli/blob/main/src/libs/checkpackage.js#L182-L200
 
-
-- [ ] TCP/IP 'AggregateError' if it can't connect
+- [ ] TCP destination is always localhost (cf. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/41)
 
 ## TODO
 

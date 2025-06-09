@@ -311,11 +311,17 @@ async function udp(ctx, dest, op, request, receive) {
 async function tcp(ctx, dest, op, request, receive) {
   const sock = new net.Socket()
   const rq = codec.encode(op, ctx.deviceId, request)
+  const timeout = Number.parseInt(ctx.timeout)
+  let timer = 0
 
   const onerror = new Promise((resolve, reject) => {
     sock.on('error', (err) => {
       reject(err)
     })
+  })
+
+  const ontimeout = new Promise((_, reject) => {
+    timer = setTimeout(() => reject(new Error('timeout')), timeout)
   })
 
   const send = new Promise((resolve, reject) => {
@@ -330,23 +336,30 @@ async function tcp(ctx, dest, op, request, receive) {
       })
     })
 
-    sock.connect(dest)
-
     sock.on('data', (message) => {
       log(ctx.debug, 'TCP::received', message)
-
       receive.received(new Uint8Array(message))
     })
+
+    const options = {
+      host: dest.address,
+      port: dest.port,
+      localAddress: ctx.bind,
+      localPort: 0,
+    }
+
+    sock.connect(options)
   })
 
   try {
-    const result = await Promise.race([onerror, Promise.all([receive, send])])
+    const result = await Promise.race([onerror, ontimeout, Promise.all([receive, send])])
 
     if (result && result.length === 2) {
       return result[0]
     }
   } finally {
-    sock.end()
+    clearTimeout(timer)
+    sock.destroy()
   }
 
   throw new Error('no reply to request')
