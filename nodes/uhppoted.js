@@ -298,7 +298,7 @@ async function udp(ctx, dest, op, request, receive) {
 }
 
 /**
- * Sends a UDP command to a UHPPOTE access controller and returns the decoded
+ * Sends a TCP command to a UHPPOTE access controller and returns the decoded
  * reply, for use by 'get' and 'set'.
  *
  * configuration to receive events from UHPPOTE access controllers configured
@@ -326,7 +326,7 @@ async function tcp(ctx, dest, op, request, receive) {
   })
 
   const ontimeout = new Promise((_, reject) => {
-    timer = setTimeout(() => reject(new Error('timeout')), ctx.timeout)
+    timer = setTimeout(() => reject(new Error(`timeout ${ctx.timeout}ms`)), ctx.timeout)
   })
 
   const send = new Promise((resolve, reject) => {
@@ -347,14 +347,12 @@ async function tcp(ctx, dest, op, request, receive) {
       receive.received(new Uint8Array(message))
     })
 
-    const options = {
+    sock.connect({
       host: dest.address,
       port: dest.port,
       localAddress: ctx.bind,
       localPort: 0,
-    }
-
-    sock.connect(options)
+    })
   })
 
   try {
@@ -363,12 +361,12 @@ async function tcp(ctx, dest, op, request, receive) {
     if (result && result.length === 2) {
       return result[0]
     }
+
+  throw new Error('no reply to request')
   } finally {
     clearTimeout(timer)
     sock.destroy()
   }
-
-  throw new Error('no reply to request')
 }
 
 /**
