@@ -362,7 +362,7 @@ async function tcp(ctx, dest, op, request, receive) {
       return result[0]
     }
 
-  throw new Error('no reply to request')
+    throw new Error('no reply to request')
   } finally {
     clearTimeout(timer)
     sock.destroy()

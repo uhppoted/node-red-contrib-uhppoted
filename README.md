@@ -20,6 +20,11 @@ support for controller events.
 
 ##### Current Release
 
+**[v1.1.12](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.12) - 2025-07-01**
+
+Maintenance release - minor internal cleanups and security patches.
+
+
 **[v1.1.11](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.11) - 2025-06-09**
 
 1. Fixed TCP transport [bug](https://github.com/uhppoted/node-red-contrib-uhppoted/issues/41) (destination address ignored).
