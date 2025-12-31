@@ -5,7 +5,16 @@
 ![NPM](https://img.shields.io/npm/l/node-red-contrib-uhppoted)
 ![build](https://github.com/uhppoted/node-red-contrib-uhppoted/workflows/build/badge.svg)
 
-Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports controller and card management as well support for controller events.
+Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports controller and card management
+as well support for controller events. 
+
+#### In The Wild
+- _Monitoring a model train railroad with NodeRED + node-red-contrib-uhppoted:_
+
+    [YouTube: Configure Node-RED to listen for RFID tags on local network - Model Railway Control Room Part Five](https://www.youtube.com/watch?v=d8-XKxpn9YA)
+
+
+#### Release Notes
 
 > **PLEASE NOTE**
 >
@@ -14,15 +23,6 @@ Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wie
 > encouraged to update your flows._
 >
 > _For more information see the [controllers](#controllers) section._
-
-#### FYI
-
-An unexpected application of _NodeRED_ + _node-red-contrib-uhppoted_ - monitoring a model train railroad:
-
-[YouTube: Configure Node-RED to listen for RFID tags on local network - Model Railway Control Room Part Five](https://www.youtube.com/watch?v=d8-XKxpn9YA)
-
-
-#### Release Notes
 
 ##### Current Release
 
