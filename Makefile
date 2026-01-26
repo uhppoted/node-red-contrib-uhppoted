@@ -12,11 +12,11 @@ DEBUG    ?= --debug
 
 update:
 	npm update
-	# npm audit fix
+	npm audit fix
 
 update-release:
 	npm update
-	# npm audit fix
+	npm audit fix
 
 format:
 	npx prettier --write nodes/*.js
