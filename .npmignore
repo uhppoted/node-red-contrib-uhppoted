@@ -7,4 +7,3 @@ docker
 test
 integration-tests
 examples/basic
-examples/dashboard.json

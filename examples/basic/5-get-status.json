@@ -4,7 +4,7 @@
         "type": "tab",
         "label": "5-status",
         "disabled": false,
-        "info": "# get-status: basic example\n\nIssues a _get-status_ command to the controller with serial number 405419896 and publishes the received status to the debug pane.\n\nThe _status_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# get-status: basic example\n\nIssues a _get-status_ command to the controller with serial number 405419896 and publishes the received status to the debug pane."
     },
     {
         "id": "2dc88a53.cf8646",

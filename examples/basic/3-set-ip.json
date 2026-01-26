@@ -4,7 +4,7 @@
         "type": "tab",
         "label": "3-IPv4",
         "disabled": false,
-        "info": "# set-ip: basic example\n\nIssues a _set-ip_ command to set the IPv4 address, netmask and gateway for the controller with serial number 405419896.\n\nThe _IPv4_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# set-ip: basic example\n\nIssues a _set-ip_ command to set the IPv4 address, netmask and gateway for the controller with serial number 405419896."
     },
     {
         "id": "c601d685.422838",

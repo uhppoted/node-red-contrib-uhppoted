@@ -4,7 +4,7 @@
         "type": "tab",
         "label": "6-time",
         "disabled": false,
-        "info": "# system date/time: basic examples\n\nBasic examples for the _get-time_ and _set-time_ nodes.\n\n - the _get-time_ example retrieves the current system date and time from the controller with serial number 405419896.\n\n - the _set-time_ example sets the system date and time for the controller with serial number 405419896 to the current time\n\nThe _time_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# system date/time: basic examples\n\nBasic examples for the _get-time_ and _set-time_ nodes.\n\n - the _get-time_ example retrieves the current system date and time from the controller with serial number 405419896.\n\n - the _set-time_ example sets the system date and time for the controller with serial number 405419896 to the current time."
     },
     {
         "id": "6a3d799.3fe3688",

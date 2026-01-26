@@ -4,7 +4,7 @@
         "type": "tab",
         "label": "2-get-device",
         "disabled": false,
-        "info": "# get-device: basic example\n\nIssues a _get-device_ command to the controller with serial number 405419896.\n\nThe _get-device_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# get-device: basic example\n\nIssues a _get-device_ command to the controller with serial number 405419896."
     },
     {
         "id": "a308f042.ba17e",

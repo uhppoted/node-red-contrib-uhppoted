@@ -4,7 +4,7 @@
         "type": "tab",
         "label": "4-listen",
         "disabled": false,
-        "info": "# event-listener: basic examples\n\nBasic examples for the _listen_, _get-listener_ and _set-listener_ nodes.\n\n - The _listen_ example establishes a listening node on startup that publishes received events to the debug window\n\n - the _get-listener_ example retrieves the current event listener IP address and port for the controller with serial number 405419896.\n\n - the _set-listener_ example sets '192.168.1.100:60001' as the event listener IP address and port for the controller with serial number 405419896.\n\nThe _listen_ flow in the _dashboard_ flowset contains a more complete example.\n"
+        "info": "# event-listener: basic examples\n\nBasic examples for the _listen_, _get-listener_ and _set-listener_ nodes.\n\n - The _listen_ example establishes a listening node on startup that publishes received events to the debug window\n\n - the _get-listener_ example retrieves the current event listener IP address and port for the controller with serial number 405419896.\n\n - the _set-listener_ example sets '192.168.1.100:60001' as the event listener IP address and port for the controller with serial number 405419896."
     },
     {
         "id": "b94136c7.ef3808",

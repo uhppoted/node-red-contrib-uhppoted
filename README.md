@@ -178,7 +178,7 @@ to
 
 ### Examples
 
-The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository includes a set of [basic examples](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/examples.json) that demonstrate the usage of each node, as well as a more complex [dashboard project](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/dashboard) that combines the nodes to create a dashboard:
+The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository includes a set of [basic examples](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/examples.json) that demonstrate the usage of each node.:
 
 | Node               | Description                                                  |
 | ------------------ | ------------------------------------------------------------ |
@@ -196,10 +196,6 @@ The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contr
 | [`12-set-pc-control`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/12-set-pc-control.json) | Example _flow_ for the `set-pc-control` node |
 | [`13-restore-default-parameters`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/13-13-restore-default-parameters.json) | Example _flow_ for the `restore-default-parameters` node |
 
-The [_dashboard_](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/dashboard.json) example requires the following additional components to be installed into the palette:
-
-- [node-red-node-ui-list](https://flows.nodered.org/node/node-red-node-ui-list)
-- [node-red-node-ui-table](https://flows.nodered.org/node/node-red-node-ui-table)
 
 ### Issues and Feature Requests
 

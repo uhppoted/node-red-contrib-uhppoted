@@ -1,0 +1,14 @@
+services:
+  node-red:
+    build: .
+    container_name: node-red-contrib-uhppoted-integration-tests
+    environment:
+      - FLOWS=/node-red-contrib-uhppoted/integration-tests/integration-tests.json
+    volumes:
+      - ../../:/node-red-contrib-uhppoted
+    ports:
+      - "1880:1880"
+    tty: true
+    stdin_open: true
+    restart: "no"
+    network_mode: "bridge"

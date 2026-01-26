@@ -4,7 +4,7 @@
         "type": "tab",
         "label": "7-doors",
         "disabled": false,
-        "info": "# door control: basic examples\n\nBasic examples for the _get-door-control_, _set-door-control_ and _open-door_ nodes.\n\n - the _get-door-control_ example retrieves the current open delay to 5 seconds and control state for door 1 from the controller with serial number 405419896.\n\n - the _set-door-control_ example sets the open delay to 5 seconds and control state to 'normally closed' for door 1 on the controller with serial number 405419896.\n\n - the _open-door_ example opens door 1 on the controller with serial number 405419896 to the current time\n\nThe _doors_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# door control: basic examples\n\nBasic examples for the _get-door-control_, _set-door-control_ and _open-door_ nodes.\n\n - the _get-door-control_ example retrieves the current open delay to 5 seconds and control state for door 1 from the controller with serial number 405419896.\n\n - the _set-door-control_ example sets the open delay to 5 seconds and control state to 'normally closed' for door 1 on the controller with serial number 405419896.\n\n - the _open-door_ example opens door 1 on the controller with serial number 405419896."
     },
     {
         "id": "7317e0e6.862af",

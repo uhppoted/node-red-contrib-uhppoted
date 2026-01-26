@@ -10,6 +10,7 @@ node_modules
 .eslintcache
 
 # node-red
+.node-red
 examples/*.backup
 examples/debug.json
 integration-tests/*.backup

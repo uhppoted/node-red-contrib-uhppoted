@@ -308,8 +308,7 @@ describe('decoder', function () {
 
     expect(object).to.deep.equal(expected)
   })
-
-  it('should decode get-status response without event', function () {
+  ;(it('should decode get-status response without event', function () {
     // prettier-ignore
     const packet = Buffer.from([
       0x17, 0x20, 0x00, 0x00, 0x78, 0x37, 0x2a, 0x18, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
@@ -403,5 +402,5 @@ describe('decoder', function () {
       const object = decoder.SetAntiPassback(msg, null)
 
       expect(object).to.deep.equal(expected)
-    })
+    }))
 })

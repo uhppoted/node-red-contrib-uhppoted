@@ -8,15 +8,14 @@ DEBUG    ?= --debug
 
 .PHONY: build
 .PHONY: test
+.PHONY: docker
 
 update:
 	npm update
-	npm i --lockfile-version 1 --package-lock-only 
 	# npm audit fix
 
 update-release:
 	npm update
-	npm i --lockfile-version 1 --package-lock-only 
 	# npm audit fix
 
 format:
@@ -34,10 +33,11 @@ debug: build
 test: 
 	npx eslint --fix test/**/*.js  
 	npm test
-	node-red-dev validate
+	npx --yes node-red-dev validate
 
 integration-tests: build
-	node-red ./integration-tests/integration-tests.json
+# 	node-red ./integration-tests/integration-tests.json
+	cd docker/integration-tests && docker compose up --build
 
 build-all: build test
 
@@ -54,11 +54,14 @@ publish-npm: release
 	npm publish
 
 examples: build
-	node-red ./examples/examples.json
-
-dashboard: build
-	node-red ./examples/dashboard.json
+# 	node-red ./examples/examples.json
+	cd docker/examples && docker compose up --build
 
 simulator:
 	docker run --detach --publish 8000:8000 --publish 60005:60000 --publish 60005:60000/udp --name simulator --rm uhppoted/simulator-dev
 
+docker:
+	docker run -it --publish 1880:1880 \
+	       --volume "$(PWD):/node-red-contrib-uhppoted" \
+	       -e FLOWS=/node-red-contrib-uhppoted/examples/examples.json \
+	       --name node-red --rm nodered/node-red

@@ -4,56 +4,56 @@
         "type": "tab",
         "label": "1-get-devices",
         "disabled": false,
-        "info": "# get-devices: basic example\n\nIssues a _get-devices_ broadcast command and displays the received information for the access controller with serial number 405419896.\n\nThe _get-devices_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# get-devices: basic example\n\nIssues a _get-devices_ broadcast command and displays the received information for the access controller with serial number 405419896."
     },
     {
         "id": "f0ca7ab6.b09058",
         "type": "tab",
         "label": "2-get-device",
         "disabled": false,
-        "info": "# get-device: basic example\n\nIssues a _get-device_ command to the controller with serial number 405419896.\n\nThe _get-device_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# get-device: basic example\n\nIssues a _get-device_ command to the controller with serial number 405419896."
     },
     {
         "id": "8bcf2d43.2e243",
         "type": "tab",
         "label": "3-IPv4",
         "disabled": false,
-        "info": "# set-ip: basic example\n\nIssues a _set-ip_ command to set the IPv4 address, netmask and gateway for the controller with serial number 405419896.\n\nThe _IPv4_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# set-ip: basic example\n\nIssues a _set-ip_ command to set the IPv4 address, netmask and gateway for the controller with serial number 405419896."
     },
     {
         "id": "c56e1667.998748",
         "type": "tab",
         "label": "4-listen",
         "disabled": false,
-        "info": "# event-listener: basic examples\n\nBasic examples for the _listen_, _get-listener_ and _set-listener_ nodes.\n\n - The _listen_ example establishes a listening node on startup that publishes received events to the debug window\n\n - the _get-listener_ example retrieves the current event listener IP address and port for the controller with serial number 405419896.\n\n - the _set-listener_ example sets '192.168.1.100:60001' as the event listener IP address and port for the controller with serial number 405419896.\n\nThe _listen_ flow in the _dashboard_ flowset contains a more complete example.\n"
+        "info": "# event-listener: basic examples\n\nBasic examples for the _listen_, _get-listener_ and _set-listener_ nodes.\n\n - The _listen_ example establishes a listening node on startup that publishes received events to the debug window\n\n - the _get-listener_ example retrieves the current event listener IP address and port for the controller with serial number 405419896.\n\n - the _set-listener_ example sets '192.168.1.100:60001' as the event listener IP address and port for the controller with serial number 405419896."
     },
     {
         "id": "b2b669ed.2b50b8",
         "type": "tab",
         "label": "5-status",
         "disabled": false,
-        "info": "# get-status: basic example\n\nIssues a _get-status_ command to the controller with serial number 405419896 and publishes the received status to the debug pane.\n\nThe _status_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# get-status: basic example\n\nIssues a _get-status_ command to the controller with serial number 405419896 and publishes the received status to the debug pane."
     },
     {
         "id": "f7a455cc.3fefe8",
         "type": "tab",
         "label": "6-time",
         "disabled": false,
-        "info": "# system date/time: basic examples\n\nBasic examples for the _get-time_ and _set-time_ nodes.\n\n - the _get-time_ example retrieves the current system date and time from the controller with serial number 405419896.\n\n - the _set-time_ example sets the system date and time for the controller with serial number 405419896 to the current time\n\nThe _time_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# system date/time: basic examples\n\nBasic examples for the _get-time_ and _set-time_ nodes.\n\n - the _get-time_ example retrieves the current system date and time from the controller with serial number 405419896.\n\n - the _set-time_ example sets the system date and time for the controller with serial number 405419896 to the current time."
     },
     {
         "id": "86bbf50e.a7f188",
         "type": "tab",
         "label": "7-doors",
         "disabled": false,
-        "info": "# door control: basic examples\n\nBasic examples for the _get-door-control_, _set-door-control_ and _open-door_ nodes.\n\n - the _get-door-control_ example retrieves the current open delay to 5 seconds and control state for door 1 from the controller with serial number 405419896.\n\n - the _set-door-control_ example sets the open delay to 5 seconds and control state to 'normally closed' for door 1 on the controller with serial number 405419896.\n\n - the _open-door_ example opens door 1 on the controller with serial number 405419896 to the current time\n\nThe _doors_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# door control: basic examples\n\nBasic examples for the _get-door-control_, _set-door-control_ and _open-door_ nodes.\n\n - the _get-door-control_ example retrieves the current open delay to 5 seconds and control state for door 1 from the controller with serial number 405419896.\n\n - the _set-door-control_ example sets the open delay to 5 seconds and control state to 'normally closed' for door 1 on the controller with serial number 405419896.\n\n - the _open-door_ example opens door 1 on the controller with serial number 405419896 to the current time."
     },
     {
         "id": "2a36b650.4b9b7a",
         "type": "tab",
         "label": "8-cards",
         "disabled": false,
-        "info": "# card management: basic examples\n\nBasic examples for the _get-cards_, _get-card_, _get-card-by-index_, _put-card_, _delete-card_ and _delete-cards_ nodes.\n\n - the _get-cards_ example retrieves the number of stored card records from the controller with serial number 405419896.\n\n - the _get-card_ example retrieves the card record for card number 65538 from the controller with serial number 405419896.\n\n- the _get-card-by-index_ example retrieves the card record at record #3 from the controller with serial number 405419896.\n\n - the _put-card_ example stores card number 61532836 (valid from 2021-01-01 to 2021-13-31 and with access to doors 1, 3 and 4) to the controller with serial number 405419896.\n\n - the _delete-card_ example deletes the card record for card number 61532836 from the controller with serial number 405419896.\n\n - the _delete-cards_ example deletes all card records from the controller with serial number 405419896.\n\nThe _cards_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# card management: basic examples\n\nBasic examples for the _get-cards_, _get-card_, _get-card-by-index_, _put-card_, _delete-card_ and _delete-cards_ nodes.\n\n - the _get-cards_ example retrieves the number of stored card records from the controller with serial number 405419896.\n\n - the _get-card_ example retrieves the card record for card number 65538 from the controller with serial number 405419896.\n\n- the _get-card-by-index_ example retrieves the card record at record #3 from the controller with serial number 405419896.\n\n - the _put-card_ example stores card number 61532836 (valid from 2021-01-01 to 2021-13-31 and with access to doors 1, 3 and 4) to the controller with serial number 405419896.\n\n - the _delete-card_ example deletes the card record for card number 61532836 from the controller with serial number 405419896.\n\n - the _delete-cards_ example deletes all card records from the controller with serial number 405419896."
     },
     {
         "id": "590b5d52.6f70e4",
@@ -74,7 +74,7 @@
         "type": "tab",
         "label": "11-events",
         "disabled": false,
-        "info": "# event retrieval: basic examples\n\nBasic examples for the _get-event-index_, _set-event-index_ and _get-event_ nodes.\n\n - the _get-event-index_ example retrieves the current 'downloaded event index' from the controller with serial number 405419896.\n\n - the _set-event-index_ example set the 'downloaded event index' to 17 for the controller with serial number 405419896.\n\n - the _get-event_ example retrieves the event record at record #3 from the controller with serial number 405419896.\n\nThe _events_ flow in the _dashboard_ flowset contains a more complete example."
+        "info": "# event retrieval: basic examples\n\nBasic examples for the _get-event-index_, _set-event-index_ and _get-event_ nodes.\n\n - the _get-event-index_ example retrieves the current 'downloaded event index' from the controller with serial number 405419896.\n\n - the _set-event-index_ example set the 'downloaded event index' to 17 for the controller with serial number 405419896.\n\n - the _get-event_ example retrieves the event record at record #3 from the controller with serial number 405419896."
     },
     {
         "id": "084b05a6c596f92a",
@@ -97,10 +97,10 @@
         "type": "uhppoted-config",
         "name": "examples",
         "timeout": "2500",
-        "bind": "192.168.1.100",
-        "broadcast": "192.168.1.255:60000",
-        "listen": "192.168.1.100:60001",
-        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":true}}",
+        "bind": "0.0.0.0",
+        "broadcast": "172.17.255.255:60000",
+        "listen": "0.0.0.0:60001",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.125:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.125:60000\",\"broadcast\":true}}",
         "debug": true
     },
     {
@@ -154,11 +154,13 @@
         "type": "function",
         "z": "a640a000.d83cb",
         "name": "parse",
-        "func": "for (i=0; i<msg.payload.length; i++) {\n    deviceId = msg.payload[i].deviceId\n    device = msg.payload[i].device;\n    if (deviceId == 405419896) {\n        return msg.payload[i];        \n    }\n}\n\nreturn { device: {} }",
+        "func": "for (let i=0; i<msg.payload.length; i++) {\n    const deviceId = msg.payload[i].deviceId\n    // const device = msg.payload[i].device;\n    if (deviceId == 405419896) {\n        return msg.payload[i];        \n    }\n}\n\nreturn { device: {} }",
         "outputs": 1,
+        "timeout": "",
         "noerr": 0,
         "initialize": "",
         "finalize": "",
+        "libs": [],
         "x": 510,
         "y": 100,
         "wires": [
@@ -531,7 +533,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\",\"protocol\":\"tcp\"}}",
+        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.125\",\"protocol\":\"tcp\"}}",
         "payloadType": "json",
         "x": 130,
         "y": 180,
@@ -639,7 +641,7 @@
         "once": false,
         "onceDelay": 0.1,
         "topic": "",
-        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.100\"}}",
+        "payload": "{\"controller\":{\"id\":405419896,\"address\":\"192.168.1.125\"}}",
         "payloadType": "json",
         "x": 130,
         "y": 140,

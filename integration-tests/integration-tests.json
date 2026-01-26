@@ -35,10 +35,10 @@
         "type": "uhppoted-config",
         "name": "integration-tests",
         "timeout": "1000",
-        "bind": "192.168.1.100",
-        "broadcast": "192.168.1.255:60000",
-        "listen": "192.168.1.100:60001",
-        "controllers": "{\"303986753\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.100:60000\",\"broadcast\":true}}",
+        "bind": "0.0.0.0",
+        "broadcast": "172.17.255.255:60000",
+        "listen": "0.0.0.0:60001",
+        "controllers": "{\"303986753\":{\"address\":\"192.168.1.125:60000\",\"broadcast\":false},\"405419896\":{\"address\":\"192.168.1.125:60000\",\"broadcast\":true}}",
         "debug": false
     },
     {
@@ -208,7 +208,7 @@
                 "t": "set",
                 "p": "payload",
                 "pt": "msg",
-                "to": "{ \"deviceId\": 405419896 }",
+                "to": "{\"deviceId\":405419896}",
                 "tot": "json"
             }
         ],
