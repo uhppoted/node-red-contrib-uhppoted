@@ -1,12 +1,13 @@
 # CHANGELOG
 
-## Unreleased
+## [1.1.13](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.13) - 2026-01-27
 
 #### Updated
 1. Updated to NodeRED 4.1.4.
 2. Reworked examples to run in Docker container.
 3. Reworked integration tests to run in Docker container.
 4. Removed _dashboard_ example (deprecated `node-red-dashboard`).
+5. Changed repository to [uhppoted-lib-node-red](https://github.com/uhppoted/uhppoted-lib-node-red).
 
 
 ## [1.1.12](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.12) - 2025-07-01

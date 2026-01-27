@@ -26,20 +26,13 @@ as well support for controller events.
 
 ##### Current Release
 
-**[v1.1.12](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.12) - 2025-07-01**
+**[v1.1.13](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.13) - 2026-01-27**
 
-Maintenance release - minor internal cleanups and security patches.
+1. Updated to NodeRED 4.1.4.
+2. Reworked examples to run in Docker container.
+3. Reworked integration tests to run in Docker container.
+4. Removed _dashboard_ example (`node-red-dashboard` component deprecated by NodeRED team).
 
-
-**[v1.1.11](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.11) - 2025-06-09**
-
-1. Fixed TCP transport [bug](https://github.com/uhppoted/node-red-contrib-uhppoted/issues/41) (destination address ignored).
-2. Fixed UDP transport timeout implementation.
-3. Added `uhppoted-get-antipassback` node.
-4. Added `uhppoted-set-antipassback` node.
-5. Fixed lookup tags for internationalisation.
-6. Fixed inconsistent get/set semantics.
-7. Updated dependencies for security patches.
 
 #### Requirements:
 - `node‑red` version 2.2.3+
