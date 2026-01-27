@@ -2,8 +2,8 @@
 
 [![platform](https://img.shields.io/badge/platform-Node--RED-red)](https://nodered.org)
 [![npm version](https://badge.fury.io/js/node-red-contrib-uhppoted.svg)](https://badge.fury.io/js/node-red-contrib-uhppoted)
-![NPM](https://img.shields.io/npm/l/node-red-contrib-uhppoted)
-![build](https://github.com/uhppoted/node-red-contrib-uhppoted/workflows/build/badge.svg)
+![NPM](https://img.shields.io/npm/l/uhppoted-lib-node-red)
+![build](https://github.com/uhppoted/uhppoted-lib-node-red/workflows/build/badge.svg)
 
 Node-RED module that implements an API for interacting with a UHPPOTE TCP/IP Wiegand access controller board. The API supports controller and card management
 as well support for controller events. 
@@ -26,19 +26,20 @@ as well support for controller events.
 
 ##### Current Release
 
-**[v1.1.13](https://github.com/uhppoted/node-red-contrib-uhppoted/releases/tag/v1.1.13) - 2026-01-27**
+**[v1.1.13](https://github.com/uhppoted/uhppoted-lib-node-red/releases/tag/v1.1.13) - 2026-01-27**
 
 1. Updated to NodeRED 4.1.4.
 2. Reworked examples to run in Docker container.
 3. Reworked integration tests to run in Docker container.
 4. Removed _dashboard_ example (`node-red-dashboard` component deprecated by NodeRED team).
+5. Changed repository to [uhppoted-lib-node-red](https://github.com/uhppoted/uhppoted-lib-node-red).
 
 
 #### Requirements:
 - `node‑red` version 2.2.3+
 - `node.js` version 14.18.3+
 
-For the latest updates see the [CHANGELOG.md](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/CHANGELOG.md)
+For the latest updates see the [CHANGELOG.md](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/CHANGELOG.md)
 
 #### Installation
 
@@ -49,11 +50,11 @@ or run the following command in your Node-RED user directory (e.g. `~/.node-red`
 
 Restart your Node-RED instance and you should have the `uhppoted` nodes available in the palette.
 
-If you want to try the development version from the [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_
+If you want to try the development version from the [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/uhppoted-lib-node-red) _github_
 repository:
 
     cd ~/.node-red/node_modules
-    git clone https://github.com/uhppoted/node-red-contrib-uhppoted.git
+    git clone https://github.com/uhppoted/uhppoted-lib-node-red.git
     cd node-red-contrib-uhppoted
     npm install
 
@@ -63,9 +64,9 @@ _Please note that updating from `node-red-contrib-uhppoted` v0.x to v1.x is a br
 fixed node name conflicts with other NodeRED modules and unfortunately changing node names throughout requires a breaking change._
 
 _Please see:_
-- _[Issue #11: config node name conflict](https://github.com/uhppoted/node-red-contrib-uhppoted/issues/11) for the original cause_
-- _[Discussion: prefixing all nodes with uhppoted- to avoid naming conflicts](https://github.com/uhppoted/node-red-contrib-uhppoted/discussions/12) for any comments and further discussion._
-- _[HOWTO: Migrating a NodeRED flow from v0.9.x to v1.0.x](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/documentation/MIGRATE.md)_
+- _[Issue #11: config node name conflict](https://github.com/uhppoted/uhppoted-lib-node-red/issues/11) for the original cause_
+- _[Discussion: prefixing all nodes with uhppoted- to avoid naming conflicts](https://github.com/uhppoted/uhppoted-lib-node-red/discussions/12) for any comments and further discussion._
+- _[HOWTO: Migrating a NodeRED flow from v0.9.x to v1.0.x](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/documentation/MIGRATE.md)_
 
 
 ### Nodes
@@ -171,29 +172,29 @@ to
 
 ### Examples
 
-The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository includes a set of [basic examples](https://github.com/uhppoted/node-red-contrib-uhppoted/tree/master/examples/examples.json) that demonstrate the usage of each node.:
+The [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/uhppoted-lib-node-red) _github_ repository includes a set of [basic examples](https://github.com/uhppoted/uhppoted-lib-node-red/tree/master/examples/examples.json) that demonstrate the usage of each node.:
 
 | Node               | Description                                                  |
 | ------------------ | ------------------------------------------------------------ |
-| [`1‑get‑devices`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/1-get-devices.json) | Example _flow_ for the `get‑devices` node |
-| [`2‑get‑device`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/2-get-device.json)   | Example _flow_ for the `get‑device` node |
-| [`3‑set-ip`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/3-set-ip.json)           | Example _flow_ for the `set‑ip` node |
-| [`4‑event-listener`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/4-event-listener.json)   | Example _flow_ for the `listen`. `get-listener` and `set‑listener` nodes |
-| [`5‑get-status`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/5-get-status.json)           | Example _flow_ for the `get‑status` node |
-| [`6‑time`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/6-time.json)               | Example _flow_ for the `get‑time` and `set‑time` nodes |
-| [`7‑doors`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/7-doors.json)             | Example _flow_ for the `get‑door‑control`, `set‑door‑control`, `open‑door`, `activate-keypads`, `set-interlock`, `set-door-passcodes`, `get-antipassback` and `set-antipassback` nodes |
-| [`8‑cards`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/8-cards.json)             | Example _flow_ for the `get‑cards`, `get‑card`, `get‑card‑by‑index`, `put‑card`, `delete‑card` and `delete‑cards` nodes |
-| [`9-time-profiles`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/9-time-profiles.json) | Example _flow_ for the `get-time-profile`, `set‑time-profile` and `clear-time-profiles` nodes |
-| [`10-tasklist`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/10-tasklist.json) | Example _flow_ for the `clear-task-list`, `add-task` and `refresh-task-list` nodes |
-| [`11-events`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/11-events.json)     | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
-| [`12-set-pc-control`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/12-set-pc-control.json) | Example _flow_ for the `set-pc-control` node |
-| [`13-restore-default-parameters`](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/examples/basic/13-13-restore-default-parameters.json) | Example _flow_ for the `restore-default-parameters` node |
+| [`1‑get‑devices`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/1-get-devices.json) | Example _flow_ for the `get‑devices` node |
+| [`2‑get‑device`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/2-get-device.json)   | Example _flow_ for the `get‑device` node |
+| [`3‑set-ip`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/3-set-ip.json)           | Example _flow_ for the `set‑ip` node |
+| [`4‑event-listener`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/4-event-listener.json)   | Example _flow_ for the `listen`. `get-listener` and `set‑listener` nodes |
+| [`5‑get-status`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/5-get-status.json)           | Example _flow_ for the `get‑status` node |
+| [`6‑time`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/6-time.json)               | Example _flow_ for the `get‑time` and `set‑time` nodes |
+| [`7‑doors`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/7-doors.json)             | Example _flow_ for the `get‑door‑control`, `set‑door‑control`, `open‑door`, `activate-keypads`, `set-interlock`, `set-door-passcodes`, `get-antipassback` and `set-antipassback` nodes |
+| [`8‑cards`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/8-cards.json)             | Example _flow_ for the `get‑cards`, `get‑card`, `get‑card‑by‑index`, `put‑card`, `delete‑card` and `delete‑cards` nodes |
+| [`9-time-profiles`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/9-time-profiles.json) | Example _flow_ for the `get-time-profile`, `set‑time-profile` and `clear-time-profiles` nodes |
+| [`10-tasklist`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/10-tasklist.json) | Example _flow_ for the `clear-task-list`, `add-task` and `refresh-task-list` nodes |
+| [`11-events`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/11-events.json)     | Example _flow_ for the `record-special-events`, `get‑event‑index`, `set‑event‑index` and `get‑event` nodes |
+| [`12-set-pc-control`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/12-set-pc-control.json) | Example _flow_ for the `set-pc-control` node |
+| [`13-restore-default-parameters`](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/examples/basic/13-13-restore-default-parameters.json) | Example _flow_ for the `restore-default-parameters` node |
 
 
 ### Issues and Feature Requests
 
-Please create an issue in the [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/node-red-contrib-uhppoted) _github_ repository.
+Please create an issue in the [node‑red‑contrib‑uhppoted](https://github.com/uhppoted/uhppoted-lib-node-red) _github_ repository.
 
 ### License
 
-[MIT](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/LICENSE)
+[MIT](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/LICENSE)

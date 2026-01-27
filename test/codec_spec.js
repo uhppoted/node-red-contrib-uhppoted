@@ -1820,7 +1820,7 @@ describe('#decode(...) with internationalization', function () {
   })
 
   // NOTE: v6.62 firmware sends events with SOM code 0x19
-  //       Ref. https://github.com/uhppoted/node-red-contrib-uhppoted/issues/3
+  //       Ref. https://github.com/uhppoted/uhppoted-lib-node-red/issues/3
   it('should decode a v6.62 event message', function () {
     const expected = {
       deviceId: 405419896,

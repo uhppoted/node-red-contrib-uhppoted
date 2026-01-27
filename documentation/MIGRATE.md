@@ -15,8 +15,8 @@
 
 By far the easiest way to migrate a flow as long as you're reasonably careful. The `grep` patterns files 
 referenced below can be downloaded from:
-- [migrate_v0.9.x.grep](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/documentation/migrate_v0.9.x.grep)
-- [migrate_v1.0.0.grep](https://github.com/uhppoted/node-red-contrib-uhppoted/blob/master/documentation/migrate_v1.0.0.grep)
+- [migrate_v0.9.x.grep](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/documentation/migrate_v0.9.x.grep)
+- [migrate_v1.0.0.grep](https://github.com/uhppoted/uhppoted-lib-node-red/blob/master/documentation/migrate_v1.0.0.grep)
 
 1. **Make a backup copy of the flow JSON file**.
 2. List the nodes that need to be updated:

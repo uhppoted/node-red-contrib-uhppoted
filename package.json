@@ -14,14 +14,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uhppoted/node-red-contrib-uhppoted.git"
+    "url": "git+https://github.com/uhppoted/uhppoted-lib-node-red.git"
   },
   "author": "uhppoted@twyst.co.za",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/uhppoted/node-red-contrib-uhppoted/issues"
+    "url": "https://github.com/uhppoted/uhppoted-lib-node-red/issues"
   },
-  "homepage": "https://github.com/uhppoted/node-red-contrib-uhppoted",
+  "homepage": "https://github.com/uhppoted/uhppoted-lib-node-red",
   "node-red": {
     "version": ">=2.2.3",
     "nodes": {
